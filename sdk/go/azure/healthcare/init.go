@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:healthcare/service:Service":
 		r = &Service{}
+	case "azure:healthcare/workspace:Workspace":
+		r = &Workspace{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"healthcare/service",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"healthcare/workspace",
 		&module{version},
 	)
 }

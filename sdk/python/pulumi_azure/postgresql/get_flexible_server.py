@@ -20,20 +20,13 @@ class GetFlexibleServerResult:
     """
     A collection of values returned by getFlexibleServer.
     """
-    def __init__(__self__, administrator_login=None, backup_retention_days=None, cmk_enabled=None, delegated_subnet_id=None, fqdn=None, id=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, sku_name=None, storage_mb=None, tags=None, version=None):
+    def __init__(__self__, administrator_login=None, backup_retention_days=None, delegated_subnet_id=None, fqdn=None, id=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, sku_name=None, storage_mb=None, tags=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
         if backup_retention_days and not isinstance(backup_retention_days, int):
             raise TypeError("Expected argument 'backup_retention_days' to be a int")
         pulumi.set(__self__, "backup_retention_days", backup_retention_days)
-        if cmk_enabled and not isinstance(cmk_enabled, str):
-            raise TypeError("Expected argument 'cmk_enabled' to be a str")
-        if cmk_enabled is not None:
-            warnings.warn("""This attribute has been removed from the API and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""cmk_enabled is deprecated: This attribute has been removed from the API and will be removed in version 3.0 of the provider.""")
-
-        pulumi.set(__self__, "cmk_enabled", cmk_enabled)
         if delegated_subnet_id and not isinstance(delegated_subnet_id, str):
             raise TypeError("Expected argument 'delegated_subnet_id' to be a str")
         pulumi.set(__self__, "delegated_subnet_id", delegated_subnet_id)
@@ -83,14 +76,6 @@ class GetFlexibleServerResult:
         The backup retention days for the PostgreSQL Flexible Server.
         """
         return pulumi.get(self, "backup_retention_days")
-
-    @property
-    @pulumi.getter(name="cmkEnabled")
-    def cmk_enabled(self) -> str:
-        """
-        The status showing whether the data encryption is enabled with a customer-managed key.
-        """
-        return pulumi.get(self, "cmk_enabled")
 
     @property
     @pulumi.getter(name="delegatedSubnetId")
@@ -183,7 +168,6 @@ class AwaitableGetFlexibleServerResult(GetFlexibleServerResult):
         return GetFlexibleServerResult(
             administrator_login=self.administrator_login,
             backup_retention_days=self.backup_retention_days,
-            cmk_enabled=self.cmk_enabled,
             delegated_subnet_id=self.delegated_subnet_id,
             fqdn=self.fqdn,
             id=self.id,
@@ -230,7 +214,6 @@ def get_flexible_server(name: Optional[str] = None,
     return AwaitableGetFlexibleServerResult(
         administrator_login=__ret__.administrator_login,
         backup_retention_days=__ret__.backup_retention_days,
-        cmk_enabled=__ret__.cmk_enabled,
         delegated_subnet_id=__ret__.delegated_subnet_id,
         fqdn=__ret__.fqdn,
         id=__ret__.id,

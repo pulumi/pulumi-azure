@@ -21,10 +21,7 @@ class GetClusterNodePoolResult:
     """
     A collection of values returned by getClusterNodePool.
     """
-    def __init__(__self__, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, zones=None):
-        if availability_zones and not isinstance(availability_zones, list):
-            raise TypeError("Expected argument 'availability_zones' to be a list")
-        pulumi.set(__self__, "availability_zones", availability_zones)
+    def __init__(__self__, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, zones=None):
         if enable_auto_scaling and not isinstance(enable_auto_scaling, bool):
             raise TypeError("Expected argument 'enable_auto_scaling' to be a bool")
         pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
@@ -106,11 +103,6 @@ class GetClusterNodePoolResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
-
-    @property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Sequence[str]:
-        return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="enableAutoScaling")
@@ -326,7 +318,6 @@ class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
         if False:
             yield self
         return GetClusterNodePoolResult(
-            availability_zones=self.availability_zones,
             enable_auto_scaling=self.enable_auto_scaling,
             enable_node_public_ip=self.enable_node_public_ip,
             eviction_policy=self.eviction_policy,
@@ -391,7 +382,6 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getClusterNodePool:getClusterNodePool', __args__, opts=opts, typ=GetClusterNodePoolResult).value
 
     return AwaitableGetClusterNodePoolResult(
-        availability_zones=__ret__.availability_zones,
         enable_auto_scaling=__ret__.enable_auto_scaling,
         enable_node_public_ip=__ret__.enable_node_public_ip,
         eviction_policy=__ret__.eviction_policy,

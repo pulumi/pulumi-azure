@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +77,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
      */
-    public readonly autoGrowEnabled!: pulumi.Output<boolean>;
+    public readonly autoGrowEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Backup retention days for the server, supported values are between `7` and `35` days.
      */
@@ -124,21 +123,13 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * @deprecated this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
-     */
-    public readonly sslEnforcement!: pulumi.Output<string>;
-    /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      */
-    public readonly sslEnforcementEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly sslEnforcementEnabled!: pulumi.Output<boolean>;
     /**
      * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
      */
     public readonly storageMb!: pulumi.Output<number>;
-    /**
-     * @deprecated all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.
-     */
-    public readonly storageProfile!: pulumi.Output<outputs.mariadb.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -175,10 +166,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["sslEnforcement"] = state ? state.sslEnforcement : undefined;
             resourceInputs["sslEnforcementEnabled"] = state ? state.sslEnforcementEnabled : undefined;
             resourceInputs["storageMb"] = state ? state.storageMb : undefined;
-            resourceInputs["storageProfile"] = state ? state.storageProfile : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
@@ -188,6 +177,9 @@ export class Server extends pulumi.CustomResource {
             }
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
+            }
+            if ((!args || args.sslEnforcementEnabled === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sslEnforcementEnabled'");
             }
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
@@ -205,10 +197,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["sslEnforcement"] = args ? args.sslEnforcement : undefined;
             resourceInputs["sslEnforcementEnabled"] = args ? args.sslEnforcementEnabled : undefined;
             resourceInputs["storageMb"] = args ? args.storageMb : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["fqdn"] = undefined /*out*/;
@@ -279,10 +269,6 @@ export interface ServerState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * @deprecated this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
-     */
-    sslEnforcement?: pulumi.Input<string>;
-    /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      */
     sslEnforcementEnabled?: pulumi.Input<boolean>;
@@ -290,10 +276,6 @@ export interface ServerState {
      * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
      */
     storageMb?: pulumi.Input<number>;
-    /**
-     * @deprecated all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.
-     */
-    storageProfile?: pulumi.Input<inputs.mariadb.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -361,21 +343,13 @@ export interface ServerArgs {
      */
     skuName: pulumi.Input<string>;
     /**
-     * @deprecated this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
-     */
-    sslEnforcement?: pulumi.Input<string>;
-    /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      */
-    sslEnforcementEnabled?: pulumi.Input<boolean>;
+    sslEnforcementEnabled: pulumi.Input<boolean>;
     /**
      * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
      */
     storageMb?: pulumi.Input<number>;
-    /**
-     * @deprecated all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.
-     */
-    storageProfile?: pulumi.Input<inputs.mariadb.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
      */

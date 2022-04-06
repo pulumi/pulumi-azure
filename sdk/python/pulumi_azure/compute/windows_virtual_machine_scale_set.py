@@ -31,6 +31,7 @@ class WindowsVirtualMachineScaleSetArgs:
                  custom_data: Optional[pulumi.Input[str]] = None,
                  data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]] = None,
                  do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -82,6 +83,7 @@ class WindowsVirtualMachineScaleSetArgs:
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
@@ -114,7 +116,7 @@ class WindowsVirtualMachineScaleSetArgs:
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         """
         pulumi.set(__self__, "admin_password", admin_password)
         pulumi.set(__self__, "admin_username", admin_username)
@@ -141,6 +143,8 @@ class WindowsVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "data_disks", data_disks)
         if do_not_run_extensions_on_overprovisioned_machines is not None:
             pulumi.set(__self__, "do_not_run_extensions_on_overprovisioned_machines", do_not_run_extensions_on_overprovisioned_machines)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_automatic_updates is not None:
             pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if encryption_at_host_enabled is not None:
@@ -399,6 +403,18 @@ class WindowsVirtualMachineScaleSetArgs:
     @do_not_run_extensions_on_overprovisioned_machines.setter
     def do_not_run_extensions_on_overprovisioned_machines(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "do_not_run_extensions_on_overprovisioned_machines", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="enableAutomaticUpdates")
@@ -788,7 +804,7 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -811,6 +827,7 @@ class _WindowsVirtualMachineScaleSetState:
                  custom_data: Optional[pulumi.Input[str]] = None,
                  data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]] = None,
                  do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -863,6 +880,7 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
@@ -901,7 +919,7 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         """
         if additional_capabilities is not None:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -925,6 +943,8 @@ class _WindowsVirtualMachineScaleSetState:
             pulumi.set(__self__, "data_disks", data_disks)
         if do_not_run_extensions_on_overprovisioned_machines is not None:
             pulumi.set(__self__, "do_not_run_extensions_on_overprovisioned_machines", do_not_run_extensions_on_overprovisioned_machines)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_automatic_updates is not None:
             pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if encryption_at_host_enabled is not None:
@@ -1135,6 +1155,18 @@ class _WindowsVirtualMachineScaleSetState:
     @do_not_run_extensions_on_overprovisioned_machines.setter
     def do_not_run_extensions_on_overprovisioned_machines(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "do_not_run_extensions_on_overprovisioned_machines", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="enableAutomaticUpdates")
@@ -1596,7 +1628,7 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -1621,6 +1653,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  custom_data: Optional[pulumi.Input[str]] = None,
                  data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetDataDiskArgs']]]]] = None,
                  do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -1739,6 +1772,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
@@ -1776,7 +1810,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         """
         ...
     @overload
@@ -1876,6 +1910,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  custom_data: Optional[pulumi.Input[str]] = None,
                  data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetDataDiskArgs']]]]] = None,
                  do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -1941,6 +1976,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["custom_data"] = custom_data
             __props__.__dict__["data_disks"] = data_disks
             __props__.__dict__["do_not_run_extensions_on_overprovisioned_machines"] = do_not_run_extensions_on_overprovisioned_machines
+            __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_automatic_updates"] = enable_automatic_updates
             __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
             __props__.__dict__["eviction_policy"] = eviction_policy
@@ -2011,6 +2047,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             custom_data: Optional[pulumi.Input[str]] = None,
             data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetDataDiskArgs']]]]] = None,
             do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
+            edge_zone: Optional[pulumi.Input[str]] = None,
             enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -2068,6 +2105,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
@@ -2106,7 +2144,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2123,6 +2161,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["custom_data"] = custom_data
         __props__.__dict__["data_disks"] = data_disks
         __props__.__dict__["do_not_run_extensions_on_overprovisioned_machines"] = do_not_run_extensions_on_overprovisioned_machines
+        __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["enable_automatic_updates"] = enable_automatic_updates
         __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
         __props__.__dict__["eviction_policy"] = eviction_policy
@@ -2251,6 +2290,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         """
         return pulumi.get(self, "do_not_run_extensions_on_overprovisioned_machines")
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        """
+        return pulumi.get(self, "edge_zone")
 
     @property
     @pulumi.getter(name="enableAutomaticUpdates")
@@ -2560,7 +2607,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         """
         return pulumi.get(self, "zones")
 

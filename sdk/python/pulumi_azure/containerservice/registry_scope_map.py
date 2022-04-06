@@ -199,7 +199,7 @@ class RegistryScopeMap(pulumi.CustomResource):
             location=example_resource_group.location,
             sku="Premium",
             admin_enabled=False,
-            georeplication_locations=[
+            georeplications=[
                 "East US",
                 "West Europe",
             ])
@@ -246,7 +246,7 @@ class RegistryScopeMap(pulumi.CustomResource):
             location=example_resource_group.location,
             sku="Premium",
             admin_enabled=False,
-            georeplication_locations=[
+            georeplications=[
                 "East US",
                 "West Europe",
             ])

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

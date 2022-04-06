@@ -15,12 +15,10 @@ __all__ = ['TriggerScheduleArgs', 'TriggerSchedule']
 @pulumi.input_type
 class TriggerScheduleArgs:
     def __init__(__self__, *,
+                 data_factory_id: pulumi.Input[str],
                  pipeline_name: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
                  activated: Optional[pulumi.Input[bool]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
@@ -31,12 +29,10 @@ class TriggerScheduleArgs:
                  start_time: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TriggerSchedule resource.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] pipeline_name: The Data Factory Pipeline name that the trigger will act on.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
         :param pulumi.Input[bool] activated: Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
-        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The Schedule Trigger's description.
         :param pulumi.Input[str] end_time: The time the Schedule Trigger should end. The time will be represented in UTC.
         :param pulumi.Input[str] frequency: The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
@@ -46,19 +42,12 @@ class TriggerScheduleArgs:
         :param pulumi.Input['TriggerScheduleScheduleArgs'] schedule: A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         """
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "pipeline_name", pipeline_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if activated is not None:
             pulumi.set(__self__, "activated", activated)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
-        if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
-        if data_factory_name is not None:
-            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if end_time is not None:
@@ -77,6 +66,18 @@ class TriggerScheduleArgs:
             pulumi.set(__self__, "start_time", start_time)
 
     @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> pulumi.Input[str]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_factory_id", value)
+
+    @property
     @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> pulumi.Input[str]:
         """
@@ -87,18 +88,6 @@ class TriggerScheduleArgs:
     @pipeline_name.setter
     def pipeline_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "pipeline_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter
@@ -123,30 +112,6 @@ class TriggerScheduleArgs:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "annotations", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_id")
-
-    @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -251,7 +216,6 @@ class _TriggerScheduleState:
                  activated: Optional[pulumi.Input[bool]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
@@ -259,7 +223,6 @@ class _TriggerScheduleState:
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  pipeline_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input['TriggerScheduleScheduleArgs']] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
@@ -267,7 +230,6 @@ class _TriggerScheduleState:
         :param pulumi.Input[bool] activated: Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The Schedule Trigger's description.
         :param pulumi.Input[str] end_time: The time the Schedule Trigger should end. The time will be represented in UTC.
         :param pulumi.Input[str] frequency: The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
@@ -275,7 +237,6 @@ class _TriggerScheduleState:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] pipeline_name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] pipeline_parameters: The pipeline parameters that the trigger will act upon.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
         :param pulumi.Input['TriggerScheduleScheduleArgs'] schedule: A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         """
@@ -285,11 +246,6 @@ class _TriggerScheduleState:
             pulumi.set(__self__, "annotations", annotations)
         if data_factory_id is not None:
             pulumi.set(__self__, "data_factory_id", data_factory_id)
-        if data_factory_name is not None:
-            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if end_time is not None:
@@ -304,8 +260,6 @@ class _TriggerScheduleState:
             pulumi.set(__self__, "pipeline_name", pipeline_name)
         if pipeline_parameters is not None:
             pulumi.set(__self__, "pipeline_parameters", pipeline_parameters)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if start_time is not None:
@@ -346,18 +300,6 @@ class _TriggerScheduleState:
     @data_factory_id.setter
     def data_factory_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -444,18 +386,6 @@ class _TriggerScheduleState:
         pulumi.set(self, "pipeline_parameters", value)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['TriggerScheduleScheduleArgs']]:
         """
@@ -488,7 +418,6 @@ class TriggerSchedule(pulumi.CustomResource):
                  activated: Optional[pulumi.Input[bool]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
@@ -496,33 +425,11 @@ class TriggerSchedule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  pipeline_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['TriggerScheduleScheduleArgs']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Trigger Schedule inside a Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        test_pipeline = azure.datafactory.Pipeline("testPipeline",
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            data_factory_id=azurerm_data_factory["test"]["id"])
-        test_trigger_schedule = azure.datafactory.TriggerSchedule("testTriggerSchedule",
-            data_factory_id=azurerm_data_factory["test"]["id"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            pipeline_name=test_pipeline.name,
-            interval=5,
-            frequency="Day")
-        ```
 
         ## Import
 
@@ -537,7 +444,6 @@ class TriggerSchedule(pulumi.CustomResource):
         :param pulumi.Input[bool] activated: Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The Schedule Trigger's description.
         :param pulumi.Input[str] end_time: The time the Schedule Trigger should end. The time will be represented in UTC.
         :param pulumi.Input[str] frequency: The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
@@ -545,7 +451,6 @@ class TriggerSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] pipeline_name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] pipeline_parameters: The pipeline parameters that the trigger will act upon.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
         :param pulumi.Input[pulumi.InputType['TriggerScheduleScheduleArgs']] schedule: A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         """
@@ -557,27 +462,6 @@ class TriggerSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Trigger Schedule inside a Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        test_pipeline = azure.datafactory.Pipeline("testPipeline",
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            data_factory_id=azurerm_data_factory["test"]["id"])
-        test_trigger_schedule = azure.datafactory.TriggerSchedule("testTriggerSchedule",
-            data_factory_id=azurerm_data_factory["test"]["id"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            pipeline_name=test_pipeline.name,
-            interval=5,
-            frequency="Day")
-        ```
 
         ## Import
 
@@ -605,7 +489,6 @@ class TriggerSchedule(pulumi.CustomResource):
                  activated: Optional[pulumi.Input[bool]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
@@ -613,7 +496,6 @@ class TriggerSchedule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  pipeline_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['TriggerScheduleScheduleArgs']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -630,11 +512,9 @@ class TriggerSchedule(pulumi.CustomResource):
 
             __props__.__dict__["activated"] = activated
             __props__.__dict__["annotations"] = annotations
+            if data_factory_id is None and not opts.urn:
+                raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
-            if data_factory_name is not None and not opts.urn:
-                warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-                pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-            __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["end_time"] = end_time
             __props__.__dict__["frequency"] = frequency
@@ -644,9 +524,6 @@ class TriggerSchedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'pipeline_name'")
             __props__.__dict__["pipeline_name"] = pipeline_name
             __props__.__dict__["pipeline_parameters"] = pipeline_parameters
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["start_time"] = start_time
         super(TriggerSchedule, __self__).__init__(
@@ -662,7 +539,6 @@ class TriggerSchedule(pulumi.CustomResource):
             activated: Optional[pulumi.Input[bool]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
-            data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             end_time: Optional[pulumi.Input[str]] = None,
             frequency: Optional[pulumi.Input[str]] = None,
@@ -670,7 +546,6 @@ class TriggerSchedule(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             pipeline_name: Optional[pulumi.Input[str]] = None,
             pipeline_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
             schedule: Optional[pulumi.Input[pulumi.InputType['TriggerScheduleScheduleArgs']]] = None,
             start_time: Optional[pulumi.Input[str]] = None) -> 'TriggerSchedule':
         """
@@ -683,7 +558,6 @@ class TriggerSchedule(pulumi.CustomResource):
         :param pulumi.Input[bool] activated: Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The Schedule Trigger's description.
         :param pulumi.Input[str] end_time: The time the Schedule Trigger should end. The time will be represented in UTC.
         :param pulumi.Input[str] frequency: The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
@@ -691,7 +565,6 @@ class TriggerSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] pipeline_name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] pipeline_parameters: The pipeline parameters that the trigger will act upon.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
         :param pulumi.Input[pulumi.InputType['TriggerScheduleScheduleArgs']] schedule: A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         """
@@ -702,7 +575,6 @@ class TriggerSchedule(pulumi.CustomResource):
         __props__.__dict__["activated"] = activated
         __props__.__dict__["annotations"] = annotations
         __props__.__dict__["data_factory_id"] = data_factory_id
-        __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["end_time"] = end_time
         __props__.__dict__["frequency"] = frequency
@@ -710,14 +582,13 @@ class TriggerSchedule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["pipeline_name"] = pipeline_name
         __props__.__dict__["pipeline_parameters"] = pipeline_parameters
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["schedule"] = schedule
         __props__.__dict__["start_time"] = start_time
         return TriggerSchedule(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
-    def activated(self) -> pulumi.Output[bool]:
+    def activated(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         """
@@ -738,14 +609,6 @@ class TriggerSchedule(pulumi.CustomResource):
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Output[str]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
 
     @property
     @pulumi.getter
@@ -802,14 +665,6 @@ class TriggerSchedule(pulumi.CustomResource):
         The pipeline parameters that the trigger will act upon.
         """
         return pulumi.get(self, "pipeline_parameters")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-        """
-        return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter

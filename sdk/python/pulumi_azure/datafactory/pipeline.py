@@ -13,12 +13,10 @@ __all__ = ['PipelineArgs', 'Pipeline']
 @pulumi.input_type
 class PipelineArgs:
     def __init__(__self__, *,
-                 resource_group_name: pulumi.Input[str],
+                 data_factory_id: pulumi.Input[str],
                  activities_json: Optional[pulumi.Input[str]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  concurrency: Optional[pulumi.Input[int]] = None,
-                 data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  moniter_metrics_after_duration: Optional[pulumi.Input[str]] = None,
@@ -27,12 +25,10 @@ class PipelineArgs:
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] activities_json: A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Pipeline.
         :param pulumi.Input[int] concurrency: The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
-        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
         :param pulumi.Input[str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
@@ -40,20 +36,13 @@ class PipelineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map of variables to associate with the Data Factory Pipeline.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
         if activities_json is not None:
             pulumi.set(__self__, "activities_json", activities_json)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if concurrency is not None:
             pulumi.set(__self__, "concurrency", concurrency)
-        if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
-        if data_factory_name is not None:
-            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if folder is not None:
@@ -68,16 +57,16 @@ class PipelineArgs:
             pulumi.set(__self__, "variables", variables)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
-        return pulumi.get(self, "resource_group_name")
+        return pulumi.get(self, "data_factory_id")
 
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
+    @data_factory_id.setter
+    def data_factory_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_factory_id", value)
 
     @property
     @pulumi.getter(name="activitiesJson")
@@ -114,30 +103,6 @@ class PipelineArgs:
     @concurrency.setter
     def concurrency(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "concurrency", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_id")
-
-    @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -219,13 +184,11 @@ class _PipelineState:
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  concurrency: Optional[pulumi.Input[int]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  moniter_metrics_after_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Pipeline resources.
@@ -233,13 +196,11 @@ class _PipelineState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Pipeline.
         :param pulumi.Input[int] concurrency: The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
         :param pulumi.Input[str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map of variables to associate with the Data Factory Pipeline.
         """
         if activities_json is not None:
@@ -250,11 +211,6 @@ class _PipelineState:
             pulumi.set(__self__, "concurrency", concurrency)
         if data_factory_id is not None:
             pulumi.set(__self__, "data_factory_id", data_factory_id)
-        if data_factory_name is not None:
-            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if folder is not None:
@@ -265,8 +221,6 @@ class _PipelineState:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
 
@@ -317,18 +271,6 @@ class _PipelineState:
     @data_factory_id.setter
     def data_factory_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -391,18 +333,6 @@ class _PipelineState:
         pulumi.set(self, "parameters", value)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -424,13 +354,11 @@ class Pipeline(pulumi.CustomResource):
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  concurrency: Optional[pulumi.Input[int]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  moniter_metrics_after_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -446,9 +374,7 @@ class Pipeline(pulumi.CustomResource):
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_pipeline = azure.datafactory.Pipeline("examplePipeline",
-            resource_group_name=example_resource_group.name,
-            data_factory_id=example_factory.id)
+        example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
         ```
         ### With Activities
 
@@ -457,7 +383,6 @@ class Pipeline(pulumi.CustomResource):
         import pulumi_azure as azure
 
         test = azure.datafactory.Pipeline("test",
-            resource_group_name=azurerm_resource_group["test"]["name"],
             data_factory_id=azurerm_data_factory["test"]["id"],
             variables={
                 "bob": "item1",
@@ -491,13 +416,11 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Pipeline.
         :param pulumi.Input[int] concurrency: The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
         :param pulumi.Input[str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map of variables to associate with the Data Factory Pipeline.
         """
         ...
@@ -519,9 +442,7 @@ class Pipeline(pulumi.CustomResource):
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_pipeline = azure.datafactory.Pipeline("examplePipeline",
-            resource_group_name=example_resource_group.name,
-            data_factory_id=example_factory.id)
+        example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
         ```
         ### With Activities
 
@@ -530,7 +451,6 @@ class Pipeline(pulumi.CustomResource):
         import pulumi_azure as azure
 
         test = azure.datafactory.Pipeline("test",
-            resource_group_name=azurerm_resource_group["test"]["name"],
             data_factory_id=azurerm_data_factory["test"]["id"],
             variables={
                 "bob": "item1",
@@ -577,13 +497,11 @@ class Pipeline(pulumi.CustomResource):
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  concurrency: Optional[pulumi.Input[int]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  moniter_metrics_after_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -600,19 +518,14 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["activities_json"] = activities_json
             __props__.__dict__["annotations"] = annotations
             __props__.__dict__["concurrency"] = concurrency
+            if data_factory_id is None and not opts.urn:
+                raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
-            if data_factory_name is not None and not opts.urn:
-                warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-                pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-            __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["folder"] = folder
             __props__.__dict__["moniter_metrics_after_duration"] = moniter_metrics_after_duration
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["variables"] = variables
         super(Pipeline, __self__).__init__(
             'azure:datafactory/pipeline:Pipeline',
@@ -628,13 +541,11 @@ class Pipeline(pulumi.CustomResource):
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             concurrency: Optional[pulumi.Input[int]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
-            data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             folder: Optional[pulumi.Input[str]] = None,
             moniter_metrics_after_duration: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
             variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Pipeline':
         """
         Get an existing Pipeline resource's state with the given name, id, and optional extra
@@ -647,13 +558,11 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Pipeline.
         :param pulumi.Input[int] concurrency: The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
         :param pulumi.Input[str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map of variables to associate with the Data Factory Pipeline.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -664,13 +573,11 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["annotations"] = annotations
         __props__.__dict__["concurrency"] = concurrency
         __props__.__dict__["data_factory_id"] = data_factory_id
-        __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["folder"] = folder
         __props__.__dict__["moniter_metrics_after_duration"] = moniter_metrics_after_duration
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["variables"] = variables
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
@@ -705,14 +612,6 @@ class Pipeline(pulumi.CustomResource):
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Output[str]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
 
     @property
     @pulumi.getter
@@ -753,14 +652,6 @@ class Pipeline(pulumi.CustomResource):
         A map of parameters to associate with the Data Factory Pipeline.
         """
         return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
-        """
-        return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter

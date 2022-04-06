@@ -129,10 +129,7 @@ export class Queue extends pulumi.CustomResource {
      * The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
      */
     public readonly namespaceId!: pulumi.Output<string>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    public readonly namespaceName!: pulumi.Output<string>;
+    public /*out*/ readonly namespaceName!: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
      */
@@ -141,10 +138,7 @@ export class Queue extends pulumi.CustomResource {
      * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
      */
     public readonly requiresSession!: pulumi.Output<boolean | undefined>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    public /*out*/ readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
      */
@@ -158,7 +152,7 @@ export class Queue extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue */
-    constructor(name: string, args?: QueueArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: QueueArgs, opts?: pulumi.CustomResourceOptions)
     /** @deprecated azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue */
     constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Queue is deprecated: azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue")
@@ -188,6 +182,9 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
+            if ((!args || args.namespaceId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'namespaceId'");
+            }
             resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
             resourceInputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
             resourceInputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
@@ -203,11 +200,11 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
             resourceInputs["requiresSession"] = args ? args.requiresSession : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["namespaceName"] = undefined /*out*/;
+            resourceInputs["resourceGroupName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Queue.__pulumiType, name, resourceInputs, opts);
@@ -280,9 +277,6 @@ export interface QueueState {
      * The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
      */
     namespaceId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
     namespaceName?: pulumi.Input<string>;
     /**
      * Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
@@ -292,9 +286,6 @@ export interface QueueState {
      * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
      */
     requiresSession?: pulumi.Input<boolean>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
@@ -367,11 +358,7 @@ export interface QueueArgs {
     /**
      * The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
      */
-    namespaceId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    namespaceName?: pulumi.Input<string>;
+    namespaceId: pulumi.Input<string>;
     /**
      * Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
      */
@@ -380,10 +367,6 @@ export interface QueueArgs {
      * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
      */
     requiresSession?: pulumi.Input<boolean>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
      */

@@ -59,10 +59,10 @@ class AccountIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
-        :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
-        :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -76,7 +76,7 @@ class AccountIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -88,7 +88,7 @@ class AccountIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+        A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -100,7 +100,7 @@ class AccountIdentityArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -112,7 +112,7 @@ class AccountIdentityArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -433,8 +433,8 @@ class PoolIdentityArgs:
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user assigned identity ids.
-        :param pulumi.Input[str] type: The identity type of the Batch Account. Only possible values is `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -443,7 +443,7 @@ class PoolIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of user assigned identity ids.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -455,7 +455,7 @@ class PoolIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The identity type of the Batch Account. Only possible values is `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -675,8 +675,6 @@ class PoolStartTaskArgs:
                  command_line: pulumi.Input[str],
                  user_identity: pulumi.Input['PoolStartTaskUserIdentityArgs'],
                  common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 max_task_retry_count: Optional[pulumi.Input[int]] = None,
                  resource_files: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]]] = None,
                  task_retry_maximum: Optional[pulumi.Input[int]] = None,
                  wait_for_success: Optional[pulumi.Input[bool]] = None):
@@ -684,8 +682,6 @@ class PoolStartTaskArgs:
         :param pulumi.Input[str] command_line: The command line executed by the start task.
         :param pulumi.Input['PoolStartTaskUserIdentityArgs'] user_identity: A `user_identity` block that describes the user identity under which the start task runs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: A map of strings (key,value) that represents the environment variables to set in the start task.
-        :param pulumi.Input[int] max_task_retry_count: The number of retry count. Defaults to `1`.
         :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         :param pulumi.Input[int] task_retry_maximum: The number of retry count. Defaults to `1`.
         :param pulumi.Input[bool] wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
@@ -694,16 +690,6 @@ class PoolStartTaskArgs:
         pulumi.set(__self__, "user_identity", user_identity)
         if common_environment_properties is not None:
             pulumi.set(__self__, "common_environment_properties", common_environment_properties)
-        if environment is not None:
-            warnings.warn("""Deprecated in favour of `common_environment_properties`""", DeprecationWarning)
-            pulumi.log.warn("""environment is deprecated: Deprecated in favour of `common_environment_properties`""")
-        if environment is not None:
-            pulumi.set(__self__, "environment", environment)
-        if max_task_retry_count is not None:
-            warnings.warn("""Deprecated in favour of `task_retry_maximum`""", DeprecationWarning)
-            pulumi.log.warn("""max_task_retry_count is deprecated: Deprecated in favour of `task_retry_maximum`""")
-        if max_task_retry_count is not None:
-            pulumi.set(__self__, "max_task_retry_count", max_task_retry_count)
         if resource_files is not None:
             pulumi.set(__self__, "resource_files", resource_files)
         if task_retry_maximum is not None:
@@ -746,30 +732,6 @@ class PoolStartTaskArgs:
     @common_environment_properties.setter
     def common_environment_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "common_environment_properties", value)
-
-    @property
-    @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of strings (key,value) that represents the environment variables to set in the start task.
-        """
-        return pulumi.get(self, "environment")
-
-    @environment.setter
-    def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "environment", value)
-
-    @property
-    @pulumi.getter(name="maxTaskRetryCount")
-    def max_task_retry_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of retry count. Defaults to `1`.
-        """
-        return pulumi.get(self, "max_task_retry_count")
-
-    @max_task_retry_count.setter
-    def max_task_retry_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "max_task_retry_count", value)
 
     @property
     @pulumi.getter(name="resourceFiles")

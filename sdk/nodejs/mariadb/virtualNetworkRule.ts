@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *     version: "5.7",
  *     sslEnforcement: "Enabled",
  *     skuName: "GP_Gen5_2",
- *     storageProfile: {
+ *     storageProfile: [{
  *         storageMb: 5120,
  *         backupRetentionDays: 7,
  *         geoRedundantBackup: "Disabled",
- *     },
+ *     }],
  * });
  * const exampleVirtualNetworkRule = new azure.mariadb.VirtualNetworkRule("exampleVirtualNetworkRule", {
  *     resourceGroupName: exampleResourceGroup.name,

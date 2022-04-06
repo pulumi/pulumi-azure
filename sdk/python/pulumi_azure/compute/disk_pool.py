@@ -25,7 +25,7 @@ class DiskPoolArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] sku_name: The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] location: The Azure Region where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] name: The name of the Disk Pool. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Disk Pool.
@@ -81,7 +81,7 @@ class DiskPoolArgs:
     @pulumi.getter
     def zones(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+        Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -144,7 +144,7 @@ class _DiskPoolState:
         :param pulumi.Input[str] sku_name: The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Disk Pool.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -237,7 +237,7 @@ class _DiskPoolState:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+        Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -308,7 +308,7 @@ class DiskPool(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Disk Pool.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
         """
         ...
     @overload
@@ -436,7 +436,7 @@ class DiskPool(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Disk Pool.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -503,7 +503,7 @@ class DiskPool(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+        Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "zones")
 

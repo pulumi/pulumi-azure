@@ -146,12 +146,6 @@ namespace Pulumi.Azure.EventHub
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("namespaceName")]
-        public Output<string> NamespaceName { get; private set; } = null!;
-
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
-
         /// <summary>
         /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
         /// </summary>
@@ -163,12 +157,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("subscriptionId")]
         public Output<string> SubscriptionId { get; private set; } = null!;
-
-        [Output("subscriptionName")]
-        public Output<string> SubscriptionName { get; private set; } = null!;
-
-        [Output("topicName")]
-        public Output<string> TopicName { get; private set; } = null!;
 
 
         /// <summary>
@@ -240,12 +228,6 @@ namespace Pulumi.Azure.EventHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
         /// <summary>
         /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
         /// </summary>
@@ -255,14 +237,8 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("subscriptionId")]
-        public Input<string>? SubscriptionId { get; set; }
-
-        [Input("subscriptionName")]
-        public Input<string>? SubscriptionName { get; set; }
-
-        [Input("topicName")]
-        public Input<string>? TopicName { get; set; }
+        [Input("subscriptionId", required: true)]
+        public Input<string> SubscriptionId { get; set; } = null!;
 
         public SubscriptionRuleArgs()
         {
@@ -295,12 +271,6 @@ namespace Pulumi.Azure.EventHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
         /// <summary>
         /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
         /// </summary>
@@ -312,12 +282,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }
-
-        [Input("subscriptionName")]
-        public Input<string>? SubscriptionName { get; set; }
-
-        [Input("topicName")]
-        public Input<string>? TopicName { get; set; }
 
         public SubscriptionRuleState()
         {

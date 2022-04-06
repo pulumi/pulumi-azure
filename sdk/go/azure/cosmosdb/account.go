@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/cosmosdb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
 // 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -152,12 +152,8 @@ type Account struct {
 	OfferType pulumi.StringOutput `pulumi:"offerType"`
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
-	// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	PrimaryMasterKey pulumi.StringOutput `pulumi:"primaryMasterKey"`
 	// The Primary read-only Key for the CosmosDB Account.
 	PrimaryReadonlyKey pulumi.StringOutput `pulumi:"primaryReadonlyKey"`
-	// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	PrimaryReadonlyMasterKey pulumi.StringOutput `pulumi:"primaryReadonlyMasterKey"`
 	// Whether or not public network access is allowed for this CosmosDB account.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A list of read endpoints available for this CosmosDB account.
@@ -168,12 +164,8 @@ type Account struct {
 	Restore AccountRestorePtrOutput `pulumi:"restore"`
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
-	// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	SecondaryMasterKey pulumi.StringOutput `pulumi:"secondaryMasterKey"`
 	// The Secondary read-only key for the CosmosDB Account.
 	SecondaryReadonlyKey pulumi.StringOutput `pulumi:"secondaryReadonlyKey"`
-	// Deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	SecondaryReadonlyMasterKey pulumi.StringOutput `pulumi:"secondaryReadonlyMasterKey"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -281,12 +273,8 @@ type accountState struct {
 	OfferType *string `pulumi:"offerType"`
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey *string `pulumi:"primaryKey"`
-	// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	PrimaryMasterKey *string `pulumi:"primaryMasterKey"`
 	// The Primary read-only Key for the CosmosDB Account.
 	PrimaryReadonlyKey *string `pulumi:"primaryReadonlyKey"`
-	// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	PrimaryReadonlyMasterKey *string `pulumi:"primaryReadonlyMasterKey"`
 	// Whether or not public network access is allowed for this CosmosDB account.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A list of read endpoints available for this CosmosDB account.
@@ -297,12 +285,8 @@ type accountState struct {
 	Restore *AccountRestore `pulumi:"restore"`
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey *string `pulumi:"secondaryKey"`
-	// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	SecondaryMasterKey *string `pulumi:"secondaryMasterKey"`
 	// The Secondary read-only key for the CosmosDB Account.
 	SecondaryReadonlyKey *string `pulumi:"secondaryReadonlyKey"`
-	// Deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	SecondaryReadonlyMasterKey *string `pulumi:"secondaryReadonlyMasterKey"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -370,12 +354,8 @@ type AccountState struct {
 	OfferType pulumi.StringPtrInput
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey pulumi.StringPtrInput
-	// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	PrimaryMasterKey pulumi.StringPtrInput
 	// The Primary read-only Key for the CosmosDB Account.
 	PrimaryReadonlyKey pulumi.StringPtrInput
-	// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	PrimaryReadonlyMasterKey pulumi.StringPtrInput
 	// Whether or not public network access is allowed for this CosmosDB account.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A list of read endpoints available for this CosmosDB account.
@@ -386,12 +366,8 @@ type AccountState struct {
 	Restore AccountRestorePtrInput
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey pulumi.StringPtrInput
-	// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	SecondaryMasterKey pulumi.StringPtrInput
 	// The Secondary read-only key for the CosmosDB Account.
 	SecondaryReadonlyKey pulumi.StringPtrInput
-	// Deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	SecondaryReadonlyMasterKey pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.

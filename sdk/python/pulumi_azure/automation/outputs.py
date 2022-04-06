@@ -48,8 +48,10 @@ class AccountIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The type of identity used for the automation account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        :param str type: The type of identity used for this Automation Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param Sequence[str] identity_ids: The ID of the User Assigned Identity which should be assigned to this Automation Account.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -63,7 +65,7 @@ class AccountIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of identity used for the automation account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        The type of identity used for this Automation Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -78,11 +80,17 @@ class AccountIdentity(dict):
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
         return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
         return pulumi.get(self, "tenant_id")
 
 

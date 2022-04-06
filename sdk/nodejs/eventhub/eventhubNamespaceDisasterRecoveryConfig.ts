@@ -68,10 +68,6 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
     }
 
     /**
-     * @deprecated This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
-     */
-    public readonly alternateName!: pulumi.Output<string | undefined>;
-    /**
      * Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -101,7 +97,6 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventhubNamespaceDisasterRecoveryConfigState | undefined;
-            resourceInputs["alternateName"] = state ? state.alternateName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["partnerNamespaceId"] = state ? state.partnerNamespaceId : undefined;
@@ -117,7 +112,6 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["alternateName"] = args ? args.alternateName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["partnerNamespaceId"] = args ? args.partnerNamespaceId : undefined;
@@ -132,10 +126,6 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
  * Input properties used for looking up and filtering EventhubNamespaceDisasterRecoveryConfig resources.
  */
 export interface EventhubNamespaceDisasterRecoveryConfigState {
-    /**
-     * @deprecated This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
-     */
-    alternateName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
      */
@@ -158,10 +148,6 @@ export interface EventhubNamespaceDisasterRecoveryConfigState {
  * The set of arguments for constructing a EventhubNamespaceDisasterRecoveryConfig resource.
  */
 export interface EventhubNamespaceDisasterRecoveryConfigArgs {
-    /**
-     * @deprecated This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
-     */
-    alternateName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
      */

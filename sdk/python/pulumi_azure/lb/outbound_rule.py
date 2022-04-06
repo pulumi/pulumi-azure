@@ -18,7 +18,6 @@ class OutboundRuleArgs:
                  backend_address_pool_id: pulumi.Input[str],
                  loadbalancer_id: pulumi.Input[str],
                  protocol: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
                  allocated_outbound_ports: Optional[pulumi.Input[int]] = None,
                  enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]] = None,
@@ -29,7 +28,6 @@ class OutboundRuleArgs:
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[int] allocated_outbound_ports: The number of outbound ports to be used for NAT.
         :param pulumi.Input[bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
@@ -39,7 +37,6 @@ class OutboundRuleArgs:
         pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
         pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
         pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allocated_outbound_ports is not None:
             pulumi.set(__self__, "allocated_outbound_ports", allocated_outbound_ports)
         if enable_tcp_reset is not None:
@@ -86,18 +83,6 @@ class OutboundRuleArgs:
     @protocol.setter
     def protocol(self, value: pulumi.Input[str]):
         pulumi.set(self, "protocol", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="allocatedOutboundPorts")
@@ -170,8 +155,7 @@ class _OutboundRuleState:
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None):
+                 protocol: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OutboundRule resources.
         :param pulumi.Input[int] allocated_outbound_ports: The number of outbound ports to be used for NAT.
@@ -182,7 +166,6 @@ class _OutboundRuleState:
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         if allocated_outbound_ports is not None:
             pulumi.set(__self__, "allocated_outbound_ports", allocated_outbound_ports)
@@ -200,8 +183,6 @@ class _OutboundRuleState:
             pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="allocatedOutboundPorts")
@@ -299,18 +280,6 @@ class _OutboundRuleState:
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
 
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
 
 class OutboundRule(pulumi.CustomResource):
     @overload
@@ -325,43 +294,11 @@ class OutboundRule(pulumi.CustomResource):
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Load Balancer Outbound Rule.
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location="West US",
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location="West US",
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("exampleBackendAddressPool",
-            resource_group_name=example_resource_group.name,
-            loadbalancer_id=example_load_balancer.id)
-        example_outbound_rule = azure.lb.OutboundRule("exampleOutboundRule",
-            resource_group_name=example_resource_group.name,
-            loadbalancer_id=example_load_balancer.id,
-            protocol="Tcp",
-            backend_address_pool_id=example_backend_address_pool.id,
-            frontend_ip_configurations=[azure.lb.OutboundRuleFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-            )])
-        ```
 
         ## Import
 
@@ -381,7 +318,6 @@ class OutboundRule(pulumi.CustomResource):
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -393,37 +329,6 @@ class OutboundRule(pulumi.CustomResource):
         Manages a Load Balancer Outbound Rule.
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location="West US",
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location="West US",
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("exampleBackendAddressPool",
-            resource_group_name=example_resource_group.name,
-            loadbalancer_id=example_load_balancer.id)
-        example_outbound_rule = azure.lb.OutboundRule("exampleOutboundRule",
-            resource_group_name=example_resource_group.name,
-            loadbalancer_id=example_load_balancer.id,
-            protocol="Tcp",
-            backend_address_pool_id=example_backend_address_pool.id,
-            frontend_ip_configurations=[azure.lb.OutboundRuleFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-            )])
-        ```
 
         ## Import
 
@@ -456,7 +361,6 @@ class OutboundRule(pulumi.CustomResource):
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -483,9 +387,6 @@ class OutboundRule(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
         super(OutboundRule, __self__).__init__(
             'azure:lb/outboundRule:OutboundRule',
             resource_name,
@@ -503,8 +404,7 @@ class OutboundRule(pulumi.CustomResource):
             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
             loadbalancer_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            protocol: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'OutboundRule':
+            protocol: Optional[pulumi.Input[str]] = None) -> 'OutboundRule':
         """
         Get an existing OutboundRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -520,7 +420,6 @@ class OutboundRule(pulumi.CustomResource):
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -534,7 +433,6 @@ class OutboundRule(pulumi.CustomResource):
         __props__.__dict__["loadbalancer_id"] = loadbalancer_id
         __props__.__dict__["name"] = name
         __props__.__dict__["protocol"] = protocol
-        __props__.__dict__["resource_group_name"] = resource_group_name
         return OutboundRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -600,12 +498,4 @@ class OutboundRule(pulumi.CustomResource):
         The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         """
         return pulumi.get(self, "protocol")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
 

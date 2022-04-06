@@ -21,9 +21,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/lb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -77,8 +77,6 @@ import (
 type BackendAddressPool struct {
 	pulumi.CustomResourceState
 
-	// Deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
-	BackendAddresses BackendAddressPoolBackendAddressArrayOutput `pulumi:"backendAddresses"`
 	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations pulumi.StringArrayOutput `pulumi:"backendIpConfigurations"`
 	// The Load Balancing Rules associated with this Backend Address Pool.
@@ -89,8 +87,6 @@ type BackendAddressPool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
 	OutboundRules pulumi.StringArrayOutput `pulumi:"outboundRules"`
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayOutput `pulumi:"tunnelInterfaces"`
 }
@@ -127,8 +123,6 @@ func GetBackendAddressPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackendAddressPool resources.
 type backendAddressPoolState struct {
-	// Deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
-	BackendAddresses []BackendAddressPoolBackendAddress `pulumi:"backendAddresses"`
 	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations []string `pulumi:"backendIpConfigurations"`
 	// The Load Balancing Rules associated with this Backend Address Pool.
@@ -139,15 +133,11 @@ type backendAddressPoolState struct {
 	Name *string `pulumi:"name"`
 	// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
 	OutboundRules []string `pulumi:"outboundRules"`
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces []BackendAddressPoolTunnelInterface `pulumi:"tunnelInterfaces"`
 }
 
 type BackendAddressPoolState struct {
-	// Deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
-	BackendAddresses BackendAddressPoolBackendAddressArrayInput
 	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations pulumi.StringArrayInput
 	// The Load Balancing Rules associated with this Backend Address Pool.
@@ -158,8 +148,6 @@ type BackendAddressPoolState struct {
 	Name pulumi.StringPtrInput
 	// An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
 	OutboundRules pulumi.StringArrayInput
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringPtrInput
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayInput
 }
@@ -169,28 +157,20 @@ func (BackendAddressPoolState) ElementType() reflect.Type {
 }
 
 type backendAddressPoolArgs struct {
-	// Deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
-	BackendAddresses []BackendAddressPoolBackendAddress `pulumi:"backendAddresses"`
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
 	// Specifies the name of the Backend Address Pool.
 	Name *string `pulumi:"name"`
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces []BackendAddressPoolTunnelInterface `pulumi:"tunnelInterfaces"`
 }
 
 // The set of arguments for constructing a BackendAddressPool resource.
 type BackendAddressPoolArgs struct {
-	// Deprecated: This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
-	BackendAddresses BackendAddressPoolBackendAddressArrayInput
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId pulumi.StringInput
 	// Specifies the name of the Backend Address Pool.
 	Name pulumi.StringPtrInput
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringPtrInput
 	// One or more `tunnelInterface` blocks as defined below.
 	TunnelInterfaces BackendAddressPoolTunnelInterfaceArrayInput
 }

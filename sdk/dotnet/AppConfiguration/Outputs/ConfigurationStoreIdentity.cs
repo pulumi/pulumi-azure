@@ -14,19 +14,19 @@ namespace Pulumi.Azure.AppConfiguration.Outputs
     public sealed class ConfigurationStoreIdentity
     {
         /// <summary>
-        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
+        /// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The ID of the Principal (Client) in Azure Active Directory.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         public readonly string Type;
 

@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -61,7 +61,9 @@ import (
 // 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefix:      pulumi.String("10.5.1.0/24"),
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.5.1.0/24"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

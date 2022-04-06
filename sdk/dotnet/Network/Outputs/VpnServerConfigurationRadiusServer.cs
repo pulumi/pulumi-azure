@@ -18,32 +18,25 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Address;
         /// <summary>
-        /// One or more `client_root_certificate` blocks as defined above.
+        /// The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnServerConfigurationRadiusServerClientRootCertificate> ClientRootCertificates;
+        public readonly int Score;
         /// <summary>
         /// The Secret used to communicate with the Radius Server.
         /// </summary>
         public readonly string Secret;
-        /// <summary>
-        /// One or more `server_root_certificate` blocks as defined below.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VpnServerConfigurationRadiusServerServerRootCertificate> ServerRootCertificates;
 
         [OutputConstructor]
         private VpnServerConfigurationRadiusServer(
             string address,
 
-            ImmutableArray<Outputs.VpnServerConfigurationRadiusServerClientRootCertificate> clientRootCertificates,
+            int score,
 
-            string secret,
-
-            ImmutableArray<Outputs.VpnServerConfigurationRadiusServerServerRootCertificate> serverRootCertificates)
+            string secret)
         {
             Address = address;
-            ClientRootCertificates = clientRootCertificates;
+            Score = score;
             Secret = secret;
-            ServerRootCertificates = serverRootCertificates;
         }
     }
 }

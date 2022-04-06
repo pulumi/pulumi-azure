@@ -310,8 +310,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// a `ssl policy` block as defined below.
         /// </summary>
-        [Output("sslPolicies")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewaySslPolicy>> SslPolicies { get; private set; } = null!;
+        [Output("sslPolicy")]
+        public Output<Outputs.ApplicationGatewaySslPolicy> SslPolicy { get; private set; } = null!;
 
         /// <summary>
         /// One or more `ssl_profile` blocks as defined below.
@@ -350,7 +350,7 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.ApplicationGatewayWafConfiguration?> WafConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of availability zones to spread the Application Gateway over.
+        /// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -629,17 +629,11 @@ namespace Pulumi.Azure.Network
             set => _sslCertificates = value;
         }
 
-        [Input("sslPolicies")]
-        private InputList<Inputs.ApplicationGatewaySslPolicyArgs>? _sslPolicies;
-
         /// <summary>
         /// a `ssl policy` block as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewaySslPolicyArgs> SslPolicies
-        {
-            get => _sslPolicies ?? (_sslPolicies = new InputList<Inputs.ApplicationGatewaySslPolicyArgs>());
-            set => _sslPolicies = value;
-        }
+        [Input("sslPolicy")]
+        public Input<Inputs.ApplicationGatewaySslPolicyArgs>? SslPolicy { get; set; }
 
         [Input("sslProfiles")]
         private InputList<Inputs.ApplicationGatewaySslProfileArgs>? _sslProfiles;
@@ -711,7 +705,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A collection of availability zones to spread the Application Gateway over.
+        /// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -966,17 +960,11 @@ namespace Pulumi.Azure.Network
             set => _sslCertificates = value;
         }
 
-        [Input("sslPolicies")]
-        private InputList<Inputs.ApplicationGatewaySslPolicyGetArgs>? _sslPolicies;
-
         /// <summary>
         /// a `ssl policy` block as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewaySslPolicyGetArgs> SslPolicies
-        {
-            get => _sslPolicies ?? (_sslPolicies = new InputList<Inputs.ApplicationGatewaySslPolicyGetArgs>());
-            set => _sslPolicies = value;
-        }
+        [Input("sslPolicy")]
+        public Input<Inputs.ApplicationGatewaySslPolicyGetArgs>? SslPolicy { get; set; }
 
         [Input("sslProfiles")]
         private InputList<Inputs.ApplicationGatewaySslProfileGetArgs>? _sslProfiles;
@@ -1048,7 +1036,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A collection of availability zones to spread the Application Gateway over.
+        /// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
         /// </summary>
         public InputList<string> Zones
         {

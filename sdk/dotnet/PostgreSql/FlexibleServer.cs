@@ -127,12 +127,6 @@ namespace Pulumi.Azure.PostgreSql
         public Output<int> BackupRetentionDays { get; private set; } = null!;
 
         /// <summary>
-        /// The status showing whether the data encryption is enabled with a customer-managed key.
-        /// </summary>
-        [Output("cmkEnabled")]
-        public Output<string> CmkEnabled { get; private set; } = null!;
-
-        /// <summary>
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Output("createMode")]
@@ -236,7 +230,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
-        /// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+        /// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
         /// </summary>
         [Output("zone")]
         public Output<string?> Zone { get; private set; } = null!;
@@ -403,7 +397,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+        /// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
@@ -432,12 +426,6 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         [Input("backupRetentionDays")]
         public Input<int>? BackupRetentionDays { get; set; }
-
-        /// <summary>
-        /// The status showing whether the data encryption is enabled with a customer-managed key.
-        /// </summary>
-        [Input("cmkEnabled")]
-        public Input<string>? CmkEnabled { get; set; }
 
         /// <summary>
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -549,7 +537,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+        /// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

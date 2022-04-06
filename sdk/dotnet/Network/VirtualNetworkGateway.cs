@@ -160,6 +160,12 @@ namespace Pulumi.Azure.Network
         public Output<string?> DefaultLocalNetworkGatewayId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+        /// </summary>
+        [Output("edgeZone")]
+        public Output<string?> EdgeZone { get; private set; } = null!;
+
+        /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) will be enabled
         /// for this Virtual Network Gateway. Defaults to `false`.
         /// </summary>
@@ -324,6 +330,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? DefaultLocalNetworkGatewayId { get; set; }
 
         /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
+
+        /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) will be enabled
         /// for this Virtual Network Gateway. Defaults to `false`.
         /// </summary>
@@ -459,6 +471,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("defaultLocalNetworkGatewayId")]
         public Input<string>? DefaultLocalNetworkGatewayId { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) will be enabled

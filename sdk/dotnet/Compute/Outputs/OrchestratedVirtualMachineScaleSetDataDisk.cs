@@ -16,8 +16,6 @@ namespace Pulumi.Azure.Compute.Outputs
         public readonly string Caching;
         public readonly string? CreateOption;
         public readonly string? DiskEncryptionSetId;
-        public readonly int? DiskIopsReadWrite;
-        public readonly int? DiskMbpsReadWrite;
         public readonly int DiskSizeGb;
         public readonly int Lun;
         public readonly string StorageAccountType;
@@ -32,10 +30,6 @@ namespace Pulumi.Azure.Compute.Outputs
             string? createOption,
 
             string? diskEncryptionSetId,
-
-            int? diskIopsReadWrite,
-
-            int? diskMbpsReadWrite,
 
             int diskSizeGb,
 
@@ -52,8 +46,6 @@ namespace Pulumi.Azure.Compute.Outputs
             Caching = caching;
             CreateOption = createOption;
             DiskEncryptionSetId = diskEncryptionSetId;
-            DiskIopsReadWrite = diskIopsReadWrite;
-            DiskMbpsReadWrite = diskMbpsReadWrite;
             DiskSizeGb = diskSizeGb;
             Lun = lun;
             StorageAccountType = storageAccountType;

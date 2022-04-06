@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/hdinsight"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hdinsight"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -58,7 +58,6 @@ import (
 // 				Kafka: pulumi.String("2.1"),
 // 			},
 // 			Gateway: &hdinsight.KafkaClusterGatewayArgs{
-// 				Enabled:  pulumi.Bool(true),
 // 				Username: pulumi.String("acctestusrgw"),
 // 				Password: pulumi.String("Password123!"),
 // 			},

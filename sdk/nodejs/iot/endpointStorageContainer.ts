@@ -119,12 +119,6 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
      */
     public readonly iothubId!: pulumi.Output<string>;
     /**
-     * The IoTHub name for the endpoint.
-     *
-     * @deprecated Deprecated in favour of `iothub_id`
-     */
-    public readonly iothubName!: pulumi.Output<string>;
-    /**
      * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
      */
     public readonly maxChunkSizeInBytes!: pulumi.Output<number | undefined>;
@@ -159,7 +153,6 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
             resourceInputs["fileNameFormat"] = state ? state.fileNameFormat : undefined;
             resourceInputs["identityId"] = state ? state.identityId : undefined;
             resourceInputs["iothubId"] = state ? state.iothubId : undefined;
-            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
             resourceInputs["maxChunkSizeInBytes"] = state ? state.maxChunkSizeInBytes : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -167,6 +160,9 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
             const args = argsOrState as EndpointStorageContainerArgs | undefined;
             if ((!args || args.containerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
+            }
+            if ((!args || args.iothubId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'iothubId'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -180,7 +176,6 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
             resourceInputs["fileNameFormat"] = args ? args.fileNameFormat : undefined;
             resourceInputs["identityId"] = args ? args.identityId : undefined;
             resourceInputs["iothubId"] = args ? args.iothubId : undefined;
-            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
             resourceInputs["maxChunkSizeInBytes"] = args ? args.maxChunkSizeInBytes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -230,12 +225,6 @@ export interface EndpointStorageContainerState {
      * The IoTHub ID for the endpoint.
      */
     iothubId?: pulumi.Input<string>;
-    /**
-     * The IoTHub name for the endpoint.
-     *
-     * @deprecated Deprecated in favour of `iothub_id`
-     */
-    iothubName?: pulumi.Input<string>;
     /**
      * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
      */
@@ -289,13 +278,7 @@ export interface EndpointStorageContainerArgs {
     /**
      * The IoTHub ID for the endpoint.
      */
-    iothubId?: pulumi.Input<string>;
-    /**
-     * The IoTHub name for the endpoint.
-     *
-     * @deprecated Deprecated in favour of `iothub_id`
-     */
-    iothubName?: pulumi.Input<string>;
+    iothubId: pulumi.Input<string>;
     /**
      * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
      */

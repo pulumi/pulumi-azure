@@ -9,54 +9,9 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'HostPoolRegistrationInfoArgs',
     'ScalingPlanHostPoolArgs',
     'ScalingPlanScheduleArgs',
 ]
-
-@pulumi.input_type
-class HostPoolRegistrationInfoArgs:
-    def __init__(__self__, *,
-                 expiration_date: Optional[pulumi.Input[str]] = None,
-                 reset_token: Optional[pulumi.Input[bool]] = None,
-                 token: Optional[pulumi.Input[str]] = None):
-        if expiration_date is not None:
-            warnings.warn("""This field is now non-functional and will be removed in version 3.0 of the Azure Provider - use the `azurerm_virtual_desktop_host_pool_registration_info` resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""expiration_date is deprecated: This field is now non-functional and will be removed in version 3.0 of the Azure Provider - use the `azurerm_virtual_desktop_host_pool_registration_info` resource instead.""")
-        if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
-        if reset_token is not None:
-            pulumi.set(__self__, "reset_token", reset_token)
-        if token is not None:
-            pulumi.set(__self__, "token", token)
-
-    @property
-    @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "expiration_date")
-
-    @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "expiration_date", value)
-
-    @property
-    @pulumi.getter(name="resetToken")
-    def reset_token(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "reset_token")
-
-    @reset_token.setter
-    def reset_token(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "reset_token", value)
-
-    @property
-    @pulumi.getter
-    def token(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "token")
-
-    @token.setter
-    def token(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "token", value)
-
 
 @pulumi.input_type
 class ScalingPlanHostPoolArgs:

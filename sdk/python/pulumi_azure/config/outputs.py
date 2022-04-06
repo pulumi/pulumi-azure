@@ -12,6 +12,7 @@ from . import outputs
 __all__ = [
     'Features',
     'FeaturesApiManagement',
+    'FeaturesApplicationInsights',
     'FeaturesCognitiveAccount',
     'FeaturesKeyVault',
     'FeaturesLogAnalyticsWorkspace',
@@ -26,6 +27,7 @@ __all__ = [
 class Features(dict):
     def __init__(__self__, *,
                  api_management: Optional['outputs.FeaturesApiManagement'] = None,
+                 application_insights: Optional['outputs.FeaturesApplicationInsights'] = None,
                  cognitive_account: Optional['outputs.FeaturesCognitiveAccount'] = None,
                  key_vault: Optional['outputs.FeaturesKeyVault'] = None,
                  log_analytics_workspace: Optional['outputs.FeaturesLogAnalyticsWorkspace'] = None,
@@ -36,6 +38,8 @@ class Features(dict):
                  virtual_machine_scale_set: Optional['outputs.FeaturesVirtualMachineScaleSet'] = None):
         if api_management is not None:
             pulumi.set(__self__, "api_management", api_management)
+        if application_insights is not None:
+            pulumi.set(__self__, "application_insights", application_insights)
         if cognitive_account is not None:
             pulumi.set(__self__, "cognitive_account", cognitive_account)
         if key_vault is not None:
@@ -57,6 +61,11 @@ class Features(dict):
     @pulumi.getter(name="apiManagement")
     def api_management(self) -> Optional['outputs.FeaturesApiManagement']:
         return pulumi.get(self, "api_management")
+
+    @property
+    @pulumi.getter(name="applicationInsights")
+    def application_insights(self) -> Optional['outputs.FeaturesApplicationInsights']:
+        return pulumi.get(self, "application_insights")
 
     @property
     @pulumi.getter(name="cognitiveAccount")
@@ -102,14 +111,35 @@ class Features(dict):
 @pulumi.output_type
 class FeaturesApiManagement(dict):
     def __init__(__self__, *,
-                 purge_soft_delete_on_destroy: Optional[bool] = None):
+                 purge_soft_delete_on_destroy: Optional[bool] = None,
+                 recover_soft_deleted: Optional[bool] = None):
         if purge_soft_delete_on_destroy is not None:
             pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
+        if recover_soft_deleted is not None:
+            pulumi.set(__self__, "recover_soft_deleted", recover_soft_deleted)
 
     @property
     @pulumi.getter(name="purgeSoftDeleteOnDestroy")
     def purge_soft_delete_on_destroy(self) -> Optional[bool]:
         return pulumi.get(self, "purge_soft_delete_on_destroy")
+
+    @property
+    @pulumi.getter(name="recoverSoftDeleted")
+    def recover_soft_deleted(self) -> Optional[bool]:
+        return pulumi.get(self, "recover_soft_deleted")
+
+
+@pulumi.output_type
+class FeaturesApplicationInsights(dict):
+    def __init__(__self__, *,
+                 disable_generated_rule: Optional[bool] = None):
+        if disable_generated_rule is not None:
+            pulumi.set(__self__, "disable_generated_rule", disable_generated_rule)
+
+    @property
+    @pulumi.getter(name="disableGeneratedRule")
+    def disable_generated_rule(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_generated_rule")
 
 
 @pulumi.output_type
@@ -129,11 +159,29 @@ class FeaturesCognitiveAccount(dict):
 class FeaturesKeyVault(dict):
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[bool] = None,
-                 recover_soft_deleted_key_vaults: Optional[bool] = None):
+                 purge_soft_deleted_certificates_on_destroy: Optional[bool] = None,
+                 purge_soft_deleted_keys_on_destroy: Optional[bool] = None,
+                 purge_soft_deleted_secrets_on_destroy: Optional[bool] = None,
+                 recover_soft_deleted_certificates: Optional[bool] = None,
+                 recover_soft_deleted_key_vaults: Optional[bool] = None,
+                 recover_soft_deleted_keys: Optional[bool] = None,
+                 recover_soft_deleted_secrets: Optional[bool] = None):
         if purge_soft_delete_on_destroy is not None:
             pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
+        if purge_soft_deleted_certificates_on_destroy is not None:
+            pulumi.set(__self__, "purge_soft_deleted_certificates_on_destroy", purge_soft_deleted_certificates_on_destroy)
+        if purge_soft_deleted_keys_on_destroy is not None:
+            pulumi.set(__self__, "purge_soft_deleted_keys_on_destroy", purge_soft_deleted_keys_on_destroy)
+        if purge_soft_deleted_secrets_on_destroy is not None:
+            pulumi.set(__self__, "purge_soft_deleted_secrets_on_destroy", purge_soft_deleted_secrets_on_destroy)
+        if recover_soft_deleted_certificates is not None:
+            pulumi.set(__self__, "recover_soft_deleted_certificates", recover_soft_deleted_certificates)
         if recover_soft_deleted_key_vaults is not None:
             pulumi.set(__self__, "recover_soft_deleted_key_vaults", recover_soft_deleted_key_vaults)
+        if recover_soft_deleted_keys is not None:
+            pulumi.set(__self__, "recover_soft_deleted_keys", recover_soft_deleted_keys)
+        if recover_soft_deleted_secrets is not None:
+            pulumi.set(__self__, "recover_soft_deleted_secrets", recover_soft_deleted_secrets)
 
     @property
     @pulumi.getter(name="purgeSoftDeleteOnDestroy")
@@ -141,20 +189,51 @@ class FeaturesKeyVault(dict):
         return pulumi.get(self, "purge_soft_delete_on_destroy")
 
     @property
+    @pulumi.getter(name="purgeSoftDeletedCertificatesOnDestroy")
+    def purge_soft_deleted_certificates_on_destroy(self) -> Optional[bool]:
+        return pulumi.get(self, "purge_soft_deleted_certificates_on_destroy")
+
+    @property
+    @pulumi.getter(name="purgeSoftDeletedKeysOnDestroy")
+    def purge_soft_deleted_keys_on_destroy(self) -> Optional[bool]:
+        return pulumi.get(self, "purge_soft_deleted_keys_on_destroy")
+
+    @property
+    @pulumi.getter(name="purgeSoftDeletedSecretsOnDestroy")
+    def purge_soft_deleted_secrets_on_destroy(self) -> Optional[bool]:
+        return pulumi.get(self, "purge_soft_deleted_secrets_on_destroy")
+
+    @property
+    @pulumi.getter(name="recoverSoftDeletedCertificates")
+    def recover_soft_deleted_certificates(self) -> Optional[bool]:
+        return pulumi.get(self, "recover_soft_deleted_certificates")
+
+    @property
     @pulumi.getter(name="recoverSoftDeletedKeyVaults")
     def recover_soft_deleted_key_vaults(self) -> Optional[bool]:
         return pulumi.get(self, "recover_soft_deleted_key_vaults")
+
+    @property
+    @pulumi.getter(name="recoverSoftDeletedKeys")
+    def recover_soft_deleted_keys(self) -> Optional[bool]:
+        return pulumi.get(self, "recover_soft_deleted_keys")
+
+    @property
+    @pulumi.getter(name="recoverSoftDeletedSecrets")
+    def recover_soft_deleted_secrets(self) -> Optional[bool]:
+        return pulumi.get(self, "recover_soft_deleted_secrets")
 
 
 @pulumi.output_type
 class FeaturesLogAnalyticsWorkspace(dict):
     def __init__(__self__, *,
-                 permanently_delete_on_destroy: bool):
-        pulumi.set(__self__, "permanently_delete_on_destroy", permanently_delete_on_destroy)
+                 permanently_delete_on_destroy: Optional[bool] = None):
+        if permanently_delete_on_destroy is not None:
+            pulumi.set(__self__, "permanently_delete_on_destroy", permanently_delete_on_destroy)
 
     @property
     @pulumi.getter(name="permanentlyDeleteOnDestroy")
-    def permanently_delete_on_destroy(self) -> bool:
+    def permanently_delete_on_destroy(self) -> Optional[bool]:
         return pulumi.get(self, "permanently_delete_on_destroy")
 
 

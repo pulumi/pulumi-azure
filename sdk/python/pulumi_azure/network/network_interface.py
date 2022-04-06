@@ -18,6 +18,7 @@ class NetworkInterfaceArgs:
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]],
                  resource_group_name: pulumi.Input[str],
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,7 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
@@ -40,6 +42,8 @@ class NetworkInterfaceArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_accelerated_networking is not None:
             pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
         if enable_ip_forwarding is not None:
@@ -88,6 +92,18 @@ class NetworkInterfaceArgs:
     @dns_servers.setter
     def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_servers", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")
@@ -167,6 +183,7 @@ class _NetworkInterfaceState:
     def __init__(__self__, *,
                  applied_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
@@ -184,6 +201,7 @@ class _NetworkInterfaceState:
         Input properties used for looking up and filtering NetworkInterface resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applied_dns_servers: If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
@@ -202,6 +220,8 @@ class _NetworkInterfaceState:
             pulumi.set(__self__, "applied_dns_servers", applied_dns_servers)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_accelerated_networking is not None:
             pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
         if enable_ip_forwarding is not None:
@@ -252,6 +272,18 @@ class _NetworkInterfaceState:
     @dns_servers.setter
     def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_servers", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")
@@ -416,6 +448,7 @@ class NetworkInterface(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
@@ -464,6 +497,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
@@ -531,6 +565,7 @@ class NetworkInterface(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
@@ -552,6 +587,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
             __props__.__dict__["dns_servers"] = dns_servers
+            __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
             __props__.__dict__["enable_ip_forwarding"] = enable_ip_forwarding
             __props__.__dict__["internal_dns_name_label"] = internal_dns_name_label
@@ -582,6 +618,7 @@ class NetworkInterface(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             applied_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            edge_zone: Optional[pulumi.Input[str]] = None,
             enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
             enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
             internal_dns_name_label: Optional[pulumi.Input[str]] = None,
@@ -604,6 +641,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applied_dns_servers: If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
@@ -624,6 +662,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         __props__.__dict__["applied_dns_servers"] = applied_dns_servers
         __props__.__dict__["dns_servers"] = dns_servers
+        __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
         __props__.__dict__["enable_ip_forwarding"] = enable_ip_forwarding
         __props__.__dict__["internal_dns_name_label"] = internal_dns_name_label
@@ -654,6 +693,14 @@ class NetworkInterface(pulumi.CustomResource):
         A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
         """
         return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+        """
+        return pulumi.get(self, "edge_zone")
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")

@@ -625,10 +625,6 @@ class Slot(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages an App Service Slot (within an App Service).
-
-        > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
-
         ## Example Usage
         ### Net 4.X)
 
@@ -758,10 +754,6 @@ class Slot(pulumi.CustomResource):
                  args: SlotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an App Service Slot (within an App Service).
-
-        > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
-
         ## Example Usage
         ### Net 4.X)
 
@@ -1088,7 +1080,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output['outputs.SlotIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.SlotIdentity']]:
         """
         An `identity` block as defined below.
         """

@@ -73,7 +73,7 @@ namespace Pulumi.Azure.MariaDB
         /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
         /// </summary>
         [Output("autoGrowEnabled")]
-        public Output<bool> AutoGrowEnabled { get; private set; } = null!;
+        public Output<bool?> AutoGrowEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Backup retention days for the server, supported values are between `7` and `35` days.
@@ -141,23 +141,17 @@ namespace Pulumi.Azure.MariaDB
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
-        [Output("sslEnforcement")]
-        public Output<string> SslEnforcement { get; private set; } = null!;
-
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         /// </summary>
         [Output("sslEnforcementEnabled")]
-        public Output<bool?> SslEnforcementEnabled { get; private set; } = null!;
+        public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
         /// </summary>
         [Output("storageMb")]
         public Output<int> StorageMb { get; private set; } = null!;
-
-        [Output("storageProfile")]
-        public Output<Outputs.ServerStorageProfile> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -295,23 +289,17 @@ namespace Pulumi.Azure.MariaDB
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
 
-        [Input("sslEnforcement")]
-        public Input<string>? SslEnforcement { get; set; }
-
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         /// </summary>
-        [Input("sslEnforcementEnabled")]
-        public Input<bool>? SslEnforcementEnabled { get; set; }
+        [Input("sslEnforcementEnabled", required: true)]
+        public Input<bool> SslEnforcementEnabled { get; set; } = null!;
 
         /// <summary>
         /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
         /// </summary>
         [Input("storageMb")]
         public Input<int>? StorageMb { get; set; }
-
-        [Input("storageProfile")]
-        public Input<Inputs.ServerStorageProfileArgs>? StorageProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -422,9 +410,6 @@ namespace Pulumi.Azure.MariaDB
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
-        [Input("sslEnforcement")]
-        public Input<string>? SslEnforcement { get; set; }
-
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         /// </summary>
@@ -436,9 +421,6 @@ namespace Pulumi.Azure.MariaDB
         /// </summary>
         [Input("storageMb")]
         public Input<int>? StorageMb { get; set; }
-
-        [Input("storageProfile")]
-        public Input<Inputs.ServerStorageProfileGetArgs>? StorageProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

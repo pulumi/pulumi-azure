@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -24,14 +24,20 @@ namespace Pulumi.Azure.Cognitive.Inputs
             set => _identityIds = value;
         }
 
+        /// <summary>
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

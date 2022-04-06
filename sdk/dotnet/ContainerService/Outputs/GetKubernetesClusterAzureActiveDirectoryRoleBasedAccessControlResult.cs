@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string ServerAppId;
         /// <summary>
-        /// The tenant id of the system assigned identity which is used by primary components.
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
         /// </summary>
         public readonly string TenantId;
 

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         }
 
         /// <summary>
-        /// The ID of the Principal (Client) in Azure Active Directory
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

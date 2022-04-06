@@ -22,7 +22,6 @@ class FunctionAppSlotArgs:
                  storage_account_name: pulumi.Input[str],
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input['FunctionAppSlotAuthSettingsArgs']] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
@@ -44,7 +43,6 @@ class FunctionAppSlotArgs:
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by the Function App (such as the dashboard, logs).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input['FunctionAppSlotAuthSettingsArgs'] auth_settings: An `auth_settings` block as defined below.
-        :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
@@ -67,11 +65,6 @@ class FunctionAppSlotArgs:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
-        if client_affinity_enabled is not None:
-            warnings.warn("""This property is no longer configurable in the service and has been deprecated.""", DeprecationWarning)
-            pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated.""")
-        if client_affinity_enabled is not None:
-            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if connection_strings is not None:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if daily_memory_time_quota is not None:
@@ -180,18 +173,6 @@ class FunctionAppSlotArgs:
     @auth_settings.setter
     def auth_settings(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
-
-    @property
-    @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        """
-        return pulumi.get(self, "client_affinity_enabled")
-
-    @client_affinity_enabled.setter
-    def client_affinity_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "client_affinity_enabled", value)
 
     @property
     @pulumi.getter(name="connectionStrings")
@@ -344,7 +325,6 @@ class _FunctionAppSlotState:
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input['FunctionAppSlotAuthSettingsArgs']] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  default_hostname: Optional[pulumi.Input[str]] = None,
@@ -371,7 +351,6 @@ class _FunctionAppSlotState:
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App Slot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input['FunctionAppSlotAuthSettingsArgs'] auth_settings: An `auth_settings` block as defined below.
-        :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
@@ -400,11 +379,6 @@ class _FunctionAppSlotState:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
-        if client_affinity_enabled is not None:
-            warnings.warn("""This property is no longer configurable in the service and has been deprecated.""", DeprecationWarning)
-            pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated.""")
-        if client_affinity_enabled is not None:
-            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if connection_strings is not None:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if daily_memory_time_quota is not None:
@@ -483,18 +457,6 @@ class _FunctionAppSlotState:
     @auth_settings.setter
     def auth_settings(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
-
-    @property
-    @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        """
-        return pulumi.get(self, "client_affinity_enabled")
-
-    @client_affinity_enabled.setter
-    def client_affinity_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "client_affinity_enabled", value)
 
     @property
     @pulumi.getter(name="connectionStrings")
@@ -757,7 +719,6 @@ class FunctionAppSlot(pulumi.CustomResource):
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppSlotAuthSettingsArgs']]] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppSlotConnectionStringArgs']]]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
@@ -776,8 +737,6 @@ class FunctionAppSlot(pulumi.CustomResource):
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Function App deployment Slot.
-
         ## Example Usage
         ### With App Service Plan)
 
@@ -826,7 +785,6 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App Slot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[pulumi.InputType['FunctionAppSlotAuthSettingsArgs']] auth_settings: An `auth_settings` block as defined below.
-        :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppSlotConnectionStringArgs']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
@@ -851,8 +809,6 @@ class FunctionAppSlot(pulumi.CustomResource):
                  args: FunctionAppSlotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Function App deployment Slot.
-
         ## Example Usage
         ### With App Service Plan)
 
@@ -914,7 +870,6 @@ class FunctionAppSlot(pulumi.CustomResource):
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppSlotAuthSettingsArgs']]] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppSlotConnectionStringArgs']]]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
@@ -948,10 +903,6 @@ class FunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["app_service_plan_id"] = app_service_plan_id
             __props__.__dict__["app_settings"] = app_settings
             __props__.__dict__["auth_settings"] = auth_settings
-            if client_affinity_enabled is not None and not opts.urn:
-                warnings.warn("""This property is no longer configurable in the service and has been deprecated.""", DeprecationWarning)
-                pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated.""")
-            __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
             __props__.__dict__["enable_builtin_logging"] = enable_builtin_logging
@@ -994,7 +945,6 @@ class FunctionAppSlot(pulumi.CustomResource):
             app_service_plan_id: Optional[pulumi.Input[str]] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppSlotAuthSettingsArgs']]] = None,
-            client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppSlotConnectionStringArgs']]]]] = None,
             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
             default_hostname: Optional[pulumi.Input[str]] = None,
@@ -1026,7 +976,6 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App Slot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[pulumi.InputType['FunctionAppSlotAuthSettingsArgs']] auth_settings: An `auth_settings` block as defined below.
-        :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppSlotConnectionStringArgs']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
@@ -1056,7 +1005,6 @@ class FunctionAppSlot(pulumi.CustomResource):
         __props__.__dict__["app_service_plan_id"] = app_service_plan_id
         __props__.__dict__["app_settings"] = app_settings
         __props__.__dict__["auth_settings"] = auth_settings
-        __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
         __props__.__dict__["connection_strings"] = connection_strings
         __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
         __props__.__dict__["default_hostname"] = default_hostname
@@ -1103,14 +1051,6 @@ class FunctionAppSlot(pulumi.CustomResource):
         An `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
-
-    @property
-    @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> pulumi.Output[bool]:
-        """
-        Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        """
-        return pulumi.get(self, "client_affinity_enabled")
 
     @property
     @pulumi.getter(name="connectionStrings")
@@ -1170,7 +1110,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output['outputs.FunctionAppSlotIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.FunctionAppSlotIdentity']]:
         """
         An `identity` block as defined below.
         """

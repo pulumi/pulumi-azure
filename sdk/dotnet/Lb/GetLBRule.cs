@@ -105,12 +105,6 @@ namespace Pulumi.Azure.Lb
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the Resource Group where the Load Balancer Rule exists.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public string ResourceGroupName { get; set; } = null!;
-
         public GetLBRuleArgs()
         {
         }
@@ -129,12 +123,6 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Resource Group where the Load Balancer Rule exists.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
 
         public GetLBRuleInvokeArgs()
         {
@@ -195,7 +183,6 @@ namespace Pulumi.Azure.Lb
         /// The transport protocol for the external endpoint.
         /// </summary>
         public readonly string Protocol;
-        public readonly string ResourceGroupName;
 
         [OutputConstructor]
         private GetLBRuleResult(
@@ -225,9 +212,7 @@ namespace Pulumi.Azure.Lb
 
             string probeId,
 
-            string protocol,
-
-            string resourceGroupName)
+            string protocol)
         {
             BackendAddressPoolId = backendAddressPoolId;
             BackendPort = backendPort;
@@ -243,7 +228,6 @@ namespace Pulumi.Azure.Lb
             Name = name;
             ProbeId = probeId;
             Protocol = protocol;
-            ResourceGroupName = resourceGroupName;
         }
     }
 }

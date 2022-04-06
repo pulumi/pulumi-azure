@@ -30,6 +30,10 @@ namespace Pulumi.Azure.Purview
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
+    ///             Identity = new Azure.Purview.Inputs.AccountIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///         });
     ///     }
     /// 
@@ -72,10 +76,10 @@ namespace Pulumi.Azure.Purview
         public Output<string> GuardianEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
-        [Output("identities")]
-        public Output<ImmutableArray<Outputs.AccountIdentity>> Identities { get; private set; } = null!;
+        [Output("identity")]
+        public Output<Outputs.AccountIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
@@ -118,9 +122,6 @@ namespace Pulumi.Azure.Purview
         /// </summary>
         [Output("scanEndpoint")]
         public Output<string> ScanEndpoint { get; private set; } = null!;
-
-        [Output("skuName")]
-        public Output<string?> SkuName { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Purview Account.
@@ -175,6 +176,12 @@ namespace Pulumi.Azure.Purview
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity", required: true)]
+        public Input<Inputs.AccountIdentityArgs> Identity { get; set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         /// </summary>
         [Input("location")]
@@ -203,9 +210,6 @@ namespace Pulumi.Azure.Purview
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("skuName")]
-        public Input<string>? SkuName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -250,17 +254,11 @@ namespace Pulumi.Azure.Purview
         [Input("guardianEndpoint")]
         public Input<string>? GuardianEndpoint { get; set; }
 
-        [Input("identities")]
-        private InputList<Inputs.AccountIdentityGetArgs>? _identities;
-
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
-        public InputList<Inputs.AccountIdentityGetArgs> Identities
-        {
-            get => _identities ?? (_identities = new InputList<Inputs.AccountIdentityGetArgs>());
-            set => _identities = value;
-        }
+        [Input("identity")]
+        public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
@@ -309,9 +307,6 @@ namespace Pulumi.Azure.Purview
         /// </summary>
         [Input("scanEndpoint")]
         public Input<string>? ScanEndpoint { get; set; }
-
-        [Input("skuName")]
-        public Input<string>? SkuName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

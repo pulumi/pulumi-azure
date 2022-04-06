@@ -34,7 +34,6 @@ namespace Pulumi.Azure.DataFactory
     ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var exampleLinkedServiceDataLakeStorageGen2 = new Azure.DataFactory.LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2", new Azure.DataFactory.LinkedServiceDataLakeStorageGen2Args
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryId = exampleFactory.Id,
     ///             ServicePrincipalId = current.Apply(current =&gt; current.ClientId),
     ///             ServicePrincipalKey = "exampleKey",
@@ -76,12 +75,6 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Output("dataFactoryName")]
-        public Output<string> DataFactoryName { get; private set; } = null!;
-
-        /// <summary>
         /// The description for the Data Factory Linked Service.
         /// </summary>
         [Output("description")]
@@ -105,12 +98,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storage_account_key` and `use_managed_identity`.
@@ -221,14 +208,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryId")]
-        public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
+        [Input("dataFactoryId", required: true)]
+        public Input<string> DataFactoryId { get; set; } = null!;
 
         /// <summary>
         /// The description for the Data Factory Linked Service.
@@ -260,12 +241,6 @@ namespace Pulumi.Azure.DataFactory
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
         /// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storage_account_key` and `use_managed_identity`.
@@ -341,12 +316,6 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
-
-        /// <summary>
         /// The description for the Data Factory Linked Service.
         /// </summary>
         [Input("description")]
@@ -376,12 +345,6 @@ namespace Pulumi.Azure.DataFactory
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storage_account_key` and `use_managed_identity`.

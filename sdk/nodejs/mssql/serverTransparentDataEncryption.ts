@@ -30,12 +30,12 @@ import * as utilities from "../utilities";
  *         loginUsername: "AzureAD Admin",
  *         objectId: "00000000-0000-0000-0000-000000000000",
  *     },
- *     extendedAuditingPolicy: {
+ *     extendedAuditingPolicy: [{
  *         storageEndpoint: azurerm_storage_account.example.primary_blob_endpoint,
  *         storageAccountAccessKey: azurerm_storage_account.example.primary_access_key,
  *         storageAccountAccessKeyIsSecondary: true,
  *         retentionInDays: 6,
- *     },
+ *     }],
  *     tags: {
  *         environment: "production",
  *     },
@@ -61,12 +61,12 @@ import * as utilities from "../utilities";
  *         loginUsername: "AzureAD Admin",
  *         objectId: "00000000-0000-0000-0000-000000000000",
  *     },
- *     extendedAuditingPolicy: {
+ *     extendedAuditingPolicy: [{
  *         storageEndpoint: azurerm_storage_account.example.primary_blob_endpoint,
  *         storageAccountAccessKey: azurerm_storage_account.example.primary_access_key,
  *         storageAccountAccessKeyIsSecondary: true,
  *         retentionInDays: 6,
- *     },
+ *     }],
  *     tags: {
  *         environment: "production",
  *     },

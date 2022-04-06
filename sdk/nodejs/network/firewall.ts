@@ -125,13 +125,13 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
      */
-    public readonly threatIntelMode!: pulumi.Output<string | undefined>;
+    public readonly threatIntelMode!: pulumi.Output<string>;
     /**
      * A `virtualHub` block as documented below.
      */
     public readonly virtualHub!: pulumi.Output<outputs.network.FirewallVirtualHub | undefined>;
     /**
-     * Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+     * Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -166,6 +166,12 @@ export class Firewall extends pulumi.CustomResource {
             const args = argsOrState as FirewallArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if ((!args || args.skuName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'skuName'");
+            }
+            if ((!args || args.skuTier === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'skuTier'");
             }
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
             resourceInputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
@@ -244,7 +250,7 @@ export interface FirewallState {
      */
     virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub>;
     /**
-     * Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+     * Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -288,11 +294,11 @@ export interface FirewallArgs {
     /**
      * Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
      */
-    skuName?: pulumi.Input<string>;
+    skuName: pulumi.Input<string>;
     /**
      * Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
      */
-    skuTier?: pulumi.Input<string>;
+    skuTier: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -306,7 +312,7 @@ export interface FirewallArgs {
      */
     virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub>;
     /**
-     * Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+     * Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

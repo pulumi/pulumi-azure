@@ -9,6 +9,9 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AlertRuleScheduledAlertDetailsOverrideArgs',
+    'AlertRuleScheduledEntityMappingArgs',
+    'AlertRuleScheduledEntityMappingFieldMappingArgs',
     'AlertRuleScheduledEventGroupingArgs',
     'AlertRuleScheduledIncidentConfigurationArgs',
     'AlertRuleScheduledIncidentConfigurationGroupingArgs',
@@ -19,6 +22,151 @@ __all__ = [
     'AutomationRuleActionPlaybookArgs',
     'AutomationRuleConditionArgs',
 ]
+
+@pulumi.input_type
+class AlertRuleScheduledAlertDetailsOverrideArgs:
+    def __init__(__self__, *,
+                 description_format: Optional[pulumi.Input[str]] = None,
+                 display_name_format: Optional[pulumi.Input[str]] = None,
+                 severity_column_name: Optional[pulumi.Input[str]] = None,
+                 tactics_column_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] description_format: The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+        :param pulumi.Input[str] display_name_format: The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+        :param pulumi.Input[str] severity_column_name: The column name to take the alert severity from.
+        :param pulumi.Input[str] tactics_column_name: The column name to take the alert tactics from.
+        """
+        if description_format is not None:
+            pulumi.set(__self__, "description_format", description_format)
+        if display_name_format is not None:
+            pulumi.set(__self__, "display_name_format", display_name_format)
+        if severity_column_name is not None:
+            pulumi.set(__self__, "severity_column_name", severity_column_name)
+        if tactics_column_name is not None:
+            pulumi.set(__self__, "tactics_column_name", tactics_column_name)
+
+    @property
+    @pulumi.getter(name="descriptionFormat")
+    def description_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+        """
+        return pulumi.get(self, "description_format")
+
+    @description_format.setter
+    def description_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description_format", value)
+
+    @property
+    @pulumi.getter(name="displayNameFormat")
+    def display_name_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+        """
+        return pulumi.get(self, "display_name_format")
+
+    @display_name_format.setter
+    def display_name_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name_format", value)
+
+    @property
+    @pulumi.getter(name="severityColumnName")
+    def severity_column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The column name to take the alert severity from.
+        """
+        return pulumi.get(self, "severity_column_name")
+
+    @severity_column_name.setter
+    def severity_column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "severity_column_name", value)
+
+    @property
+    @pulumi.getter(name="tacticsColumnName")
+    def tactics_column_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The column name to take the alert tactics from.
+        """
+        return pulumi.get(self, "tactics_column_name")
+
+    @tactics_column_name.setter
+    def tactics_column_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tactics_column_name", value)
+
+
+@pulumi.input_type
+class AlertRuleScheduledEntityMappingArgs:
+    def __init__(__self__, *,
+                 entity_type: pulumi.Input[str],
+                 field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgs']]]):
+        """
+        :param pulumi.Input[str] entity_type: The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgs']]] field_mappings: A list of `field_mapping` blocks as defined below.
+        """
+        pulumi.set(__self__, "entity_type", entity_type)
+        pulumi.set(__self__, "field_mappings", field_mappings)
+
+    @property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> pulumi.Input[str]:
+        """
+        The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @entity_type.setter
+    def entity_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "entity_type", value)
+
+    @property
+    @pulumi.getter(name="fieldMappings")
+    def field_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgs']]]:
+        """
+        A list of `field_mapping` blocks as defined below.
+        """
+        return pulumi.get(self, "field_mappings")
+
+    @field_mappings.setter
+    def field_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgs']]]):
+        pulumi.set(self, "field_mappings", value)
+
+
+@pulumi.input_type
+class AlertRuleScheduledEntityMappingFieldMappingArgs:
+    def __init__(__self__, *,
+                 column_name: pulumi.Input[str],
+                 identifier: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] column_name: The column name to be mapped to the identifier.
+        :param pulumi.Input[str] identifier: The identifier of the entity.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Input[str]:
+        """
+        The column name to be mapped to the identifier.
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of the entity.
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identifier", value)
+
 
 @pulumi.input_type
 class AlertRuleScheduledEventGroupingArgs:
@@ -84,13 +232,15 @@ class AlertRuleScheduledIncidentConfigurationGroupingArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entity_matching_method: Optional[pulumi.Input[str]] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_by_alert_details: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_by_custom_details: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_by_entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  lookback_duration: Optional[pulumi.Input[str]] = None,
                  reopen_closed_incidents: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] enabled: Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
         :param pulumi.Input[str] entity_matching_method: The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_by_entities: A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         :param pulumi.Input[str] lookback_duration: Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
         :param pulumi.Input[bool] reopen_closed_incidents: Whether to re-open closed matching incidents? Defaults to `false`.
         """
@@ -98,8 +248,12 @@ class AlertRuleScheduledIncidentConfigurationGroupingArgs:
             pulumi.set(__self__, "enabled", enabled)
         if entity_matching_method is not None:
             pulumi.set(__self__, "entity_matching_method", entity_matching_method)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
+        if group_by_alert_details is not None:
+            pulumi.set(__self__, "group_by_alert_details", group_by_alert_details)
+        if group_by_custom_details is not None:
+            pulumi.set(__self__, "group_by_custom_details", group_by_custom_details)
+        if group_by_entities is not None:
+            pulumi.set(__self__, "group_by_entities", group_by_entities)
         if lookback_duration is not None:
             pulumi.set(__self__, "lookback_duration", lookback_duration)
         if reopen_closed_incidents is not None:
@@ -130,16 +284,34 @@ class AlertRuleScheduledIncidentConfigurationGroupingArgs:
         pulumi.set(self, "entity_matching_method", value)
 
     @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="groupByAlertDetails")
+    def group_by_alert_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "group_by_alert_details")
+
+    @group_by_alert_details.setter
+    def group_by_alert_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_by_alert_details", value)
+
+    @property
+    @pulumi.getter(name="groupByCustomDetails")
+    def group_by_custom_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "group_by_custom_details")
+
+    @group_by_custom_details.setter
+    def group_by_custom_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_by_custom_details", value)
+
+    @property
+    @pulumi.getter(name="groupByEntities")
+    def group_by_entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         """
-        return pulumi.get(self, "group_bies")
+        return pulumi.get(self, "group_by_entities")
 
-    @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "group_bies", value)
+    @group_by_entities.setter
+    def group_by_entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_by_entities", value)
 
     @property
     @pulumi.getter(name="lookbackDuration")

@@ -28,7 +28,6 @@ export function getPublicIPs(args: GetPublicIPsArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:network/getPublicIPs:getPublicIPs", {
         "allocationType": args.allocationType,
-        "attached": args.attached,
         "attachmentStatus": args.attachmentStatus,
         "namePrefix": args.namePrefix,
         "resourceGroupName": args.resourceGroupName,
@@ -43,10 +42,6 @@ export interface GetPublicIPsArgs {
      * The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
      */
     allocationType?: string;
-    /**
-     * @deprecated This property has been deprecated in favour of `attachment_status` to improve filtering
-     */
-    attached?: boolean;
     /**
      * Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
      */
@@ -66,10 +61,6 @@ export interface GetPublicIPsArgs {
  */
 export interface GetPublicIPsResult {
     readonly allocationType?: string;
-    /**
-     * @deprecated This property has been deprecated in favour of `attachment_status` to improve filtering
-     */
-    readonly attached?: boolean;
     readonly attachmentStatus?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -95,10 +86,6 @@ export interface GetPublicIPsOutputArgs {
      * The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
      */
     allocationType?: pulumi.Input<string>;
-    /**
-     * @deprecated This property has been deprecated in favour of `attachment_status` to improve filtering
-     */
-    attached?: pulumi.Input<boolean>;
     /**
      * Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
      */

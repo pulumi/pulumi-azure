@@ -131,7 +131,7 @@ import * as utilities from "../utilities";
  * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.0.0/24",
+ *     addressPrefixes: ["10.0.0.0/24"],
  *     delegations: [{
  *         name: "managedinstancedelegation",
  *         serviceDelegation: {

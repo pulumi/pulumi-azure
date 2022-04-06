@@ -12,18 +12,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class KubernetesClusterDefaultNodePoolGetArgs : Pulumi.ResourceArgs
     {
-        [Input("availabilityZones")]
-        private InputList<string>? _availabilityZones;
-
-        /// <summary>
-        /// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
-        /// </summary>
-        public InputList<string> AvailabilityZones
-        {
-            get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
-            set => _availabilityZones = value;
-        }
-
         /// <summary>
         /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         /// </summary>
@@ -202,6 +190,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// </summary>
         [Input("vnetSubnetId")]
         public Input<string>? VnetSubnetId { get; set; }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public KubernetesClusterDefaultNodePoolGetArgs()
         {

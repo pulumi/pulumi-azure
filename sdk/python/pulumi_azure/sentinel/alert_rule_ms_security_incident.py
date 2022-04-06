@@ -22,8 +22,7 @@ class AlertRuleMsSecurityIncidentArgs:
                  display_name_exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 text_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AlertRuleMsSecurityIncident resource.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel MS Security Incident Alert Rule.
@@ -53,11 +52,6 @@ class AlertRuleMsSecurityIncidentArgs:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if text_whitelists is not None:
-            warnings.warn("""this property has been renamed to display_name_filter to better match the SDK & API""", DeprecationWarning)
-            pulumi.log.warn("""text_whitelists is deprecated: this property has been renamed to display_name_filter to better match the SDK & API""")
-        if text_whitelists is not None:
-            pulumi.set(__self__, "text_whitelists", text_whitelists)
 
     @property
     @pulumi.getter(name="displayName")
@@ -179,15 +173,6 @@ class AlertRuleMsSecurityIncidentArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter(name="textWhitelists")
-    def text_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "text_whitelists")
-
-    @text_whitelists.setter
-    def text_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "text_whitelists", value)
-
 
 @pulumi.input_type
 class _AlertRuleMsSecurityIncidentState:
@@ -201,8 +186,7 @@ class _AlertRuleMsSecurityIncidentState:
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  product_filter: Optional[pulumi.Input[str]] = None,
-                 severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 text_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering AlertRuleMsSecurityIncident resources.
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -236,11 +220,6 @@ class _AlertRuleMsSecurityIncidentState:
             pulumi.set(__self__, "product_filter", product_filter)
         if severity_filters is not None:
             pulumi.set(__self__, "severity_filters", severity_filters)
-        if text_whitelists is not None:
-            warnings.warn("""this property has been renamed to display_name_filter to better match the SDK & API""", DeprecationWarning)
-            pulumi.log.warn("""text_whitelists is deprecated: this property has been renamed to display_name_filter to better match the SDK & API""")
-        if text_whitelists is not None:
-            pulumi.set(__self__, "text_whitelists", text_whitelists)
 
     @property
     @pulumi.getter(name="alertRuleTemplateGuid")
@@ -362,15 +341,6 @@ class _AlertRuleMsSecurityIncidentState:
     def severity_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "severity_filters", value)
 
-    @property
-    @pulumi.getter(name="textWhitelists")
-    def text_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "text_whitelists")
-
-    @text_whitelists.setter
-    def text_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "text_whitelists", value)
-
 
 class AlertRuleMsSecurityIncident(pulumi.CustomResource):
     @overload
@@ -387,7 +357,6 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  product_filter: Optional[pulumi.Input[str]] = None,
                  severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 text_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages a Sentinel MS Security Incident Alert Rule.
@@ -511,7 +480,6 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  product_filter: Optional[pulumi.Input[str]] = None,
                  severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 text_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -542,10 +510,6 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             if severity_filters is None and not opts.urn:
                 raise TypeError("Missing required property 'severity_filters'")
             __props__.__dict__["severity_filters"] = severity_filters
-            if text_whitelists is not None and not opts.urn:
-                warnings.warn("""this property has been renamed to display_name_filter to better match the SDK & API""", DeprecationWarning)
-                pulumi.log.warn("""text_whitelists is deprecated: this property has been renamed to display_name_filter to better match the SDK & API""")
-            __props__.__dict__["text_whitelists"] = text_whitelists
         super(AlertRuleMsSecurityIncident, __self__).__init__(
             'azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident',
             resource_name,
@@ -565,8 +529,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             product_filter: Optional[pulumi.Input[str]] = None,
-            severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            text_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'AlertRuleMsSecurityIncident':
+            severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'AlertRuleMsSecurityIncident':
         """
         Get an existing AlertRuleMsSecurityIncident resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -599,7 +562,6 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["product_filter"] = product_filter
         __props__.__dict__["severity_filters"] = severity_filters
-        __props__.__dict__["text_whitelists"] = text_whitelists
         return AlertRuleMsSecurityIncident(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -681,9 +643,4 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
         """
         return pulumi.get(self, "severity_filters")
-
-    @property
-    @pulumi.getter(name="textWhitelists")
-    def text_whitelists(self) -> pulumi.Output[Sequence[str]]:
-        return pulumi.get(self, "text_whitelists")
 

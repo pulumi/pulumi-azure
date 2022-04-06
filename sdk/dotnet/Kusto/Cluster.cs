@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Kusto
         /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         /// </summary>
         [Output("autoStopEnabled")]
-        public Output<bool> AutoStopEnabled { get; private set; } = null!;
+        public Output<bool?> AutoStopEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The Kusto Cluster URI to be used for data ingestion.
@@ -72,25 +72,13 @@ namespace Pulumi.Azure.Kusto
         /// Specifies if the cluster's disks are encrypted.
         /// </summary>
         [Output("diskEncryptionEnabled")]
-        public Output<bool> DiskEncryptionEnabled { get; private set; } = null!;
+        public Output<bool?> DiskEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("doubleEncryptionEnabled")]
         public Output<bool?> DoubleEncryptionEnabled { get; private set; } = null!;
-
-        [Output("enableAutoStop")]
-        public Output<bool> EnableAutoStop { get; private set; } = null!;
-
-        [Output("enableDiskEncryption")]
-        public Output<bool> EnableDiskEncryption { get; private set; } = null!;
-
-        [Output("enablePurge")]
-        public Output<bool> EnablePurge { get; private set; } = null!;
-
-        [Output("enableStreamingIngest")]
-        public Output<bool> EnableStreamingIngest { get; private set; } = null!;
 
         /// <summary>
         /// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
@@ -135,7 +123,7 @@ namespace Pulumi.Azure.Kusto
         /// Specifies if the purge operations are enabled.
         /// </summary>
         [Output("purgeEnabled")]
-        public Output<bool> PurgeEnabled { get; private set; } = null!;
+        public Output<bool?> PurgeEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -153,7 +141,7 @@ namespace Pulumi.Azure.Kusto
         /// Specifies if the streaming ingest is enabled.
         /// </summary>
         [Output("streamingIngestionEnabled")]
-        public Output<bool> StreamingIngestionEnabled { get; private set; } = null!;
+        public Output<bool?> StreamingIngestionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -180,7 +168,7 @@ namespace Pulumi.Azure.Kusto
         public Output<Outputs.ClusterVirtualNetworkConfiguration?> VirtualNetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -248,18 +236,6 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("doubleEncryptionEnabled")]
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
-
-        [Input("enableAutoStop")]
-        public Input<bool>? EnableAutoStop { get; set; }
-
-        [Input("enableDiskEncryption")]
-        public Input<bool>? EnableDiskEncryption { get; set; }
-
-        [Input("enablePurge")]
-        public Input<bool>? EnablePurge { get; set; }
-
-        [Input("enableStreamingIngest")]
-        public Input<bool>? EnableStreamingIngest { get; set; }
 
         /// <summary>
         /// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
@@ -364,7 +340,7 @@ namespace Pulumi.Azure.Kusto
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -402,18 +378,6 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("doubleEncryptionEnabled")]
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
-
-        [Input("enableAutoStop")]
-        public Input<bool>? EnableAutoStop { get; set; }
-
-        [Input("enableDiskEncryption")]
-        public Input<bool>? EnableDiskEncryption { get; set; }
-
-        [Input("enablePurge")]
-        public Input<bool>? EnablePurge { get; set; }
-
-        [Input("enableStreamingIngest")]
-        public Input<bool>? EnableStreamingIngest { get; set; }
 
         /// <summary>
         /// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
@@ -524,7 +488,7 @@ namespace Pulumi.Azure.Kusto
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         /// </summary>
         public InputList<string> Zones
         {

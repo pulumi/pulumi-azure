@@ -13,10 +13,16 @@ namespace Pulumi.Azure.RecoveryServices.Outputs
     [OutputType]
     public sealed class VaultIdentity
     {
+        /// <summary>
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
         public readonly string? PrincipalId;
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The Type of Identity which should be used for this Recovery Services Vault. At this time the only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
         /// </summary>
         public readonly string Type;
 

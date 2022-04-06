@@ -73,6 +73,14 @@ export interface GetVirtualHubResult {
      */
     readonly tags: {[key: string]: string};
     /**
+     * The Autonomous System Number of the Virtual Hub BGP router.
+     */
+    readonly virtualRouterAsn: number;
+    /**
+     * The IP addresses of the Virtual Hub BGP router.
+     */
+    readonly virtualRouterIps: string[];
+    /**
      * The ID of the Virtual WAN within which the Virtual Hub exists.
      */
     readonly virtualWanId: string;

@@ -147,6 +147,10 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly doNotRunExtensionsOnOverprovisionedMachines!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+     */
+    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    /**
      * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
      */
     public readonly enableAutomaticUpdates!: pulumi.Output<boolean | undefined>;
@@ -299,7 +303,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -327,6 +331,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["customData"] = state ? state.customData : undefined;
             resourceInputs["dataDisks"] = state ? state.dataDisks : undefined;
             resourceInputs["doNotRunExtensionsOnOverprovisionedMachines"] = state ? state.doNotRunExtensionsOnOverprovisionedMachines : undefined;
+            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["enableAutomaticUpdates"] = state ? state.enableAutomaticUpdates : undefined;
             resourceInputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
@@ -400,6 +405,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["customData"] = args ? args.customData : undefined;
             resourceInputs["dataDisks"] = args ? args.dataDisks : undefined;
             resourceInputs["doNotRunExtensionsOnOverprovisionedMachines"] = args ? args.doNotRunExtensionsOnOverprovisionedMachines : undefined;
+            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["enableAutomaticUpdates"] = args ? args.enableAutomaticUpdates : undefined;
             resourceInputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
@@ -493,6 +499,10 @@ export interface WindowsVirtualMachineScaleSetState {
      * Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
      */
     doNotRunExtensionsOnOverprovisionedMachines?: pulumi.Input<boolean>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
      */
@@ -646,7 +656,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**
-     * A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -699,6 +709,10 @@ export interface WindowsVirtualMachineScaleSetArgs {
      * Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
      */
     doNotRunExtensionsOnOverprovisionedMachines?: pulumi.Input<boolean>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
      */
@@ -848,7 +862,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**
-     * A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

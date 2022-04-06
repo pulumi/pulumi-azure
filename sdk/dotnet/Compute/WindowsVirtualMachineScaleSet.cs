@@ -177,6 +177,12 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> DoNotRunExtensionsOnOverprovisionedMachines { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        /// </summary>
+        [Output("edgeZone")]
+        public Output<string?> EdgeZone { get; private set; } = null!;
+
+        /// <summary>
         /// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         /// </summary>
         [Output("enableAutomaticUpdates")]
@@ -405,7 +411,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> ZoneBalance { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -533,6 +539,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("doNotRunExtensionsOnOverprovisionedMachines")]
         public Input<bool>? DoNotRunExtensionsOnOverprovisionedMachines { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
@@ -790,7 +802,7 @@ namespace Pulumi.Azure.Compute
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -882,6 +894,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("doNotRunExtensionsOnOverprovisionedMachines")]
         public Input<bool>? DoNotRunExtensionsOnOverprovisionedMachines { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
@@ -1145,7 +1163,7 @@ namespace Pulumi.Azure.Compute
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         /// </summary>
         public InputList<string> Zones
         {

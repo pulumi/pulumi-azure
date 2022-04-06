@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/management"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -49,18 +49,12 @@ type LookupGroupArgs struct {
 	// Specifies the display name of this Management Group.
 	DisplayName *string `pulumi:"displayName"`
 	// Specifies the name or UUID of this Management Group.
-	//
-	// Deprecated: Deprecated in favour of `name`
-	GroupId *string `pulumi:"groupId"`
-	// Specifies the name or UUID of this Management Group.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
 	DisplayName string `pulumi:"displayName"`
-	// Deprecated: Deprecated in favour of `name`
-	GroupId string `pulumi:"groupId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
@@ -83,10 +77,6 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 type LookupGroupOutputArgs struct {
 	// Specifies the display name of this Management Group.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Specifies the name or UUID of this Management Group.
-	//
-	// Deprecated: Deprecated in favour of `name`
-	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
 	// Specifies the name or UUID of this Management Group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
@@ -112,11 +102,6 @@ func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx contex
 
 func (o LookupGroupResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.DisplayName }).(pulumi.StringOutput)
-}
-
-// Deprecated: Deprecated in favour of `name`
-func (o LookupGroupResultOutput) GroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupGroupResult) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

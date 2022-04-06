@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -73,6 +73,8 @@ import (
 type SharedImage struct {
 	pulumi.CustomResourceState
 
+	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+	AcceleratedNetworkSupportEnabled pulumi.BoolPtrOutput `pulumi:"acceleratedNetworkSupportEnabled"`
 	// A description of this Shared Image.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The End User Licence Agreement for the Shared Image.
@@ -146,6 +148,8 @@ func GetSharedImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SharedImage resources.
 type sharedImageState struct {
+	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+	AcceleratedNetworkSupportEnabled *bool `pulumi:"acceleratedNetworkSupportEnabled"`
 	// A description of this Shared Image.
 	Description *string `pulumi:"description"`
 	// The End User Licence Agreement for the Shared Image.
@@ -179,6 +183,8 @@ type sharedImageState struct {
 }
 
 type SharedImageState struct {
+	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+	AcceleratedNetworkSupportEnabled pulumi.BoolPtrInput
 	// A description of this Shared Image.
 	Description pulumi.StringPtrInput
 	// The End User Licence Agreement for the Shared Image.
@@ -216,6 +222,8 @@ func (SharedImageState) ElementType() reflect.Type {
 }
 
 type sharedImageArgs struct {
+	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+	AcceleratedNetworkSupportEnabled *bool `pulumi:"acceleratedNetworkSupportEnabled"`
 	// A description of this Shared Image.
 	Description *string `pulumi:"description"`
 	// The End User Licence Agreement for the Shared Image.
@@ -250,6 +258,8 @@ type sharedImageArgs struct {
 
 // The set of arguments for constructing a SharedImage resource.
 type SharedImageArgs struct {
+	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+	AcceleratedNetworkSupportEnabled pulumi.BoolPtrInput
 	// A description of this Shared Image.
 	Description pulumi.StringPtrInput
 	// The End User Licence Agreement for the Shared Image.

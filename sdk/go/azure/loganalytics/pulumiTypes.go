@@ -11,11 +11,11 @@ import (
 )
 
 type ClusterIdentity struct {
-	// The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The Tenant ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the Log Analytics Cluster. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -31,11 +31,11 @@ type ClusterIdentityInput interface {
 }
 
 type ClusterIdentityArgs struct {
-	// The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The Tenant ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the Log Analytics Cluster. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -116,17 +116,17 @@ func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context
 	}).(ClusterIdentityPtrOutput)
 }
 
-// The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+// The Principal ID associated with this Managed Service Identity.
 func (o ClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+// The Tenant ID associated with this Managed Service Identity.
 func (o ClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Log Analytics Cluster. At this time the only allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
 func (o ClusterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -155,7 +155,7 @@ func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {
 	}).(ClusterIdentityOutput)
 }
 
-// The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+// The Principal ID associated with this Managed Service Identity.
 func (o ClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterIdentity) *string {
 		if v == nil {
@@ -165,7 +165,7 @@ func (o ClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+// The Tenant ID associated with this Managed Service Identity.
 func (o ClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterIdentity) *string {
 		if v == nil {
@@ -175,7 +175,7 @@ func (o ClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Log Analytics Cluster. At this time the only allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
 func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterIdentity) *string {
 		if v == nil {

@@ -29,10 +29,10 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/iot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -201,10 +201,6 @@ type IoTHub struct {
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// An `identity` block as defined below.
 	Identity IoTHubIdentityPtrOutput `pulumi:"identity"`
-	// One or more `ipFilterRule` blocks as defined below.
-	//
-	// Deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
-	IpFilterRules IoTHubIpFilterRuleArrayOutput `pulumi:"ipFilterRules"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -292,10 +288,6 @@ type ioTHubState struct {
 	Hostname *string `pulumi:"hostname"`
 	// An `identity` block as defined below.
 	Identity *IoTHubIdentity `pulumi:"identity"`
-	// One or more `ipFilterRule` blocks as defined below.
-	//
-	// Deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
-	IpFilterRules []IoTHubIpFilterRule `pulumi:"ipFilterRules"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -349,10 +341,6 @@ type IoTHubState struct {
 	Hostname pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity IoTHubIdentityPtrInput
-	// One or more `ipFilterRule` blocks as defined below.
-	//
-	// Deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
-	IpFilterRules IoTHubIpFilterRuleArrayInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -398,10 +386,6 @@ type ioTHubArgs struct {
 	FileUpload *IoTHubFileUpload `pulumi:"fileUpload"`
 	// An `identity` block as defined below.
 	Identity *IoTHubIdentity `pulumi:"identity"`
-	// One or more `ipFilterRule` blocks as defined below.
-	//
-	// Deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
-	IpFilterRules []IoTHubIpFilterRule `pulumi:"ipFilterRules"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -440,10 +424,6 @@ type IoTHubArgs struct {
 	FileUpload IoTHubFileUploadPtrInput
 	// An `identity` block as defined below.
 	Identity IoTHubIdentityPtrInput
-	// One or more `ipFilterRule` blocks as defined below.
-	//
-	// Deprecated: This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
-	IpFilterRules IoTHubIpFilterRuleArrayInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.

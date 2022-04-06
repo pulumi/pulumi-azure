@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Redis
         public Output<ImmutableDictionary<string, string>?> TenantSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+        /// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -432,7 +432,7 @@ namespace Pulumi.Azure.Redis
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+        /// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -627,7 +627,7 @@ namespace Pulumi.Azure.Redis
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+        /// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
         /// </summary>
         public InputList<string> Zones
         {

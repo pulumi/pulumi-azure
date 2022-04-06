@@ -19,7 +19,7 @@ namespace Pulumi.Azure.VideoAnalyzer.Inputs
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
+        /// Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
         /// </summary>
         [Input("userAssignedIdentityId", required: true)]
         public Input<string> UserAssignedIdentityId { get; set; } = null!;

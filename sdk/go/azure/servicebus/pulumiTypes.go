@@ -11,13 +11,13 @@ import (
 )
 
 type NamespaceIdentity struct {
-	// A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
 	TenantId *string `pulumi:"tenantId"`
-	// The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -33,13 +33,13 @@ type NamespaceIdentityInput interface {
 }
 
 type NamespaceIdentityArgs struct {
-	// A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -120,7 +120,7 @@ func (o NamespaceIdentityOutput) ToNamespaceIdentityPtrOutputWithContext(ctx con
 	}).(NamespaceIdentityPtrOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 func (o NamespaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NamespaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -135,7 +135,7 @@ func (o NamespaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o NamespaceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NamespaceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -164,7 +164,7 @@ func (o NamespaceIdentityPtrOutput) Elem() NamespaceIdentityOutput {
 	}).(NamespaceIdentityOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 func (o NamespaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NamespaceIdentity) []string {
 		if v == nil {
@@ -194,7 +194,7 @@ func (o NamespaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o NamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceIdentity) *string {
 		if v == nil {

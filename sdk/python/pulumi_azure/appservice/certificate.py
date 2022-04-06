@@ -15,7 +15,6 @@ class CertificateArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
-                 hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -26,7 +25,6 @@ class CertificateArgs:
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] hosting_environment_profile_id: The ID of the the App Service Environment where the certificate is in use.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
@@ -36,11 +34,6 @@ class CertificateArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if app_service_plan_id is not None:
             pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
-        if hosting_environment_profile_id is not None:
-            warnings.warn("""This property has been deprecated and replaced with `app_service_plan_id`""", DeprecationWarning)
-            pulumi.log.warn("""hosting_environment_profile_id is deprecated: This property has been deprecated and replaced with `app_service_plan_id`""")
-        if hosting_environment_profile_id is not None:
-            pulumi.set(__self__, "hosting_environment_profile_id", hosting_environment_profile_id)
         if key_vault_secret_id is not None:
             pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if location is not None:
@@ -77,18 +70,6 @@ class CertificateArgs:
     @app_service_plan_id.setter
     def app_service_plan_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_service_plan_id", value)
-
-    @property
-    @pulumi.getter(name="hostingEnvironmentProfileId")
-    def hosting_environment_profile_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the the App Service Environment where the certificate is in use.
-        """
-        return pulumi.get(self, "hosting_environment_profile_id")
-
-    @hosting_environment_profile_id.setter
-    def hosting_environment_profile_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "hosting_environment_profile_id", value)
 
     @property
     @pulumi.getter(name="keyVaultSecretId")
@@ -167,7 +148,6 @@ class _CertificateState:
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
                  issue_date: Optional[pulumi.Input[str]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -185,7 +165,6 @@ class _CertificateState:
         :param pulumi.Input[str] expiration_date: The expiration date for the certificate.
         :param pulumi.Input[str] friendly_name: The friendly name of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: List of host names the certificate applies to.
-        :param pulumi.Input[str] hosting_environment_profile_id: The ID of the the App Service Environment where the certificate is in use.
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
@@ -205,11 +184,6 @@ class _CertificateState:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if host_names is not None:
             pulumi.set(__self__, "host_names", host_names)
-        if hosting_environment_profile_id is not None:
-            warnings.warn("""This property has been deprecated and replaced with `app_service_plan_id`""", DeprecationWarning)
-            pulumi.log.warn("""hosting_environment_profile_id is deprecated: This property has been deprecated and replaced with `app_service_plan_id`""")
-        if hosting_environment_profile_id is not None:
-            pulumi.set(__self__, "hosting_environment_profile_id", hosting_environment_profile_id)
         if issue_date is not None:
             pulumi.set(__self__, "issue_date", issue_date)
         if issuer is not None:
@@ -280,18 +254,6 @@ class _CertificateState:
     @host_names.setter
     def host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "host_names", value)
-
-    @property
-    @pulumi.getter(name="hostingEnvironmentProfileId")
-    def hosting_environment_profile_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the the App Service Environment where the certificate is in use.
-        """
-        return pulumi.get(self, "hosting_environment_profile_id")
-
-    @hosting_environment_profile_id.setter
-    def hosting_environment_profile_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "hosting_environment_profile_id", value)
 
     @property
     @pulumi.getter(name="issueDate")
@@ -429,7 +391,6 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
-                 hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -469,7 +430,6 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] hosting_environment_profile_id: The ID of the the App Service Environment where the certificate is in use.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
@@ -527,7 +487,6 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
-                 hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -548,10 +507,6 @@ class Certificate(pulumi.CustomResource):
             __props__ = CertificateArgs.__new__(CertificateArgs)
 
             __props__.__dict__["app_service_plan_id"] = app_service_plan_id
-            if hosting_environment_profile_id is not None and not opts.urn:
-                warnings.warn("""This property has been deprecated and replaced with `app_service_plan_id`""", DeprecationWarning)
-                pulumi.log.warn("""hosting_environment_profile_id is deprecated: This property has been deprecated and replaced with `app_service_plan_id`""")
-            __props__.__dict__["hosting_environment_profile_id"] = hosting_environment_profile_id
             __props__.__dict__["key_vault_secret_id"] = key_vault_secret_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -582,7 +537,6 @@ class Certificate(pulumi.CustomResource):
             expiration_date: Optional[pulumi.Input[str]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
             host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
             issue_date: Optional[pulumi.Input[str]] = None,
             issuer: Optional[pulumi.Input[str]] = None,
             key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -605,7 +559,6 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_date: The expiration date for the certificate.
         :param pulumi.Input[str] friendly_name: The friendly name of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: List of host names the certificate applies to.
-        :param pulumi.Input[str] hosting_environment_profile_id: The ID of the the App Service Environment where the certificate is in use.
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
@@ -625,7 +578,6 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["expiration_date"] = expiration_date
         __props__.__dict__["friendly_name"] = friendly_name
         __props__.__dict__["host_names"] = host_names
-        __props__.__dict__["hosting_environment_profile_id"] = hosting_environment_profile_id
         __props__.__dict__["issue_date"] = issue_date
         __props__.__dict__["issuer"] = issuer
         __props__.__dict__["key_vault_secret_id"] = key_vault_secret_id
@@ -670,14 +622,6 @@ class Certificate(pulumi.CustomResource):
         List of host names the certificate applies to.
         """
         return pulumi.get(self, "host_names")
-
-    @property
-    @pulumi.getter(name="hostingEnvironmentProfileId")
-    def hosting_environment_profile_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the the App Service Environment where the certificate is in use.
-        """
-        return pulumi.get(self, "hosting_environment_profile_id")
 
     @property
     @pulumi.getter(name="issueDate")

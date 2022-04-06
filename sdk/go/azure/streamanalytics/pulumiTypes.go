@@ -244,12 +244,246 @@ func (o FunctionJavaScriptUDFOutputTypePtrOutput) Type() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionJavascriptUdaInputType struct {
+	// The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+	Type string `pulumi:"type"`
+}
+
+// FunctionJavascriptUdaInputTypeInput is an input type that accepts FunctionJavascriptUdaInputTypeArgs and FunctionJavascriptUdaInputTypeOutput values.
+// You can construct a concrete instance of `FunctionJavascriptUdaInputTypeInput` via:
+//
+//          FunctionJavascriptUdaInputTypeArgs{...}
+type FunctionJavascriptUdaInputTypeInput interface {
+	pulumi.Input
+
+	ToFunctionJavascriptUdaInputTypeOutput() FunctionJavascriptUdaInputTypeOutput
+	ToFunctionJavascriptUdaInputTypeOutputWithContext(context.Context) FunctionJavascriptUdaInputTypeOutput
+}
+
+type FunctionJavascriptUdaInputTypeArgs struct {
+	// The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FunctionJavascriptUdaInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionJavascriptUdaInputType)(nil)).Elem()
+}
+
+func (i FunctionJavascriptUdaInputTypeArgs) ToFunctionJavascriptUdaInputTypeOutput() FunctionJavascriptUdaInputTypeOutput {
+	return i.ToFunctionJavascriptUdaInputTypeOutputWithContext(context.Background())
+}
+
+func (i FunctionJavascriptUdaInputTypeArgs) ToFunctionJavascriptUdaInputTypeOutputWithContext(ctx context.Context) FunctionJavascriptUdaInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavascriptUdaInputTypeOutput)
+}
+
+// FunctionJavascriptUdaInputTypeArrayInput is an input type that accepts FunctionJavascriptUdaInputTypeArray and FunctionJavascriptUdaInputTypeArrayOutput values.
+// You can construct a concrete instance of `FunctionJavascriptUdaInputTypeArrayInput` via:
+//
+//          FunctionJavascriptUdaInputTypeArray{ FunctionJavascriptUdaInputTypeArgs{...} }
+type FunctionJavascriptUdaInputTypeArrayInput interface {
+	pulumi.Input
+
+	ToFunctionJavascriptUdaInputTypeArrayOutput() FunctionJavascriptUdaInputTypeArrayOutput
+	ToFunctionJavascriptUdaInputTypeArrayOutputWithContext(context.Context) FunctionJavascriptUdaInputTypeArrayOutput
+}
+
+type FunctionJavascriptUdaInputTypeArray []FunctionJavascriptUdaInputTypeInput
+
+func (FunctionJavascriptUdaInputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionJavascriptUdaInputType)(nil)).Elem()
+}
+
+func (i FunctionJavascriptUdaInputTypeArray) ToFunctionJavascriptUdaInputTypeArrayOutput() FunctionJavascriptUdaInputTypeArrayOutput {
+	return i.ToFunctionJavascriptUdaInputTypeArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionJavascriptUdaInputTypeArray) ToFunctionJavascriptUdaInputTypeArrayOutputWithContext(ctx context.Context) FunctionJavascriptUdaInputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavascriptUdaInputTypeArrayOutput)
+}
+
+type FunctionJavascriptUdaInputTypeOutput struct{ *pulumi.OutputState }
+
+func (FunctionJavascriptUdaInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionJavascriptUdaInputType)(nil)).Elem()
+}
+
+func (o FunctionJavascriptUdaInputTypeOutput) ToFunctionJavascriptUdaInputTypeOutput() FunctionJavascriptUdaInputTypeOutput {
+	return o
+}
+
+func (o FunctionJavascriptUdaInputTypeOutput) ToFunctionJavascriptUdaInputTypeOutputWithContext(ctx context.Context) FunctionJavascriptUdaInputTypeOutput {
+	return o
+}
+
+// The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+func (o FunctionJavascriptUdaInputTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionJavascriptUdaInputType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FunctionJavascriptUdaInputTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionJavascriptUdaInputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionJavascriptUdaInputType)(nil)).Elem()
+}
+
+func (o FunctionJavascriptUdaInputTypeArrayOutput) ToFunctionJavascriptUdaInputTypeArrayOutput() FunctionJavascriptUdaInputTypeArrayOutput {
+	return o
+}
+
+func (o FunctionJavascriptUdaInputTypeArrayOutput) ToFunctionJavascriptUdaInputTypeArrayOutputWithContext(ctx context.Context) FunctionJavascriptUdaInputTypeArrayOutput {
+	return o
+}
+
+func (o FunctionJavascriptUdaInputTypeArrayOutput) Index(i pulumi.IntInput) FunctionJavascriptUdaInputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionJavascriptUdaInputType {
+		return vs[0].([]FunctionJavascriptUdaInputType)[vs[1].(int)]
+	}).(FunctionJavascriptUdaInputTypeOutput)
+}
+
+type FunctionJavascriptUdaOutputType struct {
+	// The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+	Type string `pulumi:"type"`
+}
+
+// FunctionJavascriptUdaOutputTypeInput is an input type that accepts FunctionJavascriptUdaOutputTypeArgs and FunctionJavascriptUdaOutputTypeOutput values.
+// You can construct a concrete instance of `FunctionJavascriptUdaOutputTypeInput` via:
+//
+//          FunctionJavascriptUdaOutputTypeArgs{...}
+type FunctionJavascriptUdaOutputTypeInput interface {
+	pulumi.Input
+
+	ToFunctionJavascriptUdaOutputTypeOutput() FunctionJavascriptUdaOutputTypeOutput
+	ToFunctionJavascriptUdaOutputTypeOutputWithContext(context.Context) FunctionJavascriptUdaOutputTypeOutput
+}
+
+type FunctionJavascriptUdaOutputTypeArgs struct {
+	// The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FunctionJavascriptUdaOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionJavascriptUdaOutputType)(nil)).Elem()
+}
+
+func (i FunctionJavascriptUdaOutputTypeArgs) ToFunctionJavascriptUdaOutputTypeOutput() FunctionJavascriptUdaOutputTypeOutput {
+	return i.ToFunctionJavascriptUdaOutputTypeOutputWithContext(context.Background())
+}
+
+func (i FunctionJavascriptUdaOutputTypeArgs) ToFunctionJavascriptUdaOutputTypeOutputWithContext(ctx context.Context) FunctionJavascriptUdaOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavascriptUdaOutputTypeOutput)
+}
+
+func (i FunctionJavascriptUdaOutputTypeArgs) ToFunctionJavascriptUdaOutputTypePtrOutput() FunctionJavascriptUdaOutputTypePtrOutput {
+	return i.ToFunctionJavascriptUdaOutputTypePtrOutputWithContext(context.Background())
+}
+
+func (i FunctionJavascriptUdaOutputTypeArgs) ToFunctionJavascriptUdaOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavascriptUdaOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavascriptUdaOutputTypeOutput).ToFunctionJavascriptUdaOutputTypePtrOutputWithContext(ctx)
+}
+
+// FunctionJavascriptUdaOutputTypePtrInput is an input type that accepts FunctionJavascriptUdaOutputTypeArgs, FunctionJavascriptUdaOutputTypePtr and FunctionJavascriptUdaOutputTypePtrOutput values.
+// You can construct a concrete instance of `FunctionJavascriptUdaOutputTypePtrInput` via:
+//
+//          FunctionJavascriptUdaOutputTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionJavascriptUdaOutputTypePtrInput interface {
+	pulumi.Input
+
+	ToFunctionJavascriptUdaOutputTypePtrOutput() FunctionJavascriptUdaOutputTypePtrOutput
+	ToFunctionJavascriptUdaOutputTypePtrOutputWithContext(context.Context) FunctionJavascriptUdaOutputTypePtrOutput
+}
+
+type functionJavascriptUdaOutputTypePtrType FunctionJavascriptUdaOutputTypeArgs
+
+func FunctionJavascriptUdaOutputTypePtr(v *FunctionJavascriptUdaOutputTypeArgs) FunctionJavascriptUdaOutputTypePtrInput {
+	return (*functionJavascriptUdaOutputTypePtrType)(v)
+}
+
+func (*functionJavascriptUdaOutputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionJavascriptUdaOutputType)(nil)).Elem()
+}
+
+func (i *functionJavascriptUdaOutputTypePtrType) ToFunctionJavascriptUdaOutputTypePtrOutput() FunctionJavascriptUdaOutputTypePtrOutput {
+	return i.ToFunctionJavascriptUdaOutputTypePtrOutputWithContext(context.Background())
+}
+
+func (i *functionJavascriptUdaOutputTypePtrType) ToFunctionJavascriptUdaOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavascriptUdaOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavascriptUdaOutputTypePtrOutput)
+}
+
+type FunctionJavascriptUdaOutputTypeOutput struct{ *pulumi.OutputState }
+
+func (FunctionJavascriptUdaOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionJavascriptUdaOutputType)(nil)).Elem()
+}
+
+func (o FunctionJavascriptUdaOutputTypeOutput) ToFunctionJavascriptUdaOutputTypeOutput() FunctionJavascriptUdaOutputTypeOutput {
+	return o
+}
+
+func (o FunctionJavascriptUdaOutputTypeOutput) ToFunctionJavascriptUdaOutputTypeOutputWithContext(ctx context.Context) FunctionJavascriptUdaOutputTypeOutput {
+	return o
+}
+
+func (o FunctionJavascriptUdaOutputTypeOutput) ToFunctionJavascriptUdaOutputTypePtrOutput() FunctionJavascriptUdaOutputTypePtrOutput {
+	return o.ToFunctionJavascriptUdaOutputTypePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionJavascriptUdaOutputTypeOutput) ToFunctionJavascriptUdaOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavascriptUdaOutputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionJavascriptUdaOutputType) *FunctionJavascriptUdaOutputType {
+		return &v
+	}).(FunctionJavascriptUdaOutputTypePtrOutput)
+}
+
+// The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+func (o FunctionJavascriptUdaOutputTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionJavascriptUdaOutputType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FunctionJavascriptUdaOutputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionJavascriptUdaOutputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionJavascriptUdaOutputType)(nil)).Elem()
+}
+
+func (o FunctionJavascriptUdaOutputTypePtrOutput) ToFunctionJavascriptUdaOutputTypePtrOutput() FunctionJavascriptUdaOutputTypePtrOutput {
+	return o
+}
+
+func (o FunctionJavascriptUdaOutputTypePtrOutput) ToFunctionJavascriptUdaOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavascriptUdaOutputTypePtrOutput {
+	return o
+}
+
+func (o FunctionJavascriptUdaOutputTypePtrOutput) Elem() FunctionJavascriptUdaOutputTypeOutput {
+	return o.ApplyT(func(v *FunctionJavascriptUdaOutputType) FunctionJavascriptUdaOutputType {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionJavascriptUdaOutputType
+		return ret
+	}).(FunctionJavascriptUdaOutputTypeOutput)
+}
+
+// The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+func (o FunctionJavascriptUdaOutputTypePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionJavascriptUdaOutputType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type JobIdentity struct {
-	// The ID of the Principal (Client) in Azure Active Directory.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The ID of the Azure Active Directory Tenant.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -265,11 +499,11 @@ type JobIdentityInput interface {
 }
 
 type JobIdentityArgs struct {
-	// The ID of the Principal (Client) in Azure Active Directory.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The ID of the Azure Active Directory Tenant.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -350,17 +584,17 @@ func (o JobIdentityOutput) ToJobIdentityPtrOutputWithContext(ctx context.Context
 	}).(JobIdentityPtrOutput)
 }
 
-// The ID of the Principal (Client) in Azure Active Directory.
+// The Principal ID associated with this Managed Service Identity.
 func (o JobIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Azure Active Directory Tenant.
+// The Tenant ID associated with this Managed Service Identity.
 func (o JobIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
 func (o JobIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JobIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -389,7 +623,7 @@ func (o JobIdentityPtrOutput) Elem() JobIdentityOutput {
 	}).(JobIdentityOutput)
 }
 
-// The ID of the Principal (Client) in Azure Active Directory.
+// The Principal ID associated with this Managed Service Identity.
 func (o JobIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobIdentity) *string {
 		if v == nil {
@@ -399,7 +633,7 @@ func (o JobIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Azure Active Directory Tenant.
+// The Tenant ID associated with this Managed Service Identity.
 func (o JobIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobIdentity) *string {
 		if v == nil {
@@ -409,7 +643,7 @@ func (o JobIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
 func (o JobIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobIdentity) *string {
 		if v == nil {
@@ -1896,11 +2130,11 @@ func (o StreamInputIotHubSerializationPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type GetJobIdentity struct {
-	// The ID of the Principal (Client) in Azure Active Directory.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The ID of the Azure Active Directory Tenant.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the Stream Analytics Job.
+	// The identity type of this Managed Service Identity.
 	Type string `pulumi:"type"`
 }
 
@@ -1916,11 +2150,11 @@ type GetJobIdentityInput interface {
 }
 
 type GetJobIdentityArgs struct {
-	// The ID of the Principal (Client) in Azure Active Directory.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The ID of the Azure Active Directory Tenant.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the Stream Analytics Job.
+	// The identity type of this Managed Service Identity.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1975,17 +2209,17 @@ func (o GetJobIdentityOutput) ToGetJobIdentityOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ID of the Principal (Client) in Azure Active Directory.
+// The Principal ID associated with this Managed Service Identity.
 func (o GetJobIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The ID of the Azure Active Directory Tenant.
+// The Tenant ID associated with this Managed Service Identity.
 func (o GetJobIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the Stream Analytics Job.
+// The identity type of this Managed Service Identity.
 func (o GetJobIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2015,6 +2249,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavaScriptUDFInputTypeArrayInput)(nil)).Elem(), FunctionJavaScriptUDFInputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavaScriptUDFOutputTypeInput)(nil)).Elem(), FunctionJavaScriptUDFOutputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavaScriptUDFOutputTypePtrInput)(nil)).Elem(), FunctionJavaScriptUDFOutputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavascriptUdaInputTypeInput)(nil)).Elem(), FunctionJavascriptUdaInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavascriptUdaInputTypeArrayInput)(nil)).Elem(), FunctionJavascriptUdaInputTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavascriptUdaOutputTypeInput)(nil)).Elem(), FunctionJavascriptUdaOutputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavascriptUdaOutputTypePtrInput)(nil)).Elem(), FunctionJavascriptUdaOutputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobIdentityInput)(nil)).Elem(), JobIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobIdentityPtrInput)(nil)).Elem(), JobIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputBlobSerializationInput)(nil)).Elem(), OutputBlobSerializationArgs{})
@@ -2039,6 +2277,10 @@ func init() {
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFOutputTypeOutput{})
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFOutputTypePtrOutput{})
+	pulumi.RegisterOutputType(FunctionJavascriptUdaInputTypeOutput{})
+	pulumi.RegisterOutputType(FunctionJavascriptUdaInputTypeArrayOutput{})
+	pulumi.RegisterOutputType(FunctionJavascriptUdaOutputTypeOutput{})
+	pulumi.RegisterOutputType(FunctionJavascriptUdaOutputTypePtrOutput{})
 	pulumi.RegisterOutputType(JobIdentityOutput{})
 	pulumi.RegisterOutputType(JobIdentityPtrOutput{})
 	pulumi.RegisterOutputType(OutputBlobSerializationOutput{})

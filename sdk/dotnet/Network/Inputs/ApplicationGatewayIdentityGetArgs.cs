@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

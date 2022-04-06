@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  *         hbase: "1.1",
  *     },
  *     gateway: {
- *         enabled: true,
  *         username: "acctestusrgw",
  *         password: "Password123!",
  *     },

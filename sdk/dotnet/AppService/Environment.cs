@@ -167,9 +167,6 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        [Output("userWhitelistedIpRanges")]
-        public Output<ImmutableArray<string>> UserWhitelistedIpRanges { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a Environment resource with the given unique name, arguments, and options.
@@ -267,8 +264,8 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
         /// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
@@ -286,15 +283,6 @@ namespace Pulumi.Azure.AppService
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("userWhitelistedIpRanges")]
-        private InputList<string>? _userWhitelistedIpRanges;
-        [Obsolete(@"this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format")]
-        public InputList<string> UserWhitelistedIpRanges
-        {
-            get => _userWhitelistedIpRanges ?? (_userWhitelistedIpRanges = new InputList<string>());
-            set => _userWhitelistedIpRanges = value;
         }
 
         public EnvironmentArgs()
@@ -404,15 +392,6 @@ namespace Pulumi.Azure.AppService
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("userWhitelistedIpRanges")]
-        private InputList<string>? _userWhitelistedIpRanges;
-        [Obsolete(@"this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format")]
-        public InputList<string> UserWhitelistedIpRanges
-        {
-            get => _userWhitelistedIpRanges ?? (_userWhitelistedIpRanges = new InputList<string>());
-            set => _userWhitelistedIpRanges = value;
         }
 
         public EnvironmentState()

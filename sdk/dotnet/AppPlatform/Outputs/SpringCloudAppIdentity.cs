@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
         /// </summary>
         public readonly string Type;
 

@@ -23,8 +23,8 @@ import (
 // 	"encoding/base64"
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -75,9 +75,9 @@ import (
 // 	"encoding/base64"
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -117,7 +117,6 @@ import (
 // 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SoftDeleteEnabled: pulumi.Bool(true),
 // 			TenantId:          pulumi.Any(data.Azurerm_client_config.Example.Tenant_id),
 // 			SkuName:           pulumi.String("standard"),
 // 		})

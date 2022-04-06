@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/postgresql"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -59,10 +59,6 @@ type LookupFlexibleServerResult struct {
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The backup retention days for the PostgreSQL Flexible Server.
 	BackupRetentionDays int `pulumi:"backupRetentionDays"`
-	// The status showing whether the data encryption is enabled with a customer-managed key.
-	//
-	// Deprecated: This attribute has been removed from the API and will be removed in version 3.0 of the provider.
-	CmkEnabled string `pulumi:"cmkEnabled"`
 	// The ID of the virtual network subnet to create the PostgreSQL Flexible Server.
 	DelegatedSubnetId string `pulumi:"delegatedSubnetId"`
 	// The FQDN of the PostgreSQL Flexible Server.
@@ -129,13 +125,6 @@ func (o LookupFlexibleServerResultOutput) AdministratorLogin() pulumi.StringOutp
 // The backup retention days for the PostgreSQL Flexible Server.
 func (o LookupFlexibleServerResultOutput) BackupRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupFlexibleServerResult) int { return v.BackupRetentionDays }).(pulumi.IntOutput)
-}
-
-// The status showing whether the data encryption is enabled with a customer-managed key.
-//
-// Deprecated: This attribute has been removed from the API and will be removed in version 3.0 of the provider.
-func (o LookupFlexibleServerResultOutput) CmkEnabled() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.CmkEnabled }).(pulumi.StringOutput)
 }
 
 // The ID of the virtual network subnet to create the PostgreSQL Flexible Server.

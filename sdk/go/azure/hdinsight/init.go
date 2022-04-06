@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,14 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InteractiveQueryCluster{}
 	case "azure:hdinsight/kafkaCluster:KafkaCluster":
 		r = &KafkaCluster{}
-	case "azure:hdinsight/mLServicesCluster:MLServicesCluster":
-		r = &MLServicesCluster{}
-	case "azure:hdinsight/rServerCluster:RServerCluster":
-		r = &RServerCluster{}
 	case "azure:hdinsight/sparkCluster:SparkCluster":
 		r = &SparkCluster{}
-	case "azure:hdinsight/stormCluster:StormCluster":
-		r = &StormCluster{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -72,22 +66,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
-		"hdinsight/mLServicesCluster",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"hdinsight/rServerCluster",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
 		"hdinsight/sparkCluster",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"hdinsight/stormCluster",
 		&module{version},
 	)
 }

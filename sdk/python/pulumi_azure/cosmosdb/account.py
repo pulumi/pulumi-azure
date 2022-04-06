@@ -544,17 +544,13 @@ class _AccountState:
                  network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  offer_type: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
-                 primary_master_key: Optional[pulumi.Input[str]] = None,
                  primary_readonly_key: Optional[pulumi.Input[str]] = None,
-                 primary_readonly_master_key: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  read_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input['AccountRestoreArgs']] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None,
-                 secondary_master_key: Optional[pulumi.Input[str]] = None,
                  secondary_readonly_key: Optional[pulumi.Input[str]] = None,
-                 secondary_readonly_master_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None,
                  write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -658,18 +654,8 @@ class _AccountState:
             pulumi.set(__self__, "offer_type", offer_type)
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
-        if primary_master_key is not None:
-            warnings.warn("""This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""", DeprecationWarning)
-            pulumi.log.warn("""primary_master_key is deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""")
-        if primary_master_key is not None:
-            pulumi.set(__self__, "primary_master_key", primary_master_key)
         if primary_readonly_key is not None:
             pulumi.set(__self__, "primary_readonly_key", primary_readonly_key)
-        if primary_readonly_master_key is not None:
-            warnings.warn("""This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""", DeprecationWarning)
-            pulumi.log.warn("""primary_readonly_master_key is deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""")
-        if primary_readonly_master_key is not None:
-            pulumi.set(__self__, "primary_readonly_master_key", primary_readonly_master_key)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if read_endpoints is not None:
@@ -680,18 +666,8 @@ class _AccountState:
             pulumi.set(__self__, "restore", restore)
         if secondary_key is not None:
             pulumi.set(__self__, "secondary_key", secondary_key)
-        if secondary_master_key is not None:
-            warnings.warn("""This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""", DeprecationWarning)
-            pulumi.log.warn("""secondary_master_key is deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""")
-        if secondary_master_key is not None:
-            pulumi.set(__self__, "secondary_master_key", secondary_master_key)
         if secondary_readonly_key is not None:
             pulumi.set(__self__, "secondary_readonly_key", secondary_readonly_key)
-        if secondary_readonly_master_key is not None:
-            warnings.warn("""This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""", DeprecationWarning)
-            pulumi.log.warn("""secondary_readonly_master_key is deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""")
-        if secondary_readonly_master_key is not None:
-            pulumi.set(__self__, "secondary_readonly_master_key", secondary_readonly_master_key)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_rules is not None:
@@ -1048,15 +1024,6 @@ class _AccountState:
         pulumi.set(self, "primary_key", value)
 
     @property
-    @pulumi.getter(name="primaryMasterKey")
-    def primary_master_key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "primary_master_key")
-
-    @primary_master_key.setter
-    def primary_master_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "primary_master_key", value)
-
-    @property
     @pulumi.getter(name="primaryReadonlyKey")
     def primary_readonly_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1067,15 +1034,6 @@ class _AccountState:
     @primary_readonly_key.setter
     def primary_readonly_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "primary_readonly_key", value)
-
-    @property
-    @pulumi.getter(name="primaryReadonlyMasterKey")
-    def primary_readonly_master_key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "primary_readonly_master_key")
-
-    @primary_readonly_master_key.setter
-    def primary_readonly_master_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "primary_readonly_master_key", value)
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
@@ -1138,15 +1096,6 @@ class _AccountState:
         pulumi.set(self, "secondary_key", value)
 
     @property
-    @pulumi.getter(name="secondaryMasterKey")
-    def secondary_master_key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "secondary_master_key")
-
-    @secondary_master_key.setter
-    def secondary_master_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secondary_master_key", value)
-
-    @property
     @pulumi.getter(name="secondaryReadonlyKey")
     def secondary_readonly_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1157,15 +1106,6 @@ class _AccountState:
     @secondary_readonly_key.setter
     def secondary_readonly_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secondary_readonly_key", value)
-
-    @property
-    @pulumi.getter(name="secondaryReadonlyMasterKey")
-    def secondary_readonly_master_key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "secondary_readonly_master_key")
-
-    @secondary_readonly_master_key.setter
-    def secondary_readonly_master_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secondary_readonly_master_key", value)
 
     @property
     @pulumi.getter
@@ -1499,14 +1439,10 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["connection_strings"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["primary_key"] = None
-            __props__.__dict__["primary_master_key"] = None
             __props__.__dict__["primary_readonly_key"] = None
-            __props__.__dict__["primary_readonly_master_key"] = None
             __props__.__dict__["read_endpoints"] = None
             __props__.__dict__["secondary_key"] = None
-            __props__.__dict__["secondary_master_key"] = None
             __props__.__dict__["secondary_readonly_key"] = None
-            __props__.__dict__["secondary_readonly_master_key"] = None
             __props__.__dict__["write_endpoints"] = None
         super(Account, __self__).__init__(
             'azure:cosmosdb/account:Account',
@@ -1547,17 +1483,13 @@ class Account(pulumi.CustomResource):
             network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             offer_type: Optional[pulumi.Input[str]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
-            primary_master_key: Optional[pulumi.Input[str]] = None,
             primary_readonly_key: Optional[pulumi.Input[str]] = None,
-            primary_readonly_master_key: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             read_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             restore: Optional[pulumi.Input[pulumi.InputType['AccountRestoreArgs']]] = None,
             secondary_key: Optional[pulumi.Input[str]] = None,
-            secondary_master_key: Optional[pulumi.Input[str]] = None,
             secondary_readonly_key: Optional[pulumi.Input[str]] = None,
-            secondary_readonly_master_key: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]]] = None,
             write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Account':
@@ -1641,17 +1573,13 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["network_acl_bypass_ids"] = network_acl_bypass_ids
         __props__.__dict__["offer_type"] = offer_type
         __props__.__dict__["primary_key"] = primary_key
-        __props__.__dict__["primary_master_key"] = primary_master_key
         __props__.__dict__["primary_readonly_key"] = primary_readonly_key
-        __props__.__dict__["primary_readonly_master_key"] = primary_readonly_master_key
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["read_endpoints"] = read_endpoints
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["restore"] = restore
         __props__.__dict__["secondary_key"] = secondary_key
-        __props__.__dict__["secondary_master_key"] = secondary_master_key
         __props__.__dict__["secondary_readonly_key"] = secondary_readonly_key
-        __props__.__dict__["secondary_readonly_master_key"] = secondary_readonly_master_key
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_network_rules"] = virtual_network_rules
         __props__.__dict__["write_endpoints"] = write_endpoints
@@ -1890,22 +1818,12 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "primary_key")
 
     @property
-    @pulumi.getter(name="primaryMasterKey")
-    def primary_master_key(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "primary_master_key")
-
-    @property
     @pulumi.getter(name="primaryReadonlyKey")
     def primary_readonly_key(self) -> pulumi.Output[str]:
         """
         The Primary read-only Key for the CosmosDB Account.
         """
         return pulumi.get(self, "primary_readonly_key")
-
-    @property
-    @pulumi.getter(name="primaryReadonlyMasterKey")
-    def primary_readonly_master_key(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "primary_readonly_master_key")
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
@@ -1948,22 +1866,12 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "secondary_key")
 
     @property
-    @pulumi.getter(name="secondaryMasterKey")
-    def secondary_master_key(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "secondary_master_key")
-
-    @property
     @pulumi.getter(name="secondaryReadonlyKey")
     def secondary_readonly_key(self) -> pulumi.Output[str]:
         """
         The Secondary read-only key for the CosmosDB Account.
         """
         return pulumi.get(self, "secondary_readonly_key")
-
-    @property
-    @pulumi.getter(name="secondaryReadonlyMasterKey")
-    def secondary_readonly_master_key(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "secondary_readonly_master_key")
 
     @property
     @pulumi.getter

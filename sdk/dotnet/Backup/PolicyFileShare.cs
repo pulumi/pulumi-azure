@@ -152,9 +152,6 @@ namespace Pulumi.Azure.Backup
         [Output("retentionYearly")]
         public Output<Outputs.PolicyFileShareRetentionYearly?> RetentionYearly { get; private set; } = null!;
 
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
         /// <summary>
         /// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         /// </summary>
@@ -255,14 +252,6 @@ namespace Pulumi.Azure.Backup
         [Input("retentionYearly")]
         public Input<Inputs.PolicyFileShareRetentionYearlyArgs>? RetentionYearly { get; set; }
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
         /// <summary>
         /// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         /// </summary>
@@ -323,14 +312,6 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("retentionYearly")]
         public Input<Inputs.PolicyFileShareRetentionYearlyGetArgs>? RetentionYearly { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         /// <summary>
         /// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`

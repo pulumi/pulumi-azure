@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,16 +25,19 @@ namespace Pulumi.Azure.Compute.Inputs
         }
 
         /// <summary>
-        /// The ID of the System Managed Service Principal.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

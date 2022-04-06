@@ -15,71 +15,6 @@ import (
 //
 // > **Note:** The Database Extended Auditing Policy can be set inline here, as well as with the mssqlDatabaseExtendedAuditingPolicy resource resource. You can only use one or the other and using both will cause a conflict.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/mssql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-// 			AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewDatabase(ctx, "test", &mssql.DatabaseArgs{
-// 			ServerId:      exampleServer.ID(),
-// 			Collation:     pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
-// 			LicenseType:   pulumi.String("LicenseIncluded"),
-// 			MaxSizeGb:     pulumi.Int(4),
-// 			ReadScale:     pulumi.Bool(true),
-// 			SkuName:       pulumi.String("BC_Gen5_2"),
-// 			ZoneRedundant: pulumi.Bool(true),
-// 			ExtendedAuditingPolicy: &mssql.DatabaseExtendedAuditingPolicyArgs{
-// 				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
-// 				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
-// 				StorageAccountAccessKeyIsSecondary: pulumi.Bool(true),
-// 				RetentionInDays:                    pulumi.Int(6),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"foo": pulumi.String("bar"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // SQL Database can be imported using the `resource id`, e.g.
@@ -100,10 +35,6 @@ type Database struct {
 	CreationSourceDatabaseId pulumi.StringOutput `pulumi:"creationSourceDatabaseId"`
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrOutput `pulumi:"elasticPoolId"`
-	// A `extendedAuditingPolicy` block as defined below.
-	//
-	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyTypeOutput `pulumi:"extendedAuditingPolicy"`
 	// A boolean that specifies if the Geo Backup Policy is enabled.
 	GeoBackupEnabled pulumi.BoolPtrOutput `pulumi:"geoBackupEnabled"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -139,7 +70,8 @@ type Database struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-	ThreatDetectionPolicy DatabaseThreatDetectionPolicyOutput `pulumi:"threatDetectionPolicy"`
+	ThreatDetectionPolicy            DatabaseThreatDetectionPolicyOutput `pulumi:"threatDetectionPolicy"`
+	TransparentDataEncryptionEnabled pulumi.BoolPtrOutput                `pulumi:"transparentDataEncryptionEnabled"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant pulumi.BoolOutput `pulumi:"zoneRedundant"`
 }
@@ -186,10 +118,6 @@ type databaseState struct {
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
-	// A `extendedAuditingPolicy` block as defined below.
-	//
-	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicyType `pulumi:"extendedAuditingPolicy"`
 	// A boolean that specifies if the Geo Backup Policy is enabled.
 	GeoBackupEnabled *bool `pulumi:"geoBackupEnabled"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -225,7 +153,8 @@ type databaseState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
+	ThreatDetectionPolicy            *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
+	TransparentDataEncryptionEnabled *bool                          `pulumi:"transparentDataEncryptionEnabled"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
@@ -241,10 +170,6 @@ type DatabaseState struct {
 	CreationSourceDatabaseId pulumi.StringPtrInput
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
-	// A `extendedAuditingPolicy` block as defined below.
-	//
-	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyTypePtrInput
 	// A boolean that specifies if the Geo Backup Policy is enabled.
 	GeoBackupEnabled pulumi.BoolPtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -280,7 +205,8 @@ type DatabaseState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
+	ThreatDetectionPolicy            DatabaseThreatDetectionPolicyPtrInput
+	TransparentDataEncryptionEnabled pulumi.BoolPtrInput
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant pulumi.BoolPtrInput
 }
@@ -300,10 +226,6 @@ type databaseArgs struct {
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
-	// A `extendedAuditingPolicy` block as defined below.
-	//
-	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicyType `pulumi:"extendedAuditingPolicy"`
 	// A boolean that specifies if the Geo Backup Policy is enabled.
 	GeoBackupEnabled *bool `pulumi:"geoBackupEnabled"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -339,7 +261,8 @@ type databaseArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
+	ThreatDetectionPolicy            *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
+	TransparentDataEncryptionEnabled *bool                          `pulumi:"transparentDataEncryptionEnabled"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
@@ -356,10 +279,6 @@ type DatabaseArgs struct {
 	CreationSourceDatabaseId pulumi.StringPtrInput
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
-	// A `extendedAuditingPolicy` block as defined below.
-	//
-	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyTypePtrInput
 	// A boolean that specifies if the Geo Backup Policy is enabled.
 	GeoBackupEnabled pulumi.BoolPtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -395,7 +314,8 @@ type DatabaseArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
+	ThreatDetectionPolicy            DatabaseThreatDetectionPolicyPtrInput
+	TransparentDataEncryptionEnabled pulumi.BoolPtrInput
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant pulumi.BoolPtrInput
 }

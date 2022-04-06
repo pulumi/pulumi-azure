@@ -30,25 +30,6 @@ namespace Pulumi.Azure.Batch.Inputs
             set => _commonEnvironmentProperties = value;
         }
 
-        [Input("environment")]
-        private InputMap<string>? _environment;
-
-        /// <summary>
-        /// A map of strings (key,value) that represents the environment variables to set in the start task.
-        /// </summary>
-        [Obsolete(@"Deprecated in favour of `common_environment_properties`")]
-        public InputMap<string> Environment
-        {
-            get => _environment ?? (_environment = new InputMap<string>());
-            set => _environment = value;
-        }
-
-        /// <summary>
-        /// The number of retry count. Defaults to `1`.
-        /// </summary>
-        [Input("maxTaskRetryCount")]
-        public Input<int>? MaxTaskRetryCount { get; set; }
-
         [Input("resourceFiles")]
         private InputList<Inputs.PoolStartTaskResourceFileArgs>? _resourceFiles;
 

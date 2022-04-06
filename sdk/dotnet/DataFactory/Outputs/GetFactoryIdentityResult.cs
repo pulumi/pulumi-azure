@@ -13,9 +13,12 @@ namespace Pulumi.Azure.DataFactory.Outputs
     [OutputType]
     public sealed class GetFactoryIdentityResult
     {
+        /// <summary>
+        /// The list of User Assigned Managed Identity IDs assigned to this Data Factory.
+        /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The ID of the Principal (Client) in Azure Active Directory.
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Data Factory.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
@@ -23,7 +26,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identity type of the Data Factory.
+        /// The type of Managed Service Identity that is configured on this Data Factory.
         /// </summary>
         public readonly string Type;
 

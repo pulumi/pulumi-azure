@@ -15,8 +15,8 @@ class PublicIpArgs:
     def __init__(__self__, *,
                  allocation_method: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 availability_zone: Optional[pulumi.Input[str]] = None,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ip_version: Optional[pulumi.Input[str]] = None,
@@ -27,32 +27,31 @@ class PublicIpArgs:
                  sku: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[str]] = None):
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PublicIp resource.
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the public ip.
-        :param pulumi.Input[str] availability_zone: The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP.
         :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Public IP resource . Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection containing the availability zone to allocate the Public IP in.
         """
         pulumi.set(__self__, "allocation_method", allocation_method)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
         if domain_name_label is not None:
             pulumi.set(__self__, "domain_name_label", domain_name_label)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if idle_timeout_in_minutes is not None:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if ip_tags is not None:
@@ -74,9 +73,6 @@ class PublicIpArgs:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
-            warnings.warn("""This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""", DeprecationWarning)
-            pulumi.log.warn("""zones is deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""")
-        if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
     @property
@@ -95,26 +91,13 @@ class PublicIpArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
-        create the public ip.
+        The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
-        """
-        return pulumi.get(self, "availability_zone")
-
-    @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "availability_zone", value)
 
     @property
     @pulumi.getter(name="domainNameLabel")
@@ -127,6 +110,18 @@ class PublicIpArgs:
     @domain_name_label.setter
     def domain_name_label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_name_label", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
@@ -168,7 +163,7 @@ class PublicIpArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -180,8 +175,7 @@ class PublicIpArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Public IP resource . Changing this forces a
-        new resource to be created.
+        Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         """
         return pulumi.get(self, "name")
 
@@ -251,11 +245,14 @@ class PublicIpArgs:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[str]]:
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A collection containing the availability zone to allocate the Public IP in.
+        """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[str]]):
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -263,8 +260,8 @@ class PublicIpArgs:
 class _PublicIpState:
     def __init__(__self__, *,
                  allocation_method: Optional[pulumi.Input[str]] = None,
-                 availability_zone: Optional[pulumi.Input[str]] = None,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -278,34 +275,33 @@ class _PublicIpState:
                  sku: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[str]] = None):
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering PublicIp resources.
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
-        :param pulumi.Input[str] availability_zone: The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] fqdn: Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[str] ip_address: The IP address value that was allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP.
         :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Public IP resource . Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the public ip.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection containing the availability zone to allocate the Public IP in.
         """
         if allocation_method is not None:
             pulumi.set(__self__, "allocation_method", allocation_method)
-        if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
         if domain_name_label is not None:
             pulumi.set(__self__, "domain_name_label", domain_name_label)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if idle_timeout_in_minutes is not None:
@@ -333,9 +329,6 @@ class _PublicIpState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
-            warnings.warn("""This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""", DeprecationWarning)
-            pulumi.log.warn("""zones is deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""")
-        if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
     @property
@@ -351,18 +344,6 @@ class _PublicIpState:
         pulumi.set(self, "allocation_method", value)
 
     @property
-    @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
-        """
-        return pulumi.get(self, "availability_zone")
-
-    @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "availability_zone", value)
-
-    @property
     @pulumi.getter(name="domainNameLabel")
     def domain_name_label(self) -> Optional[pulumi.Input[str]]:
         """
@@ -373,6 +354,18 @@ class _PublicIpState:
     @domain_name_label.setter
     def domain_name_label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_name_label", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter
@@ -438,7 +431,7 @@ class _PublicIpState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -450,8 +443,7 @@ class _PublicIpState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Public IP resource . Changing this forces a
-        new resource to be created.
+        Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         """
         return pulumi.get(self, "name")
 
@@ -475,8 +467,7 @@ class _PublicIpState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the public ip.
+        The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -534,11 +525,14 @@ class _PublicIpState:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[str]]:
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A collection containing the availability zone to allocate the Public IP in.
+        """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[str]]):
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -548,8 +542,8 @@ class PublicIp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_method: Optional[pulumi.Input[str]] = None,
-                 availability_zone: Optional[pulumi.Input[str]] = None,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ip_version: Optional[pulumi.Input[str]] = None,
@@ -561,7 +555,7 @@ class PublicIp(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages a Public IP Address.
@@ -593,21 +587,20 @@ class PublicIp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
-        :param pulumi.Input[str] availability_zone: The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP.
         :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Public IP resource . Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the public ip.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection containing the availability zone to allocate the Public IP in.
         """
         ...
     @overload
@@ -658,8 +651,8 @@ class PublicIp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_method: Optional[pulumi.Input[str]] = None,
-                 availability_zone: Optional[pulumi.Input[str]] = None,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ip_version: Optional[pulumi.Input[str]] = None,
@@ -671,7 +664,7 @@ class PublicIp(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -687,8 +680,8 @@ class PublicIp(pulumi.CustomResource):
             if allocation_method is None and not opts.urn:
                 raise TypeError("Missing required property 'allocation_method'")
             __props__.__dict__["allocation_method"] = allocation_method
-            __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["domain_name_label"] = domain_name_label
+            __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
             __props__.__dict__["ip_tags"] = ip_tags
             __props__.__dict__["ip_version"] = ip_version
@@ -702,9 +695,6 @@ class PublicIp(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["tags"] = tags
-            if zones is not None and not opts.urn:
-                warnings.warn("""This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""", DeprecationWarning)
-                pulumi.log.warn("""zones is deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""")
             __props__.__dict__["zones"] = zones
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["ip_address"] = None
@@ -719,8 +709,8 @@ class PublicIp(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allocation_method: Optional[pulumi.Input[str]] = None,
-            availability_zone: Optional[pulumi.Input[str]] = None,
             domain_name_label: Optional[pulumi.Input[str]] = None,
+            edge_zone: Optional[pulumi.Input[str]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
@@ -734,7 +724,7 @@ class PublicIp(pulumi.CustomResource):
             sku: Optional[pulumi.Input[str]] = None,
             sku_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            zones: Optional[pulumi.Input[str]] = None) -> 'PublicIp':
+            zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'PublicIp':
         """
         Get an existing PublicIp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -743,31 +733,30 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
-        :param pulumi.Input[str] availability_zone: The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] fqdn: Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[str] ip_address: The IP address value that was allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP.
         :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Public IP resource . Changing this forces a
-               new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the public ip.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection containing the availability zone to allocate the Public IP in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _PublicIpState.__new__(_PublicIpState)
 
         __props__.__dict__["allocation_method"] = allocation_method
-        __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["domain_name_label"] = domain_name_label
+        __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["fqdn"] = fqdn
         __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
         __props__.__dict__["ip_address"] = ip_address
@@ -793,20 +782,20 @@ class PublicIp(pulumi.CustomResource):
         return pulumi.get(self, "allocation_method")
 
     @property
-    @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Output[str]:
-        """
-        The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
-        """
-        return pulumi.get(self, "availability_zone")
-
-    @property
     @pulumi.getter(name="domainNameLabel")
     def domain_name_label(self) -> pulumi.Output[Optional[str]]:
         """
         Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         """
         return pulumi.get(self, "domain_name_label")
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
+        """
+        return pulumi.get(self, "edge_zone")
 
     @property
     @pulumi.getter
@@ -852,7 +841,7 @@ class PublicIp(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -860,8 +849,7 @@ class PublicIp(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Public IP resource . Changing this forces a
-        new resource to be created.
+        Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         """
         return pulumi.get(self, "name")
 
@@ -877,8 +865,7 @@ class PublicIp(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
-        create the public ip.
+        The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -916,6 +903,9 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[str]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A collection containing the availability zone to allocate the Public IP in.
+        """
         return pulumi.get(self, "zones")
 

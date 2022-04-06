@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -84,7 +84,7 @@ type Product struct {
 	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Is a Subscription required to access API's included in this Product?
-	SubscriptionRequired pulumi.BoolOutput `pulumi:"subscriptionRequired"`
+	SubscriptionRequired pulumi.BoolPtrOutput `pulumi:"subscriptionRequired"`
 	// The number of subscriptions a user can have to this Product at the same time.
 	SubscriptionsLimit pulumi.IntPtrOutput `pulumi:"subscriptionsLimit"`
 	// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
@@ -112,9 +112,6 @@ func NewProduct(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.SubscriptionRequired == nil {
-		return nil, errors.New("invalid value for required argument 'SubscriptionRequired'")
 	}
 	var resource Product
 	err := ctx.RegisterResource("azure:apimanagement/product:Product", name, args, &resource, opts...)
@@ -203,7 +200,7 @@ type productArgs struct {
 	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Is a Subscription required to access API's included in this Product?
-	SubscriptionRequired bool `pulumi:"subscriptionRequired"`
+	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// The number of subscriptions a user can have to this Product at the same time.
 	SubscriptionsLimit *int `pulumi:"subscriptionsLimit"`
 	// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
@@ -227,7 +224,7 @@ type ProductArgs struct {
 	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Is a Subscription required to access API's included in this Product?
-	SubscriptionRequired pulumi.BoolInput
+	SubscriptionRequired pulumi.BoolPtrInput
 	// The number of subscriptions a user can have to this Product at the same time.
 	SubscriptionsLimit pulumi.IntPtrInput
 	// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.

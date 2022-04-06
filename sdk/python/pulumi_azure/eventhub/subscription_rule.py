@@ -16,55 +16,30 @@ __all__ = ['SubscriptionRuleArgs', 'SubscriptionRule']
 class SubscriptionRuleArgs:
     def __init__(__self__, *,
                  filter_type: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str],
                  action: Optional[pulumi.Input[str]] = None,
                  correlation_filter: Optional[pulumi.Input['SubscriptionRuleCorrelationFilterArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sql_filter: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
-                 subscription_name: Optional[pulumi.Input[str]] = None,
-                 topic_name: Optional[pulumi.Input[str]] = None):
+                 sql_filter: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SubscriptionRule resource.
         :param pulumi.Input[str] filter_type: Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
+        :param pulumi.Input[str] subscription_id: The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] action: Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
         :param pulumi.Input['SubscriptionRuleCorrelationFilterArgs'] correlation_filter: A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_filter: Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
-        :param pulumi.Input[str] subscription_id: The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filter_type", filter_type)
+        pulumi.set(__self__, "subscription_id", subscription_id)
         if action is not None:
             pulumi.set(__self__, "action", action)
         if correlation_filter is not None:
             pulumi.set(__self__, "correlation_filter", correlation_filter)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if namespace_name is not None:
-            warnings.warn("""Deprecated in favor of \"subscription_id\"""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"subscription_id\"""")
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
-        if resource_group_name is not None:
-            warnings.warn("""Deprecated in favor of \"subscription_id\"""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"subscription_id\"""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sql_filter is not None:
             pulumi.set(__self__, "sql_filter", sql_filter)
-        if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
-        if subscription_name is not None:
-            warnings.warn("""Deprecated in favor of \"subscription_id\"""", DeprecationWarning)
-            pulumi.log.warn("""subscription_name is deprecated: Deprecated in favor of \"subscription_id\"""")
-        if subscription_name is not None:
-            pulumi.set(__self__, "subscription_name", subscription_name)
-        if topic_name is not None:
-            warnings.warn("""Deprecated in favor of \"subscription_id\"""", DeprecationWarning)
-            pulumi.log.warn("""topic_name is deprecated: Deprecated in favor of \"subscription_id\"""")
-        if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
 
     @property
     @pulumi.getter(name="filterType")
@@ -77,6 +52,18 @@ class SubscriptionRuleArgs:
     @filter_type.setter
     def filter_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "filter_type", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
 
     @property
     @pulumi.getter
@@ -115,24 +102,6 @@ class SubscriptionRuleArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter(name="sqlFilter")
     def sql_filter(self) -> Optional[pulumi.Input[str]]:
         """
@@ -144,36 +113,6 @@ class SubscriptionRuleArgs:
     def sql_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sql_filter", value)
 
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "subscription_id")
-
-    @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subscription_id", value)
-
-    @property
-    @pulumi.getter(name="subscriptionName")
-    def subscription_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "subscription_name")
-
-    @subscription_name.setter
-    def subscription_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subscription_name", value)
-
-    @property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "topic_name")
-
-    @topic_name.setter
-    def topic_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "topic_name", value)
-
 
 @pulumi.input_type
 class _SubscriptionRuleState:
@@ -182,12 +121,8 @@ class _SubscriptionRuleState:
                  correlation_filter: Optional[pulumi.Input['SubscriptionRuleCorrelationFilterArgs']] = None,
                  filter_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_filter: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
-                 subscription_name: Optional[pulumi.Input[str]] = None,
-                 topic_name: Optional[pulumi.Input[str]] = None):
+                 subscription_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SubscriptionRule resources.
         :param pulumi.Input[str] action: Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
@@ -205,30 +140,10 @@ class _SubscriptionRuleState:
             pulumi.set(__self__, "filter_type", filter_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if namespace_name is not None:
-            warnings.warn("""Deprecated in favor of \"subscription_id\"""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"subscription_id\"""")
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
-        if resource_group_name is not None:
-            warnings.warn("""Deprecated in favor of \"subscription_id\"""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"subscription_id\"""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sql_filter is not None:
             pulumi.set(__self__, "sql_filter", sql_filter)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
-        if subscription_name is not None:
-            warnings.warn("""Deprecated in favor of \"subscription_id\"""", DeprecationWarning)
-            pulumi.log.warn("""subscription_name is deprecated: Deprecated in favor of \"subscription_id\"""")
-        if subscription_name is not None:
-            pulumi.set(__self__, "subscription_name", subscription_name)
-        if topic_name is not None:
-            warnings.warn("""Deprecated in favor of \"subscription_id\"""", DeprecationWarning)
-            pulumi.log.warn("""topic_name is deprecated: Deprecated in favor of \"subscription_id\"""")
-        if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
 
     @property
     @pulumi.getter
@@ -279,24 +194,6 @@ class _SubscriptionRuleState:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter(name="sqlFilter")
     def sql_filter(self) -> Optional[pulumi.Input[str]]:
         """
@@ -320,24 +217,6 @@ class _SubscriptionRuleState:
     def subscription_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subscription_id", value)
 
-    @property
-    @pulumi.getter(name="subscriptionName")
-    def subscription_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "subscription_name")
-
-    @subscription_name.setter
-    def subscription_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subscription_name", value)
-
-    @property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "topic_name")
-
-    @topic_name.setter
-    def topic_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "topic_name", value)
-
 
 warnings.warn("""azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule""", DeprecationWarning)
 
@@ -353,12 +232,8 @@ class SubscriptionRule(pulumi.CustomResource):
                  correlation_filter: Optional[pulumi.Input[pulumi.InputType['SubscriptionRuleCorrelationFilterArgs']]] = None,
                  filter_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_filter: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
-                 subscription_name: Optional[pulumi.Input[str]] = None,
-                 topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a ServiceBus Subscription Rule.
@@ -532,12 +407,8 @@ class SubscriptionRule(pulumi.CustomResource):
                  correlation_filter: Optional[pulumi.Input[pulumi.InputType['SubscriptionRuleCorrelationFilterArgs']]] = None,
                  filter_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_filter: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
-                 subscription_name: Optional[pulumi.Input[str]] = None,
-                 topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""SubscriptionRule is deprecated: azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule""")
         if opts is None:
@@ -557,24 +428,10 @@ class SubscriptionRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'filter_type'")
             __props__.__dict__["filter_type"] = filter_type
             __props__.__dict__["name"] = name
-            if namespace_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"subscription_id\"""", DeprecationWarning)
-                pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"subscription_id\"""")
-            __props__.__dict__["namespace_name"] = namespace_name
-            if resource_group_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"subscription_id\"""", DeprecationWarning)
-                pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"subscription_id\"""")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sql_filter"] = sql_filter
+            if subscription_id is None and not opts.urn:
+                raise TypeError("Missing required property 'subscription_id'")
             __props__.__dict__["subscription_id"] = subscription_id
-            if subscription_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"subscription_id\"""", DeprecationWarning)
-                pulumi.log.warn("""subscription_name is deprecated: Deprecated in favor of \"subscription_id\"""")
-            __props__.__dict__["subscription_name"] = subscription_name
-            if topic_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"subscription_id\"""", DeprecationWarning)
-                pulumi.log.warn("""topic_name is deprecated: Deprecated in favor of \"subscription_id\"""")
-            __props__.__dict__["topic_name"] = topic_name
         super(SubscriptionRule, __self__).__init__(
             'azure:eventhub/subscriptionRule:SubscriptionRule',
             resource_name,
@@ -589,12 +446,8 @@ class SubscriptionRule(pulumi.CustomResource):
             correlation_filter: Optional[pulumi.Input[pulumi.InputType['SubscriptionRuleCorrelationFilterArgs']]] = None,
             filter_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            namespace_name: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
             sql_filter: Optional[pulumi.Input[str]] = None,
-            subscription_id: Optional[pulumi.Input[str]] = None,
-            subscription_name: Optional[pulumi.Input[str]] = None,
-            topic_name: Optional[pulumi.Input[str]] = None) -> 'SubscriptionRule':
+            subscription_id: Optional[pulumi.Input[str]] = None) -> 'SubscriptionRule':
         """
         Get an existing SubscriptionRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -617,12 +470,8 @@ class SubscriptionRule(pulumi.CustomResource):
         __props__.__dict__["correlation_filter"] = correlation_filter
         __props__.__dict__["filter_type"] = filter_type
         __props__.__dict__["name"] = name
-        __props__.__dict__["namespace_name"] = namespace_name
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sql_filter"] = sql_filter
         __props__.__dict__["subscription_id"] = subscription_id
-        __props__.__dict__["subscription_name"] = subscription_name
-        __props__.__dict__["topic_name"] = topic_name
         return SubscriptionRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -658,16 +507,6 @@ class SubscriptionRule(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "namespace_name")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "resource_group_name")
-
-    @property
     @pulumi.getter(name="sqlFilter")
     def sql_filter(self) -> pulumi.Output[Optional[str]]:
         """
@@ -682,14 +521,4 @@ class SubscriptionRule(pulumi.CustomResource):
         The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subscription_id")
-
-    @property
-    @pulumi.getter(name="subscriptionName")
-    def subscription_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "subscription_name")
-
-    @property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "topic_name")
 

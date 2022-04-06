@@ -10,215 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type DatabaseExtendedAuditingPolicy struct {
-	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
-	// Specifies the number of days to retain logs for in the storage account.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// Specifies the access key to use for the auditing storage account.
-	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-	StorageEndpoint *string `pulumi:"storageEndpoint"`
-}
-
-// DatabaseExtendedAuditingPolicyInput is an input type that accepts DatabaseExtendedAuditingPolicyArgs and DatabaseExtendedAuditingPolicyOutput values.
-// You can construct a concrete instance of `DatabaseExtendedAuditingPolicyInput` via:
-//
-//          DatabaseExtendedAuditingPolicyArgs{...}
-type DatabaseExtendedAuditingPolicyInput interface {
-	pulumi.Input
-
-	ToDatabaseExtendedAuditingPolicyOutput() DatabaseExtendedAuditingPolicyOutput
-	ToDatabaseExtendedAuditingPolicyOutputWithContext(context.Context) DatabaseExtendedAuditingPolicyOutput
-}
-
-type DatabaseExtendedAuditingPolicyArgs struct {
-	LogMonitoringEnabled pulumi.BoolPtrInput `pulumi:"logMonitoringEnabled"`
-	// Specifies the number of days to retain logs for in the storage account.
-	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
-	// Specifies the access key to use for the auditing storage account.
-	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
-	// Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
-}
-
-func (DatabaseExtendedAuditingPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseExtendedAuditingPolicy)(nil)).Elem()
-}
-
-func (i DatabaseExtendedAuditingPolicyArgs) ToDatabaseExtendedAuditingPolicyOutput() DatabaseExtendedAuditingPolicyOutput {
-	return i.ToDatabaseExtendedAuditingPolicyOutputWithContext(context.Background())
-}
-
-func (i DatabaseExtendedAuditingPolicyArgs) ToDatabaseExtendedAuditingPolicyOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseExtendedAuditingPolicyOutput)
-}
-
-func (i DatabaseExtendedAuditingPolicyArgs) ToDatabaseExtendedAuditingPolicyPtrOutput() DatabaseExtendedAuditingPolicyPtrOutput {
-	return i.ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i DatabaseExtendedAuditingPolicyArgs) ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseExtendedAuditingPolicyOutput).ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(ctx)
-}
-
-// DatabaseExtendedAuditingPolicyPtrInput is an input type that accepts DatabaseExtendedAuditingPolicyArgs, DatabaseExtendedAuditingPolicyPtr and DatabaseExtendedAuditingPolicyPtrOutput values.
-// You can construct a concrete instance of `DatabaseExtendedAuditingPolicyPtrInput` via:
-//
-//          DatabaseExtendedAuditingPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type DatabaseExtendedAuditingPolicyPtrInput interface {
-	pulumi.Input
-
-	ToDatabaseExtendedAuditingPolicyPtrOutput() DatabaseExtendedAuditingPolicyPtrOutput
-	ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(context.Context) DatabaseExtendedAuditingPolicyPtrOutput
-}
-
-type databaseExtendedAuditingPolicyPtrType DatabaseExtendedAuditingPolicyArgs
-
-func DatabaseExtendedAuditingPolicyPtr(v *DatabaseExtendedAuditingPolicyArgs) DatabaseExtendedAuditingPolicyPtrInput {
-	return (*databaseExtendedAuditingPolicyPtrType)(v)
-}
-
-func (*databaseExtendedAuditingPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseExtendedAuditingPolicy)(nil)).Elem()
-}
-
-func (i *databaseExtendedAuditingPolicyPtrType) ToDatabaseExtendedAuditingPolicyPtrOutput() DatabaseExtendedAuditingPolicyPtrOutput {
-	return i.ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *databaseExtendedAuditingPolicyPtrType) ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseExtendedAuditingPolicyPtrOutput)
-}
-
-type DatabaseExtendedAuditingPolicyOutput struct{ *pulumi.OutputState }
-
-func (DatabaseExtendedAuditingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseExtendedAuditingPolicy)(nil)).Elem()
-}
-
-func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyOutput() DatabaseExtendedAuditingPolicyOutput {
-	return o
-}
-
-func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyOutput {
-	return o
-}
-
-func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyPtrOutput() DatabaseExtendedAuditingPolicyPtrOutput {
-	return o.ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseExtendedAuditingPolicy) *DatabaseExtendedAuditingPolicy {
-		return &v
-	}).(DatabaseExtendedAuditingPolicyPtrOutput)
-}
-
-func (o DatabaseExtendedAuditingPolicyOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *bool { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the number of days to retain logs for in the storage account.
-func (o DatabaseExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the access key to use for the auditing storage account.
-func (o DatabaseExtendedAuditingPolicyOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-func (o DatabaseExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-func (o DatabaseExtendedAuditingPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
-}
-
-type DatabaseExtendedAuditingPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (DatabaseExtendedAuditingPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseExtendedAuditingPolicy)(nil)).Elem()
-}
-
-func (o DatabaseExtendedAuditingPolicyPtrOutput) ToDatabaseExtendedAuditingPolicyPtrOutput() DatabaseExtendedAuditingPolicyPtrOutput {
-	return o
-}
-
-func (o DatabaseExtendedAuditingPolicyPtrOutput) ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyPtrOutput {
-	return o
-}
-
-func (o DatabaseExtendedAuditingPolicyPtrOutput) Elem() DatabaseExtendedAuditingPolicyOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) DatabaseExtendedAuditingPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret DatabaseExtendedAuditingPolicy
-		return ret
-	}).(DatabaseExtendedAuditingPolicyOutput)
-}
-
-func (o DatabaseExtendedAuditingPolicyPtrOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.LogMonitoringEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the number of days to retain logs for in the storage account.
-func (o DatabaseExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RetentionInDays
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the access key to use for the auditing storage account.
-func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccountAccessKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccountAccessKeyIsSecondary
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
 type DatabaseImport struct {
 	// Specifies the name of the SQL administrator.
 	AdministratorLogin string `pulumi:"administratorLogin"`
@@ -485,8 +276,6 @@ type DatabaseThreatDetectionPolicy struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
-	// Deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
-	UseServerDefault *string `pulumi:"useServerDefault"`
 }
 
 // DatabaseThreatDetectionPolicyInput is an input type that accepts DatabaseThreatDetectionPolicyArgs and DatabaseThreatDetectionPolicyOutput values.
@@ -515,8 +304,6 @@ type DatabaseThreatDetectionPolicyArgs struct {
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
-	// Deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
-	UseServerDefault pulumi.StringPtrInput `pulumi:"useServerDefault"`
 }
 
 func (DatabaseThreatDetectionPolicyArgs) ElementType() reflect.Type {
@@ -631,11 +418,6 @@ func (o DatabaseThreatDetectionPolicyOutput) StorageEndpoint() pulumi.StringPtrO
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
-func (o DatabaseThreatDetectionPolicyOutput) UseServerDefault() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.UseServerDefault }).(pulumi.StringPtrOutput)
-}
-
 type DatabaseThreatDetectionPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (DatabaseThreatDetectionPolicyPtrOutput) ElementType() reflect.Type {
@@ -727,16 +509,6 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringP
 			return nil
 		}
 		return v.StorageEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
-func (o DatabaseThreatDetectionPolicyPtrOutput) UseServerDefault() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UseServerDefault
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1415,7 +1187,7 @@ type ManagedInstanceIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	TenantId *string `pulumi:"tenantId"`
-	// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. The only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -1435,7 +1207,7 @@ type ManagedInstanceIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. The only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1526,7 +1298,7 @@ func (o ManagedInstanceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. The only possible value is `SystemAssigned`.
 func (o ManagedInstanceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1575,7 +1347,7 @@ func (o ManagedInstanceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. The only possible value is `SystemAssigned`.
 func (o ManagedInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceIdentity) *string {
 		if v == nil {
@@ -1585,213 +1357,12 @@ func (o ManagedInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type SqlServerExtendedAuditingPolicy struct {
-	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
-	RetentionInDays      *int  `pulumi:"retentionInDays"`
-	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-	StorageAccountAccessKey            *string `pulumi:"storageAccountAccessKey"`
-	StorageAccountAccessKeyIsSecondary *bool   `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-	StorageEndpoint *string `pulumi:"storageEndpoint"`
-}
-
-// SqlServerExtendedAuditingPolicyInput is an input type that accepts SqlServerExtendedAuditingPolicyArgs and SqlServerExtendedAuditingPolicyOutput values.
-// You can construct a concrete instance of `SqlServerExtendedAuditingPolicyInput` via:
-//
-//          SqlServerExtendedAuditingPolicyArgs{...}
-type SqlServerExtendedAuditingPolicyInput interface {
-	pulumi.Input
-
-	ToSqlServerExtendedAuditingPolicyOutput() SqlServerExtendedAuditingPolicyOutput
-	ToSqlServerExtendedAuditingPolicyOutputWithContext(context.Context) SqlServerExtendedAuditingPolicyOutput
-}
-
-type SqlServerExtendedAuditingPolicyArgs struct {
-	LogMonitoringEnabled pulumi.BoolPtrInput `pulumi:"logMonitoringEnabled"`
-	RetentionInDays      pulumi.IntPtrInput  `pulumi:"retentionInDays"`
-	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-	StorageAccountAccessKey            pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
-	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput   `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
-}
-
-func (SqlServerExtendedAuditingPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerExtendedAuditingPolicy)(nil)).Elem()
-}
-
-func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyOutput() SqlServerExtendedAuditingPolicyOutput {
-	return i.ToSqlServerExtendedAuditingPolicyOutputWithContext(context.Background())
-}
-
-func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlServerExtendedAuditingPolicyOutput)
-}
-
-func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput {
-	return i.ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlServerExtendedAuditingPolicyOutput).ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx)
-}
-
-// SqlServerExtendedAuditingPolicyPtrInput is an input type that accepts SqlServerExtendedAuditingPolicyArgs, SqlServerExtendedAuditingPolicyPtr and SqlServerExtendedAuditingPolicyPtrOutput values.
-// You can construct a concrete instance of `SqlServerExtendedAuditingPolicyPtrInput` via:
-//
-//          SqlServerExtendedAuditingPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type SqlServerExtendedAuditingPolicyPtrInput interface {
-	pulumi.Input
-
-	ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput
-	ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(context.Context) SqlServerExtendedAuditingPolicyPtrOutput
-}
-
-type sqlServerExtendedAuditingPolicyPtrType SqlServerExtendedAuditingPolicyArgs
-
-func SqlServerExtendedAuditingPolicyPtr(v *SqlServerExtendedAuditingPolicyArgs) SqlServerExtendedAuditingPolicyPtrInput {
-	return (*sqlServerExtendedAuditingPolicyPtrType)(v)
-}
-
-func (*sqlServerExtendedAuditingPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlServerExtendedAuditingPolicy)(nil)).Elem()
-}
-
-func (i *sqlServerExtendedAuditingPolicyPtrType) ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput {
-	return i.ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *sqlServerExtendedAuditingPolicyPtrType) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlServerExtendedAuditingPolicyPtrOutput)
-}
-
-type SqlServerExtendedAuditingPolicyOutput struct{ *pulumi.OutputState }
-
-func (SqlServerExtendedAuditingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerExtendedAuditingPolicy)(nil)).Elem()
-}
-
-func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyOutput() SqlServerExtendedAuditingPolicyOutput {
-	return o
-}
-
-func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyOutput {
-	return o
-}
-
-func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput {
-	return o.ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlServerExtendedAuditingPolicy) *SqlServerExtendedAuditingPolicy {
-		return &v
-	}).(SqlServerExtendedAuditingPolicyPtrOutput)
-}
-
-func (o SqlServerExtendedAuditingPolicyOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *bool { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o SqlServerExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-func (o SqlServerExtendedAuditingPolicyOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-func (o SqlServerExtendedAuditingPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
-}
-
-type SqlServerExtendedAuditingPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (SqlServerExtendedAuditingPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlServerExtendedAuditingPolicy)(nil)).Elem()
-}
-
-func (o SqlServerExtendedAuditingPolicyPtrOutput) ToSqlServerExtendedAuditingPolicyPtrOutput() SqlServerExtendedAuditingPolicyPtrOutput {
-	return o
-}
-
-func (o SqlServerExtendedAuditingPolicyPtrOutput) ToSqlServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlServerExtendedAuditingPolicyPtrOutput {
-	return o
-}
-
-func (o SqlServerExtendedAuditingPolicyPtrOutput) Elem() SqlServerExtendedAuditingPolicyOutput {
-	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) SqlServerExtendedAuditingPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret SqlServerExtendedAuditingPolicy
-		return ret
-	}).(SqlServerExtendedAuditingPolicyOutput)
-}
-
-func (o SqlServerExtendedAuditingPolicyPtrOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.LogMonitoringEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o SqlServerExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RetentionInDays
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccountAccessKey
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccountAccessKeyIsSecondary
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
 type SqlServerIdentity struct {
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -1811,7 +1382,7 @@ type SqlServerIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1902,7 +1473,7 @@ func (o SqlServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
 func (o SqlServerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1951,7 +1522,7 @@ func (o SqlServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
 func (o SqlServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerIdentity) *string {
 		if v == nil {
@@ -2213,11 +1784,11 @@ func (o SqlServerThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.String
 }
 
 type GetServerIdentity struct {
-	// The ID of the Principal (Client) in Azure Active Directory.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The ID of the Azure Active Directory Tenant.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId string `pulumi:"tenantId"`
-	// The identity type of the SQL Server.
+	// The identity type of this Managed Service Identity.
 	Type string `pulumi:"type"`
 }
 
@@ -2233,11 +1804,11 @@ type GetServerIdentityInput interface {
 }
 
 type GetServerIdentityArgs struct {
-	// The ID of the Principal (Client) in Azure Active Directory.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The ID of the Azure Active Directory Tenant.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type of the SQL Server.
+	// The identity type of this Managed Service Identity.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2292,17 +1863,17 @@ func (o GetServerIdentityOutput) ToGetServerIdentityOutputWithContext(ctx contex
 	return o
 }
 
-// The ID of the Principal (Client) in Azure Active Directory.
+// The Principal ID associated with this Managed Service Identity.
 func (o GetServerIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The ID of the Azure Active Directory Tenant.
+// The Tenant ID associated with this Managed Service Identity.
 func (o GetServerIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type of the SQL Server.
+// The identity type of this Managed Service Identity.
 func (o GetServerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2434,8 +2005,6 @@ func (o GetSqlManagedInstanceIdentityArrayOutput) Index(i pulumi.IntInput) GetSq
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseExtendedAuditingPolicyInput)(nil)).Elem(), DatabaseExtendedAuditingPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseExtendedAuditingPolicyPtrInput)(nil)).Elem(), DatabaseExtendedAuditingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseImportInput)(nil)).Elem(), DatabaseImportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseImportPtrInput)(nil)).Elem(), DatabaseImportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseThreatDetectionPolicyInput)(nil)).Elem(), DatabaseThreatDetectionPolicyArgs{})
@@ -2452,8 +2021,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceIdentityInput)(nil)).Elem(), ManagedInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceIdentityPtrInput)(nil)).Elem(), ManagedInstanceIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerExtendedAuditingPolicyInput)(nil)).Elem(), SqlServerExtendedAuditingPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerExtendedAuditingPolicyPtrInput)(nil)).Elem(), SqlServerExtendedAuditingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerIdentityInput)(nil)).Elem(), SqlServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerIdentityPtrInput)(nil)).Elem(), SqlServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerThreatDetectionPolicyInput)(nil)).Elem(), SqlServerThreatDetectionPolicyArgs{})
@@ -2462,8 +2029,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSqlManagedInstanceIdentityInput)(nil)).Elem(), GetSqlManagedInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSqlManagedInstanceIdentityArrayInput)(nil)).Elem(), GetSqlManagedInstanceIdentityArray{})
-	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyOutput{})
-	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseImportOutput{})
 	pulumi.RegisterOutputType(DatabaseImportPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseThreatDetectionPolicyOutput{})
@@ -2480,8 +2045,6 @@ func init() {
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceIdentityPtrOutput{})
-	pulumi.RegisterOutputType(SqlServerExtendedAuditingPolicyOutput{})
-	pulumi.RegisterOutputType(SqlServerExtendedAuditingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SqlServerIdentityOutput{})
 	pulumi.RegisterOutputType(SqlServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SqlServerThreatDetectionPolicyOutput{})

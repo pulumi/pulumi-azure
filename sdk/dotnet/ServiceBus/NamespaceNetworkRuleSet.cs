@@ -112,9 +112,6 @@ namespace Pulumi.Azure.ServiceBus
         [Output("namespaceId")]
         public Output<string> NamespaceId { get; private set; } = null!;
 
-        [Output("namespaceName")]
-        public Output<string> NamespaceName { get; private set; } = null!;
-
         /// <summary>
         /// One or more `network_rules` blocks as defined below.
         /// </summary>
@@ -126,9 +123,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
-
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
@@ -144,7 +138,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public NamespaceNetworkRuleSet(string name, NamespaceNetworkRuleSetArgs? args = null, CustomResourceOptions? options = null)
+        public NamespaceNetworkRuleSet(string name, NamespaceNetworkRuleSetArgs args, CustomResourceOptions? options = null)
             : base("azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet", name, args ?? new NamespaceNetworkRuleSetArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -203,11 +197,8 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("namespaceId")]
-        public Input<string>? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
+        [Input("namespaceId", required: true)]
+        public Input<string> NamespaceId { get; set; } = null!;
 
         [Input("networkRules")]
         private InputList<Inputs.NamespaceNetworkRuleSetNetworkRuleArgs>? _networkRules;
@@ -226,9 +217,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
@@ -267,9 +255,6 @@ namespace Pulumi.Azure.ServiceBus
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
 
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
         [Input("networkRules")]
         private InputList<Inputs.NamespaceNetworkRuleSetNetworkRuleGetArgs>? _networkRules;
 
@@ -287,9 +272,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)

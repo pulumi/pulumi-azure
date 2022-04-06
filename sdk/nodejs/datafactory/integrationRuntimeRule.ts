@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleIntegrationRuntimeRule = new azure.datafactory.IntegrationRuntimeRule("exampleIntegrationRuntimeRule", {
  *     dataFactoryId: exampleFactory.id,
- *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  * });
  * ```
@@ -78,12 +77,6 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * Integration runtime description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -95,10 +88,6 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
      * Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
@@ -125,27 +114,23 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
             resourceInputs["computeType"] = state ? state.computeType : undefined;
             resourceInputs["coreCount"] = state ? state.coreCount : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["timeToLiveMin"] = state ? state.timeToLiveMin : undefined;
             resourceInputs["virtualNetworkEnabled"] = state ? state.virtualNetworkEnabled : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeRuleArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
             }
             resourceInputs["cleanupEnabled"] = args ? args.cleanupEnabled : undefined;
             resourceInputs["computeType"] = args ? args.computeType : undefined;
             resourceInputs["coreCount"] = args ? args.coreCount : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["timeToLiveMin"] = args ? args.timeToLiveMin : undefined;
             resourceInputs["virtualNetworkEnabled"] = args ? args.virtualNetworkEnabled : undefined;
         }
@@ -175,12 +160,6 @@ export interface IntegrationRuntimeRuleState {
      */
     dataFactoryId?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
-    /**
      * Integration runtime description.
      */
     description?: pulumi.Input<string>;
@@ -192,10 +171,6 @@ export interface IntegrationRuntimeRuleState {
      * Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
@@ -225,13 +200,7 @@ export interface IntegrationRuntimeRuleArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */
@@ -244,10 +213,6 @@ export interface IntegrationRuntimeRuleArgs {
      * Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */

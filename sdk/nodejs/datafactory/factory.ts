@@ -62,6 +62,10 @@ export class Factory extends pulumi.CustomResource {
      */
     public readonly customerManagedKeyId!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+     */
+    public readonly customerManagedKeyIdentityId!: pulumi.Output<string | undefined>;
+    /**
      * A `githubConfiguration` block as defined below.
      */
     public readonly githubConfiguration!: pulumi.Output<outputs.datafactory.FactoryGithubConfiguration | undefined>;
@@ -72,7 +76,7 @@ export class Factory extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.datafactory.FactoryIdentity>;
+    public readonly identity!: pulumi.Output<outputs.datafactory.FactoryIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -116,6 +120,7 @@ export class Factory extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as FactoryState | undefined;
             resourceInputs["customerManagedKeyId"] = state ? state.customerManagedKeyId : undefined;
+            resourceInputs["customerManagedKeyIdentityId"] = state ? state.customerManagedKeyIdentityId : undefined;
             resourceInputs["githubConfiguration"] = state ? state.githubConfiguration : undefined;
             resourceInputs["globalParameters"] = state ? state.globalParameters : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -132,6 +137,7 @@ export class Factory extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["customerManagedKeyId"] = args ? args.customerManagedKeyId : undefined;
+            resourceInputs["customerManagedKeyIdentityId"] = args ? args.customerManagedKeyIdentityId : undefined;
             resourceInputs["githubConfiguration"] = args ? args.githubConfiguration : undefined;
             resourceInputs["globalParameters"] = args ? args.globalParameters : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -156,6 +162,10 @@ export interface FactoryState {
      * Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
      */
     customerManagedKeyId?: pulumi.Input<string>;
+    /**
+     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+     */
+    customerManagedKeyIdentityId?: pulumi.Input<string>;
     /**
      * A `githubConfiguration` block as defined below.
      */
@@ -206,6 +216,10 @@ export interface FactoryArgs {
      * Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
      */
     customerManagedKeyId?: pulumi.Input<string>;
+    /**
+     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
+     */
+    customerManagedKeyIdentityId?: pulumi.Input<string>;
     /**
      * A `githubConfiguration` block as defined below.
      */

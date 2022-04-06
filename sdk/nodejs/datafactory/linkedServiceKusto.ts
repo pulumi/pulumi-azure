@@ -44,8 +44,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     clusterName: exampleCluster.name,
  *     databaseName: exampleDatabase.name,
- *     tenantId: exampleFactory.identity.apply(identity => identity.tenantId),
- *     principalId: exampleFactory.identity.apply(identity => identity.principalId),
+ *     tenantId: exampleFactory.identity.apply(identity => identity?.tenantId),
+ *     principalId: exampleFactory.identity.apply(identity => identity?.principalId),
  *     principalType: "App",
  *     role: "Viewer",
  * });

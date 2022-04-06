@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class VirtualMachineIdentity
     {
         /// <summary>
-        /// Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        /// Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         public readonly string Type;
 

@@ -12,8 +12,6 @@ namespace Pulumi.Azure.Sql
     /// <summary>
     /// Manages a Microsoft SQL Azure Database Server.
     /// 
-    /// &gt; **Note:** This resource provides usage of Microsoft SQL Azure Database server using an older `sku` based model. It is recommended going forward to use `azure.mssql.Server` resource which provides support for `vcores`.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -80,9 +78,6 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         [Output("connectionPolicy")]
         public Output<string?> ConnectionPolicy { get; private set; } = null!;
-
-        [Output("extendedAuditingPolicy")]
-        public Output<Outputs.SqlServerExtendedAuditingPolicy> ExtendedAuditingPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
@@ -196,9 +191,6 @@ namespace Pulumi.Azure.Sql
         [Input("connectionPolicy")]
         public Input<string>? ConnectionPolicy { get; set; }
 
-        [Input("extendedAuditingPolicy")]
-        public Input<Inputs.SqlServerExtendedAuditingPolicyArgs>? ExtendedAuditingPolicy { get; set; }
-
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
@@ -271,9 +263,6 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         [Input("connectionPolicy")]
         public Input<string>? ConnectionPolicy { get; set; }
-
-        [Input("extendedAuditingPolicy")]
-        public Input<Inputs.SqlServerExtendedAuditingPolicyGetArgs>? ExtendedAuditingPolicy { get; set; }
 
         /// <summary>
         /// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)

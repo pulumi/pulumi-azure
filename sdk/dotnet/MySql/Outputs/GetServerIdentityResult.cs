@@ -14,16 +14,16 @@ namespace Pulumi.Azure.MySql.Outputs
     public sealed class GetServerIdentityResult
     {
         /// <summary>
-        /// The Client ID of the Service Principal assigned to this MySQL Server.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The ID of the Tenant the Service Principal is assigned in.
-        /// ---
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The Type of Identity used for this MySQL Server.
+        /// The identity type of this Managed Service Identity.
+        /// ---
         /// </summary>
         public readonly string Type;
 

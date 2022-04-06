@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/redis"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -69,11 +69,7 @@ type EnterpriseCluster struct {
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Version of redis the cluster supports, e.g. '6'.
-	//
-	// Deprecated: This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
-	Version pulumi.StringOutput `pulumi:"version"`
-	// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
+	// Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -126,11 +122,7 @@ type enterpriseClusterState struct {
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags map[string]string `pulumi:"tags"`
-	// Version of redis the cluster supports, e.g. '6'.
-	//
-	// Deprecated: This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
-	Version *string `pulumi:"version"`
-	// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
+	// Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -149,11 +141,7 @@ type EnterpriseClusterState struct {
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags pulumi.StringMapInput
-	// Version of redis the cluster supports, e.g. '6'.
-	//
-	// Deprecated: This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
-	Version pulumi.StringPtrInput
-	// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
+	// Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -174,7 +162,7 @@ type enterpriseClusterArgs struct {
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
+	// Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -192,7 +180,7 @@ type EnterpriseClusterArgs struct {
 	SkuName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags pulumi.StringMapInput
-	// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
+	// Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
 	Zones pulumi.StringArrayInput
 }
 

@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ContainerService
     ///             Location = exampleResourceGroup.Location,
     ///             Sku = "Premium",
     ///             AdminEnabled = false,
-    ///             GeoreplicationLocations = 
+    ///             Georeplications = 
     ///             {
     ///                 "East US",
     ///                 "West Europe",

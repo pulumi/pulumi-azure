@@ -664,7 +664,6 @@ class KafkaCluster(pulumi.CustomResource):
                 kafka="2.1",
             ),
             gateway=azure.hdinsight.KafkaClusterGatewayArgs(
-                enabled=True,
                 username="acctestusrgw",
                 password="Password123!",
             ),
@@ -755,7 +754,6 @@ class KafkaCluster(pulumi.CustomResource):
                 kafka="2.1",
             ),
             gateway=azure.hdinsight.KafkaClusterGatewayArgs(
-                enabled=True,
                 username="acctestusrgw",
                 password="Password123!",
             ),

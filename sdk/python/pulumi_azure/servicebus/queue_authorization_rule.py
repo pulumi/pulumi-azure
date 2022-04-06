@@ -13,47 +13,40 @@ __all__ = ['QueueAuthorizationRuleArgs', 'QueueAuthorizationRule']
 @pulumi.input_type
 class QueueAuthorizationRuleArgs:
     def __init__(__self__, *,
+                 queue_id: pulumi.Input[str],
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
-                 queue_id: Optional[pulumi.Input[str]] = None,
-                 queue_name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a QueueAuthorizationRule resource.
+        :param pulumi.Input[str] queue_id: Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] listen: Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
         :param pulumi.Input[bool] manage: Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] queue_id: Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
         """
+        pulumi.set(__self__, "queue_id", queue_id)
         if listen is not None:
             pulumi.set(__self__, "listen", listen)
         if manage is not None:
             pulumi.set(__self__, "manage", manage)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if namespace_name is not None:
-            warnings.warn("""Deprecated in favor of \"queue_id\"""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"queue_id\"""")
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
-        if queue_id is not None:
-            pulumi.set(__self__, "queue_id", queue_id)
-        if queue_name is not None:
-            warnings.warn("""Deprecated in favor of \"queue_id\"""", DeprecationWarning)
-            pulumi.log.warn("""queue_name is deprecated: Deprecated in favor of \"queue_id\"""")
-        if queue_name is not None:
-            pulumi.set(__self__, "queue_name", queue_name)
-        if resource_group_name is not None:
-            warnings.warn("""Deprecated in favor of \"queue_id\"""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"queue_id\"""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if send is not None:
             pulumi.set(__self__, "send", send)
+
+    @property
+    @pulumi.getter(name="queueId")
+    def queue_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "queue_id")
+
+    @queue_id.setter
+    def queue_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "queue_id", value)
 
     @property
     @pulumi.getter
@@ -92,45 +85,6 @@ class QueueAuthorizationRuleArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
-    @pulumi.getter(name="queueId")
-    def queue_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "queue_id")
-
-    @queue_id.setter
-    def queue_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "queue_id", value)
-
-    @property
-    @pulumi.getter(name="queueName")
-    def queue_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "queue_name")
-
-    @queue_name.setter
-    def queue_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "queue_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter
     def send(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -149,13 +103,10 @@ class _QueueAuthorizationRuleState:
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  primary_connection_string: Optional[pulumi.Input[str]] = None,
                  primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
                  queue_id: Optional[pulumi.Input[str]] = None,
-                 queue_name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_connection_string: Optional[pulumi.Input[str]] = None,
                  secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None,
@@ -180,11 +131,6 @@ class _QueueAuthorizationRuleState:
             pulumi.set(__self__, "manage", manage)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if namespace_name is not None:
-            warnings.warn("""Deprecated in favor of \"queue_id\"""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"queue_id\"""")
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
         if primary_connection_string is not None:
             pulumi.set(__self__, "primary_connection_string", primary_connection_string)
         if primary_connection_string_alias is not None:
@@ -193,16 +139,6 @@ class _QueueAuthorizationRuleState:
             pulumi.set(__self__, "primary_key", primary_key)
         if queue_id is not None:
             pulumi.set(__self__, "queue_id", queue_id)
-        if queue_name is not None:
-            warnings.warn("""Deprecated in favor of \"queue_id\"""", DeprecationWarning)
-            pulumi.log.warn("""queue_name is deprecated: Deprecated in favor of \"queue_id\"""")
-        if queue_name is not None:
-            pulumi.set(__self__, "queue_name", queue_name)
-        if resource_group_name is not None:
-            warnings.warn("""Deprecated in favor of \"queue_id\"""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"queue_id\"""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_connection_string is not None:
             pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
         if secondary_connection_string_alias is not None:
@@ -247,15 +183,6 @@ class _QueueAuthorizationRuleState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_name", value)
 
     @property
     @pulumi.getter(name="primaryConnectionString")
@@ -304,24 +231,6 @@ class _QueueAuthorizationRuleState:
     @queue_id.setter
     def queue_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "queue_id", value)
-
-    @property
-    @pulumi.getter(name="queueName")
-    def queue_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "queue_name")
-
-    @queue_name.setter
-    def queue_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "queue_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="secondaryConnectionString")
@@ -380,10 +289,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  queue_id: Optional[pulumi.Input[str]] = None,
-                 queue_name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -433,7 +339,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[QueueAuthorizationRuleArgs] = None,
+                 args: QueueAuthorizationRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Authorization Rule for a ServiceBus Queue.
@@ -488,10 +394,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  queue_id: Optional[pulumi.Input[str]] = None,
-                 queue_name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -508,19 +411,9 @@ class QueueAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["listen"] = listen
             __props__.__dict__["manage"] = manage
             __props__.__dict__["name"] = name
-            if namespace_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"queue_id\"""", DeprecationWarning)
-                pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"queue_id\"""")
-            __props__.__dict__["namespace_name"] = namespace_name
+            if queue_id is None and not opts.urn:
+                raise TypeError("Missing required property 'queue_id'")
             __props__.__dict__["queue_id"] = queue_id
-            if queue_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"queue_id\"""", DeprecationWarning)
-                pulumi.log.warn("""queue_name is deprecated: Deprecated in favor of \"queue_id\"""")
-            __props__.__dict__["queue_name"] = queue_name
-            if resource_group_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"queue_id\"""", DeprecationWarning)
-                pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"queue_id\"""")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["send"] = send
             __props__.__dict__["primary_connection_string"] = None
             __props__.__dict__["primary_connection_string_alias"] = None
@@ -543,13 +436,10 @@ class QueueAuthorizationRule(pulumi.CustomResource):
             listen: Optional[pulumi.Input[bool]] = None,
             manage: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            namespace_name: Optional[pulumi.Input[str]] = None,
             primary_connection_string: Optional[pulumi.Input[str]] = None,
             primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
             queue_id: Optional[pulumi.Input[str]] = None,
-            queue_name: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_connection_string: Optional[pulumi.Input[str]] = None,
             secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
             secondary_key: Optional[pulumi.Input[str]] = None,
@@ -580,13 +470,10 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         __props__.__dict__["listen"] = listen
         __props__.__dict__["manage"] = manage
         __props__.__dict__["name"] = name
-        __props__.__dict__["namespace_name"] = namespace_name
         __props__.__dict__["primary_connection_string"] = primary_connection_string
         __props__.__dict__["primary_connection_string_alias"] = primary_connection_string_alias
         __props__.__dict__["primary_key"] = primary_key
         __props__.__dict__["queue_id"] = queue_id
-        __props__.__dict__["queue_name"] = queue_name
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secondary_connection_string"] = secondary_connection_string
         __props__.__dict__["secondary_connection_string_alias"] = secondary_connection_string_alias
         __props__.__dict__["secondary_key"] = secondary_key
@@ -616,11 +503,6 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "namespace_name")
 
     @property
     @pulumi.getter(name="primaryConnectionString")
@@ -653,16 +535,6 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "queue_id")
-
-    @property
-    @pulumi.getter(name="queueName")
-    def queue_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "queue_name")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="secondaryConnectionString")

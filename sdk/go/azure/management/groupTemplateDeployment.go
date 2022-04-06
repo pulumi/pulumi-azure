@@ -25,7 +25,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/management"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -57,7 +57,7 @@ import (
 // import (
 // 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/management"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -95,8 +95,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/management"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

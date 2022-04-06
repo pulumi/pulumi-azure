@@ -97,10 +97,6 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     public readonly namespaceId!: pulumi.Output<string>;
     /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    public readonly namespaceName!: pulumi.Output<string>;
-    /**
      * One or more `networkRules` blocks as defined below.
      */
     public readonly networkRules!: pulumi.Output<outputs.servicebus.NamespaceNetworkRuleSetNetworkRule[] | undefined>;
@@ -108,10 +104,6 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      * Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
      */
@@ -124,7 +116,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: NamespaceNetworkRuleSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: NamespaceNetworkRuleSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamespaceNetworkRuleSetArgs | NamespaceNetworkRuleSetState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -133,20 +125,19 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
             resourceInputs["ipRules"] = state ? state.ipRules : undefined;
             resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["networkRules"] = state ? state.networkRules : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["trustedServicesAllowed"] = state ? state.trustedServicesAllowed : undefined;
         } else {
             const args = argsOrState as NamespaceNetworkRuleSetArgs | undefined;
+            if ((!args || args.namespaceId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'namespaceId'");
+            }
             resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
             resourceInputs["ipRules"] = args ? args.ipRules : undefined;
             resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["networkRules"] = args ? args.networkRules : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["trustedServicesAllowed"] = args ? args.trustedServicesAllowed : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -171,10 +162,6 @@ export interface NamespaceNetworkRuleSetState {
      */
     namespaceId?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    namespaceName?: pulumi.Input<string>;
-    /**
      * One or more `networkRules` blocks as defined below.
      */
     networkRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NamespaceNetworkRuleSetNetworkRule>[]>;
@@ -182,10 +169,6 @@ export interface NamespaceNetworkRuleSetState {
      * Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
      */
@@ -207,11 +190,7 @@ export interface NamespaceNetworkRuleSetArgs {
     /**
      * Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
      */
-    namespaceId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    namespaceName?: pulumi.Input<string>;
+    namespaceId: pulumi.Input<string>;
     /**
      * One or more `networkRules` blocks as defined below.
      */
@@ -220,10 +199,6 @@ export interface NamespaceNetworkRuleSetArgs {
      * Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
      */

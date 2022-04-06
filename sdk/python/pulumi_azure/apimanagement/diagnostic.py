@@ -22,7 +22,6 @@ class DiagnosticArgs:
                  always_log_errors: Optional[pulumi.Input[bool]] = None,
                  backend_request: Optional[pulumi.Input['DiagnosticBackendRequestArgs']] = None,
                  backend_response: Optional[pulumi.Input['DiagnosticBackendResponseArgs']] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_request: Optional[pulumi.Input['DiagnosticFrontendRequestArgs']] = None,
                  frontend_response: Optional[pulumi.Input['DiagnosticFrontendResponseArgs']] = None,
                  http_correlation_protocol: Optional[pulumi.Input[str]] = None,
@@ -57,11 +56,6 @@ class DiagnosticArgs:
             pulumi.set(__self__, "backend_request", backend_request)
         if backend_response is not None:
             pulumi.set(__self__, "backend_response", backend_response)
-        if enabled is not None:
-            warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""enabled is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider""")
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
         if frontend_request is not None:
             pulumi.set(__self__, "frontend_request", frontend_request)
         if frontend_response is not None:
@@ -162,15 +156,6 @@ class DiagnosticArgs:
         pulumi.set(self, "backend_response", value)
 
     @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
     @pulumi.getter(name="frontendRequest")
     def frontend_request(self) -> Optional[pulumi.Input['DiagnosticFrontendRequestArgs']]:
         """
@@ -263,7 +248,6 @@ class _DiagnosticState:
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  backend_request: Optional[pulumi.Input['DiagnosticBackendRequestArgs']] = None,
                  backend_response: Optional[pulumi.Input['DiagnosticBackendResponseArgs']] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_request: Optional[pulumi.Input['DiagnosticFrontendRequestArgs']] = None,
                  frontend_response: Optional[pulumi.Input['DiagnosticFrontendResponseArgs']] = None,
                  http_correlation_protocol: Optional[pulumi.Input[str]] = None,
@@ -300,11 +284,6 @@ class _DiagnosticState:
             pulumi.set(__self__, "backend_request", backend_request)
         if backend_response is not None:
             pulumi.set(__self__, "backend_response", backend_response)
-        if enabled is not None:
-            warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""enabled is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider""")
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
         if frontend_request is not None:
             pulumi.set(__self__, "frontend_request", frontend_request)
         if frontend_response is not None:
@@ -383,15 +362,6 @@ class _DiagnosticState:
     @backend_response.setter
     def backend_response(self, value: Optional[pulumi.Input['DiagnosticBackendResponseArgs']]):
         pulumi.set(self, "backend_response", value)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="frontendRequest")
@@ -512,7 +482,6 @@ class Diagnostic(pulumi.CustomResource):
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  backend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArgs']]] = None,
                  backend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArgs']]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArgs']]] = None,
                  frontend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArgs']]] = None,
                  http_correlation_protocol: Optional[pulumi.Input[str]] = None,
@@ -722,7 +691,6 @@ class Diagnostic(pulumi.CustomResource):
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  backend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArgs']]] = None,
                  backend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArgs']]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArgs']]] = None,
                  frontend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArgs']]] = None,
                  http_correlation_protocol: Optional[pulumi.Input[str]] = None,
@@ -753,10 +721,6 @@ class Diagnostic(pulumi.CustomResource):
             __props__.__dict__["api_management_name"] = api_management_name
             __props__.__dict__["backend_request"] = backend_request
             __props__.__dict__["backend_response"] = backend_response
-            if enabled is not None and not opts.urn:
-                warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-                pulumi.log.warn("""enabled is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider""")
-            __props__.__dict__["enabled"] = enabled
             __props__.__dict__["frontend_request"] = frontend_request
             __props__.__dict__["frontend_response"] = frontend_response
             __props__.__dict__["http_correlation_protocol"] = http_correlation_protocol
@@ -785,7 +749,6 @@ class Diagnostic(pulumi.CustomResource):
             api_management_name: Optional[pulumi.Input[str]] = None,
             backend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArgs']]] = None,
             backend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArgs']]] = None,
-            enabled: Optional[pulumi.Input[bool]] = None,
             frontend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArgs']]] = None,
             frontend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArgs']]] = None,
             http_correlation_protocol: Optional[pulumi.Input[str]] = None,
@@ -826,7 +789,6 @@ class Diagnostic(pulumi.CustomResource):
         __props__.__dict__["api_management_name"] = api_management_name
         __props__.__dict__["backend_request"] = backend_request
         __props__.__dict__["backend_response"] = backend_response
-        __props__.__dict__["enabled"] = enabled
         __props__.__dict__["frontend_request"] = frontend_request
         __props__.__dict__["frontend_response"] = frontend_response
         __props__.__dict__["http_correlation_protocol"] = http_correlation_protocol
@@ -877,11 +839,6 @@ class Diagnostic(pulumi.CustomResource):
         A `backend_response` block as defined below.
         """
         return pulumi.get(self, "backend_response")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[bool]]:
-        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="frontendRequest")

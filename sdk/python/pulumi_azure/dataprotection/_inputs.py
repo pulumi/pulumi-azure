@@ -267,7 +267,7 @@ class BackupVaultIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
         """
@@ -281,7 +281,7 @@ class BackupVaultIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 

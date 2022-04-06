@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * const current = azure.core.getClientConfig({});
  * const exampleLinkedServiceDataLakeStorageGen2 = new azure.datafactory.LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     servicePrincipalId: current.then(current => current.clientId),
  *     servicePrincipalKey: "exampleKey",
@@ -78,12 +77,6 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * The description for the Data Factory Linked Service.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -100,10 +93,6 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
      */
@@ -145,12 +134,10 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
             resourceInputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
             resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
@@ -159,8 +146,8 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             resourceInputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
         } else {
             const args = argsOrState as LinkedServiceDataLakeStorageGen2Args | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
             }
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
@@ -168,12 +155,10 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
             resourceInputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
             resourceInputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
@@ -203,12 +188,6 @@ export interface LinkedServiceDataLakeStorageGen2State {
      */
     dataFactoryId?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
-    /**
      * The description for the Data Factory Linked Service.
      */
     description?: pulumi.Input<string>;
@@ -225,10 +204,6 @@ export interface LinkedServiceDataLakeStorageGen2State {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
      */
@@ -270,13 +245,7 @@ export interface LinkedServiceDataLakeStorageGen2Args {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
@@ -294,10 +263,6 @@ export interface LinkedServiceDataLakeStorageGen2Args {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
      */

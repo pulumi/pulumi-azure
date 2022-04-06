@@ -14,15 +14,15 @@ namespace Pulumi.Azure.StreamAnalytics.Outputs
     public sealed class JobIdentity
     {
         /// <summary>
-        /// The ID of the Principal (Client) in Azure Active Directory.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
         /// </summary>
         public readonly string Type;
 

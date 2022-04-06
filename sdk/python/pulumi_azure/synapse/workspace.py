@@ -15,6 +15,7 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 @pulumi.input_type
 class WorkspaceArgs:
     def __init__(__self__, *,
+                 identity: pulumi.Input['WorkspaceIdentityArgs'],
                  resource_group_name: pulumi.Input[str],
                  sql_administrator_login: pulumi.Input[str],
                  sql_administrator_login_password: pulumi.Input[str],
@@ -37,6 +38,7 @@ class WorkspaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
+        :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
@@ -58,6 +60,7 @@ class WorkspaceArgs:
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
         """
+        pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sql_administrator_login", sql_administrator_login)
         pulumi.set(__self__, "sql_administrator_login_password", sql_administrator_login_password)
@@ -94,6 +97,18 @@ class WorkspaceArgs:
             pulumi.set(__self__, "sql_identity_control_enabled", sql_identity_control_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input['WorkspaceIdentityArgs']:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input['WorkspaceIdentityArgs']):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -346,7 +361,7 @@ class _WorkspaceState:
                  customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  github_repo: Optional[pulumi.Input['WorkspaceGithubRepoArgs']] = None,
-                 identities: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceIdentityArgs']]]] = None,
+                 identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
                  linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -370,7 +385,7 @@ class _WorkspaceState:
         :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkspaceIdentityArgs']]] identities: An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+        :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed Aad Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
@@ -400,8 +415,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "data_exfiltration_protection_enabled", data_exfiltration_protection_enabled)
         if github_repo is not None:
             pulumi.set(__self__, "github_repo", github_repo)
-        if identities is not None:
-            pulumi.set(__self__, "identities", identities)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if linking_allowed_for_aad_tenant_ids is not None:
             pulumi.set(__self__, "linking_allowed_for_aad_tenant_ids", linking_allowed_for_aad_tenant_ids)
         if location is not None:
@@ -517,15 +532,15 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter
-    def identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceIdentityArgs']]]]:
+    def identity(self) -> Optional[pulumi.Input['WorkspaceIdentityArgs']]:
         """
-        An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+        An `identity` block as defined below.
         """
-        return pulumi.get(self, "identities")
+        return pulumi.get(self, "identity")
 
-    @identities.setter
-    def identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceIdentityArgs']]]]):
-        pulumi.set(self, "identities", value)
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['WorkspaceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="linkingAllowedForAadTenantIds")
@@ -707,6 +722,7 @@ class Workspace(pulumi.CustomResource):
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
                  linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -750,6 +766,9 @@ class Workspace(pulumi.CustomResource):
                 login="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
                 tenant_id="00000000-0000-0000-0000-000000000000",
+            ),
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
             ),
             tags={
                 "Env": "production",
@@ -806,13 +825,16 @@ class Workspace(pulumi.CustomResource):
                 key_versionless_id=example_key.versionless_id,
                 key_name="enckey",
             ),
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ),
             tags={
                 "Env": "production",
             })
         workspace_policy = azure.keyvault.AccessPolicy("workspacePolicy",
             key_vault_id=example_key_vault.id,
-            tenant_id=example_workspace.identities[0].tenant_id,
-            object_id=example_workspace.identities[0].principal_id,
+            tenant_id=example_workspace.identity.tenant_id,
+            object_id=example_workspace.identity.principal_id,
             key_permissions=[
                 "Get",
                 "WrapKey",
@@ -848,6 +870,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed Aad Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
@@ -898,6 +921,9 @@ class Workspace(pulumi.CustomResource):
                 object_id="00000000-0000-0000-0000-000000000000",
                 tenant_id="00000000-0000-0000-0000-000000000000",
             ),
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ),
             tags={
                 "Env": "production",
             })
@@ -953,13 +979,16 @@ class Workspace(pulumi.CustomResource):
                 key_versionless_id=example_key.versionless_id,
                 key_name="enckey",
             ),
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ),
             tags={
                 "Env": "production",
             })
         workspace_policy = azure.keyvault.AccessPolicy("workspacePolicy",
             key_vault_id=example_key_vault.id,
-            tenant_id=example_workspace.identities[0].tenant_id,
-            object_id=example_workspace.identities[0].principal_id,
+            tenant_id=example_workspace.identity.tenant_id,
+            object_id=example_workspace.identity.principal_id,
             key_permissions=[
                 "Get",
                 "WrapKey",
@@ -1008,6 +1037,7 @@ class Workspace(pulumi.CustomResource):
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
                  linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1040,6 +1070,9 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["data_exfiltration_protection_enabled"] = data_exfiltration_protection_enabled
             __props__.__dict__["github_repo"] = github_repo
+            if identity is None and not opts.urn:
+                raise TypeError("Missing required property 'identity'")
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["linking_allowed_for_aad_tenant_ids"] = linking_allowed_for_aad_tenant_ids
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
@@ -1063,7 +1096,6 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["storage_data_lake_gen2_filesystem_id"] = storage_data_lake_gen2_filesystem_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["connectivity_endpoints"] = None
-            __props__.__dict__["identities"] = None
         super(Workspace, __self__).__init__(
             'azure:synapse/workspace:Workspace',
             resource_name,
@@ -1081,7 +1113,7 @@ class Workspace(pulumi.CustomResource):
             customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
             data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
             github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
-            identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
             linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1110,7 +1142,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]] identities: An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed Aad Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
@@ -1137,7 +1169,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["customer_managed_key"] = customer_managed_key
         __props__.__dict__["data_exfiltration_protection_enabled"] = data_exfiltration_protection_enabled
         __props__.__dict__["github_repo"] = github_repo
-        __props__.__dict__["identities"] = identities
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["linking_allowed_for_aad_tenant_ids"] = linking_allowed_for_aad_tenant_ids
         __props__.__dict__["location"] = location
         __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
@@ -1212,11 +1244,11 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identities(self) -> pulumi.Output[Sequence['outputs.WorkspaceIdentity']]:
+    def identity(self) -> pulumi.Output['outputs.WorkspaceIdentity']:
         """
-        An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+        An `identity` block as defined below.
         """
-        return pulumi.get(self, "identities")
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="linkingAllowedForAadTenantIds")

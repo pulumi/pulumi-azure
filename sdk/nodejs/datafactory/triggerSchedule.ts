@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * });
  * const testTriggerSchedule = new azure.datafactory.TriggerSchedule("testTriggerSchedule", {
  *     dataFactoryId: azurerm_data_factory.test.id,
- *     resourceGroupName: azurerm_resource_group.test.name,
  *     pipelineName: testPipeline.name,
  *     interval: 5,
  *     frequency: "Day",
@@ -71,7 +70,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
     /**
      * Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
      */
-    public readonly activated!: pulumi.Output<boolean>;
+    public readonly activated!: pulumi.Output<boolean | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Schedule Trigger.
      */
@@ -80,12 +79,6 @@ export class TriggerSchedule extends pulumi.CustomResource {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
     /**
      * The Schedule Trigger's description.
      */
@@ -115,10 +108,6 @@ export class TriggerSchedule extends pulumi.CustomResource {
      */
     public readonly pipelineParameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
      */
     public readonly schedule!: pulumi.Output<outputs.datafactory.TriggerScheduleSchedule | undefined>;
@@ -143,7 +132,6 @@ export class TriggerSchedule extends pulumi.CustomResource {
             resourceInputs["activated"] = state ? state.activated : undefined;
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["endTime"] = state ? state.endTime : undefined;
             resourceInputs["frequency"] = state ? state.frequency : undefined;
@@ -151,21 +139,19 @@ export class TriggerSchedule extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["pipelineName"] = state ? state.pipelineName : undefined;
             resourceInputs["pipelineParameters"] = state ? state.pipelineParameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
             resourceInputs["startTime"] = state ? state.startTime : undefined;
         } else {
             const args = argsOrState as TriggerScheduleArgs | undefined;
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
+            }
             if ((!args || args.pipelineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pipelineName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["activated"] = args ? args.activated : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["endTime"] = args ? args.endTime : undefined;
             resourceInputs["frequency"] = args ? args.frequency : undefined;
@@ -173,7 +159,6 @@ export class TriggerSchedule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
             resourceInputs["pipelineParameters"] = args ? args.pipelineParameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["startTime"] = args ? args.startTime : undefined;
         }
@@ -198,12 +183,6 @@ export interface TriggerScheduleState {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
     dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
     /**
      * The Schedule Trigger's description.
      */
@@ -233,10 +212,6 @@ export interface TriggerScheduleState {
      */
     pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
      */
     schedule?: pulumi.Input<inputs.datafactory.TriggerScheduleSchedule>;
@@ -261,13 +236,7 @@ export interface TriggerScheduleArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The Schedule Trigger's description.
      */
@@ -296,10 +265,6 @@ export interface TriggerScheduleArgs {
      * The pipeline parameters that the trigger will act upon.
      */
     pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
      */

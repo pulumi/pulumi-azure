@@ -18,8 +18,6 @@ class RuleArgs:
                  frontend_port: pulumi.Input[int],
                  loadbalancer_id: pulumi.Input[str],
                  protocol: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
-                 backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
                  enable_floating_ip: Optional[pulumi.Input[bool]] = None,
@@ -35,7 +33,6 @@ class RuleArgs:
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
         :param pulumi.Input[bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
         :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
@@ -50,12 +47,6 @@ class RuleArgs:
         pulumi.set(__self__, "frontend_port", frontend_port)
         pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
         pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if backend_address_pool_id is not None:
-            warnings.warn("""This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""backend_address_pool_id is deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider""")
-        if backend_address_pool_id is not None:
-            pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
         if backend_address_pool_ids is not None:
             pulumi.set(__self__, "backend_address_pool_ids", backend_address_pool_ids)
         if disable_outbound_snat is not None:
@@ -132,27 +123,6 @@ class RuleArgs:
     @protocol.setter
     def protocol(self, value: pulumi.Input[str]):
         pulumi.set(self, "protocol", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource group in which to create the resource.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="backendAddressPoolId")
-    def backend_address_pool_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "backend_address_pool_id")
-
-    @backend_address_pool_id.setter
-    def backend_address_pool_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "backend_address_pool_id", value)
 
     @property
     @pulumi.getter(name="backendAddressPoolIds")
@@ -254,7 +224,6 @@ class RuleArgs:
 @pulumi.input_type
 class _RuleState:
     def __init__(__self__, *,
-                 backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backend_port: Optional[pulumi.Input[int]] = None,
                  disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
@@ -268,8 +237,7 @@ class _RuleState:
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  probe_id: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None):
+                 protocol: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
@@ -285,13 +253,7 @@ class _RuleState:
         :param pulumi.Input[str] name: Specifies the name of the LB Rule.
         :param pulumi.Input[str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         """
-        if backend_address_pool_id is not None:
-            warnings.warn("""This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""backend_address_pool_id is deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider""")
-        if backend_address_pool_id is not None:
-            pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
         if backend_address_pool_ids is not None:
             pulumi.set(__self__, "backend_address_pool_ids", backend_address_pool_ids)
         if backend_port is not None:
@@ -320,17 +282,6 @@ class _RuleState:
             pulumi.set(__self__, "probe_id", probe_id)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
-
-    @property
-    @pulumi.getter(name="backendAddressPoolId")
-    def backend_address_pool_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "backend_address_pool_id")
-
-    @backend_address_pool_id.setter
-    def backend_address_pool_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "backend_address_pool_id", value)
 
     @property
     @pulumi.getter(name="backendAddressPoolIds")
@@ -497,25 +448,12 @@ class _RuleState:
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
 
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the resource group in which to create the resource.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
 
 class Rule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backend_port: Optional[pulumi.Input[int]] = None,
                  disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
@@ -529,7 +467,6 @@ class Rule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  probe_id: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Load Balancer Rule.
@@ -555,7 +492,6 @@ class Rule(pulumi.CustomResource):
                 public_ip_address_id=example_public_ip.id,
             )])
         example_rule = azure.lb.Rule("exampleRule",
-            resource_group_name=example_resource_group.name,
             loadbalancer_id=example_load_balancer.id,
             protocol="Tcp",
             frontend_port=3389,
@@ -586,7 +522,6 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the LB Rule.
         :param pulumi.Input[str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         """
         ...
     @overload
@@ -618,7 +553,6 @@ class Rule(pulumi.CustomResource):
                 public_ip_address_id=example_public_ip.id,
             )])
         example_rule = azure.lb.Rule("exampleRule",
-            resource_group_name=example_resource_group.name,
             loadbalancer_id=example_load_balancer.id,
             protocol="Tcp",
             frontend_port=3389,
@@ -649,7 +583,6 @@ class Rule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backend_port: Optional[pulumi.Input[int]] = None,
                  disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
@@ -663,7 +596,6 @@ class Rule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  probe_id: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -676,10 +608,6 @@ class Rule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RuleArgs.__new__(RuleArgs)
 
-            if backend_address_pool_id is not None and not opts.urn:
-                warnings.warn("""This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider""", DeprecationWarning)
-                pulumi.log.warn("""backend_address_pool_id is deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider""")
-            __props__.__dict__["backend_address_pool_id"] = backend_address_pool_id
             __props__.__dict__["backend_address_pool_ids"] = backend_address_pool_ids
             if backend_port is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_port'")
@@ -703,9 +631,6 @@ class Rule(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["frontend_ip_configuration_id"] = None
         super(Rule, __self__).__init__(
             'azure:lb/rule:Rule',
@@ -717,7 +642,6 @@ class Rule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backend_address_pool_id: Optional[pulumi.Input[str]] = None,
             backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             backend_port: Optional[pulumi.Input[int]] = None,
             disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
@@ -731,8 +655,7 @@ class Rule(pulumi.CustomResource):
             loadbalancer_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             probe_id: Optional[pulumi.Input[str]] = None,
-            protocol: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'Rule':
+            protocol: Optional[pulumi.Input[str]] = None) -> 'Rule':
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -753,13 +676,11 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the LB Rule.
         :param pulumi.Input[str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _RuleState.__new__(_RuleState)
 
-        __props__.__dict__["backend_address_pool_id"] = backend_address_pool_id
         __props__.__dict__["backend_address_pool_ids"] = backend_address_pool_ids
         __props__.__dict__["backend_port"] = backend_port
         __props__.__dict__["disable_outbound_snat"] = disable_outbound_snat
@@ -774,17 +695,11 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["probe_id"] = probe_id
         __props__.__dict__["protocol"] = protocol
-        __props__.__dict__["resource_group_name"] = resource_group_name
         return Rule(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="backendAddressPoolId")
-    def backend_address_pool_id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "backend_address_pool_id")
-
-    @property
     @pulumi.getter(name="backendAddressPoolIds")
-    def backend_address_pool_ids(self) -> pulumi.Output[Sequence[str]]:
+    def backend_address_pool_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
         """
@@ -890,12 +805,4 @@ class Rule(pulumi.CustomResource):
         The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         """
         return pulumi.get(self, "protocol")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the resource group in which to create the resource.
-        """
-        return pulumi.get(self, "resource_group_name")
 

@@ -14,10 +14,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterDefaultNodePool
     {
         /// <summary>
-        /// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly ImmutableArray<string> AvailabilityZones;
-        /// <summary>
         /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         /// </summary>
         public readonly bool? EnableAutoScaling;
@@ -123,11 +119,13 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? VnetSubnetId;
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private KubernetesClusterDefaultNodePool(
-            ImmutableArray<string> availabilityZones,
-
             bool? enableAutoScaling,
 
             bool? enableHostEncryption,
@@ -182,9 +180,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string vmSize,
 
-            string? vnetSubnetId)
+            string? vnetSubnetId,
+
+            ImmutableArray<string> zones)
         {
-            AvailabilityZones = availabilityZones;
             EnableAutoScaling = enableAutoScaling;
             EnableHostEncryption = enableHostEncryption;
             EnableNodePublicIp = enableNodePublicIp;
@@ -213,6 +212,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             UpgradeSettings = upgradeSettings;
             VmSize = vmSize;
             VnetSubnetId = vnetSubnetId;
+            Zones = zones;
         }
     }
 }

@@ -99,9 +99,9 @@ namespace Pulumi.Azure.ApiManagement
     ///         var exampleCustomDomain = new Azure.ApiManagement.CustomDomain("exampleCustomDomain", new Azure.ApiManagement.CustomDomainArgs
     ///         {
     ///             ApiManagementId = exampleService.Id,
-    ///             Proxies = 
+    ///             Gateways = 
     ///             {
-    ///                 new Azure.ApiManagement.Inputs.CustomDomainProxyArgs
+    ///                 new Azure.ApiManagement.Inputs.CustomDomainGatewayArgs
     ///                 {
     ///                     HostName = "api.example.com",
     ///                     KeyVaultId = azurerm_key_vault_certificate.Test.Secret_id,
@@ -145,6 +145,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<ImmutableArray<Outputs.CustomDomainDeveloperPortal>> DeveloperPortals { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `gateway` blocks as defined below.
+        /// </summary>
+        [Output("gateways")]
+        public Output<ImmutableArray<Outputs.CustomDomainGateway>> Gateways { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `management` blocks as defined below.
         /// </summary>
         [Output("managements")]
@@ -155,12 +161,6 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Output("portals")]
         public Output<ImmutableArray<Outputs.CustomDomainPortal>> Portals { get; private set; } = null!;
-
-        /// <summary>
-        /// One or more `proxy` blocks as defined below.
-        /// </summary>
-        [Output("proxies")]
-        public Output<ImmutableArray<Outputs.CustomDomainProxy>> Proxies { get; private set; } = null!;
 
         /// <summary>
         /// One or more `scm` blocks as defined below.
@@ -232,6 +232,18 @@ namespace Pulumi.Azure.ApiManagement
             set => _developerPortals = value;
         }
 
+        [Input("gateways")]
+        private InputList<Inputs.CustomDomainGatewayArgs>? _gateways;
+
+        /// <summary>
+        /// One or more `gateway` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.CustomDomainGatewayArgs> Gateways
+        {
+            get => _gateways ?? (_gateways = new InputList<Inputs.CustomDomainGatewayArgs>());
+            set => _gateways = value;
+        }
+
         [Input("managements")]
         private InputList<Inputs.CustomDomainManagementArgs>? _managements;
 
@@ -254,19 +266,6 @@ namespace Pulumi.Azure.ApiManagement
         {
             get => _portals ?? (_portals = new InputList<Inputs.CustomDomainPortalArgs>());
             set => _portals = value;
-        }
-
-        [Input("proxies")]
-        private InputList<Inputs.CustomDomainProxyArgs>? _proxies;
-
-        /// <summary>
-        /// One or more `proxy` blocks as defined below.
-        /// </summary>
-        [Obsolete(@"`proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider")]
-        public InputList<Inputs.CustomDomainProxyArgs> Proxies
-        {
-            get => _proxies ?? (_proxies = new InputList<Inputs.CustomDomainProxyArgs>());
-            set => _proxies = value;
         }
 
         [Input("scms")]
@@ -306,6 +305,18 @@ namespace Pulumi.Azure.ApiManagement
             set => _developerPortals = value;
         }
 
+        [Input("gateways")]
+        private InputList<Inputs.CustomDomainGatewayGetArgs>? _gateways;
+
+        /// <summary>
+        /// One or more `gateway` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.CustomDomainGatewayGetArgs> Gateways
+        {
+            get => _gateways ?? (_gateways = new InputList<Inputs.CustomDomainGatewayGetArgs>());
+            set => _gateways = value;
+        }
+
         [Input("managements")]
         private InputList<Inputs.CustomDomainManagementGetArgs>? _managements;
 
@@ -328,19 +339,6 @@ namespace Pulumi.Azure.ApiManagement
         {
             get => _portals ?? (_portals = new InputList<Inputs.CustomDomainPortalGetArgs>());
             set => _portals = value;
-        }
-
-        [Input("proxies")]
-        private InputList<Inputs.CustomDomainProxyGetArgs>? _proxies;
-
-        /// <summary>
-        /// One or more `proxy` blocks as defined below.
-        /// </summary>
-        [Obsolete(@"`proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider")]
-        public InputList<Inputs.CustomDomainProxyGetArgs> Proxies
-        {
-            get => _proxies ?? (_proxies = new InputList<Inputs.CustomDomainProxyGetArgs>());
-            set => _proxies = value;
         }
 
         [Input("scms")]

@@ -2157,11 +2157,13 @@ func (o GroupExposedPortArrayOutput) Index(i pulumi.IntInput) GroupExposedPortOu
 }
 
 type GroupIdentity struct {
-	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string  `pulumi:"principalId"`
-	TenantId    *string  `pulumi:"tenantId"`
-	// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -2177,11 +2179,13 @@ type GroupIdentityInput interface {
 }
 
 type GroupIdentityArgs struct {
-	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2262,20 +2266,22 @@ func (o GroupIdentityOutput) ToGroupIdentityPtrOutputWithContext(ctx context.Con
 	}).(GroupIdentityPtrOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 func (o GroupIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID associated with this Managed Service Identity.
 func (o GroupIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o GroupIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
+// Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o GroupIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2304,7 +2310,7 @@ func (o GroupIdentityPtrOutput) Elem() GroupIdentityOutput {
 	}).(GroupIdentityOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 func (o GroupIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupIdentity) []string {
 		if v == nil {
@@ -2314,6 +2320,7 @@ func (o GroupIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID associated with this Managed Service Identity.
 func (o GroupIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupIdentity) *string {
 		if v == nil {
@@ -2323,6 +2330,7 @@ func (o GroupIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o GroupIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupIdentity) *string {
 		if v == nil {
@@ -2332,7 +2340,7 @@ func (o GroupIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
+// Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o GroupIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupIdentity) *string {
 		if v == nil {
@@ -2592,2192 +2600,6 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringP
 		}
 		return &v.SubnetName
 	}).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAddonProfile struct {
-	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
-	//
-	// Deprecated: `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
-	AciConnectorLinux *KubernetesClusterAddonProfileAciConnectorLinux `pulumi:"aciConnectorLinux"`
-	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
-	AzureKeyvaultSecretsProvider *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider `pulumi:"azureKeyvaultSecretsProvider"`
-	// Deprecated: `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-	AzurePolicy *KubernetesClusterAddonProfileAzurePolicy `pulumi:"azurePolicy"`
-	// A `httpApplicationRouting` block as defined below.
-	//
-	// Deprecated: `addon_profile.0.http_application_routing` block has been deprecated in favour of the `http_application_routing_enabled` property and will be removed in version 3.0 of the AzureRM Provider.
-	HttpApplicationRouting *KubernetesClusterAddonProfileHttpApplicationRouting `pulumi:"httpApplicationRouting"`
-	// A `ingressApplicationGateway` block as defined below.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
-	IngressApplicationGateway *KubernetesClusterAddonProfileIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
-	// Deprecated: `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
-	KubeDashboard *KubernetesClusterAddonProfileKubeDashboard `pulumi:"kubeDashboard"`
-	// A `omsAgent` block as defined below.
-	//
-	// Deprecated: `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
-	OmsAgent *KubernetesClusterAddonProfileOmsAgent `pulumi:"omsAgent"`
-	// Deprecated: `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-	OpenServiceMesh *KubernetesClusterAddonProfileOpenServiceMesh `pulumi:"openServiceMesh"`
-}
-
-// KubernetesClusterAddonProfileInput is an input type that accepts KubernetesClusterAddonProfileArgs and KubernetesClusterAddonProfileOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileInput` via:
-//
-//          KubernetesClusterAddonProfileArgs{...}
-type KubernetesClusterAddonProfileInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileOutput() KubernetesClusterAddonProfileOutput
-	ToKubernetesClusterAddonProfileOutputWithContext(context.Context) KubernetesClusterAddonProfileOutput
-}
-
-type KubernetesClusterAddonProfileArgs struct {
-	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
-	//
-	// Deprecated: `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
-	AciConnectorLinux KubernetesClusterAddonProfileAciConnectorLinuxPtrInput `pulumi:"aciConnectorLinux"`
-	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
-	AzureKeyvaultSecretsProvider KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput `pulumi:"azureKeyvaultSecretsProvider"`
-	// Deprecated: `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-	AzurePolicy KubernetesClusterAddonProfileAzurePolicyPtrInput `pulumi:"azurePolicy"`
-	// A `httpApplicationRouting` block as defined below.
-	//
-	// Deprecated: `addon_profile.0.http_application_routing` block has been deprecated in favour of the `http_application_routing_enabled` property and will be removed in version 3.0 of the AzureRM Provider.
-	HttpApplicationRouting KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput `pulumi:"httpApplicationRouting"`
-	// A `ingressApplicationGateway` block as defined below.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
-	IngressApplicationGateway KubernetesClusterAddonProfileIngressApplicationGatewayPtrInput `pulumi:"ingressApplicationGateway"`
-	// Deprecated: `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
-	KubeDashboard KubernetesClusterAddonProfileKubeDashboardPtrInput `pulumi:"kubeDashboard"`
-	// A `omsAgent` block as defined below.
-	//
-	// Deprecated: `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
-	OmsAgent KubernetesClusterAddonProfileOmsAgentPtrInput `pulumi:"omsAgent"`
-	// Deprecated: `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-	OpenServiceMesh KubernetesClusterAddonProfileOpenServiceMeshPtrInput `pulumi:"openServiceMesh"`
-}
-
-func (KubernetesClusterAddonProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfile)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileArgs) ToKubernetesClusterAddonProfileOutput() KubernetesClusterAddonProfileOutput {
-	return i.ToKubernetesClusterAddonProfileOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileArgs) ToKubernetesClusterAddonProfileOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOutput)
-}
-
-func (i KubernetesClusterAddonProfileArgs) ToKubernetesClusterAddonProfilePtrOutput() KubernetesClusterAddonProfilePtrOutput {
-	return i.ToKubernetesClusterAddonProfilePtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileArgs) ToKubernetesClusterAddonProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOutput).ToKubernetesClusterAddonProfilePtrOutputWithContext(ctx)
-}
-
-// KubernetesClusterAddonProfilePtrInput is an input type that accepts KubernetesClusterAddonProfileArgs, KubernetesClusterAddonProfilePtr and KubernetesClusterAddonProfilePtrOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfilePtrInput` via:
-//
-//          KubernetesClusterAddonProfileArgs{...}
-//
-//  or:
-//
-//          nil
-type KubernetesClusterAddonProfilePtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfilePtrOutput() KubernetesClusterAddonProfilePtrOutput
-	ToKubernetesClusterAddonProfilePtrOutputWithContext(context.Context) KubernetesClusterAddonProfilePtrOutput
-}
-
-type kubernetesClusterAddonProfilePtrType KubernetesClusterAddonProfileArgs
-
-func KubernetesClusterAddonProfilePtr(v *KubernetesClusterAddonProfileArgs) KubernetesClusterAddonProfilePtrInput {
-	return (*kubernetesClusterAddonProfilePtrType)(v)
-}
-
-func (*kubernetesClusterAddonProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfile)(nil)).Elem()
-}
-
-func (i *kubernetesClusterAddonProfilePtrType) ToKubernetesClusterAddonProfilePtrOutput() KubernetesClusterAddonProfilePtrOutput {
-	return i.ToKubernetesClusterAddonProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterAddonProfilePtrType) ToKubernetesClusterAddonProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfilePtrOutput)
-}
-
-type KubernetesClusterAddonProfileOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfile)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileOutput) ToKubernetesClusterAddonProfileOutput() KubernetesClusterAddonProfileOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOutput) ToKubernetesClusterAddonProfileOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOutput) ToKubernetesClusterAddonProfilePtrOutput() KubernetesClusterAddonProfilePtrOutput {
-	return o.ToKubernetesClusterAddonProfilePtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterAddonProfileOutput) ToKubernetesClusterAddonProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfile {
-		return &v
-	}).(KubernetesClusterAddonProfilePtrOutput)
-}
-
-// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
-//
-// Deprecated: `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOutput) AciConnectorLinux() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAciConnectorLinux {
-		return v.AciConnectorLinux
-	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
-}
-
-// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOutput) AzureKeyvaultSecretsProvider() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
-		return v.AzureKeyvaultSecretsProvider
-	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput)
-}
-
-// Deprecated: `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOutput) AzurePolicy() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicy }).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
-}
-
-// A `httpApplicationRouting` block as defined below.
-//
-// Deprecated: `addon_profile.0.http_application_routing` block has been deprecated in favour of the `http_application_routing_enabled` property and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOutput) HttpApplicationRouting() KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileHttpApplicationRouting {
-		return v.HttpApplicationRouting
-	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
-}
-
-// A `ingressApplicationGateway` block as defined below.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOutput) IngressApplicationGateway() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileIngressApplicationGateway {
-		return v.IngressApplicationGateway
-	}).(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput)
-}
-
-// Deprecated: `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOutput) KubeDashboard() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard {
-		return v.KubeDashboard
-	}).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
-}
-
-// A `omsAgent` block as defined below.
-//
-// Deprecated: `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOutput) OmsAgent() KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOmsAgent { return v.OmsAgent }).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
-}
-
-// Deprecated: `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOutput) OpenServiceMesh() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOpenServiceMesh {
-		return v.OpenServiceMesh
-	}).(KubernetesClusterAddonProfileOpenServiceMeshPtrOutput)
-}
-
-type KubernetesClusterAddonProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfile)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfilePtrOutput) ToKubernetesClusterAddonProfilePtrOutput() KubernetesClusterAddonProfilePtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfilePtrOutput) ToKubernetesClusterAddonProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfilePtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfilePtrOutput) Elem() KubernetesClusterAddonProfileOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfile) KubernetesClusterAddonProfile {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterAddonProfile
-		return ret
-	}).(KubernetesClusterAddonProfileOutput)
-}
-
-// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
-//
-// Deprecated: `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfilePtrOutput) AciConnectorLinux() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAciConnectorLinux {
-		if v == nil {
-			return nil
-		}
-		return v.AciConnectorLinux
-	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
-}
-
-// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfilePtrOutput) AzureKeyvaultSecretsProvider() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
-		if v == nil {
-			return nil
-		}
-		return v.AzureKeyvaultSecretsProvider
-	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput)
-}
-
-// Deprecated: `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfilePtrOutput) AzurePolicy() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy {
-		if v == nil {
-			return nil
-		}
-		return v.AzurePolicy
-	}).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
-}
-
-// A `httpApplicationRouting` block as defined below.
-//
-// Deprecated: `addon_profile.0.http_application_routing` block has been deprecated in favour of the `http_application_routing_enabled` property and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfilePtrOutput) HttpApplicationRouting() KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileHttpApplicationRouting {
-		if v == nil {
-			return nil
-		}
-		return v.HttpApplicationRouting
-	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
-}
-
-// A `ingressApplicationGateway` block as defined below.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfilePtrOutput) IngressApplicationGateway() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileIngressApplicationGateway {
-		if v == nil {
-			return nil
-		}
-		return v.IngressApplicationGateway
-	}).(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput)
-}
-
-// Deprecated: `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfilePtrOutput) KubeDashboard() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard {
-		if v == nil {
-			return nil
-		}
-		return v.KubeDashboard
-	}).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
-}
-
-// A `omsAgent` block as defined below.
-//
-// Deprecated: `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfilePtrOutput) OmsAgent() KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOmsAgent {
-		if v == nil {
-			return nil
-		}
-		return v.OmsAgent
-	}).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
-}
-
-// Deprecated: `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfilePtrOutput) OpenServiceMesh() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOpenServiceMesh {
-		if v == nil {
-			return nil
-		}
-		return v.OpenServiceMesh
-	}).(KubernetesClusterAddonProfileOpenServiceMeshPtrOutput)
-}
-
-type KubernetesClusterAddonProfileAciConnectorLinux struct {
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled bool `pulumi:"enabled"`
-	// The subnet name for the virtual nodes to run.
-	//
-	// Deprecated: `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
-	SubnetName *string `pulumi:"subnetName"`
-}
-
-// KubernetesClusterAddonProfileAciConnectorLinuxInput is an input type that accepts KubernetesClusterAddonProfileAciConnectorLinuxArgs and KubernetesClusterAddonProfileAciConnectorLinuxOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileAciConnectorLinuxInput` via:
-//
-//          KubernetesClusterAddonProfileAciConnectorLinuxArgs{...}
-type KubernetesClusterAddonProfileAciConnectorLinuxInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileAciConnectorLinuxOutput() KubernetesClusterAddonProfileAciConnectorLinuxOutput
-	ToKubernetesClusterAddonProfileAciConnectorLinuxOutputWithContext(context.Context) KubernetesClusterAddonProfileAciConnectorLinuxOutput
-}
-
-type KubernetesClusterAddonProfileAciConnectorLinuxArgs struct {
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The subnet name for the virtual nodes to run.
-	//
-	// Deprecated: `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
-	SubnetName pulumi.StringPtrInput `pulumi:"subnetName"`
-}
-
-func (KubernetesClusterAddonProfileAciConnectorLinuxArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileAciConnectorLinux)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileAciConnectorLinuxArgs) ToKubernetesClusterAddonProfileAciConnectorLinuxOutput() KubernetesClusterAddonProfileAciConnectorLinuxOutput {
-	return i.ToKubernetesClusterAddonProfileAciConnectorLinuxOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileAciConnectorLinuxArgs) ToKubernetesClusterAddonProfileAciConnectorLinuxOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAciConnectorLinuxOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAciConnectorLinuxOutput)
-}
-
-func (i KubernetesClusterAddonProfileAciConnectorLinuxArgs) ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutput() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return i.ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileAciConnectorLinuxArgs) ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAciConnectorLinuxOutput).ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutputWithContext(ctx)
-}
-
-// KubernetesClusterAddonProfileAciConnectorLinuxPtrInput is an input type that accepts KubernetesClusterAddonProfileAciConnectorLinuxArgs, KubernetesClusterAddonProfileAciConnectorLinuxPtr and KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileAciConnectorLinuxPtrInput` via:
-//
-//          KubernetesClusterAddonProfileAciConnectorLinuxArgs{...}
-//
-//  or:
-//
-//          nil
-type KubernetesClusterAddonProfileAciConnectorLinuxPtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutput() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput
-	ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutputWithContext(context.Context) KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput
-}
-
-type kubernetesClusterAddonProfileAciConnectorLinuxPtrType KubernetesClusterAddonProfileAciConnectorLinuxArgs
-
-func KubernetesClusterAddonProfileAciConnectorLinuxPtr(v *KubernetesClusterAddonProfileAciConnectorLinuxArgs) KubernetesClusterAddonProfileAciConnectorLinuxPtrInput {
-	return (*kubernetesClusterAddonProfileAciConnectorLinuxPtrType)(v)
-}
-
-func (*kubernetesClusterAddonProfileAciConnectorLinuxPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileAciConnectorLinux)(nil)).Elem()
-}
-
-func (i *kubernetesClusterAddonProfileAciConnectorLinuxPtrType) ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutput() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return i.ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterAddonProfileAciConnectorLinuxPtrType) ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
-}
-
-type KubernetesClusterAddonProfileAciConnectorLinuxOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileAciConnectorLinuxOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileAciConnectorLinux)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) ToKubernetesClusterAddonProfileAciConnectorLinuxOutput() KubernetesClusterAddonProfileAciConnectorLinuxOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) ToKubernetesClusterAddonProfileAciConnectorLinuxOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAciConnectorLinuxOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutput() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return o.ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileAciConnectorLinux) *KubernetesClusterAddonProfileAciConnectorLinux {
-		return &v
-	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileAciConnectorLinux) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// The subnet name for the virtual nodes to run.
-//
-// Deprecated: `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) SubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileAciConnectorLinux) *string { return v.SubnetName }).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileAciConnectorLinux)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutput() KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) ToKubernetesClusterAddonProfileAciConnectorLinuxPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) Elem() KubernetesClusterAddonProfileAciConnectorLinuxOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileAciConnectorLinux) KubernetesClusterAddonProfileAciConnectorLinux {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterAddonProfileAciConnectorLinux
-		return ret
-	}).(KubernetesClusterAddonProfileAciConnectorLinuxOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileAciConnectorLinux) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The subnet name for the virtual nodes to run.
-//
-// Deprecated: `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileAciConnectorLinux) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetName
-	}).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider struct {
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled bool `pulumi:"enabled"`
-	// An `secretIdentity` block is exported. The exported attributes are defined below.
-	//
-	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_identity` has been deprecated in favour of `key_vault_secrets_provider.0.secret_identity` and will be removed in version 3.0 of the AzureRM Provider.
-	SecretIdentities []KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity `pulumi:"secretIdentities"`
-	// Is secret rotation enabled?
-	//
-	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_enabled` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-	SecretRotationEnabled *bool `pulumi:"secretRotationEnabled"`
-	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
-	//
-	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_interval` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_interval` and will be removed in version 3.0 of the AzureRM Provider.
-	SecretRotationInterval *string `pulumi:"secretRotationInterval"`
-}
-
-// KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput is an input type that accepts KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs and KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput` via:
-//
-//          KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{...}
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput
-	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput
-}
-
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs struct {
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// An `secretIdentity` block is exported. The exported attributes are defined below.
-	//
-	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_identity` has been deprecated in favour of `key_vault_secrets_provider.0.secret_identity` and will be removed in version 3.0 of the AzureRM Provider.
-	SecretIdentities KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput `pulumi:"secretIdentities"`
-	// Is secret rotation enabled?
-	//
-	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_enabled` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-	SecretRotationEnabled pulumi.BoolPtrInput `pulumi:"secretRotationEnabled"`
-	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
-	//
-	// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_interval` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_interval` and will be removed in version 3.0 of the AzureRM Provider.
-	SecretRotationInterval pulumi.StringPtrInput `pulumi:"secretRotationInterval"`
-}
-
-func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
-	return i.ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput)
-}
-
-func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
-	return i.ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput).ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(ctx)
-}
-
-// KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput is an input type that accepts KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs, KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtr and KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput` via:
-//
-//          KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{...}
-//
-//  or:
-//
-//          nil
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput
-	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput
-}
-
-type kubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrType KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs
-
-func KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtr(v *KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput {
-	return (*kubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrType)(v)
-}
-
-func (*kubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
-}
-
-func (i *kubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrType) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
-	return i.ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrType) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput)
-}
-
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
-	return o.ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
-		return &v
-	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// An `secretIdentity` block is exported. The exported attributes are defined below.
-//
-// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_identity` has been deprecated in favour of `key_vault_secrets_provider.0.secret_identity` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) SecretIdentities() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) []KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
-		return v.SecretIdentities
-	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput)
-}
-
-// Is secret rotation enabled?
-//
-// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_enabled` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) SecretRotationEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) *bool {
-		return v.SecretRotationEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
-//
-// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_interval` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_interval` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) SecretRotationInterval() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) *string {
-		return v.SecretRotationInterval
-	}).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) Elem() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider
-		return ret
-	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// An `secretIdentity` block is exported. The exported attributes are defined below.
-//
-// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_identity` has been deprecated in favour of `key_vault_secrets_provider.0.secret_identity` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) SecretIdentities() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) []KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
-		if v == nil {
-			return nil
-		}
-		return v.SecretIdentities
-	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput)
-}
-
-// Is secret rotation enabled?
-//
-// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_enabled` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) SecretRotationEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SecretRotationEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
-//
-// Deprecated: `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_interval` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_interval` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) SecretRotationInterval() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecretRotationInterval
-	}).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-	ObjectId *string `pulumi:"objectId"`
-	// The ID of a user assigned identity.
-	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
-}
-
-// KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput is an input type that accepts KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs and KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput` via:
-//
-//          KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs{...}
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput
-	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput
-}
-
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of a user assigned identity.
-	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
-}
-
-func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
-	return i.ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput)
-}
-
-// KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput is an input type that accepts KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray and KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput` via:
-//
-//          KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray{ KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs{...} }
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput
-	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput
-}
-
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray []KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput
-
-func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
-	return i.ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput)
-}
-
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
-	return o
-}
-
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity) *string {
-		return v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity) *string {
-		return v.ObjectId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of a user assigned identity.
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity) *string {
-		return v.UserAssignedIdentityId
-	}).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
-		return vs[0].([]KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)[vs[1].(int)]
-	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput)
-}
-
-type KubernetesClusterAddonProfileAzurePolicy struct {
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled bool `pulumi:"enabled"`
-}
-
-// KubernetesClusterAddonProfileAzurePolicyInput is an input type that accepts KubernetesClusterAddonProfileAzurePolicyArgs and KubernetesClusterAddonProfileAzurePolicyOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileAzurePolicyInput` via:
-//
-//          KubernetesClusterAddonProfileAzurePolicyArgs{...}
-type KubernetesClusterAddonProfileAzurePolicyInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileAzurePolicyOutput() KubernetesClusterAddonProfileAzurePolicyOutput
-	ToKubernetesClusterAddonProfileAzurePolicyOutputWithContext(context.Context) KubernetesClusterAddonProfileAzurePolicyOutput
-}
-
-type KubernetesClusterAddonProfileAzurePolicyArgs struct {
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (KubernetesClusterAddonProfileAzurePolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileAzurePolicyArgs) ToKubernetesClusterAddonProfileAzurePolicyOutput() KubernetesClusterAddonProfileAzurePolicyOutput {
-	return i.ToKubernetesClusterAddonProfileAzurePolicyOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileAzurePolicyArgs) ToKubernetesClusterAddonProfileAzurePolicyOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzurePolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzurePolicyOutput)
-}
-
-func (i KubernetesClusterAddonProfileAzurePolicyArgs) ToKubernetesClusterAddonProfileAzurePolicyPtrOutput() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return i.ToKubernetesClusterAddonProfileAzurePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileAzurePolicyArgs) ToKubernetesClusterAddonProfileAzurePolicyPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzurePolicyOutput).ToKubernetesClusterAddonProfileAzurePolicyPtrOutputWithContext(ctx)
-}
-
-// KubernetesClusterAddonProfileAzurePolicyPtrInput is an input type that accepts KubernetesClusterAddonProfileAzurePolicyArgs, KubernetesClusterAddonProfileAzurePolicyPtr and KubernetesClusterAddonProfileAzurePolicyPtrOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileAzurePolicyPtrInput` via:
-//
-//          KubernetesClusterAddonProfileAzurePolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type KubernetesClusterAddonProfileAzurePolicyPtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileAzurePolicyPtrOutput() KubernetesClusterAddonProfileAzurePolicyPtrOutput
-	ToKubernetesClusterAddonProfileAzurePolicyPtrOutputWithContext(context.Context) KubernetesClusterAddonProfileAzurePolicyPtrOutput
-}
-
-type kubernetesClusterAddonProfileAzurePolicyPtrType KubernetesClusterAddonProfileAzurePolicyArgs
-
-func KubernetesClusterAddonProfileAzurePolicyPtr(v *KubernetesClusterAddonProfileAzurePolicyArgs) KubernetesClusterAddonProfileAzurePolicyPtrInput {
-	return (*kubernetesClusterAddonProfileAzurePolicyPtrType)(v)
-}
-
-func (*kubernetesClusterAddonProfileAzurePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
-}
-
-func (i *kubernetesClusterAddonProfileAzurePolicyPtrType) ToKubernetesClusterAddonProfileAzurePolicyPtrOutput() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return i.ToKubernetesClusterAddonProfileAzurePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterAddonProfileAzurePolicyPtrType) ToKubernetesClusterAddonProfileAzurePolicyPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
-}
-
-type KubernetesClusterAddonProfileAzurePolicyOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileAzurePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileAzurePolicyOutput) ToKubernetesClusterAddonProfileAzurePolicyOutput() KubernetesClusterAddonProfileAzurePolicyOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAzurePolicyOutput) ToKubernetesClusterAddonProfileAzurePolicyOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzurePolicyOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAzurePolicyOutput) ToKubernetesClusterAddonProfileAzurePolicyPtrOutput() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return o.ToKubernetesClusterAddonProfileAzurePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterAddonProfileAzurePolicyOutput) ToKubernetesClusterAddonProfileAzurePolicyPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileAzurePolicy) *KubernetesClusterAddonProfileAzurePolicy {
-		return &v
-	}).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAzurePolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type KubernetesClusterAddonProfileAzurePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileAzurePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) ToKubernetesClusterAddonProfileAzurePolicyPtrOutput() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) ToKubernetesClusterAddonProfileAzurePolicyPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzurePolicyPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) Elem() KubernetesClusterAddonProfileAzurePolicyOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzurePolicy) KubernetesClusterAddonProfileAzurePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterAddonProfileAzurePolicy
-		return ret
-	}).(KubernetesClusterAddonProfileAzurePolicyOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileAzurePolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzurePolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-type KubernetesClusterAddonProfileHttpApplicationRouting struct {
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled bool `pulumi:"enabled"`
-	// The Zone Name of the HTTP Application Routing.
-	//
-	// Deprecated: `addon_profile.0.http_application_routing.0.http_application_routing_zone_name` has been deprecated in favour of `http_application_routing_zone_name` and will be removed in version 3.0 of the AzureRM Provider.
-	HttpApplicationRoutingZoneName *string `pulumi:"httpApplicationRoutingZoneName"`
-}
-
-// KubernetesClusterAddonProfileHttpApplicationRoutingInput is an input type that accepts KubernetesClusterAddonProfileHttpApplicationRoutingArgs and KubernetesClusterAddonProfileHttpApplicationRoutingOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileHttpApplicationRoutingInput` via:
-//
-//          KubernetesClusterAddonProfileHttpApplicationRoutingArgs{...}
-type KubernetesClusterAddonProfileHttpApplicationRoutingInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileHttpApplicationRoutingOutput() KubernetesClusterAddonProfileHttpApplicationRoutingOutput
-	ToKubernetesClusterAddonProfileHttpApplicationRoutingOutputWithContext(context.Context) KubernetesClusterAddonProfileHttpApplicationRoutingOutput
-}
-
-type KubernetesClusterAddonProfileHttpApplicationRoutingArgs struct {
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The Zone Name of the HTTP Application Routing.
-	//
-	// Deprecated: `addon_profile.0.http_application_routing.0.http_application_routing_zone_name` has been deprecated in favour of `http_application_routing_zone_name` and will be removed in version 3.0 of the AzureRM Provider.
-	HttpApplicationRoutingZoneName pulumi.StringPtrInput `pulumi:"httpApplicationRoutingZoneName"`
-}
-
-func (KubernetesClusterAddonProfileHttpApplicationRoutingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileHttpApplicationRoutingArgs) ToKubernetesClusterAddonProfileHttpApplicationRoutingOutput() KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return i.ToKubernetesClusterAddonProfileHttpApplicationRoutingOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileHttpApplicationRoutingArgs) ToKubernetesClusterAddonProfileHttpApplicationRoutingOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput)
-}
-
-func (i KubernetesClusterAddonProfileHttpApplicationRoutingArgs) ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput() KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return i.ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileHttpApplicationRoutingArgs) ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput).ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutputWithContext(ctx)
-}
-
-// KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput is an input type that accepts KubernetesClusterAddonProfileHttpApplicationRoutingArgs, KubernetesClusterAddonProfileHttpApplicationRoutingPtr and KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput` via:
-//
-//          KubernetesClusterAddonProfileHttpApplicationRoutingArgs{...}
-//
-//  or:
-//
-//          nil
-type KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput() KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput
-	ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutputWithContext(context.Context) KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput
-}
-
-type kubernetesClusterAddonProfileHttpApplicationRoutingPtrType KubernetesClusterAddonProfileHttpApplicationRoutingArgs
-
-func KubernetesClusterAddonProfileHttpApplicationRoutingPtr(v *KubernetesClusterAddonProfileHttpApplicationRoutingArgs) KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput {
-	return (*kubernetesClusterAddonProfileHttpApplicationRoutingPtrType)(v)
-}
-
-func (*kubernetesClusterAddonProfileHttpApplicationRoutingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
-}
-
-func (i *kubernetesClusterAddonProfileHttpApplicationRoutingPtrType) ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput() KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return i.ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterAddonProfileHttpApplicationRoutingPtrType) ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
-}
-
-type KubernetesClusterAddonProfileHttpApplicationRoutingOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToKubernetesClusterAddonProfileHttpApplicationRoutingOutput() KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToKubernetesClusterAddonProfileHttpApplicationRoutingOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput() KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return o.ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileHttpApplicationRouting) *KubernetesClusterAddonProfileHttpApplicationRouting {
-		return &v
-	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// The Zone Name of the HTTP Application Routing.
-//
-// Deprecated: `addon_profile.0.http_application_routing.0.http_application_routing_zone_name` has been deprecated in favour of `http_application_routing_zone_name` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) HttpApplicationRoutingZoneName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileHttpApplicationRouting) *string {
-		return v.HttpApplicationRoutingZoneName
-	}).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput() KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) ToKubernetesClusterAddonProfileHttpApplicationRoutingPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) Elem() KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileHttpApplicationRouting) KubernetesClusterAddonProfileHttpApplicationRouting {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterAddonProfileHttpApplicationRouting
-		return ret
-	}).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileHttpApplicationRouting) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The Zone Name of the HTTP Application Routing.
-//
-// Deprecated: `addon_profile.0.http_application_routing.0.http_application_routing_zone_name` has been deprecated in favour of `http_application_routing_zone_name` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) HttpApplicationRoutingZoneName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileHttpApplicationRouting) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HttpApplicationRoutingZoneName
-	}).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAddonProfileIngressApplicationGateway struct {
-	// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.effective_gateway_id` has been deprecated in favour of `ingress_application_gateway.0.effective_gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
-	EffectiveGatewayId *string `pulumi:"effectiveGatewayId"`
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled bool `pulumi:"enabled"`
-	// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.gateway_id` has been deprecated in favour of `ingress_application_gateway.0.gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
-	GatewayId *string `pulumi:"gatewayId"`
-	// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.gateway_name` has been deprecated in favour of `ingress_application_gateway.0.gateway_name` and will be removed in version 3.0 of the AzureRM Provider.
-	GatewayName *string `pulumi:"gatewayName"`
-	// An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.ingress_application_gateway_identity` has been deprecated in favour of `ingress_application_gateway.0.ingress_application_gateway_identity` and will be removed in version 3.0 of the AzureRM Provider.
-	IngressApplicationGatewayIdentities []KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity `pulumi:"ingressApplicationGatewayIdentities"`
-	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.subnet_cidr` has been deprecated in favour of `ingress_application_gateway.0.subnet_cidr` and will be removed in version 3.0 of the AzureRM Provider.
-	SubnetCidr *string `pulumi:"subnetCidr"`
-	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.subnet_id` has been deprecated in favour of `ingress_application_gateway.0.subnet_id` and will be removed in version 3.0 of the AzureRM Provider.
-	SubnetId *string `pulumi:"subnetId"`
-}
-
-// KubernetesClusterAddonProfileIngressApplicationGatewayInput is an input type that accepts KubernetesClusterAddonProfileIngressApplicationGatewayArgs and KubernetesClusterAddonProfileIngressApplicationGatewayOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileIngressApplicationGatewayInput` via:
-//
-//          KubernetesClusterAddonProfileIngressApplicationGatewayArgs{...}
-type KubernetesClusterAddonProfileIngressApplicationGatewayInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileIngressApplicationGatewayOutput() KubernetesClusterAddonProfileIngressApplicationGatewayOutput
-	ToKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayOutput
-}
-
-type KubernetesClusterAddonProfileIngressApplicationGatewayArgs struct {
-	// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.effective_gateway_id` has been deprecated in favour of `ingress_application_gateway.0.effective_gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
-	EffectiveGatewayId pulumi.StringPtrInput `pulumi:"effectiveGatewayId"`
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.gateway_id` has been deprecated in favour of `ingress_application_gateway.0.gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
-	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
-	// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.gateway_name` has been deprecated in favour of `ingress_application_gateway.0.gateway_name` and will be removed in version 3.0 of the AzureRM Provider.
-	GatewayName pulumi.StringPtrInput `pulumi:"gatewayName"`
-	// An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.ingress_application_gateway_identity` has been deprecated in favour of `ingress_application_gateway.0.ingress_application_gateway_identity` and will be removed in version 3.0 of the AzureRM Provider.
-	IngressApplicationGatewayIdentities KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput `pulumi:"ingressApplicationGatewayIdentities"`
-	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.subnet_cidr` has been deprecated in favour of `ingress_application_gateway.0.subnet_cidr` and will be removed in version 3.0 of the AzureRM Provider.
-	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
-	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-	//
-	// Deprecated: `addon_profile.0.ingress_application_gateway.0.subnet_id` has been deprecated in favour of `ingress_application_gateway.0.subnet_id` and will be removed in version 3.0 of the AzureRM Provider.
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-}
-
-func (KubernetesClusterAddonProfileIngressApplicationGatewayArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileIngressApplicationGatewayArgs) ToKubernetesClusterAddonProfileIngressApplicationGatewayOutput() KubernetesClusterAddonProfileIngressApplicationGatewayOutput {
-	return i.ToKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileIngressApplicationGatewayArgs) ToKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileIngressApplicationGatewayOutput)
-}
-
-func (i KubernetesClusterAddonProfileIngressApplicationGatewayArgs) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
-	return i.ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileIngressApplicationGatewayArgs) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileIngressApplicationGatewayOutput).ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(ctx)
-}
-
-// KubernetesClusterAddonProfileIngressApplicationGatewayPtrInput is an input type that accepts KubernetesClusterAddonProfileIngressApplicationGatewayArgs, KubernetesClusterAddonProfileIngressApplicationGatewayPtr and KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileIngressApplicationGatewayPtrInput` via:
-//
-//          KubernetesClusterAddonProfileIngressApplicationGatewayArgs{...}
-//
-//  or:
-//
-//          nil
-type KubernetesClusterAddonProfileIngressApplicationGatewayPtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput
-	ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput
-}
-
-type kubernetesClusterAddonProfileIngressApplicationGatewayPtrType KubernetesClusterAddonProfileIngressApplicationGatewayArgs
-
-func KubernetesClusterAddonProfileIngressApplicationGatewayPtr(v *KubernetesClusterAddonProfileIngressApplicationGatewayArgs) KubernetesClusterAddonProfileIngressApplicationGatewayPtrInput {
-	return (*kubernetesClusterAddonProfileIngressApplicationGatewayPtrType)(v)
-}
-
-func (*kubernetesClusterAddonProfileIngressApplicationGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
-}
-
-func (i *kubernetesClusterAddonProfileIngressApplicationGatewayPtrType) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
-	return i.ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterAddonProfileIngressApplicationGatewayPtrType) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput)
-}
-
-type KubernetesClusterAddonProfileIngressApplicationGatewayOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayOutput() KubernetesClusterAddonProfileIngressApplicationGatewayOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
-	return o.ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileIngressApplicationGateway) *KubernetesClusterAddonProfileIngressApplicationGateway {
-		return &v
-	}).(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput)
-}
-
-// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.effective_gateway_id` has been deprecated in favour of `ingress_application_gateway.0.effective_gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) EffectiveGatewayId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.EffectiveGatewayId }).(pulumi.StringPtrOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.gateway_id` has been deprecated in favour of `ingress_application_gateway.0.gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) GatewayId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
-}
-
-// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.gateway_name` has been deprecated in favour of `ingress_application_gateway.0.gateway_name` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) GatewayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.GatewayName }).(pulumi.StringPtrOutput)
-}
-
-// An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.ingress_application_gateway_identity` has been deprecated in favour of `ingress_application_gateway.0.ingress_application_gateway_identity` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) IngressApplicationGatewayIdentities() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) []KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
-		return v.IngressApplicationGatewayIdentities
-	}).(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
-}
-
-// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.subnet_cidr` has been deprecated in favour of `ingress_application_gateway.0.subnet_cidr` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) SubnetCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.subnet_id` has been deprecated in favour of `ingress_application_gateway.0.subnet_id` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) Elem() KubernetesClusterAddonProfileIngressApplicationGatewayOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) KubernetesClusterAddonProfileIngressApplicationGateway {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterAddonProfileIngressApplicationGateway
-		return ret
-	}).(KubernetesClusterAddonProfileIngressApplicationGatewayOutput)
-}
-
-// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.effective_gateway_id` has been deprecated in favour of `ingress_application_gateway.0.effective_gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) EffectiveGatewayId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EffectiveGatewayId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.gateway_id` has been deprecated in favour of `ingress_application_gateway.0.gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) GatewayId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GatewayId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.gateway_name` has been deprecated in favour of `ingress_application_gateway.0.gateway_name` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) GatewayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GatewayName
-	}).(pulumi.StringPtrOutput)
-}
-
-// An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.ingress_application_gateway_identity` has been deprecated in favour of `ingress_application_gateway.0.ingress_application_gateway_identity` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) IngressApplicationGatewayIdentities() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) []KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
-		if v == nil {
-			return nil
-		}
-		return v.IngressApplicationGatewayIdentities
-	}).(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
-}
-
-// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.subnet_cidr` has been deprecated in favour of `ingress_application_gateway.0.subnet_cidr` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) SubnetCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetCidr
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-//
-// Deprecated: `addon_profile.0.ingress_application_gateway.0.subnet_id` has been deprecated in favour of `ingress_application_gateway.0.subnet_id` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-	ObjectId *string `pulumi:"objectId"`
-	// The ID of a user assigned identity.
-	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
-}
-
-// KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput is an input type that accepts KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs and KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput` via:
-//
-//          KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs{...}
-type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput
-	ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput
-}
-
-type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of a user assigned identity.
-	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
-}
-
-func (KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
-	return i.ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput)
-}
-
-// KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput is an input type that accepts KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray and KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput` via:
-//
-//          KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray{ KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs{...} }
-type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput
-	ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput
-}
-
-type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray []KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput
-
-func (KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
-	return i.ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
-}
-
-type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
-	return o
-}
-
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
-		return v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
-		return v.ObjectId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of a user assigned identity.
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
-		return v.UserAssignedIdentityId
-	}).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
-		return vs[0].([]KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)[vs[1].(int)]
-	}).(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput)
-}
-
-type KubernetesClusterAddonProfileKubeDashboard struct {
-	// Is the Kubernetes Dashboard enabled?
-	Enabled bool `pulumi:"enabled"`
-}
-
-// KubernetesClusterAddonProfileKubeDashboardInput is an input type that accepts KubernetesClusterAddonProfileKubeDashboardArgs and KubernetesClusterAddonProfileKubeDashboardOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileKubeDashboardInput` via:
-//
-//          KubernetesClusterAddonProfileKubeDashboardArgs{...}
-type KubernetesClusterAddonProfileKubeDashboardInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileKubeDashboardOutput() KubernetesClusterAddonProfileKubeDashboardOutput
-	ToKubernetesClusterAddonProfileKubeDashboardOutputWithContext(context.Context) KubernetesClusterAddonProfileKubeDashboardOutput
-}
-
-type KubernetesClusterAddonProfileKubeDashboardArgs struct {
-	// Is the Kubernetes Dashboard enabled?
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (KubernetesClusterAddonProfileKubeDashboardArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileKubeDashboardArgs) ToKubernetesClusterAddonProfileKubeDashboardOutput() KubernetesClusterAddonProfileKubeDashboardOutput {
-	return i.ToKubernetesClusterAddonProfileKubeDashboardOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileKubeDashboardArgs) ToKubernetesClusterAddonProfileKubeDashboardOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileKubeDashboardOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileKubeDashboardOutput)
-}
-
-func (i KubernetesClusterAddonProfileKubeDashboardArgs) ToKubernetesClusterAddonProfileKubeDashboardPtrOutput() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return i.ToKubernetesClusterAddonProfileKubeDashboardPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileKubeDashboardArgs) ToKubernetesClusterAddonProfileKubeDashboardPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileKubeDashboardOutput).ToKubernetesClusterAddonProfileKubeDashboardPtrOutputWithContext(ctx)
-}
-
-// KubernetesClusterAddonProfileKubeDashboardPtrInput is an input type that accepts KubernetesClusterAddonProfileKubeDashboardArgs, KubernetesClusterAddonProfileKubeDashboardPtr and KubernetesClusterAddonProfileKubeDashboardPtrOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileKubeDashboardPtrInput` via:
-//
-//          KubernetesClusterAddonProfileKubeDashboardArgs{...}
-//
-//  or:
-//
-//          nil
-type KubernetesClusterAddonProfileKubeDashboardPtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileKubeDashboardPtrOutput() KubernetesClusterAddonProfileKubeDashboardPtrOutput
-	ToKubernetesClusterAddonProfileKubeDashboardPtrOutputWithContext(context.Context) KubernetesClusterAddonProfileKubeDashboardPtrOutput
-}
-
-type kubernetesClusterAddonProfileKubeDashboardPtrType KubernetesClusterAddonProfileKubeDashboardArgs
-
-func KubernetesClusterAddonProfileKubeDashboardPtr(v *KubernetesClusterAddonProfileKubeDashboardArgs) KubernetesClusterAddonProfileKubeDashboardPtrInput {
-	return (*kubernetesClusterAddonProfileKubeDashboardPtrType)(v)
-}
-
-func (*kubernetesClusterAddonProfileKubeDashboardPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
-}
-
-func (i *kubernetesClusterAddonProfileKubeDashboardPtrType) ToKubernetesClusterAddonProfileKubeDashboardPtrOutput() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return i.ToKubernetesClusterAddonProfileKubeDashboardPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterAddonProfileKubeDashboardPtrType) ToKubernetesClusterAddonProfileKubeDashboardPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
-}
-
-type KubernetesClusterAddonProfileKubeDashboardOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileKubeDashboardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileKubeDashboardOutput) ToKubernetesClusterAddonProfileKubeDashboardOutput() KubernetesClusterAddonProfileKubeDashboardOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileKubeDashboardOutput) ToKubernetesClusterAddonProfileKubeDashboardOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileKubeDashboardOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileKubeDashboardOutput) ToKubernetesClusterAddonProfileKubeDashboardPtrOutput() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return o.ToKubernetesClusterAddonProfileKubeDashboardPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterAddonProfileKubeDashboardOutput) ToKubernetesClusterAddonProfileKubeDashboardPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileKubeDashboard) *KubernetesClusterAddonProfileKubeDashboard {
-		return &v
-	}).(KubernetesClusterAddonProfileKubeDashboardPtrOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-func (o KubernetesClusterAddonProfileKubeDashboardOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type KubernetesClusterAddonProfileKubeDashboardPtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileKubeDashboardPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) ToKubernetesClusterAddonProfileKubeDashboardPtrOutput() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) ToKubernetesClusterAddonProfileKubeDashboardPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileKubeDashboardPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) Elem() KubernetesClusterAddonProfileKubeDashboardOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileKubeDashboard) KubernetesClusterAddonProfileKubeDashboard {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterAddonProfileKubeDashboard
-		return ret
-	}).(KubernetesClusterAddonProfileKubeDashboardOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-func (o KubernetesClusterAddonProfileKubeDashboardPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileKubeDashboard) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-type KubernetesClusterAddonProfileOmsAgent struct {
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled bool `pulumi:"enabled"`
-	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
-	//
-	// Deprecated: `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
-	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
-	//
-	// Deprecated: `addon_profile.0.oms_agent.0.oms_agent_identity` has been deprecated in favour of `oms_agent.0.oms_agent_identity` and will be removed in version 3.0 of the AzureRM Provider.
-	OmsAgentIdentities []KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity `pulumi:"omsAgentIdentities"`
-}
-
-// KubernetesClusterAddonProfileOmsAgentInput is an input type that accepts KubernetesClusterAddonProfileOmsAgentArgs and KubernetesClusterAddonProfileOmsAgentOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileOmsAgentInput` via:
-//
-//          KubernetesClusterAddonProfileOmsAgentArgs{...}
-type KubernetesClusterAddonProfileOmsAgentInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileOmsAgentOutput() KubernetesClusterAddonProfileOmsAgentOutput
-	ToKubernetesClusterAddonProfileOmsAgentOutputWithContext(context.Context) KubernetesClusterAddonProfileOmsAgentOutput
-}
-
-type KubernetesClusterAddonProfileOmsAgentArgs struct {
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
-	//
-	// Deprecated: `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
-	LogAnalyticsWorkspaceId pulumi.StringPtrInput `pulumi:"logAnalyticsWorkspaceId"`
-	// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
-	//
-	// Deprecated: `addon_profile.0.oms_agent.0.oms_agent_identity` has been deprecated in favour of `oms_agent.0.oms_agent_identity` and will be removed in version 3.0 of the AzureRM Provider.
-	OmsAgentIdentities KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput `pulumi:"omsAgentIdentities"`
-}
-
-func (KubernetesClusterAddonProfileOmsAgentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileOmsAgentArgs) ToKubernetesClusterAddonProfileOmsAgentOutput() KubernetesClusterAddonProfileOmsAgentOutput {
-	return i.ToKubernetesClusterAddonProfileOmsAgentOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileOmsAgentArgs) ToKubernetesClusterAddonProfileOmsAgentOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOmsAgentOutput)
-}
-
-func (i KubernetesClusterAddonProfileOmsAgentArgs) ToKubernetesClusterAddonProfileOmsAgentPtrOutput() KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return i.ToKubernetesClusterAddonProfileOmsAgentPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileOmsAgentArgs) ToKubernetesClusterAddonProfileOmsAgentPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOmsAgentOutput).ToKubernetesClusterAddonProfileOmsAgentPtrOutputWithContext(ctx)
-}
-
-// KubernetesClusterAddonProfileOmsAgentPtrInput is an input type that accepts KubernetesClusterAddonProfileOmsAgentArgs, KubernetesClusterAddonProfileOmsAgentPtr and KubernetesClusterAddonProfileOmsAgentPtrOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileOmsAgentPtrInput` via:
-//
-//          KubernetesClusterAddonProfileOmsAgentArgs{...}
-//
-//  or:
-//
-//          nil
-type KubernetesClusterAddonProfileOmsAgentPtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileOmsAgentPtrOutput() KubernetesClusterAddonProfileOmsAgentPtrOutput
-	ToKubernetesClusterAddonProfileOmsAgentPtrOutputWithContext(context.Context) KubernetesClusterAddonProfileOmsAgentPtrOutput
-}
-
-type kubernetesClusterAddonProfileOmsAgentPtrType KubernetesClusterAddonProfileOmsAgentArgs
-
-func KubernetesClusterAddonProfileOmsAgentPtr(v *KubernetesClusterAddonProfileOmsAgentArgs) KubernetesClusterAddonProfileOmsAgentPtrInput {
-	return (*kubernetesClusterAddonProfileOmsAgentPtrType)(v)
-}
-
-func (*kubernetesClusterAddonProfileOmsAgentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
-}
-
-func (i *kubernetesClusterAddonProfileOmsAgentPtrType) ToKubernetesClusterAddonProfileOmsAgentPtrOutput() KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return i.ToKubernetesClusterAddonProfileOmsAgentPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterAddonProfileOmsAgentPtrType) ToKubernetesClusterAddonProfileOmsAgentPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
-}
-
-type KubernetesClusterAddonProfileOmsAgentOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileOmsAgentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileOmsAgentOutput) ToKubernetesClusterAddonProfileOmsAgentOutput() KubernetesClusterAddonProfileOmsAgentOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOmsAgentOutput) ToKubernetesClusterAddonProfileOmsAgentOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOmsAgentOutput) ToKubernetesClusterAddonProfileOmsAgentPtrOutput() KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return o.ToKubernetesClusterAddonProfileOmsAgentPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterAddonProfileOmsAgentOutput) ToKubernetesClusterAddonProfileOmsAgentPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileOmsAgent) *KubernetesClusterAddonProfileOmsAgent {
-		return &v
-	}).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOmsAgentOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
-//
-// Deprecated: `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOmsAgentOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) *string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
-}
-
-// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
-//
-// Deprecated: `addon_profile.0.oms_agent.0.oms_agent_identity` has been deprecated in favour of `oms_agent.0.oms_agent_identity` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOmsAgentOutput) OmsAgentIdentities() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) []KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
-		return v.OmsAgentIdentities
-	}).(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput)
-}
-
-type KubernetesClusterAddonProfileOmsAgentPtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileOmsAgentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) ToKubernetesClusterAddonProfileOmsAgentPtrOutput() KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) ToKubernetesClusterAddonProfileOmsAgentPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) Elem() KubernetesClusterAddonProfileOmsAgentOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileOmsAgent) KubernetesClusterAddonProfileOmsAgent {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterAddonProfileOmsAgent
-		return ret
-	}).(KubernetesClusterAddonProfileOmsAgentOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileOmsAgent) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
-//
-// Deprecated: `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileOmsAgent) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LogAnalyticsWorkspaceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
-//
-// Deprecated: `addon_profile.0.oms_agent.0.oms_agent_identity` has been deprecated in favour of `oms_agent.0.oms_agent_identity` and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) OmsAgentIdentities() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileOmsAgent) []KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
-		if v == nil {
-			return nil
-		}
-		return v.OmsAgentIdentities
-	}).(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput)
-}
-
-type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-	ObjectId *string `pulumi:"objectId"`
-	// The ID of a user assigned identity.
-	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
-}
-
-// KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput is an input type that accepts KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs and KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput` via:
-//
-//          KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...}
-type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput
-	ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(context.Context) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput
-}
-
-type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of a user assigned identity.
-	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
-}
-
-func (KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
-	return i.ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput)
-}
-
-// KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput is an input type that accepts KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray and KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput` via:
-//
-//          KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray{ KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...} }
-type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput
-	ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(context.Context) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput
-}
-
-type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray []KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput
-
-func (KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
-	return i.ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput)
-}
-
-type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
-	return o
-}
-
-// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
-}
-
-// The ID of a user assigned identity.
-func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
-		return vs[0].([]KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)[vs[1].(int)]
-	}).(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput)
-}
-
-type KubernetesClusterAddonProfileOpenServiceMesh struct {
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled bool `pulumi:"enabled"`
-}
-
-// KubernetesClusterAddonProfileOpenServiceMeshInput is an input type that accepts KubernetesClusterAddonProfileOpenServiceMeshArgs and KubernetesClusterAddonProfileOpenServiceMeshOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileOpenServiceMeshInput` via:
-//
-//          KubernetesClusterAddonProfileOpenServiceMeshArgs{...}
-type KubernetesClusterAddonProfileOpenServiceMeshInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileOpenServiceMeshOutput() KubernetesClusterAddonProfileOpenServiceMeshOutput
-	ToKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(context.Context) KubernetesClusterAddonProfileOpenServiceMeshOutput
-}
-
-type KubernetesClusterAddonProfileOpenServiceMeshArgs struct {
-	// Is the Kubernetes Dashboard enabled?
-	//
-	// Deprecated: `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (KubernetesClusterAddonProfileOpenServiceMeshArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
-}
-
-func (i KubernetesClusterAddonProfileOpenServiceMeshArgs) ToKubernetesClusterAddonProfileOpenServiceMeshOutput() KubernetesClusterAddonProfileOpenServiceMeshOutput {
-	return i.ToKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileOpenServiceMeshArgs) ToKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOpenServiceMeshOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOpenServiceMeshOutput)
-}
-
-func (i KubernetesClusterAddonProfileOpenServiceMeshArgs) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutput() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
-	return i.ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterAddonProfileOpenServiceMeshArgs) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOpenServiceMeshOutput).ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(ctx)
-}
-
-// KubernetesClusterAddonProfileOpenServiceMeshPtrInput is an input type that accepts KubernetesClusterAddonProfileOpenServiceMeshArgs, KubernetesClusterAddonProfileOpenServiceMeshPtr and KubernetesClusterAddonProfileOpenServiceMeshPtrOutput values.
-// You can construct a concrete instance of `KubernetesClusterAddonProfileOpenServiceMeshPtrInput` via:
-//
-//          KubernetesClusterAddonProfileOpenServiceMeshArgs{...}
-//
-//  or:
-//
-//          nil
-type KubernetesClusterAddonProfileOpenServiceMeshPtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutput() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput
-	ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(context.Context) KubernetesClusterAddonProfileOpenServiceMeshPtrOutput
-}
-
-type kubernetesClusterAddonProfileOpenServiceMeshPtrType KubernetesClusterAddonProfileOpenServiceMeshArgs
-
-func KubernetesClusterAddonProfileOpenServiceMeshPtr(v *KubernetesClusterAddonProfileOpenServiceMeshArgs) KubernetesClusterAddonProfileOpenServiceMeshPtrInput {
-	return (*kubernetesClusterAddonProfileOpenServiceMeshPtrType)(v)
-}
-
-func (*kubernetesClusterAddonProfileOpenServiceMeshPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
-}
-
-func (i *kubernetesClusterAddonProfileOpenServiceMeshPtrType) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutput() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
-	return i.ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterAddonProfileOpenServiceMeshPtrType) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOpenServiceMeshPtrOutput)
-}
-
-type KubernetesClusterAddonProfileOpenServiceMeshOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileOpenServiceMeshOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileOpenServiceMeshOutput) ToKubernetesClusterAddonProfileOpenServiceMeshOutput() KubernetesClusterAddonProfileOpenServiceMeshOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOpenServiceMeshOutput) ToKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOpenServiceMeshOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOpenServiceMeshOutput) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutput() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
-	return o.ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterAddonProfileOpenServiceMeshOutput) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileOpenServiceMesh) *KubernetesClusterAddonProfileOpenServiceMesh {
-		return &v
-	}).(KubernetesClusterAddonProfileOpenServiceMeshPtrOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOpenServiceMeshOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileOpenServiceMesh) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type KubernetesClusterAddonProfileOpenServiceMeshPtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterAddonProfileOpenServiceMeshPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
-}
-
-func (o KubernetesClusterAddonProfileOpenServiceMeshPtrOutput) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutput() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOpenServiceMeshPtrOutput) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterAddonProfileOpenServiceMeshPtrOutput) Elem() KubernetesClusterAddonProfileOpenServiceMeshOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileOpenServiceMesh) KubernetesClusterAddonProfileOpenServiceMesh {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterAddonProfileOpenServiceMesh
-		return ret
-	}).(KubernetesClusterAddonProfileOpenServiceMeshOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-//
-// Deprecated: `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-func (o KubernetesClusterAddonProfileOpenServiceMeshPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAddonProfileOpenServiceMesh) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type KubernetesClusterAutoScalerProfile struct {
@@ -5475,8 +3297,6 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Te
 }
 
 type KubernetesClusterDefaultNodePool struct {
-	// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
@@ -5531,6 +3351,8 @@ type KubernetesClusterDefaultNodePool struct {
 	VmSize string `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
+	// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+	Zones []string `pulumi:"zones"`
 }
 
 // KubernetesClusterDefaultNodePoolInput is an input type that accepts KubernetesClusterDefaultNodePoolArgs and KubernetesClusterDefaultNodePoolOutput values.
@@ -5545,8 +3367,6 @@ type KubernetesClusterDefaultNodePoolInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolArgs struct {
-	// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
@@ -5601,6 +3421,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
+	// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 func (KubernetesClusterDefaultNodePoolArgs) ElementType() reflect.Type {
@@ -5678,11 +3500,6 @@ func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePool {
 		return &v
 	}).(KubernetesClusterDefaultNodePoolPtrOutput)
-}
-
-// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
-func (o KubernetesClusterDefaultNodePoolOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 // Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
@@ -5829,6 +3646,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) VnetSubnetId() pulumi.StringPtrO
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+func (o KubernetesClusterDefaultNodePoolOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 type KubernetesClusterDefaultNodePoolPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolPtrOutput) ElementType() reflect.Type {
@@ -5851,16 +3673,6 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Elem() KubernetesClusterDefau
 		var ret KubernetesClusterDefaultNodePool
 		return ret
 	}).(KubernetesClusterDefaultNodePoolOutput)
-}
-
-// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
-func (o KubernetesClusterDefaultNodePoolPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AvailabilityZones
-	}).(pulumi.StringArrayOutput)
 }
 
 // Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
@@ -6139,6 +3951,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) VnetSubnetId() pulumi.StringP
 		}
 		return v.VnetSubnetId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Zones
+	}).(pulumi.StringArrayOutput)
 }
 
 type KubernetesClusterDefaultNodePoolKubeletConfig struct {
@@ -7674,14 +5496,14 @@ func (o KubernetesClusterHttpProxyConfigPtrOutput) TrustedCa() pulumi.StringPtrO
 }
 
 type KubernetesClusterIdentity struct {
-	// The principal id of the system assigned identity which is used by main components.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
+	// Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
-	// The ID of a user assigned identity.
-	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
 // KubernetesClusterIdentityInput is an input type that accepts KubernetesClusterIdentityArgs and KubernetesClusterIdentityOutput values.
@@ -7696,14 +5518,14 @@ type KubernetesClusterIdentityInput interface {
 }
 
 type KubernetesClusterIdentityArgs struct {
-	// The principal id of the system assigned identity which is used by main components.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
+	// Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
-	// The ID of a user assigned identity.
-	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (KubernetesClusterIdentityArgs) ElementType() reflect.Type {
@@ -7783,7 +5605,12 @@ func (o KubernetesClusterIdentityOutput) ToKubernetesClusterIdentityPtrOutputWit
 	}).(KubernetesClusterIdentityPtrOutput)
 }
 
-// The principal id of the system assigned identity which is used by main components.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+func (o KubernetesClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
 func (o KubernetesClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -7793,14 +5620,9 @@ func (o KubernetesClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
+// Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o KubernetesClusterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The ID of a user assigned identity.
-func (o KubernetesClusterIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -7827,7 +5649,17 @@ func (o KubernetesClusterIdentityPtrOutput) Elem() KubernetesClusterIdentityOutp
 	}).(KubernetesClusterIdentityOutput)
 }
 
-// The principal id of the system assigned identity which is used by main components.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+func (o KubernetesClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
 func (o KubernetesClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterIdentity) *string {
 		if v == nil {
@@ -7847,23 +5679,13 @@ func (o KubernetesClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
+// Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o KubernetesClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of a user assigned identity.
-func (o KubernetesClusterIdentityPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentityId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8106,7 +5928,7 @@ type KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity
 	ClientId *string `pulumi:"clientId"`
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of a user assigned identity.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -8126,7 +5948,7 @@ type KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of a user assigned identity.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -8195,7 +6017,7 @@ func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of a user assigned identity.
+// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
 		return v.UserAssignedIdentityId
@@ -8404,7 +6226,7 @@ type KubernetesClusterKeyVaultSecretsProviderSecretIdentity struct {
 	ClientId *string `pulumi:"clientId"`
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of a user assigned identity.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -8424,7 +6246,7 @@ type KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs struct {
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of a user assigned identity.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -8489,7 +6311,7 @@ func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ObjectId()
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProviderSecretIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of a user assigned identity.
+// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProviderSecretIdentity) *string {
 		return v.UserAssignedIdentityId
@@ -8841,29 +6663,45 @@ func (i KubernetesClusterKubeletIdentityArgs) ToKubernetesClusterKubeletIdentity
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeletIdentityOutput)
 }
 
-// KubernetesClusterKubeletIdentityArrayInput is an input type that accepts KubernetesClusterKubeletIdentityArray and KubernetesClusterKubeletIdentityArrayOutput values.
-// You can construct a concrete instance of `KubernetesClusterKubeletIdentityArrayInput` via:
+func (i KubernetesClusterKubeletIdentityArgs) ToKubernetesClusterKubeletIdentityPtrOutput() KubernetesClusterKubeletIdentityPtrOutput {
+	return i.ToKubernetesClusterKubeletIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterKubeletIdentityArgs) ToKubernetesClusterKubeletIdentityPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeletIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeletIdentityOutput).ToKubernetesClusterKubeletIdentityPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterKubeletIdentityPtrInput is an input type that accepts KubernetesClusterKubeletIdentityArgs, KubernetesClusterKubeletIdentityPtr and KubernetesClusterKubeletIdentityPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterKubeletIdentityPtrInput` via:
 //
-//          KubernetesClusterKubeletIdentityArray{ KubernetesClusterKubeletIdentityArgs{...} }
-type KubernetesClusterKubeletIdentityArrayInput interface {
+//          KubernetesClusterKubeletIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterKubeletIdentityPtrInput interface {
 	pulumi.Input
 
-	ToKubernetesClusterKubeletIdentityArrayOutput() KubernetesClusterKubeletIdentityArrayOutput
-	ToKubernetesClusterKubeletIdentityArrayOutputWithContext(context.Context) KubernetesClusterKubeletIdentityArrayOutput
+	ToKubernetesClusterKubeletIdentityPtrOutput() KubernetesClusterKubeletIdentityPtrOutput
+	ToKubernetesClusterKubeletIdentityPtrOutputWithContext(context.Context) KubernetesClusterKubeletIdentityPtrOutput
 }
 
-type KubernetesClusterKubeletIdentityArray []KubernetesClusterKubeletIdentityInput
+type kubernetesClusterKubeletIdentityPtrType KubernetesClusterKubeletIdentityArgs
 
-func (KubernetesClusterKubeletIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesClusterKubeletIdentity)(nil)).Elem()
+func KubernetesClusterKubeletIdentityPtr(v *KubernetesClusterKubeletIdentityArgs) KubernetesClusterKubeletIdentityPtrInput {
+	return (*kubernetesClusterKubeletIdentityPtrType)(v)
 }
 
-func (i KubernetesClusterKubeletIdentityArray) ToKubernetesClusterKubeletIdentityArrayOutput() KubernetesClusterKubeletIdentityArrayOutput {
-	return i.ToKubernetesClusterKubeletIdentityArrayOutputWithContext(context.Background())
+func (*kubernetesClusterKubeletIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterKubeletIdentity)(nil)).Elem()
 }
 
-func (i KubernetesClusterKubeletIdentityArray) ToKubernetesClusterKubeletIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeletIdentityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeletIdentityArrayOutput)
+func (i *kubernetesClusterKubeletIdentityPtrType) ToKubernetesClusterKubeletIdentityPtrOutput() KubernetesClusterKubeletIdentityPtrOutput {
+	return i.ToKubernetesClusterKubeletIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterKubeletIdentityPtrType) ToKubernetesClusterKubeletIdentityPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeletIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeletIdentityPtrOutput)
 }
 
 type KubernetesClusterKubeletIdentityOutput struct{ *pulumi.OutputState }
@@ -8878,6 +6716,16 @@ func (o KubernetesClusterKubeletIdentityOutput) ToKubernetesClusterKubeletIdenti
 
 func (o KubernetesClusterKubeletIdentityOutput) ToKubernetesClusterKubeletIdentityOutputWithContext(ctx context.Context) KubernetesClusterKubeletIdentityOutput {
 	return o
+}
+
+func (o KubernetesClusterKubeletIdentityOutput) ToKubernetesClusterKubeletIdentityPtrOutput() KubernetesClusterKubeletIdentityPtrOutput {
+	return o.ToKubernetesClusterKubeletIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterKubeletIdentityOutput) ToKubernetesClusterKubeletIdentityPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeletIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterKubeletIdentity) *KubernetesClusterKubeletIdentity {
+		return &v
+	}).(KubernetesClusterKubeletIdentityPtrOutput)
 }
 
 // The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
@@ -8895,24 +6743,58 @@ func (o KubernetesClusterKubeletIdentityOutput) UserAssignedIdentityId() pulumi.
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterKubeletIdentityArrayOutput struct{ *pulumi.OutputState }
+type KubernetesClusterKubeletIdentityPtrOutput struct{ *pulumi.OutputState }
 
-func (KubernetesClusterKubeletIdentityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesClusterKubeletIdentity)(nil)).Elem()
+func (KubernetesClusterKubeletIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterKubeletIdentity)(nil)).Elem()
 }
 
-func (o KubernetesClusterKubeletIdentityArrayOutput) ToKubernetesClusterKubeletIdentityArrayOutput() KubernetesClusterKubeletIdentityArrayOutput {
+func (o KubernetesClusterKubeletIdentityPtrOutput) ToKubernetesClusterKubeletIdentityPtrOutput() KubernetesClusterKubeletIdentityPtrOutput {
 	return o
 }
 
-func (o KubernetesClusterKubeletIdentityArrayOutput) ToKubernetesClusterKubeletIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeletIdentityArrayOutput {
+func (o KubernetesClusterKubeletIdentityPtrOutput) ToKubernetesClusterKubeletIdentityPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeletIdentityPtrOutput {
 	return o
 }
 
-func (o KubernetesClusterKubeletIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterKubeletIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterKubeletIdentity {
-		return vs[0].([]KubernetesClusterKubeletIdentity)[vs[1].(int)]
+func (o KubernetesClusterKubeletIdentityPtrOutput) Elem() KubernetesClusterKubeletIdentityOutput {
+	return o.ApplyT(func(v *KubernetesClusterKubeletIdentity) KubernetesClusterKubeletIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterKubeletIdentity
+		return ret
 	}).(KubernetesClusterKubeletIdentityOutput)
+}
+
+// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+func (o KubernetesClusterKubeletIdentityPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterKubeletIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+func (o KubernetesClusterKubeletIdentityPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterKubeletIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+func (o KubernetesClusterKubeletIdentityPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterKubeletIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterLinuxProfile struct {
@@ -11793,7 +9675,7 @@ type KubernetesClusterOmsAgentOmsAgentIdentity struct {
 	ClientId *string `pulumi:"clientId"`
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of a user assigned identity.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -11813,7 +9695,7 @@ type KubernetesClusterOmsAgentOmsAgentIdentityArgs struct {
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of a user assigned identity.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -11878,7 +9760,7 @@ func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) ObjectId() pulumi.Strin
 	return o.ApplyT(func(v KubernetesClusterOmsAgentOmsAgentIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of a user assigned identity.
+// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterOmsAgentOmsAgentIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -11901,413 +9783,6 @@ func (o KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterOmsAgentOmsAgentIdentity {
 		return vs[0].([]KubernetesClusterOmsAgentOmsAgentIdentity)[vs[1].(int)]
 	}).(KubernetesClusterOmsAgentOmsAgentIdentityOutput)
-}
-
-type KubernetesClusterRoleBasedAccessControl struct {
-	AzureActiveDirectory *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory `pulumi:"azureActiveDirectory"`
-	// Is the Kubernetes Dashboard enabled?
-	Enabled bool `pulumi:"enabled"`
-}
-
-// KubernetesClusterRoleBasedAccessControlInput is an input type that accepts KubernetesClusterRoleBasedAccessControlArgs and KubernetesClusterRoleBasedAccessControlOutput values.
-// You can construct a concrete instance of `KubernetesClusterRoleBasedAccessControlInput` via:
-//
-//          KubernetesClusterRoleBasedAccessControlArgs{...}
-type KubernetesClusterRoleBasedAccessControlInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterRoleBasedAccessControlOutput() KubernetesClusterRoleBasedAccessControlOutput
-	ToKubernetesClusterRoleBasedAccessControlOutputWithContext(context.Context) KubernetesClusterRoleBasedAccessControlOutput
-}
-
-type KubernetesClusterRoleBasedAccessControlArgs struct {
-	AzureActiveDirectory KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput `pulumi:"azureActiveDirectory"`
-	// Is the Kubernetes Dashboard enabled?
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (KubernetesClusterRoleBasedAccessControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterRoleBasedAccessControl)(nil)).Elem()
-}
-
-func (i KubernetesClusterRoleBasedAccessControlArgs) ToKubernetesClusterRoleBasedAccessControlOutput() KubernetesClusterRoleBasedAccessControlOutput {
-	return i.ToKubernetesClusterRoleBasedAccessControlOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterRoleBasedAccessControlArgs) ToKubernetesClusterRoleBasedAccessControlOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterRoleBasedAccessControlOutput)
-}
-
-func (i KubernetesClusterRoleBasedAccessControlArgs) ToKubernetesClusterRoleBasedAccessControlPtrOutput() KubernetesClusterRoleBasedAccessControlPtrOutput {
-	return i.ToKubernetesClusterRoleBasedAccessControlPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterRoleBasedAccessControlArgs) ToKubernetesClusterRoleBasedAccessControlPtrOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterRoleBasedAccessControlOutput).ToKubernetesClusterRoleBasedAccessControlPtrOutputWithContext(ctx)
-}
-
-// KubernetesClusterRoleBasedAccessControlPtrInput is an input type that accepts KubernetesClusterRoleBasedAccessControlArgs, KubernetesClusterRoleBasedAccessControlPtr and KubernetesClusterRoleBasedAccessControlPtrOutput values.
-// You can construct a concrete instance of `KubernetesClusterRoleBasedAccessControlPtrInput` via:
-//
-//          KubernetesClusterRoleBasedAccessControlArgs{...}
-//
-//  or:
-//
-//          nil
-type KubernetesClusterRoleBasedAccessControlPtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterRoleBasedAccessControlPtrOutput() KubernetesClusterRoleBasedAccessControlPtrOutput
-	ToKubernetesClusterRoleBasedAccessControlPtrOutputWithContext(context.Context) KubernetesClusterRoleBasedAccessControlPtrOutput
-}
-
-type kubernetesClusterRoleBasedAccessControlPtrType KubernetesClusterRoleBasedAccessControlArgs
-
-func KubernetesClusterRoleBasedAccessControlPtr(v *KubernetesClusterRoleBasedAccessControlArgs) KubernetesClusterRoleBasedAccessControlPtrInput {
-	return (*kubernetesClusterRoleBasedAccessControlPtrType)(v)
-}
-
-func (*kubernetesClusterRoleBasedAccessControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterRoleBasedAccessControl)(nil)).Elem()
-}
-
-func (i *kubernetesClusterRoleBasedAccessControlPtrType) ToKubernetesClusterRoleBasedAccessControlPtrOutput() KubernetesClusterRoleBasedAccessControlPtrOutput {
-	return i.ToKubernetesClusterRoleBasedAccessControlPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterRoleBasedAccessControlPtrType) ToKubernetesClusterRoleBasedAccessControlPtrOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterRoleBasedAccessControlPtrOutput)
-}
-
-type KubernetesClusterRoleBasedAccessControlOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterRoleBasedAccessControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterRoleBasedAccessControl)(nil)).Elem()
-}
-
-func (o KubernetesClusterRoleBasedAccessControlOutput) ToKubernetesClusterRoleBasedAccessControlOutput() KubernetesClusterRoleBasedAccessControlOutput {
-	return o
-}
-
-func (o KubernetesClusterRoleBasedAccessControlOutput) ToKubernetesClusterRoleBasedAccessControlOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlOutput {
-	return o
-}
-
-func (o KubernetesClusterRoleBasedAccessControlOutput) ToKubernetesClusterRoleBasedAccessControlPtrOutput() KubernetesClusterRoleBasedAccessControlPtrOutput {
-	return o.ToKubernetesClusterRoleBasedAccessControlPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterRoleBasedAccessControlOutput) ToKubernetesClusterRoleBasedAccessControlPtrOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControl {
-		return &v
-	}).(KubernetesClusterRoleBasedAccessControlPtrOutput)
-}
-
-func (o KubernetesClusterRoleBasedAccessControlOutput) AzureActiveDirectory() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
-		return v.AzureActiveDirectory
-	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-func (o KubernetesClusterRoleBasedAccessControlOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type KubernetesClusterRoleBasedAccessControlPtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterRoleBasedAccessControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterRoleBasedAccessControl)(nil)).Elem()
-}
-
-func (o KubernetesClusterRoleBasedAccessControlPtrOutput) ToKubernetesClusterRoleBasedAccessControlPtrOutput() KubernetesClusterRoleBasedAccessControlPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterRoleBasedAccessControlPtrOutput) ToKubernetesClusterRoleBasedAccessControlPtrOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterRoleBasedAccessControlPtrOutput) Elem() KubernetesClusterRoleBasedAccessControlOutput {
-	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControl) KubernetesClusterRoleBasedAccessControl {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterRoleBasedAccessControl
-		return ret
-	}).(KubernetesClusterRoleBasedAccessControlOutput)
-}
-
-func (o KubernetesClusterRoleBasedAccessControlPtrOutput) AzureActiveDirectory() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControl) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
-		if v == nil {
-			return nil
-		}
-		return v.AzureActiveDirectory
-	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
-}
-
-// Is the Kubernetes Dashboard enabled?
-func (o KubernetesClusterRoleBasedAccessControlPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControl) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-type KubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
-	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-	AdminGroupObjectIds []string `pulumi:"adminGroupObjectIds"`
-	// Is Role Based Access Control based on Azure AD enabled?
-	AzureRbacEnabled *bool `pulumi:"azureRbacEnabled"`
-	// The Client ID of an Azure Active Directory Application.
-	ClientAppId *string `pulumi:"clientAppId"`
-	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
-	Managed *bool `pulumi:"managed"`
-	// The Server ID of an Azure Active Directory Application.
-	ServerAppId *string `pulumi:"serverAppId"`
-	// The Server Secret of an Azure Active Directory Application.
-	ServerAppSecret *string `pulumi:"serverAppSecret"`
-	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
-	TenantId *string `pulumi:"tenantId"`
-}
-
-// KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput is an input type that accepts KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs and KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput values.
-// You can construct a concrete instance of `KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput` via:
-//
-//          KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{...}
-type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput
-	ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutputWithContext(context.Context) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput
-}
-
-type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs struct {
-	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-	AdminGroupObjectIds pulumi.StringArrayInput `pulumi:"adminGroupObjectIds"`
-	// Is Role Based Access Control based on Azure AD enabled?
-	AzureRbacEnabled pulumi.BoolPtrInput `pulumi:"azureRbacEnabled"`
-	// The Client ID of an Azure Active Directory Application.
-	ClientAppId pulumi.StringPtrInput `pulumi:"clientAppId"`
-	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
-	Managed pulumi.BoolPtrInput `pulumi:"managed"`
-	// The Server ID of an Azure Active Directory Application.
-	ServerAppId pulumi.StringPtrInput `pulumi:"serverAppId"`
-	// The Server Secret of an Azure Active Directory Application.
-	ServerAppSecret pulumi.StringPtrInput `pulumi:"serverAppSecret"`
-	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-}
-
-func (KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
-}
-
-func (i KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return i.ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
-}
-
-func (i KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return i.ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput).ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutputWithContext(ctx)
-}
-
-// KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput is an input type that accepts KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs, KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtr and KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput values.
-// You can construct a concrete instance of `KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput` via:
-//
-//          KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{...}
-//
-//  or:
-//
-//          nil
-type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput
-	ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutputWithContext(context.Context) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput
-}
-
-type kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs
-
-func KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtr(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput {
-	return (*kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType)(v)
-}
-
-func (*kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
-}
-
-func (i *kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return i.ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrType) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
-}
-
-type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
-}
-
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return o
-}
-
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return o
-}
-
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return o.ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
-		return &v
-	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
-}
-
-// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) AdminGroupObjectIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) []string {
-		return v.AdminGroupObjectIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Is Role Based Access Control based on Azure AD enabled?
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) AzureRbacEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *bool { return v.AzureRbacEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// The Client ID of an Azure Active Directory Application.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ClientAppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.ClientAppId }).(pulumi.StringPtrOutput)
-}
-
-// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) Managed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *bool { return v.Managed }).(pulumi.BoolPtrOutput)
-}
-
-// The Server ID of an Azure Active Directory Application.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.ServerAppId }).(pulumi.StringPtrOutput)
-}
-
-// The Server Secret of an Azure Active Directory Application.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.ServerAppSecret }).(pulumi.StringPtrOutput)
-}
-
-// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
-}
-
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) Elem() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterRoleBasedAccessControlAzureActiveDirectory
-		return ret
-	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
-}
-
-// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) AdminGroupObjectIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AdminGroupObjectIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Is Role Based Access Control based on Azure AD enabled?
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) AzureRbacEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AzureRbacEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The Client ID of an Azure Active Directory Application.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ClientAppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientAppId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) Managed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Managed
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The Server ID of an Azure Active Directory Application.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ServerAppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerAppId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Server Secret of an Azure Active Directory Application.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ServerAppSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerAppSecret
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterServicePrincipal struct {
@@ -12941,13 +10416,13 @@ func (o RegistryGeoreplicationArrayOutput) Index(i pulumi.IntInput) RegistryGeor
 }
 
 type RegistryIdentity struct {
-	// A list of User Managed Identity ID's which should be assigned to the Container Registry.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -12963,13 +10438,13 @@ type RegistryIdentityInput interface {
 }
 
 type RegistryIdentityArgs struct {
-	// A list of User Managed Identity ID's which should be assigned to the Container Registry.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -13050,22 +10525,22 @@ func (o RegistryIdentityOutput) ToRegistryIdentityPtrOutputWithContext(ctx conte
 	}).(RegistryIdentityPtrOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Container Registry.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 func (o RegistryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RegistryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+// The Principal ID associated with this Managed Service Identity.
 func (o RegistryIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistryIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+// The Tenant ID associated with this Managed Service Identity.
 func (o RegistryIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistryIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o RegistryIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13094,7 +10569,7 @@ func (o RegistryIdentityPtrOutput) Elem() RegistryIdentityOutput {
 	}).(RegistryIdentityOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Container Registry.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 func (o RegistryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegistryIdentity) []string {
 		if v == nil {
@@ -13104,7 +10579,7 @@ func (o RegistryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+// The Principal ID associated with this Managed Service Identity.
 func (o RegistryIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryIdentity) *string {
 		if v == nil {
@@ -13114,7 +10589,7 @@ func (o RegistryIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+// The Tenant ID associated with this Managed Service Identity.
 func (o RegistryIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryIdentity) *string {
 		if v == nil {
@@ -13124,7 +10599,7 @@ func (o RegistryIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o RegistryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryIdentity) *string {
 		if v == nil {
@@ -14781,11 +12256,13 @@ func (o RegistryTaskFileStepPtrOutput) Values() pulumi.StringMapOutput {
 }
 
 type RegistryTaskIdentity struct {
-	// Specifies a list of user assigned identity IDs.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string  `pulumi:"principalId"`
-	TenantId    *string  `pulumi:"tenantId"`
-	// The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -14801,11 +12278,13 @@ type RegistryTaskIdentityInput interface {
 }
 
 type RegistryTaskIdentityArgs struct {
-	// Specifies a list of user assigned identity IDs.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -14886,20 +12365,22 @@ func (o RegistryTaskIdentityOutput) ToRegistryTaskIdentityPtrOutputWithContext(c
 	}).(RegistryTaskIdentityPtrOutput)
 }
 
-// Specifies a list of user assigned identity IDs.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 func (o RegistryTaskIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RegistryTaskIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID associated with this Managed Service Identity.
 func (o RegistryTaskIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistryTaskIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o RegistryTaskIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistryTaskIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o RegistryTaskIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryTaskIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14928,7 +12409,7 @@ func (o RegistryTaskIdentityPtrOutput) Elem() RegistryTaskIdentityOutput {
 	}).(RegistryTaskIdentityOutput)
 }
 
-// Specifies a list of user assigned identity IDs.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 func (o RegistryTaskIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegistryTaskIdentity) []string {
 		if v == nil {
@@ -14938,6 +12419,7 @@ func (o RegistryTaskIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID associated with this Managed Service Identity.
 func (o RegistryTaskIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryTaskIdentity) *string {
 		if v == nil {
@@ -14947,6 +12429,7 @@ func (o RegistryTaskIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o RegistryTaskIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryTaskIdentity) *string {
 		if v == nil {
@@ -14956,7 +12439,7 @@ func (o RegistryTaskIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o RegistryTaskIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryTaskIdentity) *string {
 		if v == nil {
@@ -16368,1286 +13851,7 @@ func (o GetKubernetesClusterAciConnectorLinuxArrayOutput) Index(i pulumi.IntInpu
 	}).(GetKubernetesClusterAciConnectorLinuxOutput)
 }
 
-type GetKubernetesClusterAddonProfile struct {
-	AzureKeyvaultSecretsProviders []GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider `pulumi:"azureKeyvaultSecretsProviders"`
-	AzurePolicies                 []GetKubernetesClusterAddonProfileAzurePolicy                  `pulumi:"azurePolicies"`
-	HttpApplicationRoutings       []GetKubernetesClusterAddonProfileHttpApplicationRouting       `pulumi:"httpApplicationRoutings"`
-	// An `ingressApplicationGateway` block as documented below.
-	IngressApplicationGateways []GetKubernetesClusterAddonProfileIngressApplicationGateway `pulumi:"ingressApplicationGateways"`
-	KubeDashboards             []GetKubernetesClusterAddonProfileKubeDashboard             `pulumi:"kubeDashboards"`
-	// An `omsAgent` block as documented below.
-	OmsAgents         []GetKubernetesClusterAddonProfileOmsAgent        `pulumi:"omsAgents"`
-	OpenServiceMeshes []GetKubernetesClusterAddonProfileOpenServiceMesh `pulumi:"openServiceMeshes"`
-}
-
-// GetKubernetesClusterAddonProfileInput is an input type that accepts GetKubernetesClusterAddonProfileArgs and GetKubernetesClusterAddonProfileOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileInput` via:
-//
-//          GetKubernetesClusterAddonProfileArgs{...}
-type GetKubernetesClusterAddonProfileInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileOutput() GetKubernetesClusterAddonProfileOutput
-	ToGetKubernetesClusterAddonProfileOutputWithContext(context.Context) GetKubernetesClusterAddonProfileOutput
-}
-
-type GetKubernetesClusterAddonProfileArgs struct {
-	AzureKeyvaultSecretsProviders GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayInput `pulumi:"azureKeyvaultSecretsProviders"`
-	AzurePolicies                 GetKubernetesClusterAddonProfileAzurePolicyArrayInput                  `pulumi:"azurePolicies"`
-	HttpApplicationRoutings       GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayInput       `pulumi:"httpApplicationRoutings"`
-	// An `ingressApplicationGateway` block as documented below.
-	IngressApplicationGateways GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayInput `pulumi:"ingressApplicationGateways"`
-	KubeDashboards             GetKubernetesClusterAddonProfileKubeDashboardArrayInput             `pulumi:"kubeDashboards"`
-	// An `omsAgent` block as documented below.
-	OmsAgents         GetKubernetesClusterAddonProfileOmsAgentArrayInput        `pulumi:"omsAgents"`
-	OpenServiceMeshes GetKubernetesClusterAddonProfileOpenServiceMeshArrayInput `pulumi:"openServiceMeshes"`
-}
-
-func (GetKubernetesClusterAddonProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfile)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileArgs) ToGetKubernetesClusterAddonProfileOutput() GetKubernetesClusterAddonProfileOutput {
-	return i.ToGetKubernetesClusterAddonProfileOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileArgs) ToGetKubernetesClusterAddonProfileOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOutput)
-}
-
-// GetKubernetesClusterAddonProfileArrayInput is an input type that accepts GetKubernetesClusterAddonProfileArray and GetKubernetesClusterAddonProfileArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileArrayInput` via:
-//
-//          GetKubernetesClusterAddonProfileArray{ GetKubernetesClusterAddonProfileArgs{...} }
-type GetKubernetesClusterAddonProfileArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileArrayOutput() GetKubernetesClusterAddonProfileArrayOutput
-	ToGetKubernetesClusterAddonProfileArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileArrayOutput
-}
-
-type GetKubernetesClusterAddonProfileArray []GetKubernetesClusterAddonProfileInput
-
-func (GetKubernetesClusterAddonProfileArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfile)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileArray) ToGetKubernetesClusterAddonProfileArrayOutput() GetKubernetesClusterAddonProfileArrayOutput {
-	return i.ToGetKubernetesClusterAddonProfileArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileArray) ToGetKubernetesClusterAddonProfileArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfile)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileOutput) ToGetKubernetesClusterAddonProfileOutput() GetKubernetesClusterAddonProfileOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOutput) ToGetKubernetesClusterAddonProfileOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOutput) AzureKeyvaultSecretsProviders() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
-		return v.AzureKeyvaultSecretsProviders
-	}).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput)
-}
-
-func (o GetKubernetesClusterAddonProfileOutput) AzurePolicies() GetKubernetesClusterAddonProfileAzurePolicyArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileAzurePolicy {
-		return v.AzurePolicies
-	}).(GetKubernetesClusterAddonProfileAzurePolicyArrayOutput)
-}
-
-func (o GetKubernetesClusterAddonProfileOutput) HttpApplicationRoutings() GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileHttpApplicationRouting {
-		return v.HttpApplicationRoutings
-	}).(GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput)
-}
-
-// An `ingressApplicationGateway` block as documented below.
-func (o GetKubernetesClusterAddonProfileOutput) IngressApplicationGateways() GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileIngressApplicationGateway {
-		return v.IngressApplicationGateways
-	}).(GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput)
-}
-
-func (o GetKubernetesClusterAddonProfileOutput) KubeDashboards() GetKubernetesClusterAddonProfileKubeDashboardArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileKubeDashboard {
-		return v.KubeDashboards
-	}).(GetKubernetesClusterAddonProfileKubeDashboardArrayOutput)
-}
-
-// An `omsAgent` block as documented below.
-func (o GetKubernetesClusterAddonProfileOutput) OmsAgents() GetKubernetesClusterAddonProfileOmsAgentArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileOmsAgent {
-		return v.OmsAgents
-	}).(GetKubernetesClusterAddonProfileOmsAgentArrayOutput)
-}
-
-func (o GetKubernetesClusterAddonProfileOutput) OpenServiceMeshes() GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileOpenServiceMesh {
-		return v.OpenServiceMeshes
-	}).(GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfile)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileArrayOutput) ToGetKubernetesClusterAddonProfileArrayOutput() GetKubernetesClusterAddonProfileArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileArrayOutput) ToGetKubernetesClusterAddonProfileArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfile {
-		return vs[0].([]GetKubernetesClusterAddonProfile)[vs[1].(int)]
-	}).(GetKubernetesClusterAddonProfileOutput)
-}
-
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider struct {
-	Enabled bool `pulumi:"enabled"`
-	// A `secretIdentity` block as documented below.
-	SecretIdentities []GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity `pulumi:"secretIdentities"`
-	// Is secret rotation enabled?
-	SecretRotationEnabled string `pulumi:"secretRotationEnabled"`
-	// The interval to poll for secret rotation.
-	SecretRotationInterval string `pulumi:"secretRotationInterval"`
-}
-
-// GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput is an input type that accepts GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs and GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput` via:
-//
-//          GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{...}
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput
-	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput
-}
-
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A `secretIdentity` block as documented below.
-	SecretIdentities GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput `pulumi:"secretIdentities"`
-	// Is secret rotation enabled?
-	SecretRotationEnabled pulumi.StringInput `pulumi:"secretRotationEnabled"`
-	// The interval to poll for secret rotation.
-	SecretRotationInterval pulumi.StringInput `pulumi:"secretRotationInterval"`
-}
-
-func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
-	return i.ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput)
-}
-
-// GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayInput is an input type that accepts GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray and GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayInput` via:
-//
-//          GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray{ GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{...} }
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput
-	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput
-}
-
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray []GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput
-
-func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput {
-	return i.ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// A `secretIdentity` block as documented below.
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) SecretIdentities() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) []GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
-		return v.SecretIdentities
-	}).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput)
-}
-
-// Is secret rotation enabled?
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) SecretRotationEnabled() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) string {
-		return v.SecretRotationEnabled
-	}).(pulumi.StringOutput)
-}
-
-// The interval to poll for secret rotation.
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) SecretRotationInterval() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) string {
-		return v.SecretRotationInterval
-	}).(pulumi.StringOutput)
-}
-
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
-		return vs[0].([]GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)[vs[1].(int)]
-	}).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput)
-}
-
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity struct {
-	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
-	ClientId string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
-	ObjectId string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets.
-	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
-}
-
-// GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput is an input type that accepts GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs and GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput` via:
-//
-//          GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs{...}
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput
-	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput
-}
-
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets.
-	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
-}
-
-func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
-	return i.ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput)
-}
-
-// GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput is an input type that accepts GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray and GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput` via:
-//
-//          GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray{ GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs{...} }
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput
-	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput
-}
-
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray []GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput
-
-func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
-	return i.ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
-	return o
-}
-
-// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity) string {
-		return v.ClientId
-	}).(pulumi.StringOutput)
-}
-
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ObjectId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity) string {
-		return v.ObjectId
-	}).(pulumi.StringOutput)
-}
-
-// The ID of the User Assigned Identity assigned to the Kubelets.
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity) string {
-		return v.UserAssignedIdentityId
-	}).(pulumi.StringOutput)
-}
-
-type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
-		return vs[0].([]GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)[vs[1].(int)]
-	}).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput)
-}
-
-type GetKubernetesClusterAddonProfileAzurePolicy struct {
-	Enabled bool `pulumi:"enabled"`
-}
-
-// GetKubernetesClusterAddonProfileAzurePolicyInput is an input type that accepts GetKubernetesClusterAddonProfileAzurePolicyArgs and GetKubernetesClusterAddonProfileAzurePolicyOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileAzurePolicyInput` via:
-//
-//          GetKubernetesClusterAddonProfileAzurePolicyArgs{...}
-type GetKubernetesClusterAddonProfileAzurePolicyInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileAzurePolicyOutput() GetKubernetesClusterAddonProfileAzurePolicyOutput
-	ToGetKubernetesClusterAddonProfileAzurePolicyOutputWithContext(context.Context) GetKubernetesClusterAddonProfileAzurePolicyOutput
-}
-
-type GetKubernetesClusterAddonProfileAzurePolicyArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (GetKubernetesClusterAddonProfileAzurePolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileAzurePolicyArgs) ToGetKubernetesClusterAddonProfileAzurePolicyOutput() GetKubernetesClusterAddonProfileAzurePolicyOutput {
-	return i.ToGetKubernetesClusterAddonProfileAzurePolicyOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileAzurePolicyArgs) ToGetKubernetesClusterAddonProfileAzurePolicyOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzurePolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileAzurePolicyOutput)
-}
-
-// GetKubernetesClusterAddonProfileAzurePolicyArrayInput is an input type that accepts GetKubernetesClusterAddonProfileAzurePolicyArray and GetKubernetesClusterAddonProfileAzurePolicyArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileAzurePolicyArrayInput` via:
-//
-//          GetKubernetesClusterAddonProfileAzurePolicyArray{ GetKubernetesClusterAddonProfileAzurePolicyArgs{...} }
-type GetKubernetesClusterAddonProfileAzurePolicyArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileAzurePolicyArrayOutput() GetKubernetesClusterAddonProfileAzurePolicyArrayOutput
-	ToGetKubernetesClusterAddonProfileAzurePolicyArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileAzurePolicyArrayOutput
-}
-
-type GetKubernetesClusterAddonProfileAzurePolicyArray []GetKubernetesClusterAddonProfileAzurePolicyInput
-
-func (GetKubernetesClusterAddonProfileAzurePolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileAzurePolicyArray) ToGetKubernetesClusterAddonProfileAzurePolicyArrayOutput() GetKubernetesClusterAddonProfileAzurePolicyArrayOutput {
-	return i.ToGetKubernetesClusterAddonProfileAzurePolicyArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileAzurePolicyArray) ToGetKubernetesClusterAddonProfileAzurePolicyArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzurePolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileAzurePolicyArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileAzurePolicyOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileAzurePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileAzurePolicyOutput) ToGetKubernetesClusterAddonProfileAzurePolicyOutput() GetKubernetesClusterAddonProfileAzurePolicyOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileAzurePolicyOutput) ToGetKubernetesClusterAddonProfileAzurePolicyOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzurePolicyOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileAzurePolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzurePolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type GetKubernetesClusterAddonProfileAzurePolicyArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileAzurePolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileAzurePolicyArrayOutput) ToGetKubernetesClusterAddonProfileAzurePolicyArrayOutput() GetKubernetesClusterAddonProfileAzurePolicyArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileAzurePolicyArrayOutput) ToGetKubernetesClusterAddonProfileAzurePolicyArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzurePolicyArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileAzurePolicyArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileAzurePolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileAzurePolicy {
-		return vs[0].([]GetKubernetesClusterAddonProfileAzurePolicy)[vs[1].(int)]
-	}).(GetKubernetesClusterAddonProfileAzurePolicyOutput)
-}
-
-type GetKubernetesClusterAddonProfileHttpApplicationRouting struct {
-	Enabled bool `pulumi:"enabled"`
-	// The Zone Name of the HTTP Application Routing.
-	HttpApplicationRoutingZoneName string `pulumi:"httpApplicationRoutingZoneName"`
-}
-
-// GetKubernetesClusterAddonProfileHttpApplicationRoutingInput is an input type that accepts GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs and GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileHttpApplicationRoutingInput` via:
-//
-//          GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs{...}
-type GetKubernetesClusterAddonProfileHttpApplicationRoutingInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileHttpApplicationRoutingOutput() GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput
-	ToGetKubernetesClusterAddonProfileHttpApplicationRoutingOutputWithContext(context.Context) GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput
-}
-
-type GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The Zone Name of the HTTP Application Routing.
-	HttpApplicationRoutingZoneName pulumi.StringInput `pulumi:"httpApplicationRoutingZoneName"`
-}
-
-func (GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs) ToGetKubernetesClusterAddonProfileHttpApplicationRoutingOutput() GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return i.ToGetKubernetesClusterAddonProfileHttpApplicationRoutingOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs) ToGetKubernetesClusterAddonProfileHttpApplicationRoutingOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput)
-}
-
-// GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayInput is an input type that accepts GetKubernetesClusterAddonProfileHttpApplicationRoutingArray and GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayInput` via:
-//
-//          GetKubernetesClusterAddonProfileHttpApplicationRoutingArray{ GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs{...} }
-type GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput() GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput
-	ToGetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput
-}
-
-type GetKubernetesClusterAddonProfileHttpApplicationRoutingArray []GetKubernetesClusterAddonProfileHttpApplicationRoutingInput
-
-func (GetKubernetesClusterAddonProfileHttpApplicationRoutingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileHttpApplicationRoutingArray) ToGetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput() GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput {
-	return i.ToGetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileHttpApplicationRoutingArray) ToGetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToGetKubernetesClusterAddonProfileHttpApplicationRoutingOutput() GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToGetKubernetesClusterAddonProfileHttpApplicationRoutingOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileHttpApplicationRouting) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// The Zone Name of the HTTP Application Routing.
-func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput) HttpApplicationRoutingZoneName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileHttpApplicationRouting) string {
-		return v.HttpApplicationRoutingZoneName
-	}).(pulumi.StringOutput)
-}
-
-type GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput) ToGetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput() GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput) ToGetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileHttpApplicationRouting {
-		return vs[0].([]GetKubernetesClusterAddonProfileHttpApplicationRouting)[vs[1].(int)]
-	}).(GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput)
-}
-
-type GetKubernetesClusterAddonProfileIngressApplicationGateway struct {
-	// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
-	EffectiveGatewayId string `pulumi:"effectiveGatewayId"`
-	Enabled            bool   `pulumi:"enabled"`
-	// The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
-	GatewayId string `pulumi:"gatewayId"`
-	// An `ingressApplicationGatewayIdentity` block as defined below.
-	IngressApplicationGatewayIdentities []GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity `pulumi:"ingressApplicationGatewayIdentities"`
-	// The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
-	SubnetCidr string `pulumi:"subnetCidr"`
-	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
-	SubnetId string `pulumi:"subnetId"`
-}
-
-// GetKubernetesClusterAddonProfileIngressApplicationGatewayInput is an input type that accepts GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs and GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileIngressApplicationGatewayInput` via:
-//
-//          GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs{...}
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput
-	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput
-}
-
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs struct {
-	// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
-	EffectiveGatewayId pulumi.StringInput `pulumi:"effectiveGatewayId"`
-	Enabled            pulumi.BoolInput   `pulumi:"enabled"`
-	// The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
-	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
-	// An `ingressApplicationGatewayIdentity` block as defined below.
-	IngressApplicationGatewayIdentities GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput `pulumi:"ingressApplicationGatewayIdentities"`
-	// The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
-	SubnetCidr pulumi.StringInput `pulumi:"subnetCidr"`
-	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
-}
-
-func (GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput {
-	return i.ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput)
-}
-
-// GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayInput is an input type that accepts GetKubernetesClusterAddonProfileIngressApplicationGatewayArray and GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayInput` via:
-//
-//          GetKubernetesClusterAddonProfileIngressApplicationGatewayArray{ GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs{...} }
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput
-	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput
-}
-
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayArray []GetKubernetesClusterAddonProfileIngressApplicationGatewayInput
-
-func (GetKubernetesClusterAddonProfileIngressApplicationGatewayArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayArray) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput {
-	return i.ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayArray) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput {
-	return o
-}
-
-// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) EffectiveGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) string { return v.EffectiveGatewayId }).(pulumi.StringOutput)
-}
-
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) GatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) string { return v.GatewayId }).(pulumi.StringOutput)
-}
-
-// An `ingressApplicationGatewayIdentity` block as defined below.
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) IngressApplicationGatewayIdentities() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) []GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
-		return v.IngressApplicationGatewayIdentities
-	}).(GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
-}
-
-// The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) SubnetCidr() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) string { return v.SubnetCidr }).(pulumi.StringOutput)
-}
-
-// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) string { return v.SubnetId }).(pulumi.StringOutput)
-}
-
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileIngressApplicationGateway {
-		return vs[0].([]GetKubernetesClusterAddonProfileIngressApplicationGateway)[vs[1].(int)]
-	}).(GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput)
-}
-
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity struct {
-	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
-	ClientId string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
-	ObjectId string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets.
-	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
-}
-
-// GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput is an input type that accepts GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs and GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput` via:
-//
-//          GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs{...}
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput
-	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput
-}
-
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets.
-	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
-}
-
-func (GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
-	return i.ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput)
-}
-
-// GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput is an input type that accepts GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray and GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput` via:
-//
-//          GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray{ GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs{...} }
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput
-	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput
-}
-
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray []GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput
-
-func (GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
-	return i.ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
-	return o
-}
-
-// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) string {
-		return v.ClientId
-	}).(pulumi.StringOutput)
-}
-
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ObjectId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) string {
-		return v.ObjectId
-	}).(pulumi.StringOutput)
-}
-
-// The ID of the User Assigned Identity assigned to the Kubelets.
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) string {
-		return v.UserAssignedIdentityId
-	}).(pulumi.StringOutput)
-}
-
-type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
-		return vs[0].([]GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)[vs[1].(int)]
-	}).(GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput)
-}
-
-type GetKubernetesClusterAddonProfileKubeDashboard struct {
-	Enabled bool `pulumi:"enabled"`
-}
-
-// GetKubernetesClusterAddonProfileKubeDashboardInput is an input type that accepts GetKubernetesClusterAddonProfileKubeDashboardArgs and GetKubernetesClusterAddonProfileKubeDashboardOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileKubeDashboardInput` via:
-//
-//          GetKubernetesClusterAddonProfileKubeDashboardArgs{...}
-type GetKubernetesClusterAddonProfileKubeDashboardInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileKubeDashboardOutput() GetKubernetesClusterAddonProfileKubeDashboardOutput
-	ToGetKubernetesClusterAddonProfileKubeDashboardOutputWithContext(context.Context) GetKubernetesClusterAddonProfileKubeDashboardOutput
-}
-
-type GetKubernetesClusterAddonProfileKubeDashboardArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (GetKubernetesClusterAddonProfileKubeDashboardArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileKubeDashboardArgs) ToGetKubernetesClusterAddonProfileKubeDashboardOutput() GetKubernetesClusterAddonProfileKubeDashboardOutput {
-	return i.ToGetKubernetesClusterAddonProfileKubeDashboardOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileKubeDashboardArgs) ToGetKubernetesClusterAddonProfileKubeDashboardOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileKubeDashboardOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileKubeDashboardOutput)
-}
-
-// GetKubernetesClusterAddonProfileKubeDashboardArrayInput is an input type that accepts GetKubernetesClusterAddonProfileKubeDashboardArray and GetKubernetesClusterAddonProfileKubeDashboardArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileKubeDashboardArrayInput` via:
-//
-//          GetKubernetesClusterAddonProfileKubeDashboardArray{ GetKubernetesClusterAddonProfileKubeDashboardArgs{...} }
-type GetKubernetesClusterAddonProfileKubeDashboardArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileKubeDashboardArrayOutput() GetKubernetesClusterAddonProfileKubeDashboardArrayOutput
-	ToGetKubernetesClusterAddonProfileKubeDashboardArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileKubeDashboardArrayOutput
-}
-
-type GetKubernetesClusterAddonProfileKubeDashboardArray []GetKubernetesClusterAddonProfileKubeDashboardInput
-
-func (GetKubernetesClusterAddonProfileKubeDashboardArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileKubeDashboardArray) ToGetKubernetesClusterAddonProfileKubeDashboardArrayOutput() GetKubernetesClusterAddonProfileKubeDashboardArrayOutput {
-	return i.ToGetKubernetesClusterAddonProfileKubeDashboardArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileKubeDashboardArray) ToGetKubernetesClusterAddonProfileKubeDashboardArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileKubeDashboardArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileKubeDashboardArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileKubeDashboardOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileKubeDashboardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileKubeDashboardOutput) ToGetKubernetesClusterAddonProfileKubeDashboardOutput() GetKubernetesClusterAddonProfileKubeDashboardOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileKubeDashboardOutput) ToGetKubernetesClusterAddonProfileKubeDashboardOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileKubeDashboardOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileKubeDashboardOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileKubeDashboard) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type GetKubernetesClusterAddonProfileKubeDashboardArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileKubeDashboardArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileKubeDashboardArrayOutput) ToGetKubernetesClusterAddonProfileKubeDashboardArrayOutput() GetKubernetesClusterAddonProfileKubeDashboardArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileKubeDashboardArrayOutput) ToGetKubernetesClusterAddonProfileKubeDashboardArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileKubeDashboardArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileKubeDashboardArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileKubeDashboardOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileKubeDashboard {
-		return vs[0].([]GetKubernetesClusterAddonProfileKubeDashboard)[vs[1].(int)]
-	}).(GetKubernetesClusterAddonProfileKubeDashboardOutput)
-}
-
-type GetKubernetesClusterAddonProfileOmsAgent struct {
-	Enabled bool `pulumi:"enabled"`
-	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
-	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
-	// An `omsAgentIdentity` block as defined below.
-	OmsAgentIdentities []GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity `pulumi:"omsAgentIdentities"`
-}
-
-// GetKubernetesClusterAddonProfileOmsAgentInput is an input type that accepts GetKubernetesClusterAddonProfileOmsAgentArgs and GetKubernetesClusterAddonProfileOmsAgentOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileOmsAgentInput` via:
-//
-//          GetKubernetesClusterAddonProfileOmsAgentArgs{...}
-type GetKubernetesClusterAddonProfileOmsAgentInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileOmsAgentOutput() GetKubernetesClusterAddonProfileOmsAgentOutput
-	ToGetKubernetesClusterAddonProfileOmsAgentOutputWithContext(context.Context) GetKubernetesClusterAddonProfileOmsAgentOutput
-}
-
-type GetKubernetesClusterAddonProfileOmsAgentArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
-	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
-	// An `omsAgentIdentity` block as defined below.
-	OmsAgentIdentities GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput `pulumi:"omsAgentIdentities"`
-}
-
-func (GetKubernetesClusterAddonProfileOmsAgentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileOmsAgentArgs) ToGetKubernetesClusterAddonProfileOmsAgentOutput() GetKubernetesClusterAddonProfileOmsAgentOutput {
-	return i.ToGetKubernetesClusterAddonProfileOmsAgentOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileOmsAgentArgs) ToGetKubernetesClusterAddonProfileOmsAgentOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOmsAgentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOmsAgentOutput)
-}
-
-// GetKubernetesClusterAddonProfileOmsAgentArrayInput is an input type that accepts GetKubernetesClusterAddonProfileOmsAgentArray and GetKubernetesClusterAddonProfileOmsAgentArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileOmsAgentArrayInput` via:
-//
-//          GetKubernetesClusterAddonProfileOmsAgentArray{ GetKubernetesClusterAddonProfileOmsAgentArgs{...} }
-type GetKubernetesClusterAddonProfileOmsAgentArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileOmsAgentArrayOutput() GetKubernetesClusterAddonProfileOmsAgentArrayOutput
-	ToGetKubernetesClusterAddonProfileOmsAgentArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileOmsAgentArrayOutput
-}
-
-type GetKubernetesClusterAddonProfileOmsAgentArray []GetKubernetesClusterAddonProfileOmsAgentInput
-
-func (GetKubernetesClusterAddonProfileOmsAgentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileOmsAgentArray) ToGetKubernetesClusterAddonProfileOmsAgentArrayOutput() GetKubernetesClusterAddonProfileOmsAgentArrayOutput {
-	return i.ToGetKubernetesClusterAddonProfileOmsAgentArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileOmsAgentArray) ToGetKubernetesClusterAddonProfileOmsAgentArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOmsAgentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOmsAgentArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileOmsAgentOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileOmsAgentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileOmsAgentOutput) ToGetKubernetesClusterAddonProfileOmsAgentOutput() GetKubernetesClusterAddonProfileOmsAgentOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOmsAgentOutput) ToGetKubernetesClusterAddonProfileOmsAgentOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOmsAgentOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOmsAgentOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgent) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
-func (o GetKubernetesClusterAddonProfileOmsAgentOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgent) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
-}
-
-// An `omsAgentIdentity` block as defined below.
-func (o GetKubernetesClusterAddonProfileOmsAgentOutput) OmsAgentIdentities() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgent) []GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
-		return v.OmsAgentIdentities
-	}).(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileOmsAgentArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileOmsAgentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileOmsAgentArrayOutput) ToGetKubernetesClusterAddonProfileOmsAgentArrayOutput() GetKubernetesClusterAddonProfileOmsAgentArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOmsAgentArrayOutput) ToGetKubernetesClusterAddonProfileOmsAgentArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOmsAgentArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOmsAgentArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileOmsAgentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileOmsAgent {
-		return vs[0].([]GetKubernetesClusterAddonProfileOmsAgent)[vs[1].(int)]
-	}).(GetKubernetesClusterAddonProfileOmsAgentOutput)
-}
-
-type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity struct {
-	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
-	ClientId string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
-	ObjectId string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets.
-	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
-}
-
-// GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput is an input type that accepts GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs and GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput` via:
-//
-//          GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...}
-type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput
-	ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(context.Context) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput
-}
-
-type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs struct {
-	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets.
-	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
-}
-
-func (GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
-	return i.ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput)
-}
-
-// GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput is an input type that accepts GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray and GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput` via:
-//
-//          GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray{ GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...} }
-type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput
-	ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput
-}
-
-type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray []GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput
-
-func (GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
-	return i.ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
-	return o
-}
-
-// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
-func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) string { return v.ClientId }).(pulumi.StringOutput)
-}
-
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
-func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ObjectId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) string { return v.ObjectId }).(pulumi.StringOutput)
-}
-
-// The ID of the User Assigned Identity assigned to the Kubelets.
-func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) string {
-		return v.UserAssignedIdentityId
-	}).(pulumi.StringOutput)
-}
-
-type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
-		return vs[0].([]GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)[vs[1].(int)]
-	}).(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput)
-}
-
-type GetKubernetesClusterAddonProfileOpenServiceMesh struct {
-	Enabled bool `pulumi:"enabled"`
-}
-
-// GetKubernetesClusterAddonProfileOpenServiceMeshInput is an input type that accepts GetKubernetesClusterAddonProfileOpenServiceMeshArgs and GetKubernetesClusterAddonProfileOpenServiceMeshOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileOpenServiceMeshInput` via:
-//
-//          GetKubernetesClusterAddonProfileOpenServiceMeshArgs{...}
-type GetKubernetesClusterAddonProfileOpenServiceMeshInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileOpenServiceMeshOutput() GetKubernetesClusterAddonProfileOpenServiceMeshOutput
-	ToGetKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(context.Context) GetKubernetesClusterAddonProfileOpenServiceMeshOutput
-}
-
-type GetKubernetesClusterAddonProfileOpenServiceMeshArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (GetKubernetesClusterAddonProfileOpenServiceMeshArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileOpenServiceMeshArgs) ToGetKubernetesClusterAddonProfileOpenServiceMeshOutput() GetKubernetesClusterAddonProfileOpenServiceMeshOutput {
-	return i.ToGetKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileOpenServiceMeshArgs) ToGetKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOpenServiceMeshOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOpenServiceMeshOutput)
-}
-
-// GetKubernetesClusterAddonProfileOpenServiceMeshArrayInput is an input type that accepts GetKubernetesClusterAddonProfileOpenServiceMeshArray and GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterAddonProfileOpenServiceMeshArrayInput` via:
-//
-//          GetKubernetesClusterAddonProfileOpenServiceMeshArray{ GetKubernetesClusterAddonProfileOpenServiceMeshArgs{...} }
-type GetKubernetesClusterAddonProfileOpenServiceMeshArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput() GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput
-	ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput
-}
-
-type GetKubernetesClusterAddonProfileOpenServiceMeshArray []GetKubernetesClusterAddonProfileOpenServiceMeshInput
-
-func (GetKubernetesClusterAddonProfileOpenServiceMeshArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterAddonProfileOpenServiceMeshArray) ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput() GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput {
-	return i.ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterAddonProfileOpenServiceMeshArray) ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput)
-}
-
-type GetKubernetesClusterAddonProfileOpenServiceMeshOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileOpenServiceMeshOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileOpenServiceMeshOutput) ToGetKubernetesClusterAddonProfileOpenServiceMeshOutput() GetKubernetesClusterAddonProfileOpenServiceMeshOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOpenServiceMeshOutput) ToGetKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOpenServiceMeshOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOpenServiceMeshOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOpenServiceMesh) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput) ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput() GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput) ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileOpenServiceMeshOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileOpenServiceMesh {
-		return vs[0].([]GetKubernetesClusterAddonProfileOpenServiceMesh)[vs[1].(int)]
-	}).(GetKubernetesClusterAddonProfileOpenServiceMeshOutput)
-}
-
 type GetKubernetesClusterAgentPoolProfile struct {
-	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The number of Agents (VM's) in the Pool.
 	Count int `pulumi:"count"`
 	// If the auto-scaler is enabled.
@@ -17674,7 +13878,7 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	OsType string `pulumi:"osType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of identity used for the managed cluster.
+	// The type of Managed Service Identity that is configured on this Kubernetes Cluster.
 	Type string `pulumi:"type"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings []GetKubernetesClusterAgentPoolProfileUpgradeSetting `pulumi:"upgradeSettings"`
@@ -17682,7 +13886,7 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	VmSize string `pulumi:"vmSize"`
 	// The ID of the Subnet where the Agents in the Pool are provisioned.
 	VnetSubnetId string `pulumi:"vnetSubnetId"`
-	// Specifies the Availability Zones where the Nodes within this Agent Pool exist.
+	// A list of Availability Zones in which this Kubernetes Cluster is located.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -17698,7 +13902,6 @@ type GetKubernetesClusterAgentPoolProfileInput interface {
 }
 
 type GetKubernetesClusterAgentPoolProfileArgs struct {
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// The number of Agents (VM's) in the Pool.
 	Count pulumi.IntInput `pulumi:"count"`
 	// If the auto-scaler is enabled.
@@ -17725,7 +13928,7 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	OsType pulumi.StringInput `pulumi:"osType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of identity used for the managed cluster.
+	// The type of Managed Service Identity that is configured on this Kubernetes Cluster.
 	Type pulumi.StringInput `pulumi:"type"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayInput `pulumi:"upgradeSettings"`
@@ -17733,7 +13936,7 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// The ID of the Subnet where the Agents in the Pool are provisioned.
 	VnetSubnetId pulumi.StringInput `pulumi:"vnetSubnetId"`
-	// Specifies the Availability Zones where the Nodes within this Agent Pool exist.
+	// A list of Availability Zones in which this Kubernetes Cluster is located.
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
@@ -17786,10 +13989,6 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) ToGetKubernetesClusterAgentP
 
 func (o GetKubernetesClusterAgentPoolProfileOutput) ToGetKubernetesClusterAgentPoolProfileOutputWithContext(ctx context.Context) GetKubernetesClusterAgentPoolProfileOutput {
 	return o
-}
-
-func (o GetKubernetesClusterAgentPoolProfileOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 // The number of Agents (VM's) in the Pool.
@@ -17860,7 +14059,7 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) Tags() pulumi.StringMapOutpu
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of identity used for the managed cluster.
+// The type of Managed Service Identity that is configured on this Kubernetes Cluster.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17882,7 +14081,7 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) VnetSubnetId() pulumi.String
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.VnetSubnetId }).(pulumi.StringOutput)
 }
 
-// Specifies the Availability Zones where the Nodes within this Agent Pool exist.
+// A list of Availability Zones in which this Kubernetes Cluster is located.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
@@ -18015,7 +14214,7 @@ type GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl struct {
 	Managed bool `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
 	ServerAppId string `pulumi:"serverAppId"`
-	// The tenant id of the system assigned identity which is used by primary components.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 	TenantId string `pulumi:"tenantId"`
 }
 
@@ -18041,7 +14240,7 @@ type GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs struct {
 	Managed pulumi.BoolInput `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
 	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
-	// The tenant id of the system assigned identity which is used by primary components.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
 
@@ -18123,7 +14322,7 @@ func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Se
 	return o.ApplyT(func(v GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) string { return v.ServerAppId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the system assigned identity which is used by primary components.
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -18149,14 +14348,14 @@ func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutpu
 }
 
 type GetKubernetesClusterIdentity struct {
-	// The principal id of the system assigned identity which is used by primary components.
+	// The list of User Assigned Managed Identity IDs assigned to this Kubernetes Cluster.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by primary components.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the managed cluster.
+	// The type of Managed Service Identity that is configured on this Kubernetes Cluster.
 	Type string `pulumi:"type"`
-	// The ID of the User Assigned Identity assigned to the Kubelets.
-	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
 // GetKubernetesClusterIdentityInput is an input type that accepts GetKubernetesClusterIdentityArgs and GetKubernetesClusterIdentityOutput values.
@@ -18171,14 +14370,14 @@ type GetKubernetesClusterIdentityInput interface {
 }
 
 type GetKubernetesClusterIdentityArgs struct {
-	// The principal id of the system assigned identity which is used by primary components.
+	// The list of User Assigned Managed Identity IDs assigned to this Kubernetes Cluster.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by primary components.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the managed cluster.
+	// The type of Managed Service Identity that is configured on this Kubernetes Cluster.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The ID of the User Assigned Identity assigned to the Kubelets.
-	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (GetKubernetesClusterIdentityArgs) ElementType() reflect.Type {
@@ -18232,24 +14431,24 @@ func (o GetKubernetesClusterIdentityOutput) ToGetKubernetesClusterIdentityOutput
 	return o
 }
 
-// The principal id of the system assigned identity which is used by primary components.
+// The list of User Assigned Managed Identity IDs assigned to this Kubernetes Cluster.
+func (o GetKubernetesClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetKubernetesClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 func (o GetKubernetesClusterIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the system assigned identity which is used by primary components.
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 func (o GetKubernetesClusterIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the managed cluster.
+// The type of Managed Service Identity that is configured on this Kubernetes Cluster.
 func (o GetKubernetesClusterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The ID of the User Assigned Identity assigned to the Kubelets.
-func (o GetKubernetesClusterIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterIdentity) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
 type GetKubernetesClusterIdentityArrayOutput struct{ *pulumi.OutputState }
@@ -19741,243 +15940,6 @@ func (o GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.
 	}).(GetKubernetesClusterOmsAgentOmsAgentIdentityOutput)
 }
 
-type GetKubernetesClusterRoleBasedAccessControl struct {
-	AzureActiveDirectories []GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory `pulumi:"azureActiveDirectories"`
-	Enabled                bool                                                             `pulumi:"enabled"`
-}
-
-// GetKubernetesClusterRoleBasedAccessControlInput is an input type that accepts GetKubernetesClusterRoleBasedAccessControlArgs and GetKubernetesClusterRoleBasedAccessControlOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterRoleBasedAccessControlInput` via:
-//
-//          GetKubernetesClusterRoleBasedAccessControlArgs{...}
-type GetKubernetesClusterRoleBasedAccessControlInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterRoleBasedAccessControlOutput() GetKubernetesClusterRoleBasedAccessControlOutput
-	ToGetKubernetesClusterRoleBasedAccessControlOutputWithContext(context.Context) GetKubernetesClusterRoleBasedAccessControlOutput
-}
-
-type GetKubernetesClusterRoleBasedAccessControlArgs struct {
-	AzureActiveDirectories GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayInput `pulumi:"azureActiveDirectories"`
-	Enabled                pulumi.BoolInput                                                         `pulumi:"enabled"`
-}
-
-func (GetKubernetesClusterRoleBasedAccessControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterRoleBasedAccessControl)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterRoleBasedAccessControlArgs) ToGetKubernetesClusterRoleBasedAccessControlOutput() GetKubernetesClusterRoleBasedAccessControlOutput {
-	return i.ToGetKubernetesClusterRoleBasedAccessControlOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterRoleBasedAccessControlArgs) ToGetKubernetesClusterRoleBasedAccessControlOutputWithContext(ctx context.Context) GetKubernetesClusterRoleBasedAccessControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterRoleBasedAccessControlOutput)
-}
-
-// GetKubernetesClusterRoleBasedAccessControlArrayInput is an input type that accepts GetKubernetesClusterRoleBasedAccessControlArray and GetKubernetesClusterRoleBasedAccessControlArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterRoleBasedAccessControlArrayInput` via:
-//
-//          GetKubernetesClusterRoleBasedAccessControlArray{ GetKubernetesClusterRoleBasedAccessControlArgs{...} }
-type GetKubernetesClusterRoleBasedAccessControlArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterRoleBasedAccessControlArrayOutput() GetKubernetesClusterRoleBasedAccessControlArrayOutput
-	ToGetKubernetesClusterRoleBasedAccessControlArrayOutputWithContext(context.Context) GetKubernetesClusterRoleBasedAccessControlArrayOutput
-}
-
-type GetKubernetesClusterRoleBasedAccessControlArray []GetKubernetesClusterRoleBasedAccessControlInput
-
-func (GetKubernetesClusterRoleBasedAccessControlArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterRoleBasedAccessControl)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterRoleBasedAccessControlArray) ToGetKubernetesClusterRoleBasedAccessControlArrayOutput() GetKubernetesClusterRoleBasedAccessControlArrayOutput {
-	return i.ToGetKubernetesClusterRoleBasedAccessControlArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterRoleBasedAccessControlArray) ToGetKubernetesClusterRoleBasedAccessControlArrayOutputWithContext(ctx context.Context) GetKubernetesClusterRoleBasedAccessControlArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterRoleBasedAccessControlArrayOutput)
-}
-
-type GetKubernetesClusterRoleBasedAccessControlOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterRoleBasedAccessControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterRoleBasedAccessControl)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterRoleBasedAccessControlOutput) ToGetKubernetesClusterRoleBasedAccessControlOutput() GetKubernetesClusterRoleBasedAccessControlOutput {
-	return o
-}
-
-func (o GetKubernetesClusterRoleBasedAccessControlOutput) ToGetKubernetesClusterRoleBasedAccessControlOutputWithContext(ctx context.Context) GetKubernetesClusterRoleBasedAccessControlOutput {
-	return o
-}
-
-func (o GetKubernetesClusterRoleBasedAccessControlOutput) AzureActiveDirectories() GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControl) []GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
-		return v.AzureActiveDirectories
-	}).(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput)
-}
-
-func (o GetKubernetesClusterRoleBasedAccessControlOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControl) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type GetKubernetesClusterRoleBasedAccessControlArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterRoleBasedAccessControlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterRoleBasedAccessControl)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterRoleBasedAccessControlArrayOutput) ToGetKubernetesClusterRoleBasedAccessControlArrayOutput() GetKubernetesClusterRoleBasedAccessControlArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterRoleBasedAccessControlArrayOutput) ToGetKubernetesClusterRoleBasedAccessControlArrayOutputWithContext(ctx context.Context) GetKubernetesClusterRoleBasedAccessControlArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterRoleBasedAccessControlArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterRoleBasedAccessControlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterRoleBasedAccessControl {
-		return vs[0].([]GetKubernetesClusterRoleBasedAccessControl)[vs[1].(int)]
-	}).(GetKubernetesClusterRoleBasedAccessControlOutput)
-}
-
-type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
-	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-	AdminGroupObjectIds []string `pulumi:"adminGroupObjectIds"`
-	// The Client ID of an Azure Active Directory Application.
-	ClientAppId string `pulumi:"clientAppId"`
-	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
-	Managed bool `pulumi:"managed"`
-	// The Server ID of an Azure Active Directory Application.
-	ServerAppId string `pulumi:"serverAppId"`
-	// The tenant id of the system assigned identity which is used by primary components.
-	TenantId string `pulumi:"tenantId"`
-}
-
-// GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput is an input type that accepts GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs and GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput` via:
-//
-//          GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{...}
-type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput() GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput
-	ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutputWithContext(context.Context) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput
-}
-
-type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs struct {
-	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-	AdminGroupObjectIds pulumi.StringArrayInput `pulumi:"adminGroupObjectIds"`
-	// The Client ID of an Azure Active Directory Application.
-	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
-	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
-	Managed pulumi.BoolInput `pulumi:"managed"`
-	// The Server ID of an Azure Active Directory Application.
-	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
-	// The tenant id of the system assigned identity which is used by primary components.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-}
-
-func (GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput() GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return i.ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutputWithContext(ctx context.Context) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
-}
-
-// GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayInput is an input type that accepts GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArray and GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput values.
-// You can construct a concrete instance of `GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayInput` via:
-//
-//          GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArray{ GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{...} }
-type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayInput interface {
-	pulumi.Input
-
-	ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput() GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput
-	ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutputWithContext(context.Context) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput
-}
-
-type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArray []GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput
-
-func (GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
-}
-
-func (i GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArray) ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput() GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput {
-	return i.ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutputWithContext(context.Background())
-}
-
-func (i GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArray) ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutputWithContext(ctx context.Context) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput)
-}
-
-type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput() GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return o
-}
-
-func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutputWithContext(ctx context.Context) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return o
-}
-
-// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) AdminGroupObjectIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) []string {
-		return v.AdminGroupObjectIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// The Client ID of an Azure Active Directory Application.
-func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ClientAppId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
-}
-
-// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
-func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) Managed() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) bool { return v.Managed }).(pulumi.BoolOutput)
-}
-
-// The Server ID of an Azure Active Directory Application.
-func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
-}
-
-// The tenant id of the system assigned identity which is used by primary components.
-func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
-}
-
-type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput struct{ *pulumi.OutputState }
-
-func (GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
-}
-
-func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput) ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput() GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput) ToGetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutputWithContext(ctx context.Context) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput {
-	return o
-}
-
-func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
-		return vs[0].([]GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory)[vs[1].(int)]
-	}).(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
-}
-
 type GetKubernetesClusterServicePrincipal struct {
 	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
 	ClientId string `pulumi:"clientId"`
@@ -20205,30 +16167,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupImageRegistryCredentialArrayInput)(nil)).Elem(), GroupImageRegistryCredentialArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAciConnectorLinuxInput)(nil)).Elem(), KubernetesClusterAciConnectorLinuxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAciConnectorLinuxPtrInput)(nil)).Elem(), KubernetesClusterAciConnectorLinuxArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileInput)(nil)).Elem(), KubernetesClusterAddonProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfilePtrInput)(nil)).Elem(), KubernetesClusterAddonProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAciConnectorLinuxInput)(nil)).Elem(), KubernetesClusterAddonProfileAciConnectorLinuxArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAciConnectorLinuxPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileAciConnectorLinuxArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput)(nil)).Elem(), KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput)(nil)).Elem(), KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput)(nil)).Elem(), KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAzurePolicyInput)(nil)).Elem(), KubernetesClusterAddonProfileAzurePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAzurePolicyPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileAzurePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileHttpApplicationRoutingInput)(nil)).Elem(), KubernetesClusterAddonProfileHttpApplicationRoutingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileHttpApplicationRoutingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileIngressApplicationGatewayInput)(nil)).Elem(), KubernetesClusterAddonProfileIngressApplicationGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileIngressApplicationGatewayPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileIngressApplicationGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput)(nil)).Elem(), KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput)(nil)).Elem(), KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileKubeDashboardInput)(nil)).Elem(), KubernetesClusterAddonProfileKubeDashboardArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileKubeDashboardPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileKubeDashboardArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgentInput)(nil)).Elem(), KubernetesClusterAddonProfileOmsAgentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgentPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileOmsAgentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput)(nil)).Elem(), KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileOpenServiceMeshInput)(nil)).Elem(), KubernetesClusterAddonProfileOpenServiceMeshArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileOpenServiceMeshPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileOpenServiceMeshArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAutoScalerProfileInput)(nil)).Elem(), KubernetesClusterAutoScalerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAutoScalerProfilePtrInput)(nil)).Elem(), KubernetesClusterAutoScalerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlInput)(nil)).Elem(), KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs{})
@@ -20260,7 +16198,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterKubeConfigInput)(nil)).Elem(), KubernetesClusterKubeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterKubeConfigArrayInput)(nil)).Elem(), KubernetesClusterKubeConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterKubeletIdentityInput)(nil)).Elem(), KubernetesClusterKubeletIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterKubeletIdentityArrayInput)(nil)).Elem(), KubernetesClusterKubeletIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterKubeletIdentityPtrInput)(nil)).Elem(), KubernetesClusterKubeletIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterLinuxProfileInput)(nil)).Elem(), KubernetesClusterLinuxProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterLinuxProfilePtrInput)(nil)).Elem(), KubernetesClusterLinuxProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterLinuxProfileSshKeyInput)(nil)).Elem(), KubernetesClusterLinuxProfileSshKeyArgs{})
@@ -20289,10 +16227,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentPtrInput)(nil)).Elem(), KubernetesClusterOmsAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentOmsAgentIdentityInput)(nil)).Elem(), KubernetesClusterOmsAgentOmsAgentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), KubernetesClusterOmsAgentOmsAgentIdentityArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterRoleBasedAccessControlInput)(nil)).Elem(), KubernetesClusterRoleBasedAccessControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterRoleBasedAccessControlPtrInput)(nil)).Elem(), KubernetesClusterRoleBasedAccessControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput)(nil)).Elem(), KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput)(nil)).Elem(), KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServicePrincipalInput)(nil)).Elem(), KubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServicePrincipalPtrInput)(nil)).Elem(), KubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfileInput)(nil)).Elem(), KubernetesClusterWindowsProfileArgs{})
@@ -20343,28 +16277,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterNodePoolUpgradeSettingArrayInput)(nil)).Elem(), GetClusterNodePoolUpgradeSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAciConnectorLinuxInput)(nil)).Elem(), GetKubernetesClusterAciConnectorLinuxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAciConnectorLinuxArrayInput)(nil)).Elem(), GetKubernetesClusterAciConnectorLinuxArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileInput)(nil)).Elem(), GetKubernetesClusterAddonProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput)(nil)).Elem(), GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput)(nil)).Elem(), GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileAzurePolicyInput)(nil)).Elem(), GetKubernetesClusterAddonProfileAzurePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileAzurePolicyArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileAzurePolicyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileHttpApplicationRoutingInput)(nil)).Elem(), GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileHttpApplicationRoutingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileIngressApplicationGatewayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileIngressApplicationGatewayArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput)(nil)).Elem(), GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileKubeDashboardInput)(nil)).Elem(), GetKubernetesClusterAddonProfileKubeDashboardArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileKubeDashboardArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileKubeDashboardArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgentInput)(nil)).Elem(), GetKubernetesClusterAddonProfileOmsAgentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgentArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileOmsAgentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput)(nil)).Elem(), GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileOpenServiceMeshInput)(nil)).Elem(), GetKubernetesClusterAddonProfileOpenServiceMeshArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileOpenServiceMeshArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileOpenServiceMeshArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAgentPoolProfileInput)(nil)).Elem(), GetKubernetesClusterAgentPoolProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAgentPoolProfileArrayInput)(nil)).Elem(), GetKubernetesClusterAgentPoolProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAgentPoolProfileUpgradeSettingInput)(nil)).Elem(), GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs{})
@@ -20397,10 +16309,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterOmsAgentArrayInput)(nil)).Elem(), GetKubernetesClusterOmsAgentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterOmsAgentOmsAgentIdentityInput)(nil)).Elem(), GetKubernetesClusterOmsAgentOmsAgentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), GetKubernetesClusterOmsAgentOmsAgentIdentityArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterRoleBasedAccessControlInput)(nil)).Elem(), GetKubernetesClusterRoleBasedAccessControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterRoleBasedAccessControlArrayInput)(nil)).Elem(), GetKubernetesClusterRoleBasedAccessControlArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput)(nil)).Elem(), GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayInput)(nil)).Elem(), GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServicePrincipalInput)(nil)).Elem(), GetKubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServicePrincipalArrayInput)(nil)).Elem(), GetKubernetesClusterServicePrincipalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterWindowsProfileInput)(nil)).Elem(), GetKubernetesClusterWindowsProfileArgs{})
@@ -20437,30 +16345,6 @@ func init() {
 	pulumi.RegisterOutputType(GroupImageRegistryCredentialArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAciConnectorLinuxOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAciConnectorLinuxPtrOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfilePtrOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAciConnectorLinuxOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzurePolicyOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzurePolicyPtrOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileHttpApplicationRoutingOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileIngressApplicationGatewayOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileKubeDashboardOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileKubeDashboardPtrOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentPtrOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOpenServiceMeshOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOpenServiceMeshPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput{})
@@ -20492,7 +16376,7 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterKubeConfigOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKubeConfigArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKubeletIdentityOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterKubeletIdentityArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterKubeletIdentityPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfileSshKeyOutput{})
@@ -20521,10 +16405,6 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentOmsAgentIdentityOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterRoleBasedAccessControlOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterRoleBasedAccessControlPtrOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileOutput{})
@@ -20575,28 +16455,6 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterNodePoolUpgradeSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAciConnectorLinuxOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAciConnectorLinuxArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzurePolicyOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzurePolicyArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileKubeDashboardOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileKubeDashboardArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOpenServiceMeshOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput{})
@@ -20629,10 +16487,6 @@ func init() {
 	pulumi.RegisterOutputType(GetKubernetesClusterOmsAgentArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterOmsAgentOmsAgentIdentityOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterRoleBasedAccessControlOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterRoleBasedAccessControlArrayOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput{})
-	pulumi.RegisterOutputType(GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterServicePrincipalOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterServicePrincipalArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterWindowsProfileOutput{})

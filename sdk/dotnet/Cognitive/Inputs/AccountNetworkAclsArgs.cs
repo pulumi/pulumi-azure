@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
     public sealed class AccountNetworkAclsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+        /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         /// </summary>
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;
@@ -40,15 +40,6 @@ namespace Pulumi.Azure.Cognitive.Inputs
         {
             get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.AccountNetworkAclsVirtualNetworkRuleArgs>());
             set => _virtualNetworkRules = value;
-        }
-
-        [Input("virtualNetworkSubnetIds")]
-        private InputList<string>? _virtualNetworkSubnetIds;
-        [Obsolete(@"Deprecated in favour of `virtual_network_rules`")]
-        public InputList<string> VirtualNetworkSubnetIds
-        {
-            get => _virtualNetworkSubnetIds ?? (_virtualNetworkSubnetIds = new InputList<string>());
-            set => _virtualNetworkSubnetIds = value;
         }
 
         public AccountNetworkAclsArgs()

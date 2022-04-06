@@ -33,13 +33,11 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var exampleLinkedServiceSnowflake = new Azure.DataFactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", new Azure.DataFactory.LinkedServiceSnowflakeArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryId = exampleFactory.Id,
     ///             ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
     ///         });
     ///         var exampleDatasetSnowflake = new Azure.DataFactory.DatasetSnowflake("exampleDatasetSnowflake", new Azure.DataFactory.DatasetSnowflakeArgs
     ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
     ///             DataFactoryId = azurerm_data_factory.Test.Id,
     ///             LinkedServiceName = azurerm_data_factory_linked_service_snowflake.Test.Name,
     ///             SchemaName = "foo_schema",
@@ -82,12 +80,6 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Output("dataFactoryName")]
-        public Output<string> DataFactoryName { get; private set; } = null!;
-
-        /// <summary>
         /// The description for the Data Factory Dataset Snowflake.
         /// </summary>
         [Output("description")]
@@ -118,12 +110,6 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
-
-        /// <summary>
         /// A `schema_column` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
@@ -134,9 +120,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("schemaName")]
         public Output<string?> SchemaName { get; private set; } = null!;
-
-        [Output("structureColumns")]
-        public Output<ImmutableArray<Outputs.DatasetSnowflakeStructureColumn>> StructureColumns { get; private set; } = null!;
 
         /// <summary>
         /// The table name of the Data Factory Dataset Snowflake.
@@ -217,14 +200,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryId")]
-        public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
+        [Input("dataFactoryId", required: true)]
+        public Input<string> DataFactoryId { get; set; } = null!;
 
         /// <summary>
         /// The description for the Data Factory Dataset Snowflake.
@@ -262,12 +239,6 @@ namespace Pulumi.Azure.DataFactory
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
         [Input("schemaColumns")]
         private InputList<Inputs.DatasetSnowflakeSchemaColumnArgs>? _schemaColumns;
 
@@ -285,15 +256,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }
-
-        [Input("structureColumns")]
-        private InputList<Inputs.DatasetSnowflakeStructureColumnArgs>? _structureColumns;
-        [Obsolete(@"This block has been deprecated in favour of `schema_column` and will be removed.")]
-        public InputList<Inputs.DatasetSnowflakeStructureColumnArgs> StructureColumns
-        {
-            get => _structureColumns ?? (_structureColumns = new InputList<Inputs.DatasetSnowflakeStructureColumnArgs>());
-            set => _structureColumns = value;
-        }
 
         /// <summary>
         /// The table name of the Data Factory Dataset Snowflake.
@@ -339,12 +301,6 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
-
-        /// <summary>
         /// The description for the Data Factory Dataset Snowflake.
         /// </summary>
         [Input("description")]
@@ -380,12 +336,6 @@ namespace Pulumi.Azure.DataFactory
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Dataset Snowflake. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
         [Input("schemaColumns")]
         private InputList<Inputs.DatasetSnowflakeSchemaColumnGetArgs>? _schemaColumns;
 
@@ -403,15 +353,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }
-
-        [Input("structureColumns")]
-        private InputList<Inputs.DatasetSnowflakeStructureColumnGetArgs>? _structureColumns;
-        [Obsolete(@"This block has been deprecated in favour of `schema_column` and will be removed.")]
-        public InputList<Inputs.DatasetSnowflakeStructureColumnGetArgs> StructureColumns
-        {
-            get => _structureColumns ?? (_structureColumns = new InputList<Inputs.DatasetSnowflakeStructureColumnGetArgs>());
-            set => _structureColumns = value;
-        }
 
         /// <summary>
         /// The table name of the Data Factory Dataset Snowflake.

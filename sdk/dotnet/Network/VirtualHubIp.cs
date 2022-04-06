@@ -53,7 +53,10 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.5.1.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.5.1.0/24",
+    ///             },
     ///         });
     ///         var exampleVirtualHubIp = new Azure.Network.VirtualHubIp("exampleVirtualHubIp", new Azure.Network.VirtualHubIpArgs
     ///         {
@@ -101,7 +104,7 @@ namespace Pulumi.Azure.Network
         /// The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         /// </summary>
         [Output("publicIpAddressId")]
-        public Output<string?> PublicIpAddressId { get; private set; } = null!;
+        public Output<string> PublicIpAddressId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
@@ -182,8 +185,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("publicIpAddressId")]
-        public Input<string>? PublicIpAddressId { get; set; }
+        [Input("publicIpAddressId", required: true)]
+        public Input<string> PublicIpAddressId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.

@@ -131,9 +131,6 @@ namespace Pulumi.Azure.Sentinel
         [Output("severityFilters")]
         public Output<ImmutableArray<string>> SeverityFilters { get; private set; } = null!;
 
-        [Output("textWhitelists")]
-        public Output<ImmutableArray<string>> TextWhitelists { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a AlertRuleMsSecurityIncident resource with the given unique name, arguments, and options.
@@ -258,15 +255,6 @@ namespace Pulumi.Azure.Sentinel
             set => _severityFilters = value;
         }
 
-        [Input("textWhitelists")]
-        private InputList<string>? _textWhitelists;
-        [Obsolete(@"this property has been renamed to display_name_filter to better match the SDK & API")]
-        public InputList<string> TextWhitelists
-        {
-            get => _textWhitelists ?? (_textWhitelists = new InputList<string>());
-            set => _textWhitelists = value;
-        }
-
         public AlertRuleMsSecurityIncidentArgs()
         {
         }
@@ -350,15 +338,6 @@ namespace Pulumi.Azure.Sentinel
         {
             get => _severityFilters ?? (_severityFilters = new InputList<string>());
             set => _severityFilters = value;
-        }
-
-        [Input("textWhitelists")]
-        private InputList<string>? _textWhitelists;
-        [Obsolete(@"this property has been renamed to display_name_filter to better match the SDK & API")]
-        public InputList<string> TextWhitelists
-        {
-            get => _textWhitelists ?? (_textWhitelists = new InputList<string>());
-            set => _textWhitelists = value;
         }
 
         public AlertRuleMsSecurityIncidentState()

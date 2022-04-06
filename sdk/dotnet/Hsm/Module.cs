@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Hsm
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+        /// Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.Hsm
         private InputList<string>? _zones;
 
         /// <summary>
-        /// The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+        /// Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -359,7 +359,7 @@ namespace Pulumi.Azure.Hsm
         private InputList<string>? _zones;
 
         /// <summary>
-        /// The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+        /// Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         /// </summary>
         public InputList<string> Zones
         {

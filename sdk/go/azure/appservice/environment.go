@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -123,8 +123,6 @@ type Environment struct {
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
-	UserWhitelistedIpRanges pulumi.StringArrayOutput `pulumi:"userWhitelistedIpRanges"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -134,6 +132,9 @@ func NewEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
@@ -185,8 +186,6 @@ type environmentState struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
-	UserWhitelistedIpRanges []string `pulumi:"userWhitelistedIpRanges"`
 }
 
 type EnvironmentState struct {
@@ -216,8 +215,6 @@ type EnvironmentState struct {
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
-	// Deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
-	UserWhitelistedIpRanges pulumi.StringArrayInput
 }
 
 func (EnvironmentState) ElementType() reflect.Type {
@@ -238,13 +235,11 @@ type environmentArgs struct {
 	// Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
 	PricingTier *string `pulumi:"pricingTier"`
 	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
-	UserWhitelistedIpRanges []string `pulumi:"userWhitelistedIpRanges"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -262,13 +257,11 @@ type EnvironmentArgs struct {
 	// Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
 	PricingTier pulumi.StringPtrInput
 	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
-	ResourceGroupName pulumi.StringPtrInput
+	ResourceGroupName pulumi.StringInput
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
-	// Deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
-	UserWhitelistedIpRanges pulumi.StringArrayInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {

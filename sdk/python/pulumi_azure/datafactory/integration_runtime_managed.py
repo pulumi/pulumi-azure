@@ -15,9 +15,8 @@ __all__ = ['IntegrationRuntimeManagedArgs', 'IntegrationRuntimeManaged']
 @pulumi.input_type
 class IntegrationRuntimeManagedArgs:
     def __init__(__self__, *,
-                 data_factory_name: pulumi.Input[str],
+                 data_factory_id: pulumi.Input[str],
                  node_size: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
                  catalog_info: Optional[pulumi.Input['IntegrationRuntimeManagedCatalogInfoArgs']] = None,
                  custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeManagedCustomSetupScriptArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -30,9 +29,8 @@ class IntegrationRuntimeManagedArgs:
                  vnet_integration: Optional[pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs']] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeManaged resource.
-        :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] node_size: The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input['IntegrationRuntimeManagedCatalogInfoArgs'] catalog_info: A `catalog_info` block as defined below.
         :param pulumi.Input['IntegrationRuntimeManagedCustomSetupScriptArgs'] custom_setup_script: A `custom_setup_script` block as defined below.
         :param pulumi.Input[str] description: Integration runtime description.
@@ -44,9 +42,8 @@ class IntegrationRuntimeManagedArgs:
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
         :param pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs'] vnet_integration: A `vnet_integration` block as defined below.
         """
-        pulumi.set(__self__, "data_factory_name", data_factory_name)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "node_size", node_size)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if catalog_info is not None:
             pulumi.set(__self__, "catalog_info", catalog_info)
         if custom_setup_script is not None:
@@ -69,16 +66,16 @@ class IntegrationRuntimeManagedArgs:
             pulumi.set(__self__, "vnet_integration", vnet_integration)
 
     @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
-        return pulumi.get(self, "data_factory_name")
+        return pulumi.get(self, "data_factory_id")
 
-    @data_factory_name.setter
-    def data_factory_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_factory_name", value)
+    @data_factory_id.setter
+    def data_factory_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_factory_id", value)
 
     @property
     @pulumi.getter(name="nodeSize")
@@ -91,18 +88,6 @@ class IntegrationRuntimeManagedArgs:
     @node_size.setter
     def node_size(self, value: pulumi.Input[str]):
         pulumi.set(self, "node_size", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="catalogInfo")
@@ -230,7 +215,7 @@ class _IntegrationRuntimeManagedState:
     def __init__(__self__, *,
                  catalog_info: Optional[pulumi.Input['IntegrationRuntimeManagedCatalogInfoArgs']] = None,
                  custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeManagedCustomSetupScriptArgs']] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -239,13 +224,12 @@ class _IntegrationRuntimeManagedState:
                  name: Optional[pulumi.Input[str]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  vnet_integration: Optional[pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs']] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeManaged resources.
         :param pulumi.Input['IntegrationRuntimeManagedCatalogInfoArgs'] catalog_info: A `catalog_info` block as defined below.
         :param pulumi.Input['IntegrationRuntimeManagedCustomSetupScriptArgs'] custom_setup_script: A `custom_setup_script` block as defined below.
-        :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
@@ -254,15 +238,14 @@ class _IntegrationRuntimeManagedState:
         :param pulumi.Input[str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] node_size: The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs'] vnet_integration: A `vnet_integration` block as defined below.
         """
         if catalog_info is not None:
             pulumi.set(__self__, "catalog_info", catalog_info)
         if custom_setup_script is not None:
             pulumi.set(__self__, "custom_setup_script", custom_setup_script)
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
+        if data_factory_id is not None:
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if edition is not None:
@@ -279,8 +262,6 @@ class _IntegrationRuntimeManagedState:
             pulumi.set(__self__, "node_size", node_size)
         if number_of_nodes is not None:
             pulumi.set(__self__, "number_of_nodes", number_of_nodes)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if vnet_integration is not None:
             pulumi.set(__self__, "vnet_integration", vnet_integration)
 
@@ -309,16 +290,16 @@ class _IntegrationRuntimeManagedState:
         pulumi.set(self, "custom_setup_script", value)
 
     @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
-        return pulumi.get(self, "data_factory_name")
+        return pulumi.get(self, "data_factory_id")
 
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
+    @data_factory_id.setter
+    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_id", value)
 
     @property
     @pulumi.getter
@@ -417,18 +398,6 @@ class _IntegrationRuntimeManagedState:
         pulumi.set(self, "number_of_nodes", value)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter(name="vnetIntegration")
     def vnet_integration(self) -> Optional[pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs']]:
         """
@@ -448,7 +417,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_info: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCatalogInfoArgs']]] = None,
                  custom_setup_script: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCustomSetupScriptArgs']]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -457,7 +426,6 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  vnet_integration: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedVnetIntegrationArgs']]] = None,
                  __props__=None):
         """
@@ -476,8 +444,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
         example_integration_runtime_managed = azure.datafactory.IntegrationRuntimeManaged("exampleIntegrationRuntimeManaged",
-            data_factory_name=example_factory.name,
-            resource_group_name=example_resource_group.name,
+            data_factory_id=example_factory.id,
             location=example_resource_group.location,
             node_size="Standard_D8_v3")
         ```
@@ -494,7 +461,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCatalogInfoArgs']] catalog_info: A `catalog_info` block as defined below.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCustomSetupScriptArgs']] custom_setup_script: A `custom_setup_script` block as defined below.
-        :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
@@ -503,7 +470,6 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] node_size: The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedVnetIntegrationArgs']] vnet_integration: A `vnet_integration` block as defined below.
         """
         ...
@@ -528,8 +494,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
         example_integration_runtime_managed = azure.datafactory.IntegrationRuntimeManaged("exampleIntegrationRuntimeManaged",
-            data_factory_name=example_factory.name,
-            resource_group_name=example_resource_group.name,
+            data_factory_id=example_factory.id,
             location=example_resource_group.location,
             node_size="Standard_D8_v3")
         ```
@@ -559,7 +524,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_info: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCatalogInfoArgs']]] = None,
                  custom_setup_script: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCustomSetupScriptArgs']]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -568,7 +533,6 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  vnet_integration: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedVnetIntegrationArgs']]] = None,
                  __props__=None):
         if opts is None:
@@ -584,9 +548,9 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
 
             __props__.__dict__["catalog_info"] = catalog_info
             __props__.__dict__["custom_setup_script"] = custom_setup_script
-            if data_factory_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_factory_name'")
-            __props__.__dict__["data_factory_name"] = data_factory_name
+            if data_factory_id is None and not opts.urn:
+                raise TypeError("Missing required property 'data_factory_id'")
+            __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["edition"] = edition
             __props__.__dict__["license_type"] = license_type
@@ -597,9 +561,6 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
                 raise TypeError("Missing required property 'node_size'")
             __props__.__dict__["node_size"] = node_size
             __props__.__dict__["number_of_nodes"] = number_of_nodes
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["vnet_integration"] = vnet_integration
         super(IntegrationRuntimeManaged, __self__).__init__(
             'azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged',
@@ -613,7 +574,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_info: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCatalogInfoArgs']]] = None,
             custom_setup_script: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCustomSetupScriptArgs']]] = None,
-            data_factory_name: Optional[pulumi.Input[str]] = None,
+            data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             edition: Optional[pulumi.Input[str]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
@@ -622,7 +583,6 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             node_size: Optional[pulumi.Input[str]] = None,
             number_of_nodes: Optional[pulumi.Input[int]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
             vnet_integration: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedVnetIntegrationArgs']]] = None) -> 'IntegrationRuntimeManaged':
         """
         Get an existing IntegrationRuntimeManaged resource's state with the given name, id, and optional extra
@@ -633,7 +593,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCatalogInfoArgs']] catalog_info: A `catalog_info` block as defined below.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCustomSetupScriptArgs']] custom_setup_script: A `custom_setup_script` block as defined below.
-        :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
@@ -642,7 +602,6 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] node_size: The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedVnetIntegrationArgs']] vnet_integration: A `vnet_integration` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -651,7 +610,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
 
         __props__.__dict__["catalog_info"] = catalog_info
         __props__.__dict__["custom_setup_script"] = custom_setup_script
-        __props__.__dict__["data_factory_name"] = data_factory_name
+        __props__.__dict__["data_factory_id"] = data_factory_id
         __props__.__dict__["description"] = description
         __props__.__dict__["edition"] = edition
         __props__.__dict__["license_type"] = license_type
@@ -660,7 +619,6 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["node_size"] = node_size
         __props__.__dict__["number_of_nodes"] = number_of_nodes
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["vnet_integration"] = vnet_integration
         return IntegrationRuntimeManaged(resource_name, opts=opts, __props__=__props__)
 
@@ -681,12 +639,12 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         return pulumi.get(self, "custom_setup_script")
 
     @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
-        return pulumi.get(self, "data_factory_name")
+        return pulumi.get(self, "data_factory_id")
 
     @property
     @pulumi.getter
@@ -751,14 +709,6 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
         """
         return pulumi.get(self, "number_of_nodes")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="vnetIntegration")

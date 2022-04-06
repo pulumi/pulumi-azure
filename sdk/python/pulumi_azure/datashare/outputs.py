@@ -43,7 +43,7 @@ class AccountIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
         """
@@ -57,7 +57,7 @@ class AccountIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
+        Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -201,9 +201,9 @@ class GetAccountIdentityResult(dict):
                  tenant_id: str,
                  type: str):
         """
-        :param str principal_id: The ID of the Principal (Client) in Azure Active Directory.
-        :param str tenant_id: The ID of the Azure Active Directory Tenant.
-        :param str type: The identity type of the Data Share Account.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
+        :param str type: The identity type of this Managed Service Identity.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -213,7 +213,7 @@ class GetAccountIdentityResult(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The ID of the Principal (Client) in Azure Active Directory.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -221,7 +221,7 @@ class GetAccountIdentityResult(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The ID of the Azure Active Directory Tenant.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -229,7 +229,7 @@ class GetAccountIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The identity type of the Data Share Account.
+        The identity type of this Managed Service Identity.
         """
         return pulumi.get(self, "type")
 

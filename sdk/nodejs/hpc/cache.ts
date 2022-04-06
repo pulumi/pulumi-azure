@@ -123,12 +123,6 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-     *
-     * @deprecated This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
-     */
-    public readonly rootSquashEnabled!: pulumi.Output<boolean>;
-    /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
@@ -166,7 +160,6 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ntpServer"] = state ? state.ntpServer : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["rootSquashEnabled"] = state ? state.rootSquashEnabled : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -195,7 +188,6 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ntpServer"] = args ? args.ntpServer : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rootSquashEnabled"] = args ? args.rootSquashEnabled : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -259,12 +251,6 @@ export interface CacheState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-     *
-     * @deprecated This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
-     */
-    rootSquashEnabled?: pulumi.Input<boolean>;
-    /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
@@ -326,12 +312,6 @@ export interface CacheArgs {
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-     *
-     * @deprecated This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
-     */
-    rootSquashEnabled?: pulumi.Input<boolean>;
     /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      */

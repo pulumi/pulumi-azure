@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+        /// Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Compute
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+        /// Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.Compute
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of Zones where this Disk Pool should be deployed. Changing this forces a new Disk Pool to be created.
+        /// Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
         /// </summary>
         public InputList<string> Zones
         {

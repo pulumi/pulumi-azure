@@ -27,8 +27,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/frontdoor"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/frontdoor"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -41,8 +41,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = frontdoor.NewFrontdoor(ctx, "exampleFrontdoor", &frontdoor.FrontdoorArgs{
-// 			ResourceGroupName:                       exampleResourceGroup.Name,
-// 			EnforceBackendPoolsCertificateNameCheck: pulumi.Bool(false),
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
 // 				&frontdoor.FrontdoorRoutingRuleArgs{
 // 					Name: pulumi.String("exampleRoutingRule1"),
@@ -120,17 +119,14 @@ type Frontdoor struct {
 	BackendPoolLoadBalancingSettingsMap pulumi.StringMapOutput `pulumi:"backendPoolLoadBalancingSettingsMap"`
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingArrayOutput `pulumi:"backendPoolLoadBalancings"`
+	BackendPoolSettings       FrontdoorBackendPoolSettingArrayOutput       `pulumi:"backendPoolSettings"`
 	// A `backendPool` block as defined below.
 	BackendPools FrontdoorBackendPoolArrayOutput `pulumi:"backendPools"`
 	// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
 	BackendPoolsMap pulumi.StringMapOutput `pulumi:"backendPoolsMap"`
-	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
-	BackendPoolsSendReceiveTimeoutSeconds pulumi.IntPtrOutput `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
 	// The host that each frontendEndpoint must CNAME to.
-	Cname pulumi.StringOutput `pulumi:"cname"`
-	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
-	EnforceBackendPoolsCertificateNameCheck pulumi.BoolOutput                         `pulumi:"enforceBackendPoolsCertificateNameCheck"`
-	ExplicitResourceOrders                  FrontdoorExplicitResourceOrderArrayOutput `pulumi:"explicitResourceOrders"`
+	Cname                  pulumi.StringOutput                       `pulumi:"cname"`
+	ExplicitResourceOrders FrontdoorExplicitResourceOrderArrayOutput `pulumi:"explicitResourceOrders"`
 	// A friendly name for the Front Door service.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
@@ -141,10 +137,6 @@ type Frontdoor struct {
 	HeaderFrontdoorId pulumi.StringOutput `pulumi:"headerFrontdoorId"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrOutput `pulumi:"loadBalancerEnabled"`
-	// The `location` argument is deprecated and is now always set to `global`.
-	//
-	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
-	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
@@ -172,9 +164,6 @@ func NewFrontdoor(ctx *pulumi.Context,
 	}
 	if args.BackendPools == nil {
 		return nil, errors.New("invalid value for required argument 'BackendPools'")
-	}
-	if args.EnforceBackendPoolsCertificateNameCheck == nil {
-		return nil, errors.New("invalid value for required argument 'EnforceBackendPoolsCertificateNameCheck'")
 	}
 	if args.FrontendEndpoints == nil {
 		return nil, errors.New("invalid value for required argument 'FrontendEndpoints'")
@@ -215,17 +204,14 @@ type frontdoorState struct {
 	BackendPoolLoadBalancingSettingsMap map[string]string `pulumi:"backendPoolLoadBalancingSettingsMap"`
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings []FrontdoorBackendPoolLoadBalancing `pulumi:"backendPoolLoadBalancings"`
+	BackendPoolSettings       []FrontdoorBackendPoolSetting       `pulumi:"backendPoolSettings"`
 	// A `backendPool` block as defined below.
 	BackendPools []FrontdoorBackendPool `pulumi:"backendPools"`
 	// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
 	BackendPoolsMap map[string]string `pulumi:"backendPoolsMap"`
-	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
-	BackendPoolsSendReceiveTimeoutSeconds *int `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
 	// The host that each frontendEndpoint must CNAME to.
-	Cname *string `pulumi:"cname"`
-	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
-	EnforceBackendPoolsCertificateNameCheck *bool                            `pulumi:"enforceBackendPoolsCertificateNameCheck"`
-	ExplicitResourceOrders                  []FrontdoorExplicitResourceOrder `pulumi:"explicitResourceOrders"`
+	Cname                  *string                          `pulumi:"cname"`
+	ExplicitResourceOrders []FrontdoorExplicitResourceOrder `pulumi:"explicitResourceOrders"`
 	// A friendly name for the Front Door service.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
@@ -236,10 +222,6 @@ type frontdoorState struct {
 	HeaderFrontdoorId *string `pulumi:"headerFrontdoorId"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled *bool `pulumi:"loadBalancerEnabled"`
-	// The `location` argument is deprecated and is now always set to `global`.
-	//
-	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
-	Location *string `pulumi:"location"`
 	// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
@@ -261,17 +243,14 @@ type FrontdoorState struct {
 	BackendPoolLoadBalancingSettingsMap pulumi.StringMapInput
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingArrayInput
+	BackendPoolSettings       FrontdoorBackendPoolSettingArrayInput
 	// A `backendPool` block as defined below.
 	BackendPools FrontdoorBackendPoolArrayInput
 	// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
 	BackendPoolsMap pulumi.StringMapInput
-	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
-	BackendPoolsSendReceiveTimeoutSeconds pulumi.IntPtrInput
 	// The host that each frontendEndpoint must CNAME to.
-	Cname pulumi.StringPtrInput
-	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
-	EnforceBackendPoolsCertificateNameCheck pulumi.BoolPtrInput
-	ExplicitResourceOrders                  FrontdoorExplicitResourceOrderArrayInput
+	Cname                  pulumi.StringPtrInput
+	ExplicitResourceOrders FrontdoorExplicitResourceOrderArrayInput
 	// A friendly name for the Front Door service.
 	FriendlyName pulumi.StringPtrInput
 	// A `frontendEndpoint` block as defined below.
@@ -282,10 +261,6 @@ type FrontdoorState struct {
 	HeaderFrontdoorId pulumi.StringPtrInput
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrInput
-	// The `location` argument is deprecated and is now always set to `global`.
-	//
-	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
-	Location pulumi.StringPtrInput
 	// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
@@ -307,22 +282,15 @@ type frontdoorArgs struct {
 	BackendPoolHealthProbes []FrontdoorBackendPoolHealthProbe `pulumi:"backendPoolHealthProbes"`
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings []FrontdoorBackendPoolLoadBalancing `pulumi:"backendPoolLoadBalancings"`
+	BackendPoolSettings       []FrontdoorBackendPoolSetting       `pulumi:"backendPoolSettings"`
 	// A `backendPool` block as defined below.
 	BackendPools []FrontdoorBackendPool `pulumi:"backendPools"`
-	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
-	BackendPoolsSendReceiveTimeoutSeconds *int `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
-	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
-	EnforceBackendPoolsCertificateNameCheck bool `pulumi:"enforceBackendPoolsCertificateNameCheck"`
 	// A friendly name for the Front Door service.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints []FrontdoorFrontendEndpoint `pulumi:"frontendEndpoints"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled *bool `pulumi:"loadBalancerEnabled"`
-	// The `location` argument is deprecated and is now always set to `global`.
-	//
-	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
-	Location *string `pulumi:"location"`
 	// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
@@ -339,22 +307,15 @@ type FrontdoorArgs struct {
 	BackendPoolHealthProbes FrontdoorBackendPoolHealthProbeArrayInput
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingArrayInput
+	BackendPoolSettings       FrontdoorBackendPoolSettingArrayInput
 	// A `backendPool` block as defined below.
 	BackendPools FrontdoorBackendPoolArrayInput
-	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
-	BackendPoolsSendReceiveTimeoutSeconds pulumi.IntPtrInput
-	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
-	EnforceBackendPoolsCertificateNameCheck pulumi.BoolInput
 	// A friendly name for the Front Door service.
 	FriendlyName pulumi.StringPtrInput
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints FrontdoorFrontendEndpointArrayInput
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrInput
-	// The `location` argument is deprecated and is now always set to `global`.
-	//
-	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
-	Location pulumi.StringPtrInput
 	// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.

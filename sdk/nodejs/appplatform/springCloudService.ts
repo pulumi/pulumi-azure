@@ -107,7 +107,7 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
     /**
@@ -196,7 +196,7 @@ export interface SpringCloudServiceState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -234,7 +234,7 @@ export interface SpringCloudServiceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
      */
     skuName?: pulumi.Input<string>;
     /**

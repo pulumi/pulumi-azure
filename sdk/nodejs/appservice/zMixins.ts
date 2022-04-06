@@ -649,6 +649,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
         const functions = bindingsOrFunc instanceof Function ? [bindingsOrFunc] : [<Function<C, E, R>>{ name, bindings: bindingsOrFunc, callback: args }];
         const parts = createFunctionAppParts(name, {
             ...args,
+            resourceGroupName: args.resourceGroupName ?? args.account?.resourceGroupName,
             archive: produceDeploymentArchive({ ...args, functions }),
             appSettings: combineFunctionAppSettings({ ...args, functions }),
         }, opts);

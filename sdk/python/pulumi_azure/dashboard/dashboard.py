@@ -20,11 +20,10 @@ class DashboardArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the dashboard.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+        :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -41,8 +40,7 @@ class DashboardArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
-        create the dashboard.
+        The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -78,7 +76,7 @@ class DashboardArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+        Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -111,9 +109,8 @@ class _DashboardState:
         Input properties used for looking up and filtering Dashboard resources.
         :param pulumi.Input[str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the dashboard.
+        :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if dashboard_properties is not None:
@@ -155,7 +152,7 @@ class _DashboardState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+        Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -167,8 +164,7 @@ class _DashboardState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the dashboard.
+        The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -189,7 +185,12 @@ class _DashboardState:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure.dashboard.Dashboard has been deprecated in favor of azure.portal.Dashboard""", DeprecationWarning)
+
+
 class Dashboard(pulumi.CustomResource):
+    warnings.warn("""azure.dashboard.Dashboard has been deprecated in favor of azure.portal.Dashboard""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -201,8 +202,6 @@ class Dashboard(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a shared dashboard in the Azure Portal.
-
         ## Example Usage
 
         ```python
@@ -218,7 +217,7 @@ class Dashboard(pulumi.CustomResource):
             video_link = "https://www.youtube.com/watch?v=......"
         current = azure.core.get_subscription()
         my_group = azure.core.ResourceGroup("my-group", location="West Europe")
-        my_board = azure.dashboard.Dashboard("my-board",
+        my_board = azure.portal.Dashboard("my-board",
             resource_group_name=my_group.name,
             location=my_group.location,
             tags={
@@ -352,9 +351,8 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the dashboard.
+        :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -364,8 +362,6 @@ class Dashboard(pulumi.CustomResource):
                  args: DashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a shared dashboard in the Azure Portal.
-
         ## Example Usage
 
         ```python
@@ -381,7 +377,7 @@ class Dashboard(pulumi.CustomResource):
             video_link = "https://www.youtube.com/watch?v=......"
         current = azure.core.get_subscription()
         my_group = azure.core.ResourceGroup("my-group", location="West Europe")
-        my_board = azure.dashboard.Dashboard("my-board",
+        my_board = azure.portal.Dashboard("my-board",
             resource_group_name=my_group.name,
             location=my_group.location,
             tags={
@@ -532,6 +528,7 @@ class Dashboard(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Dashboard is deprecated: azure.dashboard.Dashboard has been deprecated in favor of azure.portal.Dashboard""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -574,9 +571,8 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the dashboard.
+        :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -610,7 +606,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+        Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -618,8 +614,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
-        create the dashboard.
+        The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

@@ -20,7 +20,7 @@ class GetRegistryResult:
     """
     A collection of values returned by getRegistry.
     """
-    def __init__(__self__, admin_enabled=None, admin_password=None, admin_username=None, id=None, location=None, login_server=None, name=None, resource_group_name=None, sku=None, storage_account_id=None, tags=None):
+    def __init__(__self__, admin_enabled=None, admin_password=None, admin_username=None, id=None, location=None, login_server=None, name=None, resource_group_name=None, sku=None, tags=None):
         if admin_enabled and not isinstance(admin_enabled, bool):
             raise TypeError("Expected argument 'admin_enabled' to be a bool")
         pulumi.set(__self__, "admin_enabled", admin_enabled)
@@ -48,13 +48,6 @@ class GetRegistryResult:
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
-        if storage_account_id and not isinstance(storage_account_id, str):
-            raise TypeError("Expected argument 'storage_account_id' to be a str")
-        if storage_account_id is not None:
-            warnings.warn("""this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""", DeprecationWarning)
-            pulumi.log.warn("""storage_account_id is deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""")
-
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -126,11 +119,6 @@ class GetRegistryResult:
         return pulumi.get(self, "sku")
 
     @property
-    @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> str:
-        return pulumi.get(self, "storage_account_id")
-
-    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -154,7 +142,6 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             name=self.name,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
-            storage_account_id=self.storage_account_id,
             tags=self.tags)
 
 
@@ -198,7 +185,6 @@ def get_registry(name: Optional[str] = None,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         sku=__ret__.sku,
-        storage_account_id=__ret__.storage_account_id,
         tags=__ret__.tags)
 
 

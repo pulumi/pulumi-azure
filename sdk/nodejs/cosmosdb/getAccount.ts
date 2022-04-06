@@ -107,17 +107,9 @@ export interface GetAccountResult {
      */
     readonly primaryKey: string;
     /**
-     * @deprecated This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-     */
-    readonly primaryMasterKey: string;
-    /**
      * The Primary read-only Key for the CosmosDB Account.
      */
     readonly primaryReadonlyKey: string;
-    /**
-     * @deprecated This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-     */
-    readonly primaryReadonlyMasterKey: string;
     /**
      * A list of read endpoints available for this CosmosDB account.
      */
@@ -128,17 +120,9 @@ export interface GetAccountResult {
      */
     readonly secondaryKey: string;
     /**
-     * @deprecated This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-     */
-    readonly secondaryMasterKey: string;
-    /**
      * The Secondary read-only key for the CosmosDB Account.
      */
     readonly secondaryReadonlyKey: string;
-    /**
-     * @deprecated This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-     */
-    readonly secondaryReadonlyMasterKey: string;
     /**
      * A mapping of tags assigned to the resource.
      */

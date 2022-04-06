@@ -26,10 +26,6 @@ namespace Pulumi.Azure.Policy.Outputs
         /// </summary>
         public readonly string? ContentUri;
         /// <summary>
-        /// This field is no longer used and will be removed in the next major version of the Azure Provider.
-        /// </summary>
-        public readonly string? Name;
-        /// <summary>
         /// One or more `parameter` blocks which define what configuration parameters and values against.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineConfigurationAssignmentConfigurationParameter> Parameters;
@@ -46,8 +42,6 @@ namespace Pulumi.Azure.Policy.Outputs
 
             string? contentUri,
 
-            string? name,
-
             ImmutableArray<Outputs.VirtualMachineConfigurationAssignmentConfigurationParameter> parameters,
 
             string? version)
@@ -55,7 +49,6 @@ namespace Pulumi.Azure.Policy.Outputs
             AssignmentType = assignmentType;
             ContentHash = contentHash;
             ContentUri = contentUri;
-            Name = name;
             Parameters = parameters;
             Version = version;
         }

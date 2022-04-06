@@ -16,7 +16,7 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// The user assigned identity IDs associated with the resource.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,19 +25,19 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         }
 
         /// <summary>
-        /// The (Client) ID of the Service Principal.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The ID of the Tenant the Service Principal is assigned in.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

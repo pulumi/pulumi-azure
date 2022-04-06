@@ -13,19 +13,19 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
     public sealed class JobIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Principal (Client) in Azure Active Directory.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -117,7 +117,7 @@ type VpnGatewayConnection struct {
 	// The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
 	RemoteVpnSiteId pulumi.StringOutput `pulumi:"remoteVpnSiteId"`
 	// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
-	Routings VpnGatewayConnectionRoutingArrayOutput `pulumi:"routings"`
+	Routing VpnGatewayConnectionRoutingOutput `pulumi:"routing"`
 	// One or more `trafficSelectorPolicy` blocks as defined below.
 	TrafficSelectorPolicies VpnGatewayConnectionTrafficSelectorPolicyArrayOutput `pulumi:"trafficSelectorPolicies"`
 	// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
@@ -171,7 +171,7 @@ type vpnGatewayConnectionState struct {
 	// The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
 	RemoteVpnSiteId *string `pulumi:"remoteVpnSiteId"`
 	// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
-	Routings []VpnGatewayConnectionRouting `pulumi:"routings"`
+	Routing *VpnGatewayConnectionRouting `pulumi:"routing"`
 	// One or more `trafficSelectorPolicy` blocks as defined below.
 	TrafficSelectorPolicies []VpnGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicies"`
 	// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
@@ -188,7 +188,7 @@ type VpnGatewayConnectionState struct {
 	// The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
 	RemoteVpnSiteId pulumi.StringPtrInput
 	// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
-	Routings VpnGatewayConnectionRoutingArrayInput
+	Routing VpnGatewayConnectionRoutingPtrInput
 	// One or more `trafficSelectorPolicy` blocks as defined below.
 	TrafficSelectorPolicies VpnGatewayConnectionTrafficSelectorPolicyArrayInput
 	// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
@@ -209,7 +209,7 @@ type vpnGatewayConnectionArgs struct {
 	// The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
 	RemoteVpnSiteId string `pulumi:"remoteVpnSiteId"`
 	// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
-	Routings []VpnGatewayConnectionRouting `pulumi:"routings"`
+	Routing *VpnGatewayConnectionRouting `pulumi:"routing"`
 	// One or more `trafficSelectorPolicy` blocks as defined below.
 	TrafficSelectorPolicies []VpnGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicies"`
 	// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
@@ -227,7 +227,7 @@ type VpnGatewayConnectionArgs struct {
 	// The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
 	RemoteVpnSiteId pulumi.StringInput
 	// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
-	Routings VpnGatewayConnectionRoutingArrayInput
+	Routing VpnGatewayConnectionRoutingPtrInput
 	// One or more `trafficSelectorPolicy` blocks as defined below.
 	TrafficSelectorPolicies VpnGatewayConnectionTrafficSelectorPolicyArrayInput
 	// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.

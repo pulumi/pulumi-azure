@@ -19,8 +19,8 @@ class AnalyzerIdentityArgs:
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
-        :param pulumi.Input[str] type: Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is `UserAssigned`.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -29,7 +29,7 @@ class AnalyzerIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -41,7 +41,7 @@ class AnalyzerIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -57,7 +57,7 @@ class AnalyzerStorageAccountArgs:
                  user_assigned_identity_id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] id: Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
-        :param pulumi.Input[str] user_assigned_identity_id: Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
+        :param pulumi.Input[str] user_assigned_identity_id: Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
@@ -78,7 +78,7 @@ class AnalyzerStorageAccountArgs:
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> pulumi.Input[str]:
         """
-        Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
+        Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 

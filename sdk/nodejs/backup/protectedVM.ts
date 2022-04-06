@@ -97,10 +97,6 @@ export class ProtectedVM extends pulumi.CustomResource {
      * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
      */
     public readonly sourceVmId!: pulumi.Output<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ProtectedVM resource with the given unique name, arguments, and options.
@@ -121,7 +117,6 @@ export class ProtectedVM extends pulumi.CustomResource {
             resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sourceVmId"] = state ? state.sourceVmId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ProtectedVMArgs | undefined;
             if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
@@ -142,7 +137,6 @@ export class ProtectedVM extends pulumi.CustomResource {
             resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sourceVmId"] = args ? args.sourceVmId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProtectedVM.__pulumiType, name, resourceInputs, opts);
@@ -177,10 +171,6 @@ export interface ProtectedVMState {
      * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
      */
     sourceVmId?: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -211,8 +201,4 @@ export interface ProtectedVMArgs {
      * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
      */
     sourceVmId: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

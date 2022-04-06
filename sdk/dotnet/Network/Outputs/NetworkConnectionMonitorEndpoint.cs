@@ -45,10 +45,6 @@ namespace Pulumi.Azure.Network.Outputs
         /// The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
         /// </summary>
         public readonly string? TargetResourceType;
-        /// <summary>
-        /// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
-        /// </summary>
-        public readonly string? VirtualMachineId;
 
         [OutputConstructor]
         private NetworkConnectionMonitorEndpoint(
@@ -66,9 +62,7 @@ namespace Pulumi.Azure.Network.Outputs
 
             string? targetResourceId,
 
-            string? targetResourceType,
-
-            string? virtualMachineId)
+            string? targetResourceType)
         {
             Address = address;
             CoverageLevel = coverageLevel;
@@ -78,7 +72,6 @@ namespace Pulumi.Azure.Network.Outputs
             Name = name;
             TargetResourceId = targetResourceId;
             TargetResourceType = targetResourceType;
-            VirtualMachineId = virtualMachineId;
         }
     }
 }

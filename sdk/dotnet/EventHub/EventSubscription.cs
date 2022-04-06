@@ -112,12 +112,6 @@ namespace Pulumi.Azure.EventHub
         public Output<string?> EventDeliverySchema { get; private set; } = null!;
 
         /// <summary>
-        /// A `eventhub_endpoint` block as defined below.
-        /// </summary>
-        [Output("eventhubEndpoint")]
-        public Output<Outputs.EventSubscriptionEventhubEndpoint> EventhubEndpoint { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies the id where the Event Hub is located.
         /// </summary>
         [Output("eventhubEndpointId")]
@@ -128,12 +122,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("expirationTimeUtc")]
         public Output<string?> ExpirationTimeUtc { get; private set; } = null!;
-
-        /// <summary>
-        /// A `hybrid_connection_endpoint` block as defined below.
-        /// </summary>
-        [Output("hybridConnectionEndpoint")]
-        public Output<Outputs.EventSubscriptionHybridConnectionEndpoint> HybridConnectionEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the id where the Hybrid Connection is located.
@@ -200,12 +188,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("subjectFilter")]
         public Output<Outputs.EventSubscriptionSubjectFilter?> SubjectFilter { get; private set; } = null!;
-
-        /// <summary>
-        /// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-        /// </summary>
-        [Output("topicName")]
-        public Output<string> TopicName { get; private set; } = null!;
 
         /// <summary>
         /// A `webhook_endpoint` block as defined below.
@@ -308,12 +290,6 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? EventDeliverySchema { get; set; }
 
         /// <summary>
-        /// A `eventhub_endpoint` block as defined below.
-        /// </summary>
-        [Input("eventhubEndpoint")]
-        public Input<Inputs.EventSubscriptionEventhubEndpointArgs>? EventhubEndpoint { get; set; }
-
-        /// <summary>
         /// Specifies the id where the Event Hub is located.
         /// </summary>
         [Input("eventhubEndpointId")]
@@ -324,12 +300,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("expirationTimeUtc")]
         public Input<string>? ExpirationTimeUtc { get; set; }
-
-        /// <summary>
-        /// A `hybrid_connection_endpoint` block as defined below.
-        /// </summary>
-        [Input("hybridConnectionEndpoint")]
-        public Input<Inputs.EventSubscriptionHybridConnectionEndpointArgs>? HybridConnectionEndpoint { get; set; }
 
         /// <summary>
         /// Specifies the id where the Hybrid Connection is located.
@@ -410,12 +380,6 @@ namespace Pulumi.Azure.EventHub
         public Input<Inputs.EventSubscriptionSubjectFilterArgs>? SubjectFilter { get; set; }
 
         /// <summary>
-        /// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-        /// </summary>
-        [Input("topicName")]
-        public Input<string>? TopicName { get; set; }
-
-        /// <summary>
         /// A `webhook_endpoint` block as defined below.
         /// </summary>
         [Input("webhookEndpoint")]
@@ -477,12 +441,6 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? EventDeliverySchema { get; set; }
 
         /// <summary>
-        /// A `eventhub_endpoint` block as defined below.
-        /// </summary>
-        [Input("eventhubEndpoint")]
-        public Input<Inputs.EventSubscriptionEventhubEndpointGetArgs>? EventhubEndpoint { get; set; }
-
-        /// <summary>
         /// Specifies the id where the Event Hub is located.
         /// </summary>
         [Input("eventhubEndpointId")]
@@ -493,12 +451,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("expirationTimeUtc")]
         public Input<string>? ExpirationTimeUtc { get; set; }
-
-        /// <summary>
-        /// A `hybrid_connection_endpoint` block as defined below.
-        /// </summary>
-        [Input("hybridConnectionEndpoint")]
-        public Input<Inputs.EventSubscriptionHybridConnectionEndpointGetArgs>? HybridConnectionEndpoint { get; set; }
 
         /// <summary>
         /// Specifies the id where the Hybrid Connection is located.
@@ -577,12 +529,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("subjectFilter")]
         public Input<Inputs.EventSubscriptionSubjectFilterGetArgs>? SubjectFilter { get; set; }
-
-        /// <summary>
-        /// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-        /// </summary>
-        [Input("topicName")]
-        public Input<string>? TopicName { get; set; }
 
         /// <summary>
         /// A `webhook_endpoint` block as defined below.

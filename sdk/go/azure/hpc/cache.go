@@ -23,9 +23,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/hpc"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hpc"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -106,10 +106,6 @@ type Cache struct {
 	NtpServer pulumi.StringPtrOutput `pulumi:"ntpServer"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-	//
-	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
-	RootSquashEnabled pulumi.BoolOutput `pulumi:"rootSquashEnabled"`
 	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
@@ -183,10 +179,6 @@ type cacheState struct {
 	NtpServer *string `pulumi:"ntpServer"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-	//
-	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
-	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
@@ -220,10 +212,6 @@ type CacheState struct {
 	NtpServer pulumi.StringPtrInput
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-	//
-	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
-	RootSquashEnabled pulumi.BoolPtrInput
 	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
@@ -259,10 +247,6 @@ type cacheArgs struct {
 	NtpServer *string `pulumi:"ntpServer"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-	//
-	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
-	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
@@ -295,10 +279,6 @@ type CacheArgs struct {
 	NtpServer pulumi.StringPtrInput
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-	//
-	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
-	RootSquashEnabled pulumi.BoolPtrInput
 	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.

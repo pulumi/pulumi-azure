@@ -115,7 +115,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.RegistryTaskFileStep?> FileStep { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.RegistryTaskIdentity?> Identity { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.RegistryTaskFileStepArgs>? FileStep { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.RegistryTaskIdentityArgs>? Identity { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.RegistryTaskFileStepGetArgs>? FileStep { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.RegistryTaskIdentityGetArgs>? Identity { get; set; }

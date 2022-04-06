@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,9 +40,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceAzureSqlDatabase(ctx, "exampleLinkedServiceAzureSqlDatabase", &datafactory.LinkedServiceAzureSqlDatabaseArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			ConnectionString:  pulumi.String("data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30"),
+// 			DataFactoryId:    exampleFactory.ID(),
+// 			ConnectionString: pulumi.String("data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -70,10 +69,6 @@ type LinkedServiceAzureSqlDatabase struct {
 	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service Azure SQL Database.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
@@ -87,8 +82,6 @@ type LinkedServiceAzureSqlDatabase struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
 	ServicePrincipalId pulumi.StringPtrOutput `pulumi:"servicePrincipalId"`
 	// The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
@@ -106,8 +99,8 @@ func NewLinkedServiceAzureSqlDatabase(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	var resource LinkedServiceAzureSqlDatabase
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase", name, args, &resource, opts...)
@@ -139,10 +132,6 @@ type linkedServiceAzureSqlDatabaseState struct {
 	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service Azure SQL Database.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
@@ -156,8 +145,6 @@ type linkedServiceAzureSqlDatabaseState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
 	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
 	// The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
@@ -177,10 +164,6 @@ type LinkedServiceAzureSqlDatabaseState struct {
 	ConnectionString pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service Azure SQL Database.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
@@ -194,8 +177,6 @@ type LinkedServiceAzureSqlDatabaseState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringPtrInput
 	// The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
 	ServicePrincipalId pulumi.StringPtrInput
 	// The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
@@ -218,11 +199,7 @@ type linkedServiceAzureSqlDatabaseArgs struct {
 	// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service Azure SQL Database.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
@@ -236,8 +213,6 @@ type linkedServiceAzureSqlDatabaseArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
 	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
 	// The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
@@ -257,11 +232,7 @@ type LinkedServiceAzureSqlDatabaseArgs struct {
 	// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service Azure SQL Database.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
@@ -275,8 +246,6 @@ type LinkedServiceAzureSqlDatabaseArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
 	// The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
 	ServicePrincipalId pulumi.StringPtrInput
 	// The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.

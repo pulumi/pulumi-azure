@@ -85,7 +85,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
      */
-    public readonly allowedUserIpCidrs!: pulumi.Output<string[]>;
+    public readonly allowedUserIpCidrs!: pulumi.Output<string[] | undefined>;
     /**
      * Zero or more `clusterSetting` blocks as defined below.
      */
@@ -134,10 +134,6 @@ export class Environment extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
-     */
-    public readonly userWhitelistedIpRanges!: pulumi.Output<string[]>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -165,9 +161,11 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["serviceIpAddress"] = state ? state.serviceIpAddress : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["userWhitelistedIpRanges"] = state ? state.userWhitelistedIpRanges : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'resourceGroupName'");
+            }
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
@@ -180,7 +178,6 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userWhitelistedIpRanges"] = args ? args.userWhitelistedIpRanges : undefined;
             resourceInputs["internalIpAddress"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
@@ -247,10 +244,6 @@ export interface EnvironmentState {
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
-     */
-    userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -284,7 +277,7 @@ export interface EnvironmentArgs {
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      */
@@ -293,8 +286,4 @@ export interface EnvironmentArgs {
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
-     */
-    userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
 }

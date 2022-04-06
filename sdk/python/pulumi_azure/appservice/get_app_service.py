@@ -282,8 +282,6 @@ def get_app_service(name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceResult:
     """
-    Use this data source to access information about an existing App Service.
-
     ## Example Usage
 
     ```python
@@ -337,8 +335,6 @@ def get_app_service_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceResult]:
     """
-    Use this data source to access information about an existing App Service.
-
     ## Example Usage
 
     ```python

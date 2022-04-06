@@ -67,7 +67,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
      */
-    public readonly autoStopEnabled!: pulumi.Output<boolean>;
+    public readonly autoStopEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The Kusto Cluster URI to be used for data ingestion.
      */
@@ -75,27 +75,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Specifies if the cluster's disks are encrypted.
      */
-    public readonly diskEncryptionEnabled!: pulumi.Output<boolean>;
+    public readonly diskEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly doubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * @deprecated This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-     */
-    public readonly enableAutoStop!: pulumi.Output<boolean>;
-    /**
-     * @deprecated This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-     */
-    public readonly enableDiskEncryption!: pulumi.Output<boolean>;
-    /**
-     * @deprecated This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-     */
-    public readonly enablePurge!: pulumi.Output<boolean>;
-    /**
-     * @deprecated This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-     */
-    public readonly enableStreamingIngest!: pulumi.Output<boolean>;
     /**
      * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
      */
@@ -124,7 +108,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Specifies if the purge operations are enabled.
      */
-    public readonly purgeEnabled!: pulumi.Output<boolean>;
+    public readonly purgeEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -136,7 +120,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Specifies if the streaming ingest is enabled.
      */
-    public readonly streamingIngestionEnabled!: pulumi.Output<boolean>;
+    public readonly streamingIngestionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -154,7 +138,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.kusto.ClusterVirtualNetworkConfiguration | undefined>;
     /**
-     * A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+     * Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -175,10 +159,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dataIngestionUri"] = state ? state.dataIngestionUri : undefined;
             resourceInputs["diskEncryptionEnabled"] = state ? state.diskEncryptionEnabled : undefined;
             resourceInputs["doubleEncryptionEnabled"] = state ? state.doubleEncryptionEnabled : undefined;
-            resourceInputs["enableAutoStop"] = state ? state.enableAutoStop : undefined;
-            resourceInputs["enableDiskEncryption"] = state ? state.enableDiskEncryption : undefined;
-            resourceInputs["enablePurge"] = state ? state.enablePurge : undefined;
-            resourceInputs["enableStreamingIngest"] = state ? state.enableStreamingIngest : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["languageExtensions"] = state ? state.languageExtensions : undefined;
@@ -206,10 +186,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["autoStopEnabled"] = args ? args.autoStopEnabled : undefined;
             resourceInputs["diskEncryptionEnabled"] = args ? args.diskEncryptionEnabled : undefined;
             resourceInputs["doubleEncryptionEnabled"] = args ? args.doubleEncryptionEnabled : undefined;
-            resourceInputs["enableAutoStop"] = args ? args.enableAutoStop : undefined;
-            resourceInputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
-            resourceInputs["enablePurge"] = args ? args.enablePurge : undefined;
-            resourceInputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["languageExtensions"] = args ? args.languageExtensions : undefined;
@@ -253,22 +229,6 @@ export interface ClusterState {
      * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-     */
-    enableAutoStop?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-     */
-    enableDiskEncryption?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-     */
-    enablePurge?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-     */
-    enableStreamingIngest?: pulumi.Input<boolean>;
     /**
      * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
      */
@@ -327,7 +287,7 @@ export interface ClusterState {
      */
     virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
     /**
-     * A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+     * Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -348,22 +308,6 @@ export interface ClusterArgs {
      * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-     */
-    enableAutoStop?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-     */
-    enableDiskEncryption?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-     */
-    enablePurge?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-     */
-    enableStreamingIngest?: pulumi.Input<boolean>;
     /**
      * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
      */
@@ -418,7 +362,7 @@ export interface ClusterArgs {
      */
     virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
     /**
-     * A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+     * Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

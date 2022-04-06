@@ -19,12 +19,12 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/recoveryservices"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/siterecovery"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -304,6 +304,8 @@ type ReplicatedVM struct {
 	TargetRecoveryProtectionContainerId pulumi.StringOutput `pulumi:"targetRecoveryProtectionContainerId"`
 	// Id of resource group where the VM should be created when a failover is done.
 	TargetResourceGroupId pulumi.StringOutput `pulumi:"targetResourceGroupId"`
+	// Specifies the Availability Zone where the Failover VM should exist.
+	TargetZone pulumi.StringPtrOutput `pulumi:"targetZone"`
 }
 
 // NewReplicatedVM registers a new resource with the given unique name, arguments, and options.
@@ -389,6 +391,8 @@ type replicatedVMState struct {
 	TargetRecoveryProtectionContainerId *string `pulumi:"targetRecoveryProtectionContainerId"`
 	// Id of resource group where the VM should be created when a failover is done.
 	TargetResourceGroupId *string `pulumi:"targetResourceGroupId"`
+	// Specifies the Availability Zone where the Failover VM should exist.
+	TargetZone *string `pulumi:"targetZone"`
 }
 
 type ReplicatedVMState struct {
@@ -419,6 +423,8 @@ type ReplicatedVMState struct {
 	TargetRecoveryProtectionContainerId pulumi.StringPtrInput
 	// Id of resource group where the VM should be created when a failover is done.
 	TargetResourceGroupId pulumi.StringPtrInput
+	// Specifies the Availability Zone where the Failover VM should exist.
+	TargetZone pulumi.StringPtrInput
 }
 
 func (ReplicatedVMState) ElementType() reflect.Type {
@@ -453,6 +459,8 @@ type replicatedVMArgs struct {
 	TargetRecoveryProtectionContainerId string `pulumi:"targetRecoveryProtectionContainerId"`
 	// Id of resource group where the VM should be created when a failover is done.
 	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
+	// Specifies the Availability Zone where the Failover VM should exist.
+	TargetZone *string `pulumi:"targetZone"`
 }
 
 // The set of arguments for constructing a ReplicatedVM resource.
@@ -484,6 +492,8 @@ type ReplicatedVMArgs struct {
 	TargetRecoveryProtectionContainerId pulumi.StringInput
 	// Id of resource group where the VM should be created when a failover is done.
 	TargetResourceGroupId pulumi.StringInput
+	// Specifies the Availability Zone where the Failover VM should exist.
+	TargetZone pulumi.StringPtrInput
 }
 
 func (ReplicatedVMArgs) ElementType() reflect.Type {

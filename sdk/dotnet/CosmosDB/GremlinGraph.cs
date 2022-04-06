@@ -39,29 +39,23 @@ namespace Pulumi.Azure.CosmosDB
     ///             DatabaseName = exampleGremlinDatabase.Name,
     ///             PartitionKeyPath = "/Example",
     ///             Throughput = 400,
-    ///             IndexPolicies = 
+    ///             IndexPolicy = new Azure.CosmosDB.Inputs.GremlinGraphIndexPolicyArgs
     ///             {
-    ///                 new Azure.CosmosDB.Inputs.GremlinGraphIndexPolicyArgs
+    ///                 Automatic = true,
+    ///                 IndexingMode = "Consistent",
+    ///                 IncludedPaths = 
     ///                 {
-    ///                     Automatic = true,
-    ///                     IndexingMode = "Consistent",
-    ///                     IncludedPaths = 
-    ///                     {
-    ///                         "/*",
-    ///                     },
-    ///                     ExcludedPaths = 
-    ///                     {
-    ///                         "/\"_etag\"/?",
-    ///                     },
+    ///                     "/*",
+    ///                 },
+    ///                 ExcludedPaths = 
+    ///                 {
+    ///                     "/\"_etag\"/?",
     ///                 },
     ///             },
-    ///             ConflictResolutionPolicies = 
+    ///             ConflictResolutionPolicy = new Azure.CosmosDB.Inputs.GremlinGraphConflictResolutionPolicyArgs
     ///             {
-    ///                 new Azure.CosmosDB.Inputs.GremlinGraphConflictResolutionPolicyArgs
-    ///                 {
-    ///                     Mode = "LastWriterWins",
-    ///                     ConflictResolutionPath = "/_ts",
-    ///                 },
+    ///                 Mode = "LastWriterWins",
+    ///                 ConflictResolutionPath = "/_ts",
     ///             },
     ///             UniqueKeys = 
     ///             {
@@ -105,8 +99,8 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// A `conflict_resolution_policy` blocks as defined below.
         /// </summary>
-        [Output("conflictResolutionPolicies")]
-        public Output<ImmutableArray<Outputs.GremlinGraphConflictResolutionPolicy>> ConflictResolutionPolicies { get; private set; } = null!;
+        [Output("conflictResolutionPolicy")]
+        public Output<Outputs.GremlinGraphConflictResolutionPolicy> ConflictResolutionPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -123,8 +117,8 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         /// </summary>
-        [Output("indexPolicies")]
-        public Output<ImmutableArray<Outputs.GremlinGraphIndexPolicy>> IndexPolicies { get; private set; } = null!;
+        [Output("indexPolicy")]
+        public Output<Outputs.GremlinGraphIndexPolicy> IndexPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
@@ -217,17 +211,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("autoscaleSettings")]
         public Input<Inputs.GremlinGraphAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
-        [Input("conflictResolutionPolicies")]
-        private InputList<Inputs.GremlinGraphConflictResolutionPolicyArgs>? _conflictResolutionPolicies;
-
         /// <summary>
         /// A `conflict_resolution_policy` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.GremlinGraphConflictResolutionPolicyArgs> ConflictResolutionPolicies
-        {
-            get => _conflictResolutionPolicies ?? (_conflictResolutionPolicies = new InputList<Inputs.GremlinGraphConflictResolutionPolicyArgs>());
-            set => _conflictResolutionPolicies = value;
-        }
+        [Input("conflictResolutionPolicy")]
+        public Input<Inputs.GremlinGraphConflictResolutionPolicyArgs>? ConflictResolutionPolicy { get; set; }
 
         /// <summary>
         /// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -241,17 +229,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
 
-        [Input("indexPolicies")]
-        private InputList<Inputs.GremlinGraphIndexPolicyArgs>? _indexPolicies;
-
         /// <summary>
         /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.GremlinGraphIndexPolicyArgs> IndexPolicies
-        {
-            get => _indexPolicies ?? (_indexPolicies = new InputList<Inputs.GremlinGraphIndexPolicyArgs>());
-            set => _indexPolicies = value;
-        }
+        [Input("indexPolicy")]
+        public Input<Inputs.GremlinGraphIndexPolicyArgs>? IndexPolicy { get; set; }
 
         /// <summary>
         /// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
@@ -311,17 +293,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("autoscaleSettings")]
         public Input<Inputs.GremlinGraphAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
-        [Input("conflictResolutionPolicies")]
-        private InputList<Inputs.GremlinGraphConflictResolutionPolicyGetArgs>? _conflictResolutionPolicies;
-
         /// <summary>
         /// A `conflict_resolution_policy` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.GremlinGraphConflictResolutionPolicyGetArgs> ConflictResolutionPolicies
-        {
-            get => _conflictResolutionPolicies ?? (_conflictResolutionPolicies = new InputList<Inputs.GremlinGraphConflictResolutionPolicyGetArgs>());
-            set => _conflictResolutionPolicies = value;
-        }
+        [Input("conflictResolutionPolicy")]
+        public Input<Inputs.GremlinGraphConflictResolutionPolicyGetArgs>? ConflictResolutionPolicy { get; set; }
 
         /// <summary>
         /// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -335,17 +311,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
 
-        [Input("indexPolicies")]
-        private InputList<Inputs.GremlinGraphIndexPolicyGetArgs>? _indexPolicies;
-
         /// <summary>
         /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.GremlinGraphIndexPolicyGetArgs> IndexPolicies
-        {
-            get => _indexPolicies ?? (_indexPolicies = new InputList<Inputs.GremlinGraphIndexPolicyGetArgs>());
-            set => _indexPolicies = value;
-        }
+        [Input("indexPolicy")]
+        public Input<Inputs.GremlinGraphIndexPolicyGetArgs>? IndexPolicy { get; set; }
 
         /// <summary>
         /// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.

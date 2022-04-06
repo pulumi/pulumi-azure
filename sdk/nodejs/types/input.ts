@@ -6,6 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 
 export interface ProviderFeatures {
     apiManagement?: pulumi.Input<inputs.ProviderFeaturesApiManagement>;
+    applicationInsights?: pulumi.Input<inputs.ProviderFeaturesApplicationInsights>;
     cognitiveAccount?: pulumi.Input<inputs.ProviderFeaturesCognitiveAccount>;
     keyVault?: pulumi.Input<inputs.ProviderFeaturesKeyVault>;
     logAnalyticsWorkspace?: pulumi.Input<inputs.ProviderFeaturesLogAnalyticsWorkspace>;
@@ -18,6 +19,11 @@ export interface ProviderFeatures {
 
 export interface ProviderFeaturesApiManagement {
     purgeSoftDeleteOnDestroy?: pulumi.Input<boolean>;
+    recoverSoftDeleted?: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesApplicationInsights {
+    disableGeneratedRule?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesCognitiveAccount {
@@ -26,11 +32,17 @@ export interface ProviderFeaturesCognitiveAccount {
 
 export interface ProviderFeaturesKeyVault {
     purgeSoftDeleteOnDestroy?: pulumi.Input<boolean>;
+    purgeSoftDeletedCertificatesOnDestroy?: pulumi.Input<boolean>;
+    purgeSoftDeletedKeysOnDestroy?: pulumi.Input<boolean>;
+    purgeSoftDeletedSecretsOnDestroy?: pulumi.Input<boolean>;
+    recoverSoftDeletedCertificates?: pulumi.Input<boolean>;
     recoverSoftDeletedKeyVaults?: pulumi.Input<boolean>;
+    recoverSoftDeletedKeys?: pulumi.Input<boolean>;
+    recoverSoftDeletedSecrets?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesLogAnalyticsWorkspace {
-    permanentlyDeleteOnDestroy: pulumi.Input<boolean>;
+    permanentlyDeleteOnDestroy?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesNetwork {
@@ -404,12 +416,6 @@ export namespace apimanagement {
          */
         formParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationRequestRepresentationFormParameter>[]>;
         /**
-         * An example of this representation.
-         *
-         * @deprecated Deprecated in favour of `example`
-         */
-        sample?: pulumi.Input<string>;
-        /**
          * The ID of an API Management Schema which represents this Response.
          */
         schemaId?: pulumi.Input<string>;
@@ -528,12 +534,6 @@ export namespace apimanagement {
          * One or more `formParameter` block as defined above.
          */
         formParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponseRepresentationFormParameter>[]>;
-        /**
-         * An example of this representation.
-         *
-         * @deprecated Deprecated in favour of `example`
-         */
-        sample?: pulumi.Input<string>;
         /**
          * The ID of an API Management Schema which represents this Response.
          */
@@ -764,6 +764,37 @@ export namespace apimanagement {
         thumbprint?: pulumi.Input<string>;
     }
 
+    export interface CustomDomainGateway {
+        /**
+         * The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+         */
+        certificate?: pulumi.Input<string>;
+        /**
+         * The password associated with the certificate provided above.
+         */
+        certificatePassword?: pulumi.Input<string>;
+        /**
+         * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+         */
+        defaultSslBinding?: pulumi.Input<boolean>;
+        expiry?: pulumi.Input<string>;
+        /**
+         * The Hostname to use for the API Proxy Endpoint.
+         */
+        hostName: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+         */
+        keyVaultId?: pulumi.Input<string>;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         */
+        negotiateClientCertificate?: pulumi.Input<boolean>;
+        sslKeyvaultIdentityClientId?: pulumi.Input<string>;
+        subject?: pulumi.Input<string>;
+        thumbprint?: pulumi.Input<string>;
+    }
+
     export interface CustomDomainManagement {
         /**
          * The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
@@ -803,37 +834,6 @@ export namespace apimanagement {
         expiry?: pulumi.Input<string>;
         /**
          * The Hostname to use for the corresponding endpoint.
-         */
-        hostName: pulumi.Input<string>;
-        /**
-         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-         */
-        keyVaultId?: pulumi.Input<string>;
-        /**
-         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-         */
-        negotiateClientCertificate?: pulumi.Input<boolean>;
-        sslKeyvaultIdentityClientId?: pulumi.Input<string>;
-        subject?: pulumi.Input<string>;
-        thumbprint?: pulumi.Input<string>;
-    }
-
-    export interface CustomDomainProxy {
-        /**
-         * The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
-         */
-        certificate?: pulumi.Input<string>;
-        /**
-         * The password associated with the certificate provided above.
-         */
-        certificatePassword?: pulumi.Input<string>;
-        /**
-         * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
-         */
-        defaultSslBinding?: pulumi.Input<boolean>;
-        expiry?: pulumi.Input<string>;
-        /**
-         * The Hostname to use for the API Proxy Endpoint.
          */
         hostName: pulumi.Input<string>;
         /**
@@ -1271,7 +1271,7 @@ export namespace apimanagement {
          */
         negotiateClientCertificate?: pulumi.Input<boolean>;
         /**
-         * The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+         * The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
          */
         sslKeyvaultIdentityClientId?: pulumi.Input<string>;
         /**
@@ -1325,7 +1325,7 @@ export namespace apimanagement {
 
     export interface ServiceIdentity {
         /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -1385,12 +1385,6 @@ export namespace apimanagement {
          * Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
          */
         enableFrontendTls11?: pulumi.Input<boolean>;
-        /**
-         * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
-         *
-         * @deprecated this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.
-         */
-        enableTripleDesCiphers?: pulumi.Input<boolean>;
         /**
          * Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
          */
@@ -1527,19 +1521,19 @@ export namespace appconfiguration {
 
     export interface ConfigurationStoreIdentity {
         /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         * A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The ID of the Principal (Client) in Azure Active Directory.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The ID of the Azure Active Directory Tenant.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -1640,7 +1634,7 @@ export namespace appplatform {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -1833,10 +1827,6 @@ export namespace appplatform {
          * The connection string used for Application Insights.
          */
         connectionString?: pulumi.Input<string>;
-        /**
-         * @deprecated This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.
-         */
-        instrumentationKey?: pulumi.Input<string>;
         /**
          * The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
          */
@@ -2621,6 +2611,17 @@ export namespace appservice {
         value: pulumi.Input<string>;
     }
 
+    export interface FunctionAppFunctionFile {
+        /**
+         * The content of the file.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The filename of the file to be uploaded.
+         */
+        name: pulumi.Input<string>;
+    }
+
     export interface FunctionAppIdentity {
         /**
          * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
@@ -3224,6 +3225,2617 @@ export namespace appservice {
         useMercurial?: pulumi.Input<boolean>;
     }
 
+    export interface LinuxFunctionAppAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsActiveDirectory>;
+        additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * Should the Authentication / Authorization feature be enabled for the Linux Web App?
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsFacebook>;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsGithub>;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsGoogle>;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         */
+        issuer?: pulumi.Input<string>;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsMicrosoft>;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: pulumi.Input<number>;
+        /**
+         * Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsTwitter>;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: pulumi.Input<string>;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedule: pulumi.Input<inputs.appservice.LinuxFunctionAppBackupSchedule>;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: pulumi.Input<number>;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+         */
+        frequencyUnit: pulumi.Input<string>;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        lastExecutionTime?: pulumi.Input<string>;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: pulumi.Input<number>;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppConnectionString {
+        /**
+         * The name which should be used for this Connection.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The connection string value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSiteConfig {
+        /**
+         * If this Linux Web App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn?: pulumi.Input<boolean>;
+        /**
+         * The URL of the API definition that describes this Linux Function App.
+         */
+        apiDefinitionUrl?: pulumi.Input<string>;
+        /**
+         * The ID of the API Management API for this Linux Function App.
+         */
+        apiManagementApiId?: pulumi.Input<string>;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: pulumi.Input<string>;
+        /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit?: pulumi.Input<number>;
+        /**
+         * An `appServiceLogs` block as defined above.
+         */
+        appServiceLogs?: pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigAppServiceLogs>;
+        /**
+         * The Connection String for linking the Linux Function App to Application Insights.
+         */
+        applicationInsightsConnectionString?: pulumi.Input<string>;
+        /**
+         * The Instrumentation Key for connecting the Linux Function App to Application Insights.
+         */
+        applicationInsightsKey?: pulumi.Input<string>;
+        /**
+         * An `applicationStack` block as defined above.
+         */
+        applicationStack?: pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigApplicationStack>;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: pulumi.Input<string>;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: pulumi.Input<boolean>;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigCors>;
+        /**
+         * Specifies a list of Default Documents for the Linux Web App.
+         */
+        defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+        detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+         */
+        elasticInstanceMinimum?: pulumi.Input<number>;
+        /**
+         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin?: pulumi.Input<number>;
+        /**
+         * The path to be checked for this function app health.
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
+         * Specifies if the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigIpRestriction>[]>;
+        linuxFxVersion?: pulumi.Input<string>;
+        /**
+         * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: pulumi.Input<string>;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+         */
+        managedPipelineMode?: pulumi.Input<string>;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: pulumi.Input<string>;
+        /**
+         * The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+         */
+        preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
+         * Should Remote Debugging be enabled. Defaults to `false`.
+         */
+        remoteDebuggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+         */
+        remoteDebuggingVersion?: pulumi.Input<string>;
+        /**
+         * Should Scale Monitoring of the Functions Runtime be enabled?
+         */
+        runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigScmIpRestriction>[]>;
+        /**
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: pulumi.Input<string>;
+        scmType?: pulumi.Input<string>;
+        /**
+         * Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: pulumi.Input<boolean>;
+        /**
+         * Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
+         */
+        use32BitWorker?: pulumi.Input<boolean>;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
+        websocketsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The number of Workers for this Linux Function App.
+         */
+        workerCount?: pulumi.Input<number>;
+    }
+
+    export interface LinuxFunctionAppSiteConfigAppServiceLogs {
+        /**
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         */
+        diskQuotaMb?: pulumi.Input<number>;
+        /**
+         * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         */
+        retentionPeriodDays?: pulumi.Input<number>;
+    }
+
+    export interface LinuxFunctionAppSiteConfigApplicationStack {
+        /**
+         * One or more `docker` blocks as defined below.
+         */
+        dockers?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigApplicationStackDocker>[]>;
+        /**
+         * The version of .Net to use. Possible values include `3.1` and `6.0`.
+         */
+        dotnetVersion?: pulumi.Input<string>;
+        /**
+         * The Version of Java to use. Supported versions include `8`, and `11`.
+         */
+        javaVersion?: pulumi.Input<string>;
+        /**
+         * The version of Node to run. Possible values include `12`, `14`, and `16`.
+         */
+        nodeVersion?: pulumi.Input<string>;
+        /**
+         * The version of PowerShell Core to run. Possible values are `7`.
+         */
+        powershellCoreVersion?: pulumi.Input<string>;
+        /**
+         * The version of Python to run. Possible values include `3.6`, `3.7`, `3.8`, and `3.9`.
+         */
+        pythonVersion?: pulumi.Input<string>;
+        /**
+         * Should the Linux Function App use a custom runtime?
+         */
+        useCustomRuntime?: pulumi.Input<boolean>;
+        /**
+         * Should the DotNet process use an isolated runtime. Defaults to `false`.
+         */
+        useDotnetIsolatedRuntime?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxFunctionAppSiteConfigApplicationStackDocker {
+        /**
+         * The name of the Docker image to use.
+         */
+        imageName: pulumi.Input<string>;
+        /**
+         * The image tag of the image to use.
+         */
+        imageTag: pulumi.Input<string>;
+        /**
+         * The password for the account to use to connect to the registry.
+         */
+        registryPassword?: pulumi.Input<string>;
+        /**
+         * The URL of the docker registry.
+         */
+        registryUrl: pulumi.Input<string>;
+        /**
+         * The username to use for connections to the registry.
+         */
+        registryUsername?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Are credentials allowed in CORS requests? Defaults to `false`.
+         */
+        supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxFunctionAppSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigScmIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSiteCredential {
+        /**
+         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettings {
+        /**
+         * an `activeDirectory` block as detailed below.
+         */
+        activeDirectory?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsActiveDirectory>;
+        /**
+         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         */
+        additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * an `allowedExternalRedirectUrls` block as detailed below.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * Should the Authentication / Authorization feature be enabled?
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * a `facebook` block as detailed below.
+         */
+        facebook?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsFacebook>;
+        /**
+         * a `github` block as detailed below.
+         */
+        github?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsGithub>;
+        /**
+         * a `google` block as detailed below.
+         */
+        google?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsGoogle>;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens.
+         */
+        issuer?: pulumi.Input<string>;
+        /**
+         * a `microsoft` block as detailed below.
+         */
+        microsoft?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsMicrosoft>;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: pulumi.Input<number>;
+        /**
+         * Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * a `twitter` block as detailed below.
+         */
+        twitter?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsTwitter>;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsActiveDirectory {
+        /**
+         * an `allowedAudiences` block as detailed below.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSlotAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: pulumi.Input<string>;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * a `schedule` block as detailed below.
+         */
+        schedule: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotBackupSchedule>;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: pulumi.Input<number>;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+         */
+        frequencyUnit: pulumi.Input<string>;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        /**
+         * The time the backup was last attempted.
+         */
+        lastExecutionTime?: pulumi.Input<string>;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: pulumi.Input<number>;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotConnectionString {
+        /**
+         * The name which should be used for this Connection.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The connection string value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App Slot.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Function App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfig {
+        /**
+         * If this Linux Web App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn?: pulumi.Input<boolean>;
+        /**
+         * The URL of the API definition that describes this Linux Function App.
+         */
+        apiDefinitionUrl?: pulumi.Input<string>;
+        /**
+         * The ID of the API Management API for this Linux Function App.
+         */
+        apiManagementApiId?: pulumi.Input<string>;
+        /**
+         * The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
+         */
+        appCommandLine?: pulumi.Input<string>;
+        /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit?: pulumi.Input<number>;
+        /**
+         * an `appServiceLogs` block as detailed below.
+         */
+        appServiceLogs?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigAppServiceLogs>;
+        /**
+         * The Connection String for linking the Linux Function App to Application Insights.
+         */
+        applicationInsightsConnectionString?: pulumi.Input<string>;
+        /**
+         * The Instrumentation Key for connecting the Linux Function App to Application Insights.
+         */
+        applicationInsightsKey?: pulumi.Input<string>;
+        /**
+         * an `applicationStack` block as detailed below.
+         */
+        applicationStack?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigApplicationStack>;
+        /**
+         * The name of the slot to automatically swap with when this slot is successfully deployed.
+         */
+        autoSwapSlotName?: pulumi.Input<string>;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: pulumi.Input<string>;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: pulumi.Input<boolean>;
+        /**
+         * a `cors` block as detailed below.
+         */
+        cors?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigCors>;
+        /**
+         * a `defaultDocuments` block as detailed below.
+         */
+        defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Is detailed error logging enabled
+         */
+        detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+         */
+        elasticInstanceMinimum?: pulumi.Input<number>;
+        /**
+         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
+         * The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `healthCheckPath`
+         */
+        healthCheckEvictionTimeInMin?: pulumi.Input<number>;
+        /**
+         * The path to be checked for this function app health.
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
+         * Specifies if the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: pulumi.Input<boolean>;
+        /**
+         * an `ipRestriction` block as detailed below.
+         */
+        ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigIpRestriction>[]>;
+        /**
+         * The Linux FX Version
+         */
+        linuxFxVersion?: pulumi.Input<string>;
+        /**
+         * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: pulumi.Input<string>;
+        /**
+         * The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+         */
+        managedPipelineMode?: pulumi.Input<string>;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: pulumi.Input<string>;
+        /**
+         * The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+         */
+        preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
+         * Should Remote Debugging be enabled. Defaults to `false`.
+         */
+        remoteDebuggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         */
+        remoteDebuggingVersion?: pulumi.Input<string>;
+        /**
+         * Should Functions Runtime Scale Monitoring be enabled.
+         */
+        runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
+         * a `scmIpRestriction` block as detailed below.
+         */
+        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigScmIpRestriction>[]>;
+        /**
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: pulumi.Input<string>;
+        /**
+         * The SCM Type in use by the Linux Function App.
+         */
+        scmType?: pulumi.Input<string>;
+        /**
+         * Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: pulumi.Input<boolean>;
+        /**
+         * Should the Linux Web App use a 32-bit worker.
+         */
+        use32BitWorker?: pulumi.Input<boolean>;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
+        websocketsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The number of Workers for this Linux Function App.
+         */
+        workerCount?: pulumi.Input<number>;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigAppServiceLogs {
+        /**
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         */
+        diskQuotaMb?: pulumi.Input<number>;
+        /**
+         * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         */
+        retentionPeriodDays?: pulumi.Input<number>;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigApplicationStack {
+        /**
+         * a `docker` block as detailed below.
+         */
+        dockers?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigApplicationStackDocker>[]>;
+        /**
+         * The version of .Net. Possible values are `3.1` and `6.0`.
+         */
+        dotnetVersion?: pulumi.Input<string>;
+        /**
+         * The version of Java to use. Possible values are `8`, and `11`.
+         */
+        javaVersion?: pulumi.Input<string>;
+        /**
+         * The version of Node to use. Possible values include `12`, and `14`
+         */
+        nodeVersion?: pulumi.Input<string>;
+        /**
+         * The version of PowerShell Core to use. Possibles values are `7`.
+         */
+        powershellCoreVersion?: pulumi.Input<string>;
+        /**
+         * The version of Python to use. Possible values include `3.9`, `3.8`, and `3.7`.
+         */
+        pythonVersion?: pulumi.Input<string>;
+        /**
+         * Should the Linux Function App use a custom runtime?
+         */
+        useCustomRuntime?: pulumi.Input<boolean>;
+        /**
+         * Should the DotNet process use an isolated runtime. Defaults to `false`.
+         */
+        useDotnetIsolatedRuntime?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigApplicationStackDocker {
+        /**
+         * The name of the Docker image to use.
+         */
+        imageName: pulumi.Input<string>;
+        /**
+         * The image tag of the image to use.
+         */
+        imageTag: pulumi.Input<string>;
+        /**
+         * The password for the account to use to connect to the registry.
+         */
+        registryPassword?: pulumi.Input<string>;
+        /**
+         * The URL of the docker registry.
+         */
+        registryUrl: pulumi.Input<string>;
+        /**
+         * The username to use for connections to the registry.
+         */
+        registryUsername?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigCors {
+        /**
+         * an `allowedOrigins` block as detailed below.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Are credentials allowed in CORS requests? Defaults to `false`.
+         */
+        supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * a `headers` block as detailed below.
+         */
+        headers?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * a `headers` block as detailed below.
+         */
+        headers?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxFunctionAppSlotSiteCredential {
+        /**
+         * The Site Credentials Username used for publishing.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsActiveDirectory>;
+        additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * Should the Authentication / Authorization feature be enabled for the Linux Web App?
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsFacebook>;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsGithub>;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsGoogle>;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         */
+        issuer?: pulumi.Input<string>;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsMicrosoft>;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: pulumi.Input<number>;
+        /**
+         * Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsTwitter>;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxWebAppAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxWebAppAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxWebAppAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxWebAppAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: pulumi.Input<string>;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedule: pulumi.Input<inputs.appservice.LinuxWebAppBackupSchedule>;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: pulumi.Input<number>;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+         */
+        frequencyUnit: pulumi.Input<string>;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        lastExecutionTime?: pulumi.Input<string>;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: pulumi.Input<number>;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppConnectionString {
+        /**
+         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The connection string value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppLogs {
+        /**
+         * A `applicationLogs` block as defined above.
+         */
+        applicationLogs?: pulumi.Input<inputs.appservice.LinuxWebAppLogsApplicationLogs>;
+        /**
+         * Should detailed error messages be enabled.
+         */
+        detailedErrorMessages?: pulumi.Input<boolean>;
+        /**
+         * Should failed request tracing be enabled.
+         */
+        failedRequestTracing?: pulumi.Input<boolean>;
+        /**
+         * An `httpLogs` block as defined above.
+         */
+        httpLogs?: pulumi.Input<inputs.appservice.LinuxWebAppLogsHttpLogs>;
+    }
+
+    export interface LinuxWebAppLogsApplicationLogs {
+        /**
+         * An `azureBlobStorage` block as defined below.
+         */
+        azureBlobStorage?: pulumi.Input<inputs.appservice.LinuxWebAppLogsApplicationLogsAzureBlobStorage>;
+        /**
+         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         */
+        fileSystemLevel: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppLogsApplicationLogsAzureBlobStorage {
+        level: pulumi.Input<string>;
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays: pulumi.Input<number>;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppLogsHttpLogs {
+        /**
+         * A `azureBlobStorage` block as defined above.
+         */
+        azureBlobStorage?: pulumi.Input<inputs.appservice.LinuxWebAppLogsHttpLogsAzureBlobStorage>;
+        /**
+         * A `fileSystem` block as defined above.
+         */
+        fileSystem?: pulumi.Input<inputs.appservice.LinuxWebAppLogsHttpLogsFileSystem>;
+    }
+
+    export interface LinuxWebAppLogsHttpLogsAzureBlobStorage {
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays?: pulumi.Input<number>;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppLogsHttpLogsFileSystem {
+        /**
+         * The retention period in days. A values of `0` means no retention.
+         */
+        retentionInDays: pulumi.Input<number>;
+        /**
+         * The maximum size in megabytes that log files can use.
+         */
+        retentionInMb: pulumi.Input<number>;
+    }
+
+    export interface LinuxWebAppSiteConfig {
+        /**
+         * If this Linux Web App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn?: pulumi.Input<boolean>;
+        apiDefinitionUrl?: pulumi.Input<string>;
+        apiManagementApiId?: pulumi.Input<string>;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: pulumi.Input<string>;
+        /**
+         * A `applicationStack` block as defined above.
+         */
+        applicationStack?: pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigApplicationStack>;
+        /**
+         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
+         */
+        autoHealEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `autoHealSetting` block as defined above. Required with `autoHeal`.
+         */
+        autoHealSetting?: pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigAutoHealSetting>;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: pulumi.Input<string>;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: pulumi.Input<boolean>;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigCors>;
+        /**
+         * Specifies a list of Default Documents for the Linux Web App.
+         */
+        defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+        detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin?: pulumi.Input<number>;
+        /**
+         * The path to the Health Check.
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
+         * Should the HTTP2 be enabled?
+         */
+        http2Enabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigIpRestriction>[]>;
+        linuxFxVersion?: pulumi.Input<string>;
+        /**
+         * The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: pulumi.Input<string>;
+        /**
+         * Use Local MySQL. Defaults to `false`.
+         */
+        localMysqlEnabled?: pulumi.Input<boolean>;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         */
+        managedPipelineMode?: pulumi.Input<string>;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: pulumi.Input<string>;
+        remoteDebuggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         */
+        remoteDebuggingVersion?: pulumi.Input<string>;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigScmIpRestriction>[]>;
+        /**
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: pulumi.Input<string>;
+        scmType?: pulumi.Input<string>;
+        /**
+         * Should the Linux Web App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: pulumi.Input<boolean>;
+        /**
+         * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+         */
+        use32BitWorker?: pulumi.Input<boolean>;
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
+        websocketsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The number of Workers for this Linux App Service.
+         */
+        workerCount?: pulumi.Input<number>;
+    }
+
+    export interface LinuxWebAppSiteConfigApplicationStack {
+        /**
+         * The Docker image reference, including repository host as needed.
+         */
+        dockerImage?: pulumi.Input<string>;
+        /**
+         * The image Tag to use. e.g. `latest`.
+         */
+        dockerImageTag?: pulumi.Input<string>;
+        /**
+         * The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+         */
+        dotnetVersion?: pulumi.Input<string>;
+        /**
+         * The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+         */
+        javaServer?: pulumi.Input<string>;
+        /**
+         * The Version of the `javaServer` to use.
+         */
+        javaServerVersion?: pulumi.Input<string>;
+        /**
+         * The Version of Java to use. Supported versions of Java vary depending on the `javaServer` and `javaServerVersion`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+         */
+        javaVersion?: pulumi.Input<string>;
+        /**
+         * The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `javaVersion`.
+         */
+        nodeVersion?: pulumi.Input<string>;
+        /**
+         * The version of PHP to run. Possible values include `7.4`, and `8.0`.
+         */
+        phpVersion?: pulumi.Input<string>;
+        /**
+         * The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+         */
+        pythonVersion?: pulumi.Input<string>;
+        /**
+         * Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+         */
+        rubyVersion?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSetting {
+        /**
+         * A `action` block as defined above.
+         */
+        action?: pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigAutoHealSettingAction>;
+        /**
+         * A `trigger` block as defined below.
+         */
+        trigger?: pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTrigger>;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSettingAction {
+        /**
+         * Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+         */
+        actionType: pulumi.Input<string>;
+        /**
+         * The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+         */
+        minimumProcessExecutionTime?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSettingTrigger {
+        /**
+         * A `requests` block as defined above.
+         */
+        requests?: pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerRequests>;
+        /**
+         * One or more `slowRequest` blocks as defined above.
+         */
+        slowRequests?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest>[]>;
+        /**
+         * One or more `statusCode` blocks as defined above.
+         */
+        statusCodes?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode>[]>;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSettingTriggerRequests {
+        /**
+         * The number of requests in the specified `interval` to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The interval in `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+        /**
+         * The path for which this slow request rule applies.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+         */
+        statusCodeRange: pulumi.Input<string>;
+        /**
+         * The Request Sub Status of the Status Code.
+         */
+        subStatus?: pulumi.Input<number>;
+        /**
+         * The Win32 Status Code of the Request.
+         */
+        win32Status?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether CORS requests with credentials are allowed. Defaults to `false`
+         */
+        supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxWebAppSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxWebAppSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigScmIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxWebAppSiteCredential {
+        /**
+         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsActiveDirectory>;
+        additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * Should the Authentication / Authorization feature be enabled for the Linux Web App?
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsFacebook>;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsGithub>;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsGoogle>;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         */
+        issuer?: pulumi.Input<string>;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsMicrosoft>;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: pulumi.Input<number>;
+        /**
+         * Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsTwitter>;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxWebAppSlotAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxWebAppSlotAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxWebAppSlotAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxWebAppSlotAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: pulumi.Input<string>;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedule: pulumi.Input<inputs.appservice.LinuxWebAppSlotBackupSchedule>;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: pulumi.Input<number>;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+         */
+        frequencyUnit: pulumi.Input<string>;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        lastExecutionTime?: pulumi.Input<string>;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: pulumi.Input<number>;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotConnectionString {
+        /**
+         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The connection string value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App Slot.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotLogs {
+        /**
+         * A `applicationLogs` block as defined above.
+         */
+        applicationLogs?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogsApplicationLogs>;
+        /**
+         * Should detailed error messages be enabled.
+         */
+        detailedErrorMessages?: pulumi.Input<boolean>;
+        /**
+         * Should failed request tracing be enabled.
+         */
+        failedRequestTracing?: pulumi.Input<boolean>;
+        /**
+         * An `httpLogs` block as defined above.
+         */
+        httpLogs?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogsHttpLogs>;
+    }
+
+    export interface LinuxWebAppSlotLogsApplicationLogs {
+        /**
+         * An `azureBlobStorage` block as defined below.
+         */
+        azureBlobStorage?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage>;
+        /**
+         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         */
+        fileSystemLevel: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage {
+        level: pulumi.Input<string>;
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays: pulumi.Input<number>;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotLogsHttpLogs {
+        /**
+         * A `azureBlobStorage` block as defined above.
+         */
+        azureBlobStorage?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogsHttpLogsAzureBlobStorage>;
+        /**
+         * A `fileSystem` block as defined above.
+         */
+        fileSystem?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogsHttpLogsFileSystem>;
+    }
+
+    export interface LinuxWebAppSlotLogsHttpLogsAzureBlobStorage {
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays?: pulumi.Input<number>;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotLogsHttpLogsFileSystem {
+        /**
+         * The retention period in days. A values of `0` means no retention.
+         */
+        retentionInDays: pulumi.Input<number>;
+        /**
+         * The maximum size in megabytes that log files can use.
+         */
+        retentionInMb: pulumi.Input<number>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfig {
+        /**
+         * If this Linux Web App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn?: pulumi.Input<boolean>;
+        /**
+         * The URL to the API Definition for this Linux Web App Slot.
+         */
+        apiDefinitionUrl?: pulumi.Input<string>;
+        /**
+         * The API Management API ID this Linux Web App Slot os associated with.
+         */
+        apiManagementApiId?: pulumi.Input<string>;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: pulumi.Input<string>;
+        /**
+         * A `applicationStack` block as defined above.
+         */
+        applicationStack?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigApplicationStack>;
+        /**
+         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
+         */
+        autoHealEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `autoHealSetting` block as defined above. Required with `autoHeal`.
+         */
+        autoHealSetting?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSetting>;
+        /**
+         * The Linux Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+         */
+        autoSwapSlotName?: pulumi.Input<string>;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: pulumi.Input<string>;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: pulumi.Input<boolean>;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigCors>;
+        /**
+         * Specifies a list of Default Documents for the Linux Web App.
+         */
+        defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+        detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin?: pulumi.Input<number>;
+        /**
+         * The path to the Health Check.
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
+         * Should the HTTP2 be enabled?
+         */
+        http2Enabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigIpRestriction>[]>;
+        linuxFxVersion?: pulumi.Input<string>;
+        /**
+         * The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: pulumi.Input<string>;
+        /**
+         * Use Local MySQL. Defaults to `false`.
+         */
+        localMysqlEnabled?: pulumi.Input<boolean>;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         */
+        managedPipelineMode?: pulumi.Input<string>;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: pulumi.Input<string>;
+        remoteDebuggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         */
+        remoteDebuggingVersion?: pulumi.Input<string>;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigScmIpRestriction>[]>;
+        /**
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: pulumi.Input<string>;
+        scmType?: pulumi.Input<string>;
+        /**
+         * Should the Linux Web App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: pulumi.Input<boolean>;
+        /**
+         * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+         */
+        use32BitWorker?: pulumi.Input<boolean>;
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
+        websocketsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The number of Workers for this Linux App Service Slot.
+         */
+        workerCount?: pulumi.Input<number>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigApplicationStack {
+        /**
+         * The Docker image reference, including repository host as needed.
+         */
+        dockerImage?: pulumi.Input<string>;
+        /**
+         * The image Tag to use. e.g. `latest`.
+         */
+        dockerImageTag?: pulumi.Input<string>;
+        /**
+         * The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+         */
+        dotnetVersion?: pulumi.Input<string>;
+        /**
+         * The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+         */
+        javaServer?: pulumi.Input<string>;
+        /**
+         * The Version of the `javaServer` to use.
+         */
+        javaServerVersion?: pulumi.Input<string>;
+        /**
+         * The Version of Java to use. Supported versions of Java vary depending on the `javaServer` and `javaServerVersion`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+         */
+        javaVersion?: pulumi.Input<string>;
+        /**
+         * The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `javaVersion`.
+         */
+        nodeVersion?: pulumi.Input<string>;
+        /**
+         * The version of PHP to run. Possible values include `7.4`, and `8.0`.
+         */
+        phpVersion?: pulumi.Input<string>;
+        /**
+         * The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+         */
+        pythonVersion?: pulumi.Input<string>;
+        /**
+         * Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+         */
+        rubyVersion?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSetting {
+        /**
+         * A `action` block as defined above.
+         */
+        action?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingAction>;
+        /**
+         * A `trigger` block as defined below.
+         */
+        trigger?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTrigger>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSettingAction {
+        /**
+         * Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+         */
+        actionType: pulumi.Input<string>;
+        /**
+         * The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+         */
+        minimumProcessExecutionTime?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
+        /**
+         * A `requests` block as defined above.
+         */
+        requests?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests>;
+        /**
+         * One or more `slowRequest` blocks as defined above.
+         */
+        slowRequests?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest>[]>;
+        /**
+         * One or more `statusCode` blocks as defined above.
+         */
+        statusCodes?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode>[]>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests {
+        /**
+         * The number of requests in the specified `interval` to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The interval in `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+        /**
+         * The path for which this slow request rule applies.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+         */
+        statusCodeRange: pulumi.Input<string>;
+        /**
+         * The Request Sub Status of the Status Code.
+         */
+        subStatus?: pulumi.Input<number>;
+        /**
+         * The Win32 Status Code of the Request.
+         */
+        win32Status?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether CORS requests with credentials are allowed. Defaults to `false`
+         */
+        supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigScmIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinuxWebAppSlotSiteCredential {
+        /**
+         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password?: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppSlotStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: pulumi.Input<string>;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: pulumi.Input<string>;
+        /**
+         * The path at which to mount the storage share.
+         */
+        mountPath?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this Storage Account.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: pulumi.Input<string>;
+        /**
+         * The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: pulumi.Input<string>;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: pulumi.Input<string>;
+        /**
+         * The path at which to mount the storage share.
+         */
+        mountPath?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this Storage Account.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: pulumi.Input<string>;
+        /**
+         * The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface PlanSku {
         /**
          * Specifies the number of workers associated with this App Service Plan.
@@ -3492,6 +6104,9 @@ export namespace appservice {
          * App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
          */
         appCommandLine?: pulumi.Input<string>;
+        /**
+         * The name of the slot to automatically swap to during deployment
+         */
         autoSwapSlotName?: pulumi.Input<string>;
         /**
          * A `cors` block as defined below.
@@ -3748,6 +6363,98 @@ export namespace appservice {
         type: pulumi.Input<string>;
     }
 
+    export interface SourceControlGithubActionConfiguration {
+        /**
+         * A `codeConfiguration` block as defined above.
+         */
+        codeConfiguration?: pulumi.Input<inputs.appservice.SourceControlGithubActionConfigurationCodeConfiguration>;
+        /**
+         * A `containerConfiguration` block as defined above.
+         */
+        containerConfiguration?: pulumi.Input<inputs.appservice.SourceControlGithubActionConfigurationContainerConfiguration>;
+        generateWorkflowFile?: pulumi.Input<boolean>;
+        linuxAction?: pulumi.Input<boolean>;
+    }
+
+    export interface SourceControlGithubActionConfigurationCodeConfiguration {
+        /**
+         * The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+         */
+        runtimeStack: pulumi.Input<string>;
+        /**
+         * The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
+         */
+        runtimeVersion: pulumi.Input<string>;
+    }
+
+    export interface SourceControlGithubActionConfigurationContainerConfiguration {
+        /**
+         * The image name for the build. Changing this forces a new resource to be created.
+         */
+        imageName: pulumi.Input<string>;
+        /**
+         * The password used to upload the image to the container registry. Changing this forces a new resource to be created.
+         */
+        registryPassword?: pulumi.Input<string>;
+        /**
+         * The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.
+         */
+        registryUrl: pulumi.Input<string>;
+        /**
+         * The username used to upload the image to the container registry. Changing this forces a new resource to be created.
+         */
+        registryUsername?: pulumi.Input<string>;
+    }
+
+    export interface SourceControlSlotGithubActionConfiguration {
+        /**
+         * A `codeConfiguration` block as detailed below.
+         */
+        codeConfiguration?: pulumi.Input<inputs.appservice.SourceControlSlotGithubActionConfigurationCodeConfiguration>;
+        /**
+         * A `containerConfiguration` block as detailed below.
+         */
+        containerConfiguration?: pulumi.Input<inputs.appservice.SourceControlSlotGithubActionConfigurationContainerConfiguration>;
+        /**
+         * Should the service generate the GitHub Action Workflow file. Defaults to `true` Changing this forces a new resource to be created.
+         */
+        generateWorkflowFile?: pulumi.Input<boolean>;
+        /**
+         * Denotes this action uses a Linux base image.
+         */
+        linuxAction?: pulumi.Input<boolean>;
+    }
+
+    export interface SourceControlSlotGithubActionConfigurationCodeConfiguration {
+        /**
+         * The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+         */
+        runtimeStack: pulumi.Input<string>;
+        /**
+         * The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
+         */
+        runtimeVersion: pulumi.Input<string>;
+    }
+
+    export interface SourceControlSlotGithubActionConfigurationContainerConfiguration {
+        /**
+         * The image name for the build. Changing this forces a new resource to be created.
+         */
+        imageName: pulumi.Input<string>;
+        /**
+         * The password used to upload the image to the container registry. Changing this forces a new resource to be created.
+         */
+        registryPassword?: pulumi.Input<string>;
+        /**
+         * The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.
+         */
+        registryUrl: pulumi.Input<string>;
+        /**
+         * The username used to upload the image to the container registry. Changing this forces a new resource to be created.
+         */
+        registryUsername?: pulumi.Input<string>;
+    }
+
     export interface StaticSiteIdentity {
         /**
          * A list of Managed Identity ID's which should be assigned to this Static Site resource.
@@ -3756,7 +6463,2658 @@ export namespace appservice {
         principalId?: pulumi.Input<string>;
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned` and `UserAssigned`.
+         * The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsActiveDirectory>;
+        additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * Should the Authentication / Authorization feature be enabled for the Windows Function App?
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsFacebook>;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsGithub>;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsGoogle>;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
+         */
+        issuer?: pulumi.Input<string>;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsMicrosoft>;
+        /**
+         * The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: pulumi.Input<number>;
+        /**
+         * Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsTwitter>;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: pulumi.Input<string>;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedule: pulumi.Input<inputs.appservice.WindowsFunctionAppBackupSchedule>;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: pulumi.Input<number>;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+         */
+        frequencyUnit: pulumi.Input<string>;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        lastExecutionTime?: pulumi.Input<string>;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: pulumi.Input<number>;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppConnectionString {
+        /**
+         * The name which should be used for this Connection.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The connection string value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Windows Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSiteConfig {
+        /**
+         * If this Windows Function App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn?: pulumi.Input<boolean>;
+        /**
+         * The URL of the API definition that describes this Windows Function App.
+         */
+        apiDefinitionUrl?: pulumi.Input<string>;
+        /**
+         * The ID of the API Management API for this Windows Function App.
+         */
+        apiManagementApiId?: pulumi.Input<string>;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: pulumi.Input<string>;
+        /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit?: pulumi.Input<number>;
+        /**
+         * An `appServiceLogs` block as defined above.
+         */
+        appServiceLogs?: pulumi.Input<inputs.appservice.WindowsFunctionAppSiteConfigAppServiceLogs>;
+        /**
+         * The Connection String for linking the Windows Function App to Application Insights.
+         */
+        applicationInsightsConnectionString?: pulumi.Input<string>;
+        /**
+         * The Instrumentation Key for connecting the Windows Function App to Application Insights.
+         */
+        applicationInsightsKey?: pulumi.Input<string>;
+        /**
+         * An `applicationStack` block as defined above.
+         */
+        applicationStack?: pulumi.Input<inputs.appservice.WindowsFunctionAppSiteConfigApplicationStack>;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: pulumi.Input<inputs.appservice.WindowsFunctionAppSiteConfigCors>;
+        /**
+         * Specifies a list of Default Documents for the Windows Function App.
+         */
+        defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+        detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
+         */
+        elasticInstanceMinimum?: pulumi.Input<number>;
+        /**
+         * State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin?: pulumi.Input<number>;
+        /**
+         * The path to be checked for this Windows Function App health.
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
+         * Specifies if the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsFunctionAppSiteConfigIpRestriction>[]>;
+        /**
+         * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: pulumi.Input<string>;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+         */
+        managedPipelineMode?: pulumi.Input<string>;
+        /**
+         * Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: pulumi.Input<string>;
+        /**
+         * The number of pre-warmed instances for this Windows Function App. Only affects apps on an Elastic Premium plan.
+         */
+        preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
+         * Should Remote Debugging be enabled. Defaults to `false`.
+         */
+        remoteDebuggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+         */
+        remoteDebuggingVersion?: pulumi.Input<string>;
+        /**
+         * Should Scale Monitoring of the Functions Runtime be enabled?
+         */
+        runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsFunctionAppSiteConfigScmIpRestriction>[]>;
+        /**
+         * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: pulumi.Input<string>;
+        scmType?: pulumi.Input<string>;
+        /**
+         * Should the Windows Function App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: pulumi.Input<boolean>;
+        /**
+         * Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
+         */
+        use32BitWorker?: pulumi.Input<boolean>;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
+        websocketsEnabled?: pulumi.Input<boolean>;
+        windowsFxVersion?: pulumi.Input<string>;
+        /**
+         * The number of Workers for this Windows Function App.
+         */
+        workerCount?: pulumi.Input<number>;
+    }
+
+    export interface WindowsFunctionAppSiteConfigAppServiceLogs {
+        /**
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         */
+        diskQuotaMb?: pulumi.Input<number>;
+        /**
+         * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         */
+        retentionPeriodDays?: pulumi.Input<number>;
+    }
+
+    export interface WindowsFunctionAppSiteConfigApplicationStack {
+        /**
+         * The version of .Net to use. Possible values include `3.1` and `6`.
+         */
+        dotnetVersion?: pulumi.Input<string>;
+        /**
+         * The Version of Java to use. Supported versions include `8`, and `11`.
+         */
+        javaVersion?: pulumi.Input<string>;
+        /**
+         * The version of Node to run. Possible values include `~12`, `~14`, and `~16`.
+         */
+        nodeVersion?: pulumi.Input<string>;
+        /**
+         * The version of PowerShell Core to run. Possible values are `7`.
+         */
+        powershellCoreVersion?: pulumi.Input<string>;
+        /**
+         * Should the Windows Function App use a custom runtime?
+         */
+        useCustomRuntime?: pulumi.Input<boolean>;
+        /**
+         * Should the DotNet process use an isolated runtime. Defaults to `false`.
+         */
+        useDotnetIsolatedRuntime?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsFunctionAppSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Are credentials allowed in CORS requests? Defaults to `false`.
+         */
+        supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsFunctionAppSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: pulumi.Input<inputs.appservice.WindowsFunctionAppSiteConfigIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: pulumi.Input<inputs.appservice.WindowsFunctionAppSiteConfigScmIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSiteCredential {
+        /**
+         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettings {
+        /**
+         * an `activeDirectory` block as detailed below.
+         */
+        activeDirectory?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsActiveDirectory>;
+        /**
+         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         */
+        additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * an `allowedExternalRedirectUrls` block as detailed below.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * Should the Authentication / Authorization feature be enabled?
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * a `facebook` block as detailed below.
+         */
+        facebook?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsFacebook>;
+        /**
+         * a `github` block as detailed below.
+         */
+        github?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsGithub>;
+        /**
+         * a `google` block as detailed below.
+         */
+        google?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsGoogle>;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens.
+         */
+        issuer?: pulumi.Input<string>;
+        /**
+         * a `microsoft` block as detailed below.
+         */
+        microsoft?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsMicrosoft>;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: pulumi.Input<number>;
+        /**
+         * Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * a `twitter` block as detailed below.
+         */
+        twitter?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsTwitter>;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsActiveDirectory {
+        /**
+         * an `allowedAudiences` block as detailed below.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: pulumi.Input<string>;
+        /**
+         * an `oauthScopes` block as detailed below.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * an `oauthScopes` block as detailed below.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * an `oauthScopes` block as detailed below.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSlotAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: pulumi.Input<string>;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * a `schedule` block as detailed below.
+         */
+        schedule: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotBackupSchedule>;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: pulumi.Input<number>;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+         */
+        frequencyUnit: pulumi.Input<string>;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        /**
+         * The time the backup was last attempted.
+         */
+        lastExecutionTime?: pulumi.Input<string>;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: pulumi.Input<number>;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotConnectionString {
+        /**
+         * The name which should be used for this Connection.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The connection string value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App Slot.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Windows Function App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfig {
+        /**
+         * If this Windows Web App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn?: pulumi.Input<boolean>;
+        /**
+         * The URL of the API definition that describes this Windows Function App.
+         */
+        apiDefinitionUrl?: pulumi.Input<string>;
+        /**
+         * The ID of the API Management API for this Windows Function App.
+         */
+        apiManagementApiId?: pulumi.Input<string>;
+        /**
+         * The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
+         */
+        appCommandLine?: pulumi.Input<string>;
+        /**
+         * The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
+        appScaleLimit?: pulumi.Input<number>;
+        /**
+         * an `appServiceLogs` block as detailed below.
+         */
+        appServiceLogs?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotSiteConfigAppServiceLogs>;
+        /**
+         * The Connection String for linking the Windows Function App to Application Insights.
+         */
+        applicationInsightsConnectionString?: pulumi.Input<string>;
+        /**
+         * The Instrumentation Key for connecting the Windows Function App to Application Insights.
+         */
+        applicationInsightsKey?: pulumi.Input<string>;
+        /**
+         * an `applicationStack` block as detailed below.
+         */
+        applicationStack?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotSiteConfigApplicationStack>;
+        /**
+         * The name of the slot to automatically swap with when this slot is successfully deployed.
+         */
+        autoSwapSlotName?: pulumi.Input<string>;
+        /**
+         * a `cors` block as detailed below.
+         */
+        cors?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotSiteConfigCors>;
+        /**
+         * a `defaultDocuments` block as detailed below.
+         */
+        defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Is detailed error logging enabled
+         */
+        detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
+         */
+        elasticInstanceMinimum?: pulumi.Input<number>;
+        /**
+         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
+         * The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `healthCheckPath`
+         */
+        healthCheckEvictionTimeInMin?: pulumi.Input<number>;
+        /**
+         * The path to be checked for this function app health.
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
+         * Specifies if the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: pulumi.Input<boolean>;
+        /**
+         * an `ipRestriction` block as detailed below.
+         */
+        ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsFunctionAppSlotSiteConfigIpRestriction>[]>;
+        /**
+         * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: pulumi.Input<string>;
+        /**
+         * The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+         */
+        managedPipelineMode?: pulumi.Input<string>;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: pulumi.Input<string>;
+        /**
+         * The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+         */
+        preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
+         * Should Remote Debugging be enabled. Defaults to `false`.
+         */
+        remoteDebuggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         */
+        remoteDebuggingVersion?: pulumi.Input<string>;
+        /**
+         * Should Scale Monitoring of the Functions Runtime be enabled?
+         */
+        runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
+         * a `scmIpRestriction` block as detailed below.
+         */
+        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsFunctionAppSlotSiteConfigScmIpRestriction>[]>;
+        /**
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: pulumi.Input<string>;
+        /**
+         * The SCM Type in use by the Windows Function App.
+         */
+        scmType?: pulumi.Input<string>;
+        /**
+         * Should the Windows Function App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: pulumi.Input<boolean>;
+        /**
+         * Should the Windows Web App use a 32-bit worker.
+         */
+        use32BitWorker?: pulumi.Input<boolean>;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
+        websocketsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Windows FX Version string.
+         */
+        windowsFxVersion?: pulumi.Input<string>;
+        /**
+         * The number of Workers for this Windows Function App.
+         */
+        workerCount?: pulumi.Input<number>;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigAppServiceLogs {
+        /**
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         */
+        diskQuotaMb?: pulumi.Input<number>;
+        /**
+         * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         */
+        retentionPeriodDays?: pulumi.Input<number>;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigApplicationStack {
+        /**
+         * The version of .Net. Possible values are `3.1` and `6`
+         */
+        dotnetVersion?: pulumi.Input<string>;
+        /**
+         * The version of Java to use. Possible values are `8`, and `11`
+         */
+        javaVersion?: pulumi.Input<string>;
+        /**
+         * The version of Node to use. Possible values include `12`, and `14`
+         */
+        nodeVersion?: pulumi.Input<string>;
+        /**
+         * The PowerShell Core version to use. Possible values are `7`.
+         */
+        powershellCoreVersion?: pulumi.Input<string>;
+        /**
+         * Does the Function App use a custom Application Stack?
+         */
+        useCustomRuntime?: pulumi.Input<boolean>;
+        /**
+         * Should the DotNet process use an isolated runtime. Defaults to `false`.
+         */
+        useDotnetIsolatedRuntime?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigCors {
+        /**
+         * an `allowedOrigins` block as detailed below.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Are credentials allowed in CORS requests? Defaults to `false`.
+         */
+        supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * a `headers` block as detailed below.
+         */
+        headers?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * a `headers` block as detailed below.
+         */
+        headers?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsFunctionAppSlotSiteCredential {
+        /**
+         * The Site Credentials Username used for publishing.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: pulumi.Input<inputs.appservice.WindowsWebAppAuthSettingsActiveDirectory>;
+        additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * Should the Authentication / Authorization feature is enabled for the Windows Web App be enabled?
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: pulumi.Input<inputs.appservice.WindowsWebAppAuthSettingsFacebook>;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: pulumi.Input<inputs.appservice.WindowsWebAppAuthSettingsGithub>;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: pulumi.Input<inputs.appservice.WindowsWebAppAuthSettingsGoogle>;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
+         */
+        issuer?: pulumi.Input<string>;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: pulumi.Input<inputs.appservice.WindowsWebAppAuthSettingsMicrosoft>;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: pulumi.Input<number>;
+        /**
+         * Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: pulumi.Input<inputs.appservice.WindowsWebAppAuthSettingsTwitter>;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsWebAppAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsWebAppAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsWebAppAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsWebAppAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: pulumi.Input<string>;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedule: pulumi.Input<inputs.appservice.WindowsWebAppBackupSchedule>;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: pulumi.Input<number>;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+         */
+        frequencyUnit: pulumi.Input<string>;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        lastExecutionTime?: pulumi.Input<string>;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: pulumi.Input<number>;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppConnectionString {
+        /**
+         * The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The connection string value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Windows Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppLogs {
+        /**
+         * A `applicationLogs` block as defined above.
+         */
+        applicationLogs?: pulumi.Input<inputs.appservice.WindowsWebAppLogsApplicationLogs>;
+        /**
+         * Should detailed error messages be enabled.
+         */
+        detailedErrorMessages?: pulumi.Input<boolean>;
+        /**
+         * Should tracing be enabled for failed requests.
+         */
+        failedRequestTracing?: pulumi.Input<boolean>;
+        /**
+         * A `httpLogs` block as defined above.
+         */
+        httpLogs?: pulumi.Input<inputs.appservice.WindowsWebAppLogsHttpLogs>;
+    }
+
+    export interface WindowsWebAppLogsApplicationLogs {
+        /**
+         * An `azureBlobStorage` block as defined below.
+         */
+        azureBlobStorage?: pulumi.Input<inputs.appservice.WindowsWebAppLogsApplicationLogsAzureBlobStorage>;
+        /**
+         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         */
+        fileSystemLevel: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppLogsApplicationLogsAzureBlobStorage {
+        level: pulumi.Input<string>;
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays: pulumi.Input<number>;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppLogsHttpLogs {
+        /**
+         * A `azureBlobStorage` block as defined above.
+         */
+        azureBlobStorage?: pulumi.Input<inputs.appservice.WindowsWebAppLogsHttpLogsAzureBlobStorage>;
+        /**
+         * A `fileSystem` block as defined above.
+         */
+        fileSystem?: pulumi.Input<inputs.appservice.WindowsWebAppLogsHttpLogsFileSystem>;
+    }
+
+    export interface WindowsWebAppLogsHttpLogsAzureBlobStorage {
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays?: pulumi.Input<number>;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppLogsHttpLogsFileSystem {
+        /**
+         * The retention period in days. A values of `0` means no retention.
+         */
+        retentionInDays: pulumi.Input<number>;
+        /**
+         * The maximum size in megabytes that log files can use.
+         */
+        retentionInMb: pulumi.Input<number>;
+    }
+
+    export interface WindowsWebAppSiteConfig {
+        /**
+         * If this Windows Web App is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn?: pulumi.Input<boolean>;
+        apiDefinitionUrl?: pulumi.Input<string>;
+        /**
+         * The API Management API ID this Windows Web App Slot is associated with.
+         */
+        apiManagementApiId?: pulumi.Input<string>;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: pulumi.Input<string>;
+        /**
+         * A `applicationStack` block as defined above.
+         */
+        applicationStack?: pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigApplicationStack>;
+        /**
+         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
+         */
+        autoHealEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `autoHealSetting` block as defined above. Required with `autoHeal`.
+         */
+        autoHealSetting?: pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigAutoHealSetting>;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: pulumi.Input<string>;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: pulumi.Input<boolean>;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigCors>;
+        /**
+         * Specifies a list of Default Documents for the Windows Web App.
+         */
+        defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+        detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin?: pulumi.Input<number>;
+        /**
+         * The path to the Health Check.
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
+         * Should the HTTP2 be enabled?
+         */
+        http2Enabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigIpRestriction>[]>;
+        linuxFxVersion?: pulumi.Input<string>;
+        /**
+         * The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: pulumi.Input<string>;
+        /**
+         * Use Local MySQL. Defaults to `false`.
+         */
+        localMysqlEnabled?: pulumi.Input<boolean>;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         */
+        managedPipelineMode?: pulumi.Input<string>;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: pulumi.Input<string>;
+        remoteDebuggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         */
+        remoteDebuggingVersion?: pulumi.Input<string>;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigScmIpRestriction>[]>;
+        /**
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: pulumi.Input<string>;
+        scmType?: pulumi.Input<string>;
+        /**
+         * Should the Windows Web App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: pulumi.Input<boolean>;
+        /**
+         * Should the Windows Web App use a 32-bit worker.
+         */
+        use32BitWorker?: pulumi.Input<boolean>;
+        /**
+         * One or more `virtualApplication` blocks as defined below.
+         */
+        virtualApplications?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigVirtualApplication>[]>;
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
+        websocketsEnabled?: pulumi.Input<boolean>;
+        windowsFxVersion?: pulumi.Input<string>;
+        /**
+         * The number of Workers for this Windows App Service.
+         */
+        workerCount?: pulumi.Input<number>;
+    }
+
+    export interface WindowsWebAppSiteConfigApplicationStack {
+        /**
+         * The Application Stack for the Windows Web App. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+         */
+        currentStack?: pulumi.Input<string>;
+        /**
+         * The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
+         */
+        dockerContainerName?: pulumi.Input<string>;
+        /**
+         * The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+         */
+        dockerContainerRegistry?: pulumi.Input<string>;
+        /**
+         * The Image Tag of the specified Docker Container to use. For example `latest`
+         */
+        dockerContainerTag?: pulumi.Input<string>;
+        /**
+         * The version of .Net to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+         */
+        dotnetVersion?: pulumi.Input<string>;
+        /**
+         * The Java container type to use when `currentStack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `javaVersion` and `javaContainerVersion`.
+         */
+        javaContainer?: pulumi.Input<string>;
+        /**
+         * The Version of the `javaContainer` to use. Required with `javaVersion` and `javaContainer`.
+         */
+        javaContainerVersion?: pulumi.Input<string>;
+        /**
+         * The version of Java to use when `currentStack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `javaContainer` and `javaContainerVersion`.
+         */
+        javaVersion?: pulumi.Input<string>;
+        /**
+         * The version of node to use when `currentStack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+         */
+        nodeVersion?: pulumi.Input<string>;
+        /**
+         * The version of PHP to use when `currentStack` is set to `php`. Possible values include `v7.4`.
+         */
+        phpVersion?: pulumi.Input<string>;
+        /**
+         * The version of Python to use when `currentStack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+         */
+        pythonVersion?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSetting {
+        /**
+         * An `action` block as defined above.
+         */
+        action: pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigAutoHealSettingAction>;
+        /**
+         * A `trigger` block as defined below.
+         */
+        trigger: pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTrigger>;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingAction {
+        /**
+         * Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`, `LogEvent`, and `CustomAction`.
+         */
+        actionType: pulumi.Input<string>;
+        /**
+         * A `customAction` block as defined below.
+         */
+        customAction?: pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigAutoHealSettingActionCustomAction>;
+        /**
+         * The minimum amount of time in `hh:mm:ss` the Windows Web App must have been running before the defined action will be run in the event of a trigger.
+         */
+        minimumProcessExecutionTime?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingActionCustomAction {
+        /**
+         * The executable to run for the `customAction`.
+         */
+        executable: pulumi.Input<string>;
+        /**
+         * The parameters to pass to the specified `executable`.
+         */
+        parameters?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingTrigger {
+        /**
+         * The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+         */
+        privateMemoryKb?: pulumi.Input<number>;
+        /**
+         * A `requests` block as defined above.
+         */
+        requests?: pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerRequests>;
+        /**
+         * One or more `slowRequest` blocks as defined above.
+         */
+        slowRequests?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest>[]>;
+        /**
+         * One or more `statusCode` blocks as defined above.
+         */
+        statusCodes?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode>[]>;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingTriggerRequests {
+        /**
+         * The number of requests in the specified `interval` to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The interval in `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+        /**
+         * The path for which this slow request rule applies.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+         */
+        statusCodeRange: pulumi.Input<string>;
+        /**
+         * The Request Sub Status of the Status Code.
+         */
+        subStatus?: pulumi.Input<number>;
+        /**
+         * The Win32 Status Code of the Request.
+         */
+        win32Status?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether CORS requests with credentials are allowed. Defaults to `false`
+         */
+        supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsWebAppSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsWebAppSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigScmIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsWebAppSiteConfigVirtualApplication {
+        /**
+         * The physical path for the Virtual Application.
+         */
+        physicalPath: pulumi.Input<string>;
+        /**
+         * Should pre-loading be enabled. Defaults to `false`.
+         */
+        preload: pulumi.Input<boolean>;
+        /**
+         * One or more `virtualDirectory` blocks as defined below.
+         */
+        virtualDirectories?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory>[]>;
+        /**
+         * The Virtual Path for the Virtual Application.
+         */
+        virtualPath: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory {
+        /**
+         * The physical path for the Virtual Application.
+         */
+        physicalPath?: pulumi.Input<string>;
+        /**
+         * The Virtual Path for the Virtual Application.
+         */
+        virtualPath?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSiteCredential {
+        /**
+         * The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsActiveDirectory>;
+        additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * Should the Authentication / Authorization feature be enabled for the Windows Web App?
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsFacebook>;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsGithub>;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsGoogle>;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App Slot.
+         */
+        issuer?: pulumi.Input<string>;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsMicrosoft>;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: pulumi.Input<number>;
+        /**
+         * Should the Windows Web App Slot durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsTwitter>;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsWebAppSlotAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsWebAppSlotAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The client secret associated with the Google web application.  Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsWebAppSlotAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: pulumi.Input<string>;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsWebAppSlotAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: pulumi.Input<string>;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: pulumi.Input<string>;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotBackup {
+        /**
+         * Should this backup job be enabled?
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name which should be used for this Backup.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `schedule` block as defined below.
+         */
+        schedule: pulumi.Input<inputs.appservice.WindowsWebAppSlotBackupSchedule>;
+        /**
+         * The SAS URL to the container.
+         */
+        storageAccountUrl: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotBackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
+         */
+        frequencyInterval: pulumi.Input<number>;
+        /**
+         * The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+         */
+        frequencyUnit: pulumi.Input<string>;
+        /**
+         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         */
+        keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        lastExecutionTime?: pulumi.Input<string>;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodDays?: pulumi.Input<number>;
+        /**
+         * When the schedule should start working in RFC-3339 format.
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotConnectionString {
+        /**
+         * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The connection string value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Windows Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotLogs {
+        /**
+         * A `applicationLogs` block as defined above.
+         */
+        applicationLogs?: pulumi.Input<inputs.appservice.WindowsWebAppSlotLogsApplicationLogs>;
+        /**
+         * Should detailed error messages be enabled.
+         */
+        detailedErrorMessages?: pulumi.Input<boolean>;
+        /**
+         * Should failed request tracing be enabled.
+         */
+        failedRequestTracing?: pulumi.Input<boolean>;
+        /**
+         * An `httpLogs` block as defined above.
+         */
+        httpLogs?: pulumi.Input<inputs.appservice.WindowsWebAppSlotLogsHttpLogs>;
+    }
+
+    export interface WindowsWebAppSlotLogsApplicationLogs {
+        /**
+         * An `azureBlobStorage` block as defined below.
+         */
+        azureBlobStorage?: pulumi.Input<inputs.appservice.WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage>;
+        /**
+         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         */
+        fileSystemLevel: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage {
+        level: pulumi.Input<string>;
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays: pulumi.Input<number>;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotLogsHttpLogs {
+        /**
+         * A `azureBlobStorage` block as defined above.
+         */
+        azureBlobStorage?: pulumi.Input<inputs.appservice.WindowsWebAppSlotLogsHttpLogsAzureBlobStorage>;
+        /**
+         * A `fileSystem` block as defined above.
+         */
+        fileSystem?: pulumi.Input<inputs.appservice.WindowsWebAppSlotLogsHttpLogsFileSystem>;
+    }
+
+    export interface WindowsWebAppSlotLogsHttpLogsAzureBlobStorage {
+        /**
+         * The time in days after which to remove blobs. A value of `0` means no retention.
+         */
+        retentionInDays?: pulumi.Input<number>;
+        /**
+         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         */
+        sasUrl: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotLogsHttpLogsFileSystem {
+        /**
+         * The retention period in days. A values of `0` means no retention.
+         */
+        retentionInDays: pulumi.Input<number>;
+        /**
+         * The maximum size in megabytes that log files can use.
+         */
+        retentionInMb: pulumi.Input<number>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfig {
+        /**
+         * If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+         */
+        alwaysOn?: pulumi.Input<boolean>;
+        /**
+         * The URL to the API Definition for this Windows Web App Slot.
+         */
+        apiDefinitionUrl?: pulumi.Input<string>;
+        /**
+         * The API Management API ID this Windows Web App Slot os associated with.
+         */
+        apiManagementApiId?: pulumi.Input<string>;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: pulumi.Input<string>;
+        /**
+         * A `applicationStack` block as defined above.
+         */
+        applicationStack?: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigApplicationStack>;
+        /**
+         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
+         */
+        autoHealEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `autoHealSetting` block as defined above. Required with `autoHeal`.
+         */
+        autoHealSetting?: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSetting>;
+        /**
+         * The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+         */
+        autoSwapSlotName?: pulumi.Input<string>;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: pulumi.Input<string>;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: pulumi.Input<boolean>;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigCors>;
+        /**
+         * Specifies a list of Default Documents for the Windows Web App Slot.
+         */
+        defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+        detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin?: pulumi.Input<number>;
+        /**
+         * The path to the Health Check.
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
+         * Should the HTTP2 be enabled?
+         */
+        http2Enabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigIpRestriction>[]>;
+        /**
+         * The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: pulumi.Input<string>;
+        /**
+         * Use Local MySQL. Defaults to `false`.
+         */
+        localMysqlEnabled?: pulumi.Input<boolean>;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         */
+        managedPipelineMode?: pulumi.Input<string>;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: pulumi.Input<string>;
+        remoteDebuggingEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         */
+        remoteDebuggingVersion?: pulumi.Input<string>;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigScmIpRestriction>[]>;
+        /**
+         * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: pulumi.Input<string>;
+        scmType?: pulumi.Input<string>;
+        /**
+         * Should the Windows Web App Slot `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: pulumi.Input<boolean>;
+        /**
+         * Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+         */
+        use32BitWorker?: pulumi.Input<boolean>;
+        /**
+         * One or more `virtualApplication` blocks as defined below.
+         */
+        virtualApplications?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigVirtualApplication>[]>;
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
+        websocketsEnabled?: pulumi.Input<boolean>;
+        windowsFxVersion?: pulumi.Input<string>;
+        /**
+         * The number of Workers for this Windows App Service Slot.
+         */
+        workerCount?: pulumi.Input<number>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigApplicationStack {
+        /**
+         * The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+         */
+        currentStack?: pulumi.Input<string>;
+        /**
+         * The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
+         */
+        dockerContainerName?: pulumi.Input<string>;
+        /**
+         * The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+         */
+        dockerContainerRegistry?: pulumi.Input<string>;
+        /**
+         * The Image Tag of the specified Docker Container to use. For example `latest`
+         */
+        dockerContainerTag?: pulumi.Input<string>;
+        /**
+         * The version of .Net to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+         */
+        dotnetVersion?: pulumi.Input<string>;
+        /**
+         * The Java container type to use when `currentStack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `javaVersion` and `javaContainerVersion`.
+         */
+        javaContainer?: pulumi.Input<string>;
+        /**
+         * The Version of the `javaContainer` to use. Required with `javaVersion` and `javaContainer`.
+         */
+        javaContainerVersion?: pulumi.Input<string>;
+        /**
+         * The version of Java to use when `currentStack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `javaContainer` and `javaContainerVersion`.
+         */
+        javaVersion?: pulumi.Input<string>;
+        /**
+         * The version of node to use when `currentStack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+         */
+        nodeVersion?: pulumi.Input<string>;
+        /**
+         * The version of PHP to use when `currentStack` is set to `php`. Possible values include `v7.4`.
+         */
+        phpVersion?: pulumi.Input<string>;
+        /**
+         * The version of Python to use when `currentStack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+         */
+        pythonVersion?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSetting {
+        /**
+         * A `action` block as defined above.
+         */
+        action: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingAction>;
+        /**
+         * A `trigger` block as defined below.
+         */
+        trigger: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTrigger>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingAction {
+        /**
+         * Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+         */
+        actionType: pulumi.Input<string>;
+        /**
+         * A `customAction` block as defined below.
+         */
+        customAction?: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction>;
+        /**
+         * The minimum amount of time in `hh:mm:ss` the Windows Web App Slot must have been running before the defined action will be run in the event of a trigger.
+         */
+        minimumProcessExecutionTime?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction {
+        /**
+         * The executable to run for the `customAction`.
+         */
+        executable: pulumi.Input<string>;
+        /**
+         * The parameters to pass to the specified `executable`.
+         */
+        parameters?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
+        /**
+         * The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+         */
+        privateMemoryKb?: pulumi.Input<number>;
+        /**
+         * A `requests` block as defined above.
+         */
+        requests?: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests>;
+        /**
+         * One or more `slowRequest` blocks as defined above.
+         */
+        slowRequests?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest>[]>;
+        /**
+         * One or more `statusCode` blocks as defined above.
+         */
+        statusCodes?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode>[]>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests {
+        /**
+         * The number of requests in the specified `interval` to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The interval in `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest {
+        /**
+         * The number of Slow Requests in the time `interval` to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+        /**
+         * The path for which this slow request rule applies.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+         */
+        timeTaken: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode {
+        /**
+         * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The time interval in the form `hh:mm:ss`.
+         */
+        interval: pulumi.Input<string>;
+        /**
+         * The path to which this rule status code applies.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+         */
+        statusCodeRange: pulumi.Input<string>;
+        /**
+         * The Request Sub Status of the Status Code.
+         */
+        subStatus?: pulumi.Input<number>;
+        /**
+         * The Win32 Status Code of the Request.
+         */
+        win32Status?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether CORS requests with credentials are allowed. Defaults to `false`
+         */
+        supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigScmIpRestrictionHeaders>;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if a Front Door Health Probe should be expected.
+         */
+        xFdHealthProbe?: pulumi.Input<string>;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigVirtualApplication {
+        /**
+         * The physical path for the Virtual Application.
+         */
+        physicalPath: pulumi.Input<string>;
+        /**
+         * Should pre-loading be enabled. Defaults to `false`.
+         */
+        preload: pulumi.Input<boolean>;
+        /**
+         * One or more `virtualDirectory` blocks as defined below.
+         */
+        virtualDirectories?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory>[]>;
+        /**
+         * The Virtual Path for the Virtual Application.
+         */
+        virtualPath: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory {
+        /**
+         * The physical path for the Virtual Application.
+         */
+        physicalPath?: pulumi.Input<string>;
+        /**
+         * The Virtual Path for the Virtual Application.
+         */
+        virtualPath?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotSiteCredential {
+        /**
+         * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password?: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppSlotStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: pulumi.Input<string>;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: pulumi.Input<string>;
+        /**
+         * The path at which to mount the storage share.
+         */
+        mountPath?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this Storage Account.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: pulumi.Input<string>;
+        /**
+         * The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WindowsWebAppStorageAccount {
+        /**
+         * The Access key for the storage account.
+         */
+        accessKey: pulumi.Input<string>;
+        /**
+         * The Name of the Storage Account.
+         */
+        accountName: pulumi.Input<string>;
+        /**
+         * The path at which to mount the storage share.
+         */
+        mountPath?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this TODO.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Name of the File Share or Container Name for Blob storage.
+         */
+        shareName: pulumi.Input<string>;
+        /**
+         * The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
          */
         type: pulumi.Input<string>;
     }
@@ -3790,10 +9148,16 @@ export namespace automation {
          * The ID of the User Assigned Identity which should be assigned to this Automation Account.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of identity used for the automation account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * The type of identity used for this Automation Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -4022,19 +9386,19 @@ export namespace batch {
 
     export interface AccountIdentity {
         /**
-         * Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+         * A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -4135,11 +9499,11 @@ export namespace batch {
 
     export interface PoolIdentity {
         /**
-         * Specifies a list of user assigned identity ids.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
          */
         identityIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The identity type of the Batch Account. Only possible values is `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -4210,18 +9574,6 @@ export namespace batch {
          * A map of strings (key,value) that represents the environment variables to set in the start task.
          */
         commonEnvironmentProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * A map of strings (key,value) that represents the environment variables to set in the start task.
-         *
-         * @deprecated Deprecated in favour of `common_environment_properties`
-         */
-        environment?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * The number of retry count. Defaults to `1`.
-         *
-         * @deprecated Deprecated in favour of `task_retry_maximum`
-         */
-        maxTaskRetryCount?: pulumi.Input<number>;
         /**
          * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
          */
@@ -4317,9 +9669,12 @@ export namespace batch {
 
 export namespace blueprint {
     export interface AssignmentIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint.
+         */
         identityIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+         * Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -5017,20 +10372,26 @@ export namespace cdn {
 export namespace cognitive {
     export interface AccountIdentity {
         /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on the Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
 
     export interface AccountNetworkAcls {
         /**
-         * The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
+         * The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
          */
         defaultAction: pulumi.Input<string>;
         /**
@@ -5041,10 +10402,6 @@ export namespace cognitive {
          * A `virtualNetworkRules` block as defined below.
          */
         virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.cognitive.AccountNetworkAclsVirtualNetworkRule>[]>;
-        /**
-         * @deprecated Deprecated in favour of `virtual_network_rules`
-         */
-        virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AccountNetworkAclsVirtualNetworkRule {
@@ -5086,32 +10443,6 @@ export namespace compute {
         subnetId: pulumi.Input<string>;
     }
 
-    export interface ConfigurationPolicyAssignmentConfiguration {
-        /**
-         * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * One or more `parameter` blocks which define what configuration parameters and values against.
-         */
-        parameters?: pulumi.Input<pulumi.Input<inputs.compute.ConfigurationPolicyAssignmentConfigurationParameter>[]>;
-        /**
-         * The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-         */
-        version?: pulumi.Input<string>;
-    }
-
-    export interface ConfigurationPolicyAssignmentConfigurationParameter {
-        /**
-         * The name of the configuration parameter to check.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The value to check the configuration parameter with.
-         */
-        value: pulumi.Input<string>;
-    }
-
     export interface DiskEncryptionSetIdentity {
         /**
          * The (Client) ID of the Service Principal.
@@ -5122,7 +10453,7 @@ export namespace compute {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+         * The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -5204,19 +10535,19 @@ export namespace compute {
 
     export interface LinuxVirtualMachineIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The ID of the System Managed Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The ID of the Tenant the System Managed Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -5335,18 +10666,6 @@ export namespace compute {
          */
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
-         * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-         *
-         * @deprecated This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-         */
-        diskIopsReadWrite?: pulumi.Input<number>;
-        /**
-         * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-         *
-         * @deprecated This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-         */
-        diskMbpsReadWrite?: pulumi.Input<number>;
-        /**
          * The size of the Data Disk which should be created.
          */
         diskSizeGb: pulumi.Input<number>;
@@ -5411,16 +10730,19 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The ID of the System Managed Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -5679,6 +11001,17 @@ export namespace compute {
         version: pulumi.Input<string>;
     }
 
+    export interface LinuxVirtualMachineTerminationNotification {
+        /**
+         * Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         */
+        timeout?: pulumi.Input<string>;
+    }
+
     export interface ManagedDiskEncryptionSettings {
         /**
          * A `diskEncryptionKey` block as defined above.
@@ -5729,14 +11062,6 @@ export namespace compute {
         caching: pulumi.Input<string>;
         createOption?: pulumi.Input<string>;
         diskEncryptionSetId?: pulumi.Input<string>;
-        /**
-         * @deprecated This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-         */
-        diskIopsReadWrite?: pulumi.Input<number>;
-        /**
-         * @deprecated This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-         */
-        diskMbpsReadWrite?: pulumi.Input<number>;
         diskSizeGb: pulumi.Input<number>;
         lun: pulumi.Input<number>;
         storageAccountType: pulumi.Input<string>;
@@ -6387,15 +11712,15 @@ export namespace compute {
 
     export interface VirtualMachineIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+         * Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -6663,19 +11988,19 @@ export namespace compute {
 
     export interface WindowsVirtualMachineIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The ID of the System Managed Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The ID of the Tenant the System Managed Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -6794,18 +12119,6 @@ export namespace compute {
          */
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
-         * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-         *
-         * @deprecated This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-         */
-        diskIopsReadWrite?: pulumi.Input<number>;
-        /**
-         * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-         *
-         * @deprecated This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-         */
-        diskMbpsReadWrite?: pulumi.Input<number>;
-        /**
          * The size of the Data Disk which should be created.
          */
         diskSizeGb: pulumi.Input<number>;
@@ -6870,16 +12183,19 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The ID of the System Managed Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -7155,6 +12471,17 @@ export namespace compute {
          * Specifies the version of the image used to create the virtual machines.
          */
         version: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineTerminationNotification {
+        /**
+         * Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         */
+        timeout?: pulumi.Input<string>;
     }
 
     export interface WindowsVirtualMachineWinrmListener {
@@ -7822,13 +13149,19 @@ export namespace containerservice {
 
     export interface GroupIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
+         * Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -7853,242 +13186,6 @@ export namespace containerservice {
          * The subnet name for the virtual nodes to run.
          */
         subnetName: pulumi.Input<string>;
-    }
-
-    export interface KubernetesClusterAddonProfile {
-        /**
-         * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
-         *
-         * @deprecated `addon_profile.0.aci_connector_linux` block has been deprecated in favour of the `aci_connector_linux` block and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileAciConnectorLinux>;
-        /**
-         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider` block has been deprecated in favour of the `key_vault_secrets_provider` block and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        azureKeyvaultSecretsProvider?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider>;
-        /**
-         * @deprecated `addon_profile.0.azure_policy` has been deprecated in favour of `azure_policy_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        azurePolicy?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileAzurePolicy>;
-        /**
-         * A `httpApplicationRouting` block as defined below.
-         *
-         * @deprecated `addon_profile.0.http_application_routing` block has been deprecated in favour of the `http_application_routing_enabled` property and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        httpApplicationRouting?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileHttpApplicationRouting>;
-        /**
-         * A `ingressApplicationGateway` block as defined below.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway` block has been deprecated in favour of the `ingress_application_gateway` block and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        ingressApplicationGateway?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGateway>;
-        /**
-         * @deprecated `kube_dashboard` has been deprecated since it is no longer supported by Kubernetes versions 1.19 or above, this property will be removed in version 3.0 of the AzureRM Provider.
-         */
-        kubeDashboard?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileKubeDashboard>;
-        /**
-         * A `omsAgent` block as defined below.
-         *
-         * @deprecated `addon_profile.0.oms_agent` block has been deprecated in favour of the `oms_agent` block and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        omsAgent?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileOmsAgent>;
-        /**
-         * @deprecated `addon_profile.0.open_service_mesh` has been deprecated in favour of `open_service_mesh_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        openServiceMesh?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileOpenServiceMesh>;
-    }
-
-    export interface KubernetesClusterAddonProfileAciConnectorLinux {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.aci_connector_linux.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: pulumi.Input<boolean>;
-        /**
-         * The subnet name for the virtual nodes to run.
-         *
-         * @deprecated `addon_profile.0.aci_connector_linux.0.subnet_name` has been deprecated in favour of `aci_connector_linux.0.subnet_name` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        subnetName?: pulumi.Input<string>;
-    }
-
-    export interface KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: pulumi.Input<boolean>;
-        /**
-         * An `secretIdentity` block is exported. The exported attributes are defined below.
-         *
-         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.secret_identity` has been deprecated in favour of `key_vault_secrets_provider.0.secret_identity` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        secretIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity>[]>;
-        /**
-         * Is secret rotation enabled?
-         *
-         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_enabled` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_enabled` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        secretRotationEnabled?: pulumi.Input<boolean>;
-        /**
-         * The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
-         *
-         * @deprecated `addon_profile.0.azure_keyvault_secrets_provider.0.secret_rotation_interval` has been deprecated in favour of `key_vault_secrets_provider.0.secret_rotation_interval` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        secretRotationInterval?: pulumi.Input<string>;
-    }
-
-    export interface KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
-        /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-         */
-        clientId?: pulumi.Input<string>;
-        /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-         */
-        objectId?: pulumi.Input<string>;
-        /**
-         * The ID of a user assigned identity.
-         */
-        userAssignedIdentityId?: pulumi.Input<string>;
-    }
-
-    export interface KubernetesClusterAddonProfileAzurePolicy {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.azure_policy.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: pulumi.Input<boolean>;
-    }
-
-    export interface KubernetesClusterAddonProfileHttpApplicationRouting {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.http_application_routing.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: pulumi.Input<boolean>;
-        /**
-         * The Zone Name of the HTTP Application Routing.
-         *
-         * @deprecated `addon_profile.0.http_application_routing.0.http_application_routing_zone_name` has been deprecated in favour of `http_application_routing_zone_name` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        httpApplicationRoutingZoneName?: pulumi.Input<string>;
-    }
-
-    export interface KubernetesClusterAddonProfileIngressApplicationGateway {
-        /**
-         * The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.effective_gateway_id` has been deprecated in favour of `ingress_application_gateway.0.effective_gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        effectiveGatewayId?: pulumi.Input<string>;
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: pulumi.Input<boolean>;
-        /**
-         * The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.gateway_id` has been deprecated in favour of `ingress_application_gateway.0.gateway_id` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        gatewayId?: pulumi.Input<string>;
-        /**
-         * The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.gateway_name` has been deprecated in favour of `ingress_application_gateway.0.gateway_name` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        gatewayName?: pulumi.Input<string>;
-        /**
-         * An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.ingress_application_gateway_identity` has been deprecated in favour of `ingress_application_gateway.0.ingress_application_gateway_identity` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        ingressApplicationGatewayIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity>[]>;
-        /**
-         * The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.subnet_cidr` has been deprecated in favour of `ingress_application_gateway.0.subnet_cidr` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        subnetCidr?: pulumi.Input<string>;
-        /**
-         * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-         *
-         * @deprecated `addon_profile.0.ingress_application_gateway.0.subnet_id` has been deprecated in favour of `ingress_application_gateway.0.subnet_id` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        subnetId?: pulumi.Input<string>;
-    }
-
-    export interface KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
-        /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-         */
-        clientId?: pulumi.Input<string>;
-        /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-         */
-        objectId?: pulumi.Input<string>;
-        /**
-         * The ID of a user assigned identity.
-         */
-        userAssignedIdentityId?: pulumi.Input<string>;
-    }
-
-    export interface KubernetesClusterAddonProfileKubeDashboard {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         */
-        enabled: pulumi.Input<boolean>;
-    }
-
-    export interface KubernetesClusterAddonProfileOmsAgent {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.oms_agent.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: pulumi.Input<boolean>;
-        /**
-         * The ID of the Log Analytics Workspace which the OMS Agent should send data to.
-         *
-         * @deprecated `addon_profile.0.oms_agent.0.log_analytics_workspace_id` has been deprecated in favour of `oms_agent.0.log_analytics_workspace_id` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        logAnalyticsWorkspaceId?: pulumi.Input<string>;
-        /**
-         * An `omsAgentIdentity` block is exported. The exported attributes are defined below.
-         *
-         * @deprecated `addon_profile.0.oms_agent.0.oms_agent_identity` has been deprecated in favour of `oms_agent.0.oms_agent_identity` and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        omsAgentIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity>[]>;
-    }
-
-    export interface KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
-        /**
-         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
-         */
-        clientId?: pulumi.Input<string>;
-        /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
-         */
-        objectId?: pulumi.Input<string>;
-        /**
-         * The ID of a user assigned identity.
-         */
-        userAssignedIdentityId?: pulumi.Input<string>;
-    }
-
-    export interface KubernetesClusterAddonProfileOpenServiceMesh {
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         *
-         * @deprecated `addon_profile.0.open_service_mesh.0.enabled` has been deprecated and will be removed in version 3.0 of the AzureRM Provider.
-         */
-        enabled: pulumi.Input<boolean>;
     }
 
     export interface KubernetesClusterAutoScalerProfile {
@@ -8195,10 +13292,6 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePool {
         /**
-         * A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
-         */
-        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
          * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
          */
         enableAutoScaling?: pulumi.Input<boolean>;
@@ -8304,6 +13397,10 @@ export namespace containerservice {
          * The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
          */
         vnetSubnetId?: pulumi.Input<string>;
+        /**
+         * Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+         */
+        zones?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface KubernetesClusterDefaultNodePoolKubeletConfig {
@@ -8515,7 +13612,11 @@ export namespace containerservice {
 
     export interface KubernetesClusterIdentity {
         /**
-         * The principal id of the system assigned identity which is used by main components.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
@@ -8523,13 +13624,9 @@ export namespace containerservice {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of identity used for the managed cluster. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
+         * Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
-        /**
-         * The ID of a user assigned identity.
-         */
-        userAssignedIdentityId?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterIngressApplicationGateway {
@@ -8569,7 +13666,7 @@ export namespace containerservice {
          */
         objectId?: pulumi.Input<string>;
         /**
-         * The ID of a user assigned identity.
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         userAssignedIdentityId?: pulumi.Input<string>;
     }
@@ -8599,7 +13696,7 @@ export namespace containerservice {
          */
         objectId?: pulumi.Input<string>;
         /**
-         * The ID of a user assigned identity.
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         userAssignedIdentityId?: pulumi.Input<string>;
     }
@@ -9022,48 +14119,9 @@ export namespace containerservice {
          */
         objectId?: pulumi.Input<string>;
         /**
-         * The ID of a user assigned identity.
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         userAssignedIdentityId?: pulumi.Input<string>;
-    }
-
-    export interface KubernetesClusterRoleBasedAccessControl {
-        azureActiveDirectory?: pulumi.Input<inputs.containerservice.KubernetesClusterRoleBasedAccessControlAzureActiveDirectory>;
-        /**
-         * Is the Kubernetes Dashboard enabled?
-         */
-        enabled: pulumi.Input<boolean>;
-    }
-
-    export interface KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
-        /**
-         * A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-         */
-        adminGroupObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Is Role Based Access Control based on Azure AD enabled?
-         */
-        azureRbacEnabled?: pulumi.Input<boolean>;
-        /**
-         * The Client ID of an Azure Active Directory Application.
-         */
-        clientAppId?: pulumi.Input<string>;
-        /**
-         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
-         */
-        managed?: pulumi.Input<boolean>;
-        /**
-         * The Server ID of an Azure Active Directory Application.
-         */
-        serverAppId?: pulumi.Input<string>;
-        /**
-         * The Server Secret of an Azure Active Directory Application.
-         */
-        serverAppSecret?: pulumi.Input<string>;
-        /**
-         * The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
-         */
-        tenantId?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterServicePrincipal {
@@ -9128,19 +14186,19 @@ export namespace containerservice {
 
     export interface RegistryIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Container Registry.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -9318,13 +14376,19 @@ export namespace containerservice {
 
     export interface RegistryTaskIdentity {
         /**
-         * Specifies a list of user assigned identity IDs.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -9456,6 +14520,7 @@ export namespace containerservice {
          */
         enabled?: pulumi.Input<boolean>;
     }
+
 }
 
 export namespace core {
@@ -9516,6 +14581,10 @@ export namespace core {
 
     export interface ResourceGroupPolicyAssignmentIdentity {
         /**
+         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID of the Policy Assignment for this Resource Group.
          */
         principalId?: pulumi.Input<string>;
@@ -9524,7 +14593,7 @@ export namespace core {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+         * The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -9542,6 +14611,10 @@ export namespace core {
 
     export interface ResourcePolicyAssignmentIdentity {
         /**
+         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID of the Policy Assignment for this Resource.
          */
         principalId?: pulumi.Input<string>;
@@ -9550,7 +14623,7 @@ export namespace core {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+         * The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -9601,6 +14674,10 @@ export namespace core {
 
     export interface SubscriptionPolicyAssignmentIdentity {
         /**
+         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID of the Policy Assignment for this Subscription.
          */
         principalId?: pulumi.Input<string>;
@@ -9609,7 +14686,7 @@ export namespace core {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+         * The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -9719,12 +14796,6 @@ export namespace cosmosdb {
          */
         location: pulumi.Input<string>;
         /**
-         * The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
-         *
-         * @deprecated This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
-         */
-        prefix?: pulumi.Input<string>;
-        /**
          * Should zone redundancy be enabled for this region? Defaults to `false`.
          */
         zoneRedundant?: pulumi.Input<boolean>;
@@ -9740,7 +14811,7 @@ export namespace cosmosdb {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -10081,34 +15152,6 @@ export namespace cosmosdb {
         maxThroughput?: pulumi.Input<number>;
     }
 
-}
-
-export namespace costmanagement {
-    export interface ResourceGroupExportDeliveryInfo {
-        /**
-         * The name of the container where exports will be uploaded.
-         */
-        containerName: pulumi.Input<string>;
-        /**
-         * The path of the directory where exports will be uploaded.
-         */
-        rootFolderPath: pulumi.Input<string>;
-        /**
-         * The storage account id where exports will be delivered.
-         */
-        storageAccountId: pulumi.Input<string>;
-    }
-
-    export interface ResourceGroupExportQuery {
-        /**
-         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
-         */
-        timeFrame: pulumi.Input<string>;
-        /**
-         * The type of the query.
-         */
-        type: pulumi.Input<string>;
-    }
 }
 
 export namespace databoxedge {
@@ -10845,21 +15888,6 @@ export namespace datafactory {
         type?: pulumi.Input<string>;
     }
 
-    export interface DatasetSnowflakeStructureColumn {
-        /**
-         * The description of the column.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * The name of the column.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-         */
-        type?: pulumi.Input<string>;
-    }
-
     export interface DatasetSqlServerTableSchemaColumn {
         /**
          * The description of the column.
@@ -10915,11 +15943,11 @@ export namespace datafactory {
 
     export interface FactoryIdentity {
         /**
-         * Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The ID of the Principal (Client) in Azure Active Directory
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
@@ -10927,7 +15955,7 @@ export namespace datafactory {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -11476,17 +16504,6 @@ export namespace datafactory {
     }
 }
 
-export namespace datalake {
-    export interface StoreIdentity {
-        principalId?: pulumi.Input<string>;
-        tenantId?: pulumi.Input<string>;
-        /**
-         * The Type of Identity which should be used for this Data Lake Store Account. At this time the only possible value is `SystemAssigned`.
-         */
-        type: pulumi.Input<string>;
-    }
-}
-
 export namespace dataprotection {
     export interface BackupPolicyDiskRetentionRule {
         /**
@@ -11566,7 +16583,7 @@ export namespace dataprotection {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -11584,7 +16601,7 @@ export namespace datashare {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
+         * Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -11621,15 +16638,6 @@ export namespace datashare {
 }
 
 export namespace desktopvirtualization {
-    export interface HostPoolRegistrationInfo {
-        /**
-         * @deprecated This field is now non-functional and will be removed in version 3.0 of the Azure Provider - use the `azurerm_virtual_desktop_host_pool_registration_info` resource instead.
-         */
-        expirationDate?: pulumi.Input<string>;
-        resetToken?: pulumi.Input<boolean>;
-        token?: pulumi.Input<string>;
-    }
-
     export interface ScalingPlanHostPool {
         /**
          * The ID of the HostPool to assign the Scaling Plan to.
@@ -12045,19 +17053,19 @@ export namespace domainservices {
 export namespace eventgrid {
     export interface DomainIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of Event Grid Domain. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -12453,20 +17461,6 @@ export namespace eventgrid {
          * If the `type` is `Static`, then provide the value to use
          */
         value?: pulumi.Input<string>;
-    }
-
-    export interface EventSubscriptionEventhubEndpoint {
-        /**
-         * Specifies the id of the eventhub where the Event Subscription will receive events.
-         */
-        eventhubId?: pulumi.Input<string>;
-    }
-
-    export interface EventSubscriptionHybridConnectionEndpoint {
-        /**
-         * Specifies the id of the hybrid connection where the Event Subscription will receive events.
-         */
-        hybridConnectionId?: pulumi.Input<string>;
     }
 
     export interface EventSubscriptionRetryPolicy {
@@ -12881,6 +17875,29 @@ export namespace eventgrid {
         userAssignedIdentity?: pulumi.Input<string>;
     }
 
+    export interface SystemTopicEventSubscriptionDeliveryProperty {
+        /**
+         * The name of the header to send on to the destination.
+         */
+        headerName: pulumi.Input<string>;
+        /**
+         * Set to `true` if the `value` is a secret and should be protected, otherwise `false`. If `true` then this value won't be returned from Azure API calls.
+         */
+        secret?: pulumi.Input<boolean>;
+        /**
+         * If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+         */
+        sourceField?: pulumi.Input<string>;
+        /**
+         * Either `Static` or `Dynamic`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * If the `type` is `Static`, then provide the value to use.
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface SystemTopicEventSubscriptionRetryPolicy {
         /**
          * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
@@ -12962,38 +17979,38 @@ export namespace eventgrid {
 
     export interface SystemTopicIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface TopicIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of Event Grid Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -13050,24 +18067,25 @@ export namespace eventgrid {
          */
         topic?: pulumi.Input<string>;
     }
+
 }
 
 export namespace eventhub {
     export interface DomainIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of Event Grid Domain. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -13127,19 +18145,19 @@ export namespace eventhub {
 
     export interface EventGridTopicIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of Event Grid Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -13245,15 +18263,15 @@ export namespace eventhub {
 
     export interface EventHubNamespaceIdentity {
         /**
-         * The Client ID of the Service Principal assigned to this EventHub Namespace.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The ID of the Tenant the Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -13639,20 +18657,6 @@ export namespace eventhub {
         value?: pulumi.Input<string>;
     }
 
-    export interface EventSubscriptionEventhubEndpoint {
-        /**
-         * Specifies the id of the eventhub where the Event Subscription will receive events.
-         */
-        eventhubId?: pulumi.Input<string>;
-    }
-
-    export interface EventSubscriptionHybridConnectionEndpoint {
-        /**
-         * Specifies the id of the hybrid connection where the Event Subscription will receive events.
-         */
-        hybridConnectionId?: pulumi.Input<string>;
-    }
-
     export interface EventSubscriptionRetryPolicy {
         /**
          * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
@@ -13734,7 +18738,7 @@ export namespace eventhub {
 
     export interface NamespaceIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -13746,7 +18750,7 @@ export namespace eventhub {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -14086,6 +19090,17 @@ export namespace frontdoor {
         successfulSamplesRequired?: pulumi.Input<number>;
     }
 
+    export interface FrontdoorBackendPoolSetting {
+        /**
+         * Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+         */
+        backendPoolsSendReceiveTimeoutSeconds?: pulumi.Input<number>;
+        /**
+         * Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+         */
+        enforceBackendPoolsCertificateNameCheck: pulumi.Input<boolean>;
+    }
+
     export interface FrontdoorExplicitResourceOrder {
         backendPoolHealthProbeIds?: pulumi.Input<pulumi.Input<string>[]>;
         backendPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -14316,12 +19331,6 @@ export namespace hdinsight {
 
     export interface HBaseClusterGateway {
         /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: pulumi.Input<boolean>;
-        /**
          * The password used for the Ambari Portal.
          */
         password: pulumi.Input<string>;
@@ -14472,12 +19481,6 @@ export namespace hdinsight {
          * A `autoscale` block as defined below.
          */
         autoscale?: pulumi.Input<inputs.hdinsight.HBaseClusterRolesWorkerNodeAutoscale>;
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount?: pulumi.Input<number>;
         /**
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
@@ -14645,12 +19648,6 @@ export namespace hdinsight {
     }
 
     export interface HadoopClusterGateway {
-        /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: pulumi.Input<boolean>;
         /**
          * The password used for the Ambari Portal.
          */
@@ -14833,12 +19830,6 @@ export namespace hdinsight {
          */
         autoscale?: pulumi.Input<inputs.hdinsight.HadoopClusterRolesWorkerNodeAutoscale>;
         /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount?: pulumi.Input<number>;
-        /**
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
@@ -15018,12 +20009,6 @@ export namespace hdinsight {
 
     export interface InteractiveQueryClusterGateway {
         /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: pulumi.Input<boolean>;
-        /**
          * The password used for the Ambari Portal.
          */
         password: pulumi.Input<string>;
@@ -15174,12 +20159,6 @@ export namespace hdinsight {
          * A `autoscale` block as defined below.
          */
         autoscale?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeAutoscale>;
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount?: pulumi.Input<number>;
         /**
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
@@ -15363,12 +20342,6 @@ export namespace hdinsight {
 
     export interface KafkaClusterGateway {
         /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: pulumi.Input<boolean>;
-        /**
          * The password used for the Ambari Portal.
          */
         password: pulumi.Input<string>;
@@ -15469,7 +20442,7 @@ export namespace hdinsight {
         /**
          * The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
          */
-        securityGroupName?: pulumi.Input<string>;
+        securityGroupName: pulumi.Input<string>;
     }
 
     export interface KafkaClusterRoles {
@@ -15546,12 +20519,6 @@ export namespace hdinsight {
     }
 
     export interface KafkaClusterRolesWorkerNode {
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount?: pulumi.Input<number>;
         /**
          * The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
          */
@@ -15682,346 +20649,6 @@ export namespace hdinsight {
         storageResourceId: pulumi.Input<string>;
     }
 
-    export interface MLServicesClusterGateway {
-        /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: pulumi.Input<boolean>;
-        /**
-         * The password used for the Ambari Portal.
-         */
-        password: pulumi.Input<string>;
-        /**
-         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-    }
-
-    export interface MLServicesClusterRoles {
-        /**
-         * A `edgeNode` block as defined above.
-         */
-        edgeNode: pulumi.Input<inputs.hdinsight.MLServicesClusterRolesEdgeNode>;
-        /**
-         * A `headNode` block as defined above.
-         */
-        headNode: pulumi.Input<inputs.hdinsight.MLServicesClusterRolesHeadNode>;
-        /**
-         * A `workerNode` block as defined below.
-         */
-        workerNode: pulumi.Input<inputs.hdinsight.MLServicesClusterRolesWorkerNode>;
-        /**
-         * A `zookeeperNode` block as defined below.
-         */
-        zookeeperNode: pulumi.Input<inputs.hdinsight.MLServicesClusterRolesZookeeperNode>;
-    }
-
-    export interface MLServicesClusterRolesEdgeNode {
-        /**
-         * The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
-         */
-        sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
-         * The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: pulumi.Input<string>;
-        /**
-         * The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
-         */
-        vmSize: pulumi.Input<string>;
-    }
-
-    export interface MLServicesClusterRolesHeadNode {
-        /**
-         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
-         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: pulumi.Input<string>;
-        /**
-         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: pulumi.Input<string>;
-    }
-
-    export interface MLServicesClusterRolesWorkerNode {
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount?: pulumi.Input<number>;
-        /**
-         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
-         * The number of instances which should be run for the Worker Nodes.
-         */
-        targetInstanceCount: pulumi.Input<number>;
-        /**
-         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: pulumi.Input<string>;
-        /**
-         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: pulumi.Input<string>;
-    }
-
-    export interface MLServicesClusterRolesZookeeperNode {
-        /**
-         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
-         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: pulumi.Input<string>;
-        /**
-         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: pulumi.Input<string>;
-    }
-
-    export interface MLServicesClusterStorageAccount {
-        /**
-         * Is this the Default Storage Account for the HDInsight ML Services Cluster? Changing this forces a new resource to be created.
-         */
-        isDefault: pulumi.Input<boolean>;
-        /**
-         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageAccountKey: pulumi.Input<string>;
-        /**
-         * The ID of the Storage Container. Changing this forces a new resource to be created.
-         */
-        storageContainerId: pulumi.Input<string>;
-        storageResourceId?: pulumi.Input<string>;
-    }
-
-    export interface RServerClusterGateway {
-        /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: pulumi.Input<boolean>;
-        /**
-         * The password used for the Ambari Portal.
-         */
-        password: pulumi.Input<string>;
-        /**
-         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-    }
-
-    export interface RServerClusterRoles {
-        /**
-         * A `edgeNode` block as defined above.
-         */
-        edgeNode: pulumi.Input<inputs.hdinsight.RServerClusterRolesEdgeNode>;
-        /**
-         * A `headNode` block as defined above.
-         */
-        headNode: pulumi.Input<inputs.hdinsight.RServerClusterRolesHeadNode>;
-        /**
-         * A `workerNode` block as defined below.
-         */
-        workerNode: pulumi.Input<inputs.hdinsight.RServerClusterRolesWorkerNode>;
-        /**
-         * A `zookeeperNode` block as defined below.
-         */
-        zookeeperNode: pulumi.Input<inputs.hdinsight.RServerClusterRolesZookeeperNode>;
-    }
-
-    export interface RServerClusterRolesEdgeNode {
-        /**
-         * The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
-         */
-        sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
-         * The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: pulumi.Input<string>;
-        /**
-         * The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
-         */
-        vmSize: pulumi.Input<string>;
-    }
-
-    export interface RServerClusterRolesHeadNode {
-        /**
-         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
-         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: pulumi.Input<string>;
-        /**
-         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: pulumi.Input<string>;
-    }
-
-    export interface RServerClusterRolesWorkerNode {
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount?: pulumi.Input<number>;
-        /**
-         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
-         * The number of instances which should be run for the Worker Nodes.
-         */
-        targetInstanceCount: pulumi.Input<number>;
-        /**
-         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: pulumi.Input<string>;
-        /**
-         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: pulumi.Input<string>;
-    }
-
-    export interface RServerClusterRolesZookeeperNode {
-        /**
-         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
-         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: pulumi.Input<string>;
-        /**
-         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: pulumi.Input<string>;
-    }
-
-    export interface RServerClusterStorageAccount {
-        /**
-         * Is this the Default Storage Account for the HDInsight RServer Cluster? Changing this forces a new resource to be created.
-         */
-        isDefault: pulumi.Input<boolean>;
-        /**
-         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageAccountKey: pulumi.Input<string>;
-        /**
-         * The ID of the Storage Container. Changing this forces a new resource to be created.
-         */
-        storageContainerId: pulumi.Input<string>;
-        storageResourceId?: pulumi.Input<string>;
-    }
-
     export interface SparkClusterComponentVersion {
         /**
          * The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
@@ -16030,12 +20657,6 @@ export namespace hdinsight {
     }
 
     export interface SparkClusterGateway {
-        /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: pulumi.Input<boolean>;
         /**
          * The password used for the Ambari Portal.
          */
@@ -16187,12 +20808,6 @@ export namespace hdinsight {
          * A `autoscale` block as defined below.
          */
         autoscale?: pulumi.Input<inputs.hdinsight.SparkClusterRolesWorkerNodeAutoscale>;
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount?: pulumi.Input<number>;
         /**
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
@@ -16366,235 +20981,6 @@ export namespace hdinsight {
          */
         storageResourceId: pulumi.Input<string>;
     }
-
-    export interface StormClusterComponentVersion {
-        /**
-         * The version of Storm which should be used for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
-         */
-        storm: pulumi.Input<string>;
-    }
-
-    export interface StormClusterGateway {
-        /**
-         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-         *
-         * @deprecated HDInsight doesn't support disabling gateway anymore
-         */
-        enabled?: pulumi.Input<boolean>;
-        /**
-         * The password used for the Ambari Portal.
-         */
-        password: pulumi.Input<string>;
-        /**
-         * The username used for the Ambari Portal. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-    }
-
-    export interface StormClusterMetastores {
-        /**
-         * An `ambari` block as defined below.
-         */
-        ambari?: pulumi.Input<inputs.hdinsight.StormClusterMetastoresAmbari>;
-        /**
-         * A `hive` block as defined below.
-         */
-        hive?: pulumi.Input<inputs.hdinsight.StormClusterMetastoresHive>;
-        /**
-         * An `oozie` block as defined below.
-         */
-        oozie?: pulumi.Input<inputs.hdinsight.StormClusterMetastoresOozie>;
-    }
-
-    export interface StormClusterMetastoresAmbari {
-        /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-         */
-        databaseName: pulumi.Input<string>;
-        /**
-         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-         */
-        password: pulumi.Input<string>;
-        /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
-         */
-        server: pulumi.Input<string>;
-        /**
-         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-    }
-
-    export interface StormClusterMetastoresHive {
-        /**
-         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-         */
-        databaseName: pulumi.Input<string>;
-        /**
-         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-         */
-        password: pulumi.Input<string>;
-        /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
-         */
-        server: pulumi.Input<string>;
-        /**
-         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-    }
-
-    export interface StormClusterMetastoresOozie {
-        /**
-         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
-         */
-        databaseName: pulumi.Input<string>;
-        /**
-         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-         */
-        password: pulumi.Input<string>;
-        /**
-         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
-         */
-        server: pulumi.Input<string>;
-        /**
-         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-    }
-
-    export interface StormClusterMonitor {
-        /**
-         * The Operations Management Suite (OMS) workspace ID.
-         */
-        logAnalyticsWorkspaceId: pulumi.Input<string>;
-        /**
-         * The Operations Management Suite (OMS) workspace key.
-         */
-        primaryKey: pulumi.Input<string>;
-    }
-
-    export interface StormClusterRoles {
-        /**
-         * A `headNode` block as defined above.
-         */
-        headNode: pulumi.Input<inputs.hdinsight.StormClusterRolesHeadNode>;
-        /**
-         * A `workerNode` block as defined below.
-         */
-        workerNode: pulumi.Input<inputs.hdinsight.StormClusterRolesWorkerNode>;
-        /**
-         * A `zookeeperNode` block as defined below.
-         */
-        zookeeperNode: pulumi.Input<inputs.hdinsight.StormClusterRolesZookeeperNode>;
-    }
-
-    export interface StormClusterRolesHeadNode {
-        /**
-         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
-         * The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: pulumi.Input<string>;
-        /**
-         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: pulumi.Input<string>;
-    }
-
-    export interface StormClusterRolesWorkerNode {
-        /**
-         * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-         *
-         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
-         */
-        minInstanceCount?: pulumi.Input<number>;
-        /**
-         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
-         * The number of instances which should be run for the Worker Nodes.
-         */
-        targetInstanceCount: pulumi.Input<number>;
-        /**
-         * The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: pulumi.Input<string>;
-        /**
-         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: pulumi.Input<string>;
-    }
-
-    export interface StormClusterRolesZookeeperNode {
-        /**
-         * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
-         * The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        username: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-         */
-        virtualNetworkId?: pulumi.Input<string>;
-        /**
-         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-         */
-        vmSize: pulumi.Input<string>;
-    }
-
-    export interface StormClusterStorageAccount {
-        /**
-         * Is this the Default Storage Account for the HDInsight Storm Cluster? Changing this forces a new resource to be created.
-         */
-        isDefault: pulumi.Input<boolean>;
-        /**
-         * The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-         */
-        storageAccountKey: pulumi.Input<string>;
-        /**
-         * The ID of the Storage Container. Changing this forces a new resource to be created.
-         */
-        storageContainerId: pulumi.Input<string>;
-        storageResourceId?: pulumi.Input<string>;
-    }
 }
 
 export namespace healthcare {
@@ -16635,6 +21021,17 @@ export namespace healthcare {
          * The max age to be allowed via CORS.
          */
         maxAgeInSeconds?: pulumi.Input<number>;
+    }
+
+    export interface WorkspacePrivateEndpointConnection {
+        /**
+         * The ID of the Healthcare Workspace.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
+         */
+        name?: pulumi.Input<string>;
     }
 }
 
@@ -16843,7 +21240,7 @@ export namespace hsm {
 export namespace iot {
     export interface IoTHubCloudToDevice {
         /**
-         * The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+         * The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
          */
         defaultTtl?: pulumi.Input<string>;
         /**
@@ -16851,29 +21248,29 @@ export namespace iot {
          */
         feedbacks?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubCloudToDeviceFeedback>[]>;
         /**
-         * The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+         * The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
          */
         maxDeliveryCount?: pulumi.Input<number>;
     }
 
     export interface IoTHubCloudToDeviceFeedback {
         /**
-         * The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+         * The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
          */
         lockDuration?: pulumi.Input<string>;
         /**
-         * The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+         * The maximum delivery count for the feedback queue. This value must be between `1` and `100`. Defaults to `10`.
          */
         maxDeliveryCount?: pulumi.Input<number>;
         /**
-         * The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+         * The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
          */
         timeToLive?: pulumi.Input<string>;
     }
 
     export interface IoTHubEndpoint {
         /**
-         * Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+         * The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
          */
         authenticationType?: pulumi.Input<string>;
         /**
@@ -16905,7 +21302,7 @@ export namespace iot {
          */
         fileNameFormat?: pulumi.Input<string>;
         /**
-         * ID of the User Managed Identity used to authenticate against the endpoint.
+         * The ID of the User Managed Identity used to authenticate against the endpoint.
          */
         identityId?: pulumi.Input<string>;
         /**
@@ -16936,14 +21333,14 @@ export namespace iot {
          */
         key: pulumi.Input<string>;
         /**
-         * The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+         * The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
          */
         value: pulumi.Input<string>;
     }
 
     export interface IoTHubFallbackRoute {
         /**
-         * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+         * The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
          */
         condition?: pulumi.Input<string>;
         /**
@@ -16962,67 +21359,60 @@ export namespace iot {
 
     export interface IoTHubFileUpload {
         /**
+         * The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+         */
+        authenticationType?: pulumi.Input<string>;
+        /**
          * The connection string for the Azure Storage account to which files are uploaded.
          */
         connectionString: pulumi.Input<string>;
         /**
-         * The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+         * The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
          */
         containerName: pulumi.Input<string>;
         /**
-         * The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+         * The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
          */
         defaultTtl?: pulumi.Input<string>;
         /**
-         * The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
+         * The ID of the User Managed Identity used to authenticate against the storage account.
+         */
+        identityId?: pulumi.Input<string>;
+        /**
+         * The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
          */
         lockDuration?: pulumi.Input<string>;
         /**
-         * The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
+         * The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
          */
         maxDeliveryCount?: pulumi.Input<number>;
         /**
-         * Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+         * Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
          */
         notifications?: pulumi.Input<boolean>;
         /**
-         * The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
+         * The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
          */
         sasTtl?: pulumi.Input<string>;
     }
 
     export interface IoTHubIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The ID of the System Managed Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The ID of the Tenant the System Managed Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this IoT Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
-    }
-
-    export interface IoTHubIpFilterRule {
-        /**
-         * The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
-         */
-        action: pulumi.Input<string>;
-        /**
-         * The IP address range in CIDR notation for the rule.
-         */
-        ipMask: pulumi.Input<string>;
-        /**
-         * The name of the filter.
-         */
-        name: pulumi.Input<string>;
     }
 
     export interface IoTHubNetworkRuleSet {
@@ -17057,7 +21447,7 @@ export namespace iot {
 
     export interface IoTHubRoute {
         /**
-         * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+         * The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
          */
         condition?: pulumi.Input<string>;
         /**
@@ -17167,25 +21557,13 @@ export namespace iot {
          */
         connectionFromIpsNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * @deprecated This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-         */
-        connectionToIpNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
          * Specifies which IP is not allowed to be connected to in current device group for outbound connection.
          */
         connectionToIpsNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * @deprecated This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-         */
-        localUserNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
          * Specifies which local user is not allowed to Login in current device group.
          */
         localUsersNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * @deprecated This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-         */
-        processNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies which process is not allowed to be executed in current device group.
          */
@@ -17759,7 +22137,7 @@ export namespace kusto {
 
     export interface ClusterIdentity {
         /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -17815,15 +22193,6 @@ export namespace kusto {
 }
 
 export namespace lb {
-    export interface BackendAddressPoolBackendAddress {
-        ipAddress: pulumi.Input<string>;
-        /**
-         * Specifies the name of the Backend Address Pool.
-         */
-        name: pulumi.Input<string>;
-        virtualNetworkId: pulumi.Input<string>;
-    }
-
     export interface BackendAddressPoolTunnelInterface {
         /**
          * The unique identifier of this Gateway Lodbalancer Tunnel Interface.
@@ -17844,10 +22213,6 @@ export namespace lb {
     }
 
     export interface LoadBalancerFrontendIpConfiguration {
-        /**
-         * A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
-         */
-        availabilityZone?: pulumi.Input<string>;
         /**
          * The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
          */
@@ -17896,10 +22261,7 @@ export namespace lb {
          * The ID of the Subnet which should be associated with the IP Configuration.
          */
         subnetId?: pulumi.Input<string>;
-        /**
-         * @deprecated This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
-         */
-        zones?: pulumi.Input<string>;
+        zones?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface OutboundRuleFrontendIpConfiguration {
@@ -17957,15 +22319,15 @@ export namespace lighthouse {
 export namespace loganalytics {
     export interface ClusterIdentity {
         /**
-         * The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The Tenant ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Log Analytics Cluster. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -18220,7 +22582,7 @@ export namespace logicapps {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Logic App Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+         * Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -18454,7 +22816,7 @@ export namespace logicapps {
 
     export interface WorkflowIdentity {
         /**
-         * A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -18466,7 +22828,7 @@ export namespace logicapps {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -18475,7 +22837,7 @@ export namespace logicapps {
 export namespace machinelearning {
     export interface ComputeClusterIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -18487,7 +22849,7 @@ export namespace machinelearning {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -18535,7 +22897,7 @@ export namespace machinelearning {
 
     export interface ComputeInstanceIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -18547,7 +22909,7 @@ export namespace machinelearning {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -18569,7 +22931,7 @@ export namespace machinelearning {
 
     export interface InferenceClusterIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -18581,7 +22943,7 @@ export namespace machinelearning {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -18611,7 +22973,7 @@ export namespace machinelearning {
 
     export interface SynapseSparkIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -18623,7 +22985,7 @@ export namespace machinelearning {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -18645,19 +23007,19 @@ export namespace machinelearning {
 
     export interface WorkspaceIdentity {
         /**
-         * The user assigned identity IDs associated with the resource.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The (Client) ID of the Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The ID of the Tenant the Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -18728,6 +23090,10 @@ export namespace managedapplication {
 export namespace management {
     export interface GroupPolicyAssignmentIdentity {
         /**
+         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID of the Policy Assignment for this Management Group.
          */
         principalId?: pulumi.Input<string>;
@@ -18736,7 +23102,7 @@ export namespace management {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+         * The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -18754,28 +23120,6 @@ export namespace management {
 }
 
 export namespace mariadb {
-    export interface ServerStorageProfile {
-        /**
-         * @deprecated this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.
-         */
-        autoGrow?: pulumi.Input<string>;
-        /**
-         * Backup retention days for the server, supported values are between `7` and `35` days.
-         *
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        backupRetentionDays?: pulumi.Input<number>;
-        /**
-         * @deprecated this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.
-         */
-        geoRedundantBackup?: pulumi.Input<string>;
-        /**
-         * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
-         *
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        storageMb?: pulumi.Input<number>;
-    }
 }
 
 export namespace media {
@@ -20727,34 +25071,13 @@ export namespace monitoring {
 }
 
 export namespace mssql {
-    export interface DatabaseExtendedAuditingPolicy {
-        logMonitoringEnabled?: pulumi.Input<boolean>;
-        /**
-         * Specifies the number of days to retain logs for in the storage account.
-         */
-        retentionInDays?: pulumi.Input<number>;
-        /**
-         * Specifies the access key to use for the auditing storage account.
-         */
-        storageAccountAccessKey?: pulumi.Input<string>;
-        /**
-         * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-         */
-        storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
-        storageAccountSubscriptionId?: pulumi.Input<string>;
-        /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-         */
-        storageEndpoint?: pulumi.Input<string>;
-    }
-
     export interface DatabaseLongTermRetentionPolicy {
         /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
          */
         monthlyRetention?: pulumi.Input<string>;
         /**
-         * The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+         * The week of year to take the yearly backup. Value has to be between `1` and `52`.
          */
         weekOfYear?: pulumi.Input<number>;
         /**
@@ -20803,10 +25126,6 @@ export namespace mssql {
          * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: pulumi.Input<string>;
-        /**
-         * @deprecated This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
-         */
-        useServerDefault?: pulumi.Input<string>;
     }
 
     export interface DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
@@ -20928,16 +25247,10 @@ export namespace mssql {
         tenantId?: pulumi.Input<string>;
     }
 
-    export interface ServerExtendedAuditingPolicy {
-        logMonitoringEnabled?: pulumi.Input<boolean>;
-        retentionInDays?: pulumi.Input<number>;
-        storageAccountAccessKey?: pulumi.Input<string>;
-        storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
-        storageAccountSubscriptionId?: pulumi.Input<string>;
-        storageEndpoint?: pulumi.Input<string>;
-    }
-
-    export interface ServerFoo {
+    export interface ServerIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
@@ -20948,28 +25261,9 @@ export namespace mssql {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
+         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
-    }
-
-    export interface ServerIdentity {
-        /**
-         * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-         */
-        principalId?: pulumi.Input<string>;
-        /**
-         * The tenant id of the Azure AD Administrator of this SQL Server.
-         */
-        tenantId?: pulumi.Input<string>;
-        /**
-         * Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
-         */
-        type: pulumi.Input<string>;
-        /**
-         * Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primaryUserAssignedIdentityId`.
-         */
-        userAssignedIdentityIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ServerVulnerabilityAssessmentRecurringScans {
@@ -21135,7 +25429,7 @@ export namespace mysql {
          */
         mode: pulumi.Input<string>;
         /**
-         * The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+         * Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
          */
         standbyAvailabilityZone?: pulumi.Input<string>;
     }
@@ -21172,40 +25466,17 @@ export namespace mysql {
 
     export interface ServerIdentity {
         /**
-         * The Client ID of the Service Principal assigned to this MySQL Server.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The ID of the Tenant the Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this MySQL Server. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
-    }
-
-    export interface ServerStorageProfile {
-        /**
-         * @deprecated this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.
-         */
-        autoGrow?: pulumi.Input<string>;
-        /**
-         * Backup retention days for the server, supported values are between `7` and `35` days.
-         *
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        backupRetentionDays?: pulumi.Input<number>;
-        /**
-         * @deprecated this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.
-         */
-        geoRedundantBackup?: pulumi.Input<string>;
-        /**
-         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-         *
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        storageMb?: pulumi.Input<number>;
     }
 
     export interface ServerThreatDetectionPolicy {
@@ -21360,18 +25631,6 @@ export namespace netapp {
          * A list of allowed clients IPv4 addresses.
          */
         allowedClients: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * @deprecated Deprecated in favour of `protocols_enabled`
-         */
-        cifsEnabled?: pulumi.Input<boolean>;
-        /**
-         * @deprecated Deprecated in favour of `protocols_enabled`
-         */
-        nfsv3Enabled?: pulumi.Input<boolean>;
-        /**
-         * @deprecated Deprecated in favour of `protocols_enabled`
-         */
-        nfsv4Enabled?: pulumi.Input<boolean>;
         /**
          * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
          */
@@ -21691,11 +25950,11 @@ export namespace network {
 
     export interface ApplicationGatewayIdentity {
         /**
-         * Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
          */
         identityIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -21802,13 +26061,13 @@ export namespace network {
 
     export interface ApplicationGatewayProbeMatch {
         /**
-         * A snippet from the Response Body which must be present in the Response..
+         * A snippet from the Response Body which must be present in the Response.
          */
-        body?: pulumi.Input<string>;
+        body: pulumi.Input<string>;
         /**
          * A list of allowed status codes for this Health Probe.
          */
-        statusCodes?: pulumi.Input<pulumi.Input<string>[]>;
+        statusCodes: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ApplicationGatewayRedirectConfiguration {
@@ -22086,7 +26345,7 @@ export namespace network {
         /**
          * a `ssl policy` block as defined below.
          */
-        sslPolicies?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslProfileSslPolicy>[]>;
+        sslPolicy?: pulumi.Input<inputs.network.ApplicationGatewaySslProfileSslPolicy>;
         /**
          * The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
          */
@@ -22399,11 +26658,11 @@ export namespace network {
 
     export interface ExpressRoutePortIdentity {
         /**
-         * Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
          */
         identityIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -22654,12 +26913,6 @@ export namespace network {
 
     export interface FirewallPolicyDns {
         /**
-         * Should the network rule fqdn be enabled?
-         *
-         * @deprecated This property has been deprecated as the service team has removed it from all API versions and is no longer supported by Azure. It will be removed in v3.0 of the provider.
-         */
-        networkRuleFqdnEnabled?: pulumi.Input<boolean>;
-        /**
          * Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
          */
         proxyEnabled?: pulumi.Input<boolean>;
@@ -22670,16 +26923,14 @@ export namespace network {
     }
 
     export interface FirewallPolicyIdentity {
-        principalId?: pulumi.Input<string>;
-        tenantId?: pulumi.Input<string>;
         /**
-         * Type of the identity. At the moment only "UserAssigned" is supported. Changing this forces a new Firewall Policy to be created.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
          */
         type: pulumi.Input<string>;
-        /**
-         * Specifies a list of user assigned managed identities.
-         */
-        userAssignedIdentityIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface FirewallPolicyInsights {
@@ -23020,27 +27271,6 @@ export namespace network {
         peerWeight?: pulumi.Input<number>;
     }
 
-    export interface NetworkConnectionMonitorDestination {
-        /**
-         * The IP address or domain name of the Network Connection Monitor endpoint.
-         *
-         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-         */
-        address?: pulumi.Input<string>;
-        /**
-         * The port for the HTTP connection.
-         *
-         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-         */
-        port?: pulumi.Input<number>;
-        /**
-         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-         *
-         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-         */
-        virtualMachineId?: pulumi.Input<string>;
-    }
-
     export interface NetworkConnectionMonitorEndpoint {
         /**
          * The IP address or domain name of the Network Connection Monitor endpoint.
@@ -23074,12 +27304,6 @@ export namespace network {
          * The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
          */
         targetResourceType?: pulumi.Input<string>;
-        /**
-         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-         *
-         * @deprecated This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.
-         */
-        virtualMachineId?: pulumi.Input<string>;
     }
 
     export interface NetworkConnectionMonitorEndpointFilter {
@@ -23102,21 +27326,6 @@ export namespace network {
          * The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
          */
         type?: pulumi.Input<string>;
-    }
-
-    export interface NetworkConnectionMonitorSource {
-        /**
-         * The port for the HTTP connection.
-         *
-         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-         */
-        port?: pulumi.Input<number>;
-        /**
-         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
-         *
-         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
-         */
-        virtualMachineId?: pulumi.Input<string>;
     }
 
     export interface NetworkConnectionMonitorTestConfiguration {
@@ -23422,44 +27631,6 @@ export namespace network {
         workspaceResourceId: pulumi.Input<string>;
     }
 
-    export interface PacketCaptureFilter {
-        /**
-         * The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-         */
-        localIpAddress?: pulumi.Input<string>;
-        /**
-         * The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-         */
-        localPort?: pulumi.Input<string>;
-        /**
-         * The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-         */
-        protocol: pulumi.Input<string>;
-        /**
-         * The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-         */
-        remoteIpAddress?: pulumi.Input<string>;
-        /**
-         * The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-         */
-        remotePort?: pulumi.Input<string>;
-    }
-
-    export interface PacketCaptureStorageLocation {
-        /**
-         * A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
-         */
-        filePath?: pulumi.Input<string>;
-        /**
-         * The ID of the storage account to save the packet capture session
-         */
-        storageAccountId?: pulumi.Input<string>;
-        /**
-         * The URI of the storage path to save the packet capture.
-         */
-        storagePath?: pulumi.Input<string>;
-    }
-
     export interface PointToPointVpnGatewayConnectionConfiguration {
         /**
          * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
@@ -23627,32 +27798,6 @@ export namespace network {
         last?: pulumi.Input<string>;
         /**
          * The block size (number of leading bits in the subnet mask).
-         */
-        scope?: pulumi.Input<number>;
-    }
-
-    export interface TrafficManagerEndpointCustomHeader {
-        /**
-         * The name of the custom header.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The value of custom header. Applicable for Http and Https protocol.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    export interface TrafficManagerEndpointSubnet {
-        /**
-         * The First IP....
-         */
-        first: pulumi.Input<string>;
-        /**
-         * The Last IP...
-         */
-        last?: pulumi.Input<string>;
-        /**
-         * The Scope...
          */
         scope?: pulumi.Input<number>;
     }
@@ -23862,10 +28007,6 @@ export namespace network {
          * through BGP peering. Valid values can be between `0` and `100`.
          */
         peerWeight?: pulumi.Input<number>;
-        /**
-         * @deprecated Deprecated in favor of `bgp_settings.0.peering_addresses.0.default_addresses.0`
-         */
-        peeringAddress?: pulumi.Input<string>;
         /**
          * A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
          */
@@ -24141,10 +28282,6 @@ export namespace network {
          * A `propagatedRouteTable` block as defined below.
          */
         propagatedRouteTable?: pulumi.Input<inputs.network.VpnGatewayConnectionRoutingPropagatedRouteTable>;
-        /**
-         * @deprecated Deprecated in favour of `propagated_route_table`
-         */
-        propagatedRouteTables?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface VpnGatewayConnectionRoutingPropagatedRouteTable {
@@ -24367,42 +28504,16 @@ export namespace network {
          */
         address: pulumi.Input<string>;
         /**
-         * One or more `clientRootCertificate` blocks as defined above.
+         * The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
          */
-        clientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationRadiusServerClientRootCertificate>[]>;
+        score: pulumi.Input<number>;
         /**
          * The Secret used to communicate with the Radius Server.
          */
         secret: pulumi.Input<string>;
-        /**
-         * One or more `serverRootCertificate` blocks as defined below.
-         */
-        serverRootCertificates: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationRadiusServerServerRootCertificate>[]>;
-    }
-
-    export interface VpnServerConfigurationRadiusServerClientRootCertificate {
-        /**
-         * A name used to uniquely identify this certificate.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The Thumbprint of the Certificate.
-         */
-        thumbprint: pulumi.Input<string>;
     }
 
     export interface VpnServerConfigurationRadiusServerRootCertificate {
-        /**
-         * A name used to uniquely identify this certificate.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The Public Key Data associated with the Certificate.
-         */
-        publicCertData: pulumi.Input<string>;
-    }
-
-    export interface VpnServerConfigurationRadiusServerServerRootCertificate {
         /**
          * A name used to uniquely identify this certificate.
          */
@@ -24454,6 +28565,7 @@ export namespace network {
          */
         peeringAddress: pulumi.Input<string>;
     }
+
 }
 
 export namespace notificationhub {
@@ -24507,21 +28619,6 @@ export namespace operationalinsights {
 }
 
 export namespace policy {
-    export interface AssignmentIdentity {
-        /**
-         * The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-         */
-        principalId?: pulumi.Input<string>;
-        /**
-         * The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-         */
-        tenantId?: pulumi.Input<string>;
-        /**
-         * The type of Managed Identity for this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you).
-         */
-        type?: pulumi.Input<string>;
-    }
-
     export interface PolicySetDefinitionPolicyDefinitionGroup {
         /**
          * The ID of a resource that contains additional metadata about this policy definition group.
@@ -24551,12 +28648,6 @@ export namespace policy {
          */
         parameterValues?: pulumi.Input<string>;
         /**
-         * Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
-         *
-         * @deprecated Deprecated in favour of `parameter_values`
-         */
-        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
          * The ID of the policy definition or policy set definition that will be included in this policy set definition.
          */
         policyDefinitionId: pulumi.Input<string>;
@@ -24583,12 +28674,6 @@ export namespace policy {
          * The content URI where the Guest Configuration package is stored.
          */
         contentUri?: pulumi.Input<string>;
-        /**
-         * This field is no longer used and will be removed in the next major version of the Azure Provider.
-         *
-         * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-         */
-        name?: pulumi.Input<string>;
         /**
          * One or more `parameter` blocks which define what configuration parameters and values against.
          */
@@ -24618,7 +28703,7 @@ export namespace postgresql {
          */
         mode: pulumi.Input<string>;
         /**
-         * The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+         * Specifies the Availability Zone in which the standby Flexible Server should be located.
          */
         standbyAvailabilityZone?: pulumi.Input<string>;
     }
@@ -24640,40 +28725,17 @@ export namespace postgresql {
 
     export interface ServerIdentity {
         /**
-         * The Client ID of the Service Principal assigned to this PostgreSQL Server.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The ID of the Tenant the Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this PostgreSQL Server. At this time the only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
-    }
-
-    export interface ServerStorageProfile {
-        /**
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        autoGrow?: pulumi.Input<string>;
-        /**
-         * Backup retention days for the server, supported values are between `7` and `35` days.
-         *
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        backupRetentionDays?: pulumi.Input<number>;
-        /**
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        geoRedundantBackup?: pulumi.Input<string>;
-        /**
-         * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage).
-         *
-         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
-         */
-        storageMb?: pulumi.Input<number>;
     }
 
     export interface ServerThreatDetectionPolicy {
@@ -24929,17 +28991,17 @@ export namespace privatelink {
 export namespace purview {
     export interface AccountIdentity {
         /**
-         * The ID of the Principal (Client) in Azure Active Directory.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The ID of the Azure Active Directory Tenant.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of Managed Identity assigned to this Purview Account.
+         * Specifies the type of Managed Service Identity that should be configured on this Purview Account. The only possible value is `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface AccountManagedResource {
@@ -24975,10 +29037,16 @@ export namespace recoveryservices {
     }
 
     export interface VaultIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Recovery Services Vault. At this time the only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -25089,15 +29157,15 @@ export namespace role {
 export namespace search {
     export interface ServiceIdentity {
         /**
-         * The (Client) ID of the Service Principal.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The ID of the Tenant the Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for the Search Service. At this time the only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -25188,6 +29256,47 @@ export namespace securitycenter {
 }
 
 export namespace sentinel {
+    export interface AlertRuleScheduledAlertDetailsOverride {
+        /**
+         * The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+         */
+        descriptionFormat?: pulumi.Input<string>;
+        /**
+         * The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+         */
+        displayNameFormat?: pulumi.Input<string>;
+        /**
+         * The column name to take the alert severity from.
+         */
+        severityColumnName?: pulumi.Input<string>;
+        /**
+         * The column name to take the alert tactics from.
+         */
+        tacticsColumnName?: pulumi.Input<string>;
+    }
+
+    export interface AlertRuleScheduledEntityMapping {
+        /**
+         * The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+         */
+        entityType: pulumi.Input<string>;
+        /**
+         * A list of `fieldMapping` blocks as defined below.
+         */
+        fieldMappings: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledEntityMappingFieldMapping>[]>;
+    }
+
+    export interface AlertRuleScheduledEntityMappingFieldMapping {
+        /**
+         * The column name to be mapped to the identifier.
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * The identifier of the entity.
+         */
+        identifier: pulumi.Input<string>;
+    }
+
     export interface AlertRuleScheduledEventGrouping {
         /**
          * The aggregation type of grouping the events.
@@ -25215,10 +29324,12 @@ export namespace sentinel {
          * The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
          */
         entityMatchingMethod?: pulumi.Input<string>;
+        groupByAlertDetails?: pulumi.Input<pulumi.Input<string>[]>;
+        groupByCustomDetails?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
          */
-        groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+        groupByEntities?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
          */
@@ -25356,7 +29467,7 @@ export namespace sentinel {
 export namespace servicebus {
     export interface NamespaceIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the ServiceBus Namespace.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -25368,7 +29479,7 @@ export namespace servicebus {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -25870,70 +29981,6 @@ export namespace servicefabric {
          */
         url: pulumi.Input<string>;
     }
-
-    export interface MeshApplicationService {
-        /**
-         * Any number `codePackage` block as described below.
-         */
-        codePackages: pulumi.Input<pulumi.Input<inputs.servicefabric.MeshApplicationServiceCodePackage>[]>;
-        /**
-         * The name of the service resource.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The operating system required by the code in service. Valid values are `Linux` or `Windows`.
-         */
-        osType: pulumi.Input<string>;
-    }
-
-    export interface MeshApplicationServiceCodePackage {
-        /**
-         * The Container image the code package will use.
-         */
-        imageName: pulumi.Input<string>;
-        /**
-         * The name of the code package.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * A `resources` block as defined below.
-         */
-        resources: pulumi.Input<inputs.servicefabric.MeshApplicationServiceCodePackageResources>;
-    }
-
-    export interface MeshApplicationServiceCodePackageResources {
-        /**
-         * A `limits` block as defined below.
-         */
-        limits?: pulumi.Input<inputs.servicefabric.MeshApplicationServiceCodePackageResourcesLimits>;
-        /**
-         * A `requests` block as defined below.
-         */
-        requests: pulumi.Input<inputs.servicefabric.MeshApplicationServiceCodePackageResourcesRequests>;
-    }
-
-    export interface MeshApplicationServiceCodePackageResourcesLimits {
-        /**
-         * The maximum number of CPU cores the container can use.
-         */
-        cpu: pulumi.Input<number>;
-        /**
-         * The maximum memory request in GB the container can use.
-         */
-        memory: pulumi.Input<number>;
-    }
-
-    export interface MeshApplicationServiceCodePackageResourcesRequests {
-        /**
-         * The minimum number of CPU cores the container requires.
-         */
-        cpu: pulumi.Input<number>;
-        /**
-         * The minimum memory request in GB the container requires.
-         */
-        memory: pulumi.Input<number>;
-    }
-
 }
 
 export namespace signalr {
@@ -25942,17 +29989,6 @@ export namespace signalr {
          * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
          */
         allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    export interface ServiceFeature {
-        /**
-         * The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
-         */
-        flag: pulumi.Input<string>;
-        /**
-         * A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
-         */
-        value: pulumi.Input<string>;
     }
 
     export interface ServiceNetworkAclPrivateEndpoint {
@@ -26061,26 +30097,6 @@ export namespace siterecovery {
 }
 
 export namespace sql {
-    export interface DatabaseExtendedAuditingPolicy {
-        logMonitoringEnabled?: pulumi.Input<boolean>;
-        /**
-         * Specifies the number of days to retain logs for in the storage account.
-         */
-        retentionInDays?: pulumi.Input<number>;
-        /**
-         * Specifies the access key to use for the auditing storage account.
-         */
-        storageAccountAccessKey?: pulumi.Input<string>;
-        /**
-         * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-         */
-        storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
-        /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-         */
-        storageEndpoint?: pulumi.Input<string>;
-    }
-
     export interface DatabaseImport {
         /**
          * Specifies the name of the SQL administrator.
@@ -26141,10 +30157,6 @@ export namespace sql {
          * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: pulumi.Input<string>;
-        /**
-         * @deprecated This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider
-         */
-        useServerDefault?: pulumi.Input<string>;
     }
 
     export interface FailoverGroupPartnerServer {
@@ -26212,23 +30224,9 @@ export namespace sql {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
-    }
-
-    export interface SqlServerExtendedAuditingPolicy {
-        logMonitoringEnabled?: pulumi.Input<boolean>;
-        retentionInDays?: pulumi.Input<number>;
-        /**
-         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-         */
-        storageAccountAccessKey?: pulumi.Input<string>;
-        storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
-        /**
-         * Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-         */
-        storageEndpoint?: pulumi.Input<string>;
     }
 
     export interface SqlServerIdentity {
@@ -26241,7 +30239,7 @@ export namespace sql {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -26410,7 +30408,7 @@ export namespace storage {
 
     export interface AccountIdentity {
         /**
-         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -26422,7 +30420,7 @@ export namespace storage {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -26824,6 +30822,10 @@ export namespace storage {
          */
         delete: pulumi.Input<boolean>;
         /**
+         * Should Filter by Index Tags permissions be enabled for this SAS?
+         */
+        filter: pulumi.Input<boolean>;
+        /**
          * Should List permissions be enabled for this SAS?
          */
         list: pulumi.Input<boolean>;
@@ -26835,6 +30837,10 @@ export namespace storage {
          * Should Read permissions be enabled for this SAS?
          */
         read: pulumi.Input<boolean>;
+        /**
+         * Should Get / Set Index Tags permissions be enabled for this SAS?
+         */
+        tag: pulumi.Input<boolean>;
         /**
          * Should Update permissions be enabled for this SAS?
          */
@@ -26859,6 +30865,10 @@ export namespace storage {
          */
         delete: boolean;
         /**
+         * Should Filter by Index Tags permissions be enabled for this SAS?
+         */
+        filter: boolean;
+        /**
          * Should List permissions be enabled for this SAS?
          */
         list: boolean;
@@ -26870,6 +30880,10 @@ export namespace storage {
          * Should Read permissions be enabled for this SAS?
          */
         read: boolean;
+        /**
+         * Should Get / Set Index Tags permissions be enabled for this SAS?
+         */
+        tag: boolean;
         /**
          * Should Update permissions be enabled for this SAS?
          */
@@ -27209,17 +31223,31 @@ export namespace streamanalytics {
         type: pulumi.Input<string>;
     }
 
+    export interface FunctionJavascriptUdaInput {
+        /**
+         * The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface FunctionJavascriptUdaOutput {
+        /**
+         * The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface JobIdentity {
         /**
-         * The ID of the Principal (Client) in Azure Active Directory.
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The ID of the Azure Active Directory Tenant.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -27540,9 +31568,9 @@ export namespace synapse {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+         * Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface WorkspaceSqlAadAdmin {
@@ -27577,32 +31605,6 @@ export namespace synapse {
 }
 
 export namespace trafficmanager {
-    export interface EndpointCustomHeader {
-        /**
-         * The name of the custom header.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The value of custom header. Applicable for Http and Https protocol.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    export interface EndpointSubnet {
-        /**
-         * The First IP....
-         */
-        first: pulumi.Input<string>;
-        /**
-         * The Last IP...
-         */
-        last?: pulumi.Input<string>;
-        /**
-         * The Scope...
-         */
-        scope?: pulumi.Input<number>;
-    }
-
     export interface ProfileDnsConfig {
         /**
          * The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
@@ -27664,11 +31666,11 @@ export namespace trafficmanager {
 export namespace videoanalyzer {
     export interface AnalyzerIdentity {
         /**
-         * A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
          */
         identityIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -27679,7 +31681,7 @@ export namespace videoanalyzer {
          */
         id: pulumi.Input<string>;
         /**
-         * Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
+         * Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
          */
         userAssignedIdentityId: pulumi.Input<string>;
     }
@@ -27880,13 +31882,19 @@ export namespace webpubsub {
 
     export interface ServiceIdentity {
         /**
-         * A list of User Assigned Identity IDs which should be assigned to this Web PubSub service.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of identity used for the Web PubSub service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `userAssignedIdentityId` must be set as well.
+         * Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }

@@ -167,6 +167,9 @@ class GetPublicIPResult:
     @property
     @pulumi.getter
     def zones(self) -> Sequence[str]:
+        """
+        A list of Availability Zones in which this Public IP is located.
+        """
         return pulumi.get(self, "zones")
 
 

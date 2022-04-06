@@ -158,7 +158,6 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            soft_delete_enabled=True,
             purge_protection_enabled=True,
             access_policies=[
                 azure.keyvault.KeyVaultAccessPolicyArgs(
@@ -288,7 +287,6 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            soft_delete_enabled=True,
             purge_protection_enabled=True,
             access_policies=[
                 azure.keyvault.KeyVaultAccessPolicyArgs(

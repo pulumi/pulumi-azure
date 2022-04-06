@@ -49,7 +49,6 @@ namespace Pulumi.Azure.Lb
     ///         });
     ///         var exampleRule = new Azure.Lb.Rule("exampleRule", new Azure.Lb.RuleArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             LoadbalancerId = exampleLoadBalancer.Id,
     ///             Protocol = "Tcp",
     ///             FrontendPort = 3389,
@@ -72,9 +71,6 @@ namespace Pulumi.Azure.Lb
     [AzureResourceType("azure:lb/rule:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
-        [Output("backendAddressPoolId")]
-        public Output<string> BackendAddressPoolId { get; private set; } = null!;
-
         /// <summary>
         /// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
         /// </summary>
@@ -156,12 +152,6 @@ namespace Pulumi.Azure.Lb
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the resource group in which to create the resource.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a Rule resource with the given unique name, arguments, and options.
@@ -208,9 +198,6 @@ namespace Pulumi.Azure.Lb
 
     public sealed class RuleArgs : Pulumi.ResourceArgs
     {
-        [Input("backendAddressPoolId")]
-        public Input<string>? BackendAddressPoolId { get; set; }
-
         [Input("backendAddressPoolIds")]
         private InputList<string>? _backendAddressPoolIds;
 
@@ -295,12 +282,6 @@ namespace Pulumi.Azure.Lb
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the resource group in which to create the resource.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
         public RuleArgs()
         {
         }
@@ -308,9 +289,6 @@ namespace Pulumi.Azure.Lb
 
     public sealed class RuleState : Pulumi.ResourceArgs
     {
-        [Input("backendAddressPoolId")]
-        public Input<string>? BackendAddressPoolId { get; set; }
-
         [Input("backendAddressPoolIds")]
         private InputList<string>? _backendAddressPoolIds;
 
@@ -397,12 +375,6 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
-
-        /// <summary>
-        /// The name of the resource group in which to create the resource.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         public RuleState()
         {

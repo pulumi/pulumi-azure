@@ -23,10 +23,8 @@ class EventSubscriptionArgs:
                  delivery_identity: Optional[pulumi.Input['EventSubscriptionDeliveryIdentityArgs']] = None,
                  delivery_properties: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]]] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
-                 eventhub_endpoint: Optional[pulumi.Input['EventSubscriptionEventhubEndpointArgs']] = None,
                  eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
-                 hybrid_connection_endpoint: Optional[pulumi.Input['EventSubscriptionHybridConnectionEndpointArgs']] = None,
                  hybrid_connection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -37,7 +35,6 @@ class EventSubscriptionArgs:
                  storage_blob_dead_letter_destination: Optional[pulumi.Input['EventSubscriptionStorageBlobDeadLetterDestinationArgs']] = None,
                  storage_queue_endpoint: Optional[pulumi.Input['EventSubscriptionStorageQueueEndpointArgs']] = None,
                  subject_filter: Optional[pulumi.Input['EventSubscriptionSubjectFilterArgs']] = None,
-                 topic_name: Optional[pulumi.Input[str]] = None,
                  webhook_endpoint: Optional[pulumi.Input['EventSubscriptionWebhookEndpointArgs']] = None):
         """
         The set of arguments for constructing a EventSubscription resource.
@@ -49,10 +46,8 @@ class EventSubscriptionArgs:
         :param pulumi.Input['EventSubscriptionDeliveryIdentityArgs'] delivery_identity: A `delivery_identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]] delivery_properties: A `delivery_property` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
-        :param pulumi.Input['EventSubscriptionEventhubEndpointArgs'] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
         :param pulumi.Input[str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
-        :param pulumi.Input['EventSubscriptionHybridConnectionEndpointArgs'] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
         :param pulumi.Input[str] hybrid_connection_endpoint_id: Specifies the id where the Hybrid Connection is located.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: A list of labels to assign to the event subscription.
@@ -63,7 +58,6 @@ class EventSubscriptionArgs:
         :param pulumi.Input['EventSubscriptionStorageBlobDeadLetterDestinationArgs'] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
         :param pulumi.Input['EventSubscriptionStorageQueueEndpointArgs'] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
         :param pulumi.Input['EventSubscriptionSubjectFilterArgs'] subject_filter: A `subject_filter` block as defined below.
-        :param pulumi.Input[str] topic_name: (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input['EventSubscriptionWebhookEndpointArgs'] webhook_endpoint: A `webhook_endpoint` block as defined below.
         """
         pulumi.set(__self__, "scope", scope)
@@ -81,20 +75,10 @@ class EventSubscriptionArgs:
             pulumi.set(__self__, "delivery_properties", delivery_properties)
         if event_delivery_schema is not None:
             pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
-        if eventhub_endpoint is not None:
-            warnings.warn("""Deprecated in favour of `eventhub_endpoint_id`""", DeprecationWarning)
-            pulumi.log.warn("""eventhub_endpoint is deprecated: Deprecated in favour of `eventhub_endpoint_id`""")
-        if eventhub_endpoint is not None:
-            pulumi.set(__self__, "eventhub_endpoint", eventhub_endpoint)
         if eventhub_endpoint_id is not None:
             pulumi.set(__self__, "eventhub_endpoint_id", eventhub_endpoint_id)
         if expiration_time_utc is not None:
             pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
-        if hybrid_connection_endpoint is not None:
-            warnings.warn("""Deprecated in favour of `hybrid_connection_endpoint_id`""", DeprecationWarning)
-            pulumi.log.warn("""hybrid_connection_endpoint is deprecated: Deprecated in favour of `hybrid_connection_endpoint_id`""")
-        if hybrid_connection_endpoint is not None:
-            pulumi.set(__self__, "hybrid_connection_endpoint", hybrid_connection_endpoint)
         if hybrid_connection_endpoint_id is not None:
             pulumi.set(__self__, "hybrid_connection_endpoint_id", hybrid_connection_endpoint_id)
         if included_event_types is not None:
@@ -115,11 +99,6 @@ class EventSubscriptionArgs:
             pulumi.set(__self__, "storage_queue_endpoint", storage_queue_endpoint)
         if subject_filter is not None:
             pulumi.set(__self__, "subject_filter", subject_filter)
-        if topic_name is not None:
-            warnings.warn("""This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""topic_name is deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.""")
-        if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
         if webhook_endpoint is not None:
             pulumi.set(__self__, "webhook_endpoint", webhook_endpoint)
 
@@ -220,18 +199,6 @@ class EventSubscriptionArgs:
         pulumi.set(self, "event_delivery_schema", value)
 
     @property
-    @pulumi.getter(name="eventhubEndpoint")
-    def eventhub_endpoint(self) -> Optional[pulumi.Input['EventSubscriptionEventhubEndpointArgs']]:
-        """
-        A `eventhub_endpoint` block as defined below.
-        """
-        return pulumi.get(self, "eventhub_endpoint")
-
-    @eventhub_endpoint.setter
-    def eventhub_endpoint(self, value: Optional[pulumi.Input['EventSubscriptionEventhubEndpointArgs']]):
-        pulumi.set(self, "eventhub_endpoint", value)
-
-    @property
     @pulumi.getter(name="eventhubEndpointId")
     def eventhub_endpoint_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -254,18 +221,6 @@ class EventSubscriptionArgs:
     @expiration_time_utc.setter
     def expiration_time_utc(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "expiration_time_utc", value)
-
-    @property
-    @pulumi.getter(name="hybridConnectionEndpoint")
-    def hybrid_connection_endpoint(self) -> Optional[pulumi.Input['EventSubscriptionHybridConnectionEndpointArgs']]:
-        """
-        A `hybrid_connection_endpoint` block as defined below.
-        """
-        return pulumi.get(self, "hybrid_connection_endpoint")
-
-    @hybrid_connection_endpoint.setter
-    def hybrid_connection_endpoint(self, value: Optional[pulumi.Input['EventSubscriptionHybridConnectionEndpointArgs']]):
-        pulumi.set(self, "hybrid_connection_endpoint", value)
 
     @property
     @pulumi.getter(name="hybridConnectionEndpointId")
@@ -388,18 +343,6 @@ class EventSubscriptionArgs:
         pulumi.set(self, "subject_filter", value)
 
     @property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-        """
-        return pulumi.get(self, "topic_name")
-
-    @topic_name.setter
-    def topic_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "topic_name", value)
-
-    @property
     @pulumi.getter(name="webhookEndpoint")
     def webhook_endpoint(self) -> Optional[pulumi.Input['EventSubscriptionWebhookEndpointArgs']]:
         """
@@ -422,10 +365,8 @@ class _EventSubscriptionState:
                  delivery_identity: Optional[pulumi.Input['EventSubscriptionDeliveryIdentityArgs']] = None,
                  delivery_properties: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]]] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
-                 eventhub_endpoint: Optional[pulumi.Input['EventSubscriptionEventhubEndpointArgs']] = None,
                  eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
-                 hybrid_connection_endpoint: Optional[pulumi.Input['EventSubscriptionHybridConnectionEndpointArgs']] = None,
                  hybrid_connection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -437,7 +378,6 @@ class _EventSubscriptionState:
                  storage_blob_dead_letter_destination: Optional[pulumi.Input['EventSubscriptionStorageBlobDeadLetterDestinationArgs']] = None,
                  storage_queue_endpoint: Optional[pulumi.Input['EventSubscriptionStorageQueueEndpointArgs']] = None,
                  subject_filter: Optional[pulumi.Input['EventSubscriptionSubjectFilterArgs']] = None,
-                 topic_name: Optional[pulumi.Input[str]] = None,
                  webhook_endpoint: Optional[pulumi.Input['EventSubscriptionWebhookEndpointArgs']] = None):
         """
         Input properties used for looking up and filtering EventSubscription resources.
@@ -448,10 +388,8 @@ class _EventSubscriptionState:
         :param pulumi.Input['EventSubscriptionDeliveryIdentityArgs'] delivery_identity: A `delivery_identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]] delivery_properties: A `delivery_property` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
-        :param pulumi.Input['EventSubscriptionEventhubEndpointArgs'] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
         :param pulumi.Input[str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
-        :param pulumi.Input['EventSubscriptionHybridConnectionEndpointArgs'] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
         :param pulumi.Input[str] hybrid_connection_endpoint_id: Specifies the id where the Hybrid Connection is located.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: A list of labels to assign to the event subscription.
@@ -463,7 +401,6 @@ class _EventSubscriptionState:
         :param pulumi.Input['EventSubscriptionStorageBlobDeadLetterDestinationArgs'] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
         :param pulumi.Input['EventSubscriptionStorageQueueEndpointArgs'] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
         :param pulumi.Input['EventSubscriptionSubjectFilterArgs'] subject_filter: A `subject_filter` block as defined below.
-        :param pulumi.Input[str] topic_name: (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input['EventSubscriptionWebhookEndpointArgs'] webhook_endpoint: A `webhook_endpoint` block as defined below.
         """
         if advanced_filter is not None:
@@ -480,20 +417,10 @@ class _EventSubscriptionState:
             pulumi.set(__self__, "delivery_properties", delivery_properties)
         if event_delivery_schema is not None:
             pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
-        if eventhub_endpoint is not None:
-            warnings.warn("""Deprecated in favour of `eventhub_endpoint_id`""", DeprecationWarning)
-            pulumi.log.warn("""eventhub_endpoint is deprecated: Deprecated in favour of `eventhub_endpoint_id`""")
-        if eventhub_endpoint is not None:
-            pulumi.set(__self__, "eventhub_endpoint", eventhub_endpoint)
         if eventhub_endpoint_id is not None:
             pulumi.set(__self__, "eventhub_endpoint_id", eventhub_endpoint_id)
         if expiration_time_utc is not None:
             pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
-        if hybrid_connection_endpoint is not None:
-            warnings.warn("""Deprecated in favour of `hybrid_connection_endpoint_id`""", DeprecationWarning)
-            pulumi.log.warn("""hybrid_connection_endpoint is deprecated: Deprecated in favour of `hybrid_connection_endpoint_id`""")
-        if hybrid_connection_endpoint is not None:
-            pulumi.set(__self__, "hybrid_connection_endpoint", hybrid_connection_endpoint)
         if hybrid_connection_endpoint_id is not None:
             pulumi.set(__self__, "hybrid_connection_endpoint_id", hybrid_connection_endpoint_id)
         if included_event_types is not None:
@@ -516,11 +443,6 @@ class _EventSubscriptionState:
             pulumi.set(__self__, "storage_queue_endpoint", storage_queue_endpoint)
         if subject_filter is not None:
             pulumi.set(__self__, "subject_filter", subject_filter)
-        if topic_name is not None:
-            warnings.warn("""This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""topic_name is deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.""")
-        if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
         if webhook_endpoint is not None:
             pulumi.set(__self__, "webhook_endpoint", webhook_endpoint)
 
@@ -609,18 +531,6 @@ class _EventSubscriptionState:
         pulumi.set(self, "event_delivery_schema", value)
 
     @property
-    @pulumi.getter(name="eventhubEndpoint")
-    def eventhub_endpoint(self) -> Optional[pulumi.Input['EventSubscriptionEventhubEndpointArgs']]:
-        """
-        A `eventhub_endpoint` block as defined below.
-        """
-        return pulumi.get(self, "eventhub_endpoint")
-
-    @eventhub_endpoint.setter
-    def eventhub_endpoint(self, value: Optional[pulumi.Input['EventSubscriptionEventhubEndpointArgs']]):
-        pulumi.set(self, "eventhub_endpoint", value)
-
-    @property
     @pulumi.getter(name="eventhubEndpointId")
     def eventhub_endpoint_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -643,18 +553,6 @@ class _EventSubscriptionState:
     @expiration_time_utc.setter
     def expiration_time_utc(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "expiration_time_utc", value)
-
-    @property
-    @pulumi.getter(name="hybridConnectionEndpoint")
-    def hybrid_connection_endpoint(self) -> Optional[pulumi.Input['EventSubscriptionHybridConnectionEndpointArgs']]:
-        """
-        A `hybrid_connection_endpoint` block as defined below.
-        """
-        return pulumi.get(self, "hybrid_connection_endpoint")
-
-    @hybrid_connection_endpoint.setter
-    def hybrid_connection_endpoint(self, value: Optional[pulumi.Input['EventSubscriptionHybridConnectionEndpointArgs']]):
-        pulumi.set(self, "hybrid_connection_endpoint", value)
 
     @property
     @pulumi.getter(name="hybridConnectionEndpointId")
@@ -789,18 +687,6 @@ class _EventSubscriptionState:
         pulumi.set(self, "subject_filter", value)
 
     @property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-        """
-        return pulumi.get(self, "topic_name")
-
-    @topic_name.setter
-    def topic_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "topic_name", value)
-
-    @property
     @pulumi.getter(name="webhookEndpoint")
     def webhook_endpoint(self) -> Optional[pulumi.Input['EventSubscriptionWebhookEndpointArgs']]:
         """
@@ -825,10 +711,8 @@ class EventSubscription(pulumi.CustomResource):
                  delivery_identity: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryIdentityArgs']]] = None,
                  delivery_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryPropertyArgs']]]]] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
-                 eventhub_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']]] = None,
                  eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
-                 hybrid_connection_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']]] = None,
                  hybrid_connection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -840,7 +724,6 @@ class EventSubscription(pulumi.CustomResource):
                  storage_blob_dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionStorageBlobDeadLetterDestinationArgs']]] = None,
                  storage_queue_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionStorageQueueEndpointArgs']]] = None,
                  subject_filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionSubjectFilterArgs']]] = None,
-                 topic_name: Optional[pulumi.Input[str]] = None,
                  webhook_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionWebhookEndpointArgs']]] = None,
                  __props__=None):
         """
@@ -889,10 +772,8 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryIdentityArgs']] delivery_identity: A `delivery_identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryPropertyArgs']]]] delivery_properties: A `delivery_property` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
         :param pulumi.Input[str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
-        :param pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
         :param pulumi.Input[str] hybrid_connection_endpoint_id: Specifies the id where the Hybrid Connection is located.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: A list of labels to assign to the event subscription.
@@ -904,7 +785,6 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventSubscriptionStorageBlobDeadLetterDestinationArgs']] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionStorageQueueEndpointArgs']] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionSubjectFilterArgs']] subject_filter: A `subject_filter` block as defined below.
-        :param pulumi.Input[str] topic_name: (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionWebhookEndpointArgs']] webhook_endpoint: A `webhook_endpoint` block as defined below.
         """
         ...
@@ -972,10 +852,8 @@ class EventSubscription(pulumi.CustomResource):
                  delivery_identity: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryIdentityArgs']]] = None,
                  delivery_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryPropertyArgs']]]]] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
-                 eventhub_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']]] = None,
                  eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
-                 hybrid_connection_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']]] = None,
                  hybrid_connection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -987,7 +865,6 @@ class EventSubscription(pulumi.CustomResource):
                  storage_blob_dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionStorageBlobDeadLetterDestinationArgs']]] = None,
                  storage_queue_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionStorageQueueEndpointArgs']]] = None,
                  subject_filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionSubjectFilterArgs']]] = None,
-                 topic_name: Optional[pulumi.Input[str]] = None,
                  webhook_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionWebhookEndpointArgs']]] = None,
                  __props__=None):
         if opts is None:
@@ -1008,16 +885,8 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["delivery_identity"] = delivery_identity
             __props__.__dict__["delivery_properties"] = delivery_properties
             __props__.__dict__["event_delivery_schema"] = event_delivery_schema
-            if eventhub_endpoint is not None and not opts.urn:
-                warnings.warn("""Deprecated in favour of `eventhub_endpoint_id`""", DeprecationWarning)
-                pulumi.log.warn("""eventhub_endpoint is deprecated: Deprecated in favour of `eventhub_endpoint_id`""")
-            __props__.__dict__["eventhub_endpoint"] = eventhub_endpoint
             __props__.__dict__["eventhub_endpoint_id"] = eventhub_endpoint_id
             __props__.__dict__["expiration_time_utc"] = expiration_time_utc
-            if hybrid_connection_endpoint is not None and not opts.urn:
-                warnings.warn("""Deprecated in favour of `hybrid_connection_endpoint_id`""", DeprecationWarning)
-                pulumi.log.warn("""hybrid_connection_endpoint is deprecated: Deprecated in favour of `hybrid_connection_endpoint_id`""")
-            __props__.__dict__["hybrid_connection_endpoint"] = hybrid_connection_endpoint
             __props__.__dict__["hybrid_connection_endpoint_id"] = hybrid_connection_endpoint_id
             __props__.__dict__["included_event_types"] = included_event_types
             __props__.__dict__["labels"] = labels
@@ -1031,10 +900,6 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["storage_blob_dead_letter_destination"] = storage_blob_dead_letter_destination
             __props__.__dict__["storage_queue_endpoint"] = storage_queue_endpoint
             __props__.__dict__["subject_filter"] = subject_filter
-            if topic_name is not None and not opts.urn:
-                warnings.warn("""This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("""topic_name is deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.""")
-            __props__.__dict__["topic_name"] = topic_name
             __props__.__dict__["webhook_endpoint"] = webhook_endpoint
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/eventSubscription:EventSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -1055,10 +920,8 @@ class EventSubscription(pulumi.CustomResource):
             delivery_identity: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryIdentityArgs']]] = None,
             delivery_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryPropertyArgs']]]]] = None,
             event_delivery_schema: Optional[pulumi.Input[str]] = None,
-            eventhub_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']]] = None,
             eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
             expiration_time_utc: Optional[pulumi.Input[str]] = None,
-            hybrid_connection_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']]] = None,
             hybrid_connection_endpoint_id: Optional[pulumi.Input[str]] = None,
             included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1070,7 +933,6 @@ class EventSubscription(pulumi.CustomResource):
             storage_blob_dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionStorageBlobDeadLetterDestinationArgs']]] = None,
             storage_queue_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionStorageQueueEndpointArgs']]] = None,
             subject_filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionSubjectFilterArgs']]] = None,
-            topic_name: Optional[pulumi.Input[str]] = None,
             webhook_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionWebhookEndpointArgs']]] = None) -> 'EventSubscription':
         """
         Get an existing EventSubscription resource's state with the given name, id, and optional extra
@@ -1086,10 +948,8 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryIdentityArgs']] delivery_identity: A `delivery_identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSubscriptionDeliveryPropertyArgs']]]] delivery_properties: A `delivery_property` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
         :param pulumi.Input[str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
-        :param pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
         :param pulumi.Input[str] hybrid_connection_endpoint_id: Specifies the id where the Hybrid Connection is located.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: A list of labels to assign to the event subscription.
@@ -1101,7 +961,6 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventSubscriptionStorageBlobDeadLetterDestinationArgs']] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionStorageQueueEndpointArgs']] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionSubjectFilterArgs']] subject_filter: A `subject_filter` block as defined below.
-        :param pulumi.Input[str] topic_name: (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionWebhookEndpointArgs']] webhook_endpoint: A `webhook_endpoint` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1115,10 +974,8 @@ class EventSubscription(pulumi.CustomResource):
         __props__.__dict__["delivery_identity"] = delivery_identity
         __props__.__dict__["delivery_properties"] = delivery_properties
         __props__.__dict__["event_delivery_schema"] = event_delivery_schema
-        __props__.__dict__["eventhub_endpoint"] = eventhub_endpoint
         __props__.__dict__["eventhub_endpoint_id"] = eventhub_endpoint_id
         __props__.__dict__["expiration_time_utc"] = expiration_time_utc
-        __props__.__dict__["hybrid_connection_endpoint"] = hybrid_connection_endpoint
         __props__.__dict__["hybrid_connection_endpoint_id"] = hybrid_connection_endpoint_id
         __props__.__dict__["included_event_types"] = included_event_types
         __props__.__dict__["labels"] = labels
@@ -1130,7 +987,6 @@ class EventSubscription(pulumi.CustomResource):
         __props__.__dict__["storage_blob_dead_letter_destination"] = storage_blob_dead_letter_destination
         __props__.__dict__["storage_queue_endpoint"] = storage_queue_endpoint
         __props__.__dict__["subject_filter"] = subject_filter
-        __props__.__dict__["topic_name"] = topic_name
         __props__.__dict__["webhook_endpoint"] = webhook_endpoint
         return EventSubscription(resource_name, opts=opts, __props__=__props__)
 
@@ -1191,14 +1047,6 @@ class EventSubscription(pulumi.CustomResource):
         return pulumi.get(self, "event_delivery_schema")
 
     @property
-    @pulumi.getter(name="eventhubEndpoint")
-    def eventhub_endpoint(self) -> pulumi.Output['outputs.EventSubscriptionEventhubEndpoint']:
-        """
-        A `eventhub_endpoint` block as defined below.
-        """
-        return pulumi.get(self, "eventhub_endpoint")
-
-    @property
     @pulumi.getter(name="eventhubEndpointId")
     def eventhub_endpoint_id(self) -> pulumi.Output[str]:
         """
@@ -1213,14 +1061,6 @@ class EventSubscription(pulumi.CustomResource):
         Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
         """
         return pulumi.get(self, "expiration_time_utc")
-
-    @property
-    @pulumi.getter(name="hybridConnectionEndpoint")
-    def hybrid_connection_endpoint(self) -> pulumi.Output['outputs.EventSubscriptionHybridConnectionEndpoint']:
-        """
-        A `hybrid_connection_endpoint` block as defined below.
-        """
-        return pulumi.get(self, "hybrid_connection_endpoint")
 
     @property
     @pulumi.getter(name="hybridConnectionEndpointId")
@@ -1309,14 +1149,6 @@ class EventSubscription(pulumi.CustomResource):
         A `subject_filter` block as defined below.
         """
         return pulumi.get(self, "subject_filter")
-
-    @property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> pulumi.Output[str]:
-        """
-        (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-        """
-        return pulumi.get(self, "topic_name")
 
     @property
     @pulumi.getter(name="webhookEndpoint")

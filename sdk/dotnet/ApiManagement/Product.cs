@@ -106,7 +106,7 @@ namespace Pulumi.Azure.ApiManagement
         /// Is a Subscription required to access API's included in this Product?
         /// </summary>
         [Output("subscriptionRequired")]
-        public Output<bool> SubscriptionRequired { get; private set; } = null!;
+        public Output<bool?> SubscriptionRequired { get; private set; } = null!;
 
         /// <summary>
         /// The number of subscriptions a user can have to this Product at the same time.
@@ -211,8 +211,8 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Is a Subscription required to access API's included in this Product?
         /// </summary>
-        [Input("subscriptionRequired", required: true)]
-        public Input<bool> SubscriptionRequired { get; set; } = null!;
+        [Input("subscriptionRequired")]
+        public Input<bool>? SubscriptionRequired { get; set; }
 
         /// <summary>
         /// The number of subscriptions a user can have to this Product at the same time.

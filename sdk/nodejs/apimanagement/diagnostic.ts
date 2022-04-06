@@ -136,10 +136,6 @@ export class Diagnostic extends pulumi.CustomResource {
      */
     public readonly backendResponse!: pulumi.Output<outputs.apimanagement.DiagnosticBackendResponse>;
     /**
-     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
-     */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
-    /**
      * A `frontendRequest` block as defined below.
      */
     public readonly frontendRequest!: pulumi.Output<outputs.apimanagement.DiagnosticFrontendRequest>;
@@ -194,7 +190,6 @@ export class Diagnostic extends pulumi.CustomResource {
             resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             resourceInputs["backendRequest"] = state ? state.backendRequest : undefined;
             resourceInputs["backendResponse"] = state ? state.backendResponse : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["frontendRequest"] = state ? state.frontendRequest : undefined;
             resourceInputs["frontendResponse"] = state ? state.frontendResponse : undefined;
             resourceInputs["httpCorrelationProtocol"] = state ? state.httpCorrelationProtocol : undefined;
@@ -223,7 +218,6 @@ export class Diagnostic extends pulumi.CustomResource {
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             resourceInputs["backendRequest"] = args ? args.backendRequest : undefined;
             resourceInputs["backendResponse"] = args ? args.backendResponse : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["frontendRequest"] = args ? args.frontendRequest : undefined;
             resourceInputs["frontendResponse"] = args ? args.frontendResponse : undefined;
             resourceInputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
@@ -263,10 +257,6 @@ export interface DiagnosticState {
      * A `backendResponse` block as defined below.
      */
     backendResponse?: pulumi.Input<inputs.apimanagement.DiagnosticBackendResponse>;
-    /**
-     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
-     */
-    enabled?: pulumi.Input<boolean>;
     /**
      * A `frontendRequest` block as defined below.
      */
@@ -329,10 +319,6 @@ export interface DiagnosticArgs {
      * A `backendResponse` block as defined below.
      */
     backendResponse?: pulumi.Input<inputs.apimanagement.DiagnosticBackendResponse>;
-    /**
-     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
-     */
-    enabled?: pulumi.Input<boolean>;
     /**
      * A `frontendRequest` block as defined below.
      */

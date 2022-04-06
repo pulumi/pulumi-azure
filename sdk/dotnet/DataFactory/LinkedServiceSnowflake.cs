@@ -33,7 +33,6 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var exampleLinkedServiceSnowflake = new Azure.DataFactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", new Azure.DataFactory.LinkedServiceSnowflakeArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryId = exampleFactory.Id,
     ///             ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
     ///         });
@@ -70,13 +69,11 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var exampleLinkedServiceKeyVault = new Azure.DataFactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault", new Azure.DataFactory.LinkedServiceKeyVaultArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryId = exampleFactory.Id,
     ///             KeyVaultId = exampleKeyVault.Id,
     ///         });
     ///         var exampleLinkedServiceSnowflake = new Azure.DataFactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", new Azure.DataFactory.LinkedServiceSnowflakeArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryId = exampleFactory.Id,
     ///             ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
     ///             KeyVaultPassword = new Azure.DataFactory.Inputs.LinkedServiceSnowflakeKeyVaultPasswordArgs
@@ -126,12 +123,6 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Output("dataFactoryName")]
-        public Output<string> DataFactoryName { get; private set; } = null!;
-
-        /// <summary>
         /// The description for the Data Factory Linked Service.
         /// </summary>
         [Output("description")]
@@ -161,12 +152,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
 
         /// <summary>
@@ -247,14 +232,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryId")]
-        public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
+        [Input("dataFactoryId", required: true)]
+        public Input<string> DataFactoryId { get; set; } = null!;
 
         /// <summary>
         /// The description for the Data Factory Linked Service.
@@ -292,12 +271,6 @@ namespace Pulumi.Azure.DataFactory
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
 
         public LinkedServiceSnowflakeArgs()
         {
@@ -343,12 +316,6 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
-
-        /// <summary>
         /// The description for the Data Factory Linked Service.
         /// </summary>
         [Input("description")]
@@ -384,12 +351,6 @@ namespace Pulumi.Azure.DataFactory
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         public LinkedServiceSnowflakeState()
         {

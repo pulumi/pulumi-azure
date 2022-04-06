@@ -16,7 +16,7 @@ namespace Pulumi.Azure.VideoAnalyzer.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.VideoAnalyzer.Inputs
         }
 
         /// <summary>
-        /// Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

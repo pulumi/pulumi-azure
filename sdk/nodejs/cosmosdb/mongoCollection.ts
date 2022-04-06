@@ -77,21 +77,16 @@ export class MongoCollection extends pulumi.CustomResource {
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
     public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
-    /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shardKey` to be set.
-     */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.MongoCollectionAutoscaleSettings | undefined>;
     /**
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
-     * The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
+     * The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+     * * # `index` - (Optional) One or more `index` blocks as defined below.
      */
     public readonly defaultTtlSeconds!: pulumi.Output<number | undefined>;
-    /**
-     * One or more `index` blocks as defined below.
-     */
     public readonly indices!: pulumi.Output<outputs.cosmosdb.MongoCollectionIndex[] | undefined>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
@@ -109,9 +104,6 @@ export class MongoCollection extends pulumi.CustomResource {
      * One or more `systemIndexes` blocks as defined below.
      */
     public /*out*/ readonly systemIndexes!: pulumi.Output<outputs.cosmosdb.MongoCollectionSystemIndex[]>;
-    /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-     */
     public readonly throughput!: pulumi.Output<number>;
 
     /**
@@ -175,21 +167,16 @@ export interface MongoCollectionState {
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
     analyticalStorageTtl?: pulumi.Input<number>;
-    /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shardKey` to be set.
-     */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoCollectionAutoscaleSettings>;
     /**
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
+     * The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+     * * # `index` - (Optional) One or more `index` blocks as defined below.
      */
     defaultTtlSeconds?: pulumi.Input<number>;
-    /**
-     * One or more `index` blocks as defined below.
-     */
     indices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[]>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
@@ -207,9 +194,6 @@ export interface MongoCollectionState {
      * One or more `systemIndexes` blocks as defined below.
      */
     systemIndexes?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionSystemIndex>[]>;
-    /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-     */
     throughput?: pulumi.Input<number>;
 }
 
@@ -222,21 +206,16 @@ export interface MongoCollectionArgs {
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
     analyticalStorageTtl?: pulumi.Input<number>;
-    /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shardKey` to be set.
-     */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoCollectionAutoscaleSettings>;
     /**
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
     databaseName: pulumi.Input<string>;
     /**
-     * The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
+     * The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+     * * # `index` - (Optional) One or more `index` blocks as defined below.
      */
     defaultTtlSeconds?: pulumi.Input<number>;
-    /**
-     * One or more `index` blocks as defined below.
-     */
     indices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[]>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
@@ -250,8 +229,5 @@ export interface MongoCollectionArgs {
      * The name of the key to partition on for sharding. There must not be any other unique index keys.
      */
     shardKey?: pulumi.Input<string>;
-    /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-     */
     throughput?: pulumi.Input<number>;
 }

@@ -17,16 +17,14 @@ import (
 //
 // > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `accessPolicy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
 //
-// > **Note:** This provider will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
-//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -108,8 +106,6 @@ type KeyVault struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
-	SoftDeleteEnabled pulumi.BoolOutput `pulumi:"softDeleteEnabled"`
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	SoftDeleteRetentionDays pulumi.IntPtrOutput `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
@@ -182,8 +178,6 @@ type keyVaultState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName *string `pulumi:"skuName"`
-	// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
-	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
@@ -219,8 +213,6 @@ type KeyVaultState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName pulumi.StringPtrInput
-	// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
-	SoftDeleteEnabled pulumi.BoolPtrInput
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	SoftDeleteRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
@@ -260,8 +252,6 @@ type keyVaultArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName string `pulumi:"skuName"`
-	// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
-	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
@@ -296,8 +286,6 @@ type KeyVaultArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
 	SkuName pulumi.StringInput
-	// Deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
-	SoftDeleteEnabled pulumi.BoolPtrInput
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	SoftDeleteRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.

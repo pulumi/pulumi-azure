@@ -91,13 +91,7 @@ namespace Pulumi.Azure.Redis
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Version of redis the cluster supports, e.g. '6'.
-        /// </summary>
-        [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
-
-        /// <summary>
-        /// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
+        /// Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -194,7 +188,7 @@ namespace Pulumi.Azure.Redis
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
+        /// Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -257,17 +251,11 @@ namespace Pulumi.Azure.Redis
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Version of redis the cluster supports, e.g. '6'.
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
         [Input("zones")]
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of a one or more Availability Zones, where the Redis Cache should be allocated. Possible values are: `1`, `2` and `3`. Changing this forces a new Redis Enterprise Cluster to be created.
+        /// Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
         /// </summary>
         public InputList<string> Zones
         {

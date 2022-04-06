@@ -149,7 +149,7 @@ class SpringCloudAppIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         """
@@ -163,7 +163,7 @@ class SpringCloudAppIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -861,8 +861,6 @@ class SpringCloudServiceTrace(dict):
         suggest = None
         if key == "connectionString":
             suggest = "connection_string"
-        elif key == "instrumentationKey":
-            suggest = "instrumentation_key"
         elif key == "sampleRate":
             suggest = "sample_rate"
 
@@ -879,7 +877,6 @@ class SpringCloudServiceTrace(dict):
 
     def __init__(__self__, *,
                  connection_string: Optional[str] = None,
-                 instrumentation_key: Optional[str] = None,
                  sample_rate: Optional[float] = None):
         """
         :param str connection_string: The connection string used for Application Insights.
@@ -887,8 +884,6 @@ class SpringCloudServiceTrace(dict):
         """
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
-        if instrumentation_key is not None:
-            pulumi.set(__self__, "instrumentation_key", instrumentation_key)
         if sample_rate is not None:
             pulumi.set(__self__, "sample_rate", sample_rate)
 
@@ -899,11 +894,6 @@ class SpringCloudServiceTrace(dict):
         The connection string used for Application Insights.
         """
         return pulumi.get(self, "connection_string")
-
-    @property
-    @pulumi.getter(name="instrumentationKey")
-    def instrumentation_key(self) -> Optional[str]:
-        return pulumi.get(self, "instrumentation_key")
 
     @property
     @pulumi.getter(name="sampleRate")

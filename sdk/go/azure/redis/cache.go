@@ -21,8 +21,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/redis"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -144,7 +144,7 @@ type Cache struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A mapping of tenant settings to assign to the resource.
 	TenantSettings pulumi.StringMapOutput `pulumi:"tenantSettings"`
-	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -243,7 +243,7 @@ type cacheState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A mapping of tenant settings to assign to the resource.
 	TenantSettings map[string]string `pulumi:"tenantSettings"`
-	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -302,7 +302,7 @@ type CacheState struct {
 	Tags pulumi.StringMapInput
 	// A mapping of tenant settings to assign to the resource.
 	TenantSettings pulumi.StringMapInput
-	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -351,7 +351,7 @@ type cacheArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A mapping of tenant settings to assign to the resource.
 	TenantSettings map[string]string `pulumi:"tenantSettings"`
-	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -397,7 +397,7 @@ type CacheArgs struct {
 	Tags pulumi.StringMapInput
 	// A mapping of tenant settings to assign to the resource.
 	TenantSettings pulumi.StringMapInput
-	// A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	Zones pulumi.StringArrayInput
 }
 

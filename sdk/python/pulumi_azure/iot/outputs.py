@@ -17,7 +17,6 @@ __all__ = [
     'IoTHubFallbackRoute',
     'IoTHubFileUpload',
     'IoTHubIdentity',
-    'IoTHubIpFilterRule',
     'IoTHubNetworkRuleSet',
     'IoTHubNetworkRuleSetIpRule',
     'IoTHubRoute',
@@ -60,9 +59,9 @@ class IoTHubCloudToDevice(dict):
                  feedbacks: Optional[Sequence['outputs.IoTHubCloudToDeviceFeedback']] = None,
                  max_delivery_count: Optional[int] = None):
         """
-        :param str default_ttl: The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+        :param str default_ttl: The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         :param Sequence['IoTHubCloudToDeviceFeedbackArgs'] feedbacks: A `feedback` block as defined below.
-        :param int max_delivery_count: The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+        :param int max_delivery_count: The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
         """
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
@@ -75,7 +74,7 @@ class IoTHubCloudToDevice(dict):
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[str]:
         """
-        The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+        The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         """
         return pulumi.get(self, "default_ttl")
 
@@ -91,7 +90,7 @@ class IoTHubCloudToDevice(dict):
     @pulumi.getter(name="maxDeliveryCount")
     def max_delivery_count(self) -> Optional[int]:
         """
-        The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+        The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
         """
         return pulumi.get(self, "max_delivery_count")
 
@@ -124,9 +123,9 @@ class IoTHubCloudToDeviceFeedback(dict):
                  max_delivery_count: Optional[int] = None,
                  time_to_live: Optional[str] = None):
         """
-        :param str lock_duration: The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
-        :param int max_delivery_count: The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
-        :param str time_to_live: The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+        :param str lock_duration: The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
+        :param int max_delivery_count: The maximum delivery count for the feedback queue. This value must be between `1` and `100`. Defaults to `10`.
+        :param str time_to_live: The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         """
         if lock_duration is not None:
             pulumi.set(__self__, "lock_duration", lock_duration)
@@ -139,7 +138,7 @@ class IoTHubCloudToDeviceFeedback(dict):
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> Optional[str]:
         """
-        The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+        The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
         """
         return pulumi.get(self, "lock_duration")
 
@@ -147,7 +146,7 @@ class IoTHubCloudToDeviceFeedback(dict):
     @pulumi.getter(name="maxDeliveryCount")
     def max_delivery_count(self) -> Optional[int]:
         """
-        The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+        The maximum delivery count for the feedback queue. This value must be between `1` and `100`. Defaults to `10`.
         """
         return pulumi.get(self, "max_delivery_count")
 
@@ -155,7 +154,7 @@ class IoTHubCloudToDeviceFeedback(dict):
     @pulumi.getter(name="timeToLive")
     def time_to_live(self) -> Optional[str]:
         """
-        The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+        The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         """
         return pulumi.get(self, "time_to_live")
 
@@ -214,7 +213,7 @@ class IoTHubEndpoint(dict):
         """
         :param str name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         :param str type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
-        :param str authentication_type: Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        :param str authentication_type: The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         :param int batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         :param str connection_string: The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
         :param str container_name: The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
@@ -222,7 +221,7 @@ class IoTHubEndpoint(dict):
         :param str endpoint_uri: URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         :param str entity_path: Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         :param str file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
-        :param str identity_id: ID of the User Managed Identity used to authenticate against the endpoint.
+        :param str identity_id: The ID of the User Managed Identity used to authenticate against the endpoint.
         :param int max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         :param str resource_group_name: The resource group in which the endpoint will be created.
         """
@@ -271,7 +270,7 @@ class IoTHubEndpoint(dict):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[str]:
         """
-        Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -335,7 +334,7 @@ class IoTHubEndpoint(dict):
     @pulumi.getter(name="identityId")
     def identity_id(self) -> Optional[str]:
         """
-        ID of the User Managed Identity used to authenticate against the endpoint.
+        The ID of the User Managed Identity used to authenticate against the endpoint.
         """
         return pulumi.get(self, "identity_id")
 
@@ -382,7 +381,7 @@ class IoTHubEnrichment(dict):
         """
         :param Sequence[str] endpoint_names: The list of endpoints which will be enriched.
         :param str key: The key of the enrichment.
-        :param str value: The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+        :param str value: The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         """
         pulumi.set(__self__, "endpoint_names", endpoint_names)
         pulumi.set(__self__, "key", key)
@@ -408,7 +407,7 @@ class IoTHubEnrichment(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+        The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         """
         return pulumi.get(self, "value")
 
@@ -438,7 +437,7 @@ class IoTHubFallbackRoute(dict):
                  endpoint_names: Optional[Sequence[str]] = None,
                  source: Optional[str] = None):
         """
-        :param str condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        :param str condition: The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
         :param bool enabled: Used to specify whether the fallback route is enabled.
         :param Sequence[str] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         :param str source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
@@ -456,7 +455,7 @@ class IoTHubFallbackRoute(dict):
     @pulumi.getter
     def condition(self) -> Optional[str]:
         """
-        The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
         """
         return pulumi.get(self, "condition")
 
@@ -494,8 +493,12 @@ class IoTHubFileUpload(dict):
             suggest = "connection_string"
         elif key == "containerName":
             suggest = "container_name"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
         elif key == "defaultTtl":
             suggest = "default_ttl"
+        elif key == "identityId":
+            suggest = "identity_id"
         elif key == "lockDuration":
             suggest = "lock_duration"
         elif key == "maxDeliveryCount":
@@ -517,24 +520,32 @@ class IoTHubFileUpload(dict):
     def __init__(__self__, *,
                  connection_string: str,
                  container_name: str,
+                 authentication_type: Optional[str] = None,
                  default_ttl: Optional[str] = None,
+                 identity_id: Optional[str] = None,
                  lock_duration: Optional[str] = None,
                  max_delivery_count: Optional[int] = None,
                  notifications: Optional[bool] = None,
                  sas_ttl: Optional[str] = None):
         """
         :param str connection_string: The connection string for the Azure Storage account to which files are uploaded.
-        :param str container_name: The name of the root container where you upload files. The container need not exist but should be creatable using the connection_string specified.
-        :param str default_ttl: The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
-        :param str lock_duration: The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
-        :param int max_delivery_count: The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
-        :param bool notifications: Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
-        :param str sas_ttl: The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
+        :param str container_name: The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
+        :param str authentication_type: The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        :param str default_ttl: The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
+        :param str identity_id: The ID of the User Managed Identity used to authenticate against the storage account.
+        :param str lock_duration: The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
+        :param int max_delivery_count: The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
+        :param bool notifications: Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
+        :param str sas_ttl: The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "container_name", container_name)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
+        if identity_id is not None:
+            pulumi.set(__self__, "identity_id", identity_id)
         if lock_duration is not None:
             pulumi.set(__self__, "lock_duration", lock_duration)
         if max_delivery_count is not None:
@@ -556,23 +567,39 @@ class IoTHubFileUpload(dict):
     @pulumi.getter(name="containerName")
     def container_name(self) -> str:
         """
-        The name of the root container where you upload files. The container need not exist but should be creatable using the connection_string specified.
+        The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
         """
         return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[str]:
+        """
+        The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        """
+        return pulumi.get(self, "authentication_type")
 
     @property
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[str]:
         """
-        The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+        The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         """
         return pulumi.get(self, "default_ttl")
+
+    @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> Optional[str]:
+        """
+        The ID of the User Managed Identity used to authenticate against the storage account.
+        """
+        return pulumi.get(self, "identity_id")
 
     @property
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> Optional[str]:
         """
-        The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
+        The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
         """
         return pulumi.get(self, "lock_duration")
 
@@ -580,7 +607,7 @@ class IoTHubFileUpload(dict):
     @pulumi.getter(name="maxDeliveryCount")
     def max_delivery_count(self) -> Optional[int]:
         """
-        The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
+        The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
         """
         return pulumi.get(self, "max_delivery_count")
 
@@ -588,7 +615,7 @@ class IoTHubFileUpload(dict):
     @pulumi.getter
     def notifications(self) -> Optional[bool]:
         """
-        Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+        Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
         """
         return pulumi.get(self, "notifications")
 
@@ -596,7 +623,7 @@ class IoTHubFileUpload(dict):
     @pulumi.getter(name="sasTtl")
     def sas_ttl(self) -> Optional[str]:
         """
-        The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
+        The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
         """
         return pulumi.get(self, "sas_ttl")
 
@@ -630,10 +657,10 @@ class IoTHubIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Iot Hub.
-        :param str principal_id: The ID of the System Managed Service Principal.
-        :param str tenant_id: The ID of the Tenant the System Managed Service Principal is assigned in.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this IoT Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -647,7 +674,7 @@ class IoTHubIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this IoT Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -655,7 +682,7 @@ class IoTHubIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -663,7 +690,7 @@ class IoTHubIdentity(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
         """
-        The ID of the System Managed Service Principal.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -671,66 +698,9 @@ class IoTHubIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        The ID of the Tenant the System Managed Service Principal is assigned in.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
-
-
-@pulumi.output_type
-class IoTHubIpFilterRule(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipMask":
-            suggest = "ip_mask"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IoTHubIpFilterRule. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IoTHubIpFilterRule.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IoTHubIpFilterRule.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 action: str,
-                 ip_mask: str,
-                 name: str):
-        """
-        :param str action: The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
-        :param str ip_mask: The IP address range in CIDR notation for the rule.
-        :param str name: The name of the filter.
-        """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "ip_mask", ip_mask)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def action(self) -> str:
-        """
-        The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
-        """
-        return pulumi.get(self, "action")
-
-    @property
-    @pulumi.getter(name="ipMask")
-    def ip_mask(self) -> str:
-        """
-        The IP address range in CIDR notation for the rule.
-        """
-        return pulumi.get(self, "ip_mask")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the filter.
-        """
-        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -885,7 +855,7 @@ class IoTHubRoute(dict):
         :param Sequence[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed.
         :param str name: The name of the route.
         :param str source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
-        :param str condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        :param str condition: The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "endpoint_names", endpoint_names)
@@ -930,7 +900,7 @@ class IoTHubRoute(dict):
     @pulumi.getter
     def condition(self) -> Optional[str]:
         """
-        The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
         """
         return pulumi.get(self, "condition")
 
@@ -1231,16 +1201,10 @@ class SecurityDeviceGroupAllowRule(dict):
         suggest = None
         if key == "connectionFromIpsNotAlloweds":
             suggest = "connection_from_ips_not_alloweds"
-        elif key == "connectionToIpNotAlloweds":
-            suggest = "connection_to_ip_not_alloweds"
         elif key == "connectionToIpsNotAlloweds":
             suggest = "connection_to_ips_not_alloweds"
-        elif key == "localUserNotAlloweds":
-            suggest = "local_user_not_alloweds"
         elif key == "localUsersNotAlloweds":
             suggest = "local_users_not_alloweds"
-        elif key == "processNotAlloweds":
-            suggest = "process_not_alloweds"
         elif key == "processesNotAlloweds":
             suggest = "processes_not_alloweds"
 
@@ -1257,11 +1221,8 @@ class SecurityDeviceGroupAllowRule(dict):
 
     def __init__(__self__, *,
                  connection_from_ips_not_alloweds: Optional[Sequence[str]] = None,
-                 connection_to_ip_not_alloweds: Optional[Sequence[str]] = None,
                  connection_to_ips_not_alloweds: Optional[Sequence[str]] = None,
-                 local_user_not_alloweds: Optional[Sequence[str]] = None,
                  local_users_not_alloweds: Optional[Sequence[str]] = None,
-                 process_not_alloweds: Optional[Sequence[str]] = None,
                  processes_not_alloweds: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] connection_from_ips_not_alloweds: Specifies which IP is not allowed to be connected to in current device group for inbound connection.
@@ -1271,16 +1232,10 @@ class SecurityDeviceGroupAllowRule(dict):
         """
         if connection_from_ips_not_alloweds is not None:
             pulumi.set(__self__, "connection_from_ips_not_alloweds", connection_from_ips_not_alloweds)
-        if connection_to_ip_not_alloweds is not None:
-            pulumi.set(__self__, "connection_to_ip_not_alloweds", connection_to_ip_not_alloweds)
         if connection_to_ips_not_alloweds is not None:
             pulumi.set(__self__, "connection_to_ips_not_alloweds", connection_to_ips_not_alloweds)
-        if local_user_not_alloweds is not None:
-            pulumi.set(__self__, "local_user_not_alloweds", local_user_not_alloweds)
         if local_users_not_alloweds is not None:
             pulumi.set(__self__, "local_users_not_alloweds", local_users_not_alloweds)
-        if process_not_alloweds is not None:
-            pulumi.set(__self__, "process_not_alloweds", process_not_alloweds)
         if processes_not_alloweds is not None:
             pulumi.set(__self__, "processes_not_alloweds", processes_not_alloweds)
 
@@ -1293,11 +1248,6 @@ class SecurityDeviceGroupAllowRule(dict):
         return pulumi.get(self, "connection_from_ips_not_alloweds")
 
     @property
-    @pulumi.getter(name="connectionToIpNotAlloweds")
-    def connection_to_ip_not_alloweds(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "connection_to_ip_not_alloweds")
-
-    @property
     @pulumi.getter(name="connectionToIpsNotAlloweds")
     def connection_to_ips_not_alloweds(self) -> Optional[Sequence[str]]:
         """
@@ -1306,22 +1256,12 @@ class SecurityDeviceGroupAllowRule(dict):
         return pulumi.get(self, "connection_to_ips_not_alloweds")
 
     @property
-    @pulumi.getter(name="localUserNotAlloweds")
-    def local_user_not_alloweds(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "local_user_not_alloweds")
-
-    @property
     @pulumi.getter(name="localUsersNotAlloweds")
     def local_users_not_alloweds(self) -> Optional[Sequence[str]]:
         """
         Specifies which local user is not allowed to Login in current device group.
         """
         return pulumi.get(self, "local_users_not_alloweds")
-
-    @property
-    @pulumi.getter(name="processNotAlloweds")
-    def process_not_alloweds(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "process_not_alloweds")
 
     @property
     @pulumi.getter(name="processesNotAlloweds")

@@ -15,7 +15,6 @@ class VirtualWanArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
-                 allow_vnet_to_vnet_traffic: Optional[pulumi.Input[bool]] = None,
                  disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -36,11 +35,6 @@ class VirtualWanArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allow_branch_to_branch_traffic is not None:
             pulumi.set(__self__, "allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
-        if allow_vnet_to_vnet_traffic is not None:
-            warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""allow_vnet_to_vnet_traffic is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider""")
-        if allow_vnet_to_vnet_traffic is not None:
-            pulumi.set(__self__, "allow_vnet_to_vnet_traffic", allow_vnet_to_vnet_traffic)
         if disable_vpn_encryption is not None:
             pulumi.set(__self__, "disable_vpn_encryption", disable_vpn_encryption)
         if location is not None:
@@ -77,15 +71,6 @@ class VirtualWanArgs:
     @allow_branch_to_branch_traffic.setter
     def allow_branch_to_branch_traffic(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_branch_to_branch_traffic", value)
-
-    @property
-    @pulumi.getter(name="allowVnetToVnetTraffic")
-    def allow_vnet_to_vnet_traffic(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "allow_vnet_to_vnet_traffic")
-
-    @allow_vnet_to_vnet_traffic.setter
-    def allow_vnet_to_vnet_traffic(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vnet_to_vnet_traffic", value)
 
     @property
     @pulumi.getter(name="disableVpnEncryption")
@@ -164,7 +149,6 @@ class VirtualWanArgs:
 class _VirtualWanState:
     def __init__(__self__, *,
                  allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
-                 allow_vnet_to_vnet_traffic: Optional[pulumi.Input[bool]] = None,
                  disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -185,11 +169,6 @@ class _VirtualWanState:
         """
         if allow_branch_to_branch_traffic is not None:
             pulumi.set(__self__, "allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
-        if allow_vnet_to_vnet_traffic is not None:
-            warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""allow_vnet_to_vnet_traffic is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider""")
-        if allow_vnet_to_vnet_traffic is not None:
-            pulumi.set(__self__, "allow_vnet_to_vnet_traffic", allow_vnet_to_vnet_traffic)
         if disable_vpn_encryption is not None:
             pulumi.set(__self__, "disable_vpn_encryption", disable_vpn_encryption)
         if location is not None:
@@ -216,15 +195,6 @@ class _VirtualWanState:
     @allow_branch_to_branch_traffic.setter
     def allow_branch_to_branch_traffic(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_branch_to_branch_traffic", value)
-
-    @property
-    @pulumi.getter(name="allowVnetToVnetTraffic")
-    def allow_vnet_to_vnet_traffic(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "allow_vnet_to_vnet_traffic")
-
-    @allow_vnet_to_vnet_traffic.setter
-    def allow_vnet_to_vnet_traffic(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vnet_to_vnet_traffic", value)
 
     @property
     @pulumi.getter(name="disableVpnEncryption")
@@ -317,7 +287,6 @@ class VirtualWan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
-                 allow_vnet_to_vnet_traffic: Optional[pulumi.Input[bool]] = None,
                  disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -405,7 +374,6 @@ class VirtualWan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
-                 allow_vnet_to_vnet_traffic: Optional[pulumi.Input[bool]] = None,
                  disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -426,10 +394,6 @@ class VirtualWan(pulumi.CustomResource):
             __props__ = VirtualWanArgs.__new__(VirtualWanArgs)
 
             __props__.__dict__["allow_branch_to_branch_traffic"] = allow_branch_to_branch_traffic
-            if allow_vnet_to_vnet_traffic is not None and not opts.urn:
-                warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
-                pulumi.log.warn("""allow_vnet_to_vnet_traffic is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider""")
-            __props__.__dict__["allow_vnet_to_vnet_traffic"] = allow_vnet_to_vnet_traffic
             __props__.__dict__["disable_vpn_encryption"] = disable_vpn_encryption
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -450,7 +414,6 @@ class VirtualWan(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
-            allow_vnet_to_vnet_traffic: Optional[pulumi.Input[bool]] = None,
             disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -479,7 +442,6 @@ class VirtualWan(pulumi.CustomResource):
         __props__ = _VirtualWanState.__new__(_VirtualWanState)
 
         __props__.__dict__["allow_branch_to_branch_traffic"] = allow_branch_to_branch_traffic
-        __props__.__dict__["allow_vnet_to_vnet_traffic"] = allow_vnet_to_vnet_traffic
         __props__.__dict__["disable_vpn_encryption"] = disable_vpn_encryption
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -496,11 +458,6 @@ class VirtualWan(pulumi.CustomResource):
         Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
         """
         return pulumi.get(self, "allow_branch_to_branch_traffic")
-
-    @property
-    @pulumi.getter(name="allowVnetToVnetTraffic")
-    def allow_vnet_to_vnet_traffic(self) -> pulumi.Output[Optional[bool]]:
-        return pulumi.get(self, "allow_vnet_to_vnet_traffic")
 
     @property
     @pulumi.getter(name="disableVpnEncryption")

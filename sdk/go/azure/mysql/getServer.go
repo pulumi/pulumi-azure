@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/mysql"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -67,7 +67,7 @@ type LookupServerResult struct {
 	GeoRedundantBackupEnabled bool `pulumi:"geoRedundantBackupEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// An `identity` block for this MySQL server as defined below.
+	// An `identity` block as defined below.
 	Identities []GetServerIdentity `pulumi:"identities"`
 	// Whether or not infrastructure is encrypted for this MySQL Server.
 	InfrastructureEncryptionEnabled bool `pulumi:"infrastructureEncryptionEnabled"`
@@ -161,7 +161,7 @@ func (o LookupServerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// An `identity` block for this MySQL server as defined below.
+// An `identity` block as defined below.
 func (o LookupServerResultOutput) Identities() GetServerIdentityArrayOutput {
 	return o.ApplyT(func(v LookupServerResult) []GetServerIdentity { return v.Identities }).(GetServerIdentityArrayOutput)
 }

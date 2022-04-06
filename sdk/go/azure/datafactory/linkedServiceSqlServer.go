@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,9 +40,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceSqlServer(ctx, "exampleLinkedServiceSqlServer", &datafactory.LinkedServiceSqlServerArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			ConnectionString:  pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test"),
+// 			DataFactoryId:    exampleFactory.ID(),
+// 			ConnectionString: pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -57,9 +56,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -92,17 +91,15 @@ import (
 // 			return err
 // 		}
 // 		exampleLinkedServiceKeyVault, err := datafactory.NewLinkedServiceKeyVault(ctx, "exampleLinkedServiceKeyVault", &datafactory.LinkedServiceKeyVaultArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			KeyVaultId:        exampleKeyVault.ID(),
+// 			DataFactoryId: exampleFactory.ID(),
+// 			KeyVaultId:    exampleKeyVault.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceSqlServer(ctx, "exampleLinkedServiceSqlServer", &datafactory.LinkedServiceSqlServerArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			ConnectionString:  pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;"),
+// 			DataFactoryId:    exampleFactory.ID(),
+// 			ConnectionString: pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;"),
 // 			KeyVaultPassword: &datafactory.LinkedServiceSqlServerKeyVaultPasswordArgs{
 // 				LinkedServiceName: exampleLinkedServiceKeyVault.Name,
 // 				SecretName:        pulumi.String("secret"),
@@ -134,10 +131,6 @@ type LinkedServiceSqlServer struct {
 	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service SQL Server.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
@@ -151,8 +144,6 @@ type LinkedServiceSqlServer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service SQL Server.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service SQL Server. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewLinkedServiceSqlServer registers a new resource with the given unique name, arguments, and options.
@@ -162,8 +153,8 @@ func NewLinkedServiceSqlServer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	var resource LinkedServiceSqlServer
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, args, &resource, opts...)
@@ -195,10 +186,6 @@ type linkedServiceSqlServerState struct {
 	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service SQL Server.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
@@ -212,8 +199,6 @@ type linkedServiceSqlServerState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service SQL Server.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service SQL Server. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type LinkedServiceSqlServerState struct {
@@ -225,10 +210,6 @@ type LinkedServiceSqlServerState struct {
 	ConnectionString pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service SQL Server.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
@@ -242,8 +223,6 @@ type LinkedServiceSqlServerState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service SQL Server.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service SQL Server. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 }
 
 func (LinkedServiceSqlServerState) ElementType() reflect.Type {
@@ -258,11 +237,7 @@ type linkedServiceSqlServerArgs struct {
 	// The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service SQL Server.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
@@ -276,8 +251,6 @@ type linkedServiceSqlServerArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service SQL Server.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service SQL Server. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a LinkedServiceSqlServer resource.
@@ -289,11 +262,7 @@ type LinkedServiceSqlServerArgs struct {
 	// The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service SQL Server.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
@@ -307,8 +276,6 @@ type LinkedServiceSqlServerArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service SQL Server.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service SQL Server. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 }
 
 func (LinkedServiceSqlServerArgs) ElementType() reflect.Type {

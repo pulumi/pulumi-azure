@@ -16,12 +16,12 @@ __all__ = ['RegistryArgs', 'Registry']
 class RegistryArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input[str],
                  admin_enabled: Optional[pulumi.Input[bool]] = None,
                  anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['RegistryEncryptionArgs']] = None,
                  export_policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
                  identity: Optional[pulumi.Input['RegistryIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -31,20 +31,18 @@ class RegistryArgs:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  retention_policy: Optional[pulumi.Input['RegistryRetentionPolicyArgs']] = None,
-                 sku: Optional[pulumi.Input[str]] = None,
-                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Registry resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
         :param pulumi.Input[bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
         :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -54,12 +52,12 @@ class RegistryArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
         :param pulumi.Input['RegistryRetentionPolicyArgs'] retention_policy: A `retention_policy` block as documented below.
-        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['RegistryTrustPolicyArgs'] trust_policy: A `trust_policy` block as documented below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
         if admin_enabled is not None:
             pulumi.set(__self__, "admin_enabled", admin_enabled)
         if anonymous_pull_enabled is not None:
@@ -70,11 +68,6 @@ class RegistryArgs:
             pulumi.set(__self__, "encryption", encryption)
         if export_policy_enabled is not None:
             pulumi.set(__self__, "export_policy_enabled", export_policy_enabled)
-        if georeplication_locations is not None:
-            warnings.warn("""Deprecated in favour of `georeplications`""", DeprecationWarning)
-            pulumi.log.warn("""georeplication_locations is deprecated: Deprecated in favour of `georeplications`""")
-        if georeplication_locations is not None:
-            pulumi.set(__self__, "georeplication_locations", georeplication_locations)
         if georeplications is not None:
             pulumi.set(__self__, "georeplications", georeplications)
         if identity is not None:
@@ -93,13 +86,6 @@ class RegistryArgs:
             pulumi.set(__self__, "quarantine_policy_enabled", quarantine_policy_enabled)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if storage_account_id is not None:
-            warnings.warn("""this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""", DeprecationWarning)
-            pulumi.log.warn("""storage_account_id is deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""")
-        if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if trust_policy is not None:
@@ -118,6 +104,18 @@ class RegistryArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input[str]:
+        """
+        The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sku", value)
 
     @property
     @pulumi.getter(name="adminEnabled")
@@ -178,18 +176,6 @@ class RegistryArgs:
     @export_policy_enabled.setter
     def export_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "export_policy_enabled", value)
-
-    @property
-    @pulumi.getter(name="georeplicationLocations")
-    def georeplication_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of Azure locations where the container registry should be geo-replicated.
-        """
-        return pulumi.get(self, "georeplication_locations")
-
-    @georeplication_locations.setter
-    def georeplication_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "georeplication_locations", value)
 
     @property
     @pulumi.getter
@@ -301,27 +287,6 @@ class RegistryArgs:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "storage_account_id")
-
-    @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_id", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
@@ -367,7 +332,6 @@ class _RegistryState:
                  data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['RegistryEncryptionArgs']] = None,
                  export_policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
                  identity: Optional[pulumi.Input['RegistryIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -380,7 +344,6 @@ class _RegistryState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input['RegistryRetentionPolicyArgs']] = None,
                  sku: Optional[pulumi.Input[str]] = None,
-                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None):
@@ -393,7 +356,6 @@ class _RegistryState:
         :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -405,7 +367,7 @@ class _RegistryState:
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input['RegistryRetentionPolicyArgs'] retention_policy: A `retention_policy` block as documented below.
-        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['RegistryTrustPolicyArgs'] trust_policy: A `trust_policy` block as documented below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
@@ -424,11 +386,6 @@ class _RegistryState:
             pulumi.set(__self__, "encryption", encryption)
         if export_policy_enabled is not None:
             pulumi.set(__self__, "export_policy_enabled", export_policy_enabled)
-        if georeplication_locations is not None:
-            warnings.warn("""Deprecated in favour of `georeplications`""", DeprecationWarning)
-            pulumi.log.warn("""georeplication_locations is deprecated: Deprecated in favour of `georeplications`""")
-        if georeplication_locations is not None:
-            pulumi.set(__self__, "georeplication_locations", georeplication_locations)
         if georeplications is not None:
             pulumi.set(__self__, "georeplications", georeplications)
         if identity is not None:
@@ -453,11 +410,6 @@ class _RegistryState:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
-        if storage_account_id is not None:
-            warnings.warn("""this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""", DeprecationWarning)
-            pulumi.log.warn("""storage_account_id is deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""")
-        if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if trust_policy is not None:
@@ -548,18 +500,6 @@ class _RegistryState:
     @export_policy_enabled.setter
     def export_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "export_policy_enabled", value)
-
-    @property
-    @pulumi.getter(name="georeplicationLocations")
-    def georeplication_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of Azure locations where the container registry should be geo-replicated.
-        """
-        return pulumi.get(self, "georeplication_locations")
-
-    @georeplication_locations.setter
-    def georeplication_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "georeplication_locations", value)
 
     @property
     @pulumi.getter
@@ -697,22 +637,13 @@ class _RegistryState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
     def sku(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "storage_account_id")
-
-    @storage_account_id.setter
-    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_id", value)
 
     @property
     @pulumi.getter
@@ -761,7 +692,6 @@ class Registry(pulumi.CustomResource):
                  data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']]] = None,
                  export_policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['RegistryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -773,7 +703,6 @@ class Registry(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
-                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trust_policy: Optional[pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
@@ -858,7 +787,7 @@ class Registry(pulumi.CustomResource):
                 "Environment": "Production",
             })
         example_assignment = azure.authorization.Assignment("exampleAssignment",
-            principal_id=example_kubernetes_cluster.kubelet_identities[0].object_id,
+            principal_id=example_kubernetes_cluster.kubelet_identity.object_id,
             role_definition_name="AcrPull",
             scope=example_registry.id,
             skip_service_principal_aad_check=True)
@@ -879,7 +808,6 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input[pulumi.InputType['RegistryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -890,7 +818,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below.
-        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']] trust_policy: A `trust_policy` block as documented below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
@@ -981,7 +909,7 @@ class Registry(pulumi.CustomResource):
                 "Environment": "Production",
             })
         example_assignment = azure.authorization.Assignment("exampleAssignment",
-            principal_id=example_kubernetes_cluster.kubelet_identities[0].object_id,
+            principal_id=example_kubernetes_cluster.kubelet_identity.object_id,
             role_definition_name="AcrPull",
             scope=example_registry.id,
             skip_service_principal_aad_check=True)
@@ -1015,7 +943,6 @@ class Registry(pulumi.CustomResource):
                  data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']]] = None,
                  export_policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['RegistryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1027,7 +954,6 @@ class Registry(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
-                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trust_policy: Optional[pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1048,10 +974,6 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["export_policy_enabled"] = export_policy_enabled
-            if georeplication_locations is not None and not opts.urn:
-                warnings.warn("""Deprecated in favour of `georeplications`""", DeprecationWarning)
-                pulumi.log.warn("""georeplication_locations is deprecated: Deprecated in favour of `georeplications`""")
-            __props__.__dict__["georeplication_locations"] = georeplication_locations
             __props__.__dict__["georeplications"] = georeplications
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -1064,11 +986,9 @@ class Registry(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["retention_policy"] = retention_policy
+            if sku is None and not opts.urn:
+                raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
-            if storage_account_id is not None and not opts.urn:
-                warnings.warn("""this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""", DeprecationWarning)
-                pulumi.log.warn("""storage_account_id is deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""")
-            __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trust_policy"] = trust_policy
             __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
@@ -1092,7 +1012,6 @@ class Registry(pulumi.CustomResource):
             data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
             encryption: Optional[pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']]] = None,
             export_policy_enabled: Optional[pulumi.Input[bool]] = None,
-            georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['RegistryIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1105,7 +1024,6 @@ class Registry(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             retention_policy: Optional[pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']]] = None,
             sku: Optional[pulumi.Input[str]] = None,
-            storage_account_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             trust_policy: Optional[pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']]] = None,
             zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None) -> 'Registry':
@@ -1123,7 +1041,6 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input[pulumi.InputType['RegistryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -1135,7 +1052,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below.
-        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']] trust_policy: A `trust_policy` block as documented below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
@@ -1151,7 +1068,6 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
         __props__.__dict__["encryption"] = encryption
         __props__.__dict__["export_policy_enabled"] = export_policy_enabled
-        __props__.__dict__["georeplication_locations"] = georeplication_locations
         __props__.__dict__["georeplications"] = georeplications
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
@@ -1164,7 +1080,6 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["retention_policy"] = retention_policy
         __props__.__dict__["sku"] = sku
-        __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["trust_policy"] = trust_policy
         __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
@@ -1227,16 +1142,8 @@ class Registry(pulumi.CustomResource):
         return pulumi.get(self, "export_policy_enabled")
 
     @property
-    @pulumi.getter(name="georeplicationLocations")
-    def georeplication_locations(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of Azure locations where the container registry should be geo-replicated.
-        """
-        return pulumi.get(self, "georeplication_locations")
-
-    @property
     @pulumi.getter
-    def georeplications(self) -> pulumi.Output[Sequence['outputs.RegistryGeoreplication']]:
+    def georeplications(self) -> pulumi.Output[Optional[Sequence['outputs.RegistryGeoreplication']]]:
         """
         A `georeplications` block as documented below.
         """
@@ -1324,16 +1231,11 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional[str]]:
+    def sku(self) -> pulumi.Output[str]:
         """
-        The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "storage_account_id")
 
     @property
     @pulumi.getter

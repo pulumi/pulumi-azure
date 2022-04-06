@@ -9,7 +9,6 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DatabaseExtendedAuditingPolicyArgs',
     'DatabaseImportArgs',
     'DatabaseThreatDetectionPolicyArgs',
     'FailoverGroupPartnerServerArgs',
@@ -18,93 +17,9 @@ __all__ = [
     'ManagedInstanceFailoverGroupPartnerRegionArgs',
     'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs',
     'ManagedInstanceIdentityArgs',
-    'SqlServerExtendedAuditingPolicyArgs',
     'SqlServerIdentityArgs',
     'SqlServerThreatDetectionPolicyArgs',
 ]
-
-@pulumi.input_type
-class DatabaseExtendedAuditingPolicyArgs:
-    def __init__(__self__, *,
-                 log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
-                 retention_in_days: Optional[pulumi.Input[int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[str]] = None,
-                 storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
-                 storage_endpoint: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[int] retention_in_days: Specifies the number of days to retain logs for in the storage account.
-        :param pulumi.Input[str] storage_account_access_key: Specifies the access key to use for the auditing storage account.
-        :param pulumi.Input[bool] storage_account_access_key_is_secondary: Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        """
-        if log_monitoring_enabled is not None:
-            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
-        if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
-        if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        if storage_account_access_key_is_secondary is not None:
-            pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
-        if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
-
-    @property
-    @pulumi.getter(name="logMonitoringEnabled")
-    def log_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "log_monitoring_enabled")
-
-    @log_monitoring_enabled.setter
-    def log_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "log_monitoring_enabled", value)
-
-    @property
-    @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the number of days to retain logs for in the storage account.
-        """
-        return pulumi.get(self, "retention_in_days")
-
-    @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "retention_in_days", value)
-
-    @property
-    @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the access key to use for the auditing storage account.
-        """
-        return pulumi.get(self, "storage_account_access_key")
-
-    @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_access_key", value)
-
-    @property
-    @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
-    def storage_account_access_key_is_secondary(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        """
-        return pulumi.get(self, "storage_account_access_key_is_secondary")
-
-    @storage_account_access_key_is_secondary.setter
-    def storage_account_access_key_is_secondary(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "storage_account_access_key_is_secondary", value)
-
-    @property
-    @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        """
-        return pulumi.get(self, "storage_endpoint")
-
-    @storage_endpoint.setter
-    def storage_endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_endpoint", value)
-
 
 @pulumi.input_type
 class DatabaseImportArgs:
@@ -228,8 +143,7 @@ class DatabaseThreatDetectionPolicyArgs:
                  retention_days: Optional[pulumi.Input[int]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
-                 storage_endpoint: Optional[pulumi.Input[str]] = None,
-                 use_server_default: Optional[pulumi.Input[str]] = None):
+                 storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
         :param pulumi.Input[str] email_account_admins: Should the account administrators be emailed when this alert is triggered?
@@ -253,11 +167,6 @@ class DatabaseThreatDetectionPolicyArgs:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
             pulumi.set(__self__, "storage_endpoint", storage_endpoint)
-        if use_server_default is not None:
-            warnings.warn("""This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider""", DeprecationWarning)
-            pulumi.log.warn("""use_server_default is deprecated: This field is now non-functional and thus will be removed in version 3.0 of the Azure Provider""")
-        if use_server_default is not None:
-            pulumi.set(__self__, "use_server_default", use_server_default)
 
     @property
     @pulumi.getter(name="disabledAlerts")
@@ -342,15 +251,6 @@ class DatabaseThreatDetectionPolicyArgs:
     @storage_endpoint.setter
     def storage_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_endpoint", value)
-
-    @property
-    @pulumi.getter(name="useServerDefault")
-    def use_server_default(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "use_server_default")
-
-    @use_server_default.setter
-    def use_server_default(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "use_server_default", value)
 
 
 @pulumi.input_type
@@ -551,7 +451,7 @@ class ManagedInstanceIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
@@ -565,7 +465,7 @@ class ManagedInstanceIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -599,88 +499,13 @@ class ManagedInstanceIdentityArgs:
 
 
 @pulumi.input_type
-class SqlServerExtendedAuditingPolicyArgs:
-    def __init__(__self__, *,
-                 log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
-                 retention_in_days: Optional[pulumi.Input[int]] = None,
-                 storage_account_access_key: Optional[pulumi.Input[str]] = None,
-                 storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
-                 storage_endpoint: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-        :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-        """
-        if log_monitoring_enabled is not None:
-            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
-        if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
-        if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        if storage_account_access_key_is_secondary is not None:
-            pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
-        if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
-
-    @property
-    @pulumi.getter(name="logMonitoringEnabled")
-    def log_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "log_monitoring_enabled")
-
-    @log_monitoring_enabled.setter
-    def log_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "log_monitoring_enabled", value)
-
-    @property
-    @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "retention_in_days")
-
-    @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "retention_in_days", value)
-
-    @property
-    @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-        """
-        return pulumi.get(self, "storage_account_access_key")
-
-    @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_access_key", value)
-
-    @property
-    @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
-    def storage_account_access_key_is_secondary(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "storage_account_access_key_is_secondary")
-
-    @storage_account_access_key_is_secondary.setter
-    def storage_account_access_key_is_secondary(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "storage_account_access_key_is_secondary", value)
-
-    @property
-    @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-        """
-        return pulumi.get(self, "storage_endpoint")
-
-    @storage_endpoint.setter
-    def storage_endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_endpoint", value)
-
-
-@pulumi.input_type
 class SqlServerIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         """
@@ -694,7 +519,7 @@ class SqlServerIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 

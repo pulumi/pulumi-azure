@@ -24,12 +24,10 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLinkedServiceAzureBlobStorage = new azure.datafactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: exampleAccount.apply(exampleAccount => exampleAccount.primaryConnectionString),
  * });
  * const exampleDatasetAzureBlob = new azure.datafactory.DatasetAzureBlob("exampleDatasetAzureBlob", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceAzureBlobStorage.name,
  *     path: "foo",
@@ -86,12 +84,6 @@ export class DatasetAzureBlob extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * The description for the Data Factory Dataset.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -128,10 +120,6 @@ export class DatasetAzureBlob extends pulumi.CustomResource {
      */
     public readonly path!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * A `schemaColumn` block as defined below.
      */
     public readonly schemaColumns!: pulumi.Output<outputs.datafactory.DatasetAzureBlobSchemaColumn[] | undefined>;
@@ -152,7 +140,6 @@ export class DatasetAzureBlob extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["dynamicFilenameEnabled"] = state ? state.dynamicFilenameEnabled : undefined;
             resourceInputs["dynamicPathEnabled"] = state ? state.dynamicPathEnabled : undefined;
@@ -162,20 +149,18 @@ export class DatasetAzureBlob extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
         } else {
             const args = argsOrState as DatasetAzureBlobArgs | undefined;
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
+            }
             if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dynamicFilenameEnabled"] = args ? args.dynamicFilenameEnabled : undefined;
             resourceInputs["dynamicPathEnabled"] = args ? args.dynamicPathEnabled : undefined;
@@ -185,7 +170,6 @@ export class DatasetAzureBlob extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -209,12 +193,6 @@ export interface DatasetAzureBlobState {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
     dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */
@@ -252,10 +230,6 @@ export interface DatasetAzureBlobState {
      */
     path?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * A `schemaColumn` block as defined below.
      */
     schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetAzureBlobSchemaColumn>[]>;
@@ -276,13 +250,7 @@ export interface DatasetAzureBlobArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */
@@ -319,10 +287,6 @@ export interface DatasetAzureBlobArgs {
      * The path of the Azure Blob.
      */
     path?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * A `schemaColumn` block as defined below.
      */

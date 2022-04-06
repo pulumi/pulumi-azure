@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,15 +40,13 @@ import (
 // 			return err
 // 		}
 // 		exampleLinkedServicePostgresql, err := datafactory.NewLinkedServicePostgresql(ctx, "exampleLinkedServicePostgresql", &datafactory.LinkedServicePostgresqlArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			ConnectionString:  pulumi.String("Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example"),
+// 			DataFactoryId:    exampleFactory.ID(),
+// 			ConnectionString: pulumi.String("Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = datafactory.NewDatasetPostgresql(ctx, "exampleDatasetPostgresql", &datafactory.DatasetPostgresqlArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			DataFactoryId:     exampleFactory.ID(),
 // 			LinkedServiceName: exampleLinkedServicePostgresql.Name,
 // 		})
@@ -76,10 +74,6 @@ type DatasetPostgresql struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset PostgreSQL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -90,8 +84,6 @@ type DatasetPostgresql struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset PostgreSQL.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset PostgreSQL. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetPostgresqlSchemaColumnArrayOutput `pulumi:"schemaColumns"`
 	// The table name of the Data Factory Dataset PostgreSQL.
@@ -105,11 +97,11 @@ func NewDatasetPostgresql(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
+	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DatasetPostgresql
 	err := ctx.RegisterResource("azure:datafactory/datasetPostgresql:DatasetPostgresql", name, args, &resource, opts...)
@@ -139,10 +131,6 @@ type datasetPostgresqlState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset PostgreSQL.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -153,8 +141,6 @@ type datasetPostgresqlState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset PostgreSQL.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset PostgreSQL. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetPostgresqlSchemaColumn `pulumi:"schemaColumns"`
 	// The table name of the Data Factory Dataset PostgreSQL.
@@ -168,10 +154,6 @@ type DatasetPostgresqlState struct {
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset PostgreSQL.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -182,8 +164,6 @@ type DatasetPostgresqlState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset PostgreSQL.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Dataset PostgreSQL. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetPostgresqlSchemaColumnArrayInput
 	// The table name of the Data Factory Dataset PostgreSQL.
@@ -200,11 +180,7 @@ type datasetPostgresqlArgs struct {
 	// List of tags that can be used for describing the Data Factory Dataset PostgreSQL.
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Dataset PostgreSQL.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -215,8 +191,6 @@ type datasetPostgresqlArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset PostgreSQL.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset PostgreSQL. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetPostgresqlSchemaColumn `pulumi:"schemaColumns"`
 	// The table name of the Data Factory Dataset PostgreSQL.
@@ -230,11 +204,7 @@ type DatasetPostgresqlArgs struct {
 	// List of tags that can be used for describing the Data Factory Dataset PostgreSQL.
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Dataset PostgreSQL.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -245,8 +215,6 @@ type DatasetPostgresqlArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset PostgreSQL.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Dataset PostgreSQL. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetPostgresqlSchemaColumnArrayInput
 	// The table name of the Data Factory Dataset PostgreSQL.

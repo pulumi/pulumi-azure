@@ -135,7 +135,7 @@ class GetServerResult:
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetServerIdentityResult']:
         """
-        An `identity` block for this MySQL server as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identities")
 

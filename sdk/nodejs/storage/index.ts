@@ -13,7 +13,6 @@ export * from "./container";
 export * from "./customerManagedKey";
 export * from "./dataLakeGen2Filesystem";
 export * from "./dataLakeGen2Path";
-export * from "./disksPool";
 export * from "./encryptionScope";
 export * from "./getAccount";
 export * from "./getAccountBlobContainerSAS";
@@ -49,7 +48,6 @@ import { Container } from "./container";
 import { CustomerManagedKey } from "./customerManagedKey";
 import { DataLakeGen2Filesystem } from "./dataLakeGen2Filesystem";
 import { DataLakeGen2Path } from "./dataLakeGen2Path";
-import { DisksPool } from "./disksPool";
 import { EncryptionScope } from "./encryptionScope";
 import { ManagementPolicy } from "./managementPolicy";
 import { ObjectReplication } from "./objectReplication";
@@ -84,8 +82,6 @@ const _module = {
                 return new DataLakeGen2Filesystem(name, <any>undefined, { urn })
             case "azure:storage/dataLakeGen2Path:DataLakeGen2Path":
                 return new DataLakeGen2Path(name, <any>undefined, { urn })
-            case "azure:storage/disksPool:DisksPool":
-                return new DisksPool(name, <any>undefined, { urn })
             case "azure:storage/encryptionScope:EncryptionScope":
                 return new EncryptionScope(name, <any>undefined, { urn })
             case "azure:storage/managementPolicy:ManagementPolicy":
@@ -125,7 +121,6 @@ pulumi.runtime.registerResourceModule("azure", "storage/container", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/customerManagedKey", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/dataLakeGen2Filesystem", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/dataLakeGen2Path", _module)
-pulumi.runtime.registerResourceModule("azure", "storage/disksPool", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/encryptionScope", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/managementPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/objectReplication", _module)

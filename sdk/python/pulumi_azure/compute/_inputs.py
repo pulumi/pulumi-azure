@@ -10,8 +10,6 @@ from .. import _utilities
 
 __all__ = [
     'BastionHostIpConfigurationArgs',
-    'ConfigurationPolicyAssignmentConfigurationArgs',
-    'ConfigurationPolicyAssignmentConfigurationParameterArgs',
     'DiskEncryptionSetIdentityArgs',
     'ImageDataDiskArgs',
     'ImageOsDiskArgs',
@@ -45,6 +43,7 @@ __all__ = [
     'LinuxVirtualMachineSecretArgs',
     'LinuxVirtualMachineSecretCertificateArgs',
     'LinuxVirtualMachineSourceImageReferenceArgs',
+    'LinuxVirtualMachineTerminationNotificationArgs',
     'ManagedDiskEncryptionSettingsArgs',
     'ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs',
     'ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs',
@@ -144,6 +143,7 @@ __all__ = [
     'WindowsVirtualMachineSecretArgs',
     'WindowsVirtualMachineSecretCertificateArgs',
     'WindowsVirtualMachineSourceImageReferenceArgs',
+    'WindowsVirtualMachineTerminationNotificationArgs',
     'WindowsVirtualMachineWinrmListenerArgs',
 ]
 
@@ -200,104 +200,13 @@ class BastionHostIpConfigurationArgs:
 
 
 @pulumi.input_type
-class ConfigurationPolicyAssignmentConfigurationArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyAssignmentConfigurationParameterArgs']]]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyAssignmentConfigurationParameterArgs']]] parameters: One or more `parameter` blocks which define what configuration parameters and values against.
-        :param pulumi.Input[str] version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-        """
-        pulumi.set(__self__, "name", name)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyAssignmentConfigurationParameterArgs']]]]:
-        """
-        One or more `parameter` blocks which define what configuration parameters and values against.
-        """
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyAssignmentConfigurationParameterArgs']]]]):
-        pulumi.set(self, "parameters", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class ConfigurationPolicyAssignmentConfigurationParameterArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: The name of the configuration parameter to check.
-        :param pulumi.Input[str] value: The value to check the configuration parameter with.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the configuration parameter to check.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value to check the configuration parameter with.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class DiskEncryptionSetIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] principal_id: The (Client) ID of the Service Principal.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant the Service Principal is assigned in.
         """
@@ -311,7 +220,7 @@ class DiskEncryptionSetIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+        The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -625,10 +534,10 @@ class LinuxVirtualMachineIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
-        :param pulumi.Input[str] principal_id: The ID of the System Managed Service Principal.
-        :param pulumi.Input[str] tenant_id: The ID of the Tenant the System Managed Service Principal is assigned in.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -642,7 +551,7 @@ class LinuxVirtualMachineIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -654,7 +563,7 @@ class LinuxVirtualMachineIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -666,7 +575,7 @@ class LinuxVirtualMachineIdentityArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the System Managed Service Principal.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -678,7 +587,7 @@ class LinuxVirtualMachineIdentityArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Tenant the System Managed Service Principal is assigned in.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -1045,8 +954,6 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
                  storage_account_type: pulumi.Input[str],
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-                 disk_iops_read_write: Optional[pulumi.Input[int]] = None,
-                 disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  ultra_ssd_disk_iops_read_write: Optional[pulumi.Input[int]] = None,
                  ultra_ssd_disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
@@ -1057,8 +964,6 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
         :param pulumi.Input[str] create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
-        :param pulumi.Input[int] disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-        :param pulumi.Input[int] disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
         :param pulumi.Input[bool] write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -1069,16 +974,6 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
             pulumi.set(__self__, "create_option", create_option)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-        if disk_iops_read_write is not None:
-            warnings.warn("""This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""disk_iops_read_write is deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider""")
-        if disk_iops_read_write is not None:
-            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
-        if disk_mbps_read_write is not None:
-            warnings.warn("""This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""disk_mbps_read_write is deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider""")
-        if disk_mbps_read_write is not None:
-            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if ultra_ssd_disk_iops_read_write is not None:
             pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
         if ultra_ssd_disk_mbps_read_write is not None:
@@ -1157,30 +1052,6 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
     @disk_encryption_set_id.setter
     def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
-
-    @property
-    @pulumi.getter(name="diskIopsReadWrite")
-    def disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-        """
-        return pulumi.get(self, "disk_iops_read_write")
-
-    @disk_iops_read_write.setter
-    def disk_iops_read_write(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "disk_iops_read_write", value)
-
-    @property
-    @pulumi.getter(name="diskMbpsReadWrite")
-    def disk_mbps_read_write(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-        """
-        return pulumi.get(self, "disk_mbps_read_write")
-
-    @disk_mbps_read_write.setter
-    def disk_mbps_read_write(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "disk_mbps_read_write", value)
 
     @property
     @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
@@ -1384,9 +1255,10 @@ class LinuxVirtualMachineScaleSetIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
-        :param pulumi.Input[str] principal_id: The ID of the System Managed Service Principal.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -1400,7 +1272,7 @@ class LinuxVirtualMachineScaleSetIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -1412,7 +1284,7 @@ class LinuxVirtualMachineScaleSetIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1424,7 +1296,7 @@ class LinuxVirtualMachineScaleSetIdentityArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the System Managed Service Principal.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -1435,6 +1307,9 @@ class LinuxVirtualMachineScaleSetIdentityArgs:
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
@@ -2359,6 +2234,44 @@ class LinuxVirtualMachineSourceImageReferenceArgs:
 
 
 @pulumi.input_type
+class LinuxVirtualMachineTerminationNotificationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 timeout: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+        :param pulumi.Input[str] timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
 class ManagedDiskEncryptionSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
@@ -2540,8 +2453,6 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
                  storage_account_type: pulumi.Input[str],
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-                 disk_iops_read_write: Optional[pulumi.Input[int]] = None,
-                 disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  ultra_ssd_disk_iops_read_write: Optional[pulumi.Input[int]] = None,
                  ultra_ssd_disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
@@ -2553,16 +2464,6 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
             pulumi.set(__self__, "create_option", create_option)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-        if disk_iops_read_write is not None:
-            warnings.warn("""This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""disk_iops_read_write is deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider""")
-        if disk_iops_read_write is not None:
-            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
-        if disk_mbps_read_write is not None:
-            warnings.warn("""This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""disk_mbps_read_write is deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider""")
-        if disk_mbps_read_write is not None:
-            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if ultra_ssd_disk_iops_read_write is not None:
             pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
         if ultra_ssd_disk_mbps_read_write is not None:
@@ -2623,24 +2524,6 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @disk_encryption_set_id.setter
     def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
-
-    @property
-    @pulumi.getter(name="diskIopsReadWrite")
-    def disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "disk_iops_read_write")
-
-    @disk_iops_read_write.setter
-    def disk_iops_read_write(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "disk_iops_read_write", value)
-
-    @property
-    @pulumi.getter(name="diskMbpsReadWrite")
-    def disk_mbps_read_write(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "disk_mbps_read_write")
-
-    @disk_mbps_read_write.setter
-    def disk_mbps_read_write(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "disk_mbps_read_write", value)
 
     @property
     @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
@@ -5498,9 +5381,9 @@ class VirtualMachineIdentityArgs:
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
-        :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -5512,7 +5395,7 @@ class VirtualMachineIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -5524,7 +5407,7 @@ class VirtualMachineIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -5536,7 +5419,7 @@ class VirtualMachineIdentityArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -6500,10 +6383,10 @@ class WindowsVirtualMachineIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
-        :param pulumi.Input[str] principal_id: The ID of the System Managed Service Principal.
-        :param pulumi.Input[str] tenant_id: The ID of the Tenant the System Managed Service Principal is assigned in.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -6517,7 +6400,7 @@ class WindowsVirtualMachineIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -6529,7 +6412,7 @@ class WindowsVirtualMachineIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -6541,7 +6424,7 @@ class WindowsVirtualMachineIdentityArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the System Managed Service Principal.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -6553,7 +6436,7 @@ class WindowsVirtualMachineIdentityArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Tenant the System Managed Service Principal is assigned in.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -6920,8 +6803,6 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
                  storage_account_type: pulumi.Input[str],
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-                 disk_iops_read_write: Optional[pulumi.Input[int]] = None,
-                 disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  ultra_ssd_disk_iops_read_write: Optional[pulumi.Input[int]] = None,
                  ultra_ssd_disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
@@ -6932,8 +6813,6 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
         :param pulumi.Input[str] create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
-        :param pulumi.Input[int] disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-        :param pulumi.Input[int] disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
         :param pulumi.Input[bool] write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -6944,16 +6823,6 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
             pulumi.set(__self__, "create_option", create_option)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-        if disk_iops_read_write is not None:
-            warnings.warn("""This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""disk_iops_read_write is deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider""")
-        if disk_iops_read_write is not None:
-            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
-        if disk_mbps_read_write is not None:
-            warnings.warn("""This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""disk_mbps_read_write is deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider""")
-        if disk_mbps_read_write is not None:
-            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if ultra_ssd_disk_iops_read_write is not None:
             pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
         if ultra_ssd_disk_mbps_read_write is not None:
@@ -7032,30 +6901,6 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
     @disk_encryption_set_id.setter
     def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
-
-    @property
-    @pulumi.getter(name="diskIopsReadWrite")
-    def disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-        """
-        return pulumi.get(self, "disk_iops_read_write")
-
-    @disk_iops_read_write.setter
-    def disk_iops_read_write(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "disk_iops_read_write", value)
-
-    @property
-    @pulumi.getter(name="diskMbpsReadWrite")
-    def disk_mbps_read_write(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-        """
-        return pulumi.get(self, "disk_mbps_read_write")
-
-    @disk_mbps_read_write.setter
-    def disk_mbps_read_write(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "disk_mbps_read_write", value)
 
     @property
     @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
@@ -7259,9 +7104,10 @@ class WindowsVirtualMachineScaleSetIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
-        :param pulumi.Input[str] principal_id: The ID of the System Managed Service Principal.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -7275,7 +7121,7 @@ class WindowsVirtualMachineScaleSetIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -7287,7 +7133,7 @@ class WindowsVirtualMachineScaleSetIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -7299,7 +7145,7 @@ class WindowsVirtualMachineScaleSetIdentityArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the System Managed Service Principal.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -7310,6 +7156,9 @@ class WindowsVirtualMachineScaleSetIdentityArgs:
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
@@ -8299,6 +8148,44 @@ class WindowsVirtualMachineSourceImageReferenceArgs:
     @version.setter
     def version(self, value: pulumi.Input[str]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class WindowsVirtualMachineTerminationNotificationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 timeout: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+        :param pulumi.Input[str] timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type

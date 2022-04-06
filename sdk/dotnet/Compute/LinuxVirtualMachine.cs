@@ -193,6 +193,12 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> DisablePasswordAuthentication { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
+        /// </summary>
+        [Output("edgeZone")]
+        public Output<string?> EdgeZone { get; private set; } = null!;
+
+        /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         /// </summary>
         [Output("encryptionAtHostEnabled")]
@@ -355,6 +361,12 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
+        [Output("terminationNotification")]
+        public Output<Outputs.LinuxVirtualMachineTerminationNotification> TerminationNotification { get; private set; } = null!;
+
+        /// <summary>
         /// The Base64-Encoded User Data which should be used for this Virtual Machine.
         /// </summary>
         [Output("userData")]
@@ -379,10 +391,10 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> VtpmEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        /// Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         /// </summary>
         [Output("zone")]
-        public Output<string> Zone { get; private set; } = null!;
+        public Output<string?> Zone { get; private set; } = null!;
 
 
         /// <summary>
@@ -507,6 +519,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("disablePasswordAuthentication")]
         public Input<bool>? DisablePasswordAuthentication { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -665,6 +683,12 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
+        [Input("terminationNotification")]
+        public Input<Inputs.LinuxVirtualMachineTerminationNotificationArgs>? TerminationNotification { get; set; }
+
+        /// <summary>
         /// The Base64-Encoded User Data which should be used for this Virtual Machine.
         /// </summary>
         [Input("userData")]
@@ -683,7 +707,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? VtpmEnabled { get; set; }
 
         /// <summary>
-        /// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        /// Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
@@ -772,6 +796,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("disablePasswordAuthentication")]
         public Input<bool>? DisablePasswordAuthentication { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -966,6 +996,12 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
+        [Input("terminationNotification")]
+        public Input<Inputs.LinuxVirtualMachineTerminationNotificationGetArgs>? TerminationNotification { get; set; }
+
+        /// <summary>
         /// The Base64-Encoded User Data which should be used for this Virtual Machine.
         /// </summary>
         [Input("userData")]
@@ -990,7 +1026,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? VtpmEnabled { get; set; }
 
         /// <summary>
-        /// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        /// Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

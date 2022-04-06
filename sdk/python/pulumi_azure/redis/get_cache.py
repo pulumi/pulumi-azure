@@ -253,6 +253,9 @@ class GetCacheResult:
     @property
     @pulumi.getter
     def zones(self) -> Sequence[str]:
+        """
+        A list of Availability Zones in which this Redis Cache is located.
+        """
         return pulumi.get(self, "zones")
 
 

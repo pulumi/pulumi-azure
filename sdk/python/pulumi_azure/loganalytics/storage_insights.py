@@ -19,8 +19,7 @@ class StorageInsightsArgs:
                  workspace_id: pulumi.Input[str],
                  blob_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StorageInsights resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
@@ -30,7 +29,6 @@ class StorageInsightsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_container_names: The names of the blob containers that the workspace should read.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_names: The names of the Azure tables that the workspace should read.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Log Analytics Storage Insights.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
@@ -42,8 +40,6 @@ class StorageInsightsArgs:
             pulumi.set(__self__, "name", name)
         if table_names is not None:
             pulumi.set(__self__, "table_names", table_names)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -129,18 +125,6 @@ class StorageInsightsArgs:
     def table_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "table_names", value)
 
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
 
 @pulumi.input_type
 class _StorageInsightsState:
@@ -151,7 +135,6 @@ class _StorageInsightsState:
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  storage_account_key: Optional[pulumi.Input[str]] = None,
                  table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering StorageInsights resources.
@@ -161,7 +144,6 @@ class _StorageInsightsState:
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account used by this Log Analytics Storage Insights.
         :param pulumi.Input[str] storage_account_key: The storage access key to be used to connect to the storage account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_names: The names of the Azure tables that the workspace should read.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Log Analytics Storage Insights.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
         """
         if blob_container_names is not None:
@@ -176,8 +158,6 @@ class _StorageInsightsState:
             pulumi.set(__self__, "storage_account_key", storage_account_key)
         if table_names is not None:
             pulumi.set(__self__, "table_names", table_names)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
 
@@ -254,18 +234,6 @@ class _StorageInsightsState:
         pulumi.set(self, "table_names", value)
 
     @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-    @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -289,7 +257,6 @@ class StorageInsights(pulumi.CustomResource):
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  storage_account_key: Optional[pulumi.Input[str]] = None,
                  table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -335,7 +302,6 @@ class StorageInsights(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account used by this Log Analytics Storage Insights.
         :param pulumi.Input[str] storage_account_key: The storage access key to be used to connect to the storage account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_names: The names of the Azure tables that the workspace should read.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Log Analytics Storage Insights.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
         """
         ...
@@ -400,7 +366,6 @@ class StorageInsights(pulumi.CustomResource):
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  storage_account_key: Optional[pulumi.Input[str]] = None,
                  table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -426,7 +391,6 @@ class StorageInsights(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_account_key'")
             __props__.__dict__["storage_account_key"] = storage_account_key
             __props__.__dict__["table_names"] = table_names
-            __props__.__dict__["tags"] = tags
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
@@ -446,7 +410,6 @@ class StorageInsights(pulumi.CustomResource):
             storage_account_id: Optional[pulumi.Input[str]] = None,
             storage_account_key: Optional[pulumi.Input[str]] = None,
             table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             workspace_id: Optional[pulumi.Input[str]] = None) -> 'StorageInsights':
         """
         Get an existing StorageInsights resource's state with the given name, id, and optional extra
@@ -461,7 +424,6 @@ class StorageInsights(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account used by this Log Analytics Storage Insights.
         :param pulumi.Input[str] storage_account_key: The storage access key to be used to connect to the storage account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_names: The names of the Azure tables that the workspace should read.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Log Analytics Storage Insights.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -474,7 +436,6 @@ class StorageInsights(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["storage_account_key"] = storage_account_key
         __props__.__dict__["table_names"] = table_names
-        __props__.__dict__["tags"] = tags
         __props__.__dict__["workspace_id"] = workspace_id
         return StorageInsights(resource_name, opts=opts, __props__=__props__)
 
@@ -525,14 +486,6 @@ class StorageInsights(pulumi.CustomResource):
         The names of the Azure tables that the workspace should read.
         """
         return pulumi.get(self, "table_names")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="workspaceId")

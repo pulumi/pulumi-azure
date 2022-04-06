@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLinkedServiceAzureFunction = new azure.datafactory.LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     url: exampleFunctionApp.apply(exampleFunctionApp => `https://${exampleFunctionApp.defaultHostname}`),
  *     key: "foo",
@@ -80,12 +79,6 @@ export class LinkedServiceAzureFunction extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * The description for the Data Factory Linked Service.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -111,10 +104,6 @@ export class LinkedServiceAzureFunction extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * The url of the Azure Function.
      */
     public readonly url!: pulumi.Output<string>;
@@ -135,19 +124,17 @@ export class LinkedServiceAzureFunction extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["keyVaultKey"] = state ? state.keyVaultKey : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as LinkedServiceAzureFunctionArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
             }
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
@@ -155,14 +142,12 @@ export class LinkedServiceAzureFunction extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["keyVaultKey"] = args ? args.keyVaultKey : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -187,12 +172,6 @@ export interface LinkedServiceAzureFunctionState {
      */
     dataFactoryId?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
-    /**
      * The description for the Data Factory Linked Service.
      */
     description?: pulumi.Input<string>;
@@ -217,10 +196,6 @@ export interface LinkedServiceAzureFunctionState {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The url of the Azure Function.
      */
@@ -242,13 +217,7 @@ export interface LinkedServiceAzureFunctionArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
@@ -274,10 +243,6 @@ export interface LinkedServiceAzureFunctionArgs {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * The url of the Azure Function.
      */

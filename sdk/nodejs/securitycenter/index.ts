@@ -7,12 +7,12 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./advancedThreatProtection";
 export * from "./assessment";
-export * from "./assessmentMetadata";
 export * from "./assessmentPolicy";
 export * from "./autoProvisioning";
 export * from "./automation";
 export * from "./contact";
 export * from "./serverVulnerabilityAssessment";
+export * from "./serverVulnerabilityAssessmentVirtualMachine";
 export * from "./setting";
 export * from "./subscriptionPricing";
 export * from "./workspace";
@@ -20,12 +20,12 @@ export * from "./workspace";
 // Import resources to register:
 import { AdvancedThreatProtection } from "./advancedThreatProtection";
 import { Assessment } from "./assessment";
-import { AssessmentMetadata } from "./assessmentMetadata";
 import { AssessmentPolicy } from "./assessmentPolicy";
 import { AutoProvisioning } from "./autoProvisioning";
 import { Automation } from "./automation";
 import { Contact } from "./contact";
 import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
+import { ServerVulnerabilityAssessmentVirtualMachine } from "./serverVulnerabilityAssessmentVirtualMachine";
 import { Setting } from "./setting";
 import { SubscriptionPricing } from "./subscriptionPricing";
 import { Workspace } from "./workspace";
@@ -38,8 +38,6 @@ const _module = {
                 return new AdvancedThreatProtection(name, <any>undefined, { urn })
             case "azure:securitycenter/assessment:Assessment":
                 return new Assessment(name, <any>undefined, { urn })
-            case "azure:securitycenter/assessmentMetadata:AssessmentMetadata":
-                return new AssessmentMetadata(name, <any>undefined, { urn })
             case "azure:securitycenter/assessmentPolicy:AssessmentPolicy":
                 return new AssessmentPolicy(name, <any>undefined, { urn })
             case "azure:securitycenter/autoProvisioning:AutoProvisioning":
@@ -50,6 +48,8 @@ const _module = {
                 return new Contact(name, <any>undefined, { urn })
             case "azure:securitycenter/serverVulnerabilityAssessment:ServerVulnerabilityAssessment":
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
+            case "azure:securitycenter/serverVulnerabilityAssessmentVirtualMachine:ServerVulnerabilityAssessmentVirtualMachine":
+                return new ServerVulnerabilityAssessmentVirtualMachine(name, <any>undefined, { urn })
             case "azure:securitycenter/setting:Setting":
                 return new Setting(name, <any>undefined, { urn })
             case "azure:securitycenter/subscriptionPricing:SubscriptionPricing":
@@ -63,12 +63,12 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "securitycenter/advancedThreatProtection", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/assessment", _module)
-pulumi.runtime.registerResourceModule("azure", "securitycenter/assessmentMetadata", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/assessmentPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/autoProvisioning", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/automation", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/contact", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/serverVulnerabilityAssessment", _module)
+pulumi.runtime.registerResourceModule("azure", "securitycenter/serverVulnerabilityAssessmentVirtualMachine", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/setting", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/subscriptionPricing", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/workspace", _module)

@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleCustomDomain = new azure.apimanagement.CustomDomain("exampleCustomDomain", {
  *     apiManagementId: exampleService.id,
- *     proxies: [{
+ *     gateways: [{
  *         hostName: "api.example.com",
  *         keyVaultId: azurerm_key_vault_certificate.test.secret_id,
  *     }],
@@ -127,6 +127,10 @@ export class CustomDomain extends pulumi.CustomResource {
      */
     public readonly developerPortals!: pulumi.Output<outputs.apimanagement.CustomDomainDeveloperPortal[] | undefined>;
     /**
+     * One or more `gateway` blocks as defined below.
+     */
+    public readonly gateways!: pulumi.Output<outputs.apimanagement.CustomDomainGateway[] | undefined>;
+    /**
      * One or more `management` blocks as defined below.
      */
     public readonly managements!: pulumi.Output<outputs.apimanagement.CustomDomainManagement[] | undefined>;
@@ -134,12 +138,6 @@ export class CustomDomain extends pulumi.CustomResource {
      * One or more `portal` blocks as defined below.
      */
     public readonly portals!: pulumi.Output<outputs.apimanagement.CustomDomainPortal[] | undefined>;
-    /**
-     * One or more `proxy` blocks as defined below.
-     *
-     * @deprecated `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
-     */
-    public readonly proxies!: pulumi.Output<outputs.apimanagement.CustomDomainProxy[] | undefined>;
     /**
      * One or more `scm` blocks as defined below.
      */
@@ -160,9 +158,9 @@ export class CustomDomain extends pulumi.CustomResource {
             const state = argsOrState as CustomDomainState | undefined;
             resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
             resourceInputs["developerPortals"] = state ? state.developerPortals : undefined;
+            resourceInputs["gateways"] = state ? state.gateways : undefined;
             resourceInputs["managements"] = state ? state.managements : undefined;
             resourceInputs["portals"] = state ? state.portals : undefined;
-            resourceInputs["proxies"] = state ? state.proxies : undefined;
             resourceInputs["scms"] = state ? state.scms : undefined;
         } else {
             const args = argsOrState as CustomDomainArgs | undefined;
@@ -171,9 +169,9 @@ export class CustomDomain extends pulumi.CustomResource {
             }
             resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
             resourceInputs["developerPortals"] = args ? args.developerPortals : undefined;
+            resourceInputs["gateways"] = args ? args.gateways : undefined;
             resourceInputs["managements"] = args ? args.managements : undefined;
             resourceInputs["portals"] = args ? args.portals : undefined;
-            resourceInputs["proxies"] = args ? args.proxies : undefined;
             resourceInputs["scms"] = args ? args.scms : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -194,6 +192,10 @@ export interface CustomDomainState {
      */
     developerPortals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainDeveloperPortal>[]>;
     /**
+     * One or more `gateway` blocks as defined below.
+     */
+    gateways?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainGateway>[]>;
+    /**
      * One or more `management` blocks as defined below.
      */
     managements?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainManagement>[]>;
@@ -201,12 +203,6 @@ export interface CustomDomainState {
      * One or more `portal` blocks as defined below.
      */
     portals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainPortal>[]>;
-    /**
-     * One or more `proxy` blocks as defined below.
-     *
-     * @deprecated `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
-     */
-    proxies?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainProxy>[]>;
     /**
      * One or more `scm` blocks as defined below.
      */
@@ -226,6 +222,10 @@ export interface CustomDomainArgs {
      */
     developerPortals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainDeveloperPortal>[]>;
     /**
+     * One or more `gateway` blocks as defined below.
+     */
+    gateways?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainGateway>[]>;
+    /**
      * One or more `management` blocks as defined below.
      */
     managements?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainManagement>[]>;
@@ -233,12 +233,6 @@ export interface CustomDomainArgs {
      * One or more `portal` blocks as defined below.
      */
     portals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainPortal>[]>;
-    /**
-     * One or more `proxy` blocks as defined below.
-     *
-     * @deprecated `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
-     */
-    proxies?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainProxy>[]>;
     /**
      * One or more `scm` blocks as defined below.
      */

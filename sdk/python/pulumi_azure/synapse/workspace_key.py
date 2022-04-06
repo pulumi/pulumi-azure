@@ -14,28 +14,28 @@ __all__ = ['WorkspaceKeyArgs', 'WorkspaceKey']
 class WorkspaceKeyArgs:
     def __init__(__self__, *,
                  active: pulumi.Input[bool],
+                 customer_managed_key_name: pulumi.Input[str],
                  synapse_workspace_id: pulumi.Input[str],
-                 cusomter_managed_key_name: Optional[pulumi.Input[str]] = None,
-                 customer_managed_key_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WorkspaceKey resource.
+        :param pulumi.Input[bool] active: Specifies if the workspace should be encrypted with this key.
+        :param pulumi.Input[str] customer_managed_key_name: Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
+        :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the encryption key should be configured.
+        :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
         """
         pulumi.set(__self__, "active", active)
+        pulumi.set(__self__, "customer_managed_key_name", customer_managed_key_name)
         pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
-        if cusomter_managed_key_name is not None:
-            warnings.warn("""As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.""", DeprecationWarning)
-            pulumi.log.warn("""cusomter_managed_key_name is deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.""")
-        if cusomter_managed_key_name is not None:
-            pulumi.set(__self__, "cusomter_managed_key_name", cusomter_managed_key_name)
-        if customer_managed_key_name is not None:
-            pulumi.set(__self__, "customer_managed_key_name", customer_managed_key_name)
         if customer_managed_key_versionless_id is not None:
             pulumi.set(__self__, "customer_managed_key_versionless_id", customer_managed_key_versionless_id)
 
     @property
     @pulumi.getter
     def active(self) -> pulumi.Input[bool]:
+        """
+        Specifies if the workspace should be encrypted with this key.
+        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -43,8 +43,23 @@ class WorkspaceKeyArgs:
         pulumi.set(self, "active", value)
 
     @property
+    @pulumi.getter(name="customerManagedKeyName")
+    def customer_managed_key_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
+        """
+        return pulumi.get(self, "customer_managed_key_name")
+
+    @customer_managed_key_name.setter
+    def customer_managed_key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "customer_managed_key_name", value)
+
+    @property
     @pulumi.getter(name="synapseWorkspaceId")
     def synapse_workspace_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Synapse Workspace where the encryption key should be configured.
+        """
         return pulumi.get(self, "synapse_workspace_id")
 
     @synapse_workspace_id.setter
@@ -52,26 +67,11 @@ class WorkspaceKeyArgs:
         pulumi.set(self, "synapse_workspace_id", value)
 
     @property
-    @pulumi.getter(name="cusomterManagedKeyName")
-    def cusomter_managed_key_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "cusomter_managed_key_name")
-
-    @cusomter_managed_key_name.setter
-    def cusomter_managed_key_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cusomter_managed_key_name", value)
-
-    @property
-    @pulumi.getter(name="customerManagedKeyName")
-    def customer_managed_key_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "customer_managed_key_name")
-
-    @customer_managed_key_name.setter
-    def customer_managed_key_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "customer_managed_key_name", value)
-
-    @property
     @pulumi.getter(name="customerManagedKeyVersionlessId")
     def customer_managed_key_versionless_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
+        """
         return pulumi.get(self, "customer_managed_key_versionless_id")
 
     @customer_managed_key_versionless_id.setter
@@ -83,20 +83,18 @@ class WorkspaceKeyArgs:
 class _WorkspaceKeyState:
     def __init__(__self__, *,
                  active: Optional[pulumi.Input[bool]] = None,
-                 cusomter_managed_key_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceKey resources.
+        :param pulumi.Input[bool] active: Specifies if the workspace should be encrypted with this key.
+        :param pulumi.Input[str] customer_managed_key_name: Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
+        :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
+        :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the encryption key should be configured.
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
-        if cusomter_managed_key_name is not None:
-            warnings.warn("""As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.""", DeprecationWarning)
-            pulumi.log.warn("""cusomter_managed_key_name is deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.""")
-        if cusomter_managed_key_name is not None:
-            pulumi.set(__self__, "cusomter_managed_key_name", cusomter_managed_key_name)
         if customer_managed_key_name is not None:
             pulumi.set(__self__, "customer_managed_key_name", customer_managed_key_name)
         if customer_managed_key_versionless_id is not None:
@@ -107,6 +105,9 @@ class _WorkspaceKeyState:
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the workspace should be encrypted with this key.
+        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -114,17 +115,11 @@ class _WorkspaceKeyState:
         pulumi.set(self, "active", value)
 
     @property
-    @pulumi.getter(name="cusomterManagedKeyName")
-    def cusomter_managed_key_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "cusomter_managed_key_name")
-
-    @cusomter_managed_key_name.setter
-    def cusomter_managed_key_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cusomter_managed_key_name", value)
-
-    @property
     @pulumi.getter(name="customerManagedKeyName")
     def customer_managed_key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
+        """
         return pulumi.get(self, "customer_managed_key_name")
 
     @customer_managed_key_name.setter
@@ -134,6 +129,9 @@ class _WorkspaceKeyState:
     @property
     @pulumi.getter(name="customerManagedKeyVersionlessId")
     def customer_managed_key_versionless_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
+        """
         return pulumi.get(self, "customer_managed_key_versionless_id")
 
     @customer_managed_key_versionless_id.setter
@@ -143,6 +141,9 @@ class _WorkspaceKeyState:
     @property
     @pulumi.getter(name="synapseWorkspaceId")
     def synapse_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Synapse Workspace where the encryption key should be configured.
+        """
         return pulumi.get(self, "synapse_workspace_id")
 
     @synapse_workspace_id.setter
@@ -156,13 +157,14 @@ class WorkspaceKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
-                 cusomter_managed_key_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Synapse Workspace.
+        Manages Synapse Workspace keys
+
+        > **Note:** Keys that are actively protecting a workspace cannot be deleted. When the keys resource is deleted, if the key is inactive it will be deleted, if it is active it will not be deleted.
 
         ## Example Usage
 
@@ -179,37 +181,7 @@ class WorkspaceKey(pulumi.CustomResource):
             account_kind="StorageV2",
             is_hns_enabled=True)
         example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
-                login="AzureAD Admin",
-                object_id="00000000-0000-0000-0000-000000000000",
-                tenant_id="00000000-0000-0000-0000-000000000000",
-            ),
-            tags={
-                "Env": "production",
-            })
-        ```
-        ### Creating A Workspace With Customer Managed Key And Azure AD Admin
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -250,8 +222,8 @@ class WorkspaceKey(pulumi.CustomResource):
             })
         workspace_policy = azure.keyvault.AccessPolicy("workspacePolicy",
             key_vault_id=example_key_vault.id,
-            tenant_id=example_workspace.identities[0].tenant_id,
-            object_id=example_workspace.identities[0].principal_id,
+            tenant_id=example_workspace.identity.tenant_id,
+            object_id=example_workspace.identity.principal_id,
             key_permissions=[
                 "Get",
                 "WrapKey",
@@ -263,24 +235,22 @@ class WorkspaceKey(pulumi.CustomResource):
             active=True,
             customer_managed_key_name="enckey",
             opts=pulumi.ResourceOptions(depends_on=[workspace_policy]))
-        example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin",
-            synapse_workspace_id=example_workspace.id,
-            login="AzureAD Admin",
-            object_id="00000000-0000-0000-0000-000000000000",
-            tenant_id="00000000-0000-0000-0000-000000000000",
-            opts=pulumi.ResourceOptions(depends_on=[example_workspace_key]))
         ```
 
         ## Import
 
-        Synapse Workspace can be imported using the `resource id`, e.g.
+        Synapse Workspace Keys can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1
+         $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/keys/key1
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] active: Specifies if the workspace should be encrypted with this key.
+        :param pulumi.Input[str] customer_managed_key_name: Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
+        :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
+        :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the encryption key should be configured.
         """
         ...
     @overload
@@ -289,7 +259,9 @@ class WorkspaceKey(pulumi.CustomResource):
                  args: WorkspaceKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Synapse Workspace.
+        Manages Synapse Workspace keys
+
+        > **Note:** Keys that are actively protecting a workspace cannot be deleted. When the keys resource is deleted, if the key is inactive it will be deleted, if it is active it will not be deleted.
 
         ## Example Usage
 
@@ -306,37 +278,7 @@ class WorkspaceKey(pulumi.CustomResource):
             account_kind="StorageV2",
             is_hns_enabled=True)
         example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
-                login="AzureAD Admin",
-                object_id="00000000-0000-0000-0000-000000000000",
-                tenant_id="00000000-0000-0000-0000-000000000000",
-            ),
-            tags={
-                "Env": "production",
-            })
-        ```
-        ### Creating A Workspace With Customer Managed Key And Azure AD Admin
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -377,8 +319,8 @@ class WorkspaceKey(pulumi.CustomResource):
             })
         workspace_policy = azure.keyvault.AccessPolicy("workspacePolicy",
             key_vault_id=example_key_vault.id,
-            tenant_id=example_workspace.identities[0].tenant_id,
-            object_id=example_workspace.identities[0].principal_id,
+            tenant_id=example_workspace.identity.tenant_id,
+            object_id=example_workspace.identity.principal_id,
             key_permissions=[
                 "Get",
                 "WrapKey",
@@ -390,20 +332,14 @@ class WorkspaceKey(pulumi.CustomResource):
             active=True,
             customer_managed_key_name="enckey",
             opts=pulumi.ResourceOptions(depends_on=[workspace_policy]))
-        example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin",
-            synapse_workspace_id=example_workspace.id,
-            login="AzureAD Admin",
-            object_id="00000000-0000-0000-0000-000000000000",
-            tenant_id="00000000-0000-0000-0000-000000000000",
-            opts=pulumi.ResourceOptions(depends_on=[example_workspace_key]))
         ```
 
         ## Import
 
-        Synapse Workspace can be imported using the `resource id`, e.g.
+        Synapse Workspace Keys can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1
+         $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/keys/key1
         ```
 
         :param str resource_name: The name of the resource.
@@ -422,7 +358,6 @@ class WorkspaceKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
-                 cusomter_managed_key_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -441,10 +376,8 @@ class WorkspaceKey(pulumi.CustomResource):
             if active is None and not opts.urn:
                 raise TypeError("Missing required property 'active'")
             __props__.__dict__["active"] = active
-            if cusomter_managed_key_name is not None and not opts.urn:
-                warnings.warn("""As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.""", DeprecationWarning)
-                pulumi.log.warn("""cusomter_managed_key_name is deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.""")
-            __props__.__dict__["cusomter_managed_key_name"] = cusomter_managed_key_name
+            if customer_managed_key_name is None and not opts.urn:
+                raise TypeError("Missing required property 'customer_managed_key_name'")
             __props__.__dict__["customer_managed_key_name"] = customer_managed_key_name
             __props__.__dict__["customer_managed_key_versionless_id"] = customer_managed_key_versionless_id
             if synapse_workspace_id is None and not opts.urn:
@@ -461,7 +394,6 @@ class WorkspaceKey(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             active: Optional[pulumi.Input[bool]] = None,
-            cusomter_managed_key_name: Optional[pulumi.Input[str]] = None,
             customer_managed_key_name: Optional[pulumi.Input[str]] = None,
             customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
             synapse_workspace_id: Optional[pulumi.Input[str]] = None) -> 'WorkspaceKey':
@@ -472,13 +404,16 @@ class WorkspaceKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] active: Specifies if the workspace should be encrypted with this key.
+        :param pulumi.Input[str] customer_managed_key_name: Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
+        :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
+        :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the encryption key should be configured.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _WorkspaceKeyState.__new__(_WorkspaceKeyState)
 
         __props__.__dict__["active"] = active
-        __props__.__dict__["cusomter_managed_key_name"] = cusomter_managed_key_name
         __props__.__dict__["customer_managed_key_name"] = customer_managed_key_name
         __props__.__dict__["customer_managed_key_versionless_id"] = customer_managed_key_versionless_id
         __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
@@ -487,25 +422,32 @@ class WorkspaceKey(pulumi.CustomResource):
     @property
     @pulumi.getter
     def active(self) -> pulumi.Output[bool]:
+        """
+        Specifies if the workspace should be encrypted with this key.
+        """
         return pulumi.get(self, "active")
-
-    @property
-    @pulumi.getter(name="cusomterManagedKeyName")
-    def cusomter_managed_key_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "cusomter_managed_key_name")
 
     @property
     @pulumi.getter(name="customerManagedKeyName")
     def customer_managed_key_name(self) -> pulumi.Output[str]:
+        """
+        Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
+        """
         return pulumi.get(self, "customer_managed_key_name")
 
     @property
     @pulumi.getter(name="customerManagedKeyVersionlessId")
     def customer_managed_key_versionless_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
+        """
         return pulumi.get(self, "customer_managed_key_versionless_id")
 
     @property
     @pulumi.getter(name="synapseWorkspaceId")
     def synapse_workspace_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Synapse Workspace where the encryption key should be configured.
+        """
         return pulumi.get(self, "synapse_workspace_id")
 

@@ -173,10 +173,10 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> ZoneBalance { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         /// </summary>
         [Output("zones")]
-        public Output<string?> Zones { get; private set; } = null!;
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -353,11 +353,17 @@ namespace Pulumi.Azure.Compute
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
 
-        /// <summary>
-        /// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("zones")]
-        public Input<string>? Zones { get; set; }
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public OrchestratedVirtualMachineScaleSetArgs()
         {
@@ -501,11 +507,17 @@ namespace Pulumi.Azure.Compute
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
 
-        /// <summary>
-        /// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("zones")]
-        public Input<string>? Zones { get; set; }
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public OrchestratedVirtualMachineScaleSetState()
         {

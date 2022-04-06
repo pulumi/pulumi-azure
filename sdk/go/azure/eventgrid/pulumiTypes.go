@@ -11,13 +11,13 @@ import (
 )
 
 type DomainIdentity struct {
-	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 	IdentityIds []string `pulumi:"identityIds"`
-	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of Event Grid Domain. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+	// Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -33,13 +33,13 @@ type DomainIdentityInput interface {
 }
 
 type DomainIdentityArgs struct {
-	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of Event Grid Domain. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+	// Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -120,22 +120,22 @@ func (o DomainIdentityOutput) ToDomainIdentityPtrOutputWithContext(ctx context.C
 	}).(DomainIdentityPtrOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 func (o DomainIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+// The Principal ID associated with this Managed Service Identity.
 func (o DomainIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+// The Tenant ID associated with this Managed Service Identity.
 func (o DomainIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of Event Grid Domain. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+// Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
 func (o DomainIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -164,7 +164,7 @@ func (o DomainIdentityPtrOutput) Elem() DomainIdentityOutput {
 	}).(DomainIdentityOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
 func (o DomainIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainIdentity) []string {
 		if v == nil {
@@ -174,7 +174,7 @@ func (o DomainIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+// The Principal ID associated with this Managed Service Identity.
 func (o DomainIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainIdentity) *string {
 		if v == nil {
@@ -184,7 +184,7 @@ func (o DomainIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Domain.
+// The Tenant ID associated with this Managed Service Identity.
 func (o DomainIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainIdentity) *string {
 		if v == nil {
@@ -194,7 +194,7 @@ func (o DomainIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of Event Grid Domain. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+// Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
 func (o DomainIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainIdentity) *string {
 		if v == nil {
@@ -3844,280 +3844,6 @@ func (o EventSubscriptionDeliveryPropertyArrayOutput) Index(i pulumi.IntInput) E
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionDeliveryProperty {
 		return vs[0].([]EventSubscriptionDeliveryProperty)[vs[1].(int)]
 	}).(EventSubscriptionDeliveryPropertyOutput)
-}
-
-type EventSubscriptionEventhubEndpoint struct {
-	// Specifies the id of the eventhub where the Event Subscription will receive events.
-	EventhubId *string `pulumi:"eventhubId"`
-}
-
-// EventSubscriptionEventhubEndpointInput is an input type that accepts EventSubscriptionEventhubEndpointArgs and EventSubscriptionEventhubEndpointOutput values.
-// You can construct a concrete instance of `EventSubscriptionEventhubEndpointInput` via:
-//
-//          EventSubscriptionEventhubEndpointArgs{...}
-type EventSubscriptionEventhubEndpointInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionEventhubEndpointOutput() EventSubscriptionEventhubEndpointOutput
-	ToEventSubscriptionEventhubEndpointOutputWithContext(context.Context) EventSubscriptionEventhubEndpointOutput
-}
-
-type EventSubscriptionEventhubEndpointArgs struct {
-	// Specifies the id of the eventhub where the Event Subscription will receive events.
-	EventhubId pulumi.StringPtrInput `pulumi:"eventhubId"`
-}
-
-func (EventSubscriptionEventhubEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionEventhubEndpoint)(nil)).Elem()
-}
-
-func (i EventSubscriptionEventhubEndpointArgs) ToEventSubscriptionEventhubEndpointOutput() EventSubscriptionEventhubEndpointOutput {
-	return i.ToEventSubscriptionEventhubEndpointOutputWithContext(context.Background())
-}
-
-func (i EventSubscriptionEventhubEndpointArgs) ToEventSubscriptionEventhubEndpointOutputWithContext(ctx context.Context) EventSubscriptionEventhubEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionEventhubEndpointOutput)
-}
-
-func (i EventSubscriptionEventhubEndpointArgs) ToEventSubscriptionEventhubEndpointPtrOutput() EventSubscriptionEventhubEndpointPtrOutput {
-	return i.ToEventSubscriptionEventhubEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i EventSubscriptionEventhubEndpointArgs) ToEventSubscriptionEventhubEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionEventhubEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionEventhubEndpointOutput).ToEventSubscriptionEventhubEndpointPtrOutputWithContext(ctx)
-}
-
-// EventSubscriptionEventhubEndpointPtrInput is an input type that accepts EventSubscriptionEventhubEndpointArgs, EventSubscriptionEventhubEndpointPtr and EventSubscriptionEventhubEndpointPtrOutput values.
-// You can construct a concrete instance of `EventSubscriptionEventhubEndpointPtrInput` via:
-//
-//          EventSubscriptionEventhubEndpointArgs{...}
-//
-//  or:
-//
-//          nil
-type EventSubscriptionEventhubEndpointPtrInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionEventhubEndpointPtrOutput() EventSubscriptionEventhubEndpointPtrOutput
-	ToEventSubscriptionEventhubEndpointPtrOutputWithContext(context.Context) EventSubscriptionEventhubEndpointPtrOutput
-}
-
-type eventSubscriptionEventhubEndpointPtrType EventSubscriptionEventhubEndpointArgs
-
-func EventSubscriptionEventhubEndpointPtr(v *EventSubscriptionEventhubEndpointArgs) EventSubscriptionEventhubEndpointPtrInput {
-	return (*eventSubscriptionEventhubEndpointPtrType)(v)
-}
-
-func (*eventSubscriptionEventhubEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionEventhubEndpoint)(nil)).Elem()
-}
-
-func (i *eventSubscriptionEventhubEndpointPtrType) ToEventSubscriptionEventhubEndpointPtrOutput() EventSubscriptionEventhubEndpointPtrOutput {
-	return i.ToEventSubscriptionEventhubEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *eventSubscriptionEventhubEndpointPtrType) ToEventSubscriptionEventhubEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionEventhubEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionEventhubEndpointPtrOutput)
-}
-
-type EventSubscriptionEventhubEndpointOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionEventhubEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionEventhubEndpoint)(nil)).Elem()
-}
-
-func (o EventSubscriptionEventhubEndpointOutput) ToEventSubscriptionEventhubEndpointOutput() EventSubscriptionEventhubEndpointOutput {
-	return o
-}
-
-func (o EventSubscriptionEventhubEndpointOutput) ToEventSubscriptionEventhubEndpointOutputWithContext(ctx context.Context) EventSubscriptionEventhubEndpointOutput {
-	return o
-}
-
-func (o EventSubscriptionEventhubEndpointOutput) ToEventSubscriptionEventhubEndpointPtrOutput() EventSubscriptionEventhubEndpointPtrOutput {
-	return o.ToEventSubscriptionEventhubEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionEventhubEndpointOutput) ToEventSubscriptionEventhubEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionEventhubEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionEventhubEndpoint) *EventSubscriptionEventhubEndpoint {
-		return &v
-	}).(EventSubscriptionEventhubEndpointPtrOutput)
-}
-
-// Specifies the id of the eventhub where the Event Subscription will receive events.
-func (o EventSubscriptionEventhubEndpointOutput) EventhubId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionEventhubEndpoint) *string { return v.EventhubId }).(pulumi.StringPtrOutput)
-}
-
-type EventSubscriptionEventhubEndpointPtrOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionEventhubEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionEventhubEndpoint)(nil)).Elem()
-}
-
-func (o EventSubscriptionEventhubEndpointPtrOutput) ToEventSubscriptionEventhubEndpointPtrOutput() EventSubscriptionEventhubEndpointPtrOutput {
-	return o
-}
-
-func (o EventSubscriptionEventhubEndpointPtrOutput) ToEventSubscriptionEventhubEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionEventhubEndpointPtrOutput {
-	return o
-}
-
-func (o EventSubscriptionEventhubEndpointPtrOutput) Elem() EventSubscriptionEventhubEndpointOutput {
-	return o.ApplyT(func(v *EventSubscriptionEventhubEndpoint) EventSubscriptionEventhubEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret EventSubscriptionEventhubEndpoint
-		return ret
-	}).(EventSubscriptionEventhubEndpointOutput)
-}
-
-// Specifies the id of the eventhub where the Event Subscription will receive events.
-func (o EventSubscriptionEventhubEndpointPtrOutput) EventhubId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventSubscriptionEventhubEndpoint) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EventhubId
-	}).(pulumi.StringPtrOutput)
-}
-
-type EventSubscriptionHybridConnectionEndpoint struct {
-	// Specifies the id of the hybrid connection where the Event Subscription will receive events.
-	HybridConnectionId *string `pulumi:"hybridConnectionId"`
-}
-
-// EventSubscriptionHybridConnectionEndpointInput is an input type that accepts EventSubscriptionHybridConnectionEndpointArgs and EventSubscriptionHybridConnectionEndpointOutput values.
-// You can construct a concrete instance of `EventSubscriptionHybridConnectionEndpointInput` via:
-//
-//          EventSubscriptionHybridConnectionEndpointArgs{...}
-type EventSubscriptionHybridConnectionEndpointInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionHybridConnectionEndpointOutput() EventSubscriptionHybridConnectionEndpointOutput
-	ToEventSubscriptionHybridConnectionEndpointOutputWithContext(context.Context) EventSubscriptionHybridConnectionEndpointOutput
-}
-
-type EventSubscriptionHybridConnectionEndpointArgs struct {
-	// Specifies the id of the hybrid connection where the Event Subscription will receive events.
-	HybridConnectionId pulumi.StringPtrInput `pulumi:"hybridConnectionId"`
-}
-
-func (EventSubscriptionHybridConnectionEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionHybridConnectionEndpoint)(nil)).Elem()
-}
-
-func (i EventSubscriptionHybridConnectionEndpointArgs) ToEventSubscriptionHybridConnectionEndpointOutput() EventSubscriptionHybridConnectionEndpointOutput {
-	return i.ToEventSubscriptionHybridConnectionEndpointOutputWithContext(context.Background())
-}
-
-func (i EventSubscriptionHybridConnectionEndpointArgs) ToEventSubscriptionHybridConnectionEndpointOutputWithContext(ctx context.Context) EventSubscriptionHybridConnectionEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionHybridConnectionEndpointOutput)
-}
-
-func (i EventSubscriptionHybridConnectionEndpointArgs) ToEventSubscriptionHybridConnectionEndpointPtrOutput() EventSubscriptionHybridConnectionEndpointPtrOutput {
-	return i.ToEventSubscriptionHybridConnectionEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i EventSubscriptionHybridConnectionEndpointArgs) ToEventSubscriptionHybridConnectionEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionHybridConnectionEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionHybridConnectionEndpointOutput).ToEventSubscriptionHybridConnectionEndpointPtrOutputWithContext(ctx)
-}
-
-// EventSubscriptionHybridConnectionEndpointPtrInput is an input type that accepts EventSubscriptionHybridConnectionEndpointArgs, EventSubscriptionHybridConnectionEndpointPtr and EventSubscriptionHybridConnectionEndpointPtrOutput values.
-// You can construct a concrete instance of `EventSubscriptionHybridConnectionEndpointPtrInput` via:
-//
-//          EventSubscriptionHybridConnectionEndpointArgs{...}
-//
-//  or:
-//
-//          nil
-type EventSubscriptionHybridConnectionEndpointPtrInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionHybridConnectionEndpointPtrOutput() EventSubscriptionHybridConnectionEndpointPtrOutput
-	ToEventSubscriptionHybridConnectionEndpointPtrOutputWithContext(context.Context) EventSubscriptionHybridConnectionEndpointPtrOutput
-}
-
-type eventSubscriptionHybridConnectionEndpointPtrType EventSubscriptionHybridConnectionEndpointArgs
-
-func EventSubscriptionHybridConnectionEndpointPtr(v *EventSubscriptionHybridConnectionEndpointArgs) EventSubscriptionHybridConnectionEndpointPtrInput {
-	return (*eventSubscriptionHybridConnectionEndpointPtrType)(v)
-}
-
-func (*eventSubscriptionHybridConnectionEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionHybridConnectionEndpoint)(nil)).Elem()
-}
-
-func (i *eventSubscriptionHybridConnectionEndpointPtrType) ToEventSubscriptionHybridConnectionEndpointPtrOutput() EventSubscriptionHybridConnectionEndpointPtrOutput {
-	return i.ToEventSubscriptionHybridConnectionEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *eventSubscriptionHybridConnectionEndpointPtrType) ToEventSubscriptionHybridConnectionEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionHybridConnectionEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionHybridConnectionEndpointPtrOutput)
-}
-
-type EventSubscriptionHybridConnectionEndpointOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionHybridConnectionEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionHybridConnectionEndpoint)(nil)).Elem()
-}
-
-func (o EventSubscriptionHybridConnectionEndpointOutput) ToEventSubscriptionHybridConnectionEndpointOutput() EventSubscriptionHybridConnectionEndpointOutput {
-	return o
-}
-
-func (o EventSubscriptionHybridConnectionEndpointOutput) ToEventSubscriptionHybridConnectionEndpointOutputWithContext(ctx context.Context) EventSubscriptionHybridConnectionEndpointOutput {
-	return o
-}
-
-func (o EventSubscriptionHybridConnectionEndpointOutput) ToEventSubscriptionHybridConnectionEndpointPtrOutput() EventSubscriptionHybridConnectionEndpointPtrOutput {
-	return o.ToEventSubscriptionHybridConnectionEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionHybridConnectionEndpointOutput) ToEventSubscriptionHybridConnectionEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionHybridConnectionEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionHybridConnectionEndpoint) *EventSubscriptionHybridConnectionEndpoint {
-		return &v
-	}).(EventSubscriptionHybridConnectionEndpointPtrOutput)
-}
-
-// Specifies the id of the hybrid connection where the Event Subscription will receive events.
-func (o EventSubscriptionHybridConnectionEndpointOutput) HybridConnectionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionHybridConnectionEndpoint) *string { return v.HybridConnectionId }).(pulumi.StringPtrOutput)
-}
-
-type EventSubscriptionHybridConnectionEndpointPtrOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionHybridConnectionEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionHybridConnectionEndpoint)(nil)).Elem()
-}
-
-func (o EventSubscriptionHybridConnectionEndpointPtrOutput) ToEventSubscriptionHybridConnectionEndpointPtrOutput() EventSubscriptionHybridConnectionEndpointPtrOutput {
-	return o
-}
-
-func (o EventSubscriptionHybridConnectionEndpointPtrOutput) ToEventSubscriptionHybridConnectionEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionHybridConnectionEndpointPtrOutput {
-	return o
-}
-
-func (o EventSubscriptionHybridConnectionEndpointPtrOutput) Elem() EventSubscriptionHybridConnectionEndpointOutput {
-	return o.ApplyT(func(v *EventSubscriptionHybridConnectionEndpoint) EventSubscriptionHybridConnectionEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret EventSubscriptionHybridConnectionEndpoint
-		return ret
-	}).(EventSubscriptionHybridConnectionEndpointOutput)
-}
-
-// Specifies the id of the hybrid connection where the Event Subscription will receive events.
-func (o EventSubscriptionHybridConnectionEndpointPtrOutput) HybridConnectionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventSubscriptionHybridConnectionEndpoint) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HybridConnectionId
-	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionRetryPolicy struct {
@@ -8006,6 +7732,139 @@ func (o SystemTopicEventSubscriptionDeliveryIdentityPtrOutput) UserAssignedIdent
 	}).(pulumi.StringPtrOutput)
 }
 
+type SystemTopicEventSubscriptionDeliveryProperty struct {
+	// The name of the header to send on to the destination.
+	HeaderName string `pulumi:"headerName"`
+	// Set to `true` if the `value` is a secret and should be protected, otherwise `false`. If `true` then this value won't be returned from Azure API calls.
+	Secret *bool `pulumi:"secret"`
+	// If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+	SourceField *string `pulumi:"sourceField"`
+	// Either `Static` or `Dynamic`.
+	Type string `pulumi:"type"`
+	// If the `type` is `Static`, then provide the value to use.
+	Value *string `pulumi:"value"`
+}
+
+// SystemTopicEventSubscriptionDeliveryPropertyInput is an input type that accepts SystemTopicEventSubscriptionDeliveryPropertyArgs and SystemTopicEventSubscriptionDeliveryPropertyOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionDeliveryPropertyInput` via:
+//
+//          SystemTopicEventSubscriptionDeliveryPropertyArgs{...}
+type SystemTopicEventSubscriptionDeliveryPropertyInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionDeliveryPropertyOutput() SystemTopicEventSubscriptionDeliveryPropertyOutput
+	ToSystemTopicEventSubscriptionDeliveryPropertyOutputWithContext(context.Context) SystemTopicEventSubscriptionDeliveryPropertyOutput
+}
+
+type SystemTopicEventSubscriptionDeliveryPropertyArgs struct {
+	// The name of the header to send on to the destination.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// Set to `true` if the `value` is a secret and should be protected, otherwise `false`. If `true` then this value won't be returned from Azure API calls.
+	Secret pulumi.BoolPtrInput `pulumi:"secret"`
+	// If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+	SourceField pulumi.StringPtrInput `pulumi:"sourceField"`
+	// Either `Static` or `Dynamic`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// If the `type` is `Static`, then provide the value to use.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SystemTopicEventSubscriptionDeliveryPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionDeliveryProperty)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionDeliveryPropertyArgs) ToSystemTopicEventSubscriptionDeliveryPropertyOutput() SystemTopicEventSubscriptionDeliveryPropertyOutput {
+	return i.ToSystemTopicEventSubscriptionDeliveryPropertyOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionDeliveryPropertyArgs) ToSystemTopicEventSubscriptionDeliveryPropertyOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionDeliveryPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionDeliveryPropertyOutput)
+}
+
+// SystemTopicEventSubscriptionDeliveryPropertyArrayInput is an input type that accepts SystemTopicEventSubscriptionDeliveryPropertyArray and SystemTopicEventSubscriptionDeliveryPropertyArrayOutput values.
+// You can construct a concrete instance of `SystemTopicEventSubscriptionDeliveryPropertyArrayInput` via:
+//
+//          SystemTopicEventSubscriptionDeliveryPropertyArray{ SystemTopicEventSubscriptionDeliveryPropertyArgs{...} }
+type SystemTopicEventSubscriptionDeliveryPropertyArrayInput interface {
+	pulumi.Input
+
+	ToSystemTopicEventSubscriptionDeliveryPropertyArrayOutput() SystemTopicEventSubscriptionDeliveryPropertyArrayOutput
+	ToSystemTopicEventSubscriptionDeliveryPropertyArrayOutputWithContext(context.Context) SystemTopicEventSubscriptionDeliveryPropertyArrayOutput
+}
+
+type SystemTopicEventSubscriptionDeliveryPropertyArray []SystemTopicEventSubscriptionDeliveryPropertyInput
+
+func (SystemTopicEventSubscriptionDeliveryPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionDeliveryProperty)(nil)).Elem()
+}
+
+func (i SystemTopicEventSubscriptionDeliveryPropertyArray) ToSystemTopicEventSubscriptionDeliveryPropertyArrayOutput() SystemTopicEventSubscriptionDeliveryPropertyArrayOutput {
+	return i.ToSystemTopicEventSubscriptionDeliveryPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i SystemTopicEventSubscriptionDeliveryPropertyArray) ToSystemTopicEventSubscriptionDeliveryPropertyArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionDeliveryPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionDeliveryPropertyArrayOutput)
+}
+
+type SystemTopicEventSubscriptionDeliveryPropertyOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionDeliveryPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemTopicEventSubscriptionDeliveryProperty)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionDeliveryPropertyOutput) ToSystemTopicEventSubscriptionDeliveryPropertyOutput() SystemTopicEventSubscriptionDeliveryPropertyOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionDeliveryPropertyOutput) ToSystemTopicEventSubscriptionDeliveryPropertyOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionDeliveryPropertyOutput {
+	return o
+}
+
+// The name of the header to send on to the destination.
+func (o SystemTopicEventSubscriptionDeliveryPropertyOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionDeliveryProperty) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+// Set to `true` if the `value` is a secret and should be protected, otherwise `false`. If `true` then this value won't be returned from Azure API calls.
+func (o SystemTopicEventSubscriptionDeliveryPropertyOutput) Secret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionDeliveryProperty) *bool { return v.Secret }).(pulumi.BoolPtrOutput)
+}
+
+// If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
+func (o SystemTopicEventSubscriptionDeliveryPropertyOutput) SourceField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionDeliveryProperty) *string { return v.SourceField }).(pulumi.StringPtrOutput)
+}
+
+// Either `Static` or `Dynamic`.
+func (o SystemTopicEventSubscriptionDeliveryPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionDeliveryProperty) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// If the `type` is `Static`, then provide the value to use.
+func (o SystemTopicEventSubscriptionDeliveryPropertyOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionDeliveryProperty) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SystemTopicEventSubscriptionDeliveryPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (SystemTopicEventSubscriptionDeliveryPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SystemTopicEventSubscriptionDeliveryProperty)(nil)).Elem()
+}
+
+func (o SystemTopicEventSubscriptionDeliveryPropertyArrayOutput) ToSystemTopicEventSubscriptionDeliveryPropertyArrayOutput() SystemTopicEventSubscriptionDeliveryPropertyArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionDeliveryPropertyArrayOutput) ToSystemTopicEventSubscriptionDeliveryPropertyArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionDeliveryPropertyArrayOutput {
+	return o
+}
+
+func (o SystemTopicEventSubscriptionDeliveryPropertyArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionDeliveryPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopicEventSubscriptionDeliveryProperty {
+		return vs[0].([]SystemTopicEventSubscriptionDeliveryProperty)[vs[1].(int)]
+	}).(SystemTopicEventSubscriptionDeliveryPropertyOutput)
+}
+
 type SystemTopicEventSubscriptionRetryPolicy struct {
 	// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
 	EventTimeToLive int `pulumi:"eventTimeToLive"`
@@ -8905,13 +8764,13 @@ func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.Strin
 }
 
 type SystemTopicIdentity struct {
-	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 	IdentityIds []string `pulumi:"identityIds"`
-	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+	// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -8927,13 +8786,13 @@ type SystemTopicIdentityInput interface {
 }
 
 type SystemTopicIdentityArgs struct {
-	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+	// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9014,22 +8873,22 @@ func (o SystemTopicIdentityOutput) ToSystemTopicIdentityPtrOutputWithContext(ctx
 	}).(SystemTopicIdentityPtrOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 func (o SystemTopicIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SystemTopicIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+// The Principal ID associated with this Managed Service Identity.
 func (o SystemTopicIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemTopicIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+// The Tenant ID associated with this Managed Service Identity.
 func (o SystemTopicIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemTopicIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
 func (o SystemTopicIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemTopicIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9058,7 +8917,7 @@ func (o SystemTopicIdentityPtrOutput) Elem() SystemTopicIdentityOutput {
 	}).(SystemTopicIdentityOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 func (o SystemTopicIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SystemTopicIdentity) []string {
 		if v == nil {
@@ -9068,7 +8927,7 @@ func (o SystemTopicIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+// The Principal ID associated with this Managed Service Identity.
 func (o SystemTopicIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemTopicIdentity) *string {
 		if v == nil {
@@ -9078,7 +8937,7 @@ func (o SystemTopicIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+// The Tenant ID associated with this Managed Service Identity.
 func (o SystemTopicIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemTopicIdentity) *string {
 		if v == nil {
@@ -9088,7 +8947,7 @@ func (o SystemTopicIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
 func (o SystemTopicIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemTopicIdentity) *string {
 		if v == nil {
@@ -9099,13 +8958,13 @@ func (o SystemTopicIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type TopicIdentity struct {
-	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 	IdentityIds []string `pulumi:"identityIds"`
-	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of Event Grid Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+	// Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -9121,13 +8980,13 @@ type TopicIdentityInput interface {
 }
 
 type TopicIdentityArgs struct {
-	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of Event Grid Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+	// Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9208,22 +9067,22 @@ func (o TopicIdentityOutput) ToTopicIdentityPtrOutputWithContext(ctx context.Con
 	}).(TopicIdentityPtrOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 func (o TopicIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+// The Principal ID associated with this Managed Service Identity.
 func (o TopicIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+// The Tenant ID associated with this Managed Service Identity.
 func (o TopicIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of Event Grid Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+// Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
 func (o TopicIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9252,7 +9111,7 @@ func (o TopicIdentityPtrOutput) Elem() TopicIdentityOutput {
 	}).(TopicIdentityOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
 func (o TopicIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TopicIdentity) []string {
 		if v == nil {
@@ -9262,7 +9121,7 @@ func (o TopicIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+// The Principal ID associated with this Managed Service Identity.
 func (o TopicIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicIdentity) *string {
 		if v == nil {
@@ -9272,7 +9131,7 @@ func (o TopicIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid Topic.
+// The Tenant ID associated with this Managed Service Identity.
 func (o TopicIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicIdentity) *string {
 		if v == nil {
@@ -9282,7 +9141,7 @@ func (o TopicIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of Event Grid Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+// Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
 func (o TopicIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicIdentity) *string {
 		if v == nil {
@@ -10169,13 +10028,13 @@ func (o GetDomainInputMappingFieldArrayOutput) Index(i pulumi.IntInput) GetDomai
 }
 
 type GetSystemTopicIdentity struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// The list of User Assigned Managed Identity IDs assigned to this Event Grid System Topic.
 	IdentityIds []string `pulumi:"identityIds"`
-	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
 	PrincipalId string `pulumi:"principalId"`
-	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
 	TenantId string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
+	// The type of Managed Service Identity that is configured on this Event Grid System Topic.
 	Type string `pulumi:"type"`
 }
 
@@ -10191,13 +10050,13 @@ type GetSystemTopicIdentityInput interface {
 }
 
 type GetSystemTopicIdentityArgs struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// The list of User Assigned Managed Identity IDs assigned to this Event Grid System Topic.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
+	// The type of Managed Service Identity that is configured on this Event Grid System Topic.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10252,22 +10111,22 @@ func (o GetSystemTopicIdentityOutput) ToGetSystemTopicIdentityOutputWithContext(
 	return o
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// The list of User Assigned Managed Identity IDs assigned to this Event Grid System Topic.
 func (o GetSystemTopicIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSystemTopicIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
 func (o GetSystemTopicIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemTopicIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
 func (o GetSystemTopicIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemTopicIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
+// The type of Managed Service Identity that is configured on this Event Grid System Topic.
 func (o GetSystemTopicIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemTopicIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10349,10 +10208,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDeliveryIdentityPtrInput)(nil)).Elem(), EventSubscriptionDeliveryIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDeliveryPropertyInput)(nil)).Elem(), EventSubscriptionDeliveryPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDeliveryPropertyArrayInput)(nil)).Elem(), EventSubscriptionDeliveryPropertyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionEventhubEndpointInput)(nil)).Elem(), EventSubscriptionEventhubEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionEventhubEndpointPtrInput)(nil)).Elem(), EventSubscriptionEventhubEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionHybridConnectionEndpointInput)(nil)).Elem(), EventSubscriptionHybridConnectionEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionHybridConnectionEndpointPtrInput)(nil)).Elem(), EventSubscriptionHybridConnectionEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionRetryPolicyInput)(nil)).Elem(), EventSubscriptionRetryPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionRetryPolicyPtrInput)(nil)).Elem(), EventSubscriptionRetryPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionStorageBlobDeadLetterDestinationInput)(nil)).Elem(), EventSubscriptionStorageBlobDeadLetterDestinationArgs{})
@@ -10409,6 +10264,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionDeadLetterIdentityPtrInput)(nil)).Elem(), SystemTopicEventSubscriptionDeadLetterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionDeliveryIdentityInput)(nil)).Elem(), SystemTopicEventSubscriptionDeliveryIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionDeliveryIdentityPtrInput)(nil)).Elem(), SystemTopicEventSubscriptionDeliveryIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionDeliveryPropertyInput)(nil)).Elem(), SystemTopicEventSubscriptionDeliveryPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionDeliveryPropertyArrayInput)(nil)).Elem(), SystemTopicEventSubscriptionDeliveryPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionRetryPolicyInput)(nil)).Elem(), SystemTopicEventSubscriptionRetryPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionRetryPolicyPtrInput)(nil)).Elem(), SystemTopicEventSubscriptionRetryPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationInput)(nil)).Elem(), SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs{})
@@ -10493,10 +10350,6 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionDeliveryIdentityPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDeliveryPropertyOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDeliveryPropertyArrayOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionEventhubEndpointOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionEventhubEndpointPtrOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionHybridConnectionEndpointOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionHybridConnectionEndpointPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionRetryPolicyOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionRetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionStorageBlobDeadLetterDestinationOutput{})
@@ -10553,6 +10406,8 @@ func init() {
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionDeliveryIdentityOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionDeliveryIdentityPtrOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionDeliveryPropertyOutput{})
+	pulumi.RegisterOutputType(SystemTopicEventSubscriptionDeliveryPropertyArrayOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionRetryPolicyOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionRetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput{})

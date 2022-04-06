@@ -33,12 +33,12 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: "West US",
  *     serverName: exampleSqlServer.name,
- *     extendedAuditingPolicy: {
+ *     extendedAuditingPolicy: [{
  *         storageEndpoint: exampleAccount.primaryBlobEndpoint,
  *         storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *         storageAccountAccessKeyIsSecondary: true,
  *         retentionInDays: 6,
- *     },
+ *     }],
  *     tags: {
  *         environment: "production",
  *     },
@@ -106,12 +106,6 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly elasticPoolName!: pulumi.Output<string>;
     public /*out*/ readonly encryption!: pulumi.Output<string>;
-    /**
-     * A `extendedAuditingPolicy` block as defined below.
-     *
-     * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-     */
-    public readonly extendedAuditingPolicy!: pulumi.Output<outputs.sql.DatabaseExtendedAuditingPolicy>;
     /**
      * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
@@ -195,7 +189,6 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["edition"] = state ? state.edition : undefined;
             resourceInputs["elasticPoolName"] = state ? state.elasticPoolName : undefined;
             resourceInputs["encryption"] = state ? state.encryption : undefined;
-            resourceInputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
             resourceInputs["import"] = state ? state.import : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
@@ -224,7 +217,6 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["createMode"] = args ? args.createMode : undefined;
             resourceInputs["edition"] = args ? args.edition : undefined;
             resourceInputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
-            resourceInputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
             resourceInputs["import"] = args ? args.import : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
@@ -279,12 +271,6 @@ export interface DatabaseState {
      */
     elasticPoolName?: pulumi.Input<string>;
     encryption?: pulumi.Input<string>;
-    /**
-     * A `extendedAuditingPolicy` block as defined below.
-     *
-     * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-     */
-    extendedAuditingPolicy?: pulumi.Input<inputs.sql.DatabaseExtendedAuditingPolicy>;
     /**
      * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
@@ -369,12 +355,6 @@ export interface DatabaseArgs {
      * The name of the elastic database pool.
      */
     elasticPoolName?: pulumi.Input<string>;
-    /**
-     * A `extendedAuditingPolicy` block as defined below.
-     *
-     * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-     */
-    extendedAuditingPolicy?: pulumi.Input<inputs.sql.DatabaseExtendedAuditingPolicy>;
     /**
      * A Database Import block as documented below. `createMode` must be set to `Default`.
      */

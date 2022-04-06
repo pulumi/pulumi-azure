@@ -19,6 +19,7 @@ class SharedImageArgs:
                  identifier: pulumi.Input['SharedImageIdentifierArgs'],
                  os_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
@@ -36,6 +37,7 @@ class SharedImageArgs:
         :param pulumi.Input['SharedImageIdentifierArgs'] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
@@ -52,6 +54,8 @@ class SharedImageArgs:
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if accelerated_network_support_enabled is not None:
+            pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if eula is not None:
@@ -122,6 +126,18 @@ class SharedImageArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="acceleratedNetworkSupportEnabled")
+    def accelerated_network_support_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "accelerated_network_support_enabled")
+
+    @accelerated_network_support_enabled.setter
+    def accelerated_network_support_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accelerated_network_support_enabled", value)
 
     @property
     @pulumi.getter
@@ -259,6 +275,7 @@ class SharedImageArgs:
 @pulumi.input_type
 class _SharedImageState:
     def __init__(__self__, *,
+                 accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
@@ -276,6 +293,7 @@ class _SharedImageState:
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering SharedImage resources.
+        :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
@@ -292,6 +310,8 @@ class _SharedImageState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
         """
+        if accelerated_network_support_enabled is not None:
+            pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if eula is not None:
@@ -322,6 +342,18 @@ class _SharedImageState:
             pulumi.set(__self__, "tags", tags)
         if trusted_launch_enabled is not None:
             pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
+
+    @property
+    @pulumi.getter(name="acceleratedNetworkSupportEnabled")
+    def accelerated_network_support_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "accelerated_network_support_enabled")
+
+    @accelerated_network_support_enabled.setter
+    def accelerated_network_support_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accelerated_network_support_enabled", value)
 
     @property
     @pulumi.getter
@@ -509,6 +541,7 @@ class SharedImage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
@@ -565,6 +598,7 @@ class SharedImage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
@@ -640,6 +674,7 @@ class SharedImage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
@@ -667,6 +702,7 @@ class SharedImage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SharedImageArgs.__new__(SharedImageArgs)
 
+            __props__.__dict__["accelerated_network_support_enabled"] = accelerated_network_support_enabled
             __props__.__dict__["description"] = description
             __props__.__dict__["eula"] = eula
             if gallery_name is None and not opts.urn:
@@ -700,6 +736,7 @@ class SharedImage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             eula: Optional[pulumi.Input[str]] = None,
             gallery_name: Optional[pulumi.Input[str]] = None,
@@ -722,6 +759,7 @@ class SharedImage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
@@ -742,6 +780,7 @@ class SharedImage(pulumi.CustomResource):
 
         __props__ = _SharedImageState.__new__(_SharedImageState)
 
+        __props__.__dict__["accelerated_network_support_enabled"] = accelerated_network_support_enabled
         __props__.__dict__["description"] = description
         __props__.__dict__["eula"] = eula
         __props__.__dict__["gallery_name"] = gallery_name
@@ -758,6 +797,14 @@ class SharedImage(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["trusted_launch_enabled"] = trusted_launch_enabled
         return SharedImage(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="acceleratedNetworkSupportEnabled")
+    def accelerated_network_support_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "accelerated_network_support_enabled")
 
     @property
     @pulumi.getter

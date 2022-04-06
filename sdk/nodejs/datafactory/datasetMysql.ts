@@ -20,12 +20,10 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLinkedServiceMysql = new azure.datafactory.LinkedServiceMysql("exampleLinkedServiceMysql", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
  * });
  * const exampleDatasetMysql = new azure.datafactory.DatasetMysql("exampleDatasetMysql", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceMysql.name,
  * });
@@ -80,12 +78,6 @@ export class DatasetMysql extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * The description for the Data Factory Dataset MySQL.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -105,10 +97,6 @@ export class DatasetMysql extends pulumi.CustomResource {
      * A map of parameters to associate with the Data Factory Dataset MySQL.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `schemaColumn` block as defined below.
      */
@@ -134,33 +122,29 @@ export class DatasetMysql extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["folder"] = state ? state.folder : undefined;
             resourceInputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as DatasetMysqlArgs | undefined;
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
+            }
             if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["folder"] = args ? args.folder : undefined;
             resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
@@ -186,12 +170,6 @@ export interface DatasetMysqlState {
      */
     dataFactoryId?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
-    /**
      * The description for the Data Factory Dataset MySQL.
      */
     description?: pulumi.Input<string>;
@@ -211,10 +189,6 @@ export interface DatasetMysqlState {
      * A map of parameters to associate with the Data Factory Dataset MySQL.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `schemaColumn` block as defined below.
      */
@@ -240,13 +214,7 @@ export interface DatasetMysqlArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset MySQL.
      */
@@ -267,10 +235,6 @@ export interface DatasetMysqlArgs {
      * A map of parameters to associate with the Data Factory Dataset MySQL.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * A `schemaColumn` block as defined below.
      */

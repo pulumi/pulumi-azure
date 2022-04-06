@@ -157,6 +157,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly disablePasswordAuthentication!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
+     */
+    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
     public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
@@ -265,6 +269,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A `terminationNotification` block as defined below.
+     */
+    public readonly terminationNotification!: pulumi.Output<outputs.compute.LinuxVirtualMachineTerminationNotification>;
+    /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine.
      */
     public readonly userData!: pulumi.Output<string | undefined>;
@@ -281,9 +289,9 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+     * Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
      */
-    public readonly zone!: pulumi.Output<string>;
+    public readonly zone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LinuxVirtualMachine resource with the given unique name, arguments, and options.
@@ -310,6 +318,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["dedicatedHostGroupId"] = state ? state.dedicatedHostGroupId : undefined;
             resourceInputs["dedicatedHostId"] = state ? state.dedicatedHostId : undefined;
             resourceInputs["disablePasswordAuthentication"] = state ? state.disablePasswordAuthentication : undefined;
+            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             resourceInputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
@@ -337,6 +346,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["sourceImageId"] = state ? state.sourceImageId : undefined;
             resourceInputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["terminationNotification"] = state ? state.terminationNotification : undefined;
             resourceInputs["userData"] = state ? state.userData : undefined;
             resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
             resourceInputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
@@ -371,6 +381,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["dedicatedHostGroupId"] = args ? args.dedicatedHostGroupId : undefined;
             resourceInputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;
             resourceInputs["disablePasswordAuthentication"] = args ? args.disablePasswordAuthentication : undefined;
+            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             resourceInputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
@@ -394,6 +405,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["sourceImageId"] = args ? args.sourceImageId : undefined;
             resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["terminationNotification"] = args ? args.terminationNotification : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
             resourceInputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
@@ -461,6 +473,10 @@ export interface LinuxVirtualMachineState {
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      */
     disablePasswordAuthentication?: pulumi.Input<boolean>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
@@ -570,6 +586,10 @@ export interface LinuxVirtualMachineState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A `terminationNotification` block as defined below.
+     */
+    terminationNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineTerminationNotification>;
+    /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine.
      */
     userData?: pulumi.Input<string>;
@@ -586,7 +606,7 @@ export interface LinuxVirtualMachineState {
      */
     vtpmEnabled?: pulumi.Input<boolean>;
     /**
-     * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+     * Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
      */
     zone?: pulumi.Input<string>;
 }
@@ -643,6 +663,10 @@ export interface LinuxVirtualMachineArgs {
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      */
     disablePasswordAuthentication?: pulumi.Input<boolean>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
@@ -736,6 +760,10 @@ export interface LinuxVirtualMachineArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A `terminationNotification` block as defined below.
+     */
+    terminationNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineTerminationNotification>;
+    /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine.
      */
     userData?: pulumi.Input<string>;
@@ -748,7 +776,7 @@ export interface LinuxVirtualMachineArgs {
      */
     vtpmEnabled?: pulumi.Input<boolean>;
     /**
-     * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+     * Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
      */
     zone?: pulumi.Input<string>;
 }

@@ -253,12 +253,6 @@ namespace Pulumi.Azure.Iot
         public Output<Outputs.IoTHubIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `ip_filter_rule` blocks as defined below.
-        /// </summary>
-        [Output("ipFilterRules")]
-        public Output<ImmutableArray<Outputs.IoTHubIpFilterRule>> IpFilterRules { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -429,19 +423,6 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IoTHubIdentityArgs>? Identity { get; set; }
-
-        [Input("ipFilterRules")]
-        private InputList<Inputs.IoTHubIpFilterRuleArgs>? _ipFilterRules;
-
-        /// <summary>
-        /// One or more `ip_filter_rule` blocks as defined below.
-        /// </summary>
-        [Obsolete(@"This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.")]
-        public InputList<Inputs.IoTHubIpFilterRuleArgs> IpFilterRules
-        {
-            get => _ipFilterRules ?? (_ipFilterRules = new InputList<Inputs.IoTHubIpFilterRuleArgs>());
-            set => _ipFilterRules = value;
-        }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -617,19 +598,6 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IoTHubIdentityGetArgs>? Identity { get; set; }
-
-        [Input("ipFilterRules")]
-        private InputList<Inputs.IoTHubIpFilterRuleGetArgs>? _ipFilterRules;
-
-        /// <summary>
-        /// One or more `ip_filter_rule` blocks as defined below.
-        /// </summary>
-        [Obsolete(@"This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.")]
-        public InputList<Inputs.IoTHubIpFilterRuleGetArgs> IpFilterRules
-        {
-            get => _ipFilterRules ?? (_ipFilterRules = new InputList<Inputs.IoTHubIpFilterRuleGetArgs>());
-            set => _ipFilterRules = value;
-        }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.

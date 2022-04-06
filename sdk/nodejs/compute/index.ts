@@ -7,7 +7,6 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./availabilitySet";
 export * from "./bastionHost";
-export * from "./configurationPolicyAssignment";
 export * from "./dataDiskAttachment";
 export * from "./dedicatedHost";
 export * from "./dedicatedHostGroup";
@@ -54,7 +53,6 @@ export * from "./windowsVirtualMachineScaleSet";
 // Import resources to register:
 import { AvailabilitySet } from "./availabilitySet";
 import { BastionHost } from "./bastionHost";
-import { ConfigurationPolicyAssignment } from "./configurationPolicyAssignment";
 import { DataDiskAttachment } from "./dataDiskAttachment";
 import { DedicatedHost } from "./dedicatedHost";
 import { DedicatedHostGroup } from "./dedicatedHostGroup";
@@ -89,8 +87,6 @@ const _module = {
                 return new AvailabilitySet(name, <any>undefined, { urn })
             case "azure:compute/bastionHost:BastionHost":
                 return new BastionHost(name, <any>undefined, { urn })
-            case "azure:compute/configurationPolicyAssignment:ConfigurationPolicyAssignment":
-                return new ConfigurationPolicyAssignment(name, <any>undefined, { urn })
             case "azure:compute/dataDiskAttachment:DataDiskAttachment":
                 return new DataDiskAttachment(name, <any>undefined, { urn })
             case "azure:compute/dedicatedHost:DedicatedHost":
@@ -148,7 +144,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "compute/availabilitySet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/bastionHost", _module)
-pulumi.runtime.registerResourceModule("azure", "compute/configurationPolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/dataDiskAttachment", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/dedicatedHost", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/dedicatedHostGroup", _module)

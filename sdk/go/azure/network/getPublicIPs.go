@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -48,8 +48,6 @@ func GetPublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs, opts ...pulumi.In
 type GetPublicIPsArgs struct {
 	// The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
 	AllocationType *string `pulumi:"allocationType"`
-	// Deprecated: This property has been deprecated in favour of `attachment_status` to improve filtering
-	Attached *bool `pulumi:"attached"`
 	// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
 	AttachmentStatus *string `pulumi:"attachmentStatus"`
 	// A prefix match used for the IP Addresses `name` field, case sensitive.
@@ -60,9 +58,7 @@ type GetPublicIPsArgs struct {
 
 // A collection of values returned by getPublicIPs.
 type GetPublicIPsResult struct {
-	AllocationType *string `pulumi:"allocationType"`
-	// Deprecated: This property has been deprecated in favour of `attachment_status` to improve filtering
-	Attached         *bool   `pulumi:"attached"`
+	AllocationType   *string `pulumi:"allocationType"`
 	AttachmentStatus *string `pulumi:"attachmentStatus"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string  `pulumi:"id"`
@@ -85,8 +81,6 @@ func GetPublicIPsOutput(ctx *pulumi.Context, args GetPublicIPsOutputArgs, opts .
 type GetPublicIPsOutputArgs struct {
 	// The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
 	AllocationType pulumi.StringPtrInput `pulumi:"allocationType"`
-	// Deprecated: This property has been deprecated in favour of `attachment_status` to improve filtering
-	Attached pulumi.BoolPtrInput `pulumi:"attached"`
 	// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
 	AttachmentStatus pulumi.StringPtrInput `pulumi:"attachmentStatus"`
 	// A prefix match used for the IP Addresses `name` field, case sensitive.
@@ -116,11 +110,6 @@ func (o GetPublicIPsResultOutput) ToGetPublicIPsResultOutputWithContext(ctx cont
 
 func (o GetPublicIPsResultOutput) AllocationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetPublicIPsResult) *string { return v.AllocationType }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This property has been deprecated in favour of `attachment_status` to improve filtering
-func (o GetPublicIPsResultOutput) Attached() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetPublicIPsResult) *bool { return v.Attached }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetPublicIPsResultOutput) AttachmentStatus() pulumi.StringPtrOutput {

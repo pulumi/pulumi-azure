@@ -38,9 +38,9 @@ class ClusterIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Log Analytics Cluster. At this time the only allowed value is `SystemAssigned`.
-        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
-        :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if principal_id is not None:
@@ -52,7 +52,7 @@ class ClusterIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Log Analytics Cluster. At this time the only allowed value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -60,7 +60,7 @@ class ClusterIdentity(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
         """
-        The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -68,7 +68,7 @@ class ClusterIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        The Tenant ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 

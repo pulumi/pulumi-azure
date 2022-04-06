@@ -22,7 +22,6 @@ namespace Pulumi.Azure.Network.Outputs
         /// through BGP peering. Valid values can be between `0` and `100`.
         /// </summary>
         public readonly int? PeerWeight;
-        public readonly string? PeeringAddress;
         /// <summary>
         /// A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
         /// </summary>
@@ -34,13 +33,10 @@ namespace Pulumi.Azure.Network.Outputs
 
             int? peerWeight,
 
-            string? peeringAddress,
-
             ImmutableArray<Outputs.VirtualNetworkGatewayBgpSettingsPeeringAddress> peeringAddresses)
         {
             Asn = asn;
             PeerWeight = peerWeight;
-            PeeringAddress = peeringAddress;
             PeeringAddresses = peeringAddresses;
         }
     }

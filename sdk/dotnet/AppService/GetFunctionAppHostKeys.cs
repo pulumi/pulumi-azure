@@ -131,11 +131,10 @@ namespace Pulumi.Azure.AppService
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
         /// <summary>
         /// Function App resource's secret key
         /// </summary>
-        public readonly string MasterKey;
-        public readonly string Name;
         public readonly string PrimaryKey;
         public readonly string ResourceGroupName;
         /// <summary>
@@ -153,8 +152,6 @@ namespace Pulumi.Azure.AppService
 
             string id,
 
-            string masterKey,
-
             string name,
 
             string primaryKey,
@@ -167,7 +164,6 @@ namespace Pulumi.Azure.AppService
             DurabletaskExtensionKey = durabletaskExtensionKey;
             EventGridExtensionConfigKey = eventGridExtensionConfigKey;
             Id = id;
-            MasterKey = masterKey;
             Name = name;
             PrimaryKey = primaryKey;
             ResourceGroupName = resourceGroupName;

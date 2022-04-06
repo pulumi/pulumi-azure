@@ -38,10 +38,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly bool? EnableFrontendTls11;
         /// <summary>
-        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
-        /// </summary>
-        public readonly bool? EnableTripleDesCiphers;
-        /// <summary>
         /// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
         /// </summary>
         public readonly bool? TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
@@ -90,8 +86,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             bool? enableFrontendTls11,
 
-            bool? enableTripleDesCiphers,
-
             bool? tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled,
 
             bool? tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled,
@@ -118,7 +112,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
             EnableFrontendSsl30 = enableFrontendSsl30;
             EnableFrontendTls10 = enableFrontendTls10;
             EnableFrontendTls11 = enableFrontendTls11;
-            EnableTripleDesCiphers = enableTripleDesCiphers;
             TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
             TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
             TlsEcdheRsaWithAes128CbcShaCiphersEnabled = tlsEcdheRsaWithAes128CbcShaCiphersEnabled;

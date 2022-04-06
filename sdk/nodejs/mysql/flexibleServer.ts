@@ -178,7 +178,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly version!: pulumi.Output<string>;
     /**
-     * The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
+     * Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
      */
     public readonly zone!: pulumi.Output<string | undefined>;
 
@@ -345,7 +345,7 @@ export interface FlexibleServerState {
      */
     version?: pulumi.Input<string>;
     /**
-     * The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
+     * Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
      */
     zone?: pulumi.Input<string>;
 }
@@ -431,7 +431,7 @@ export interface FlexibleServerArgs {
      */
     version?: pulumi.Input<string>;
     /**
-     * The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
+     * Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
      */
     zone?: pulumi.Input<string>;
 }

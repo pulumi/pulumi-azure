@@ -31,9 +31,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -136,6 +136,8 @@ type WindowsVirtualMachineScaleSet struct {
 	DataDisks WindowsVirtualMachineScaleSetDataDiskArrayOutput `pulumi:"dataDisks"`
 	// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
 	DoNotRunExtensionsOnOverprovisionedMachines pulumi.BoolPtrOutput `pulumi:"doNotRunExtensionsOnOverprovisionedMachines"`
+	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
 	EnableAutomaticUpdates pulumi.BoolPtrOutput `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -212,7 +214,7 @@ type WindowsVirtualMachineScaleSet struct {
 	WinrmListeners WindowsVirtualMachineScaleSetWinrmListenerArrayOutput `pulumi:"winrmListeners"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
-	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -288,6 +290,8 @@ type windowsVirtualMachineScaleSetState struct {
 	DataDisks []WindowsVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
 	// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
 	DoNotRunExtensionsOnOverprovisionedMachines *bool `pulumi:"doNotRunExtensionsOnOverprovisionedMachines"`
+	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -364,7 +368,7 @@ type windowsVirtualMachineScaleSetState struct {
 	WinrmListeners []WindowsVirtualMachineScaleSetWinrmListener `pulumi:"winrmListeners"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
-	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -391,6 +395,8 @@ type WindowsVirtualMachineScaleSetState struct {
 	DataDisks WindowsVirtualMachineScaleSetDataDiskArrayInput
 	// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
 	DoNotRunExtensionsOnOverprovisionedMachines pulumi.BoolPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	EdgeZone pulumi.StringPtrInput
 	// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
 	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -467,7 +473,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	WinrmListeners WindowsVirtualMachineScaleSetWinrmListenerArrayInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance pulumi.BoolPtrInput
-	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -498,6 +504,8 @@ type windowsVirtualMachineScaleSetArgs struct {
 	DataDisks []WindowsVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
 	// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
 	DoNotRunExtensionsOnOverprovisionedMachines *bool `pulumi:"doNotRunExtensionsOnOverprovisionedMachines"`
+	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -572,7 +580,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	WinrmListeners []WindowsVirtualMachineScaleSetWinrmListener `pulumi:"winrmListeners"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
-	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -600,6 +608,8 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	DataDisks WindowsVirtualMachineScaleSetDataDiskArrayInput
 	// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
 	DoNotRunExtensionsOnOverprovisionedMachines pulumi.BoolPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	EdgeZone pulumi.StringPtrInput
 	// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
 	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -674,7 +684,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	WinrmListeners WindowsVirtualMachineScaleSetWinrmListenerArrayInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance pulumi.BoolPtrInput
-	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
 	Zones pulumi.StringArrayInput
 }
 

@@ -47,7 +47,6 @@ namespace Pulumi.Azure.DataFactory
     ///         var msiLinked = new Azure.DataFactory.LinkedServiceAzureDatabricks("msiLinked", new Azure.DataFactory.LinkedServiceAzureDatabricksArgs
     ///         {
     ///             DataFactoryId = exampleFactory.Id,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Description = "ADB Linked Service via MSI",
     ///             AdbDomain = exampleWorkspace.WorkspaceUrl.Apply(workspaceUrl =&gt; $"https://{workspaceUrl}"),
     ///             MsiWorkSpaceResourceId = exampleWorkspace.Id,
@@ -115,7 +114,6 @@ namespace Pulumi.Azure.DataFactory
     ///         var atLinked = new Azure.DataFactory.LinkedServiceAzureDatabricks("atLinked", new Azure.DataFactory.LinkedServiceAzureDatabricksArgs
     ///         {
     ///             DataFactoryId = exampleFactory.Id,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Description = "ADB Linked Service via Access Token",
     ///             ExistingClusterId = "0308-201146-sly615",
     ///             AccessToken = "SomeDatabricksAccessToken",
@@ -166,12 +164,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("dataFactoryId")]
         public Output<string> DataFactoryId { get; private set; } = null!;
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Output("dataFactoryName")]
-        public Output<string> DataFactoryName { get; private set; } = null!;
 
         /// <summary>
         /// The description for the Data Factory Linked Service.
@@ -226,12 +218,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
 
         /// <summary>
@@ -318,14 +304,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryId")]
-        public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
+        [Input("dataFactoryId", required: true)]
+        public Input<string> DataFactoryId { get; set; } = null!;
 
         /// <summary>
         /// The description for the Data Factory Linked Service.
@@ -387,12 +367,6 @@ namespace Pulumi.Azure.DataFactory
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
         public LinkedServiceAzureDatabricksArgs()
         {
         }
@@ -441,12 +415,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("dataFactoryId")]
         public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// The description for the Data Factory Linked Service.
@@ -507,12 +475,6 @@ namespace Pulumi.Azure.DataFactory
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         public LinkedServiceAzureDatabricksState()
         {

@@ -54,7 +54,6 @@ namespace Pulumi.Azure.Cognitive
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             TenantId = current.Apply(current =&gt; current.TenantId),
     ///             SkuName = "standard",
-    ///             SoftDeleteEnabled = true,
     ///             PurgeProtectionEnabled = true,
     ///             AccessPolicies = 
     ///             {

@@ -182,7 +182,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Queue(string name, QueueArgs? args = null, CustomResourceOptions? options = null)
+        public Queue(string name, QueueArgs args, CustomResourceOptions? options = null)
             : base("azure:eventhub/queue:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -309,11 +309,8 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("namespaceId")]
-        public Input<string>? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
+        [Input("namespaceId", required: true)]
+        public Input<string> NamespaceId { get; set; } = null!;
 
         /// <summary>
         /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
@@ -326,9 +323,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.

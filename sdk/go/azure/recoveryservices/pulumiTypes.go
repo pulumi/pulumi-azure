@@ -186,9 +186,11 @@ func (o VaultEncryptionPtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutp
 }
 
 type VaultIdentity struct {
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	TenantId    *string `pulumi:"tenantId"`
-	// The Type of Identity which should be used for this Recovery Services Vault. At this time the only possible value is `SystemAssigned`.
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -204,9 +206,11 @@ type VaultIdentityInput interface {
 }
 
 type VaultIdentityArgs struct {
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The Type of Identity which should be used for this Recovery Services Vault. At this time the only possible value is `SystemAssigned`.
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -287,15 +291,17 @@ func (o VaultIdentityOutput) ToVaultIdentityPtrOutputWithContext(ctx context.Con
 	}).(VaultIdentityPtrOutput)
 }
 
+// The Principal ID associated with this Managed Service Identity.
 func (o VaultIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o VaultIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for this Recovery Services Vault. At this time the only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
 func (o VaultIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -324,6 +330,7 @@ func (o VaultIdentityPtrOutput) Elem() VaultIdentityOutput {
 	}).(VaultIdentityOutput)
 }
 
+// The Principal ID associated with this Managed Service Identity.
 func (o VaultIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultIdentity) *string {
 		if v == nil {
@@ -333,6 +340,7 @@ func (o VaultIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o VaultIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultIdentity) *string {
 		if v == nil {
@@ -342,7 +350,7 @@ func (o VaultIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for this Recovery Services Vault. At this time the only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
 func (o VaultIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultIdentity) *string {
 		if v == nil {

@@ -148,7 +148,7 @@ type SpringCloudAppIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -168,7 +168,7 @@ type SpringCloudAppIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -259,7 +259,7 @@ func (o SpringCloudAppIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudAppIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
 func (o SpringCloudAppIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudAppIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -308,7 +308,7 @@ func (o SpringCloudAppIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
 func (o SpringCloudAppIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudAppIdentity) *string {
 		if v == nil {
@@ -2071,8 +2071,6 @@ func (o SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) Index(i pulumi.
 type SpringCloudServiceTrace struct {
 	// The connection string used for Application Insights.
 	ConnectionString *string `pulumi:"connectionString"`
-	// Deprecated: This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.
-	InstrumentationKey *string `pulumi:"instrumentationKey"`
 	// The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
 	SampleRate *float64 `pulumi:"sampleRate"`
 }
@@ -2091,8 +2089,6 @@ type SpringCloudServiceTraceInput interface {
 type SpringCloudServiceTraceArgs struct {
 	// The connection string used for Application Insights.
 	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// Deprecated: This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.
-	InstrumentationKey pulumi.StringPtrInput `pulumi:"instrumentationKey"`
 	// The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
 	SampleRate pulumi.Float64PtrInput `pulumi:"sampleRate"`
 }
@@ -2179,11 +2175,6 @@ func (o SpringCloudServiceTraceOutput) ConnectionString() pulumi.StringPtrOutput
 	return o.ApplyT(func(v SpringCloudServiceTrace) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.
-func (o SpringCloudServiceTraceOutput) InstrumentationKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceTrace) *string { return v.InstrumentationKey }).(pulumi.StringPtrOutput)
-}
-
 // The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
 func (o SpringCloudServiceTraceOutput) SampleRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpringCloudServiceTrace) *float64 { return v.SampleRate }).(pulumi.Float64PtrOutput)
@@ -2220,16 +2211,6 @@ func (o SpringCloudServiceTracePtrOutput) ConnectionString() pulumi.StringPtrOut
 			return nil
 		}
 		return v.ConnectionString
-	}).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.
-func (o SpringCloudServiceTracePtrOutput) InstrumentationKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpringCloudServiceTrace) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InstrumentationKey
 	}).(pulumi.StringPtrOutput)
 }
 

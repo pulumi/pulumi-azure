@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/loganalytics"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -114,7 +114,7 @@ import (
 // Log Analytics Cluster Customer Managed Keys can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1/CMK
+//  $ pulumi import azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
 // ```
 type ClusterCustomerManagedKey struct {
 	pulumi.CustomResourceState

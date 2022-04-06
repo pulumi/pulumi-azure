@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies a list of user assigned identity IDs.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -24,14 +24,20 @@ namespace Pulumi.Azure.ContainerService.Inputs
             set => _identityIds = value;
         }
 
+        /// <summary>
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

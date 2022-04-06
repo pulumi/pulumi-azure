@@ -14,10 +14,6 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class KafkaClusterRolesWorkerNode
     {
         /// <summary>
-        /// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly int? MinInstanceCount;
-        /// <summary>
         /// The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int NumberOfDisksPerNode;
@@ -52,8 +48,6 @@ namespace Pulumi.Azure.HDInsight.Outputs
 
         [OutputConstructor]
         private KafkaClusterRolesWorkerNode(
-            int? minInstanceCount,
-
             int numberOfDisksPerNode,
 
             string? password,
@@ -70,7 +64,6 @@ namespace Pulumi.Azure.HDInsight.Outputs
 
             string vmSize)
         {
-            MinInstanceCount = minInstanceCount;
             NumberOfDisksPerNode = numberOfDisksPerNode;
             Password = password;
             SshKeys = sshKeys;

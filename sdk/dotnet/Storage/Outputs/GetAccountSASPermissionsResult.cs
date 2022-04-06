@@ -26,6 +26,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly bool Delete;
         /// <summary>
+        /// Should Filter by Index Tags permissions be enabled for this SAS?
+        /// </summary>
+        public readonly bool Filter;
+        /// <summary>
         /// Should List permissions be enabled for this SAS?
         /// </summary>
         public readonly bool List;
@@ -37,6 +41,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// Should Read permissions be enabled for this SAS?
         /// </summary>
         public readonly bool Read;
+        /// <summary>
+        /// Should Get / Set Index Tags permissions be enabled for this SAS?
+        /// </summary>
+        public readonly bool Tag;
         /// <summary>
         /// Should Update permissions be enabled for this SAS?
         /// </summary>
@@ -54,11 +62,15 @@ namespace Pulumi.Azure.Storage.Outputs
 
             bool delete,
 
+            bool filter,
+
             bool list,
 
             bool process,
 
             bool read,
+
+            bool tag,
 
             bool update,
 
@@ -67,9 +79,11 @@ namespace Pulumi.Azure.Storage.Outputs
             Add = add;
             Create = create;
             Delete = delete;
+            Filter = filter;
             List = list;
             Process = process;
             Read = read;
+            Tag = tag;
             Update = update;
             Write = write;
         }

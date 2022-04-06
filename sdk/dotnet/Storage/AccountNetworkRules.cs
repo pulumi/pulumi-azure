@@ -123,22 +123,10 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableArray<Outputs.AccountNetworkRulesPrivateLinkAccessRule>> PrivateLinkAccessRules { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies the ID of the storage account. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string> StorageAccountId { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-        /// </summary>
-        [Output("storageAccountName")]
-        public Output<string> StorageAccountName { get; private set; } = null!;
 
         /// <summary>
         /// A list of virtual network subnet ids to to secure the storage account.
@@ -235,22 +223,10 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
-        /// <summary>
         /// Specifies the ID of the storage account. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
+        [Input("storageAccountId", required: true)]
+        public Input<string> StorageAccountId { get; set; } = null!;
 
         [Input("virtualNetworkSubnetIds")]
         private InputList<string>? _virtualNetworkSubnetIds;
@@ -314,22 +290,10 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
-        /// <summary>
         /// Specifies the ID of the storage account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
 
         [Input("virtualNetworkSubnetIds")]
         private InputList<string>? _virtualNetworkSubnetIds;

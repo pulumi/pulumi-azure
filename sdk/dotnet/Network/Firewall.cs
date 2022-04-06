@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Network
         /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
         /// </summary>
         [Output("threatIntelMode")]
-        public Output<string?> ThreatIntelMode { get; private set; } = null!;
+        public Output<string> ThreatIntelMode { get; private set; } = null!;
 
         /// <summary>
         /// A `virtual_hub` block as documented below.
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.FirewallVirtualHub?> VirtualHub { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -280,14 +280,14 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
         /// </summary>
-        [Input("skuName")]
-        public Input<string>? SkuName { get; set; }
+        [Input("skuName", required: true)]
+        public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
         /// Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
         /// </summary>
-        [Input("skuTier")]
-        public Input<string>? SkuTier { get; set; }
+        [Input("skuTier", required: true)]
+        public Input<string> SkuTier { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _zones;
 
         /// <summary>
-        /// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -438,7 +438,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _zones;
 
         /// <summary>
-        /// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+        /// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
         /// </summary>
         public InputList<string> Zones
         {

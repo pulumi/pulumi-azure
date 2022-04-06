@@ -215,14 +215,18 @@ class ResourceGroupCostManagementExportExportDataStorageLocationArgs:
 class ResourceGroupPolicyAssignmentIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Managed Identity ID's which should be assigned to the Policy Definition.
         :param pulumi.Input[str] principal_id: The Principal ID of the Policy Assignment for this Resource Group.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Policy Assignment for this Resource Group.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -232,13 +236,25 @@ class ResourceGroupPolicyAssignmentIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+        The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter(name="principalId")
@@ -307,14 +323,18 @@ class ResourceGroupPolicyAssignmentNonComplianceMessageArgs:
 class ResourcePolicyAssignmentIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Managed Identity ID's which should be assigned to the Policy Definition.
         :param pulumi.Input[str] principal_id: The Principal ID of the Policy Assignment for this Resource.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Policy Assignment for this Resource.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -324,13 +344,25 @@ class ResourcePolicyAssignmentIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+        The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter(name="principalId")
@@ -510,14 +542,18 @@ class SubscriptionCostManagementExportExportDataStorageLocationArgs:
 class SubscriptionPolicyAssignmentIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Managed Identity ID's which should be assigned to the Policy Definition.
         :param pulumi.Input[str] principal_id: The Principal ID of the Policy Assignment for this Subscription.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Policy Assignment for this Subscription.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -527,13 +563,25 @@ class SubscriptionPolicyAssignmentIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+        The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter(name="principalId")

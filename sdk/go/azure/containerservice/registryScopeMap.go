@@ -17,8 +17,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -35,9 +35,9 @@ import (
 // 			Location:          exampleResourceGroup.Location,
 // 			Sku:               pulumi.String("Premium"),
 // 			AdminEnabled:      pulumi.Bool(false),
-// 			GeoreplicationLocations: pulumi.StringArray{
-// 				pulumi.String("East US"),
-// 				pulumi.String("West Europe"),
+// 			Georeplications: containerservice.RegistryGeoreplicationArray{
+// 				"East US",
+// 				"West Europe",
 // 			},
 // 		})
 // 		if err != nil {

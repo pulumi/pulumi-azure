@@ -13,6 +13,7 @@ __all__ = ['QueueArgs', 'Queue']
 @pulumi.input_type
 class QueueArgs:
     def __init__(__self__, *,
+                 namespace_id: pulumi.Input[str],
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
@@ -27,14 +28,12 @@ class QueueArgs:
                  max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  requires_session: Optional[pulumi.Input[bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Queue resource.
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
@@ -51,11 +50,11 @@ class QueueArgs:
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] status: The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
         """
+        pulumi.set(__self__, "namespace_id", namespace_id)
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
         if dead_lettering_on_message_expiration is not None:
@@ -84,24 +83,24 @@ class QueueArgs:
             pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if namespace_id is not None:
-            pulumi.set(__self__, "namespace_id", namespace_id)
-        if namespace_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
         if requires_duplicate_detection is not None:
             pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
         if requires_session is not None:
             pulumi.set(__self__, "requires_session", requires_session)
-        if resource_group_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_id")
+
+    @namespace_id.setter
+    def namespace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_id", value)
 
     @property
     @pulumi.getter(name="autoDeleteOnIdle")
@@ -274,27 +273,6 @@ class QueueArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "namespace_id")
-
-    @namespace_id.setter
-    def namespace_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_id", value)
-
-    @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
     @pulumi.getter(name="requiresDuplicateDetection")
     def requires_duplicate_detection(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -317,15 +295,6 @@ class QueueArgs:
     @requires_session.setter
     def requires_session(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "requires_session", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter
@@ -417,17 +386,11 @@ class _QueueState:
         if namespace_id is not None:
             pulumi.set(__self__, "namespace_id", namespace_id)
         if namespace_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
         if requires_duplicate_detection is not None:
             pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
         if requires_session is not None:
             pulumi.set(__self__, "requires_session", requires_session)
-        if resource_group_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if status is not None:
@@ -690,10 +653,8 @@ class Queue(pulumi.CustomResource):
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  requires_session: Optional[pulumi.Input[bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -753,7 +714,7 @@ class Queue(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[QueueArgs] = None,
+                 args: QueueArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Queue.
@@ -815,10 +776,8 @@ class Queue(pulumi.CustomResource):
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  requires_session: Optional[pulumi.Input[bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -846,18 +805,14 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["max_message_size_in_kilobytes"] = max_message_size_in_kilobytes
             __props__.__dict__["max_size_in_megabytes"] = max_size_in_megabytes
             __props__.__dict__["name"] = name
+            if namespace_id is None and not opts.urn:
+                raise TypeError("Missing required property 'namespace_id'")
             __props__.__dict__["namespace_id"] = namespace_id
-            if namespace_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-                pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-            __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["requires_duplicate_detection"] = requires_duplicate_detection
             __props__.__dict__["requires_session"] = requires_session
-            if resource_group_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-                pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["status"] = status
+            __props__.__dict__["namespace_name"] = None
+            __props__.__dict__["resource_group_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/queue:Queue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Queue, __self__).__init__(

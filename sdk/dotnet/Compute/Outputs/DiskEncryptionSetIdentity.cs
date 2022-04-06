@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+        /// The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
         /// </summary>
         public readonly string Type;
 

@@ -11,11 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Function App.
-//
-// > **Note:** To connect an Azure Function App and a subnet within the same region `appservice.VirtualNetworkSwiftConnection` can be used.
-// For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
-//
 // ## Example Usage
 // ### With App Service Plan)
 //
@@ -23,9 +18,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -77,9 +72,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -132,9 +127,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -191,9 +186,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -269,10 +264,6 @@ type FunctionApp struct {
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings FunctionAppAuthSettingsOutput `pulumi:"authSettings"`
-	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
-	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertMode pulumi.StringPtrOutput `pulumi:"clientCertMode"`
 	// An `connectionString` block as defined below.
@@ -290,7 +281,7 @@ type FunctionApp struct {
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
-	Identity FunctionAppIdentityOutput `pulumi:"identity"`
+	Identity FunctionAppIdentityPtrOutput `pulumi:"identity"`
 	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
 	KeyVaultReferenceIdentityId pulumi.StringOutput `pulumi:"keyVaultReferenceIdentityId"`
 	// The Function App kind - such as `functionapp,linux,container`
@@ -317,8 +308,6 @@ type FunctionApp struct {
 	StorageAccountAccessKey pulumi.StringOutput `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
-	// Deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`
-	StorageConnectionString pulumi.StringOutput `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The runtime version associated with the Function App. Defaults to `~1`.
@@ -337,6 +326,12 @@ func NewFunctionApp(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageAccountAccessKey == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountAccessKey'")
+	}
+	if args.StorageAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
 	var resource FunctionApp
 	err := ctx.RegisterResource("azure:appservice/functionApp:FunctionApp", name, args, &resource, opts...)
@@ -366,10 +361,6 @@ type functionAppState struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *FunctionAppAuthSettings `pulumi:"authSettings"`
-	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
-	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertMode *string `pulumi:"clientCertMode"`
 	// An `connectionString` block as defined below.
@@ -414,8 +405,6 @@ type functionAppState struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`
-	StorageConnectionString *string `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The runtime version associated with the Function App. Defaults to `~1`.
@@ -429,10 +418,6 @@ type FunctionAppState struct {
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings FunctionAppAuthSettingsPtrInput
-	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
-	ClientAffinityEnabled pulumi.BoolPtrInput
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertMode pulumi.StringPtrInput
 	// An `connectionString` block as defined below.
@@ -477,8 +462,6 @@ type FunctionAppState struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName pulumi.StringPtrInput
-	// Deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`
-	StorageConnectionString pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The runtime version associated with the Function App. Defaults to `~1`.
@@ -496,10 +479,6 @@ type functionAppArgs struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *FunctionAppAuthSettings `pulumi:"authSettings"`
-	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
-	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertMode *string `pulumi:"clientCertMode"`
 	// An `connectionString` block as defined below.
@@ -529,11 +508,9 @@ type functionAppArgs struct {
 	// A `sourceControl` block, as defined below.
 	SourceControl *FunctionAppSourceControl `pulumi:"sourceControl"`
 	// The access key which will be used to access the backend storage account for the Function App.
-	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
+	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
-	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`
-	StorageConnectionString *string `pulumi:"storageConnectionString"`
+	StorageAccountName string `pulumi:"storageAccountName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The runtime version associated with the Function App. Defaults to `~1`.
@@ -548,10 +525,6 @@ type FunctionAppArgs struct {
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings FunctionAppAuthSettingsPtrInput
-	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.
-	ClientAffinityEnabled pulumi.BoolPtrInput
 	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertMode pulumi.StringPtrInput
 	// An `connectionString` block as defined below.
@@ -581,11 +554,9 @@ type FunctionAppArgs struct {
 	// A `sourceControl` block, as defined below.
 	SourceControl FunctionAppSourceControlPtrInput
 	// The access key which will be used to access the backend storage account for the Function App.
-	StorageAccountAccessKey pulumi.StringPtrInput
+	StorageAccountAccessKey pulumi.StringInput
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
-	StorageAccountName pulumi.StringPtrInput
-	// Deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`
-	StorageConnectionString pulumi.StringPtrInput
+	StorageAccountName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The runtime version associated with the Function App. Defaults to `~1`.

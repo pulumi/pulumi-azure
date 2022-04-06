@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
-    /// Manages a Function App deployment Slot.
-    /// 
     /// ## Example Usage
     /// ### With App Service Plan)
     /// 
@@ -96,12 +94,6 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.FunctionAppSlotAuthSettings> AuthSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        /// </summary>
-        [Output("clientAffinityEnabled")]
-        public Output<bool> ClientAffinityEnabled { get; private set; } = null!;
-
-        /// <summary>
         /// A `connection_string` block as defined below.
         /// </summary>
         [Output("connectionStrings")]
@@ -147,7 +139,7 @@ namespace Pulumi.Azure.AppService
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.FunctionAppSlotIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.FunctionAppSlotIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Function App kind - such as `functionapp,linux,container`
@@ -297,12 +289,6 @@ namespace Pulumi.Azure.AppService
         [Input("authSettings")]
         public Input<Inputs.FunctionAppSlotAuthSettingsArgs>? AuthSettings { get; set; }
 
-        /// <summary>
-        /// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        /// </summary>
-        [Input("clientAffinityEnabled")]
-        public Input<bool>? ClientAffinityEnabled { get; set; }
-
         [Input("connectionStrings")]
         private InputList<Inputs.FunctionAppSlotConnectionStringArgs>? _connectionStrings;
 
@@ -441,12 +427,6 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.FunctionAppSlotAuthSettingsGetArgs>? AuthSettings { get; set; }
-
-        /// <summary>
-        /// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        /// </summary>
-        [Input("clientAffinityEnabled")]
-        public Input<bool>? ClientAffinityEnabled { get; set; }
 
         [Input("connectionStrings")]
         private InputList<Inputs.FunctionAppSlotConnectionStringGetArgs>? _connectionStrings;

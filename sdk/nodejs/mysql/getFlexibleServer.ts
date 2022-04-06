@@ -123,7 +123,7 @@ export interface GetFlexibleServerResult {
      */
     readonly version: string;
     /**
-     * The availability zones of the MySQL Flexible Server.
+     * The Availability Zones where this MySQL Flexible Server is located.
      */
     readonly zone: string;
 }

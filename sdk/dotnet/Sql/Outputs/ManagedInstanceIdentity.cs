@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Sql.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. The only possible value is `SystemAssigned`.
         /// </summary>
         public readonly string Type;
 

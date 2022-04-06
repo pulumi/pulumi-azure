@@ -42,7 +42,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_notification: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
-                 zones: Optional[pulumi.Input[str]] = None):
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OrchestratedVirtualMachineScaleSet resource.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
@@ -54,7 +54,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
-        :param pulumi.Input[str] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -383,14 +383,14 @@ class OrchestratedVirtualMachineScaleSetArgs:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[str]]:
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[str]]):
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -425,7 +425,7 @@ class _OrchestratedVirtualMachineScaleSetState:
                  termination_notification: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']] = None,
                  unique_id: Optional[pulumi.Input[str]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
-                 zones: Optional[pulumi.Input[str]] = None):
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering OrchestratedVirtualMachineScaleSet resources.
         :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
@@ -438,7 +438,7 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] unique_id: The Unique ID for the Orchestrated Virtual Machine Scale Set.
-        :param pulumi.Input[str] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         if automatic_instance_repair is not None:
             pulumi.set(__self__, "automatic_instance_repair", automatic_instance_repair)
@@ -783,14 +783,14 @@ class _OrchestratedVirtualMachineScaleSetState:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[str]]:
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[str]]):
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -826,7 +826,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_notification: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
-                 zones: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages an Orchestrated Virtual Machine Scale Set.
@@ -870,7 +870,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
-        :param pulumi.Input[str] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         ...
     @overload
@@ -951,7 +951,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_notification: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
-                 zones: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -1035,7 +1035,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             termination_notification: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
             unique_id: Optional[pulumi.Input[str]] = None,
             zone_balance: Optional[pulumi.Input[bool]] = None,
-            zones: Optional[pulumi.Input[str]] = None) -> 'OrchestratedVirtualMachineScaleSet':
+            zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'OrchestratedVirtualMachineScaleSet':
         """
         Get an existing OrchestratedVirtualMachineScaleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1053,7 +1053,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] unique_id: The Unique ID for the Orchestrated Virtual Machine Scale Set.
-        :param pulumi.Input[str] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1262,9 +1262,9 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[str]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         return pulumi.get(self, "zones")
 

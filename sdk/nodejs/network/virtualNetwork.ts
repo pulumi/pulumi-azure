@@ -104,6 +104,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly dnsServers!: pulumi.Output<string[]>;
     /**
+     * Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+     */
+    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    /**
      * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
      */
     public readonly flowTimeoutInMinutes!: pulumi.Output<number | undefined>;
@@ -131,10 +135,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated This is deprecated in favor of `ddos_protection_plan`
-     */
-    public readonly vmProtectionEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a VirtualNetwork resource with the given unique name, arguments, and options.
@@ -153,6 +153,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["bgpCommunity"] = state ? state.bgpCommunity : undefined;
             resourceInputs["ddosProtectionPlan"] = state ? state.ddosProtectionPlan : undefined;
             resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
+            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["flowTimeoutInMinutes"] = state ? state.flowTimeoutInMinutes : undefined;
             resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -160,7 +161,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["subnets"] = state ? state.subnets : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["vmProtectionEnabled"] = state ? state.vmProtectionEnabled : undefined;
         } else {
             const args = argsOrState as VirtualNetworkArgs | undefined;
             if ((!args || args.addressSpaces === undefined) && !opts.urn) {
@@ -173,13 +173,13 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["bgpCommunity"] = args ? args.bgpCommunity : undefined;
             resourceInputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["flowTimeoutInMinutes"] = args ? args.flowTimeoutInMinutes : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subnets"] = args ? args.subnets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmProtectionEnabled"] = args ? args.vmProtectionEnabled : undefined;
             resourceInputs["guid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -208,6 +208,10 @@ export interface VirtualNetworkState {
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
+    /**
      * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
      */
     flowTimeoutInMinutes?: pulumi.Input<number>;
@@ -235,10 +239,6 @@ export interface VirtualNetworkState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated This is deprecated in favor of `ddos_protection_plan`
-     */
-    vmProtectionEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -261,6 +261,10 @@ export interface VirtualNetworkArgs {
      * List of IP addresses of DNS servers
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
      */
@@ -285,8 +289,4 @@ export interface VirtualNetworkArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated This is deprecated in favor of `ddos_protection_plan`
-     */
-    vmProtectionEnabled?: pulumi.Input<boolean>;
 }

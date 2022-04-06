@@ -9,58 +9,9 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'HostPoolRegistrationInfo',
     'ScalingPlanHostPool',
     'ScalingPlanSchedule',
 ]
-
-@pulumi.output_type
-class HostPoolRegistrationInfo(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "expirationDate":
-            suggest = "expiration_date"
-        elif key == "resetToken":
-            suggest = "reset_token"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HostPoolRegistrationInfo. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        HostPoolRegistrationInfo.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        HostPoolRegistrationInfo.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 expiration_date: Optional[str] = None,
-                 reset_token: Optional[bool] = None,
-                 token: Optional[str] = None):
-        if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
-        if reset_token is not None:
-            pulumi.set(__self__, "reset_token", reset_token)
-        if token is not None:
-            pulumi.set(__self__, "token", token)
-
-    @property
-    @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[str]:
-        return pulumi.get(self, "expiration_date")
-
-    @property
-    @pulumi.getter(name="resetToken")
-    def reset_token(self) -> Optional[bool]:
-        return pulumi.get(self, "reset_token")
-
-    @property
-    @pulumi.getter
-    def token(self) -> Optional[str]:
-        return pulumi.get(self, "token")
-
 
 @pulumi.output_type
 class ScalingPlanHostPool(dict):

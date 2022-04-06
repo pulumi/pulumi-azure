@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Search.Inputs
     public sealed class ServiceIdentityGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The (Client) ID of the Service Principal.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The ID of the Tenant the Service Principal is assigned in.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The Type of Identity which should be used for the Search Service. At this time the only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is `SystemAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

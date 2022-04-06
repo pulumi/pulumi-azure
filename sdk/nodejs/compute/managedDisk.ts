@@ -126,6 +126,10 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly diskSizeGb!: pulumi.Output<number>;
     /**
+     * Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+     */
+    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    /**
      * A `encryptionSettings` block as defined below.
      */
     public readonly encryptionSettings!: pulumi.Output<outputs.compute.ManagedDiskEncryptionSettings | undefined>;
@@ -206,9 +210,9 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly trustedLaunchEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A collection containing the availability zone to allocate the Managed Disk in.
+     * Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
      */
-    public readonly zones!: pulumi.Output<string | undefined>;
+    public readonly zone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagedDisk resource with the given unique name, arguments, and options.
@@ -231,6 +235,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             resourceInputs["diskMbpsReadOnly"] = state ? state.diskMbpsReadOnly : undefined;
             resourceInputs["diskMbpsReadWrite"] = state ? state.diskMbpsReadWrite : undefined;
             resourceInputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
+            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
             resourceInputs["galleryImageReferenceId"] = state ? state.galleryImageReferenceId : undefined;
             resourceInputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
@@ -251,7 +256,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tier"] = state ? state.tier : undefined;
             resourceInputs["trustedLaunchEnabled"] = state ? state.trustedLaunchEnabled : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as ManagedDiskArgs | undefined;
             if ((!args || args.createOption === undefined) && !opts.urn) {
@@ -271,6 +276,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             resourceInputs["diskMbpsReadOnly"] = args ? args.diskMbpsReadOnly : undefined;
             resourceInputs["diskMbpsReadWrite"] = args ? args.diskMbpsReadWrite : undefined;
             resourceInputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
+            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
             resourceInputs["galleryImageReferenceId"] = args ? args.galleryImageReferenceId : undefined;
             resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
@@ -291,7 +297,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["trustedLaunchEnabled"] = args ? args.trustedLaunchEnabled : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["zone"] = args ? args.zone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagedDisk.__pulumiType, name, resourceInputs, opts);
@@ -334,6 +340,10 @@ export interface ManagedDiskState {
      * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
      */
     diskSizeGb?: pulumi.Input<number>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * A `encryptionSettings` block as defined below.
      */
@@ -415,9 +425,9 @@ export interface ManagedDiskState {
      */
     trustedLaunchEnabled?: pulumi.Input<boolean>;
     /**
-     * A collection containing the availability zone to allocate the Managed Disk in.
+     * Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
      */
-    zones?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }
 
 /**
@@ -456,6 +466,10 @@ export interface ManagedDiskArgs {
      * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
      */
     diskSizeGb?: pulumi.Input<number>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * A `encryptionSettings` block as defined below.
      */
@@ -537,7 +551,7 @@ export interface ManagedDiskArgs {
      */
     trustedLaunchEnabled?: pulumi.Input<boolean>;
     /**
-     * A collection containing the availability zone to allocate the Managed Disk in.
+     * Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
      */
-    zones?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }

@@ -83,10 +83,6 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly namespaceId!: pulumi.Output<string>;
     /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    public readonly namespaceName!: pulumi.Output<string>;
-    /**
      * The Primary Connection String for the ServiceBus Namespace authorization Rule.
      */
     public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
@@ -98,10 +94,6 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * The Primary Key for the ServiceBus Namespace authorization Rule.
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Secondary Connection String for the ServiceBus Namespace authorization Rule.
      */
@@ -126,7 +118,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: NamespaceAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: NamespaceAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamespaceAuthorizationRuleArgs | NamespaceAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -136,23 +128,22 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["manage"] = state ? state.manage : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             resourceInputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
             resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
             resourceInputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
             resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             resourceInputs["send"] = state ? state.send : undefined;
         } else {
             const args = argsOrState as NamespaceAuthorizationRuleArgs | undefined;
+            if ((!args || args.namespaceId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'namespaceId'");
+            }
             resourceInputs["listen"] = args ? args.listen : undefined;
             resourceInputs["manage"] = args ? args.manage : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["send"] = args ? args.send : undefined;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["primaryConnectionStringAlias"] = undefined /*out*/;
@@ -189,10 +180,6 @@ export interface NamespaceAuthorizationRuleState {
      */
     namespaceId?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    namespaceName?: pulumi.Input<string>;
-    /**
      * The Primary Connection String for the ServiceBus Namespace authorization Rule.
      */
     primaryConnectionString?: pulumi.Input<string>;
@@ -204,10 +191,6 @@ export interface NamespaceAuthorizationRuleState {
      * The Primary Key for the ServiceBus Namespace authorization Rule.
      */
     primaryKey?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Secondary Connection String for the ServiceBus Namespace authorization Rule.
      */
@@ -245,15 +228,7 @@ export interface NamespaceAuthorizationRuleArgs {
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      */
-    namespaceId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    namespaceName?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "namespace_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
+    namespaceId: pulumi.Input<string>;
     /**
      * Grants send access to this this Authorization Rule. Defaults to `false`.
      */

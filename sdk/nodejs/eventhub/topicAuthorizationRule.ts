@@ -83,10 +83,6 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    public readonly namespaceName!: pulumi.Output<string>;
-    /**
      * The Primary Connection String for the ServiceBus Topic authorization Rule.
      */
     public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
@@ -98,10 +94,6 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * The Primary Key for the ServiceBus Topic authorization Rule.
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
-    /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Secondary Connection String for the ServiceBus Topic authorization Rule.
      */
@@ -122,10 +114,6 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
      */
     public readonly topicId!: pulumi.Output<string>;
-    /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    public readonly topicName!: pulumi.Output<string>;
 
     /**
      * Create a TopicAuthorizationRule resource with the given unique name, arguments, and options.
@@ -135,7 +123,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule */
-    constructor(name: string, args?: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
     /** @deprecated azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule */
     constructor(name: string, argsOrState?: TopicAuthorizationRuleArgs | TopicAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TopicAuthorizationRule is deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule")
@@ -146,27 +134,24 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["listen"] = state ? state.listen : undefined;
             resourceInputs["manage"] = state ? state.manage : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             resourceInputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
             resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
             resourceInputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
             resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             resourceInputs["send"] = state ? state.send : undefined;
             resourceInputs["topicId"] = state ? state.topicId : undefined;
-            resourceInputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as TopicAuthorizationRuleArgs | undefined;
+            if ((!args || args.topicId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'topicId'");
+            }
             resourceInputs["listen"] = args ? args.listen : undefined;
             resourceInputs["manage"] = args ? args.manage : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["send"] = args ? args.send : undefined;
             resourceInputs["topicId"] = args ? args.topicId : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["primaryConnectionStringAlias"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;
@@ -196,10 +181,6 @@ export interface TopicAuthorizationRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    namespaceName?: pulumi.Input<string>;
-    /**
      * The Primary Connection String for the ServiceBus Topic authorization Rule.
      */
     primaryConnectionString?: pulumi.Input<string>;
@@ -211,10 +192,6 @@ export interface TopicAuthorizationRuleState {
      * The Primary Key for the ServiceBus Topic authorization Rule.
      */
     primaryKey?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Secondary Connection String for the ServiceBus Topic authorization Rule.
      */
@@ -235,10 +212,6 @@ export interface TopicAuthorizationRuleState {
      * Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
      */
     topicId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    topicName?: pulumi.Input<string>;
 }
 
 /**
@@ -258,23 +231,11 @@ export interface TopicAuthorizationRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    namespaceName?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * Grants send access to this this Authorization Rule. Defaults to `false`.
      */
     send?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
      */
-    topicId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "topic_id"
-     */
-    topicName?: pulumi.Input<string>;
+    topicId: pulumi.Input<string>;
 }

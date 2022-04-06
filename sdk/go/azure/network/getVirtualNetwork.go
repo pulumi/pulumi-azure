@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -73,6 +73,8 @@ type LookupVirtualNetworkResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A mapping of name - virtual network id of the virtual network peerings.
 	VnetPeerings map[string]string `pulumi:"vnetPeerings"`
+	// A list of virtual network peerings IP addresses.
+	VnetPeeringsAddresses []string `pulumi:"vnetPeeringsAddresses"`
 }
 
 func LookupVirtualNetworkOutput(ctx *pulumi.Context, args LookupVirtualNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkResultOutput {
@@ -157,6 +159,11 @@ func (o LookupVirtualNetworkResultOutput) Tags() pulumi.StringMapOutput {
 // A mapping of name - virtual network id of the virtual network peerings.
 func (o LookupVirtualNetworkResultOutput) VnetPeerings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkResult) map[string]string { return v.VnetPeerings }).(pulumi.StringMapOutput)
+}
+
+// A list of virtual network peerings IP addresses.
+func (o LookupVirtualNetworkResultOutput) VnetPeeringsAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkResult) []string { return v.VnetPeeringsAddresses }).(pulumi.StringArrayOutput)
 }
 
 func init() {

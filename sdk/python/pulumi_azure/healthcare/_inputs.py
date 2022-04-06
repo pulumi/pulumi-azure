@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'ServiceAuthenticationConfigurationArgs',
     'ServiceCorsConfigurationArgs',
+    'WorkspacePrivateEndpointConnectionArgs',
 ]
 
 @pulumi.input_type
@@ -155,5 +156,44 @@ class ServiceCorsConfigurationArgs:
     @max_age_in_seconds.setter
     def max_age_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_age_in_seconds", value)
+
+
+@pulumi.input_type
+class WorkspacePrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of the Healthcare Workspace.
+        :param pulumi.Input[str] name: Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Healthcare Workspace.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 

@@ -179,7 +179,7 @@ export interface GetAccountResult {
      * The encryption key type of the queue.
      */
     readonly queueEncryptionKeyType: string;
-    readonly resourceGroupName: string;
+    readonly resourceGroupName?: string;
     /**
      * The secondary access key for the Storage Account.
      */

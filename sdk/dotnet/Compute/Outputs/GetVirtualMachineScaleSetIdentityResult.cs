@@ -14,16 +14,19 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class GetVirtualMachineScaleSetIdentityResult
     {
         /// <summary>
-        /// The list of User Managed Identity ID's which are assigned to the Virtual Machine Scale Set.
+        /// The list of User Assigned Managed Identity IDs assigned to this Virtual Machine Scale Set.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Virtual Machine Scale Set.
         /// </summary>
         public readonly string PrincipalId;
+        /// <summary>
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Virtual Machine Scale Set.
+        /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+        /// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
         /// </summary>
         public readonly string Type;
 

@@ -135,7 +135,6 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GetClusterNodePoolResult
     {
-        public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
         /// Does this Node Pool have Auto-Scaling enabled?
         /// </summary>
@@ -238,8 +237,6 @@ namespace Pulumi.Azure.ContainerService
 
         [OutputConstructor]
         private GetClusterNodePoolResult(
-            ImmutableArray<string> availabilityZones,
-
             bool enableAutoScaling,
 
             bool enableNodePublicIp,
@@ -294,7 +291,6 @@ namespace Pulumi.Azure.ContainerService
 
             ImmutableArray<string> zones)
         {
-            AvailabilityZones = availabilityZones;
             EnableAutoScaling = enableAutoScaling;
             EnableNodePublicIp = enableNodePublicIp;
             EvictionPolicy = evictionPolicy;

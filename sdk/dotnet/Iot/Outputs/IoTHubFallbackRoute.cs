@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Iot.Outputs
     public sealed class IoTHubFallbackRoute
     {
         /// <summary>
-        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        /// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
         /// </summary>
         public readonly string? Condition;
         /// <summary>

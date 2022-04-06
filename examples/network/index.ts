@@ -12,5 +12,5 @@ let network = new azure.network.VirtualNetwork("vnet", {
 const subnet = new azure.network.Subnet("subnet", {
   resourceGroupName: resourceGroup.name,
   virtualNetworkName: network.name,
-  addressPrefix: "10.0.1.0/24",
+  addressPrefixes: ["10.0.1.0/24"],
 });

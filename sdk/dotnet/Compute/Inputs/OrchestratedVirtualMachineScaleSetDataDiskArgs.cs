@@ -21,12 +21,6 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
 
-        [Input("diskIopsReadWrite")]
-        public Input<int>? DiskIopsReadWrite { get; set; }
-
-        [Input("diskMbpsReadWrite")]
-        public Input<int>? DiskMbpsReadWrite { get; set; }
-
         [Input("diskSizeGb", required: true)]
         public Input<int> DiskSizeGb { get; set; } = null!;
 

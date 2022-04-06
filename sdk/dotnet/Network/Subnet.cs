@@ -81,12 +81,6 @@ namespace Pulumi.Azure.Network
     public partial class Subnet : Pulumi.CustomResource
     {
         /// <summary>
-        /// The address prefix to use for the subnet.
-        /// </summary>
-        [Output("addressPrefix")]
-        public Output<string> AddressPrefix { get; private set; } = null!;
-
-        /// <summary>
         /// The address prefixes to use for the subnet.
         /// </summary>
         [Output("addressPrefixes")]
@@ -186,12 +180,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class SubnetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The address prefix to use for the subnet.
-        /// </summary>
-        [Input("addressPrefix")]
-        public Input<string>? AddressPrefix { get; set; }
-
         [Input("addressPrefixes")]
         private InputList<string>? _addressPrefixes;
 
@@ -277,12 +265,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class SubnetState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The address prefix to use for the subnet.
-        /// </summary>
-        [Input("addressPrefix")]
-        public Input<string>? AddressPrefix { get; set; }
-
         [Input("addressPrefixes")]
         private InputList<string>? _addressPrefixes;
 

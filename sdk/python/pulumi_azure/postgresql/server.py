@@ -17,6 +17,7 @@ class ServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
+                 ssl_enforcement_enabled: pulumi.Input[bool],
                  version: pulumi.Input[str],
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
@@ -31,17 +32,15 @@ class ServerArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
-                 ssl_enforcement: Optional[pulumi.Input[str]] = None,
-                 ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
                  ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
-                 storage_profile: Optional[pulumi.Input['ServerStorageProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']] = None):
         """
         The set of arguments for constructing a Server resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/singleserver/servers/create#sku).
+        :param pulumi.Input[bool] ssl_enforcement_enabled: Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         :param pulumi.Input[str] version: Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login: The Administrator Login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
@@ -56,7 +55,6 @@ class ServerArgs:
         :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] restore_point_in_time: When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`.
-        :param pulumi.Input[bool] ssl_enforcement_enabled: Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -64,6 +62,7 @@ class ServerArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
+        pulumi.set(__self__, "ssl_enforcement_enabled", ssl_enforcement_enabled)
         pulumi.set(__self__, "version", version)
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
@@ -91,22 +90,10 @@ class ServerArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if restore_point_in_time is not None:
             pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
-        if ssl_enforcement is not None:
-            warnings.warn("""this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""ssl_enforcement is deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""")
-        if ssl_enforcement is not None:
-            pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
-        if ssl_enforcement_enabled is not None:
-            pulumi.set(__self__, "ssl_enforcement_enabled", ssl_enforcement_enabled)
         if ssl_minimal_tls_version_enforced is not None:
             pulumi.set(__self__, "ssl_minimal_tls_version_enforced", ssl_minimal_tls_version_enforced)
         if storage_mb is not None:
             pulumi.set(__self__, "storage_mb", storage_mb)
-        if storage_profile is not None:
-            warnings.warn("""all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""storage_profile is deprecated: all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.""")
-        if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if threat_detection_policy is not None:
@@ -135,6 +122,18 @@ class ServerArgs:
     @sku_name.setter
     def sku_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="sslEnforcementEnabled")
+    def ssl_enforcement_enabled(self) -> pulumi.Input[bool]:
+        """
+        Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        """
+        return pulumi.get(self, "ssl_enforcement_enabled")
+
+    @ssl_enforcement_enabled.setter
+    def ssl_enforcement_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "ssl_enforcement_enabled", value)
 
     @property
     @pulumi.getter
@@ -305,27 +304,6 @@ class ServerArgs:
         pulumi.set(self, "restore_point_in_time", value)
 
     @property
-    @pulumi.getter(name="sslEnforcement")
-    def ssl_enforcement(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "ssl_enforcement")
-
-    @ssl_enforcement.setter
-    def ssl_enforcement(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ssl_enforcement", value)
-
-    @property
-    @pulumi.getter(name="sslEnforcementEnabled")
-    def ssl_enforcement_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
-        """
-        return pulumi.get(self, "ssl_enforcement_enabled")
-
-    @ssl_enforcement_enabled.setter
-    def ssl_enforcement_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "ssl_enforcement_enabled", value)
-
-    @property
     @pulumi.getter(name="sslMinimalTlsVersionEnforced")
     def ssl_minimal_tls_version_enforced(self) -> Optional[pulumi.Input[str]]:
         """
@@ -348,15 +326,6 @@ class ServerArgs:
     @storage_mb.setter
     def storage_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "storage_mb", value)
-
-    @property
-    @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['ServerStorageProfileArgs']]:
-        return pulumi.get(self, "storage_profile")
-
-    @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['ServerStorageProfileArgs']]):
-        pulumi.set(self, "storage_profile", value)
 
     @property
     @pulumi.getter
@@ -402,11 +371,9 @@ class _ServerState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 ssl_enforcement: Optional[pulumi.Input[str]] = None,
                  ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
                  ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
-                 storage_profile: Optional[pulumi.Input['ServerStorageProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
@@ -467,22 +434,12 @@ class _ServerState:
             pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
-        if ssl_enforcement is not None:
-            warnings.warn("""this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""ssl_enforcement is deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""")
-        if ssl_enforcement is not None:
-            pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
         if ssl_enforcement_enabled is not None:
             pulumi.set(__self__, "ssl_enforcement_enabled", ssl_enforcement_enabled)
         if ssl_minimal_tls_version_enforced is not None:
             pulumi.set(__self__, "ssl_minimal_tls_version_enforced", ssl_minimal_tls_version_enforced)
         if storage_mb is not None:
             pulumi.set(__self__, "storage_mb", storage_mb)
-        if storage_profile is not None:
-            warnings.warn("""all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""storage_profile is deprecated: all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.""")
-        if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if threat_detection_policy is not None:
@@ -683,15 +640,6 @@ class _ServerState:
         pulumi.set(self, "sku_name", value)
 
     @property
-    @pulumi.getter(name="sslEnforcement")
-    def ssl_enforcement(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "ssl_enforcement")
-
-    @ssl_enforcement.setter
-    def ssl_enforcement(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ssl_enforcement", value)
-
-    @property
     @pulumi.getter(name="sslEnforcementEnabled")
     def ssl_enforcement_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -726,15 +674,6 @@ class _ServerState:
     @storage_mb.setter
     def storage_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "storage_mb", value)
-
-    @property
-    @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['ServerStorageProfileArgs']]:
-        return pulumi.get(self, "storage_profile")
-
-    @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['ServerStorageProfileArgs']]):
-        pulumi.set(self, "storage_profile", value)
 
     @property
     @pulumi.getter
@@ -793,11 +732,9 @@ class Server(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 ssl_enforcement: Optional[pulumi.Input[str]] = None,
                  ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
                  ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['ServerStorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -930,11 +867,9 @@ class Server(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 ssl_enforcement: Optional[pulumi.Input[str]] = None,
                  ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
                  ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['ServerStorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -969,17 +904,11 @@ class Server(pulumi.CustomResource):
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
-            if ssl_enforcement is not None and not opts.urn:
-                warnings.warn("""this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("""ssl_enforcement is deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""")
-            __props__.__dict__["ssl_enforcement"] = ssl_enforcement
+            if ssl_enforcement_enabled is None and not opts.urn:
+                raise TypeError("Missing required property 'ssl_enforcement_enabled'")
             __props__.__dict__["ssl_enforcement_enabled"] = ssl_enforcement_enabled
             __props__.__dict__["ssl_minimal_tls_version_enforced"] = ssl_minimal_tls_version_enforced
             __props__.__dict__["storage_mb"] = storage_mb
-            if storage_profile is not None and not opts.urn:
-                warnings.warn("""all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("""storage_profile is deprecated: all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.""")
-            __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["threat_detection_policy"] = threat_detection_policy
             if version is None and not opts.urn:
@@ -1012,11 +941,9 @@ class Server(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             restore_point_in_time: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
-            ssl_enforcement: Optional[pulumi.Input[str]] = None,
             ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
             ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
             storage_mb: Optional[pulumi.Input[int]] = None,
-            storage_profile: Optional[pulumi.Input[pulumi.InputType['ServerStorageProfileArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'Server':
@@ -1070,11 +997,9 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["restore_point_in_time"] = restore_point_in_time
         __props__.__dict__["sku_name"] = sku_name
-        __props__.__dict__["ssl_enforcement"] = ssl_enforcement
         __props__.__dict__["ssl_enforcement_enabled"] = ssl_enforcement_enabled
         __props__.__dict__["ssl_minimal_tls_version_enforced"] = ssl_minimal_tls_version_enforced
         __props__.__dict__["storage_mb"] = storage_mb
-        __props__.__dict__["storage_profile"] = storage_profile
         __props__.__dict__["tags"] = tags
         __props__.__dict__["threat_detection_policy"] = threat_detection_policy
         __props__.__dict__["version"] = version
@@ -1098,7 +1023,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoGrowEnabled")
-    def auto_grow_enabled(self) -> pulumi.Output[bool]:
+    def auto_grow_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
         """
@@ -1138,7 +1063,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoRedundantBackupEnabled")
-    def geo_redundant_backup_enabled(self) -> pulumi.Output[bool]:
+    def geo_redundant_backup_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
         """
@@ -1209,13 +1134,8 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "sku_name")
 
     @property
-    @pulumi.getter(name="sslEnforcement")
-    def ssl_enforcement(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "ssl_enforcement")
-
-    @property
     @pulumi.getter(name="sslEnforcementEnabled")
-    def ssl_enforcement_enabled(self) -> pulumi.Output[Optional[bool]]:
+    def ssl_enforcement_enabled(self) -> pulumi.Output[bool]:
         """
         Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         """
@@ -1236,11 +1156,6 @@ class Server(pulumi.CustomResource):
         Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage).
         """
         return pulumi.get(self, "storage_mb")
-
-    @property
-    @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> pulumi.Output['outputs.ServerStorageProfile']:
-        return pulumi.get(self, "storage_profile")
 
     @property
     @pulumi.getter

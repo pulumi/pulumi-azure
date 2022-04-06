@@ -35,8 +35,7 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var exampleIntegrationRuntimeManaged = new Azure.DataFactory.IntegrationRuntimeManaged("exampleIntegrationRuntimeManaged", new Azure.DataFactory.IntegrationRuntimeManagedArgs
     ///         {
-    ///             DataFactoryName = exampleFactory.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             Location = exampleResourceGroup.Location,
     ///             NodeSize = "Standard_D8_v3",
     ///         });
@@ -69,10 +68,10 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.IntegrationRuntimeManagedCustomSetupScript?> CustomSetupScript { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Output("dataFactoryName")]
-        public Output<string> DataFactoryName { get; private set; } = null!;
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
         /// Integration runtime description.
@@ -121,12 +120,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("numberOfNodes")]
         public Output<int?> NumberOfNodes { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A `vnet_integration` block as defined below.
@@ -193,10 +186,10 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.IntegrationRuntimeManagedCustomSetupScriptArgs>? CustomSetupScript { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryId", required: true)]
+        public Input<string> DataFactoryId { get; set; } = null!;
 
         /// <summary>
         /// Integration runtime description.
@@ -247,12 +240,6 @@ namespace Pulumi.Azure.DataFactory
         public Input<int>? NumberOfNodes { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
         /// A `vnet_integration` block as defined below.
         /// </summary>
         [Input("vnetIntegration")]
@@ -278,10 +265,10 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.IntegrationRuntimeManagedCustomSetupScriptGetArgs>? CustomSetupScript { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
         /// Integration runtime description.
@@ -330,12 +317,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("numberOfNodes")]
         public Input<int>? NumberOfNodes { get; set; }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// A `vnet_integration` block as defined below.

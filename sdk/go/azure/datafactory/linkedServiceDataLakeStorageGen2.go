@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -44,7 +44,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceDataLakeStorageGen2(ctx, "exampleLinkedServiceDataLakeStorageGen2", &datafactory.LinkedServiceDataLakeStorageGen2Args{
-// 			ResourceGroupName:   exampleResourceGroup.Name,
 // 			DataFactoryId:       exampleFactory.ID(),
 // 			ServicePrincipalId:  pulumi.String(current.ClientId),
 // 			ServicePrincipalKey: pulumi.String("exampleKey"),
@@ -75,10 +74,6 @@ type LinkedServiceDataLakeStorageGen2 struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -88,8 +83,6 @@ type LinkedServiceDataLakeStorageGen2 struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
 	ServicePrincipalId pulumi.StringPtrOutput `pulumi:"servicePrincipalId"`
 	// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
@@ -111,8 +104,8 @@ func NewLinkedServiceDataLakeStorageGen2(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
@@ -145,10 +138,6 @@ type linkedServiceDataLakeStorageGen2State struct {
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -158,8 +147,6 @@ type linkedServiceDataLakeStorageGen2State struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
 	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
 	// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
@@ -181,10 +168,6 @@ type LinkedServiceDataLakeStorageGen2State struct {
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -194,8 +177,6 @@ type LinkedServiceDataLakeStorageGen2State struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
 	ServicePrincipalId pulumi.StringPtrInput
 	// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
@@ -220,11 +201,7 @@ type linkedServiceDataLakeStorageGen2Args struct {
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -234,8 +211,6 @@ type linkedServiceDataLakeStorageGen2Args struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
 	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
 	// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
@@ -257,11 +232,7 @@ type LinkedServiceDataLakeStorageGen2Args struct {
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -271,8 +242,6 @@ type LinkedServiceDataLakeStorageGen2Args struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account.  Incompatible with `storageAccountKey` and `useManagedIdentity`.
 	ServicePrincipalId pulumi.StringPtrInput
 	// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.

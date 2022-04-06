@@ -22,7 +22,7 @@ namespace Pulumi.Azure.DataShare.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
+        /// Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
         /// </summary>
         public readonly string Type;
 

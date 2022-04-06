@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,15 +40,13 @@ import (
 // 			return err
 // 		}
 // 		exampleLinkedServiceSqlServer, err := datafactory.NewLinkedServiceSqlServer(ctx, "exampleLinkedServiceSqlServer", &datafactory.LinkedServiceSqlServerArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			ConnectionString:  pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test"),
+// 			DataFactoryId:    exampleFactory.ID(),
+// 			ConnectionString: pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = datafactory.NewDatasetSqlServerTable(ctx, "exampleDatasetSqlServerTable", &datafactory.DatasetSqlServerTableArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			DataFactoryId:     exampleFactory.ID(),
 // 			LinkedServiceName: exampleLinkedServiceSqlServer.Name,
 // 		})
@@ -76,10 +74,6 @@ type DatasetSqlServerTable struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset SQL Server Table.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -90,8 +84,6 @@ type DatasetSqlServerTable struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset SQL Server Table.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetSqlServerTableSchemaColumnArrayOutput `pulumi:"schemaColumns"`
 	// The table name of the Data Factory Dataset SQL Server Table.
@@ -105,11 +97,11 @@ func NewDatasetSqlServerTable(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
+	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DatasetSqlServerTable
 	err := ctx.RegisterResource("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable", name, args, &resource, opts...)
@@ -139,10 +131,6 @@ type datasetSqlServerTableState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset SQL Server Table.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -153,8 +141,6 @@ type datasetSqlServerTableState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset SQL Server Table.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetSqlServerTableSchemaColumn `pulumi:"schemaColumns"`
 	// The table name of the Data Factory Dataset SQL Server Table.
@@ -168,10 +154,6 @@ type DatasetSqlServerTableState struct {
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset SQL Server Table.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -182,8 +164,6 @@ type DatasetSqlServerTableState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset SQL Server Table.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetSqlServerTableSchemaColumnArrayInput
 	// The table name of the Data Factory Dataset SQL Server Table.
@@ -200,11 +180,7 @@ type datasetSqlServerTableArgs struct {
 	// List of tags that can be used for describing the Data Factory Dataset SQL Server Table.
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Dataset SQL Server Table.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -215,8 +191,6 @@ type datasetSqlServerTableArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset SQL Server Table.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetSqlServerTableSchemaColumn `pulumi:"schemaColumns"`
 	// The table name of the Data Factory Dataset SQL Server Table.
@@ -230,11 +204,7 @@ type DatasetSqlServerTableArgs struct {
 	// List of tags that can be used for describing the Data Factory Dataset SQL Server Table.
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Dataset SQL Server Table.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -245,8 +215,6 @@ type DatasetSqlServerTableArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset SQL Server Table.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetSqlServerTableSchemaColumnArrayInput
 	// The table name of the Data Factory Dataset SQL Server Table.

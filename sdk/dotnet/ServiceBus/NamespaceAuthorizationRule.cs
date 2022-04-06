@@ -83,9 +83,6 @@ namespace Pulumi.Azure.ServiceBus
         [Output("namespaceId")]
         public Output<string> NamespaceId { get; private set; } = null!;
 
-        [Output("namespaceName")]
-        public Output<string> NamespaceName { get; private set; } = null!;
-
         /// <summary>
         /// The Primary Connection String for the ServiceBus Namespace authorization Rule.
         /// </summary>
@@ -103,9 +100,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Output("primaryKey")]
         public Output<string> PrimaryKey { get; private set; } = null!;
-
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The Secondary Connection String for the ServiceBus Namespace authorization Rule.
@@ -139,7 +133,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public NamespaceAuthorizationRule(string name, NamespaceAuthorizationRuleArgs? args = null, CustomResourceOptions? options = null)
+        public NamespaceAuthorizationRule(string name, NamespaceAuthorizationRuleArgs args, CustomResourceOptions? options = null)
             : base("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, args ?? new NamespaceAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -202,14 +196,8 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("namespaceId")]
-        public Input<string>? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
+        [Input("namespaceId", required: true)]
+        public Input<string> NamespaceId { get; set; } = null!;
 
         /// <summary>
         /// Grants send access to this this Authorization Rule. Defaults to `false`.
@@ -248,9 +236,6 @@ namespace Pulumi.Azure.ServiceBus
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
 
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
         /// <summary>
         /// The Primary Connection String for the ServiceBus Namespace authorization Rule.
         /// </summary>
@@ -268,9 +253,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The Secondary Connection String for the ServiceBus Namespace authorization Rule.

@@ -583,7 +583,7 @@ class StandardIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Logic App Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. The only possible value is `SystemAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
         """
@@ -597,7 +597,7 @@ class StandardIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Logic App Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -1509,8 +1509,8 @@ class WorkflowIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
-        :param Sequence[str] identity_ids: A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are `SystemAssigned`, `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         """
@@ -1526,7 +1526,7 @@ class WorkflowIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are `SystemAssigned`, `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -1534,7 +1534,7 @@ class WorkflowIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1904,9 +1904,10 @@ class GetWorkflowIdentityResult(dict):
                  tenant_id: str,
                  type: str):
         """
-        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
-        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
-        :param str type: The Type of Managed Identity assigned to this Logic App Workflow.
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        :param str type: The type of Managed Service Identity that is configured on this API Management Service.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
@@ -1916,13 +1917,16 @@ class GetWorkflowIdentityResult(dict):
     @property
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+        """
         return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
         """
         return pulumi.get(self, "principal_id")
 
@@ -1930,7 +1934,7 @@ class GetWorkflowIdentityResult(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -1938,7 +1942,7 @@ class GetWorkflowIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The Type of Managed Identity assigned to this Logic App Workflow.
+        The type of Managed Service Identity that is configured on this API Management Service.
         """
         return pulumi.get(self, "type")
 

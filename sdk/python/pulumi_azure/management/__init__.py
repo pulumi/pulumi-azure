@@ -8,6 +8,7 @@ import typing
 from .get_group import *
 from .group import *
 from .group_policy_assignment import *
+from .group_policy_remediation import *
 from .group_subscription_association import *
 from .group_template_deployment import *
 from .lock import *

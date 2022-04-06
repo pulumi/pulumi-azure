@@ -14,17 +14,17 @@ namespace Pulumi.Azure.Purview.Outputs
     public sealed class AccountIdentity
     {
         /// <summary>
-        /// The ID of the Principal (Client) in Azure Active Directory.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of Managed Identity assigned to this Purview Account.
+        /// Specifies the type of Managed Service Identity that should be configured on this Purview Account. The only possible value is `SystemAssigned`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private AccountIdentity(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Purview.Outputs
 
             string? tenantId,
 
-            string? type)
+            string type)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -51,11 +51,13 @@ import (
 // 		}
 // 		exampleSpringCloudJavaDeployment, err := appplatform.NewSpringCloudJavaDeployment(ctx, "exampleSpringCloudJavaDeployment", &appplatform.SpringCloudJavaDeploymentArgs{
 // 			SpringCloudAppId: exampleSpringCloudApp.ID(),
-// 			Cpu:              pulumi.Int(2),
-// 			MemoryInGb:       pulumi.Int(4),
 // 			InstanceCount:    pulumi.Int(2),
 // 			JvmOptions:       pulumi.String("-XX:+PrintGC"),
 // 			RuntimeVersion:   pulumi.String("Java_11"),
+// 			Quota: &appplatform.SpringCloudJavaDeploymentQuotaArgs{
+// 				Cpu:    pulumi.String("2"),
+// 				Memory: pulumi.String("4Gi"),
+// 			},
 // 			EnvironmentVariables: pulumi.StringMap{
 // 				"Env": pulumi.String("Staging"),
 // 			},

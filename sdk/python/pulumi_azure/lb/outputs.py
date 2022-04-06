@@ -9,7 +9,6 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'BackendAddressPoolBackendAddress',
     'BackendAddressPoolTunnelInterface',
     'LoadBalancerFrontendIpConfiguration',
     'OutboundRuleFrontendIpConfiguration',
@@ -17,57 +16,6 @@ __all__ = [
     'GetBackendAddressPoolBackendIpConfigurationResult',
     'GetLBFrontendIpConfigurationResult',
 ]
-
-@pulumi.output_type
-class BackendAddressPoolBackendAddress(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipAddress":
-            suggest = "ip_address"
-        elif key == "virtualNetworkId":
-            suggest = "virtual_network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BackendAddressPoolBackendAddress. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        BackendAddressPoolBackendAddress.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        BackendAddressPoolBackendAddress.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 ip_address: str,
-                 name: str,
-                 virtual_network_id: str):
-        """
-        :param str name: Specifies the name of the Backend Address Pool.
-        """
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> str:
-        return pulumi.get(self, "ip_address")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Specifies the name of the Backend Address Pool.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> str:
-        return pulumi.get(self, "virtual_network_id")
-
 
 @pulumi.output_type
 class BackendAddressPoolTunnelInterface(dict):
@@ -125,9 +73,7 @@ class LoadBalancerFrontendIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "availabilityZone":
-            suggest = "availability_zone"
-        elif key == "gatewayLoadBalancerFrontendIpConfigurationId":
+        if key == "gatewayLoadBalancerFrontendIpConfigurationId":
             suggest = "gateway_load_balancer_frontend_ip_configuration_id"
         elif key == "inboundNatRules":
             suggest = "inbound_nat_rules"
@@ -161,7 +107,6 @@ class LoadBalancerFrontendIpConfiguration(dict):
 
     def __init__(__self__, *,
                  name: str,
-                 availability_zone: Optional[str] = None,
                  gateway_load_balancer_frontend_ip_configuration_id: Optional[str] = None,
                  id: Optional[str] = None,
                  inbound_nat_rules: Optional[Sequence[str]] = None,
@@ -173,10 +118,9 @@ class LoadBalancerFrontendIpConfiguration(dict):
                  public_ip_address_id: Optional[str] = None,
                  public_ip_prefix_id: Optional[str] = None,
                  subnet_id: Optional[str] = None,
-                 zones: Optional[str] = None):
+                 zones: Optional[Sequence[str]] = None):
         """
         :param str name: Specifies the name of the frontend ip configuration.
-        :param str availability_zone: A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
         :param str gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
         :param str id: The id of the Frontend IP Configuration.
         :param Sequence[str] inbound_nat_rules: The list of IDs of inbound rules that use this frontend IP.
@@ -190,8 +134,6 @@ class LoadBalancerFrontendIpConfiguration(dict):
         :param str subnet_id: The ID of the Subnet which should be associated with the IP Configuration.
         """
         pulumi.set(__self__, "name", name)
-        if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
         if gateway_load_balancer_frontend_ip_configuration_id is not None:
             pulumi.set(__self__, "gateway_load_balancer_frontend_ip_configuration_id", gateway_load_balancer_frontend_ip_configuration_id)
         if id is not None:
@@ -224,14 +166,6 @@ class LoadBalancerFrontendIpConfiguration(dict):
         Specifies the name of the frontend ip configuration.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[str]:
-        """
-        A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
-        """
-        return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="gatewayLoadBalancerFrontendIpConfigurationId")
@@ -323,7 +257,7 @@ class LoadBalancerFrontendIpConfiguration(dict):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[str]:
+    def zones(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "zones")
 
 

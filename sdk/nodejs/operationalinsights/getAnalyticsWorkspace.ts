@@ -61,10 +61,6 @@ export interface GetAnalyticsWorkspaceResult {
     readonly location: string;
     readonly name: string;
     /**
-     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
-     */
-    readonly portalUrl: string;
-    /**
      * The Primary shared key for the Log Analytics Workspace.
      */
     readonly primarySharedKey: string;

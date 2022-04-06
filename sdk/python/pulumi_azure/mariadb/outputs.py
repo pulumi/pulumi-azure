@@ -9,79 +9,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ServerStorageProfile',
     'GetMariaDbServerStorageProfileResult',
 ]
-
-@pulumi.output_type
-class ServerStorageProfile(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "autoGrow":
-            suggest = "auto_grow"
-        elif key == "backupRetentionDays":
-            suggest = "backup_retention_days"
-        elif key == "geoRedundantBackup":
-            suggest = "geo_redundant_backup"
-        elif key == "storageMb":
-            suggest = "storage_mb"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServerStorageProfile. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServerStorageProfile.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServerStorageProfile.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 auto_grow: Optional[str] = None,
-                 backup_retention_days: Optional[int] = None,
-                 geo_redundant_backup: Optional[str] = None,
-                 storage_mb: Optional[int] = None):
-        """
-        :param int backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
-        :param int storage_mb: Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
-        """
-        if auto_grow is not None:
-            pulumi.set(__self__, "auto_grow", auto_grow)
-        if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
-        if geo_redundant_backup is not None:
-            pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
-        if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
-
-    @property
-    @pulumi.getter(name="autoGrow")
-    def auto_grow(self) -> Optional[str]:
-        return pulumi.get(self, "auto_grow")
-
-    @property
-    @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[int]:
-        """
-        Backup retention days for the server, supported values are between `7` and `35` days.
-        """
-        return pulumi.get(self, "backup_retention_days")
-
-    @property
-    @pulumi.getter(name="geoRedundantBackup")
-    def geo_redundant_backup(self) -> Optional[str]:
-        return pulumi.get(self, "geo_redundant_backup")
-
-    @property
-    @pulumi.getter(name="storageMb")
-    def storage_mb(self) -> Optional[int]:
-        """
-        Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
-        """
-        return pulumi.get(self, "storage_mb")
-
 
 @pulumi.output_type
 class GetMariaDbServerStorageProfileResult(dict):

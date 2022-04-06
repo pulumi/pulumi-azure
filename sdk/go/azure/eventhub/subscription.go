@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/servicebus"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -94,18 +94,12 @@ type Subscription struct {
 	MaxDeliveryCount pulumi.IntOutput `pulumi:"maxDeliveryCount"`
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Deprecated: Deprecated in favor of "topic_id"
-	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresSession pulumi.BoolPtrOutput `pulumi:"requiresSession"`
-	// Deprecated: Deprecated in favor of "topic_id"
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
 	TopicId pulumi.StringOutput `pulumi:"topicId"`
-	// Deprecated: Deprecated in favor of "topic_id"
-	TopicName pulumi.StringOutput `pulumi:"topicName"`
 }
 
 // NewSubscription registers a new resource with the given unique name, arguments, and options.
@@ -117,6 +111,9 @@ func NewSubscription(ctx *pulumi.Context,
 
 	if args.MaxDeliveryCount == nil {
 		return nil, errors.New("invalid value for required argument 'MaxDeliveryCount'")
+	}
+	if args.TopicId == nil {
+		return nil, errors.New("invalid value for required argument 'TopicId'")
 	}
 	var resource Subscription
 	err := ctx.RegisterResource("azure:eventhub/subscription:Subscription", name, args, &resource, opts...)
@@ -160,18 +157,12 @@ type subscriptionState struct {
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: Deprecated in favor of "topic_id"
-	NamespaceName *string `pulumi:"namespaceName"`
 	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresSession *bool `pulumi:"requiresSession"`
-	// Deprecated: Deprecated in favor of "topic_id"
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
 	// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
 	TopicId *string `pulumi:"topicId"`
-	// Deprecated: Deprecated in favor of "topic_id"
-	TopicName *string `pulumi:"topicName"`
 }
 
 type SubscriptionState struct {
@@ -195,18 +186,12 @@ type SubscriptionState struct {
 	MaxDeliveryCount pulumi.IntPtrInput
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "topic_id"
-	NamespaceName pulumi.StringPtrInput
 	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresSession pulumi.BoolPtrInput
-	// Deprecated: Deprecated in favor of "topic_id"
-	ResourceGroupName pulumi.StringPtrInput
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
 	// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
 	TopicId pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "topic_id"
-	TopicName pulumi.StringPtrInput
 }
 
 func (SubscriptionState) ElementType() reflect.Type {
@@ -234,18 +219,12 @@ type subscriptionArgs struct {
 	MaxDeliveryCount int `pulumi:"maxDeliveryCount"`
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: Deprecated in favor of "topic_id"
-	NamespaceName *string `pulumi:"namespaceName"`
 	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresSession *bool `pulumi:"requiresSession"`
-	// Deprecated: Deprecated in favor of "topic_id"
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
 	// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
-	TopicId *string `pulumi:"topicId"`
-	// Deprecated: Deprecated in favor of "topic_id"
-	TopicName *string `pulumi:"topicName"`
+	TopicId string `pulumi:"topicId"`
 }
 
 // The set of arguments for constructing a Subscription resource.
@@ -270,18 +249,12 @@ type SubscriptionArgs struct {
 	MaxDeliveryCount pulumi.IntInput
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "topic_id"
-	NamespaceName pulumi.StringPtrInput
 	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresSession pulumi.BoolPtrInput
-	// Deprecated: Deprecated in favor of "topic_id"
-	ResourceGroupName pulumi.StringPtrInput
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
 	// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
-	TopicId pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of "topic_id"
-	TopicName pulumi.StringPtrInput
+	TopicId pulumi.StringInput
 }
 
 func (SubscriptionArgs) ElementType() reflect.Type {

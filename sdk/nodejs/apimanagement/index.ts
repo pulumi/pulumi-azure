@@ -48,7 +48,6 @@ export * from "./product";
 export * from "./productApi";
 export * from "./productGroup";
 export * from "./productPolicy";
-export * from "./property";
 export * from "./redisCache";
 export * from "./service";
 export * from "./subscription";
@@ -92,7 +91,6 @@ import { Product } from "./product";
 import { ProductApi } from "./productApi";
 import { ProductGroup } from "./productGroup";
 import { ProductPolicy } from "./productPolicy";
-import { Property } from "./property";
 import { RedisCache } from "./redisCache";
 import { Service } from "./service";
 import { Subscription } from "./subscription";
@@ -175,8 +173,6 @@ const _module = {
                 return new ProductGroup(name, <any>undefined, { urn })
             case "azure:apimanagement/productPolicy:ProductPolicy":
                 return new ProductPolicy(name, <any>undefined, { urn })
-            case "azure:apimanagement/property:Property":
-                return new Property(name, <any>undefined, { urn })
             case "azure:apimanagement/redisCache:RedisCache":
                 return new RedisCache(name, <any>undefined, { urn })
             case "azure:apimanagement/service:Service":
@@ -228,7 +224,6 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/product", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/productApi", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/productGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/productPolicy", _module)
-pulumi.runtime.registerResourceModule("azure", "apimanagement/property", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/redisCache", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/service", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/subscription", _module)

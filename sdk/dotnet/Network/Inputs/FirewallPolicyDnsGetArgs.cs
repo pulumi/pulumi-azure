@@ -13,12 +13,6 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class FirewallPolicyDnsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the network rule fqdn be enabled?
-        /// </summary>
-        [Input("networkRuleFqdnEnabled")]
-        public Input<bool>? NetworkRuleFqdnEnabled { get; set; }
-
-        /// <summary>
         /// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
         /// </summary>
         [Input("proxyEnabled")]

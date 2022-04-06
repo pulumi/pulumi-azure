@@ -29,18 +29,18 @@ class ServiceArgs:
                  tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Service resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web Pubsub service. Changing
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web PubSub service. Changing
                this forces a new resource to be created.
         :param pulumi.Input[str] sku: Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
-        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are:
                Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the Web PubSub service exists. Changing this
                forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Web Pubsub service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Web PubSub service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults
@@ -73,7 +73,7 @@ class ServiceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Web Pubsub service. Changing
+        The name of the resource group in which to create the Web PubSub service. Changing
         this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
@@ -110,7 +110,7 @@ class ServiceArgs:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+        Specifies the number of units associated with this Web PubSub resource. Valid values are:
         Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         """
         return pulumi.get(self, "capacity")
@@ -159,7 +159,7 @@ class ServiceArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+        Specifies the supported Azure location where the Web PubSub service exists. Changing this
         forces a new resource to be created.
         """
         return pulumi.get(self, "location")
@@ -172,7 +172,7 @@ class ServiceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Web Pubsub service. Changing this forces a new resource to be created.
+        The name of the Web PubSub service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -245,24 +245,24 @@ class _ServiceState:
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
-        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are:
                Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
-        :param pulumi.Input[str] hostname: The FQDN of the Web Pubsub service.
+        :param pulumi.Input[str] hostname: The FQDN of the Web PubSub service.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the Web PubSub service exists. Changing this
                forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Web Pubsub service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] primary_access_key: The primary access key for the Web Pubsub service.
-        :param pulumi.Input[str] primary_connection_string: The primary connection string for the Web Pubsub service.
+        :param pulumi.Input[str] name: The name of the Web PubSub service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] primary_access_key: The primary access key for the Web PubSub service.
+        :param pulumi.Input[str] primary_connection_string: The primary connection string for the Web PubSub service.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
-        :param pulumi.Input[int] public_port: The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web Pubsub service. Changing
+        :param pulumi.Input[int] public_port: The publicly accessible port of the Web PubSub service which is designed for browser/client use.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web PubSub service. Changing
                this forces a new resource to be created.
-        :param pulumi.Input[str] secondary_access_key: The secondary access key for the Web Pubsub service.
-        :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the Web Pubsub service.
-        :param pulumi.Input[int] server_port: The publicly accessible port of the Web Pubsub service which is designed for customer server side use.
+        :param pulumi.Input[str] secondary_access_key: The secondary access key for the Web PubSub service.
+        :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the Web PubSub service.
+        :param pulumi.Input[int] server_port: The publicly accessible port of the Web PubSub service which is designed for customer server side use.
         :param pulumi.Input[str] sku: Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults
@@ -327,7 +327,7 @@ class _ServiceState:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+        Specifies the number of units associated with this Web PubSub resource. Valid values are:
         Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         """
         return pulumi.get(self, "capacity")
@@ -349,7 +349,7 @@ class _ServiceState:
     @pulumi.getter
     def hostname(self) -> Optional[pulumi.Input[str]]:
         """
-        The FQDN of the Web Pubsub service.
+        The FQDN of the Web PubSub service.
         """
         return pulumi.get(self, "hostname")
 
@@ -397,7 +397,7 @@ class _ServiceState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+        Specifies the supported Azure location where the Web PubSub service exists. Changing this
         forces a new resource to be created.
         """
         return pulumi.get(self, "location")
@@ -410,7 +410,7 @@ class _ServiceState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Web Pubsub service. Changing this forces a new resource to be created.
+        The name of the Web PubSub service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -422,7 +422,7 @@ class _ServiceState:
     @pulumi.getter(name="primaryAccessKey")
     def primary_access_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The primary access key for the Web Pubsub service.
+        The primary access key for the Web PubSub service.
         """
         return pulumi.get(self, "primary_access_key")
 
@@ -434,7 +434,7 @@ class _ServiceState:
     @pulumi.getter(name="primaryConnectionString")
     def primary_connection_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The primary connection string for the Web Pubsub service.
+        The primary connection string for the Web PubSub service.
         """
         return pulumi.get(self, "primary_connection_string")
 
@@ -458,7 +458,7 @@ class _ServiceState:
     @pulumi.getter(name="publicPort")
     def public_port(self) -> Optional[pulumi.Input[int]]:
         """
-        The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
+        The publicly accessible port of the Web PubSub service which is designed for browser/client use.
         """
         return pulumi.get(self, "public_port")
 
@@ -470,7 +470,7 @@ class _ServiceState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Web Pubsub service. Changing
+        The name of the resource group in which to create the Web PubSub service. Changing
         this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
@@ -483,7 +483,7 @@ class _ServiceState:
     @pulumi.getter(name="secondaryAccessKey")
     def secondary_access_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The secondary access key for the Web Pubsub service.
+        The secondary access key for the Web PubSub service.
         """
         return pulumi.get(self, "secondary_access_key")
 
@@ -495,7 +495,7 @@ class _ServiceState:
     @pulumi.getter(name="secondaryConnectionString")
     def secondary_connection_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The secondary connection string for the Web Pubsub service.
+        The secondary connection string for the Web PubSub service.
         """
         return pulumi.get(self, "secondary_connection_string")
 
@@ -507,7 +507,7 @@ class _ServiceState:
     @pulumi.getter(name="serverPort")
     def server_port(self) -> Optional[pulumi.Input[int]]:
         """
-        The publicly accessible port of the Web Pubsub service which is designed for customer server side use.
+        The publicly accessible port of the Web PubSub service which is designed for customer server side use.
         """
         return pulumi.get(self, "server_port")
 
@@ -581,7 +581,7 @@ class Service(pulumi.CustomResource):
                  tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Manages an Azure Web Pubsub Service.
+        Manages an Azure Web PubSub Service.
 
         ## Example Usage
 
@@ -608,7 +608,7 @@ class Service(pulumi.CustomResource):
 
         ## Import
 
-        Web Pubsub services can be imported using the `resource id`, e.g.
+        Web PubSub services can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:webpubsub/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/pubsub1
@@ -617,16 +617,16 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
-        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are:
                Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the Web PubSub service exists. Changing this
                forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Web Pubsub service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Web PubSub service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web Pubsub service. Changing
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web PubSub service. Changing
                this forces a new resource to be created.
         :param pulumi.Input[str] sku: Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -640,7 +640,7 @@ class Service(pulumi.CustomResource):
                  args: ServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Azure Web Pubsub Service.
+        Manages an Azure Web PubSub Service.
 
         ## Example Usage
 
@@ -667,7 +667,7 @@ class Service(pulumi.CustomResource):
 
         ## Import
 
-        Web Pubsub services can be imported using the `resource id`, e.g.
+        Web PubSub services can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:webpubsub/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/pubsub1
@@ -776,24 +776,24 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
-        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+        :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are:
                Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
-        :param pulumi.Input[str] hostname: The FQDN of the Web Pubsub service.
+        :param pulumi.Input[str] hostname: The FQDN of the Web PubSub service.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the Web PubSub service exists. Changing this
                forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Web Pubsub service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] primary_access_key: The primary access key for the Web Pubsub service.
-        :param pulumi.Input[str] primary_connection_string: The primary connection string for the Web Pubsub service.
+        :param pulumi.Input[str] name: The name of the Web PubSub service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] primary_access_key: The primary access key for the Web PubSub service.
+        :param pulumi.Input[str] primary_connection_string: The primary connection string for the Web PubSub service.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
-        :param pulumi.Input[int] public_port: The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web Pubsub service. Changing
+        :param pulumi.Input[int] public_port: The publicly accessible port of the Web PubSub service which is designed for browser/client use.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web PubSub service. Changing
                this forces a new resource to be created.
-        :param pulumi.Input[str] secondary_access_key: The secondary access key for the Web Pubsub service.
-        :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the Web Pubsub service.
-        :param pulumi.Input[int] server_port: The publicly accessible port of the Web Pubsub service which is designed for customer server side use.
+        :param pulumi.Input[str] secondary_access_key: The secondary access key for the Web PubSub service.
+        :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the Web PubSub service.
+        :param pulumi.Input[int] server_port: The publicly accessible port of the Web PubSub service which is designed for customer server side use.
         :param pulumi.Input[str] sku: Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults
@@ -838,7 +838,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def capacity(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the number of units associated with this Web Pubsub resource. Valid values are:
+        Specifies the number of units associated with this Web PubSub resource. Valid values are:
         Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
         """
         return pulumi.get(self, "capacity")
@@ -852,7 +852,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def hostname(self) -> pulumi.Output[str]:
         """
-        The FQDN of the Web Pubsub service.
+        The FQDN of the Web PubSub service.
         """
         return pulumi.get(self, "hostname")
 
@@ -884,7 +884,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Specifies the supported Azure location where the Web Pubsub service exists. Changing this
+        Specifies the supported Azure location where the Web PubSub service exists. Changing this
         forces a new resource to be created.
         """
         return pulumi.get(self, "location")
@@ -893,7 +893,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Web Pubsub service. Changing this forces a new resource to be created.
+        The name of the Web PubSub service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -901,7 +901,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="primaryAccessKey")
     def primary_access_key(self) -> pulumi.Output[str]:
         """
-        The primary access key for the Web Pubsub service.
+        The primary access key for the Web PubSub service.
         """
         return pulumi.get(self, "primary_access_key")
 
@@ -909,7 +909,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="primaryConnectionString")
     def primary_connection_string(self) -> pulumi.Output[str]:
         """
-        The primary connection string for the Web Pubsub service.
+        The primary connection string for the Web PubSub service.
         """
         return pulumi.get(self, "primary_connection_string")
 
@@ -925,7 +925,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="publicPort")
     def public_port(self) -> pulumi.Output[int]:
         """
-        The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
+        The publicly accessible port of the Web PubSub service which is designed for browser/client use.
         """
         return pulumi.get(self, "public_port")
 
@@ -933,7 +933,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Web Pubsub service. Changing
+        The name of the resource group in which to create the Web PubSub service. Changing
         this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
@@ -942,7 +942,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="secondaryAccessKey")
     def secondary_access_key(self) -> pulumi.Output[str]:
         """
-        The secondary access key for the Web Pubsub service.
+        The secondary access key for the Web PubSub service.
         """
         return pulumi.get(self, "secondary_access_key")
 
@@ -950,7 +950,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="secondaryConnectionString")
     def secondary_connection_string(self) -> pulumi.Output[str]:
         """
-        The secondary connection string for the Web Pubsub service.
+        The secondary connection string for the Web PubSub service.
         """
         return pulumi.get(self, "secondary_connection_string")
 
@@ -958,7 +958,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="serverPort")
     def server_port(self) -> pulumi.Output[int]:
         """
-        The publicly accessible port of the Web Pubsub service which is designed for customer server side use.
+        The publicly accessible port of the Web PubSub service which is designed for customer server side use.
         """
         return pulumi.get(self, "server_port")
 

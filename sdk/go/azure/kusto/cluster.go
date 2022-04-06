@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/kusto"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -62,21 +62,13 @@ type Cluster struct {
 	pulumi.CustomResourceState
 
 	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
-	AutoStopEnabled pulumi.BoolOutput `pulumi:"autoStopEnabled"`
+	AutoStopEnabled pulumi.BoolPtrOutput `pulumi:"autoStopEnabled"`
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
 	// Specifies if the cluster's disks are encrypted.
-	DiskEncryptionEnabled pulumi.BoolOutput `pulumi:"diskEncryptionEnabled"`
+	DiskEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
-	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableAutoStop pulumi.BoolOutput `pulumi:"enableAutoStop"`
-	// Deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableDiskEncryption pulumi.BoolOutput `pulumi:"enableDiskEncryption"`
-	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnablePurge pulumi.BoolOutput `pulumi:"enablePurge"`
-	// Deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableStreamingIngest pulumi.BoolOutput `pulumi:"enableStreamingIngest"`
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// An `identity` block as defined below.
@@ -91,13 +83,13 @@ type Cluster struct {
 	OptimizedAutoScale         ClusterOptimizedAutoScalePtrOutput `pulumi:"optimizedAutoScale"`
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput               `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies if the purge operations are enabled.
-	PurgeEnabled pulumi.BoolOutput `pulumi:"purgeEnabled"`
+	PurgeEnabled pulumi.BoolPtrOutput `pulumi:"purgeEnabled"`
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
 	Sku ClusterSkuOutput `pulumi:"sku"`
 	// Specifies if the streaming ingest is enabled.
-	StreamingIngestionEnabled pulumi.BoolOutput `pulumi:"streamingIngestionEnabled"`
+	StreamingIngestionEnabled pulumi.BoolPtrOutput `pulumi:"streamingIngestionEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTentantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
@@ -106,7 +98,7 @@ type Cluster struct {
 	Uri pulumi.StringOutput `pulumi:"uri"`
 	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
 	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrOutput `pulumi:"virtualNetworkConfiguration"`
-	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -153,14 +145,6 @@ type clusterState struct {
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableAutoStop *bool `pulumi:"enableAutoStop"`
-	// Deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
-	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnablePurge *bool `pulumi:"enablePurge"`
-	// Deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine *string `pulumi:"engine"`
 	// An `identity` block as defined below.
@@ -190,7 +174,7 @@ type clusterState struct {
 	Uri *string `pulumi:"uri"`
 	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
 	VirtualNetworkConfiguration *ClusterVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
-	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -203,14 +187,6 @@ type ClusterState struct {
 	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableAutoStop pulumi.BoolPtrInput
-	// Deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableDiskEncryption pulumi.BoolPtrInput
-	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnablePurge pulumi.BoolPtrInput
-	// Deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableStreamingIngest pulumi.BoolPtrInput
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -240,7 +216,7 @@ type ClusterState struct {
 	Uri pulumi.StringPtrInput
 	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
 	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrInput
-	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -255,14 +231,6 @@ type clusterArgs struct {
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableAutoStop *bool `pulumi:"enableAutoStop"`
-	// Deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
-	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnablePurge *bool `pulumi:"enablePurge"`
-	// Deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine *string `pulumi:"engine"`
 	// An `identity` block as defined below.
@@ -290,7 +258,7 @@ type clusterArgs struct {
 	TrustedExternalTenants []string `pulumi:"trustedExternalTenants"`
 	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
 	VirtualNetworkConfiguration *ClusterVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
-	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -302,14 +270,6 @@ type ClusterArgs struct {
 	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// Deprecated: This property has been renamed to auto_stop_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableAutoStop pulumi.BoolPtrInput
-	// Deprecated: This property has been renamed to disk_encryption_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableDiskEncryption pulumi.BoolPtrInput
-	// Deprecated: This property has been renamed to purge_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnablePurge pulumi.BoolPtrInput
-	// Deprecated: This property has been renamed to streaming_ingestion_enabled to be more consistent with the rest of the provider and will be removed in v3.0 of the provider
-	EnableStreamingIngest pulumi.BoolPtrInput
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -337,7 +297,7 @@ type ClusterArgs struct {
 	TrustedExternalTenants pulumi.StringArrayInput
 	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
 	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrInput
-	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
 	Zones pulumi.StringArrayInput
 }
 

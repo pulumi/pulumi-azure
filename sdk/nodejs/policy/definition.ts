@@ -103,13 +103,7 @@ export class Definition extends pulumi.CustomResource {
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
      */
-    public readonly managementGroupId!: pulumi.Output<string>;
-    /**
-     * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-     *
-     * @deprecated Deprecated in favour of `management_group_id`
-     */
-    public readonly managementGroupName!: pulumi.Output<string>;
+    public readonly managementGroupId!: pulumi.Output<string | undefined>;
     /**
      * The metadata for the policy definition. This
      * is a JSON string representing additional metadata that should be stored
@@ -158,7 +152,6 @@ export class Definition extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["managementGroupId"] = state ? state.managementGroupId : undefined;
-            resourceInputs["managementGroupName"] = state ? state.managementGroupName : undefined;
             resourceInputs["metadata"] = state ? state.metadata : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -179,7 +172,6 @@ export class Definition extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["managementGroupName"] = args ? args.managementGroupName : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -208,12 +200,6 @@ export interface DefinitionState {
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
      */
     managementGroupId?: pulumi.Input<string>;
-    /**
-     * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-     *
-     * @deprecated Deprecated in favour of `management_group_id`
-     */
-    managementGroupName?: pulumi.Input<string>;
     /**
      * The metadata for the policy definition. This
      * is a JSON string representing additional metadata that should be stored
@@ -263,12 +249,6 @@ export interface DefinitionArgs {
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
      */
     managementGroupId?: pulumi.Input<string>;
-    /**
-     * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-     *
-     * @deprecated Deprecated in favour of `management_group_id`
-     */
-    managementGroupName?: pulumi.Input<string>;
     /**
      * The metadata for the policy definition. This
      * is a JSON string representing additional metadata that should be stored

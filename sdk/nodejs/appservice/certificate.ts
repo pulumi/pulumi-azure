@@ -78,12 +78,6 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostNames!: pulumi.Output<string[]>;
     /**
-     * The ID of the the App Service Environment where the certificate is in use.
-     *
-     * @deprecated This property has been deprecated and replaced with `app_service_plan_id`
-     */
-    public readonly hostingEnvironmentProfileId!: pulumi.Output<string>;
-    /**
      * The issue date for the certificate.
      */
     public /*out*/ readonly issueDate!: pulumi.Output<string>;
@@ -142,7 +136,6 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
             resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
             resourceInputs["hostNames"] = state ? state.hostNames : undefined;
-            resourceInputs["hostingEnvironmentProfileId"] = state ? state.hostingEnvironmentProfileId : undefined;
             resourceInputs["issueDate"] = state ? state.issueDate : undefined;
             resourceInputs["issuer"] = state ? state.issuer : undefined;
             resourceInputs["keyVaultSecretId"] = state ? state.keyVaultSecretId : undefined;
@@ -160,7 +153,6 @@ export class Certificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
-            resourceInputs["hostingEnvironmentProfileId"] = args ? args.hostingEnvironmentProfileId : undefined;
             resourceInputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -201,12 +193,6 @@ export interface CertificateState {
      * List of host names the certificate applies to.
      */
     hostNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ID of the the App Service Environment where the certificate is in use.
-     *
-     * @deprecated This property has been deprecated and replaced with `app_service_plan_id`
-     */
-    hostingEnvironmentProfileId?: pulumi.Input<string>;
     /**
      * The issue date for the certificate.
      */
@@ -258,12 +244,6 @@ export interface CertificateArgs {
      * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
      */
     appServicePlanId?: pulumi.Input<string>;
-    /**
-     * The ID of the the App Service Environment where the certificate is in use.
-     *
-     * @deprecated This property has been deprecated and replaced with `app_service_plan_id`
-     */
-    hostingEnvironmentProfileId?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      */

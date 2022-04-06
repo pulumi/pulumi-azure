@@ -19,15 +19,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewFirewallPolicy(ctx, "example", &network.FirewallPolicyArgs{
-// 			Location:          pulumi.String("West Europe"),
-// 			ResourceGroupName: pulumi.String("example"),
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewFirewallPolicy(ctx, "exampleFirewallPolicy", &network.FirewallPolicyArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -55,7 +62,7 @@ type FirewallPolicy struct {
 	Dns FirewallPolicyDnsPtrOutput `pulumi:"dns"`
 	// A list of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls pulumi.StringArrayOutput `pulumi:"firewalls"`
-	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+	// An `identity` block as defined below.
 	Identity FirewallPolicyIdentityPtrOutput `pulumi:"identity"`
 	// An `insights` block as defined below.
 	Insights FirewallPolicyInsightsPtrOutput `pulumi:"insights"`
@@ -123,7 +130,7 @@ type firewallPolicyState struct {
 	Dns *FirewallPolicyDns `pulumi:"dns"`
 	// A list of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls []string `pulumi:"firewalls"`
-	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+	// An `identity` block as defined below.
 	Identity *FirewallPolicyIdentity `pulumi:"identity"`
 	// An `insights` block as defined below.
 	Insights *FirewallPolicyInsights `pulumi:"insights"`
@@ -160,7 +167,7 @@ type FirewallPolicyState struct {
 	Dns FirewallPolicyDnsPtrInput
 	// A list of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls pulumi.StringArrayInput
-	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+	// An `identity` block as defined below.
 	Identity FirewallPolicyIdentityPtrInput
 	// An `insights` block as defined below.
 	Insights FirewallPolicyInsightsPtrInput
@@ -197,7 +204,7 @@ type firewallPolicyArgs struct {
 	BasePolicyId *string `pulumi:"basePolicyId"`
 	// A `dns` block as defined below.
 	Dns *FirewallPolicyDns `pulumi:"dns"`
-	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+	// An `identity` block as defined below.
 	Identity *FirewallPolicyIdentity `pulumi:"identity"`
 	// An `insights` block as defined below.
 	Insights *FirewallPolicyInsights `pulumi:"insights"`
@@ -229,7 +236,7 @@ type FirewallPolicyArgs struct {
 	BasePolicyId pulumi.StringPtrInput
 	// A `dns` block as defined below.
 	Dns FirewallPolicyDnsPtrInput
-	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+	// An `identity` block as defined below.
 	Identity FirewallPolicyIdentityPtrInput
 	// An `insights` block as defined below.
 	Insights FirewallPolicyInsightsPtrInput

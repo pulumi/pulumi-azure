@@ -1291,12 +1291,6 @@ func (o VolumeDataProtectionSnapshotPolicyPtrOutput) SnapshotPolicyId() pulumi.S
 type VolumeExportPolicyRule struct {
 	// A list of allowed clients IPv4 addresses.
 	AllowedClients []string `pulumi:"allowedClients"`
-	// Deprecated: Deprecated in favour of `protocols_enabled`
-	CifsEnabled *bool `pulumi:"cifsEnabled"`
-	// Deprecated: Deprecated in favour of `protocols_enabled`
-	Nfsv3Enabled *bool `pulumi:"nfsv3Enabled"`
-	// Deprecated: Deprecated in favour of `protocols_enabled`
-	Nfsv4Enabled *bool `pulumi:"nfsv4Enabled"`
 	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
 	ProtocolsEnabled *string `pulumi:"protocolsEnabled"`
 	// Is root access permitted to this volume?
@@ -1323,12 +1317,6 @@ type VolumeExportPolicyRuleInput interface {
 type VolumeExportPolicyRuleArgs struct {
 	// A list of allowed clients IPv4 addresses.
 	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
-	// Deprecated: Deprecated in favour of `protocols_enabled`
-	CifsEnabled pulumi.BoolPtrInput `pulumi:"cifsEnabled"`
-	// Deprecated: Deprecated in favour of `protocols_enabled`
-	Nfsv3Enabled pulumi.BoolPtrInput `pulumi:"nfsv3Enabled"`
-	// Deprecated: Deprecated in favour of `protocols_enabled`
-	Nfsv4Enabled pulumi.BoolPtrInput `pulumi:"nfsv4Enabled"`
 	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
 	ProtocolsEnabled pulumi.StringPtrInput `pulumi:"protocolsEnabled"`
 	// Is root access permitted to this volume?
@@ -1395,21 +1383,6 @@ func (o VolumeExportPolicyRuleOutput) ToVolumeExportPolicyRuleOutputWithContext(
 // A list of allowed clients IPv4 addresses.
 func (o VolumeExportPolicyRuleOutput) AllowedClients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VolumeExportPolicyRule) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
-}
-
-// Deprecated: Deprecated in favour of `protocols_enabled`
-func (o VolumeExportPolicyRuleOutput) CifsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.CifsEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Deprecated: Deprecated in favour of `protocols_enabled`
-func (o VolumeExportPolicyRuleOutput) Nfsv3Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Nfsv3Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// Deprecated: Deprecated in favour of `protocols_enabled`
-func (o VolumeExportPolicyRuleOutput) Nfsv4Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Nfsv4Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
@@ -1932,8 +1905,6 @@ type GetVolumeDataProtectionReplication struct {
 	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
 	// Frequency of replication.
 	ReplicationFrequency string `pulumi:"replicationFrequency"`
-	// Deprecated: This property is not in use and will be removed in version 3.0 of the provider. Please use `replication_frequency` instead
-	ReplicationSchedule string `pulumi:"replicationSchedule"`
 }
 
 // GetVolumeDataProtectionReplicationInput is an input type that accepts GetVolumeDataProtectionReplicationArgs and GetVolumeDataProtectionReplicationOutput values.
@@ -1956,8 +1927,6 @@ type GetVolumeDataProtectionReplicationArgs struct {
 	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
 	// Frequency of replication.
 	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
-	// Deprecated: This property is not in use and will be removed in version 3.0 of the provider. Please use `replication_frequency` instead
-	ReplicationSchedule pulumi.StringInput `pulumi:"replicationSchedule"`
 }
 
 func (GetVolumeDataProtectionReplicationArgs) ElementType() reflect.Type {
@@ -2029,11 +1998,6 @@ func (o GetVolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulum
 // Frequency of replication.
 func (o GetVolumeDataProtectionReplicationOutput) ReplicationFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVolumeDataProtectionReplication) string { return v.ReplicationFrequency }).(pulumi.StringOutput)
-}
-
-// Deprecated: This property is not in use and will be removed in version 3.0 of the provider. Please use `replication_frequency` instead
-func (o GetVolumeDataProtectionReplicationOutput) ReplicationSchedule() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVolumeDataProtectionReplication) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
 }
 
 type GetVolumeDataProtectionReplicationArrayOutput struct{ *pulumi.OutputState }

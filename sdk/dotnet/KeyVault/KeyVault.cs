@@ -16,8 +16,6 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// &gt; **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
     /// 
-    /// &gt; **Note:** This provider will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -150,9 +148,6 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
-
-        [Output("softDeleteEnabled")]
-        public Output<bool> SoftDeleteEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
@@ -308,9 +303,6 @@ namespace Pulumi.Azure.KeyVault
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
 
-        [Input("softDeleteEnabled")]
-        public Input<bool>? SoftDeleteEnabled { get; set; }
-
         /// <summary>
         /// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
         /// </summary>
@@ -425,9 +417,6 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
-
-        [Input("softDeleteEnabled")]
-        public Input<bool>? SoftDeleteEnabled { get; set; }
 
         /// <summary>
         /// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.

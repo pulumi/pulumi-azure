@@ -34,8 +34,7 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const example1 = new azure.datafactory.DatasetJson("example1", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedCustomService.name,
  *     azureBlobStorageLocation: {
  *         container: "container",
@@ -45,8 +44,7 @@ import * as utilities from "../utilities";
  *     encoding: "UTF-8",
  * });
  * const example2 = new azure.datafactory.DatasetJson("example2", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedCustomService.name,
  *     azureBlobStorageLocation: {
  *         container: "container",

@@ -155,6 +155,10 @@ namespace Pulumi.Azure.Network
         /// A mapping of name - virtual network id of the virtual network peerings.
         /// </summary>
         public readonly ImmutableDictionary<string, string> VnetPeerings;
+        /// <summary>
+        /// A list of virtual network peerings IP addresses.
+        /// </summary>
+        public readonly ImmutableArray<string> VnetPeeringsAddresses;
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
@@ -176,7 +180,9 @@ namespace Pulumi.Azure.Network
 
             ImmutableDictionary<string, string> tags,
 
-            ImmutableDictionary<string, string> vnetPeerings)
+            ImmutableDictionary<string, string> vnetPeerings,
+
+            ImmutableArray<string> vnetPeeringsAddresses)
         {
             AddressSpaces = addressSpaces;
             DnsServers = dnsServers;
@@ -188,6 +194,7 @@ namespace Pulumi.Azure.Network
             Subnets = subnets;
             Tags = tags;
             VnetPeerings = vnetPeerings;
+            VnetPeeringsAddresses = vnetPeeringsAddresses;
         }
     }
 }

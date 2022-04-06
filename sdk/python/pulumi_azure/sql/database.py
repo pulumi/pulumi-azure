@@ -21,7 +21,6 @@ class DatabaseArgs:
                  create_mode: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
-                 extended_auditing_policy: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']] = None,
                  import_: Optional[pulumi.Input['DatabaseImportArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[str]] = None,
@@ -44,7 +43,6 @@ class DatabaseArgs:
         :param pulumi.Input[str] create_mode: Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic database pool.
-        :param pulumi.Input['DatabaseExtendedAuditingPolicyArgs'] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input['DatabaseImportArgs'] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
@@ -70,11 +68,6 @@ class DatabaseArgs:
             pulumi.set(__self__, "edition", edition)
         if elastic_pool_name is not None:
             pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
-        if extended_auditing_policy is not None:
-            warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
-        if extended_auditing_policy is not None:
-            pulumi.set(__self__, "extended_auditing_policy", extended_auditing_policy)
         if import_ is not None:
             pulumi.set(__self__, "import_", import_)
         if location is not None:
@@ -175,18 +168,6 @@ class DatabaseArgs:
     @elastic_pool_name.setter
     def elastic_pool_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "elastic_pool_name", value)
-
-    @property
-    @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']]:
-        """
-        A `extended_auditing_policy` block as defined below.
-        """
-        return pulumi.get(self, "extended_auditing_policy")
-
-    @extended_auditing_policy.setter
-    def extended_auditing_policy(self, value: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']]):
-        pulumi.set(self, "extended_auditing_policy", value)
 
     @property
     @pulumi.getter(name="import")
@@ -365,7 +346,6 @@ class _DatabaseState:
                  edition: Optional[pulumi.Input[str]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[str]] = None,
-                 extended_auditing_policy: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']] = None,
                  import_: Optional[pulumi.Input['DatabaseImportArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[str]] = None,
@@ -390,7 +370,6 @@ class _DatabaseState:
         :param pulumi.Input[str] default_secondary_location: The default secondary location of the SQL Database.
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic database pool.
-        :param pulumi.Input['DatabaseExtendedAuditingPolicyArgs'] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input['DatabaseImportArgs'] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
@@ -422,11 +401,6 @@ class _DatabaseState:
             pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
-        if extended_auditing_policy is not None:
-            warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
-        if extended_auditing_policy is not None:
-            pulumi.set(__self__, "extended_auditing_policy", extended_auditing_policy)
         if import_ is not None:
             pulumi.set(__self__, "import_", import_)
         if location is not None:
@@ -540,18 +514,6 @@ class _DatabaseState:
     @encryption.setter
     def encryption(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encryption", value)
-
-    @property
-    @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']]:
-        """
-        A `extended_auditing_policy` block as defined below.
-        """
-        return pulumi.get(self, "extended_auditing_policy")
-
-    @extended_auditing_policy.setter
-    def extended_auditing_policy(self, value: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']]):
-        pulumi.set(self, "extended_auditing_policy", value)
 
     @property
     @pulumi.getter(name="import")
@@ -753,7 +715,6 @@ class Database(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
-                 extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']]] = None,
                  import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[str]] = None,
@@ -772,42 +733,6 @@ class Database(pulumi.CustomResource):
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location="West US",
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd",
-            tags={
-                "environment": "production",
-            })
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_database = azure.sql.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location="West US",
-            server_name=example_sql_server.name,
-            extended_auditing_policy=azure.sql.DatabaseExtendedAuditingPolicyArgs(
-                storage_endpoint=example_account.primary_blob_endpoint,
-                storage_account_access_key=example_account.primary_access_key,
-                storage_account_access_key_is_secondary=True,
-                retention_in_days=6,
-            ),
-            tags={
-                "environment": "production",
-            })
-        ```
-
         ## Import
 
         SQL Databases can be imported using the `resource id`, e.g.
@@ -822,7 +747,6 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] create_mode: Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic database pool.
-        :param pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
@@ -847,42 +771,6 @@ class Database(pulumi.CustomResource):
                  args: DatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location="West US",
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd",
-            tags={
-                "environment": "production",
-            })
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_database = azure.sql.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location="West US",
-            server_name=example_sql_server.name,
-            extended_auditing_policy=azure.sql.DatabaseExtendedAuditingPolicyArgs(
-                storage_endpoint=example_account.primary_blob_endpoint,
-                storage_account_access_key=example_account.primary_access_key,
-                storage_account_access_key_is_secondary=True,
-                retention_in_days=6,
-            ),
-            tags={
-                "environment": "production",
-            })
-        ```
-
         ## Import
 
         SQL Databases can be imported using the `resource id`, e.g.
@@ -910,7 +798,6 @@ class Database(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
-                 extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']]] = None,
                  import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[str]] = None,
@@ -943,10 +830,6 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["edition"] = edition
             __props__.__dict__["elastic_pool_name"] = elastic_pool_name
-            if extended_auditing_policy is not None and not opts.urn:
-                warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
-            __props__.__dict__["extended_auditing_policy"] = extended_auditing_policy
             __props__.__dict__["import_"] = import_
             __props__.__dict__["location"] = location
             __props__.__dict__["max_size_bytes"] = max_size_bytes
@@ -987,7 +870,6 @@ class Database(pulumi.CustomResource):
             edition: Optional[pulumi.Input[str]] = None,
             elastic_pool_name: Optional[pulumi.Input[str]] = None,
             encryption: Optional[pulumi.Input[str]] = None,
-            extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']]] = None,
             import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             max_size_bytes: Optional[pulumi.Input[str]] = None,
@@ -1017,7 +899,6 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] default_secondary_location: The default secondary location of the SQL Database.
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic database pool.
-        :param pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
@@ -1046,7 +927,6 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["edition"] = edition
         __props__.__dict__["elastic_pool_name"] = elastic_pool_name
         __props__.__dict__["encryption"] = encryption
-        __props__.__dict__["extended_auditing_policy"] = extended_auditing_policy
         __props__.__dict__["import_"] = import_
         __props__.__dict__["location"] = location
         __props__.__dict__["max_size_bytes"] = max_size_bytes
@@ -1117,14 +997,6 @@ class Database(pulumi.CustomResource):
     @pulumi.getter
     def encryption(self) -> pulumi.Output[str]:
         return pulumi.get(self, "encryption")
-
-    @property
-    @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> pulumi.Output['outputs.DatabaseExtendedAuditingPolicy']:
-        """
-        A `extended_auditing_policy` block as defined below.
-        """
-        return pulumi.get(self, "extended_auditing_policy")
 
     @property
     @pulumi.getter(name="import")

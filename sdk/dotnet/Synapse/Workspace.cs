@@ -52,6 +52,10 @@ namespace Pulumi.Azure.Synapse
     ///                 ObjectId = "00000000-0000-0000-0000-000000000000",
     ///                 TenantId = "00000000-0000-0000-0000-000000000000",
     ///             },
+    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///             Tags = 
     ///             {
     ///                 { "Env", "production" },
@@ -139,6 +143,10 @@ namespace Pulumi.Azure.Synapse
     ///                 KeyVersionlessId = exampleKey.VersionlessId,
     ///                 KeyName = "enckey",
     ///             },
+    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///             Tags = 
     ///             {
     ///                 { "Env", "production" },
@@ -147,8 +155,8 @@ namespace Pulumi.Azure.Synapse
     ///         var workspacePolicy = new Azure.KeyVault.AccessPolicy("workspacePolicy", new Azure.KeyVault.AccessPolicyArgs
     ///         {
     ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = exampleWorkspace.Identities.Apply(identities =&gt; identities[0].TenantId),
-    ///             ObjectId = exampleWorkspace.Identities.Apply(identities =&gt; identities[0].PrincipalId),
+    ///             TenantId = exampleWorkspace.Identity.Apply(identity =&gt; identity.TenantId),
+    ///             ObjectId = exampleWorkspace.Identity.Apply(identity =&gt; identity.PrincipalId),
     ///             KeyPermissions = 
     ///             {
     ///                 "Get",
@@ -241,10 +249,10 @@ namespace Pulumi.Azure.Synapse
         public Output<Outputs.WorkspaceGithubRepo?> GithubRepo { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+        /// An `identity` block as defined below.
         /// </summary>
-        [Output("identities")]
-        public Output<ImmutableArray<Outputs.WorkspaceIdentity>> Identities { get; private set; } = null!;
+        [Output("identity")]
+        public Output<Outputs.WorkspaceIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Allowed Aad Tenant Ids For Linking.
@@ -412,6 +420,12 @@ namespace Pulumi.Azure.Synapse
         [Input("githubRepo")]
         public Input<Inputs.WorkspaceGithubRepoArgs>? GithubRepo { get; set; }
 
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity", required: true)]
+        public Input<Inputs.WorkspaceIdentityArgs> Identity { get; set; } = null!;
+
         [Input("linkingAllowedForAadTenantIds")]
         private InputList<string>? _linkingAllowedForAadTenantIds;
 
@@ -563,17 +577,11 @@ namespace Pulumi.Azure.Synapse
         [Input("githubRepo")]
         public Input<Inputs.WorkspaceGithubRepoGetArgs>? GithubRepo { get; set; }
 
-        [Input("identities")]
-        private InputList<Inputs.WorkspaceIdentityGetArgs>? _identities;
-
         /// <summary>
-        /// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+        /// An `identity` block as defined below.
         /// </summary>
-        public InputList<Inputs.WorkspaceIdentityGetArgs> Identities
-        {
-            get => _identities ?? (_identities = new InputList<Inputs.WorkspaceIdentityGetArgs>());
-            set => _identities = value;
-        }
+        [Input("identity")]
+        public Input<Inputs.WorkspaceIdentityGetArgs>? Identity { get; set; }
 
         [Input("linkingAllowedForAadTenantIds")]
         private InputList<string>? _linkingAllowedForAadTenantIds;

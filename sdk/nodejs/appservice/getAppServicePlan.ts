@@ -6,8 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
- *
  * ## Example Usage
  *
  * ```typescript

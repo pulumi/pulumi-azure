@@ -122,6 +122,9 @@ export interface GetCacheResult {
     readonly sslPort: number;
     readonly subnetId: string;
     readonly tags: {[key: string]: string};
+    /**
+     * A list of Availability Zones in which this Redis Cache is located.
+     */
     readonly zones: string[];
 }
 

@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/batch"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -73,8 +73,8 @@ type LookupPoolResult struct {
 	MaxTasksPerNode int               `pulumi:"maxTasksPerNode"`
 	Metadata        map[string]string `pulumi:"metadata"`
 	// The name of the endpoint.
-	Name                 string                      `pulumi:"name"`
-	NetworkConfiguration GetPoolNetworkConfiguration `pulumi:"networkConfiguration"`
+	Name                  string                        `pulumi:"name"`
+	NetworkConfigurations []GetPoolNetworkConfiguration `pulumi:"networkConfigurations"`
 	// The Sku of the node agents in the Batch pool.
 	NodeAgentSkuId    string `pulumi:"nodeAgentSkuId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -171,8 +171,8 @@ func (o LookupPoolResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupPoolResultOutput) NetworkConfiguration() GetPoolNetworkConfigurationOutput {
-	return o.ApplyT(func(v LookupPoolResult) GetPoolNetworkConfiguration { return v.NetworkConfiguration }).(GetPoolNetworkConfigurationOutput)
+func (o LookupPoolResultOutput) NetworkConfigurations() GetPoolNetworkConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupPoolResult) []GetPoolNetworkConfiguration { return v.NetworkConfigurations }).(GetPoolNetworkConfigurationArrayOutput)
 }
 
 // The Sku of the node agents in the Batch pool.

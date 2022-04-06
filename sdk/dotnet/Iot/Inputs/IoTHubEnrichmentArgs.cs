@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+        /// The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

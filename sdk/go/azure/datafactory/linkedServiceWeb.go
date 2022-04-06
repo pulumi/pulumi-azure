@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,7 +40,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			DataFactoryId:      exampleFactory.ID(),
 // 			AuthenticationType: pulumi.String("Anonymous"),
 // 			Url:                pulumi.String("http://www.bing.com"),
@@ -71,10 +70,6 @@ type LinkedServiceWeb struct {
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -85,8 +80,6 @@ type LinkedServiceWeb struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	Password   pulumi.StringPtrOutput `pulumi:"password"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The URL of the web service endpoint (e.g. http://www.microsoft.com).
 	Url      pulumi.StringOutput    `pulumi:"url"`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
@@ -102,8 +95,8 @@ func NewLinkedServiceWeb(ctx *pulumi.Context,
 	if args.AuthenticationType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthenticationType'")
 	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
@@ -138,10 +131,6 @@ type linkedServiceWebState struct {
 	AuthenticationType *string `pulumi:"authenticationType"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -152,8 +141,6 @@ type linkedServiceWebState struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	Password   *string           `pulumi:"password"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The URL of the web service endpoint (e.g. http://www.microsoft.com).
 	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
@@ -168,10 +155,6 @@ type LinkedServiceWebState struct {
 	AuthenticationType pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -182,8 +165,6 @@ type LinkedServiceWebState struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	Password   pulumi.StringPtrInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// The URL of the web service endpoint (e.g. http://www.microsoft.com).
 	Url      pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
@@ -201,11 +182,7 @@ type linkedServiceWebArgs struct {
 	// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
 	AuthenticationType string `pulumi:"authenticationType"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -216,8 +193,6 @@ type linkedServiceWebArgs struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	Password   *string           `pulumi:"password"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The URL of the web service endpoint (e.g. http://www.microsoft.com).
 	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
@@ -232,11 +207,7 @@ type LinkedServiceWebArgs struct {
 	// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
 	AuthenticationType pulumi.StringInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -247,8 +218,6 @@ type LinkedServiceWebArgs struct {
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	Password   pulumi.StringPtrInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// The URL of the web service endpoint (e.g. http://www.microsoft.com).
 	Url      pulumi.StringInput
 	Username pulumi.StringPtrInput

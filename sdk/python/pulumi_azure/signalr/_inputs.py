@@ -10,7 +10,6 @@ from .. import _utilities
 
 __all__ = [
     'ServiceCorArgs',
-    'ServiceFeatureArgs',
     'ServiceNetworkAclPrivateEndpointArgs',
     'ServiceNetworkAclPublicNetworkArgs',
     'ServiceSkuArgs',
@@ -37,43 +36,6 @@ class ServiceCorArgs:
     @allowed_origins.setter
     def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_origins", value)
-
-
-@pulumi.input_type
-class ServiceFeatureArgs:
-    def __init__(__self__, *,
-                 flag: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] flag: The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
-        :param pulumi.Input[str] value: A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
-        """
-        pulumi.set(__self__, "flag", flag)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def flag(self) -> pulumi.Input[str]:
-        """
-        The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
-        """
-        return pulumi.get(self, "flag")
-
-    @flag.setter
-    def flag(self, value: pulumi.Input[str]):
-        pulumi.set(self, "flag", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

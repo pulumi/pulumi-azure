@@ -87,6 +87,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+        /// </summary>
+        [Output("edgeZone")]
+        public Output<string?> EdgeZone { get; private set; } = null!;
+
+        /// <summary>
         /// Should Accelerated Networking be enabled? Defaults to `false`.
         /// </summary>
         [Output("enableAcceleratedNetworking")]
@@ -223,6 +229,12 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
+
+        /// <summary>
         /// Should Accelerated Networking be enabled? Defaults to `false`.
         /// </summary>
         [Input("enableAcceleratedNetworking")]
@@ -312,6 +324,12 @@ namespace Pulumi.Azure.Network
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// Should Accelerated Networking be enabled? Defaults to `false`.

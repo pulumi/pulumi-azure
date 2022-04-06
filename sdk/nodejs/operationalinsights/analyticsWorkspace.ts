@@ -76,10 +76,6 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
-     */
-    public /*out*/ readonly portalUrl!: pulumi.Output<string>;
-    /**
      * The Primary shared key for the Log Analytics Workspace.
      */
     public /*out*/ readonly primarySharedKey!: pulumi.Output<string>;
@@ -87,10 +83,6 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      * The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
      */
     public readonly reservationCapacityInGbPerDay!: pulumi.Output<number>;
-    /**
-     * @deprecated As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.
-     */
-    public readonly reservationCapcityInGbPerDay!: pulumi.Output<number>;
     /**
      * The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
      */
@@ -134,10 +126,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["portalUrl"] = state ? state.portalUrl : undefined;
             resourceInputs["primarySharedKey"] = state ? state.primarySharedKey : undefined;
             resourceInputs["reservationCapacityInGbPerDay"] = state ? state.reservationCapacityInGbPerDay : undefined;
-            resourceInputs["reservationCapcityInGbPerDay"] = state ? state.reservationCapcityInGbPerDay : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
             resourceInputs["secondarySharedKey"] = state ? state.secondarySharedKey : undefined;
@@ -155,12 +145,10 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["reservationCapacityInGbPerDay"] = args ? args.reservationCapacityInGbPerDay : undefined;
-            resourceInputs["reservationCapcityInGbPerDay"] = args ? args.reservationCapcityInGbPerDay : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["portalUrl"] = undefined /*out*/;
             resourceInputs["primarySharedKey"] = undefined /*out*/;
             resourceInputs["secondarySharedKey"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
@@ -192,10 +180,6 @@ export interface AnalyticsWorkspaceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
-     */
-    portalUrl?: pulumi.Input<string>;
-    /**
      * The Primary shared key for the Log Analytics Workspace.
      */
     primarySharedKey?: pulumi.Input<string>;
@@ -203,10 +187,6 @@ export interface AnalyticsWorkspaceState {
      * The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
      */
     reservationCapacityInGbPerDay?: pulumi.Input<number>;
-    /**
-     * @deprecated As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.
-     */
-    reservationCapcityInGbPerDay?: pulumi.Input<number>;
     /**
      * The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
      */
@@ -258,10 +238,6 @@ export interface AnalyticsWorkspaceArgs {
      * The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
      */
     reservationCapacityInGbPerDay?: pulumi.Input<number>;
-    /**
-     * @deprecated As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.
-     */
-    reservationCapcityInGbPerDay?: pulumi.Input<number>;
     /**
      * The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
      */

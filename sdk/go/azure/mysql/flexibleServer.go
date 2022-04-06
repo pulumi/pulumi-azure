@@ -19,10 +19,10 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/mysql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/privatedns"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -156,7 +156,7 @@ type FlexibleServer struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
-	// The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
+	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
@@ -236,7 +236,7 @@ type flexibleServerState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
 	Version *string `pulumi:"version"`
-	// The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
+	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
 	Zone *string `pulumi:"zone"`
 }
 
@@ -285,7 +285,7 @@ type FlexibleServerState struct {
 	Tags pulumi.StringMapInput
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
 	Version pulumi.StringPtrInput
-	// The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
+	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
 	Zone pulumi.StringPtrInput
 }
 
@@ -332,7 +332,7 @@ type flexibleServerArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
 	Version *string `pulumi:"version"`
-	// The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
+	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
 	Zone *string `pulumi:"zone"`
 }
 
@@ -376,7 +376,7 @@ type FlexibleServerArgs struct {
 	Tags pulumi.StringMapInput
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
 	Version pulumi.StringPtrInput
-	// The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
+	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
 	Zone pulumi.StringPtrInput
 }
 

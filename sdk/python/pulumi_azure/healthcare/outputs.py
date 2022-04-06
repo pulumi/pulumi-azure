@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'ServiceAuthenticationConfiguration',
     'ServiceCorsConfiguration',
+    'WorkspacePrivateEndpointConnection',
     'GetServiceAuthenticationConfigurationResult',
     'GetServiceCorsConfigurationResult',
 ]
@@ -167,6 +168,37 @@ class ServiceCorsConfiguration(dict):
         The max age to be allowed via CORS.
         """
         return pulumi.get(self, "max_age_in_seconds")
+
+
+@pulumi.output_type
+class WorkspacePrivateEndpointConnection(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str id: The ID of the Healthcare Workspace.
+        :param str name: Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the Healthcare Workspace.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

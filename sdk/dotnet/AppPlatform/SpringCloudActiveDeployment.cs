@@ -43,11 +43,14 @@ namespace Pulumi.Azure.AppPlatform
     ///         var exampleSpringCloudJavaDeployment = new Azure.AppPlatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", new Azure.AppPlatform.SpringCloudJavaDeploymentArgs
     ///         {
     ///             SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///             Cpu = 2,
-    ///             MemoryInGb = 4,
     ///             InstanceCount = 2,
     ///             JvmOptions = "-XX:+PrintGC",
     ///             RuntimeVersion = "Java_11",
+    ///             Quota = new Azure.AppPlatform.Inputs.SpringCloudJavaDeploymentQuotaArgs
+    ///             {
+    ///                 Cpu = "2",
+    ///                 Memory = "4Gi",
+    ///             },
     ///             EnvironmentVariables = 
     ///             {
     ///                 { "Env", "Staging" },

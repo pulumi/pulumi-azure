@@ -12,6 +12,18 @@ namespace Pulumi.Azure.Management.Inputs
 
     public sealed class GroupPolicyAssignmentIdentityArgs : Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The Principal ID of the Policy Assignment for this Management Group.
         /// </summary>
@@ -25,7 +37,7 @@ namespace Pulumi.Azure.Management.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+        /// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

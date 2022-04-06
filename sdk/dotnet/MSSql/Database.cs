@@ -14,61 +14,6 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// &gt; **Note:** The Database Extended Auditing Policy can be set inline here, as well as with the mssql_database_extended_auditing_policy resource resource. You can only use one or the other and using both will cause a conflict.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "4dm1n157r470r",
-    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///         });
-    ///         var test = new Azure.MSSql.Database("test", new Azure.MSSql.DatabaseArgs
-    ///         {
-    ///             ServerId = exampleServer.Id,
-    ///             Collation = "SQL_Latin1_General_CP1_CI_AS",
-    ///             LicenseType = "LicenseIncluded",
-    ///             MaxSizeGb = 4,
-    ///             ReadScale = true,
-    ///             SkuName = "BC_Gen5_2",
-    ///             ZoneRedundant = true,
-    ///             ExtendedAuditingPolicy = new Azure.MSSql.Inputs.DatabaseExtendedAuditingPolicyArgs
-    ///             {
-    ///                 StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
-    ///                 StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///                 StorageAccountAccessKeyIsSecondary = true,
-    ///                 RetentionInDays = 6,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// SQL Database can be imported using the `resource id`, e.g.
@@ -109,12 +54,6 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("elasticPoolId")]
         public Output<string?> ElasticPoolId { get; private set; } = null!;
-
-        /// <summary>
-        /// A `extended_auditing_policy` block as defined below.
-        /// </summary>
-        [Output("extendedAuditingPolicy")]
-        public Output<Outputs.DatabaseExtendedAuditingPolicy> ExtendedAuditingPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A boolean that specifies if the Geo Backup Policy is enabled.
@@ -224,6 +163,9 @@ namespace Pulumi.Azure.MSSql
         [Output("threatDetectionPolicy")]
         public Output<Outputs.DatabaseThreatDetectionPolicy> ThreatDetectionPolicy { get; private set; } = null!;
 
+        [Output("transparentDataEncryptionEnabled")]
+        public Output<bool?> TransparentDataEncryptionEnabled { get; private set; } = null!;
+
         /// <summary>
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         /// </summary>
@@ -305,12 +247,6 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("elasticPoolId")]
         public Input<string>? ElasticPoolId { get; set; }
-
-        /// <summary>
-        /// A `extended_auditing_policy` block as defined below.
-        /// </summary>
-        [Input("extendedAuditingPolicy")]
-        public Input<Inputs.DatabaseExtendedAuditingPolicyArgs>? ExtendedAuditingPolicy { get; set; }
 
         /// <summary>
         /// A boolean that specifies if the Geo Backup Policy is enabled.
@@ -426,6 +362,9 @@ namespace Pulumi.Azure.MSSql
         [Input("threatDetectionPolicy")]
         public Input<Inputs.DatabaseThreatDetectionPolicyArgs>? ThreatDetectionPolicy { get; set; }
 
+        [Input("transparentDataEncryptionEnabled")]
+        public Input<bool>? TransparentDataEncryptionEnabled { get; set; }
+
         /// <summary>
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         /// </summary>
@@ -468,12 +407,6 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("elasticPoolId")]
         public Input<string>? ElasticPoolId { get; set; }
-
-        /// <summary>
-        /// A `extended_auditing_policy` block as defined below.
-        /// </summary>
-        [Input("extendedAuditingPolicy")]
-        public Input<Inputs.DatabaseExtendedAuditingPolicyGetArgs>? ExtendedAuditingPolicy { get; set; }
 
         /// <summary>
         /// A boolean that specifies if the Geo Backup Policy is enabled.
@@ -588,6 +521,9 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("threatDetectionPolicy")]
         public Input<Inputs.DatabaseThreatDetectionPolicyGetArgs>? ThreatDetectionPolicy { get; set; }
+
+        [Input("transparentDataEncryptionEnabled")]
+        public Input<bool>? TransparentDataEncryptionEnabled { get; set; }
 
         /// <summary>
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.

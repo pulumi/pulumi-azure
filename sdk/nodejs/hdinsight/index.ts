@@ -10,20 +10,14 @@ export * from "./hadoopCluster";
 export * from "./hbaseCluster";
 export * from "./interactiveQueryCluster";
 export * from "./kafkaCluster";
-export * from "./mlservicesCluster";
-export * from "./rserverCluster";
 export * from "./sparkCluster";
-export * from "./stormCluster";
 
 // Import resources to register:
 import { HBaseCluster } from "./hbaseCluster";
 import { HadoopCluster } from "./hadoopCluster";
 import { InteractiveQueryCluster } from "./interactiveQueryCluster";
 import { KafkaCluster } from "./kafkaCluster";
-import { MLServicesCluster } from "./mlservicesCluster";
-import { RServerCluster } from "./rserverCluster";
 import { SparkCluster } from "./sparkCluster";
-import { StormCluster } from "./stormCluster";
 
 const _module = {
     version: utilities.getVersion(),
@@ -37,14 +31,8 @@ const _module = {
                 return new InteractiveQueryCluster(name, <any>undefined, { urn })
             case "azure:hdinsight/kafkaCluster:KafkaCluster":
                 return new KafkaCluster(name, <any>undefined, { urn })
-            case "azure:hdinsight/mLServicesCluster:MLServicesCluster":
-                return new MLServicesCluster(name, <any>undefined, { urn })
-            case "azure:hdinsight/rServerCluster:RServerCluster":
-                return new RServerCluster(name, <any>undefined, { urn })
             case "azure:hdinsight/sparkCluster:SparkCluster":
                 return new SparkCluster(name, <any>undefined, { urn })
-            case "azure:hdinsight/stormCluster:StormCluster":
-                return new StormCluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -54,7 +42,4 @@ pulumi.runtime.registerResourceModule("azure", "hdinsight/hBaseCluster", _module
 pulumi.runtime.registerResourceModule("azure", "hdinsight/hadoopCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "hdinsight/interactiveQueryCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "hdinsight/kafkaCluster", _module)
-pulumi.runtime.registerResourceModule("azure", "hdinsight/mLServicesCluster", _module)
-pulumi.runtime.registerResourceModule("azure", "hdinsight/rServerCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "hdinsight/sparkCluster", _module)
-pulumi.runtime.registerResourceModule("azure", "hdinsight/stormCluster", _module)

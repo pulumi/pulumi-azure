@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -75,8 +75,6 @@ import (
 type KubernetesClusterNodePool struct {
 	pulumi.CustomResourceState
 
-	// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
-	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
@@ -145,6 +143,8 @@ type KubernetesClusterNodePool struct {
 	VnetSubnetId pulumi.StringPtrOutput `pulumi:"vnetSubnetId"`
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime pulumi.StringPtrOutput `pulumi:"workloadRuntime"`
+	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
 // NewKubernetesClusterNodePool registers a new resource with the given unique name, arguments, and options.
@@ -182,8 +182,6 @@ func GetKubernetesClusterNodePool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KubernetesClusterNodePool resources.
 type kubernetesClusterNodePoolState struct {
-	// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
@@ -252,11 +250,11 @@ type kubernetesClusterNodePoolState struct {
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
+	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+	Zones []string `pulumi:"zones"`
 }
 
 type KubernetesClusterNodePoolState struct {
-	// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
-	AvailabilityZones pulumi.StringArrayInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
@@ -325,6 +323,8 @@ type KubernetesClusterNodePoolState struct {
 	VnetSubnetId pulumi.StringPtrInput
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime pulumi.StringPtrInput
+	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+	Zones pulumi.StringArrayInput
 }
 
 func (KubernetesClusterNodePoolState) ElementType() reflect.Type {
@@ -332,8 +332,6 @@ func (KubernetesClusterNodePoolState) ElementType() reflect.Type {
 }
 
 type kubernetesClusterNodePoolArgs struct {
-	// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
@@ -402,12 +400,12 @@ type kubernetesClusterNodePoolArgs struct {
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
+	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+	Zones []string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a KubernetesClusterNodePool resource.
 type KubernetesClusterNodePoolArgs struct {
-	// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
-	AvailabilityZones pulumi.StringArrayInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
@@ -476,6 +474,8 @@ type KubernetesClusterNodePoolArgs struct {
 	VnetSubnetId pulumi.StringPtrInput
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime pulumi.StringPtrInput
+	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+	Zones pulumi.StringArrayInput
 }
 
 func (KubernetesClusterNodePoolArgs) ElementType() reflect.Type {

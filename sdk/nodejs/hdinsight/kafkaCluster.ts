@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  *         kafka: "2.1",
  *     },
  *     gateway: {
- *         enabled: true,
  *         username: "acctestusrgw",
  *         password: "Password123!",
  *     },

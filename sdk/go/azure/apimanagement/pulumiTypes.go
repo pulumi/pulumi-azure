@@ -3326,10 +3326,6 @@ type ApiOperationRequestRepresentation struct {
 	Examples []ApiOperationRequestRepresentationExample `pulumi:"examples"`
 	// One or more `formParameter` block as defined above.
 	FormParameters []ApiOperationRequestRepresentationFormParameter `pulumi:"formParameters"`
-	// An example of this representation.
-	//
-	// Deprecated: Deprecated in favour of `example`
-	Sample *string `pulumi:"sample"`
 	// The ID of an API Management Schema which represents this Response.
 	SchemaId *string `pulumi:"schemaId"`
 	// The Type Name defined by the Schema.
@@ -3354,10 +3350,6 @@ type ApiOperationRequestRepresentationArgs struct {
 	Examples ApiOperationRequestRepresentationExampleArrayInput `pulumi:"examples"`
 	// One or more `formParameter` block as defined above.
 	FormParameters ApiOperationRequestRepresentationFormParameterArrayInput `pulumi:"formParameters"`
-	// An example of this representation.
-	//
-	// Deprecated: Deprecated in favour of `example`
-	Sample pulumi.StringPtrInput `pulumi:"sample"`
 	// The ID of an API Management Schema which represents this Response.
 	SchemaId pulumi.StringPtrInput `pulumi:"schemaId"`
 	// The Type Name defined by the Schema.
@@ -3432,13 +3424,6 @@ func (o ApiOperationRequestRepresentationOutput) FormParameters() ApiOperationRe
 	return o.ApplyT(func(v ApiOperationRequestRepresentation) []ApiOperationRequestRepresentationFormParameter {
 		return v.FormParameters
 	}).(ApiOperationRequestRepresentationFormParameterArrayOutput)
-}
-
-// An example of this representation.
-//
-// Deprecated: Deprecated in favour of `example`
-func (o ApiOperationRequestRepresentationOutput) Sample() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiOperationRequestRepresentation) *string { return v.Sample }).(pulumi.StringPtrOutput)
 }
 
 // The ID of an API Management Schema which represents this Response.
@@ -4019,10 +4004,6 @@ type ApiOperationResponseRepresentation struct {
 	Examples []ApiOperationResponseRepresentationExample `pulumi:"examples"`
 	// One or more `formParameter` block as defined above.
 	FormParameters []ApiOperationResponseRepresentationFormParameter `pulumi:"formParameters"`
-	// An example of this representation.
-	//
-	// Deprecated: Deprecated in favour of `example`
-	Sample *string `pulumi:"sample"`
 	// The ID of an API Management Schema which represents this Response.
 	SchemaId *string `pulumi:"schemaId"`
 	// The Type Name defined by the Schema.
@@ -4047,10 +4028,6 @@ type ApiOperationResponseRepresentationArgs struct {
 	Examples ApiOperationResponseRepresentationExampleArrayInput `pulumi:"examples"`
 	// One or more `formParameter` block as defined above.
 	FormParameters ApiOperationResponseRepresentationFormParameterArrayInput `pulumi:"formParameters"`
-	// An example of this representation.
-	//
-	// Deprecated: Deprecated in favour of `example`
-	Sample pulumi.StringPtrInput `pulumi:"sample"`
 	// The ID of an API Management Schema which represents this Response.
 	SchemaId pulumi.StringPtrInput `pulumi:"schemaId"`
 	// The Type Name defined by the Schema.
@@ -4125,13 +4102,6 @@ func (o ApiOperationResponseRepresentationOutput) FormParameters() ApiOperationR
 	return o.ApplyT(func(v ApiOperationResponseRepresentation) []ApiOperationResponseRepresentationFormParameter {
 		return v.FormParameters
 	}).(ApiOperationResponseRepresentationFormParameterArrayOutput)
-}
-
-// An example of this representation.
-//
-// Deprecated: Deprecated in favour of `example`
-func (o ApiOperationResponseRepresentationOutput) Sample() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiOperationResponseRepresentation) *string { return v.Sample }).(pulumi.StringPtrOutput)
 }
 
 // The ID of an API Management Schema which represents this Response.
@@ -6021,6 +5991,172 @@ func (o CustomDomainDeveloperPortalArrayOutput) Index(i pulumi.IntInput) CustomD
 	}).(CustomDomainDeveloperPortalOutput)
 }
 
+type CustomDomainGateway struct {
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+	Certificate *string `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
+	CertificatePassword *string `pulumi:"certificatePassword"`
+	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+	DefaultSslBinding *bool   `pulumi:"defaultSslBinding"`
+	Expiry            *string `pulumi:"expiry"`
+	// The Hostname to use for the API Proxy Endpoint.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	NegotiateClientCertificate  *bool   `pulumi:"negotiateClientCertificate"`
+	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
+	Subject                     *string `pulumi:"subject"`
+	Thumbprint                  *string `pulumi:"thumbprint"`
+}
+
+// CustomDomainGatewayInput is an input type that accepts CustomDomainGatewayArgs and CustomDomainGatewayOutput values.
+// You can construct a concrete instance of `CustomDomainGatewayInput` via:
+//
+//          CustomDomainGatewayArgs{...}
+type CustomDomainGatewayInput interface {
+	pulumi.Input
+
+	ToCustomDomainGatewayOutput() CustomDomainGatewayOutput
+	ToCustomDomainGatewayOutputWithContext(context.Context) CustomDomainGatewayOutput
+}
+
+type CustomDomainGatewayArgs struct {
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
+	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+	DefaultSslBinding pulumi.BoolPtrInput   `pulumi:"defaultSslBinding"`
+	Expiry            pulumi.StringPtrInput `pulumi:"expiry"`
+	// The Hostname to use for the API Proxy Endpoint.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	NegotiateClientCertificate  pulumi.BoolPtrInput   `pulumi:"negotiateClientCertificate"`
+	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
+	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
+	Thumbprint                  pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (CustomDomainGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainGateway)(nil)).Elem()
+}
+
+func (i CustomDomainGatewayArgs) ToCustomDomainGatewayOutput() CustomDomainGatewayOutput {
+	return i.ToCustomDomainGatewayOutputWithContext(context.Background())
+}
+
+func (i CustomDomainGatewayArgs) ToCustomDomainGatewayOutputWithContext(ctx context.Context) CustomDomainGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainGatewayOutput)
+}
+
+// CustomDomainGatewayArrayInput is an input type that accepts CustomDomainGatewayArray and CustomDomainGatewayArrayOutput values.
+// You can construct a concrete instance of `CustomDomainGatewayArrayInput` via:
+//
+//          CustomDomainGatewayArray{ CustomDomainGatewayArgs{...} }
+type CustomDomainGatewayArrayInput interface {
+	pulumi.Input
+
+	ToCustomDomainGatewayArrayOutput() CustomDomainGatewayArrayOutput
+	ToCustomDomainGatewayArrayOutputWithContext(context.Context) CustomDomainGatewayArrayOutput
+}
+
+type CustomDomainGatewayArray []CustomDomainGatewayInput
+
+func (CustomDomainGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDomainGateway)(nil)).Elem()
+}
+
+func (i CustomDomainGatewayArray) ToCustomDomainGatewayArrayOutput() CustomDomainGatewayArrayOutput {
+	return i.ToCustomDomainGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i CustomDomainGatewayArray) ToCustomDomainGatewayArrayOutputWithContext(ctx context.Context) CustomDomainGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainGatewayArrayOutput)
+}
+
+type CustomDomainGatewayOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainGateway)(nil)).Elem()
+}
+
+func (o CustomDomainGatewayOutput) ToCustomDomainGatewayOutput() CustomDomainGatewayOutput {
+	return o
+}
+
+func (o CustomDomainGatewayOutput) ToCustomDomainGatewayOutputWithContext(ctx context.Context) CustomDomainGatewayOutput {
+	return o
+}
+
+// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+func (o CustomDomainGatewayOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainGateway) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The password associated with the certificate provided above.
+func (o CustomDomainGatewayOutput) CertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainGateway) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+func (o CustomDomainGatewayOutput) DefaultSslBinding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomDomainGateway) *bool { return v.DefaultSslBinding }).(pulumi.BoolPtrOutput)
+}
+
+func (o CustomDomainGatewayOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainGateway) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
+// The Hostname to use for the API Proxy Endpoint.
+func (o CustomDomainGatewayOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDomainGateway) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+func (o CustomDomainGatewayOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainGateway) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+func (o CustomDomainGatewayOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomDomainGateway) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+func (o CustomDomainGatewayOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainGateway) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainGatewayOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainGateway) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainGatewayOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainGateway) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+type CustomDomainGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDomainGateway)(nil)).Elem()
+}
+
+func (o CustomDomainGatewayArrayOutput) ToCustomDomainGatewayArrayOutput() CustomDomainGatewayArrayOutput {
+	return o
+}
+
+func (o CustomDomainGatewayArrayOutput) ToCustomDomainGatewayArrayOutputWithContext(ctx context.Context) CustomDomainGatewayArrayOutput {
+	return o
+}
+
+func (o CustomDomainGatewayArrayOutput) Index(i pulumi.IntInput) CustomDomainGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDomainGateway {
+		return vs[0].([]CustomDomainGateway)[vs[1].(int)]
+	}).(CustomDomainGatewayOutput)
+}
+
 type CustomDomainManagement struct {
 	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
 	Certificate *string `pulumi:"certificate"`
@@ -6333,172 +6469,6 @@ func (o CustomDomainPortalArrayOutput) Index(i pulumi.IntInput) CustomDomainPort
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDomainPortal {
 		return vs[0].([]CustomDomainPortal)[vs[1].(int)]
 	}).(CustomDomainPortalOutput)
-}
-
-type CustomDomainProxy struct {
-	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
-	Certificate *string `pulumi:"certificate"`
-	// The password associated with the certificate provided above.
-	CertificatePassword *string `pulumi:"certificatePassword"`
-	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
-	DefaultSslBinding *bool   `pulumi:"defaultSslBinding"`
-	Expiry            *string `pulumi:"expiry"`
-	// The Hostname to use for the API Proxy Endpoint.
-	HostName string `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-	NegotiateClientCertificate  *bool   `pulumi:"negotiateClientCertificate"`
-	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
-	Subject                     *string `pulumi:"subject"`
-	Thumbprint                  *string `pulumi:"thumbprint"`
-}
-
-// CustomDomainProxyInput is an input type that accepts CustomDomainProxyArgs and CustomDomainProxyOutput values.
-// You can construct a concrete instance of `CustomDomainProxyInput` via:
-//
-//          CustomDomainProxyArgs{...}
-type CustomDomainProxyInput interface {
-	pulumi.Input
-
-	ToCustomDomainProxyOutput() CustomDomainProxyOutput
-	ToCustomDomainProxyOutputWithContext(context.Context) CustomDomainProxyOutput
-}
-
-type CustomDomainProxyArgs struct {
-	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
-	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
-	// The password associated with the certificate provided above.
-	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
-	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
-	DefaultSslBinding pulumi.BoolPtrInput   `pulumi:"defaultSslBinding"`
-	Expiry            pulumi.StringPtrInput `pulumi:"expiry"`
-	// The Hostname to use for the API Proxy Endpoint.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-	NegotiateClientCertificate  pulumi.BoolPtrInput   `pulumi:"negotiateClientCertificate"`
-	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
-	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
-	Thumbprint                  pulumi.StringPtrInput `pulumi:"thumbprint"`
-}
-
-func (CustomDomainProxyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainProxy)(nil)).Elem()
-}
-
-func (i CustomDomainProxyArgs) ToCustomDomainProxyOutput() CustomDomainProxyOutput {
-	return i.ToCustomDomainProxyOutputWithContext(context.Background())
-}
-
-func (i CustomDomainProxyArgs) ToCustomDomainProxyOutputWithContext(ctx context.Context) CustomDomainProxyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainProxyOutput)
-}
-
-// CustomDomainProxyArrayInput is an input type that accepts CustomDomainProxyArray and CustomDomainProxyArrayOutput values.
-// You can construct a concrete instance of `CustomDomainProxyArrayInput` via:
-//
-//          CustomDomainProxyArray{ CustomDomainProxyArgs{...} }
-type CustomDomainProxyArrayInput interface {
-	pulumi.Input
-
-	ToCustomDomainProxyArrayOutput() CustomDomainProxyArrayOutput
-	ToCustomDomainProxyArrayOutputWithContext(context.Context) CustomDomainProxyArrayOutput
-}
-
-type CustomDomainProxyArray []CustomDomainProxyInput
-
-func (CustomDomainProxyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomDomainProxy)(nil)).Elem()
-}
-
-func (i CustomDomainProxyArray) ToCustomDomainProxyArrayOutput() CustomDomainProxyArrayOutput {
-	return i.ToCustomDomainProxyArrayOutputWithContext(context.Background())
-}
-
-func (i CustomDomainProxyArray) ToCustomDomainProxyArrayOutputWithContext(ctx context.Context) CustomDomainProxyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainProxyArrayOutput)
-}
-
-type CustomDomainProxyOutput struct{ *pulumi.OutputState }
-
-func (CustomDomainProxyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainProxy)(nil)).Elem()
-}
-
-func (o CustomDomainProxyOutput) ToCustomDomainProxyOutput() CustomDomainProxyOutput {
-	return o
-}
-
-func (o CustomDomainProxyOutput) ToCustomDomainProxyOutputWithContext(ctx context.Context) CustomDomainProxyOutput {
-	return o
-}
-
-// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
-func (o CustomDomainProxyOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomDomainProxy) *string { return v.Certificate }).(pulumi.StringPtrOutput)
-}
-
-// The password associated with the certificate provided above.
-func (o CustomDomainProxyOutput) CertificatePassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomDomainProxy) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
-}
-
-// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
-func (o CustomDomainProxyOutput) DefaultSslBinding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CustomDomainProxy) *bool { return v.DefaultSslBinding }).(pulumi.BoolPtrOutput)
-}
-
-func (o CustomDomainProxyOutput) Expiry() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomDomainProxy) *string { return v.Expiry }).(pulumi.StringPtrOutput)
-}
-
-// The Hostname to use for the API Proxy Endpoint.
-func (o CustomDomainProxyOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDomainProxy) string { return v.HostName }).(pulumi.StringOutput)
-}
-
-// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-func (o CustomDomainProxyOutput) KeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomDomainProxy) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
-}
-
-// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
-func (o CustomDomainProxyOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CustomDomainProxy) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
-}
-
-func (o CustomDomainProxyOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomDomainProxy) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
-}
-
-func (o CustomDomainProxyOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomDomainProxy) *string { return v.Subject }).(pulumi.StringPtrOutput)
-}
-
-func (o CustomDomainProxyOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomDomainProxy) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-type CustomDomainProxyArrayOutput struct{ *pulumi.OutputState }
-
-func (CustomDomainProxyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomDomainProxy)(nil)).Elem()
-}
-
-func (o CustomDomainProxyArrayOutput) ToCustomDomainProxyArrayOutput() CustomDomainProxyArrayOutput {
-	return o
-}
-
-func (o CustomDomainProxyArrayOutput) ToCustomDomainProxyArrayOutputWithContext(ctx context.Context) CustomDomainProxyArrayOutput {
-	return o
-}
-
-func (o CustomDomainProxyArrayOutput) Index(i pulumi.IntInput) CustomDomainProxyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDomainProxy {
-		return vs[0].([]CustomDomainProxy)[vs[1].(int)]
-	}).(CustomDomainProxyOutput)
 }
 
 type CustomDomainScm struct {
@@ -10571,7 +10541,7 @@ type ServiceHostnameConfigurationProxy struct {
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
-	// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	// The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	// The subject of the certificate.
 	Subject *string `pulumi:"subject"`
@@ -10605,7 +10575,7 @@ type ServiceHostnameConfigurationProxyArgs struct {
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
-	// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	// The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	// The subject of the certificate.
 	Subject pulumi.StringPtrInput `pulumi:"subject"`
@@ -10699,7 +10669,7 @@ func (o ServiceHostnameConfigurationProxyOutput) NegotiateClientCertificate() pu
 	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// The client id of the System or User Assigned Managed identity generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+// The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
 func (o ServiceHostnameConfigurationProxyOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -10904,7 +10874,7 @@ func (o ServiceHostnameConfigurationScmArrayOutput) Index(i pulumi.IntInput) Ser
 }
 
 type ServiceIdentity struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -10926,7 +10896,7 @@ type ServiceIdentityInput interface {
 }
 
 type ServiceIdentityArgs struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -11013,7 +10983,7 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context
 	}).(ServiceIdentityPtrOutput)
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 func (o ServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -11057,7 +11027,7 @@ func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
 	}).(ServiceIdentityOutput)
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 func (o ServiceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceIdentity) []string {
 		if v == nil {
@@ -11403,10 +11373,6 @@ type ServiceSecurity struct {
 	EnableFrontendTls10 *bool `pulumi:"enableFrontendTls10"`
 	// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
 	EnableFrontendTls11 *bool `pulumi:"enableFrontendTls11"`
-	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
-	//
-	// Deprecated: this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.
-	EnableTripleDesCiphers *bool `pulumi:"enableTripleDesCiphers"`
 	// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 	TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled *bool `pulumi:"tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled"`
 	// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
@@ -11451,10 +11417,6 @@ type ServiceSecurityArgs struct {
 	EnableFrontendTls10 pulumi.BoolPtrInput `pulumi:"enableFrontendTls10"`
 	// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
 	EnableFrontendTls11 pulumi.BoolPtrInput `pulumi:"enableFrontendTls11"`
-	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
-	//
-	// Deprecated: this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.
-	EnableTripleDesCiphers pulumi.BoolPtrInput `pulumi:"enableTripleDesCiphers"`
 	// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 	TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled"`
 	// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
@@ -11580,13 +11542,6 @@ func (o ServiceSecurityOutput) EnableFrontendTls10() pulumi.BoolPtrOutput {
 // Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
 func (o ServiceSecurityOutput) EnableFrontendTls11() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableFrontendTls11 }).(pulumi.BoolPtrOutput)
-}
-
-// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
-//
-// Deprecated: this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.
-func (o ServiceSecurityOutput) EnableTripleDesCiphers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableTripleDesCiphers }).(pulumi.BoolPtrOutput)
 }
 
 // Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
@@ -11718,18 +11673,6 @@ func (o ServiceSecurityPtrOutput) EnableFrontendTls11() pulumi.BoolPtrOutput {
 			return nil
 		}
 		return v.EnableFrontendTls11
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
-//
-// Deprecated: this has been renamed to the boolean attribute `triple_des_ciphers_enabled`.
-func (o ServiceSecurityPtrOutput) EnableTripleDesCiphers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServiceSecurity) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableTripleDesCiphers
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -13730,13 +13673,13 @@ func (o GetServiceHostnameConfigurationScmArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetServiceIdentity struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// The list of User Assigned Managed Identity IDs assigned to this API Management Service.
 	IdentityIds []string `pulumi:"identityIds"`
-	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
 	PrincipalId string `pulumi:"principalId"`
-	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
 	TenantId string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that is configured on this API Management Service.
+	// The type of Managed Service Identity that is configured on this API Management Service.
 	Type string `pulumi:"type"`
 }
 
@@ -13752,13 +13695,13 @@ type GetServiceIdentityInput interface {
 }
 
 type GetServiceIdentityArgs struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// The list of User Assigned Managed Identity IDs assigned to this API Management Service.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that is configured on this API Management Service.
+	// The type of Managed Service Identity that is configured on this API Management Service.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -13813,22 +13756,22 @@ func (o GetServiceIdentityOutput) ToGetServiceIdentityOutputWithContext(ctx cont
 	return o
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// The list of User Assigned Managed Identity IDs assigned to this API Management Service.
 func (o GetServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
 func (o GetServiceIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
 func (o GetServiceIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Specifies the type of Managed Service Identity that is configured on this API Management Service.
+// The type of Managed Service Identity that is configured on this API Management Service.
 func (o GetServiceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13936,12 +13879,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendTlsPtrInput)(nil)).Elem(), BackendTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainDeveloperPortalInput)(nil)).Elem(), CustomDomainDeveloperPortalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainDeveloperPortalArrayInput)(nil)).Elem(), CustomDomainDeveloperPortalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainGatewayInput)(nil)).Elem(), CustomDomainGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainGatewayArrayInput)(nil)).Elem(), CustomDomainGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainManagementInput)(nil)).Elem(), CustomDomainManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainManagementArrayInput)(nil)).Elem(), CustomDomainManagementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainPortalInput)(nil)).Elem(), CustomDomainPortalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainPortalArrayInput)(nil)).Elem(), CustomDomainPortalArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainProxyInput)(nil)).Elem(), CustomDomainProxyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainProxyArrayInput)(nil)).Elem(), CustomDomainProxyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainScmInput)(nil)).Elem(), CustomDomainScmArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainScmArrayInput)(nil)).Elem(), CustomDomainScmArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticBackendRequestInput)(nil)).Elem(), DiagnosticBackendRequestArgs{})
@@ -14122,12 +14065,12 @@ func init() {
 	pulumi.RegisterOutputType(BackendTlsPtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainDeveloperPortalOutput{})
 	pulumi.RegisterOutputType(CustomDomainDeveloperPortalArrayOutput{})
+	pulumi.RegisterOutputType(CustomDomainGatewayOutput{})
+	pulumi.RegisterOutputType(CustomDomainGatewayArrayOutput{})
 	pulumi.RegisterOutputType(CustomDomainManagementOutput{})
 	pulumi.RegisterOutputType(CustomDomainManagementArrayOutput{})
 	pulumi.RegisterOutputType(CustomDomainPortalOutput{})
 	pulumi.RegisterOutputType(CustomDomainPortalArrayOutput{})
-	pulumi.RegisterOutputType(CustomDomainProxyOutput{})
-	pulumi.RegisterOutputType(CustomDomainProxyArrayOutput{})
 	pulumi.RegisterOutputType(CustomDomainScmOutput{})
 	pulumi.RegisterOutputType(CustomDomainScmArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticBackendRequestOutput{})

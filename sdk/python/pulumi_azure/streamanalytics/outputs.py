@@ -11,6 +11,8 @@ from .. import _utilities
 __all__ = [
     'FunctionJavaScriptUDFInput',
     'FunctionJavaScriptUDFOutput',
+    'FunctionJavascriptUdaInput',
+    'FunctionJavascriptUdaOutput',
     'JobIdentity',
     'OutputBlobSerialization',
     'OutputEventHubSerialization',
@@ -60,6 +62,42 @@ class FunctionJavaScriptUDFOutput(dict):
 
 
 @pulumi.output_type
+class FunctionJavascriptUdaInput(dict):
+    def __init__(__self__, *,
+                 type: str):
+        """
+        :param str type: The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FunctionJavascriptUdaOutput(dict):
+    def __init__(__self__, *,
+                 type: str):
+        """
+        :param str type: The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class JobIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -85,9 +123,9 @@ class JobIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
-        :param str principal_id: The ID of the Principal (Client) in Azure Active Directory.
-        :param str tenant_id: The ID of the Azure Active Directory Tenant.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if principal_id is not None:
@@ -99,7 +137,7 @@ class JobIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of identity used for the Stream Analytics Job. The only possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -107,7 +145,7 @@ class JobIdentity(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
         """
-        The ID of the Principal (Client) in Azure Active Directory.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -115,7 +153,7 @@ class JobIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        The ID of the Azure Active Directory Tenant.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -647,9 +685,9 @@ class GetJobIdentityResult(dict):
                  tenant_id: str,
                  type: str):
         """
-        :param str principal_id: The ID of the Principal (Client) in Azure Active Directory.
-        :param str tenant_id: The ID of the Azure Active Directory Tenant.
-        :param str type: The type of identity used for the Stream Analytics Job.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
+        :param str type: The identity type of this Managed Service Identity.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -659,7 +697,7 @@ class GetJobIdentityResult(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The ID of the Principal (Client) in Azure Active Directory.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -667,7 +705,7 @@ class GetJobIdentityResult(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The ID of the Azure Active Directory Tenant.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -675,7 +713,7 @@ class GetJobIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of identity used for the Stream Analytics Job.
+        The identity type of this Managed Service Identity.
         """
         return pulumi.get(self, "type")
 

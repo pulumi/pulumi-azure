@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/eventgrid"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -94,18 +94,10 @@ type EventSubscription struct {
 	DeliveryProperties EventSubscriptionDeliveryPropertyArrayOutput `pulumi:"deliveryProperties"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
-	// A `eventhubEndpoint` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `eventhub_endpoint_id`
-	EventhubEndpoint EventSubscriptionEventhubEndpointOutput `pulumi:"eventhubEndpoint"`
 	// Specifies the id where the Event Hub is located.
 	EventhubEndpointId pulumi.StringOutput `pulumi:"eventhubEndpointId"`
 	// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
 	ExpirationTimeUtc pulumi.StringPtrOutput `pulumi:"expirationTimeUtc"`
-	// A `hybridConnectionEndpoint` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `hybrid_connection_endpoint_id`
-	HybridConnectionEndpoint EventSubscriptionHybridConnectionEndpointOutput `pulumi:"hybridConnectionEndpoint"`
 	// Specifies the id where the Hybrid Connection is located.
 	HybridConnectionEndpointId pulumi.StringOutput `pulumi:"hybridConnectionEndpointId"`
 	// A list of applicable event types that need to be part of the event subscription.
@@ -128,10 +120,6 @@ type EventSubscription struct {
 	StorageQueueEndpoint EventSubscriptionStorageQueueEndpointPtrOutput `pulumi:"storageQueueEndpoint"`
 	// A `subjectFilter` block as defined below.
 	SubjectFilter EventSubscriptionSubjectFilterPtrOutput `pulumi:"subjectFilter"`
-	// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-	//
-	// Deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
-	TopicName pulumi.StringOutput `pulumi:"topicName"`
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrOutput `pulumi:"webhookEndpoint"`
 }
@@ -182,18 +170,10 @@ type eventSubscriptionState struct {
 	DeliveryProperties []EventSubscriptionDeliveryProperty `pulumi:"deliveryProperties"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
-	// A `eventhubEndpoint` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `eventhub_endpoint_id`
-	EventhubEndpoint *EventSubscriptionEventhubEndpoint `pulumi:"eventhubEndpoint"`
 	// Specifies the id where the Event Hub is located.
 	EventhubEndpointId *string `pulumi:"eventhubEndpointId"`
 	// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
 	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
-	// A `hybridConnectionEndpoint` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `hybrid_connection_endpoint_id`
-	HybridConnectionEndpoint *EventSubscriptionHybridConnectionEndpoint `pulumi:"hybridConnectionEndpoint"`
 	// Specifies the id where the Hybrid Connection is located.
 	HybridConnectionEndpointId *string `pulumi:"hybridConnectionEndpointId"`
 	// A list of applicable event types that need to be part of the event subscription.
@@ -216,10 +196,6 @@ type eventSubscriptionState struct {
 	StorageQueueEndpoint *EventSubscriptionStorageQueueEndpoint `pulumi:"storageQueueEndpoint"`
 	// A `subjectFilter` block as defined below.
 	SubjectFilter *EventSubscriptionSubjectFilter `pulumi:"subjectFilter"`
-	// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-	//
-	// Deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
-	TopicName *string `pulumi:"topicName"`
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint *EventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
@@ -239,18 +215,10 @@ type EventSubscriptionState struct {
 	DeliveryProperties EventSubscriptionDeliveryPropertyArrayInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
-	// A `eventhubEndpoint` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `eventhub_endpoint_id`
-	EventhubEndpoint EventSubscriptionEventhubEndpointPtrInput
 	// Specifies the id where the Event Hub is located.
 	EventhubEndpointId pulumi.StringPtrInput
 	// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
 	ExpirationTimeUtc pulumi.StringPtrInput
-	// A `hybridConnectionEndpoint` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `hybrid_connection_endpoint_id`
-	HybridConnectionEndpoint EventSubscriptionHybridConnectionEndpointPtrInput
 	// Specifies the id where the Hybrid Connection is located.
 	HybridConnectionEndpointId pulumi.StringPtrInput
 	// A list of applicable event types that need to be part of the event subscription.
@@ -273,10 +241,6 @@ type EventSubscriptionState struct {
 	StorageQueueEndpoint EventSubscriptionStorageQueueEndpointPtrInput
 	// A `subjectFilter` block as defined below.
 	SubjectFilter EventSubscriptionSubjectFilterPtrInput
-	// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-	//
-	// Deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
-	TopicName pulumi.StringPtrInput
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrInput
 }
@@ -300,18 +264,10 @@ type eventSubscriptionArgs struct {
 	DeliveryProperties []EventSubscriptionDeliveryProperty `pulumi:"deliveryProperties"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
-	// A `eventhubEndpoint` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `eventhub_endpoint_id`
-	EventhubEndpoint *EventSubscriptionEventhubEndpoint `pulumi:"eventhubEndpoint"`
 	// Specifies the id where the Event Hub is located.
 	EventhubEndpointId *string `pulumi:"eventhubEndpointId"`
 	// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
 	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
-	// A `hybridConnectionEndpoint` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `hybrid_connection_endpoint_id`
-	HybridConnectionEndpoint *EventSubscriptionHybridConnectionEndpoint `pulumi:"hybridConnectionEndpoint"`
 	// Specifies the id where the Hybrid Connection is located.
 	HybridConnectionEndpointId *string `pulumi:"hybridConnectionEndpointId"`
 	// A list of applicable event types that need to be part of the event subscription.
@@ -334,10 +290,6 @@ type eventSubscriptionArgs struct {
 	StorageQueueEndpoint *EventSubscriptionStorageQueueEndpoint `pulumi:"storageQueueEndpoint"`
 	// A `subjectFilter` block as defined below.
 	SubjectFilter *EventSubscriptionSubjectFilter `pulumi:"subjectFilter"`
-	// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-	//
-	// Deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
-	TopicName *string `pulumi:"topicName"`
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint *EventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
@@ -358,18 +310,10 @@ type EventSubscriptionArgs struct {
 	DeliveryProperties EventSubscriptionDeliveryPropertyArrayInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
-	// A `eventhubEndpoint` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `eventhub_endpoint_id`
-	EventhubEndpoint EventSubscriptionEventhubEndpointPtrInput
 	// Specifies the id where the Event Hub is located.
 	EventhubEndpointId pulumi.StringPtrInput
 	// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
 	ExpirationTimeUtc pulumi.StringPtrInput
-	// A `hybridConnectionEndpoint` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `hybrid_connection_endpoint_id`
-	HybridConnectionEndpoint EventSubscriptionHybridConnectionEndpointPtrInput
 	// Specifies the id where the Hybrid Connection is located.
 	HybridConnectionEndpointId pulumi.StringPtrInput
 	// A list of applicable event types that need to be part of the event subscription.
@@ -392,10 +336,6 @@ type EventSubscriptionArgs struct {
 	StorageQueueEndpoint EventSubscriptionStorageQueueEndpointPtrInput
 	// A `subjectFilter` block as defined below.
 	SubjectFilter EventSubscriptionSubjectFilterPtrInput
-	// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-	//
-	// Deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
-	TopicName pulumi.StringPtrInput
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrInput
 }

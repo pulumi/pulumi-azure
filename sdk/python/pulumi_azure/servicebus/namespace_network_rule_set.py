@@ -15,45 +15,44 @@ __all__ = ['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSet']
 @pulumi.input_type
 class NamespaceNetworkRuleSetArgs:
     def __init__(__self__, *,
+                 namespace_id: pulumi.Input[str],
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  trusted_services_allowed: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a NamespaceNetworkRuleSet resource.
+        :param pulumi.Input[str] namespace_id: Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
-        :param pulumi.Input[str] namespace_id: Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]] network_rules: One or more `network_rules` blocks as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] trusted_services_allowed: If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
+        pulumi.set(__self__, "namespace_id", namespace_id)
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
-        if namespace_id is not None:
-            pulumi.set(__self__, "namespace_id", namespace_id)
-        if namespace_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
         if network_rules is not None:
             pulumi.set(__self__, "network_rules", network_rules)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
-        if resource_group_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if trusted_services_allowed is not None:
             pulumi.set(__self__, "trusted_services_allowed", trusted_services_allowed)
+
+    @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_id")
+
+    @namespace_id.setter
+    def namespace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_id", value)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -80,27 +79,6 @@ class NamespaceNetworkRuleSetArgs:
         pulumi.set(self, "ip_rules", value)
 
     @property
-    @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "namespace_id")
-
-    @namespace_id.setter
-    def namespace_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_id", value)
-
-    @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
     @pulumi.getter(name="networkRules")
     def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]:
         """
@@ -123,15 +101,6 @@ class NamespaceNetworkRuleSetArgs:
     @public_network_access_enabled.setter
     def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="trustedServicesAllowed")
@@ -152,10 +121,8 @@ class _NamespaceNetworkRuleSetState:
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  trusted_services_allowed: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering NamespaceNetworkRuleSet resources.
@@ -172,20 +139,10 @@ class _NamespaceNetworkRuleSetState:
             pulumi.set(__self__, "ip_rules", ip_rules)
         if namespace_id is not None:
             pulumi.set(__self__, "namespace_id", namespace_id)
-        if namespace_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
         if network_rules is not None:
             pulumi.set(__self__, "network_rules", network_rules)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
-        if resource_group_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if trusted_services_allowed is not None:
             pulumi.set(__self__, "trusted_services_allowed", trusted_services_allowed)
 
@@ -226,15 +183,6 @@ class _NamespaceNetworkRuleSetState:
         pulumi.set(self, "namespace_id", value)
 
     @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
     @pulumi.getter(name="networkRules")
     def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]:
         """
@@ -257,15 +205,6 @@ class _NamespaceNetworkRuleSetState:
     @public_network_access_enabled.setter
     def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "public_network_access_enabled", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="trustedServicesAllowed")
@@ -288,10 +227,8 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -354,7 +291,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[NamespaceNetworkRuleSetArgs] = None,
+                 args: NamespaceNetworkRuleSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Namespace Network Rule Set Set.
@@ -421,10 +358,8 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -440,17 +375,11 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
             __props__.__dict__["default_action"] = default_action
             __props__.__dict__["ip_rules"] = ip_rules
+            if namespace_id is None and not opts.urn:
+                raise TypeError("Missing required property 'namespace_id'")
             __props__.__dict__["namespace_id"] = namespace_id
-            if namespace_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-                pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-            __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["network_rules"] = network_rules
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
-            if resource_group_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-                pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["trusted_services_allowed"] = trusted_services_allowed
         super(NamespaceNetworkRuleSet, __self__).__init__(
             'azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet',
@@ -465,10 +394,8 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             default_action: Optional[pulumi.Input[str]] = None,
             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             namespace_id: Optional[pulumi.Input[str]] = None,
-            namespace_name: Optional[pulumi.Input[str]] = None,
             network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
             trusted_services_allowed: Optional[pulumi.Input[bool]] = None) -> 'NamespaceNetworkRuleSet':
         """
         Get an existing NamespaceNetworkRuleSet resource's state with the given name, id, and optional extra
@@ -491,10 +418,8 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         __props__.__dict__["default_action"] = default_action
         __props__.__dict__["ip_rules"] = ip_rules
         __props__.__dict__["namespace_id"] = namespace_id
-        __props__.__dict__["namespace_name"] = namespace_name
         __props__.__dict__["network_rules"] = network_rules
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["trusted_services_allowed"] = trusted_services_allowed
         return NamespaceNetworkRuleSet(resource_name, opts=opts, __props__=__props__)
 
@@ -523,11 +448,6 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         return pulumi.get(self, "namespace_id")
 
     @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "namespace_name")
-
-    @property
     @pulumi.getter(name="networkRules")
     def network_rules(self) -> pulumi.Output[Optional[Sequence['outputs.NamespaceNetworkRuleSetNetworkRule']]]:
         """
@@ -542,11 +462,6 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="trustedServicesAllowed")

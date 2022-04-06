@@ -176,12 +176,10 @@ namespace Pulumi.Azure.CosmosDB
         /// The Primary key for the CosmosDB Account.
         /// </summary>
         public readonly string PrimaryKey;
-        public readonly string PrimaryMasterKey;
         /// <summary>
         /// The Primary read-only Key for the CosmosDB Account.
         /// </summary>
         public readonly string PrimaryReadonlyKey;
-        public readonly string PrimaryReadonlyMasterKey;
         /// <summary>
         /// A list of read endpoints available for this CosmosDB account.
         /// </summary>
@@ -191,12 +189,10 @@ namespace Pulumi.Azure.CosmosDB
         /// The Secondary key for the CosmosDB Account.
         /// </summary>
         public readonly string SecondaryKey;
-        public readonly string SecondaryMasterKey;
         /// <summary>
         /// The Secondary read-only key for the CosmosDB Account.
         /// </summary>
         public readonly string SecondaryReadonlyKey;
-        public readonly string SecondaryReadonlyMasterKey;
         /// <summary>
         /// A mapping of tags assigned to the resource.
         /// </summary>
@@ -244,11 +240,7 @@ namespace Pulumi.Azure.CosmosDB
 
             string primaryKey,
 
-            string primaryMasterKey,
-
             string primaryReadonlyKey,
-
-            string primaryReadonlyMasterKey,
 
             ImmutableArray<string> readEndpoints,
 
@@ -256,11 +248,7 @@ namespace Pulumi.Azure.CosmosDB
 
             string secondaryKey,
 
-            string secondaryMasterKey,
-
             string secondaryReadonlyKey,
-
-            string secondaryReadonlyMasterKey,
 
             ImmutableDictionary<string, string> tags,
 
@@ -284,15 +272,11 @@ namespace Pulumi.Azure.CosmosDB
             Name = name;
             OfferType = offerType;
             PrimaryKey = primaryKey;
-            PrimaryMasterKey = primaryMasterKey;
             PrimaryReadonlyKey = primaryReadonlyKey;
-            PrimaryReadonlyMasterKey = primaryReadonlyMasterKey;
             ReadEndpoints = readEndpoints;
             ResourceGroupName = resourceGroupName;
             SecondaryKey = secondaryKey;
-            SecondaryMasterKey = secondaryMasterKey;
             SecondaryReadonlyKey = secondaryReadonlyKey;
-            SecondaryReadonlyMasterKey = secondaryReadonlyMasterKey;
             Tags = tags;
             VirtualNetworkRules = virtualNetworkRules;
             WriteEndpoints = writeEndpoints;

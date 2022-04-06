@@ -15,6 +15,9 @@ namespace Pulumi.Azure.Inputs
         [Input("purgeSoftDeleteOnDestroy")]
         public Input<bool>? PurgeSoftDeleteOnDestroy { get; set; }
 
+        [Input("recoverSoftDeleted")]
+        public Input<bool>? RecoverSoftDeleted { get; set; }
+
         public ProviderFeaturesApiManagementArgs()
         {
         }

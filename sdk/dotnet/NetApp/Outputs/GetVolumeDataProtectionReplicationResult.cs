@@ -29,7 +29,6 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// Frequency of replication.
         /// </summary>
         public readonly string ReplicationFrequency;
-        public readonly string ReplicationSchedule;
 
         [OutputConstructor]
         private GetVolumeDataProtectionReplicationResult(
@@ -39,15 +38,12 @@ namespace Pulumi.Azure.NetApp.Outputs
 
             string remoteVolumeResourceId,
 
-            string replicationFrequency,
-
-            string replicationSchedule)
+            string replicationFrequency)
         {
             EndpointType = endpointType;
             RemoteVolumeLocation = remoteVolumeLocation;
             RemoteVolumeResourceId = remoteVolumeResourceId;
             ReplicationFrequency = replicationFrequency;
-            ReplicationSchedule = replicationSchedule;
         }
     }
 }

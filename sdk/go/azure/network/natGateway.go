@@ -13,71 +13,6 @@ import (
 
 // Manages a Azure NAT Gateway.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 			Sku:               pulumi.String("Standard"),
-// 			Zones: pulumi.String{
-// 				"1",
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIpPrefix, err := network.NewPublicIpPrefix(ctx, "examplePublicIpPrefix", &network.PublicIpPrefixArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PrefixLength:      pulumi.Int(30),
-// 			Zones: pulumi.String{
-// 				"1",
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewNatGateway(ctx, "exampleNatGateway", &network.NatGatewayArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublicIpAddressIds: pulumi.StringArray{
-// 				examplePublicIp.ID(),
-// 			},
-// 			PublicIpPrefixIds: pulumi.StringArray{
-// 				examplePublicIpPrefix.ID(),
-// 			},
-// 			SkuName:              pulumi.String("Standard"),
-// 			IdleTimeoutInMinutes: pulumi.Int(10),
-// 			Zones: pulumi.StringArray{
-// 				pulumi.String("1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // NAT Gateway can be imported using the `resource id`, e.g.
@@ -94,14 +29,6 @@ type NatGateway struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-	//
-	// Deprecated: Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.
-	PublicIpAddressIds pulumi.StringArrayOutput `pulumi:"publicIpAddressIds"`
-	// / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
-	//
-	// Deprecated: Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.
-	PublicIpPrefixIds pulumi.StringArrayOutput `pulumi:"publicIpPrefixIds"`
 	// Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The resource GUID property of the NAT Gateway.
@@ -110,7 +37,7 @@ type NatGateway struct {
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -152,14 +79,6 @@ type natGatewayState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-	//
-	// Deprecated: Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.
-	PublicIpAddressIds []string `pulumi:"publicIpAddressIds"`
-	// / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
-	//
-	// Deprecated: Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.
-	PublicIpPrefixIds []string `pulumi:"publicIpPrefixIds"`
 	// Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The resource GUID property of the NAT Gateway.
@@ -168,7 +87,7 @@ type natGatewayState struct {
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -179,14 +98,6 @@ type NatGatewayState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-	//
-	// Deprecated: Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.
-	PublicIpAddressIds pulumi.StringArrayInput
-	// / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
-	//
-	// Deprecated: Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.
-	PublicIpPrefixIds pulumi.StringArrayInput
 	// Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The resource GUID property of the NAT Gateway.
@@ -195,7 +106,7 @@ type NatGatewayState struct {
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
-	// A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -210,21 +121,13 @@ type natGatewayArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-	//
-	// Deprecated: Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.
-	PublicIpAddressIds []string `pulumi:"publicIpAddressIds"`
-	// / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
-	//
-	// Deprecated: Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.
-	PublicIpPrefixIds []string `pulumi:"publicIpPrefixIds"`
 	// Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -236,21 +139,13 @@ type NatGatewayArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-	//
-	// Deprecated: Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.
-	PublicIpAddressIds pulumi.StringArrayInput
-	// / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
-	//
-	// Deprecated: Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.
-	PublicIpPrefixIds pulumi.StringArrayInput
 	// Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
-	// A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	Zones pulumi.StringArrayInput
 }
 

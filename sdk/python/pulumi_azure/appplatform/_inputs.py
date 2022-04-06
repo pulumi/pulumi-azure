@@ -115,7 +115,7 @@ class SpringCloudAppIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         """
@@ -129,7 +129,7 @@ class SpringCloudAppIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -843,7 +843,6 @@ class SpringCloudServiceRequiredNetworkTrafficRuleArgs:
 class SpringCloudServiceTraceArgs:
     def __init__(__self__, *,
                  connection_string: Optional[pulumi.Input[str]] = None,
-                 instrumentation_key: Optional[pulumi.Input[str]] = None,
                  sample_rate: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[str] connection_string: The connection string used for Application Insights.
@@ -851,11 +850,6 @@ class SpringCloudServiceTraceArgs:
         """
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
-        if instrumentation_key is not None:
-            warnings.warn("""This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.""", DeprecationWarning)
-            pulumi.log.warn("""instrumentation_key is deprecated: This property is due to be removed from this service's API and thus has been deprecated and will be removed in v3.0 of the provider. Please switch to using the `connection_string` property with the connection string for the Application Insights instance to use.""")
-        if instrumentation_key is not None:
-            pulumi.set(__self__, "instrumentation_key", instrumentation_key)
         if sample_rate is not None:
             pulumi.set(__self__, "sample_rate", sample_rate)
 
@@ -870,15 +864,6 @@ class SpringCloudServiceTraceArgs:
     @connection_string.setter
     def connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_string", value)
-
-    @property
-    @pulumi.getter(name="instrumentationKey")
-    def instrumentation_key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "instrumentation_key")
-
-    @instrumentation_key.setter
-    def instrumentation_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "instrumentation_key", value)
 
     @property
     @pulumi.getter(name="sampleRate")

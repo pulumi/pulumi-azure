@@ -72,12 +72,6 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("targetResourceType")]
         public Input<string>? TargetResourceType { get; set; }
 
-        /// <summary>
-        /// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
-        /// </summary>
-        [Input("virtualMachineId")]
-        public Input<string>? VirtualMachineId { get; set; }
-
         public NetworkConnectionMonitorEndpointArgs()
         {
         }

@@ -24,7 +24,6 @@ class PolicyVMArgs:
                  retention_monthly: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']] = None,
                  retention_weekly: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']] = None,
                  retention_yearly: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PolicyVM resource.
@@ -37,7 +36,6 @@ class PolicyVMArgs:
         :param pulumi.Input['PolicyVMRetentionMonthlyArgs'] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
         :param pulumi.Input['PolicyVMRetentionWeeklyArgs'] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         :param pulumi.Input['PolicyVMRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         pulumi.set(__self__, "backup", backup)
@@ -55,8 +53,6 @@ class PolicyVMArgs:
             pulumi.set(__self__, "retention_weekly", retention_weekly)
         if retention_yearly is not None:
             pulumi.set(__self__, "retention_yearly", retention_yearly)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -170,18 +166,6 @@ class PolicyVMArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
@@ -205,7 +189,6 @@ class _PolicyVMState:
                  retention_monthly: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']] = None,
                  retention_weekly: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']] = None,
                  retention_yearly: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PolicyVM resources.
@@ -218,7 +201,6 @@ class _PolicyVMState:
         :param pulumi.Input['PolicyVMRetentionMonthlyArgs'] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
         :param pulumi.Input['PolicyVMRetentionWeeklyArgs'] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         :param pulumi.Input['PolicyVMRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         if backup is not None:
@@ -239,8 +221,6 @@ class _PolicyVMState:
             pulumi.set(__self__, "retention_weekly", retention_weekly)
         if retention_yearly is not None:
             pulumi.set(__self__, "retention_yearly", retention_yearly)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -354,18 +334,6 @@ class _PolicyVMState:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
@@ -391,7 +359,6 @@ class PolicyVM(pulumi.CustomResource):
                  retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']]] = None,
                  retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']]] = None,
                  retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -466,7 +433,6 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
         :param pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         :param pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         ...
@@ -560,7 +526,6 @@ class PolicyVM(pulumi.CustomResource):
                  retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']]] = None,
                  retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']]] = None,
                  retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -589,7 +554,6 @@ class PolicyVM(pulumi.CustomResource):
             __props__.__dict__["retention_monthly"] = retention_monthly
             __props__.__dict__["retention_weekly"] = retention_weekly
             __props__.__dict__["retention_yearly"] = retention_yearly
-            __props__.__dict__["tags"] = tags
             __props__.__dict__["timezone"] = timezone
         super(PolicyVM, __self__).__init__(
             'azure:backup/policyVM:PolicyVM',
@@ -610,7 +574,6 @@ class PolicyVM(pulumi.CustomResource):
             retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']]] = None,
             retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']]] = None,
             retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timezone: Optional[pulumi.Input[str]] = None) -> 'PolicyVM':
         """
         Get an existing PolicyVM resource's state with the given name, id, and optional extra
@@ -628,7 +591,6 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
         :param pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         :param pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -644,7 +606,6 @@ class PolicyVM(pulumi.CustomResource):
         __props__.__dict__["retention_monthly"] = retention_monthly
         __props__.__dict__["retention_weekly"] = retention_weekly
         __props__.__dict__["retention_yearly"] = retention_yearly
-        __props__.__dict__["tags"] = tags
         __props__.__dict__["timezone"] = timezone
         return PolicyVM(resource_name, opts=opts, __props__=__props__)
 
@@ -719,14 +680,6 @@ class PolicyVM(pulumi.CustomResource):
         Configures the policy yearly retention as documented in the `retention_yearly` block below.
         """
         return pulumi.get(self, "retention_yearly")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A mapping of tags to assign to the resource.
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

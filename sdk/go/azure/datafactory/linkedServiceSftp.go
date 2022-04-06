@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,7 +40,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceSftp(ctx, "exampleLinkedServiceSftp", &datafactory.LinkedServiceSftpArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			DataFactoryId:      exampleFactory.ID(),
 // 			AuthenticationType: pulumi.String("Basic"),
 // 			Host:               pulumi.String("http://www.bing.com"),
@@ -74,10 +73,6 @@ type LinkedServiceSftp struct {
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The SFTP server hostname.
@@ -95,8 +90,6 @@ type LinkedServiceSftp struct {
 	Password pulumi.StringOutput `pulumi:"password"`
 	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port pulumi.IntOutput `pulumi:"port"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
 	SkipHostKeyValidation pulumi.BoolPtrOutput `pulumi:"skipHostKeyValidation"`
 	// The username used to log on to the SFTP server.
@@ -113,6 +106,9 @@ func NewLinkedServiceSftp(ctx *pulumi.Context,
 	if args.AuthenticationType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthenticationType'")
 	}
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
+	}
 	if args.Host == nil {
 		return nil, errors.New("invalid value for required argument 'Host'")
 	}
@@ -121,9 +117,6 @@ func NewLinkedServiceSftp(ctx *pulumi.Context,
 	}
 	if args.Port == nil {
 		return nil, errors.New("invalid value for required argument 'Port'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
@@ -158,10 +151,6 @@ type linkedServiceSftpState struct {
 	AuthenticationType *string `pulumi:"authenticationType"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The SFTP server hostname.
@@ -179,8 +168,6 @@ type linkedServiceSftpState struct {
 	Password *string `pulumi:"password"`
 	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port *int `pulumi:"port"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
 	SkipHostKeyValidation *bool `pulumi:"skipHostKeyValidation"`
 	// The username used to log on to the SFTP server.
@@ -196,10 +183,6 @@ type LinkedServiceSftpState struct {
 	AuthenticationType pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The SFTP server hostname.
@@ -217,8 +200,6 @@ type LinkedServiceSftpState struct {
 	Password pulumi.StringPtrInput
 	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port pulumi.IntPtrInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
 	SkipHostKeyValidation pulumi.BoolPtrInput
 	// The username used to log on to the SFTP server.
@@ -237,11 +218,7 @@ type linkedServiceSftpArgs struct {
 	// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
 	AuthenticationType string `pulumi:"authenticationType"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The SFTP server hostname.
@@ -259,8 +236,6 @@ type linkedServiceSftpArgs struct {
 	Password string `pulumi:"password"`
 	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port int `pulumi:"port"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
 	SkipHostKeyValidation *bool `pulumi:"skipHostKeyValidation"`
 	// The username used to log on to the SFTP server.
@@ -276,11 +251,7 @@ type LinkedServiceSftpArgs struct {
 	// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
 	AuthenticationType pulumi.StringInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The SFTP server hostname.
@@ -298,8 +269,6 @@ type LinkedServiceSftpArgs struct {
 	Password pulumi.StringInput
 	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port pulumi.IntInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
 	SkipHostKeyValidation pulumi.BoolPtrInput
 	// The username used to log on to the SFTP server.

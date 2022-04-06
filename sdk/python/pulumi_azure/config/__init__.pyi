@@ -57,11 +57,6 @@ metadataHost: Optional[str]
 The Hostname which should be used for the Azure Metadata Service.
 """
 
-metadataUrl: Optional[str]
-"""
-Deprecated - replaced by `metadata_host`.
-"""
-
 msiEndpoint: Optional[str]
 """
 The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -71,11 +66,6 @@ automatically.
 partnerId: Optional[str]
 """
 A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
-"""
-
-skipCredentialsValidation: Optional[bool]
-"""
-[DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
 """
 
 skipProviderRegistration: bool
@@ -97,11 +87,6 @@ The Subscription ID which should be used.
 tenantId: Optional[str]
 """
 The Tenant ID which should be used.
-"""
-
-useMsal: Optional[bool]
-"""
-Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
 """
 
 useMsi: Optional[bool]

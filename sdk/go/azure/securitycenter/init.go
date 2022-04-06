@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AdvancedThreatProtection{}
 	case "azure:securitycenter/assessment:Assessment":
 		r = &Assessment{}
-	case "azure:securitycenter/assessmentMetadata:AssessmentMetadata":
-		r = &AssessmentMetadata{}
 	case "azure:securitycenter/assessmentPolicy:AssessmentPolicy":
 		r = &AssessmentPolicy{}
 	case "azure:securitycenter/autoProvisioning:AutoProvisioning":
@@ -37,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Contact{}
 	case "azure:securitycenter/serverVulnerabilityAssessment:ServerVulnerabilityAssessment":
 		r = &ServerVulnerabilityAssessment{}
+	case "azure:securitycenter/serverVulnerabilityAssessmentVirtualMachine:ServerVulnerabilityAssessmentVirtualMachine":
+		r = &ServerVulnerabilityAssessmentVirtualMachine{}
 	case "azure:securitycenter/setting:Setting":
 		r = &Setting{}
 	case "azure:securitycenter/subscriptionPricing:SubscriptionPricing":
@@ -68,11 +68,6 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
-		"securitycenter/assessmentMetadata",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
 		"securitycenter/assessmentPolicy",
 		&module{version},
 	)
@@ -94,6 +89,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"securitycenter/serverVulnerabilityAssessment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"securitycenter/serverVulnerabilityAssessmentVirtualMachine",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

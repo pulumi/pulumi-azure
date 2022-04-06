@@ -13,7 +13,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class GetKubernetesClusterAgentPoolProfileResult
     {
-        public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
         /// The number of Agents (VM's) in the Pool.
         /// </summary>
@@ -65,7 +64,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The type of identity used for the managed cluster.
+        /// The type of Managed Service Identity that is configured on this Kubernetes Cluster.
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -81,14 +80,12 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string VnetSubnetId;
         /// <summary>
-        /// Specifies the Availability Zones where the Nodes within this Agent Pool exist.
+        /// A list of Availability Zones in which this Kubernetes Cluster is located.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetKubernetesClusterAgentPoolProfileResult(
-            ImmutableArray<string> availabilityZones,
-
             int count,
 
             bool enableAutoScaling,
@@ -127,7 +124,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableArray<string> zones)
         {
-            AvailabilityZones = availabilityZones;
             Count = count;
             EnableAutoScaling = enableAutoScaling;
             EnableNodePublicIp = enableNodePublicIp;

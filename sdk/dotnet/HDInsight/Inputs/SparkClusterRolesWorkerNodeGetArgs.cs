@@ -19,12 +19,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public Input<Inputs.SparkClusterRolesWorkerNodeAutoscaleGetArgs>? Autoscale { get; set; }
 
         /// <summary>
-        /// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("minInstanceCount")]
-        public Input<int>? MinInstanceCount { get; set; }
-
-        /// <summary>
         /// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         /// </summary>
         [Input("password")]

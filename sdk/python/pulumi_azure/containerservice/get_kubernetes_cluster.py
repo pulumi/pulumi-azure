@@ -21,17 +21,10 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, aci_connector_linuxes=None, addon_profiles=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_control_enabled=None, role_based_access_controls=None, service_principals=None, tags=None, windows_profiles=None):
+    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_principals=None, tags=None, windows_profiles=None):
         if aci_connector_linuxes and not isinstance(aci_connector_linuxes, list):
             raise TypeError("Expected argument 'aci_connector_linuxes' to be a list")
         pulumi.set(__self__, "aci_connector_linuxes", aci_connector_linuxes)
-        if addon_profiles and not isinstance(addon_profiles, list):
-            raise TypeError("Expected argument 'addon_profiles' to be a list")
-        if addon_profiles is not None:
-            warnings.warn("""`addon_profile` is deprecated in favour of the properties `https_application_routing_enabled`, `azure_policy_enabled`, `open_service_mesh_enabled` and the blocks `oms_agent`, `ingress_application_gateway` and `key_vault_secrets_provider` and will be removed in version 3.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""addon_profiles is deprecated: `addon_profile` is deprecated in favour of the properties `https_application_routing_enabled`, `azure_policy_enabled`, `open_service_mesh_enabled` and the blocks `oms_agent`, `ingress_application_gateway` and `key_vault_secrets_provider` and will be removed in version 3.0 of the AzureRM Provider""")
-
-        pulumi.set(__self__, "addon_profiles", addon_profiles)
         if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
             raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
         pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
@@ -116,26 +109,12 @@ class GetKubernetesClusterResult:
         if private_fqdn and not isinstance(private_fqdn, str):
             raise TypeError("Expected argument 'private_fqdn' to be a str")
         pulumi.set(__self__, "private_fqdn", private_fqdn)
-        if private_link_enabled and not isinstance(private_link_enabled, bool):
-            raise TypeError("Expected argument 'private_link_enabled' to be a bool")
-        if private_link_enabled is not None:
-            warnings.warn("""`private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""private_link_enabled is deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider""")
-
-        pulumi.set(__self__, "private_link_enabled", private_link_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if role_based_access_control_enabled and not isinstance(role_based_access_control_enabled, bool):
             raise TypeError("Expected argument 'role_based_access_control_enabled' to be a bool")
         pulumi.set(__self__, "role_based_access_control_enabled", role_based_access_control_enabled)
-        if role_based_access_controls and not isinstance(role_based_access_controls, list):
-            raise TypeError("Expected argument 'role_based_access_controls' to be a list")
-        if role_based_access_controls is not None:
-            warnings.warn("""`role_based_access_control` is deprecated in favour of the property `role_based_access_control_enabled` and the block `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""role_based_access_controls is deprecated: `role_based_access_control` is deprecated in favour of the property `role_based_access_control_enabled` and the block `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM Provider.""")
-
-        pulumi.set(__self__, "role_based_access_controls", role_based_access_controls)
         if service_principals and not isinstance(service_principals, list):
             raise TypeError("Expected argument 'service_principals' to be a list")
         pulumi.set(__self__, "service_principals", service_principals)
@@ -153,11 +132,6 @@ class GetKubernetesClusterResult:
         An `aci_connector_linux` block as documented below.
         """
         return pulumi.get(self, "aci_connector_linuxes")
-
-    @property
-    @pulumi.getter(name="addonProfiles")
-    def addon_profiles(self) -> Sequence['outputs.GetKubernetesClusterAddonProfileResult']:
-        return pulumi.get(self, "addon_profiles")
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
@@ -243,7 +217,7 @@ class GetKubernetesClusterResult:
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetKubernetesClusterIdentityResult']:
         """
-        A `identity` block as documented below.
+        An `identity` block as documented below.
         """
         return pulumi.get(self, "identities")
 
@@ -384,11 +358,6 @@ class GetKubernetesClusterResult:
         return pulumi.get(self, "private_fqdn")
 
     @property
-    @pulumi.getter(name="privateLinkEnabled")
-    def private_link_enabled(self) -> bool:
-        return pulumi.get(self, "private_link_enabled")
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -400,11 +369,6 @@ class GetKubernetesClusterResult:
         Is Role Based Access Control enabled for this managed Kubernetes Cluster.
         """
         return pulumi.get(self, "role_based_access_control_enabled")
-
-    @property
-    @pulumi.getter(name="roleBasedAccessControls")
-    def role_based_access_controls(self) -> Sequence['outputs.GetKubernetesClusterRoleBasedAccessControlResult']:
-        return pulumi.get(self, "role_based_access_controls")
 
     @property
     @pulumi.getter(name="servicePrincipals")
@@ -438,7 +402,6 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             yield self
         return GetKubernetesClusterResult(
             aci_connector_linuxes=self.aci_connector_linuxes,
-            addon_profiles=self.addon_profiles,
             agent_pool_profiles=self.agent_pool_profiles,
             api_server_authorized_ip_ranges=self.api_server_authorized_ip_ranges,
             azure_active_directory_role_based_access_controls=self.azure_active_directory_role_based_access_controls,
@@ -467,10 +430,8 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             open_service_mesh_enabled=self.open_service_mesh_enabled,
             private_cluster_enabled=self.private_cluster_enabled,
             private_fqdn=self.private_fqdn,
-            private_link_enabled=self.private_link_enabled,
             resource_group_name=self.resource_group_name,
             role_based_access_control_enabled=self.role_based_access_control_enabled,
-            role_based_access_controls=self.role_based_access_controls,
             service_principals=self.service_principals,
             tags=self.tags,
             windows_profiles=self.windows_profiles)
@@ -507,7 +468,6 @@ def get_kubernetes_cluster(name: Optional[str] = None,
 
     return AwaitableGetKubernetesClusterResult(
         aci_connector_linuxes=__ret__.aci_connector_linuxes,
-        addon_profiles=__ret__.addon_profiles,
         agent_pool_profiles=__ret__.agent_pool_profiles,
         api_server_authorized_ip_ranges=__ret__.api_server_authorized_ip_ranges,
         azure_active_directory_role_based_access_controls=__ret__.azure_active_directory_role_based_access_controls,
@@ -536,10 +496,8 @@ def get_kubernetes_cluster(name: Optional[str] = None,
         open_service_mesh_enabled=__ret__.open_service_mesh_enabled,
         private_cluster_enabled=__ret__.private_cluster_enabled,
         private_fqdn=__ret__.private_fqdn,
-        private_link_enabled=__ret__.private_link_enabled,
         resource_group_name=__ret__.resource_group_name,
         role_based_access_control_enabled=__ret__.role_based_access_control_enabled,
-        role_based_access_controls=__ret__.role_based_access_controls,
         service_principals=__ret__.service_principals,
         tags=__ret__.tags,
         windows_profiles=__ret__.windows_profiles)

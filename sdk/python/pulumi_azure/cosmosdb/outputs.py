@@ -397,21 +397,17 @@ class AccountGeoLocation(dict):
                  failover_priority: int,
                  location: str,
                  id: Optional[str] = None,
-                 prefix: Optional[str] = None,
                  zone_redundant: Optional[bool] = None):
         """
         :param int failover_priority: The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
         :param str location: The name of the Azure region to host replicated data.
         :param str id: The ID of the virtual network subnet.
-        :param str prefix: The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
         :param bool zone_redundant: Should zone redundancy be enabled for this region? Defaults to `false`.
         """
         pulumi.set(__self__, "failover_priority", failover_priority)
         pulumi.set(__self__, "location", location)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -438,14 +434,6 @@ class AccountGeoLocation(dict):
         The ID of the virtual network subnet.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def prefix(self) -> Optional[str]:
-        """
-        The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
-        """
-        return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter(name="zoneRedundant")
@@ -482,7 +470,7 @@ class AccountIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -496,7 +484,7 @@ class AccountIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 

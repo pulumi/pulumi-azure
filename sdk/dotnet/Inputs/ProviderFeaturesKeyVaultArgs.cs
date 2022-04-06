@@ -15,8 +15,26 @@ namespace Pulumi.Azure.Inputs
         [Input("purgeSoftDeleteOnDestroy")]
         public Input<bool>? PurgeSoftDeleteOnDestroy { get; set; }
 
+        [Input("purgeSoftDeletedCertificatesOnDestroy")]
+        public Input<bool>? PurgeSoftDeletedCertificatesOnDestroy { get; set; }
+
+        [Input("purgeSoftDeletedKeysOnDestroy")]
+        public Input<bool>? PurgeSoftDeletedKeysOnDestroy { get; set; }
+
+        [Input("purgeSoftDeletedSecretsOnDestroy")]
+        public Input<bool>? PurgeSoftDeletedSecretsOnDestroy { get; set; }
+
+        [Input("recoverSoftDeletedCertificates")]
+        public Input<bool>? RecoverSoftDeletedCertificates { get; set; }
+
         [Input("recoverSoftDeletedKeyVaults")]
         public Input<bool>? RecoverSoftDeletedKeyVaults { get; set; }
+
+        [Input("recoverSoftDeletedKeys")]
+        public Input<bool>? RecoverSoftDeletedKeys { get; set; }
+
+        [Input("recoverSoftDeletedSecrets")]
+        public Input<bool>? RecoverSoftDeletedSecrets { get; set; }
 
         public ProviderFeaturesKeyVaultArgs()
         {

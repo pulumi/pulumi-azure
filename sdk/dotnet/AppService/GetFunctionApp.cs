@@ -12,8 +12,6 @@ namespace Pulumi.Azure.AppService
     public static class GetFunctionApp
     {
         /// <summary>
-        /// Use this data source to access information about a Function App.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -42,8 +40,6 @@ namespace Pulumi.Azure.AppService
             => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionAppResult>("azure:appservice/getFunctionApp:getFunctionApp", args ?? new GetFunctionAppArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about a Function App.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

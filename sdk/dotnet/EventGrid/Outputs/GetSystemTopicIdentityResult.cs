@@ -14,19 +14,19 @@ namespace Pulumi.Azure.EventGrid.Outputs
     public sealed class GetSystemTopicIdentityResult
     {
         /// <summary>
-        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
+        /// The list of User Assigned Managed Identity IDs assigned to this Event Grid System Topic.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
+        /// The type of Managed Service Identity that is configured on this Event Grid System Topic.
         /// </summary>
         public readonly string Type;
 

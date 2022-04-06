@@ -158,7 +158,10 @@ namespace Pulumi.Azure.Sql
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.0.0.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.0.0/24",
+    ///             },
     ///             Delegations = 
     ///             {
     ///                 new Azure.Network.Inputs.SubnetDelegationArgs

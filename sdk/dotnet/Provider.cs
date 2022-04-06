@@ -57,12 +57,6 @@ namespace Pulumi.Azure
         public Output<string?> MetadataHost { get; private set; } = null!;
 
         /// <summary>
-        /// Deprecated - replaced by `metadata_host`.
-        /// </summary>
-        [Output("metadataUrl")]
-        public Output<string?> MetadataUrl { get; private set; } = null!;
-
-        /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
         /// automatically.
         /// </summary>
@@ -177,12 +171,6 @@ namespace Pulumi.Azure
         public Input<string>? MetadataHost { get; set; }
 
         /// <summary>
-        /// Deprecated - replaced by `metadata_host`.
-        /// </summary>
-        [Input("metadataUrl")]
-        public Input<string>? MetadataUrl { get; set; }
-
-        /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
         /// automatically.
         /// </summary>
@@ -194,12 +182,6 @@ namespace Pulumi.Azure
         /// </summary>
         [Input("partnerId")]
         public Input<string>? PartnerId { get; set; }
-
-        /// <summary>
-        /// [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
-        /// </summary>
-        [Input("skipCredentialsValidation", json: true)]
-        public Input<bool>? SkipCredentialsValidation { get; set; }
 
         /// <summary>
         /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
@@ -227,12 +209,6 @@ namespace Pulumi.Azure
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
-        /// </summary>
-        [Input("useMsal", json: true)]
-        public Input<bool>? UseMsal { get; set; }
-
-        /// <summary>
         /// Allowed Managed Service Identity be used for Authentication.
         /// </summary>
         [Input("useMsi", json: true)]
@@ -242,7 +218,6 @@ namespace Pulumi.Azure
         {
             Environment = Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public";
             MetadataHost = Utilities.GetEnv("ARM_METADATA_HOSTNAME");
-            MetadataUrl = Utilities.GetEnv("ARM_METADATA_URL");
             SkipProviderRegistration = Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false;
             StorageUseAzuread = Utilities.GetEnvBoolean("ARM_STORAGE_USE_AZUREAD") ?? false;
             SubscriptionId = Utilities.GetEnv("ARM_SUBSCRIPTION_ID") ?? "";

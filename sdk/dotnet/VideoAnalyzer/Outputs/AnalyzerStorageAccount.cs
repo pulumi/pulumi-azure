@@ -18,7 +18,7 @@ namespace Pulumi.Azure.VideoAnalyzer.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
+        /// Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
         /// </summary>
         public readonly string UserAssignedIdentityId;
 

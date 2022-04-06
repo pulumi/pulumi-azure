@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class GetApplicationGatewayIdentityResult
     {
         /// <summary>
-        /// A list of Managed Identity ID's assigned to this Application Gateway.
+        /// A list of Managed Identity IDs assigned to this Application Gateway.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

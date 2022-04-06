@@ -49,12 +49,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? EnableFrontendTls11 { get; set; }
 
         /// <summary>
-        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
-        /// </summary>
-        [Input("enableTripleDesCiphers")]
-        public Input<bool>? EnableTripleDesCiphers { get; set; }
-
-        /// <summary>
         /// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
         /// </summary>
         [Input("tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled")]

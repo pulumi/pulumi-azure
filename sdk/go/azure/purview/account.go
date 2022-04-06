@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/purview"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/purview"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -35,6 +35,9 @@ import (
 // 		_, err = purview.NewAccount(ctx, "exampleAccount", &purview.AccountArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
+// 			Identity: &purview.AccountIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -62,8 +65,8 @@ type Account struct {
 	CatalogEndpoint pulumi.StringOutput `pulumi:"catalogEndpoint"`
 	// Guardian endpoint.
 	GuardianEndpoint pulumi.StringOutput `pulumi:"guardianEndpoint"`
-	// A `identity` block as defined below.
-	Identities AccountIdentityArrayOutput `pulumi:"identities"`
+	// An `identity` block as defined below.
+	Identity AccountIdentityOutput `pulumi:"identity"`
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
@@ -78,8 +81,6 @@ type Account struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Scan endpoint.
 	ScanEndpoint pulumi.StringOutput `pulumi:"scanEndpoint"`
-	// Deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
-	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Purview Account.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -91,6 +92,9 @@ func NewAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Identity == nil {
+		return nil, errors.New("invalid value for required argument 'Identity'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -124,8 +128,8 @@ type accountState struct {
 	CatalogEndpoint *string `pulumi:"catalogEndpoint"`
 	// Guardian endpoint.
 	GuardianEndpoint *string `pulumi:"guardianEndpoint"`
-	// A `identity` block as defined below.
-	Identities []AccountIdentity `pulumi:"identities"`
+	// An `identity` block as defined below.
+	Identity *AccountIdentity `pulumi:"identity"`
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
@@ -140,8 +144,6 @@ type accountState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Scan endpoint.
 	ScanEndpoint *string `pulumi:"scanEndpoint"`
-	// Deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
-	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Purview Account.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -155,8 +157,8 @@ type AccountState struct {
 	CatalogEndpoint pulumi.StringPtrInput
 	// Guardian endpoint.
 	GuardianEndpoint pulumi.StringPtrInput
-	// A `identity` block as defined below.
-	Identities AccountIdentityArrayInput
+	// An `identity` block as defined below.
+	Identity AccountIdentityPtrInput
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
@@ -171,8 +173,6 @@ type AccountState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Scan endpoint.
 	ScanEndpoint pulumi.StringPtrInput
-	// Deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
-	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Purview Account.
 	Tags pulumi.StringMapInput
 }
@@ -182,6 +182,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// An `identity` block as defined below.
+	Identity AccountIdentity `pulumi:"identity"`
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
@@ -192,14 +194,14 @@ type accountArgs struct {
 	PublicNetworkEnabled *bool `pulumi:"publicNetworkEnabled"`
 	// The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
-	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Purview Account.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// An `identity` block as defined below.
+	Identity AccountIdentityInput
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
@@ -210,8 +212,6 @@ type AccountArgs struct {
 	PublicNetworkEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	ResourceGroupName pulumi.StringInput
-	// Deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
-	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Purview Account.
 	Tags pulumi.StringMapInput
 }

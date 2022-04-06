@@ -50,7 +50,6 @@ namespace Pulumi.Azure.HDInsight
     ///             },
     ///             Gateway = new Azure.HDInsight.Inputs.KafkaClusterGatewayArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Username = "acctestusrgw",
     ///                 Password = "Password123!",
     ///             },

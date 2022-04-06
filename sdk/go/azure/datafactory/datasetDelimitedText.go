@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,7 +40,6 @@ import (
 // 			return err
 // 		}
 // 		exampleLinkedServiceWeb, err := datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			DataFactoryId:      exampleFactory.ID(),
 // 			AuthenticationType: pulumi.String("Anonymous"),
 // 			Url:                pulumi.String("https://www.bing.com"),
@@ -49,7 +48,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewDatasetDelimitedText(ctx, "exampleDatasetDelimitedText", &datafactory.DatasetDelimitedTextArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			DataFactoryId:     exampleFactory.ID(),
 // 			LinkedServiceName: exampleLinkedServiceWeb.Name,
 // 			HttpServerLocation: &datafactory.DatasetDelimitedTextHttpServerLocationArgs{
@@ -99,10 +97,6 @@ type DatasetDelimitedText struct {
 	CompressionLevel pulumi.StringPtrOutput `pulumi:"compressionLevel"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The encoding format for the file.
@@ -125,8 +119,6 @@ type DatasetDelimitedText struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The quote character. Defaults to `"`.
 	QuoteCharacter pulumi.StringPtrOutput `pulumi:"quoteCharacter"`
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
 	RowDelimiter pulumi.StringPtrOutput `pulumi:"rowDelimiter"`
 	// A `schemaColumn` block as defined below.
@@ -140,11 +132,11 @@ func NewDatasetDelimitedText(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
+	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DatasetDelimitedText
 	err := ctx.RegisterResource("azure:datafactory/datasetDelimitedText:DatasetDelimitedText", name, args, &resource, opts...)
@@ -184,10 +176,6 @@ type datasetDelimitedTextState struct {
 	CompressionLevel *string `pulumi:"compressionLevel"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
 	// The encoding format for the file.
@@ -210,8 +198,6 @@ type datasetDelimitedTextState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The quote character. Defaults to `"`.
 	QuoteCharacter *string `pulumi:"quoteCharacter"`
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
 	RowDelimiter *string `pulumi:"rowDelimiter"`
 	// A `schemaColumn` block as defined below.
@@ -235,10 +221,6 @@ type DatasetDelimitedTextState struct {
 	CompressionLevel pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
 	// The encoding format for the file.
@@ -261,8 +243,6 @@ type DatasetDelimitedTextState struct {
 	Parameters pulumi.StringMapInput
 	// The quote character. Defaults to `"`.
 	QuoteCharacter pulumi.StringPtrInput
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
 	RowDelimiter pulumi.StringPtrInput
 	// A `schemaColumn` block as defined below.
@@ -289,11 +269,7 @@ type datasetDelimitedTextArgs struct {
 	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
 	CompressionLevel *string `pulumi:"compressionLevel"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
 	// The encoding format for the file.
@@ -316,8 +292,6 @@ type datasetDelimitedTextArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The quote character. Defaults to `"`.
 	QuoteCharacter *string `pulumi:"quoteCharacter"`
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
 	RowDelimiter *string `pulumi:"rowDelimiter"`
 	// A `schemaColumn` block as defined below.
@@ -341,11 +315,7 @@ type DatasetDelimitedTextArgs struct {
 	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
 	CompressionLevel pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
 	// The encoding format for the file.
@@ -368,8 +338,6 @@ type DatasetDelimitedTextArgs struct {
 	Parameters pulumi.StringMapInput
 	// The quote character. Defaults to `"`.
 	QuoteCharacter pulumi.StringPtrInput
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
 	RowDelimiter pulumi.StringPtrInput
 	// A `schemaColumn` block as defined below.

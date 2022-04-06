@@ -14,13 +14,19 @@ namespace Pulumi.Azure.WebPubSub.Outputs
     public sealed class ServiceIdentity
     {
         /// <summary>
-        /// A list of User Assigned Identity IDs which should be assigned to this Web PubSub service.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
         public readonly string? PrincipalId;
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of identity used for the Web PubSub service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, a `user_assigned_identity_id` must be set as well.
+        /// Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are `SystemAssigned`, `UserAssigned`.
         /// </summary>
         public readonly string Type;
 

@@ -20,7 +20,7 @@ class GetLBRuleResult:
     """
     A collection of values returned by getLBRule.
     """
-    def __init__(__self__, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_name=None, frontend_port=None, id=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, name=None, probe_id=None, protocol=None, resource_group_name=None):
+    def __init__(__self__, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_name=None, frontend_port=None, id=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, name=None, probe_id=None, protocol=None):
         if backend_address_pool_id and not isinstance(backend_address_pool_id, str):
             raise TypeError("Expected argument 'backend_address_pool_id' to be a str")
         pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
@@ -63,9 +63,6 @@ class GetLBRuleResult:
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
         pulumi.set(__self__, "protocol", protocol)
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="backendAddressPoolId")
@@ -173,11 +170,6 @@ class GetLBRuleResult:
         """
         return pulumi.get(self, "protocol")
 
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
-        return pulumi.get(self, "resource_group_name")
-
 
 class AwaitableGetLBRuleResult(GetLBRuleResult):
     # pylint: disable=using-constant-test
@@ -198,13 +190,11 @@ class AwaitableGetLBRuleResult(GetLBRuleResult):
             loadbalancer_id=self.loadbalancer_id,
             name=self.name,
             probe_id=self.probe_id,
-            protocol=self.protocol,
-            resource_group_name=self.resource_group_name)
+            protocol=self.protocol)
 
 
 def get_lb_rule(loadbalancer_id: Optional[str] = None,
                 name: Optional[str] = None,
-                resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLBRuleResult:
     """
     Use this data source to access information about an existing Load Balancer Rule.
@@ -226,12 +216,10 @@ def get_lb_rule(loadbalancer_id: Optional[str] = None,
 
     :param str loadbalancer_id: The ID of the Load Balancer Rule.
     :param str name: The name of this Load Balancer Rule.
-    :param str resource_group_name: The name of the Resource Group where the Load Balancer Rule exists.
     """
     __args__ = dict()
     __args__['loadbalancerId'] = loadbalancer_id
     __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -252,14 +240,12 @@ def get_lb_rule(loadbalancer_id: Optional[str] = None,
         loadbalancer_id=__ret__.loadbalancer_id,
         name=__ret__.name,
         probe_id=__ret__.probe_id,
-        protocol=__ret__.protocol,
-        resource_group_name=__ret__.resource_group_name)
+        protocol=__ret__.protocol)
 
 
 @_utilities.lift_output_func(get_lb_rule)
 def get_lb_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = None,
                        name: Optional[pulumi.Input[str]] = None,
-                       resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLBRuleResult]:
     """
     Use this data source to access information about an existing Load Balancer Rule.
@@ -281,6 +267,5 @@ def get_lb_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = None,
 
     :param str loadbalancer_id: The ID of the Load Balancer Rule.
     :param str name: The name of this Load Balancer Rule.
-    :param str resource_group_name: The name of the Resource Group where the Load Balancer Rule exists.
     """
     ...

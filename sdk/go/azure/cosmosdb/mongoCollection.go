@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/cosmosdb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -75,15 +75,14 @@ type MongoCollection struct {
 
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-	AnalyticalStorageTtl pulumi.IntPtrOutput `pulumi:"analyticalStorageTtl"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shardKey` to be set.
-	AutoscaleSettings MongoCollectionAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
+	AnalyticalStorageTtl pulumi.IntPtrOutput                       `pulumi:"analyticalStorageTtl"`
+	AutoscaleSettings    MongoCollectionAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
-	DefaultTtlSeconds pulumi.IntPtrOutput `pulumi:"defaultTtlSeconds"`
-	// One or more `index` blocks as defined below.
-	Indices MongoCollectionIndexArrayOutput `pulumi:"indices"`
+	// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+	// * # `index` - (Optional) One or more `index` blocks as defined below.
+	DefaultTtlSeconds pulumi.IntPtrOutput             `pulumi:"defaultTtlSeconds"`
+	Indices           MongoCollectionIndexArrayOutput `pulumi:"indices"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -92,8 +91,7 @@ type MongoCollection struct {
 	ShardKey pulumi.StringPtrOutput `pulumi:"shardKey"`
 	// One or more `systemIndexes` blocks as defined below.
 	SystemIndexes MongoCollectionSystemIndexArrayOutput `pulumi:"systemIndexes"`
-	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-	Throughput pulumi.IntOutput `pulumi:"throughput"`
+	Throughput    pulumi.IntOutput                      `pulumi:"throughput"`
 }
 
 // NewMongoCollection registers a new resource with the given unique name, arguments, and options.
@@ -136,15 +134,14 @@ func GetMongoCollection(ctx *pulumi.Context,
 type mongoCollectionState struct {
 	AccountName *string `pulumi:"accountName"`
 	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shardKey` to be set.
-	AutoscaleSettings *MongoCollectionAutoscaleSettings `pulumi:"autoscaleSettings"`
+	AnalyticalStorageTtl *int                              `pulumi:"analyticalStorageTtl"`
+	AutoscaleSettings    *MongoCollectionAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
-	// The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
-	DefaultTtlSeconds *int `pulumi:"defaultTtlSeconds"`
-	// One or more `index` blocks as defined below.
-	Indices []MongoCollectionIndex `pulumi:"indices"`
+	// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+	// * # `index` - (Optional) One or more `index` blocks as defined below.
+	DefaultTtlSeconds *int                   `pulumi:"defaultTtlSeconds"`
+	Indices           []MongoCollectionIndex `pulumi:"indices"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -153,22 +150,20 @@ type mongoCollectionState struct {
 	ShardKey *string `pulumi:"shardKey"`
 	// One or more `systemIndexes` blocks as defined below.
 	SystemIndexes []MongoCollectionSystemIndex `pulumi:"systemIndexes"`
-	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-	Throughput *int `pulumi:"throughput"`
+	Throughput    *int                         `pulumi:"throughput"`
 }
 
 type MongoCollectionState struct {
 	AccountName pulumi.StringPtrInput
 	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrInput
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shardKey` to be set.
-	AutoscaleSettings MongoCollectionAutoscaleSettingsPtrInput
+	AutoscaleSettings    MongoCollectionAutoscaleSettingsPtrInput
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
-	// The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
+	// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+	// * # `index` - (Optional) One or more `index` blocks as defined below.
 	DefaultTtlSeconds pulumi.IntPtrInput
-	// One or more `index` blocks as defined below.
-	Indices MongoCollectionIndexArrayInput
+	Indices           MongoCollectionIndexArrayInput
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -177,8 +172,7 @@ type MongoCollectionState struct {
 	ShardKey pulumi.StringPtrInput
 	// One or more `systemIndexes` blocks as defined below.
 	SystemIndexes MongoCollectionSystemIndexArrayInput
-	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-	Throughput pulumi.IntPtrInput
+	Throughput    pulumi.IntPtrInput
 }
 
 func (MongoCollectionState) ElementType() reflect.Type {
@@ -188,23 +182,21 @@ func (MongoCollectionState) ElementType() reflect.Type {
 type mongoCollectionArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shardKey` to be set.
-	AutoscaleSettings *MongoCollectionAutoscaleSettings `pulumi:"autoscaleSettings"`
+	AnalyticalStorageTtl *int                              `pulumi:"analyticalStorageTtl"`
+	AutoscaleSettings    *MongoCollectionAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
-	DefaultTtlSeconds *int `pulumi:"defaultTtlSeconds"`
-	// One or more `index` blocks as defined below.
-	Indices []MongoCollectionIndex `pulumi:"indices"`
+	// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+	// * # `index` - (Optional) One or more `index` blocks as defined below.
+	DefaultTtlSeconds *int                   `pulumi:"defaultTtlSeconds"`
+	Indices           []MongoCollectionIndex `pulumi:"indices"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey *string `pulumi:"shardKey"`
-	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-	Throughput *int `pulumi:"throughput"`
+	ShardKey   *string `pulumi:"shardKey"`
+	Throughput *int    `pulumi:"throughput"`
 }
 
 // The set of arguments for constructing a MongoCollection resource.
@@ -212,21 +204,19 @@ type MongoCollectionArgs struct {
 	AccountName pulumi.StringInput
 	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrInput
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shardKey` to be set.
-	AutoscaleSettings MongoCollectionAutoscaleSettingsPtrInput
+	AutoscaleSettings    MongoCollectionAutoscaleSettingsPtrInput
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
-	// The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
+	// The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+	// * # `index` - (Optional) One or more `index` blocks as defined below.
 	DefaultTtlSeconds pulumi.IntPtrInput
-	// One or more `index` blocks as defined below.
-	Indices MongoCollectionIndexArrayInput
+	Indices           MongoCollectionIndexArrayInput
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey pulumi.StringPtrInput
-	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
+	ShardKey   pulumi.StringPtrInput
 	Throughput pulumi.IntPtrInput
 }
 

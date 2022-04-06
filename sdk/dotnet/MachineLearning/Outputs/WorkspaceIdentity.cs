@@ -14,19 +14,19 @@ namespace Pulumi.Azure.MachineLearning.Outputs
     public sealed class WorkspaceIdentity
     {
         /// <summary>
-        /// The user assigned identity IDs associated with the resource.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The (Client) ID of the Service Principal.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The ID of the Tenant the Service Principal is assigned in.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The Type of Identity which should be used for this Machine Learning Workspace. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         public readonly string Type;
 

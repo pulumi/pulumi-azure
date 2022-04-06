@@ -1378,13 +1378,13 @@ func (o AccountCustomerManagedKeyPtrOutput) UserAssignedIdentityId() pulumi.Stri
 }
 
 type AccountIdentity struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -1400,13 +1400,13 @@ type AccountIdentityInput interface {
 }
 
 type AccountIdentityArgs struct {
-	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1487,7 +1487,7 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	}).(AccountIdentityPtrOutput)
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
 func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1502,7 +1502,7 @@ func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o AccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1531,7 +1531,7 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 	}).(AccountIdentityOutput)
 }
 
-// A list of IDs for User Assigned Managed Identity resources to be assigned.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
 func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountIdentity) []string {
 		if v == nil {
@@ -1561,7 +1561,7 @@ func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
 		if v == nil {
@@ -6348,12 +6348,16 @@ type GetAccountSASPermissions struct {
 	Create bool `pulumi:"create"`
 	// Should Delete permissions be enabled for this SAS?
 	Delete bool `pulumi:"delete"`
+	// Should Filter by Index Tags permissions be enabled for this SAS?
+	Filter bool `pulumi:"filter"`
 	// Should List permissions be enabled for this SAS?
 	List bool `pulumi:"list"`
 	// Should Process permissions be enabled for this SAS?
 	Process bool `pulumi:"process"`
 	// Should Read permissions be enabled for this SAS?
 	Read bool `pulumi:"read"`
+	// Should Get / Set Index Tags permissions be enabled for this SAS?
+	Tag bool `pulumi:"tag"`
 	// Should Update permissions be enabled for this SAS?
 	Update bool `pulumi:"update"`
 	// Should Write permissions be enabled for this SAS?
@@ -6378,12 +6382,16 @@ type GetAccountSASPermissionsArgs struct {
 	Create pulumi.BoolInput `pulumi:"create"`
 	// Should Delete permissions be enabled for this SAS?
 	Delete pulumi.BoolInput `pulumi:"delete"`
+	// Should Filter by Index Tags permissions be enabled for this SAS?
+	Filter pulumi.BoolInput `pulumi:"filter"`
 	// Should List permissions be enabled for this SAS?
 	List pulumi.BoolInput `pulumi:"list"`
 	// Should Process permissions be enabled for this SAS?
 	Process pulumi.BoolInput `pulumi:"process"`
 	// Should Read permissions be enabled for this SAS?
 	Read pulumi.BoolInput `pulumi:"read"`
+	// Should Get / Set Index Tags permissions be enabled for this SAS?
+	Tag pulumi.BoolInput `pulumi:"tag"`
 	// Should Update permissions be enabled for this SAS?
 	Update pulumi.BoolInput `pulumi:"update"`
 	// Should Write permissions be enabled for this SAS?
@@ -6431,6 +6439,11 @@ func (o GetAccountSASPermissionsOutput) Delete() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
+// Should Filter by Index Tags permissions be enabled for this SAS?
+func (o GetAccountSASPermissionsOutput) Filter() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Filter }).(pulumi.BoolOutput)
+}
+
 // Should List permissions be enabled for this SAS?
 func (o GetAccountSASPermissionsOutput) List() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.List }).(pulumi.BoolOutput)
@@ -6444,6 +6457,11 @@ func (o GetAccountSASPermissionsOutput) Process() pulumi.BoolOutput {
 // Should Read permissions be enabled for this SAS?
 func (o GetAccountSASPermissionsOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
+}
+
+// Should Get / Set Index Tags permissions be enabled for this SAS?
+func (o GetAccountSASPermissionsOutput) Tag() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Tag }).(pulumi.BoolOutput)
 }
 
 // Should Update permissions be enabled for this SAS?

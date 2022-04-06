@@ -21,8 +21,8 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -53,8 +53,8 @@ import (
 // 		exampleVpnServerConfiguration, err := network.NewVpnServerConfiguration(ctx, "exampleVpnServerConfiguration", &network.VpnServerConfigurationArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
-// 			VpnAuthenticationTypes: pulumi.String{
-// 				"Certificate",
+// 			VpnAuthenticationTypes: pulumi.StringArray{
+// 				pulumi.String("Certificate"),
 // 			},
 // 			ClientRootCertificates: network.VpnServerConfigurationClientRootCertificateArray{
 // 				&network.VpnServerConfigurationClientRootCertificateArgs{

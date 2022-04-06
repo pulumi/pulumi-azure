@@ -8,8 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Microsoft SQL Azure Database Server.
  *
- * > **Note:** This resource provides usage of Microsoft SQL Azure Database server using an older `sku` based model. It is recommended going forward to use `azure.mssql.Server` resource which provides support for `vcores`.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -84,10 +82,6 @@ export class SqlServer extends pulumi.CustomResource {
      */
     public readonly connectionPolicy!: pulumi.Output<string | undefined>;
     /**
-     * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-     */
-    public readonly extendedAuditingPolicy!: pulumi.Output<outputs.sql.SqlServerExtendedAuditingPolicy>;
-    /**
      * The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
@@ -136,7 +130,6 @@ export class SqlServer extends pulumi.CustomResource {
             resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
             resourceInputs["connectionPolicy"] = state ? state.connectionPolicy : undefined;
-            resourceInputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
             resourceInputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -162,7 +155,6 @@ export class SqlServer extends pulumi.CustomResource {
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             resourceInputs["connectionPolicy"] = args ? args.connectionPolicy : undefined;
-            resourceInputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -193,10 +185,6 @@ export interface SqlServerState {
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */
     connectionPolicy?: pulumi.Input<string>;
-    /**
-     * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-     */
-    extendedAuditingPolicy?: pulumi.Input<inputs.sql.SqlServerExtendedAuditingPolicy>;
     /**
      * The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
      */
@@ -247,10 +235,6 @@ export interface SqlServerArgs {
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */
     connectionPolicy?: pulumi.Input<string>;
-    /**
-     * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
-     */
-    extendedAuditingPolicy?: pulumi.Input<inputs.sql.SqlServerExtendedAuditingPolicy>;
     /**
      * An `identity` block as defined below.
      */

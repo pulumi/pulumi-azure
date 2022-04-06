@@ -81,10 +81,6 @@ export interface GetRegistryResult {
      */
     readonly sku: string;
     /**
-     * @deprecated this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
-     */
-    readonly storageAccountId: string;
-    /**
      * A map of tags assigned to the Container Registry.
      */
     readonly tags: {[key: string]: string};

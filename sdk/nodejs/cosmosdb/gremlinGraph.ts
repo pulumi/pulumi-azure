@@ -28,16 +28,16 @@ import * as utilities from "../utilities";
  *     databaseName: exampleGremlinDatabase.name,
  *     partitionKeyPath: "/Example",
  *     throughput: 400,
- *     indexPolicies: [{
+ *     indexPolicy: {
  *         automatic: true,
  *         indexingMode: "Consistent",
  *         includedPaths: ["/*"],
  *         excludedPaths: ["/\"_etag\"/?"],
- *     }],
- *     conflictResolutionPolicies: [{
+ *     },
+ *     conflictResolutionPolicy: {
  *         mode: "LastWriterWins",
  *         conflictResolutionPath: "/_ts",
- *     }],
+ *     },
  *     uniqueKeys: [{
  *         paths: [
  *             "/definition/id1",
@@ -93,7 +93,7 @@ export class GremlinGraph extends pulumi.CustomResource {
     /**
      * A `conflictResolutionPolicy` blocks as defined below.
      */
-    public readonly conflictResolutionPolicies!: pulumi.Output<outputs.cosmosdb.GremlinGraphConflictResolutionPolicy[]>;
+    public readonly conflictResolutionPolicy!: pulumi.Output<outputs.cosmosdb.GremlinGraphConflictResolutionPolicy>;
     /**
      * The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
@@ -105,7 +105,7 @@ export class GremlinGraph extends pulumi.CustomResource {
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      */
-    public readonly indexPolicies!: pulumi.Output<outputs.cosmosdb.GremlinGraphIndexPolicy[]>;
+    public readonly indexPolicy!: pulumi.Output<outputs.cosmosdb.GremlinGraphIndexPolicy>;
     /**
      * Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
      */
@@ -146,10 +146,10 @@ export class GremlinGraph extends pulumi.CustomResource {
             const state = argsOrState as GremlinGraphState | undefined;
             resourceInputs["accountName"] = state ? state.accountName : undefined;
             resourceInputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
-            resourceInputs["conflictResolutionPolicies"] = state ? state.conflictResolutionPolicies : undefined;
+            resourceInputs["conflictResolutionPolicy"] = state ? state.conflictResolutionPolicy : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["defaultTtl"] = state ? state.defaultTtl : undefined;
-            resourceInputs["indexPolicies"] = state ? state.indexPolicies : undefined;
+            resourceInputs["indexPolicy"] = state ? state.indexPolicy : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["partitionKeyPath"] = state ? state.partitionKeyPath : undefined;
             resourceInputs["partitionKeyVersion"] = state ? state.partitionKeyVersion : undefined;
@@ -172,10 +172,10 @@ export class GremlinGraph extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
-            resourceInputs["conflictResolutionPolicies"] = args ? args.conflictResolutionPolicies : undefined;
+            resourceInputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["defaultTtl"] = args ? args.defaultTtl : undefined;
-            resourceInputs["indexPolicies"] = args ? args.indexPolicies : undefined;
+            resourceInputs["indexPolicy"] = args ? args.indexPolicy : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["partitionKeyPath"] = args ? args.partitionKeyPath : undefined;
             resourceInputs["partitionKeyVersion"] = args ? args.partitionKeyVersion : undefined;
@@ -200,7 +200,7 @@ export interface GremlinGraphState {
     /**
      * A `conflictResolutionPolicy` blocks as defined below.
      */
-    conflictResolutionPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>[]>;
+    conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>;
     /**
      * The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
@@ -212,7 +212,7 @@ export interface GremlinGraphState {
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      */
-    indexPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>[]>;
+    indexPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>;
     /**
      * Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
      */
@@ -251,7 +251,7 @@ export interface GremlinGraphArgs {
     /**
      * A `conflictResolutionPolicy` blocks as defined below.
      */
-    conflictResolutionPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>[]>;
+    conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>;
     /**
      * The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
@@ -263,7 +263,7 @@ export interface GremlinGraphArgs {
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      */
-    indexPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>[]>;
+    indexPolicy?: pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>;
     /**
      * Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
      */

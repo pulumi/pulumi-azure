@@ -28,7 +28,6 @@ export function getPolicyDefintion(args?: GetPolicyDefintionArgs, opts?: pulumi.
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:policy/getPolicyDefintion:getPolicyDefintion", {
         "displayName": args.displayName,
-        "managementGroupId": args.managementGroupId,
         "managementGroupName": args.managementGroupName,
         "name": args.name,
     }, opts);
@@ -42,10 +41,6 @@ export interface GetPolicyDefintionArgs {
      * Specifies the display name of the Policy Definition. Conflicts with `name`.
      */
     displayName?: string;
-    /**
-     * @deprecated Deprecated in favour of `management_group_name`
-     */
-    managementGroupId?: string;
     /**
      * Only retrieve Policy Definitions from this Management Group.
      */
@@ -69,10 +64,6 @@ export interface GetPolicyDefintionResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * @deprecated Deprecated in favour of `management_group_name`
-     */
-    readonly managementGroupId?: string;
     readonly managementGroupName?: string;
     /**
      * Any Metadata defined in the Policy.
@@ -109,10 +100,6 @@ export interface GetPolicyDefintionOutputArgs {
      * Specifies the display name of the Policy Definition. Conflicts with `name`.
      */
     displayName?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favour of `management_group_name`
-     */
-    managementGroupId?: pulumi.Input<string>;
     /**
      * Only retrieve Policy Definitions from this Management Group.
      */

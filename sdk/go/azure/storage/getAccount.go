@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -119,8 +119,8 @@ type LookupAccountResult struct {
 	// The hostname with port if applicable for web storage in the primary location.
 	PrimaryWebHost string `pulumi:"primaryWebHost"`
 	// The encryption key type of the queue.
-	QueueEncryptionKeyType string `pulumi:"queueEncryptionKeyType"`
-	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	QueueEncryptionKeyType string  `pulumi:"queueEncryptionKeyType"`
+	ResourceGroupName      *string `pulumi:"resourceGroupName"`
 	// The secondary access key for the Storage Account.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
 	// The connection string associated with the secondary blob location
@@ -350,8 +350,8 @@ func (o LookupAccountResultOutput) QueueEncryptionKeyType() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupAccountResult) string { return v.QueueEncryptionKeyType }).(pulumi.StringOutput)
 }
 
-func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The secondary access key for the Storage Account.

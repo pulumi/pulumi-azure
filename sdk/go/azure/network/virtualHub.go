@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -79,6 +79,10 @@ type VirtualHub struct {
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The Autonomous System Number of the Virtual Hub BGP router.
+	VirtualRouterAsn pulumi.IntOutput `pulumi:"virtualRouterAsn"`
+	// The IP addresses of the Virtual Hub BGP router.
+	VirtualRouterIps pulumi.StringArrayOutput `pulumi:"virtualRouterIps"`
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
 	VirtualWanId pulumi.StringPtrOutput `pulumi:"virtualWanId"`
 }
@@ -131,6 +135,10 @@ type virtualHubState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags map[string]string `pulumi:"tags"`
+	// The Autonomous System Number of the Virtual Hub BGP router.
+	VirtualRouterAsn *int `pulumi:"virtualRouterAsn"`
+	// The IP addresses of the Virtual Hub BGP router.
+	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
 	VirtualWanId *string `pulumi:"virtualWanId"`
 }
@@ -152,6 +160,10 @@ type VirtualHubState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags pulumi.StringMapInput
+	// The Autonomous System Number of the Virtual Hub BGP router.
+	VirtualRouterAsn pulumi.IntPtrInput
+	// The IP addresses of the Virtual Hub BGP router.
+	VirtualRouterIps pulumi.StringArrayInput
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
 	VirtualWanId pulumi.StringPtrInput
 }

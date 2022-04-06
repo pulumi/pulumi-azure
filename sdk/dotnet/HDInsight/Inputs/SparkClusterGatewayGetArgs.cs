@@ -13,12 +13,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class SparkClusterGatewayGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
         /// The password used for the Ambari Portal.
         /// </summary>
         [Input("password", required: true)]

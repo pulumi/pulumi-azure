@@ -55,10 +55,6 @@ export interface GetKubernetesClusterResult {
      */
     readonly aciConnectorLinuxes: outputs.containerservice.GetKubernetesClusterAciConnectorLinux[];
     /**
-     * @deprecated `addon_profile` is deprecated in favour of the properties `https_application_routing_enabled`, `azure_policy_enabled`, `open_service_mesh_enabled` and the blocks `oms_agent`, `ingress_application_gateway` and `key_vault_secrets_provider` and will be removed in version 3.0 of the AzureRM Provider
-     */
-    readonly addonProfiles: outputs.containerservice.GetKubernetesClusterAddonProfile[];
-    /**
      * An `agentPoolProfile` block as documented below.
      */
     readonly agentPoolProfiles: outputs.containerservice.GetKubernetesClusterAgentPoolProfile[];
@@ -99,7 +95,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly id: string;
     /**
-     * A `identity` block as documented below.
+     * An `identity` block as documented below.
      */
     readonly identities: outputs.containerservice.GetKubernetesClusterIdentity[];
     /**
@@ -170,19 +166,11 @@ export interface GetKubernetesClusterResult {
      * The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located
      */
     readonly privateFqdn: string;
-    /**
-     * @deprecated `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
-     */
-    readonly privateLinkEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * Is Role Based Access Control enabled for this managed Kubernetes Cluster.
      */
     readonly roleBasedAccessControlEnabled: boolean;
-    /**
-     * @deprecated `role_based_access_control` is deprecated in favour of the property `role_based_access_control_enabled` and the block `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM Provider.
-     */
-    readonly roleBasedAccessControls: outputs.containerservice.GetKubernetesClusterRoleBasedAccessControl[];
     /**
      * A `servicePrincipal` block as documented below.
      */

@@ -11,9 +11,9 @@ import (
 )
 
 type AnalyzerIdentity struct {
-	// A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
 	IdentityIds []string `pulumi:"identityIds"`
-	// Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -29,9 +29,9 @@ type AnalyzerIdentityInput interface {
 }
 
 type AnalyzerIdentityArgs struct {
-	// A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -112,12 +112,12 @@ func (o AnalyzerIdentityOutput) ToAnalyzerIdentityPtrOutputWithContext(ctx conte
 	}).(AnalyzerIdentityPtrOutput)
 }
 
-// A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
 func (o AnalyzerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is `UserAssigned`.
 func (o AnalyzerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyzerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -146,7 +146,7 @@ func (o AnalyzerIdentityPtrOutput) Elem() AnalyzerIdentityOutput {
 	}).(AnalyzerIdentityOutput)
 }
 
-// A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
 func (o AnalyzerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnalyzerIdentity) []string {
 		if v == nil {
@@ -156,7 +156,7 @@ func (o AnalyzerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is `UserAssigned`.
 func (o AnalyzerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyzerIdentity) *string {
 		if v == nil {
@@ -169,7 +169,7 @@ func (o AnalyzerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type AnalyzerStorageAccount struct {
 	// Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
 	Id string `pulumi:"id"`
-	// Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
+	// Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
 	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -187,7 +187,7 @@ type AnalyzerStorageAccountInput interface {
 type AnalyzerStorageAccountArgs struct {
 	// Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
 	Id pulumi.StringInput `pulumi:"id"`
-	// Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
+	// Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
 	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -273,7 +273,7 @@ func (o AnalyzerStorageAccountOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyzerStorageAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
+// Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
 func (o AnalyzerStorageAccountOutput) UserAssignedIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyzerStorageAccount) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
@@ -312,7 +312,7 @@ func (o AnalyzerStorageAccountPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
+// Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
 func (o AnalyzerStorageAccountPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyzerStorageAccount) *string {
 		if v == nil {

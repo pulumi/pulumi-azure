@@ -23,9 +23,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -97,8 +97,8 @@ import (
 // 		}
 // 		_, err = apimanagement.NewCustomDomain(ctx, "exampleCustomDomain", &apimanagement.CustomDomainArgs{
 // 			ApiManagementId: exampleService.ID(),
-// 			Proxies: apimanagement.CustomDomainProxyArray{
-// 				&apimanagement.CustomDomainProxyArgs{
+// 			Gateways: apimanagement.CustomDomainGatewayArray{
+// 				&apimanagement.CustomDomainGatewayArgs{
 // 					HostName:   pulumi.String("api.example.com"),
 // 					KeyVaultId: pulumi.Any(azurerm_key_vault_certificate.Test.Secret_id),
 // 				},
@@ -132,14 +132,12 @@ type CustomDomain struct {
 	ApiManagementId pulumi.StringOutput `pulumi:"apiManagementId"`
 	// One or more `developerPortal` blocks as defined below.
 	DeveloperPortals CustomDomainDeveloperPortalArrayOutput `pulumi:"developerPortals"`
+	// One or more `gateway` blocks as defined below.
+	Gateways CustomDomainGatewayArrayOutput `pulumi:"gateways"`
 	// One or more `management` blocks as defined below.
 	Managements CustomDomainManagementArrayOutput `pulumi:"managements"`
 	// One or more `portal` blocks as defined below.
 	Portals CustomDomainPortalArrayOutput `pulumi:"portals"`
-	// One or more `proxy` blocks as defined below.
-	//
-	// Deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
-	Proxies CustomDomainProxyArrayOutput `pulumi:"proxies"`
 	// One or more `scm` blocks as defined below.
 	Scms CustomDomainScmArrayOutput `pulumi:"scms"`
 }
@@ -180,14 +178,12 @@ type customDomainState struct {
 	ApiManagementId *string `pulumi:"apiManagementId"`
 	// One or more `developerPortal` blocks as defined below.
 	DeveloperPortals []CustomDomainDeveloperPortal `pulumi:"developerPortals"`
+	// One or more `gateway` blocks as defined below.
+	Gateways []CustomDomainGateway `pulumi:"gateways"`
 	// One or more `management` blocks as defined below.
 	Managements []CustomDomainManagement `pulumi:"managements"`
 	// One or more `portal` blocks as defined below.
 	Portals []CustomDomainPortal `pulumi:"portals"`
-	// One or more `proxy` blocks as defined below.
-	//
-	// Deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
-	Proxies []CustomDomainProxy `pulumi:"proxies"`
 	// One or more `scm` blocks as defined below.
 	Scms []CustomDomainScm `pulumi:"scms"`
 }
@@ -197,14 +193,12 @@ type CustomDomainState struct {
 	ApiManagementId pulumi.StringPtrInput
 	// One or more `developerPortal` blocks as defined below.
 	DeveloperPortals CustomDomainDeveloperPortalArrayInput
+	// One or more `gateway` blocks as defined below.
+	Gateways CustomDomainGatewayArrayInput
 	// One or more `management` blocks as defined below.
 	Managements CustomDomainManagementArrayInput
 	// One or more `portal` blocks as defined below.
 	Portals CustomDomainPortalArrayInput
-	// One or more `proxy` blocks as defined below.
-	//
-	// Deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
-	Proxies CustomDomainProxyArrayInput
 	// One or more `scm` blocks as defined below.
 	Scms CustomDomainScmArrayInput
 }
@@ -218,14 +212,12 @@ type customDomainArgs struct {
 	ApiManagementId string `pulumi:"apiManagementId"`
 	// One or more `developerPortal` blocks as defined below.
 	DeveloperPortals []CustomDomainDeveloperPortal `pulumi:"developerPortals"`
+	// One or more `gateway` blocks as defined below.
+	Gateways []CustomDomainGateway `pulumi:"gateways"`
 	// One or more `management` blocks as defined below.
 	Managements []CustomDomainManagement `pulumi:"managements"`
 	// One or more `portal` blocks as defined below.
 	Portals []CustomDomainPortal `pulumi:"portals"`
-	// One or more `proxy` blocks as defined below.
-	//
-	// Deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
-	Proxies []CustomDomainProxy `pulumi:"proxies"`
 	// One or more `scm` blocks as defined below.
 	Scms []CustomDomainScm `pulumi:"scms"`
 }
@@ -236,14 +228,12 @@ type CustomDomainArgs struct {
 	ApiManagementId pulumi.StringInput
 	// One or more `developerPortal` blocks as defined below.
 	DeveloperPortals CustomDomainDeveloperPortalArrayInput
+	// One or more `gateway` blocks as defined below.
+	Gateways CustomDomainGatewayArrayInput
 	// One or more `management` blocks as defined below.
 	Managements CustomDomainManagementArrayInput
 	// One or more `portal` blocks as defined below.
 	Portals CustomDomainPortalArrayInput
-	// One or more `proxy` blocks as defined below.
-	//
-	// Deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
-	Proxies CustomDomainProxyArrayInput
 	// One or more `scm` blocks as defined below.
 	Scms CustomDomainScmArrayInput
 }

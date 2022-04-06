@@ -13,6 +13,7 @@ __all__ = ['TopicArgs', 'Topic']
 @pulumi.input_type
 class TopicArgs:
     def __init__(__self__, *,
+                 namespace_id: pulumi.Input[str],
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
                  duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
@@ -22,14 +23,13 @@ class TopicArgs:
                  max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Topic resource.
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
+               this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the
                Topic is automatically deleted, minimum of 5 minutes.
         :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no
@@ -52,8 +52,6 @@ class TopicArgs:
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
-               this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
@@ -61,6 +59,7 @@ class TopicArgs:
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
                supports ordering. Defaults to false.
         """
+        pulumi.set(__self__, "namespace_id", namespace_id)
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
         if default_message_ttl is not None:
@@ -79,24 +78,25 @@ class TopicArgs:
             pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if namespace_id is not None:
-            pulumi.set(__self__, "namespace_id", namespace_id)
-        if namespace_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
         if requires_duplicate_detection is not None:
             pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
-        if resource_group_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if support_ordering is not None:
             pulumi.set(__self__, "support_ordering", support_ordering)
+
+    @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the ServiceBus Namespace to create
+        this topic in. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_id")
+
+    @namespace_id.setter
+    def namespace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_id", value)
 
     @property
     @pulumi.getter(name="autoDeleteOnIdle")
@@ -220,28 +220,6 @@ class TopicArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the ServiceBus Namespace to create
-        this topic in. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "namespace_id")
-
-    @namespace_id.setter
-    def namespace_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_id", value)
-
-    @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
     @pulumi.getter(name="requiresDuplicateDetection")
     def requires_duplicate_detection(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -254,15 +232,6 @@ class TopicArgs:
     @requires_duplicate_detection.setter
     def requires_duplicate_detection(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "requires_duplicate_detection", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter
@@ -362,15 +331,9 @@ class _TopicState:
         if namespace_id is not None:
             pulumi.set(__self__, "namespace_id", namespace_id)
         if namespace_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-        if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
         if requires_duplicate_detection is not None:
             pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
-        if resource_group_name is not None:
-            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if status is not None:
@@ -585,9 +548,7 @@ class Topic(pulumi.CustomResource):
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -660,7 +621,7 @@ class Topic(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TopicArgs] = None,
+                 args: TopicArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Topic.
@@ -719,9 +680,7 @@ class Topic(pulumi.CustomResource):
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -745,18 +704,14 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["max_message_size_in_kilobytes"] = max_message_size_in_kilobytes
             __props__.__dict__["max_size_in_megabytes"] = max_size_in_megabytes
             __props__.__dict__["name"] = name
+            if namespace_id is None and not opts.urn:
+                raise TypeError("Missing required property 'namespace_id'")
             __props__.__dict__["namespace_id"] = namespace_id
-            if namespace_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-                pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-            __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["requires_duplicate_detection"] = requires_duplicate_detection
-            if resource_group_name is not None and not opts.urn:
-                warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
-                pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["status"] = status
             __props__.__dict__["support_ordering"] = support_ordering
+            __props__.__dict__["namespace_name"] = None
+            __props__.__dict__["resource_group_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/topic:Topic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Topic, __self__).__init__(

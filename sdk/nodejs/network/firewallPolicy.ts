@@ -14,9 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.network.FirewallPolicy("example", {
- *     location: "West Europe",
- *     resourceGroupName: "example",
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFirewallPolicy = new azure.network.FirewallPolicy("exampleFirewallPolicy", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  * });
  * ```
  *
@@ -73,7 +74,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly firewalls!: pulumi.Output<string[]>;
     /**
-     * An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.network.FirewallPolicyIdentity | undefined>;
     /**
@@ -204,7 +205,7 @@ export interface FirewallPolicyState {
      */
     firewalls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.network.FirewallPolicyIdentity>;
     /**
@@ -270,7 +271,7 @@ export interface FirewallPolicyArgs {
      */
     dns?: pulumi.Input<inputs.network.FirewallPolicyDns>;
     /**
-     * An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.network.FirewallPolicyIdentity>;
     /**

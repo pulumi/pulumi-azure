@@ -82,12 +82,6 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> HostNames { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the the App Service Environment where the certificate is in use.
-        /// </summary>
-        [Output("hostingEnvironmentProfileId")]
-        public Output<string> HostingEnvironmentProfileId { get; private set; } = null!;
-
-        /// <summary>
         /// The issue date for the certificate.
         /// </summary>
         [Output("issueDate")]
@@ -203,12 +197,6 @@ namespace Pulumi.Azure.AppService
         public Input<string>? AppServicePlanId { get; set; }
 
         /// <summary>
-        /// The ID of the the App Service Environment where the certificate is in use.
-        /// </summary>
-        [Input("hostingEnvironmentProfileId")]
-        public Input<string>? HostingEnvironmentProfileId { get; set; }
-
-        /// <summary>
         /// The ID of the Key Vault secret. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultSecretId")]
@@ -288,12 +276,6 @@ namespace Pulumi.Azure.AppService
             get => _hostNames ?? (_hostNames = new InputList<string>());
             set => _hostNames = value;
         }
-
-        /// <summary>
-        /// The ID of the the App Service Environment where the certificate is in use.
-        /// </summary>
-        [Input("hostingEnvironmentProfileId")]
-        public Input<string>? HostingEnvironmentProfileId { get; set; }
 
         /// <summary>
         /// The issue date for the certificate.

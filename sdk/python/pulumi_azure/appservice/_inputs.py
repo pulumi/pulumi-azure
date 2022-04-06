@@ -45,6 +45,7 @@ __all__ = [
     'FunctionAppAuthSettingsMicrosoftArgs',
     'FunctionAppAuthSettingsTwitterArgs',
     'FunctionAppConnectionStringArgs',
+    'FunctionAppFunctionFileArgs',
     'FunctionAppIdentityArgs',
     'FunctionAppSiteConfigArgs',
     'FunctionAppSiteConfigCorsArgs',
@@ -69,6 +70,112 @@ __all__ = [
     'FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
     'FunctionAppSlotSiteCredentialArgs',
     'FunctionAppSourceControlArgs',
+    'LinuxFunctionAppAuthSettingsArgs',
+    'LinuxFunctionAppAuthSettingsActiveDirectoryArgs',
+    'LinuxFunctionAppAuthSettingsFacebookArgs',
+    'LinuxFunctionAppAuthSettingsGithubArgs',
+    'LinuxFunctionAppAuthSettingsGoogleArgs',
+    'LinuxFunctionAppAuthSettingsMicrosoftArgs',
+    'LinuxFunctionAppAuthSettingsTwitterArgs',
+    'LinuxFunctionAppBackupArgs',
+    'LinuxFunctionAppBackupScheduleArgs',
+    'LinuxFunctionAppConnectionStringArgs',
+    'LinuxFunctionAppIdentityArgs',
+    'LinuxFunctionAppSiteConfigArgs',
+    'LinuxFunctionAppSiteConfigAppServiceLogsArgs',
+    'LinuxFunctionAppSiteConfigApplicationStackArgs',
+    'LinuxFunctionAppSiteConfigApplicationStackDockerArgs',
+    'LinuxFunctionAppSiteConfigCorsArgs',
+    'LinuxFunctionAppSiteConfigIpRestrictionArgs',
+    'LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs',
+    'LinuxFunctionAppSiteConfigScmIpRestrictionArgs',
+    'LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs',
+    'LinuxFunctionAppSiteCredentialArgs',
+    'LinuxFunctionAppSlotAuthSettingsArgs',
+    'LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs',
+    'LinuxFunctionAppSlotAuthSettingsFacebookArgs',
+    'LinuxFunctionAppSlotAuthSettingsGithubArgs',
+    'LinuxFunctionAppSlotAuthSettingsGoogleArgs',
+    'LinuxFunctionAppSlotAuthSettingsMicrosoftArgs',
+    'LinuxFunctionAppSlotAuthSettingsTwitterArgs',
+    'LinuxFunctionAppSlotBackupArgs',
+    'LinuxFunctionAppSlotBackupScheduleArgs',
+    'LinuxFunctionAppSlotConnectionStringArgs',
+    'LinuxFunctionAppSlotIdentityArgs',
+    'LinuxFunctionAppSlotSiteConfigArgs',
+    'LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs',
+    'LinuxFunctionAppSlotSiteConfigApplicationStackArgs',
+    'LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs',
+    'LinuxFunctionAppSlotSiteConfigCorsArgs',
+    'LinuxFunctionAppSlotSiteConfigIpRestrictionArgs',
+    'LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs',
+    'LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs',
+    'LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
+    'LinuxFunctionAppSlotSiteCredentialArgs',
+    'LinuxWebAppAuthSettingsArgs',
+    'LinuxWebAppAuthSettingsActiveDirectoryArgs',
+    'LinuxWebAppAuthSettingsFacebookArgs',
+    'LinuxWebAppAuthSettingsGithubArgs',
+    'LinuxWebAppAuthSettingsGoogleArgs',
+    'LinuxWebAppAuthSettingsMicrosoftArgs',
+    'LinuxWebAppAuthSettingsTwitterArgs',
+    'LinuxWebAppBackupArgs',
+    'LinuxWebAppBackupScheduleArgs',
+    'LinuxWebAppConnectionStringArgs',
+    'LinuxWebAppIdentityArgs',
+    'LinuxWebAppLogsArgs',
+    'LinuxWebAppLogsApplicationLogsArgs',
+    'LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs',
+    'LinuxWebAppLogsHttpLogsArgs',
+    'LinuxWebAppLogsHttpLogsAzureBlobStorageArgs',
+    'LinuxWebAppLogsHttpLogsFileSystemArgs',
+    'LinuxWebAppSiteConfigArgs',
+    'LinuxWebAppSiteConfigApplicationStackArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingActionArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs',
+    'LinuxWebAppSiteConfigCorsArgs',
+    'LinuxWebAppSiteConfigIpRestrictionArgs',
+    'LinuxWebAppSiteConfigIpRestrictionHeadersArgs',
+    'LinuxWebAppSiteConfigScmIpRestrictionArgs',
+    'LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs',
+    'LinuxWebAppSiteCredentialArgs',
+    'LinuxWebAppSlotAuthSettingsArgs',
+    'LinuxWebAppSlotAuthSettingsActiveDirectoryArgs',
+    'LinuxWebAppSlotAuthSettingsFacebookArgs',
+    'LinuxWebAppSlotAuthSettingsGithubArgs',
+    'LinuxWebAppSlotAuthSettingsGoogleArgs',
+    'LinuxWebAppSlotAuthSettingsMicrosoftArgs',
+    'LinuxWebAppSlotAuthSettingsTwitterArgs',
+    'LinuxWebAppSlotBackupArgs',
+    'LinuxWebAppSlotBackupScheduleArgs',
+    'LinuxWebAppSlotConnectionStringArgs',
+    'LinuxWebAppSlotIdentityArgs',
+    'LinuxWebAppSlotLogsArgs',
+    'LinuxWebAppSlotLogsApplicationLogsArgs',
+    'LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs',
+    'LinuxWebAppSlotLogsHttpLogsArgs',
+    'LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs',
+    'LinuxWebAppSlotLogsHttpLogsFileSystemArgs',
+    'LinuxWebAppSlotSiteConfigArgs',
+    'LinuxWebAppSlotSiteConfigApplicationStackArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs',
+    'LinuxWebAppSlotSiteConfigCorsArgs',
+    'LinuxWebAppSlotSiteConfigIpRestrictionArgs',
+    'LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs',
+    'LinuxWebAppSlotSiteConfigScmIpRestrictionArgs',
+    'LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs',
+    'LinuxWebAppSlotSiteCredentialArgs',
+    'LinuxWebAppSlotStorageAccountArgs',
+    'LinuxWebAppStorageAccountArgs',
     'PlanSkuArgs',
     'SlotAuthSettingsArgs',
     'SlotAuthSettingsActiveDirectoryArgs',
@@ -92,7 +199,123 @@ __all__ = [
     'SlotSiteConfigScmIpRestrictionHeadersArgs',
     'SlotSiteCredentialArgs',
     'SlotStorageAccountArgs',
+    'SourceControlGithubActionConfigurationArgs',
+    'SourceControlGithubActionConfigurationCodeConfigurationArgs',
+    'SourceControlGithubActionConfigurationContainerConfigurationArgs',
+    'SourceControlSlotGithubActionConfigurationArgs',
+    'SourceControlSlotGithubActionConfigurationCodeConfigurationArgs',
+    'SourceControlSlotGithubActionConfigurationContainerConfigurationArgs',
     'StaticSiteIdentityArgs',
+    'WindowsFunctionAppAuthSettingsArgs',
+    'WindowsFunctionAppAuthSettingsActiveDirectoryArgs',
+    'WindowsFunctionAppAuthSettingsFacebookArgs',
+    'WindowsFunctionAppAuthSettingsGithubArgs',
+    'WindowsFunctionAppAuthSettingsGoogleArgs',
+    'WindowsFunctionAppAuthSettingsMicrosoftArgs',
+    'WindowsFunctionAppAuthSettingsTwitterArgs',
+    'WindowsFunctionAppBackupArgs',
+    'WindowsFunctionAppBackupScheduleArgs',
+    'WindowsFunctionAppConnectionStringArgs',
+    'WindowsFunctionAppIdentityArgs',
+    'WindowsFunctionAppSiteConfigArgs',
+    'WindowsFunctionAppSiteConfigAppServiceLogsArgs',
+    'WindowsFunctionAppSiteConfigApplicationStackArgs',
+    'WindowsFunctionAppSiteConfigCorsArgs',
+    'WindowsFunctionAppSiteConfigIpRestrictionArgs',
+    'WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs',
+    'WindowsFunctionAppSiteConfigScmIpRestrictionArgs',
+    'WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs',
+    'WindowsFunctionAppSiteCredentialArgs',
+    'WindowsFunctionAppSlotAuthSettingsArgs',
+    'WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs',
+    'WindowsFunctionAppSlotAuthSettingsFacebookArgs',
+    'WindowsFunctionAppSlotAuthSettingsGithubArgs',
+    'WindowsFunctionAppSlotAuthSettingsGoogleArgs',
+    'WindowsFunctionAppSlotAuthSettingsMicrosoftArgs',
+    'WindowsFunctionAppSlotAuthSettingsTwitterArgs',
+    'WindowsFunctionAppSlotBackupArgs',
+    'WindowsFunctionAppSlotBackupScheduleArgs',
+    'WindowsFunctionAppSlotConnectionStringArgs',
+    'WindowsFunctionAppSlotIdentityArgs',
+    'WindowsFunctionAppSlotSiteConfigArgs',
+    'WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs',
+    'WindowsFunctionAppSlotSiteConfigApplicationStackArgs',
+    'WindowsFunctionAppSlotSiteConfigCorsArgs',
+    'WindowsFunctionAppSlotSiteConfigIpRestrictionArgs',
+    'WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs',
+    'WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs',
+    'WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
+    'WindowsFunctionAppSlotSiteCredentialArgs',
+    'WindowsWebAppAuthSettingsArgs',
+    'WindowsWebAppAuthSettingsActiveDirectoryArgs',
+    'WindowsWebAppAuthSettingsFacebookArgs',
+    'WindowsWebAppAuthSettingsGithubArgs',
+    'WindowsWebAppAuthSettingsGoogleArgs',
+    'WindowsWebAppAuthSettingsMicrosoftArgs',
+    'WindowsWebAppAuthSettingsTwitterArgs',
+    'WindowsWebAppBackupArgs',
+    'WindowsWebAppBackupScheduleArgs',
+    'WindowsWebAppConnectionStringArgs',
+    'WindowsWebAppIdentityArgs',
+    'WindowsWebAppLogsArgs',
+    'WindowsWebAppLogsApplicationLogsArgs',
+    'WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs',
+    'WindowsWebAppLogsHttpLogsArgs',
+    'WindowsWebAppLogsHttpLogsAzureBlobStorageArgs',
+    'WindowsWebAppLogsHttpLogsFileSystemArgs',
+    'WindowsWebAppSiteConfigArgs',
+    'WindowsWebAppSiteConfigApplicationStackArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingActionArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs',
+    'WindowsWebAppSiteConfigCorsArgs',
+    'WindowsWebAppSiteConfigIpRestrictionArgs',
+    'WindowsWebAppSiteConfigIpRestrictionHeadersArgs',
+    'WindowsWebAppSiteConfigScmIpRestrictionArgs',
+    'WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs',
+    'WindowsWebAppSiteConfigVirtualApplicationArgs',
+    'WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs',
+    'WindowsWebAppSiteCredentialArgs',
+    'WindowsWebAppSlotAuthSettingsArgs',
+    'WindowsWebAppSlotAuthSettingsActiveDirectoryArgs',
+    'WindowsWebAppSlotAuthSettingsFacebookArgs',
+    'WindowsWebAppSlotAuthSettingsGithubArgs',
+    'WindowsWebAppSlotAuthSettingsGoogleArgs',
+    'WindowsWebAppSlotAuthSettingsMicrosoftArgs',
+    'WindowsWebAppSlotAuthSettingsTwitterArgs',
+    'WindowsWebAppSlotBackupArgs',
+    'WindowsWebAppSlotBackupScheduleArgs',
+    'WindowsWebAppSlotConnectionStringArgs',
+    'WindowsWebAppSlotIdentityArgs',
+    'WindowsWebAppSlotLogsArgs',
+    'WindowsWebAppSlotLogsApplicationLogsArgs',
+    'WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs',
+    'WindowsWebAppSlotLogsHttpLogsArgs',
+    'WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs',
+    'WindowsWebAppSlotLogsHttpLogsFileSystemArgs',
+    'WindowsWebAppSlotSiteConfigArgs',
+    'WindowsWebAppSlotSiteConfigApplicationStackArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs',
+    'WindowsWebAppSlotSiteConfigCorsArgs',
+    'WindowsWebAppSlotSiteConfigIpRestrictionArgs',
+    'WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs',
+    'WindowsWebAppSlotSiteConfigScmIpRestrictionArgs',
+    'WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs',
+    'WindowsWebAppSlotSiteConfigVirtualApplicationArgs',
+    'WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs',
+    'WindowsWebAppSlotSiteCredentialArgs',
+    'WindowsWebAppSlotStorageAccountArgs',
+    'WindowsWebAppStorageAccountArgs',
 ]
 
 @pulumi.input_type
@@ -2989,6 +3212,43 @@ class FunctionAppConnectionStringArgs:
 
 
 @pulumi.input_type
+class FunctionAppFunctionFileArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] content: The content of the file.
+        :param pulumi.Input[str] name: The filename of the file to be uploaded.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        The content of the file.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The filename of the file to be uploaded.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class FunctionAppIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -5320,6 +5580,10004 @@ class FunctionAppSourceControlArgs:
 
 
 @pulumi.input_type
+class LinuxFunctionAppAuthSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 active_directory: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgs']] = None,
+                 additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 facebook: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArgs']] = None,
+                 github: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGithubArgs']] = None,
+                 google: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArgs']] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 microsoft: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArgs']] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 twitter: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArgs']] = None,
+                 unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsGithubArgs'] github: A `github` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if additional_login_parameters is not None:
+            pulumi.set(__self__, "additional_login_parameters", additional_login_parameters)
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if facebook is not None:
+            pulumi.set(__self__, "facebook", facebook)
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if google is not None:
+            pulumi.set(__self__, "google", google)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if microsoft is not None:
+            pulumi.set(__self__, "microsoft", microsoft)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if token_refresh_extension_hours is not None:
+            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if twitter is not None:
+            pulumi.set(__self__, "twitter", twitter)
+        if unauthenticated_client_action is not None:
+            pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the Authentication / Authorization feature be enabled for the Linux Web App?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgs']]:
+        """
+        An `active_directory` block as defined above.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter(name="additionalLoginParameters")
+    def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "additional_login_parameters")
+
+    @additional_login_parameters.setter
+    def additional_login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_login_parameters", value)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter
+    def facebook(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArgs']]:
+        """
+        A `facebook` block as defined below.
+        """
+        return pulumi.get(self, "facebook")
+
+    @facebook.setter
+    def facebook(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArgs']]):
+        pulumi.set(self, "facebook", value)
+
+    @property
+    @pulumi.getter
+    def github(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGithubArgs']]:
+        """
+        A `github` block as defined below.
+        """
+        return pulumi.get(self, "github")
+
+    @github.setter
+    def github(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGithubArgs']]):
+        pulumi.set(self, "github", value)
+
+    @property
+    @pulumi.getter
+    def google(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArgs']]:
+        """
+        A `google` block as defined below.
+        """
+        return pulumi.get(self, "google")
+
+    @google.setter
+    def google(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArgs']]):
+        pulumi.set(self, "google", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter
+    def microsoft(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArgs']]:
+        """
+        A `microsoft` block as defined below.
+        """
+        return pulumi.get(self, "microsoft")
+
+    @microsoft.setter
+    def microsoft(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArgs']]):
+        pulumi.set(self, "microsoft", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_hours")
+
+    @token_refresh_extension_hours.setter
+    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_hours", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter
+    def twitter(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArgs']]:
+        """
+        A `twitter` block as defined below.
+        """
+        return pulumi.get(self, "twitter")
+
+    @twitter.setter
+    def twitter(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArgs']]):
+        pulumi.set(self, "twitter", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedClientAction")
+    def unauthenticated_client_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        return pulumi.get(self, "unauthenticated_client_action")
+
+    @unauthenticated_client_action.setter
+    def unauthenticated_client_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_client_action", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[str] client_secret: The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsFacebookArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret: Optional[pulumi.Input[str]] = None,
+                 app_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
+        if app_secret_setting_name is not None:
+            pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @app_secret.setter
+    def app_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsGithubArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the GitHub app used for login.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsGoogleArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
+        :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsMicrosoftArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppAuthSettingsTwitterArgs:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret: Optional[pulumi.Input[str]] = None,
+                 consumer_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        if consumer_secret is not None:
+            pulumi.set(__self__, "consumer_secret", consumer_secret)
+        if consumer_secret_setting_name is not None:
+            pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecret")
+    def consumer_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        return pulumi.get(self, "consumer_secret")
+
+    @consumer_secret.setter
+    def consumer_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppBackupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 schedule: pulumi.Input['LinuxFunctionAppBackupScheduleArgs'],
+                 storage_account_url: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Backup.
+        :param pulumi.Input['LinuxFunctionAppBackupScheduleArgs'] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
+        :param pulumi.Input[bool] enabled: Should this backup job be enabled?
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Backup.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['LinuxFunctionAppBackupScheduleArgs']:
+        """
+        A `schedule` block as defined below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['LinuxFunctionAppBackupScheduleArgs']):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="storageAccountUrl")
+    def storage_account_url(self) -> pulumi.Input[str]:
+        """
+        The SAS URL to the container.
+        """
+        return pulumi.get(self, "storage_account_url")
+
+    @storage_account_url.setter
+    def storage_account_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_url", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this backup job be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppBackupScheduleArgs:
+    def __init__(__self__, *,
+                 frequency_interval: pulumi.Input[int],
+                 frequency_unit: pulumi.Input[str],
+                 keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
+                 last_execution_time: Optional[pulumi.Input[str]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+        :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted.
+        :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
+        """
+        pulumi.set(__self__, "frequency_interval", frequency_interval)
+        pulumi.set(__self__, "frequency_unit", frequency_unit)
+        if keep_at_least_one_backup is not None:
+            pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
+        if last_execution_time is not None:
+            pulumi.set(__self__, "last_execution_time", last_execution_time)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="frequencyInterval")
+    def frequency_interval(self) -> pulumi.Input[int]:
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        """
+        return pulumi.get(self, "frequency_interval")
+
+    @frequency_interval.setter
+    def frequency_interval(self, value: pulumi.Input[int]):
+        pulumi.set(self, "frequency_interval", value)
+
+    @property
+    @pulumi.getter(name="frequencyUnit")
+    def frequency_unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+        """
+        return pulumi.get(self, "frequency_unit")
+
+    @frequency_unit.setter
+    def frequency_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frequency_unit", value)
+
+    @property
+    @pulumi.getter(name="keepAtLeastOneBackup")
+    def keep_at_least_one_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        return pulumi.get(self, "keep_at_least_one_backup")
+
+    @keep_at_least_one_backup.setter
+    def keep_at_least_one_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keep_at_least_one_backup", value)
+
+    @property
+    @pulumi.getter(name="lastExecutionTime")
+    def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_execution_time")
+
+    @last_execution_time.setter
+    def last_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_execution_time", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        After how many days backups should be deleted.
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppConnectionStringArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Connection.
+        :param pulumi.Input[str] type: Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+        :param pulumi.Input[str] value: The connection string value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Connection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The connection string value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Linux Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Linux Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSiteConfigArgs:
+    def __init__(__self__, *,
+                 always_on: Optional[pulumi.Input[bool]] = None,
+                 api_definition_url: Optional[pulumi.Input[str]] = None,
+                 api_management_api_id: Optional[pulumi.Input[str]] = None,
+                 app_command_line: Optional[pulumi.Input[str]] = None,
+                 app_scale_limit: Optional[pulumi.Input[int]] = None,
+                 app_service_logs: Optional[pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArgs']] = None,
+                 application_insights_connection_string: Optional[pulumi.Input[str]] = None,
+                 application_insights_key: Optional[pulumi.Input[str]] = None,
+                 application_stack: Optional[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArgs']] = None,
+                 container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
+                 cors: Optional[pulumi.Input['LinuxFunctionAppSiteConfigCorsArgs']] = None,
+                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
+                 elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
+                 ftps_state: Optional[pulumi.Input[str]] = None,
+                 health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]]] = None,
+                 linux_fx_version: Optional[pulumi.Input[str]] = None,
+                 load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 scm_type: Optional[pulumi.Input[str]] = None,
+                 scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
+                 use32_bit_worker: Optional[pulumi.Input[bool]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
+                 websockets_enabled: Optional[pulumi.Input[bool]] = None,
+                 worker_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] always_on: If this Linux Web App is Always On enabled. Defaults to `false`.
+        :param pulumi.Input[str] api_definition_url: The URL of the API definition that describes this Linux Function App.
+        :param pulumi.Input[str] api_management_api_id: The ID of the API Management API for this Linux Function App.
+        :param pulumi.Input[str] app_command_line: The App command line to launch.
+        :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        :param pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArgs'] app_service_logs: An `app_service_logs` block as defined above.
+        :param pulumi.Input[str] application_insights_connection_string: The Connection String for linking the Linux Function App to Application Insights.
+        :param pulumi.Input[str] application_insights_key: The Instrumentation Key for connecting the Linux Function App to Application Insights.
+        :param pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArgs'] application_stack: An `application_stack` block as defined above.
+        :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
+        :param pulumi.Input['LinuxFunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Linux Web App.
+        :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+        :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+        :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
+        :param pulumi.Input[bool] http2_enabled: Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+        :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+        :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+        :param pulumi.Input[bool] use32_bit_worker: Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
+        :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        :param pulumi.Input[bool] websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
+        :param pulumi.Input[int] worker_count: The number of Workers for this Linux Function App.
+        """
+        if always_on is not None:
+            pulumi.set(__self__, "always_on", always_on)
+        if api_definition_url is not None:
+            pulumi.set(__self__, "api_definition_url", api_definition_url)
+        if api_management_api_id is not None:
+            pulumi.set(__self__, "api_management_api_id", api_management_api_id)
+        if app_command_line is not None:
+            pulumi.set(__self__, "app_command_line", app_command_line)
+        if app_scale_limit is not None:
+            pulumi.set(__self__, "app_scale_limit", app_scale_limit)
+        if app_service_logs is not None:
+            pulumi.set(__self__, "app_service_logs", app_service_logs)
+        if application_insights_connection_string is not None:
+            pulumi.set(__self__, "application_insights_connection_string", application_insights_connection_string)
+        if application_insights_key is not None:
+            pulumi.set(__self__, "application_insights_key", application_insights_key)
+        if application_stack is not None:
+            pulumi.set(__self__, "application_stack", application_stack)
+        if container_registry_managed_identity_client_id is not None:
+            pulumi.set(__self__, "container_registry_managed_identity_client_id", container_registry_managed_identity_client_id)
+        if container_registry_use_managed_identity is not None:
+            pulumi.set(__self__, "container_registry_use_managed_identity", container_registry_use_managed_identity)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if default_documents is not None:
+            pulumi.set(__self__, "default_documents", default_documents)
+        if detailed_error_logging_enabled is not None:
+            pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
+        if elastic_instance_minimum is not None:
+            pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
+        if ftps_state is not None:
+            pulumi.set(__self__, "ftps_state", ftps_state)
+        if health_check_eviction_time_in_min is not None:
+            pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http2_enabled is not None:
+            pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restrictions is not None:
+            pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        if linux_fx_version is not None:
+            pulumi.set(__self__, "linux_fx_version", linux_fx_version)
+        if load_balancing_mode is not None:
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+        if managed_pipeline_mode is not None:
+            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if pre_warmed_instance_count is not None:
+            pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
+        if remote_debugging_version is not None:
+            pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if scm_ip_restrictions is not None:
+            pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
+        if scm_minimum_tls_version is not None:
+            pulumi.set(__self__, "scm_minimum_tls_version", scm_minimum_tls_version)
+        if scm_type is not None:
+            pulumi.set(__self__, "scm_type", scm_type)
+        if scm_use_main_ip_restriction is not None:
+            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
+        if use32_bit_worker is not None:
+            pulumi.set(__self__, "use32_bit_worker", use32_bit_worker)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if websockets_enabled is not None:
+            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+        if worker_count is not None:
+            pulumi.set(__self__, "worker_count", worker_count)
+
+    @property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If this Linux Web App is Always On enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "always_on")
+
+    @always_on.setter
+    def always_on(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_on", value)
+
+    @property
+    @pulumi.getter(name="apiDefinitionUrl")
+    def api_definition_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the API definition that describes this Linux Function App.
+        """
+        return pulumi.get(self, "api_definition_url")
+
+    @api_definition_url.setter
+    def api_definition_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_definition_url", value)
+
+    @property
+    @pulumi.getter(name="apiManagementApiId")
+    def api_management_api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the API Management API for this Linux Function App.
+        """
+        return pulumi.get(self, "api_management_api_id")
+
+    @api_management_api_id.setter
+    def api_management_api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_api_id", value)
+
+    @property
+    @pulumi.getter(name="appCommandLine")
+    def app_command_line(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App command line to launch.
+        """
+        return pulumi.get(self, "app_command_line")
+
+    @app_command_line.setter
+    def app_command_line(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_command_line", value)
+
+    @property
+    @pulumi.getter(name="appScaleLimit")
+    def app_scale_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        return pulumi.get(self, "app_scale_limit")
+
+    @app_scale_limit.setter
+    def app_scale_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "app_scale_limit", value)
+
+    @property
+    @pulumi.getter(name="appServiceLogs")
+    def app_service_logs(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArgs']]:
+        """
+        An `app_service_logs` block as defined above.
+        """
+        return pulumi.get(self, "app_service_logs")
+
+    @app_service_logs.setter
+    def app_service_logs(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArgs']]):
+        pulumi.set(self, "app_service_logs", value)
+
+    @property
+    @pulumi.getter(name="applicationInsightsConnectionString")
+    def application_insights_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Connection String for linking the Linux Function App to Application Insights.
+        """
+        return pulumi.get(self, "application_insights_connection_string")
+
+    @application_insights_connection_string.setter
+    def application_insights_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_insights_connection_string", value)
+
+    @property
+    @pulumi.getter(name="applicationInsightsKey")
+    def application_insights_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Instrumentation Key for connecting the Linux Function App to Application Insights.
+        """
+        return pulumi.get(self, "application_insights_key")
+
+    @application_insights_key.setter
+    def application_insights_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_insights_key", value)
+
+    @property
+    @pulumi.getter(name="applicationStack")
+    def application_stack(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArgs']]:
+        """
+        An `application_stack` block as defined above.
+        """
+        return pulumi.get(self, "application_stack")
+
+    @application_stack.setter
+    def application_stack(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArgs']]):
+        pulumi.set(self, "application_stack", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryManagedIdentityClientId")
+    def container_registry_managed_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        return pulumi.get(self, "container_registry_managed_identity_client_id")
+
+    @container_registry_managed_identity_client_id.setter
+    def container_registry_managed_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_registry_managed_identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryUseManagedIdentity")
+    def container_registry_use_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        return pulumi.get(self, "container_registry_use_managed_identity")
+
+    @container_registry_use_managed_identity.setter
+    def container_registry_use_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "container_registry_use_managed_identity", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigCorsArgs']]:
+        """
+        A `cors` block as defined above.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigCorsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="defaultDocuments")
+    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Default Documents for the Linux Web App.
+        """
+        return pulumi.get(self, "default_documents")
+
+    @default_documents.setter
+    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_documents", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorLoggingEnabled")
+    def detailed_error_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "detailed_error_logging_enabled")
+
+    @detailed_error_logging_enabled.setter
+    def detailed_error_logging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_logging_enabled", value)
+
+    @property
+    @pulumi.getter(name="elasticInstanceMinimum")
+    def elastic_instance_minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+        """
+        return pulumi.get(self, "elastic_instance_minimum")
+
+    @elastic_instance_minimum.setter
+    def elastic_instance_minimum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "elastic_instance_minimum", value)
+
+    @property
+    @pulumi.getter(name="ftpsState")
+    def ftps_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+        """
+        return pulumi.get(self, "ftps_state")
+
+    @ftps_state.setter
+    def ftps_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ftps_state", value)
+
+    @property
+    @pulumi.getter(name="healthCheckEvictionTimeInMin")
+    def health_check_eviction_time_in_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        return pulumi.get(self, "health_check_eviction_time_in_min")
+
+    @health_check_eviction_time_in_min.setter
+    def health_check_eviction_time_in_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_eviction_time_in_min", value)
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to be checked for this function app health.
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @health_check_path.setter
+    def health_check_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_path", value)
+
+    @property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "http2_enabled")
+
+    @http2_enabled.setter
+    def http2_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http2_enabled", value)
+
+    @property
+    @pulumi.getter(name="ipRestrictions")
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]]]:
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "ip_restrictions")
+
+    @ip_restrictions.setter
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]]]):
+        pulumi.set(self, "ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="linuxFxVersion")
+    def linux_fx_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "linux_fx_version")
+
+    @linux_fx_version.setter
+    def linux_fx_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linux_fx_version", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingMode")
+    def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        return pulumi.get(self, "load_balancing_mode")
+
+    @load_balancing_mode.setter
+    def load_balancing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancing_mode", value)
+
+    @property
+    @pulumi.getter(name="managedPipelineMode")
+    def managed_pipeline_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        return pulumi.get(self, "managed_pipeline_mode")
+
+    @managed_pipeline_mode.setter
+    def managed_pipeline_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_pipeline_mode", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="preWarmedInstanceCount")
+    def pre_warmed_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+        """
+        return pulumi.get(self, "pre_warmed_instance_count")
+
+    @pre_warmed_instance_count.setter
+    def pre_warmed_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "pre_warmed_instance_count", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @remote_debugging_enabled.setter
+    def remote_debugging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remote_debugging_enabled", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingVersion")
+    def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+        """
+        return pulumi.get(self, "remote_debugging_version")
+
+    @remote_debugging_version.setter
+    def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="runtimeScaleMonitoringEnabled")
+    def runtime_scale_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Scale Monitoring of the Functions Runtime be enabled?
+        """
+        return pulumi.get(self, "runtime_scale_monitoring_enabled")
+
+    @runtime_scale_monitoring_enabled.setter
+    def runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "runtime_scale_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictions")
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgs']]]]:
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "scm_ip_restrictions")
+
+    @scm_ip_restrictions.setter
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgs']]]]):
+        pulumi.set(self, "scm_ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="scmMinimumTlsVersion")
+    def scm_minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "scm_minimum_tls_version")
+
+    @scm_minimum_tls_version.setter
+    def scm_minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scm_type")
+
+    @scm_type.setter
+    def scm_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_type", value)
+
+    @property
+    @pulumi.getter(name="scmUseMainIpRestriction")
+    def scm_use_main_ip_restriction(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+        """
+        return pulumi.get(self, "scm_use_main_ip_restriction")
+
+    @scm_use_main_ip_restriction.setter
+    def scm_use_main_ip_restriction(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scm_use_main_ip_restriction", value)
+
+    @property
+    @pulumi.getter(name="use32BitWorker")
+    def use32_bit_worker(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
+        """
+        return pulumi.get(self, "use32_bit_worker")
+
+    @use32_bit_worker.setter
+    def use32_bit_worker(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use32_bit_worker", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
+
+    @property
+    @pulumi.getter(name="websocketsEnabled")
+    def websockets_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "websockets_enabled")
+
+    @websockets_enabled.setter
+    def websockets_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "websockets_enabled", value)
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of Workers for this Linux Function App.
+        """
+        return pulumi.get(self, "worker_count")
+
+    @worker_count.setter
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "worker_count", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSiteConfigAppServiceLogsArgs:
+    def __init__(__self__, *,
+                 disk_quota_mb: Optional[pulumi.Input[int]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        :param pulumi.Input[int] retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        """
+        if disk_quota_mb is not None:
+            pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+
+    @property
+    @pulumi.getter(name="diskQuotaMb")
+    def disk_quota_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        """
+        return pulumi.get(self, "disk_quota_mb")
+
+    @disk_quota_mb.setter
+    def disk_quota_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_quota_mb", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSiteConfigApplicationStackArgs:
+    def __init__(__self__, *,
+                 dockers: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]]] = None,
+                 dotnet_version: Optional[pulumi.Input[str]] = None,
+                 java_version: Optional[pulumi.Input[str]] = None,
+                 node_version: Optional[pulumi.Input[str]] = None,
+                 powershell_core_version: Optional[pulumi.Input[str]] = None,
+                 python_version: Optional[pulumi.Input[str]] = None,
+                 use_custom_runtime: Optional[pulumi.Input[bool]] = None,
+                 use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]] dockers: One or more `docker` blocks as defined below.
+        :param pulumi.Input[str] dotnet_version: The version of .Net to use. Possible values include `3.1` and `6.0`.
+        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, and `11`.
+        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12`, `14`, and `16`.
+        :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`.
+        :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.6`, `3.7`, `3.8`, and `3.9`.
+        :param pulumi.Input[bool] use_custom_runtime: Should the Linux Function App use a custom runtime?
+        :param pulumi.Input[bool] use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
+        """
+        if dockers is not None:
+            pulumi.set(__self__, "dockers", dockers)
+        if dotnet_version is not None:
+            pulumi.set(__self__, "dotnet_version", dotnet_version)
+        if java_version is not None:
+            pulumi.set(__self__, "java_version", java_version)
+        if node_version is not None:
+            pulumi.set(__self__, "node_version", node_version)
+        if powershell_core_version is not None:
+            pulumi.set(__self__, "powershell_core_version", powershell_core_version)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+        if use_custom_runtime is not None:
+            pulumi.set(__self__, "use_custom_runtime", use_custom_runtime)
+        if use_dotnet_isolated_runtime is not None:
+            pulumi.set(__self__, "use_dotnet_isolated_runtime", use_dotnet_isolated_runtime)
+
+    @property
+    @pulumi.getter
+    def dockers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]]]:
+        """
+        One or more `docker` blocks as defined below.
+        """
+        return pulumi.get(self, "dockers")
+
+    @dockers.setter
+    def dockers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]]]):
+        pulumi.set(self, "dockers", value)
+
+    @property
+    @pulumi.getter(name="dotnetVersion")
+    def dotnet_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of .Net to use. Possible values include `3.1` and `6.0`.
+        """
+        return pulumi.get(self, "dotnet_version")
+
+    @dotnet_version.setter
+    def dotnet_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dotnet_version", value)
+
+    @property
+    @pulumi.getter(name="javaVersion")
+    def java_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Version of Java to use. Supported versions include `8`, and `11`.
+        """
+        return pulumi.get(self, "java_version")
+
+    @java_version.setter
+    def java_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_version", value)
+
+    @property
+    @pulumi.getter(name="nodeVersion")
+    def node_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Node to run. Possible values include `12`, `14`, and `16`.
+        """
+        return pulumi.get(self, "node_version")
+
+    @node_version.setter
+    def node_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_version", value)
+
+    @property
+    @pulumi.getter(name="powershellCoreVersion")
+    def powershell_core_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of PowerShell Core to run. Possible values are `7`.
+        """
+        return pulumi.get(self, "powershell_core_version")
+
+    @powershell_core_version.setter
+    def powershell_core_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "powershell_core_version", value)
+
+    @property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Python to run. Possible values include `3.6`, `3.7`, `3.8`, and `3.9`.
+        """
+        return pulumi.get(self, "python_version")
+
+    @python_version.setter
+    def python_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "python_version", value)
+
+    @property
+    @pulumi.getter(name="useCustomRuntime")
+    def use_custom_runtime(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Function App use a custom runtime?
+        """
+        return pulumi.get(self, "use_custom_runtime")
+
+    @use_custom_runtime.setter
+    def use_custom_runtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_custom_runtime", value)
+
+    @property
+    @pulumi.getter(name="useDotnetIsolatedRuntime")
+    def use_dotnet_isolated_runtime(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the DotNet process use an isolated runtime. Defaults to `false`.
+        """
+        return pulumi.get(self, "use_dotnet_isolated_runtime")
+
+    @use_dotnet_isolated_runtime.setter
+    def use_dotnet_isolated_runtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_dotnet_isolated_runtime", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSiteConfigApplicationStackDockerArgs:
+    def __init__(__self__, *,
+                 image_name: pulumi.Input[str],
+                 image_tag: pulumi.Input[str],
+                 registry_url: pulumi.Input[str],
+                 registry_password: Optional[pulumi.Input[str]] = None,
+                 registry_username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] image_name: The name of the Docker image to use.
+        :param pulumi.Input[str] image_tag: The image tag of the image to use.
+        :param pulumi.Input[str] registry_url: The URL of the docker registry.
+        :param pulumi.Input[str] registry_password: The password for the account to use to connect to the registry.
+        :param pulumi.Input[str] registry_username: The username to use for connections to the registry.
+        """
+        pulumi.set(__self__, "image_name", image_name)
+        pulumi.set(__self__, "image_tag", image_tag)
+        pulumi.set(__self__, "registry_url", registry_url)
+        if registry_password is not None:
+            pulumi.set(__self__, "registry_password", registry_password)
+        if registry_username is not None:
+            pulumi.set(__self__, "registry_username", registry_username)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Docker image to use.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="imageTag")
+    def image_tag(self) -> pulumi.Input[str]:
+        """
+        The image tag of the image to use.
+        """
+        return pulumi.get(self, "image_tag")
+
+    @image_tag.setter
+    def image_tag(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_tag", value)
+
+    @property
+    @pulumi.getter(name="registryUrl")
+    def registry_url(self) -> pulumi.Input[str]:
+        """
+        The URL of the docker registry.
+        """
+        return pulumi.get(self, "registry_url")
+
+    @registry_url.setter
+    def registry_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_url", value)
+
+    @property
+    @pulumi.getter(name="registryPassword")
+    def registry_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the account to use to connect to the registry.
+        """
+        return pulumi.get(self, "registry_password")
+
+    @registry_password.setter
+    def registry_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_password", value)
+
+    @property
+    @pulumi.getter(name="registryUsername")
+    def registry_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username to use for connections to the registry.
+        """
+        return pulumi.get(self, "registry_username")
+
+    @registry_username.setter
+    def registry_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_username", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSiteConfigCorsArgs:
+    def __init__(__self__, *,
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 support_credentials: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
+        :param pulumi.Input[bool] support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+        return pulumi.get(self, "support_credentials")
+
+    @support_credentials.setter
+    def support_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "support_credentials", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSiteConfigIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSiteConfigScmIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSiteCredentialArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+        :param pulumi.Input[str] password: The Site Credentials Password used for publishing.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Password used for publishing.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 active_directory: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs']] = None,
+                 additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 facebook: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArgs']] = None,
+                 github: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArgs']] = None,
+                 google: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArgs']] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 microsoft: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArgs']] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 twitter: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArgs']] = None,
+                 unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled?
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: an `active_directory` block as detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArgs'] facebook: a `facebook` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArgs'] github: a `github` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArgs'] google: a `google` block as detailed below.
+        :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArgs'] microsoft: a `microsoft` block as detailed below.
+        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use.
+        :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArgs'] twitter: a `twitter` block as detailed below.
+        :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if additional_login_parameters is not None:
+            pulumi.set(__self__, "additional_login_parameters", additional_login_parameters)
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if facebook is not None:
+            pulumi.set(__self__, "facebook", facebook)
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if google is not None:
+            pulumi.set(__self__, "google", google)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if microsoft is not None:
+            pulumi.set(__self__, "microsoft", microsoft)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if token_refresh_extension_hours is not None:
+            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if twitter is not None:
+            pulumi.set(__self__, "twitter", twitter)
+        if unauthenticated_client_action is not None:
+            pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the Authentication / Authorization feature be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs']]:
+        """
+        an `active_directory` block as detailed below.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter(name="additionalLoginParameters")
+    def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
+        return pulumi.get(self, "additional_login_parameters")
+
+    @additional_login_parameters.setter
+    def additional_login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_login_parameters", value)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        an `allowed_external_redirect_urls` block as detailed below.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter
+    def facebook(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArgs']]:
+        """
+        a `facebook` block as detailed below.
+        """
+        return pulumi.get(self, "facebook")
+
+    @facebook.setter
+    def facebook(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArgs']]):
+        pulumi.set(self, "facebook", value)
+
+    @property
+    @pulumi.getter
+    def github(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArgs']]:
+        """
+        a `github` block as detailed below.
+        """
+        return pulumi.get(self, "github")
+
+    @github.setter
+    def github(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArgs']]):
+        pulumi.set(self, "github", value)
+
+    @property
+    @pulumi.getter
+    def google(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArgs']]:
+        """
+        a `google` block as detailed below.
+        """
+        return pulumi.get(self, "google")
+
+    @google.setter
+    def google(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArgs']]):
+        pulumi.set(self, "google", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter
+    def microsoft(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArgs']]:
+        """
+        a `microsoft` block as detailed below.
+        """
+        return pulumi.get(self, "microsoft")
+
+    @microsoft.setter
+    def microsoft(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArgs']]):
+        pulumi.set(self, "microsoft", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_hours")
+
+    @token_refresh_extension_hours.setter
+    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_hours", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter
+    def twitter(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArgs']]:
+        """
+        a `twitter` block as detailed below.
+        """
+        return pulumi.get(self, "twitter")
+
+    @twitter.setter
+    def twitter(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArgs']]):
+        pulumi.set(self, "twitter", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedClientAction")
+    def unauthenticated_client_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        return pulumi.get(self, "unauthenticated_client_action")
+
+    @unauthenticated_client_action.setter
+    def unauthenticated_client_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_client_action", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: an `allowed_audiences` block as detailed below.
+        :param pulumi.Input[str] client_secret: The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        an `allowed_audiences` block as detailed below.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsFacebookArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret: Optional[pulumi.Input[str]] = None,
+                 app_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
+        if app_secret_setting_name is not None:
+            pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @app_secret.setter
+    def app_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsGithubArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the GitHub app used for login.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsGoogleArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
+        :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsMicrosoftArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotAuthSettingsTwitterArgs:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret: Optional[pulumi.Input[str]] = None,
+                 consumer_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        if consumer_secret is not None:
+            pulumi.set(__self__, "consumer_secret", consumer_secret)
+        if consumer_secret_setting_name is not None:
+            pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecret")
+    def consumer_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        return pulumi.get(self, "consumer_secret")
+
+    @consumer_secret.setter
+    def consumer_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotBackupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 schedule: pulumi.Input['LinuxFunctionAppSlotBackupScheduleArgs'],
+                 storage_account_url: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Backup.
+        :param pulumi.Input['LinuxFunctionAppSlotBackupScheduleArgs'] schedule: a `schedule` block as detailed below.
+        :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
+        :param pulumi.Input[bool] enabled: Should this backup job be enabled?
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Backup.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['LinuxFunctionAppSlotBackupScheduleArgs']:
+        """
+        a `schedule` block as detailed below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['LinuxFunctionAppSlotBackupScheduleArgs']):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="storageAccountUrl")
+    def storage_account_url(self) -> pulumi.Input[str]:
+        """
+        The SAS URL to the container.
+        """
+        return pulumi.get(self, "storage_account_url")
+
+    @storage_account_url.setter
+    def storage_account_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_url", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this backup job be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotBackupScheduleArgs:
+    def __init__(__self__, *,
+                 frequency_interval: pulumi.Input[int],
+                 frequency_unit: pulumi.Input[str],
+                 keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
+                 last_execution_time: Optional[pulumi.Input[str]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+        :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param pulumi.Input[str] last_execution_time: The time the backup was last attempted.
+        :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted.
+        :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
+        """
+        pulumi.set(__self__, "frequency_interval", frequency_interval)
+        pulumi.set(__self__, "frequency_unit", frequency_unit)
+        if keep_at_least_one_backup is not None:
+            pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
+        if last_execution_time is not None:
+            pulumi.set(__self__, "last_execution_time", last_execution_time)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="frequencyInterval")
+    def frequency_interval(self) -> pulumi.Input[int]:
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        """
+        return pulumi.get(self, "frequency_interval")
+
+    @frequency_interval.setter
+    def frequency_interval(self, value: pulumi.Input[int]):
+        pulumi.set(self, "frequency_interval", value)
+
+    @property
+    @pulumi.getter(name="frequencyUnit")
+    def frequency_unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+        """
+        return pulumi.get(self, "frequency_unit")
+
+    @frequency_unit.setter
+    def frequency_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frequency_unit", value)
+
+    @property
+    @pulumi.getter(name="keepAtLeastOneBackup")
+    def keep_at_least_one_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        return pulumi.get(self, "keep_at_least_one_backup")
+
+    @keep_at_least_one_backup.setter
+    def keep_at_least_one_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keep_at_least_one_backup", value)
+
+    @property
+    @pulumi.getter(name="lastExecutionTime")
+    def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time the backup was last attempted.
+        """
+        return pulumi.get(self, "last_execution_time")
+
+    @last_execution_time.setter
+    def last_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_execution_time", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        After how many days backups should be deleted.
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotConnectionStringArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Connection.
+        :param pulumi.Input[str] type: Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        :param pulumi.Input[str] value: The connection string value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Connection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The connection string value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Linux Function App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App Slot.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Linux Function App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App Slot.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotSiteConfigArgs:
+    def __init__(__self__, *,
+                 always_on: Optional[pulumi.Input[bool]] = None,
+                 api_definition_url: Optional[pulumi.Input[str]] = None,
+                 api_management_api_id: Optional[pulumi.Input[str]] = None,
+                 app_command_line: Optional[pulumi.Input[str]] = None,
+                 app_scale_limit: Optional[pulumi.Input[int]] = None,
+                 app_service_logs: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs']] = None,
+                 application_insights_connection_string: Optional[pulumi.Input[str]] = None,
+                 application_insights_key: Optional[pulumi.Input[str]] = None,
+                 application_stack: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArgs']] = None,
+                 auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
+                 container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
+                 cors: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArgs']] = None,
+                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
+                 elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
+                 ftps_state: Optional[pulumi.Input[str]] = None,
+                 health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]]] = None,
+                 linux_fx_version: Optional[pulumi.Input[str]] = None,
+                 load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 scm_type: Optional[pulumi.Input[str]] = None,
+                 scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
+                 use32_bit_worker: Optional[pulumi.Input[bool]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
+                 websockets_enabled: Optional[pulumi.Input[bool]] = None,
+                 worker_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] always_on: If this Linux Web App is Always On enabled. Defaults to `false`.
+        :param pulumi.Input[str] api_definition_url: The URL of the API definition that describes this Linux Function App.
+        :param pulumi.Input[str] api_management_api_id: The ID of the API Management API for this Linux Function App.
+        :param pulumi.Input[str] app_command_line: The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
+        :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs'] app_service_logs: an `app_service_logs` block as detailed below.
+        :param pulumi.Input[str] application_insights_connection_string: The Connection String for linking the Linux Function App to Application Insights.
+        :param pulumi.Input[str] application_insights_key: The Instrumentation Key for connecting the Linux Function App to Application Insights.
+        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArgs'] application_stack: an `application_stack` block as detailed below.
+        :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap with when this slot is successfully deployed.
+        :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
+        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArgs'] cors: a `cors` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: a `default_documents` block as detailed below.
+        :param pulumi.Input[bool] detailed_error_logging_enabled: Is detailed error logging enabled
+        :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+        :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+        :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+        :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
+        :param pulumi.Input[bool] http2_enabled: Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: an `ip_restriction` block as detailed below.
+        :param pulumi.Input[str] linux_fx_version: The Linux FX Version
+        :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        :param pulumi.Input[str] managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+        :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Functions Runtime Scale Monitoring be enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
+        :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] scm_type: The SCM Type in use by the Linux Function App.
+        :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+        :param pulumi.Input[bool] use32_bit_worker: Should the Linux Web App use a 32-bit worker.
+        :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        :param pulumi.Input[bool] websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
+        :param pulumi.Input[int] worker_count: The number of Workers for this Linux Function App.
+        """
+        if always_on is not None:
+            pulumi.set(__self__, "always_on", always_on)
+        if api_definition_url is not None:
+            pulumi.set(__self__, "api_definition_url", api_definition_url)
+        if api_management_api_id is not None:
+            pulumi.set(__self__, "api_management_api_id", api_management_api_id)
+        if app_command_line is not None:
+            pulumi.set(__self__, "app_command_line", app_command_line)
+        if app_scale_limit is not None:
+            pulumi.set(__self__, "app_scale_limit", app_scale_limit)
+        if app_service_logs is not None:
+            pulumi.set(__self__, "app_service_logs", app_service_logs)
+        if application_insights_connection_string is not None:
+            pulumi.set(__self__, "application_insights_connection_string", application_insights_connection_string)
+        if application_insights_key is not None:
+            pulumi.set(__self__, "application_insights_key", application_insights_key)
+        if application_stack is not None:
+            pulumi.set(__self__, "application_stack", application_stack)
+        if auto_swap_slot_name is not None:
+            pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
+        if container_registry_managed_identity_client_id is not None:
+            pulumi.set(__self__, "container_registry_managed_identity_client_id", container_registry_managed_identity_client_id)
+        if container_registry_use_managed_identity is not None:
+            pulumi.set(__self__, "container_registry_use_managed_identity", container_registry_use_managed_identity)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if default_documents is not None:
+            pulumi.set(__self__, "default_documents", default_documents)
+        if detailed_error_logging_enabled is not None:
+            pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
+        if elastic_instance_minimum is not None:
+            pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
+        if ftps_state is not None:
+            pulumi.set(__self__, "ftps_state", ftps_state)
+        if health_check_eviction_time_in_min is not None:
+            pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http2_enabled is not None:
+            pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restrictions is not None:
+            pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        if linux_fx_version is not None:
+            pulumi.set(__self__, "linux_fx_version", linux_fx_version)
+        if load_balancing_mode is not None:
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+        if managed_pipeline_mode is not None:
+            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if pre_warmed_instance_count is not None:
+            pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
+        if remote_debugging_version is not None:
+            pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if scm_ip_restrictions is not None:
+            pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
+        if scm_minimum_tls_version is not None:
+            pulumi.set(__self__, "scm_minimum_tls_version", scm_minimum_tls_version)
+        if scm_type is not None:
+            pulumi.set(__self__, "scm_type", scm_type)
+        if scm_use_main_ip_restriction is not None:
+            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
+        if use32_bit_worker is not None:
+            pulumi.set(__self__, "use32_bit_worker", use32_bit_worker)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if websockets_enabled is not None:
+            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+        if worker_count is not None:
+            pulumi.set(__self__, "worker_count", worker_count)
+
+    @property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If this Linux Web App is Always On enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "always_on")
+
+    @always_on.setter
+    def always_on(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_on", value)
+
+    @property
+    @pulumi.getter(name="apiDefinitionUrl")
+    def api_definition_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the API definition that describes this Linux Function App.
+        """
+        return pulumi.get(self, "api_definition_url")
+
+    @api_definition_url.setter
+    def api_definition_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_definition_url", value)
+
+    @property
+    @pulumi.getter(name="apiManagementApiId")
+    def api_management_api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the API Management API for this Linux Function App.
+        """
+        return pulumi.get(self, "api_management_api_id")
+
+    @api_management_api_id.setter
+    def api_management_api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_api_id", value)
+
+    @property
+    @pulumi.getter(name="appCommandLine")
+    def app_command_line(self) -> Optional[pulumi.Input[str]]:
+        """
+        The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
+        """
+        return pulumi.get(self, "app_command_line")
+
+    @app_command_line.setter
+    def app_command_line(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_command_line", value)
+
+    @property
+    @pulumi.getter(name="appScaleLimit")
+    def app_scale_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        return pulumi.get(self, "app_scale_limit")
+
+    @app_scale_limit.setter
+    def app_scale_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "app_scale_limit", value)
+
+    @property
+    @pulumi.getter(name="appServiceLogs")
+    def app_service_logs(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs']]:
+        """
+        an `app_service_logs` block as detailed below.
+        """
+        return pulumi.get(self, "app_service_logs")
+
+    @app_service_logs.setter
+    def app_service_logs(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs']]):
+        pulumi.set(self, "app_service_logs", value)
+
+    @property
+    @pulumi.getter(name="applicationInsightsConnectionString")
+    def application_insights_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Connection String for linking the Linux Function App to Application Insights.
+        """
+        return pulumi.get(self, "application_insights_connection_string")
+
+    @application_insights_connection_string.setter
+    def application_insights_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_insights_connection_string", value)
+
+    @property
+    @pulumi.getter(name="applicationInsightsKey")
+    def application_insights_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Instrumentation Key for connecting the Linux Function App to Application Insights.
+        """
+        return pulumi.get(self, "application_insights_key")
+
+    @application_insights_key.setter
+    def application_insights_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_insights_key", value)
+
+    @property
+    @pulumi.getter(name="applicationStack")
+    def application_stack(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArgs']]:
+        """
+        an `application_stack` block as detailed below.
+        """
+        return pulumi.get(self, "application_stack")
+
+    @application_stack.setter
+    def application_stack(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArgs']]):
+        pulumi.set(self, "application_stack", value)
+
+    @property
+    @pulumi.getter(name="autoSwapSlotName")
+    def auto_swap_slot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the slot to automatically swap with when this slot is successfully deployed.
+        """
+        return pulumi.get(self, "auto_swap_slot_name")
+
+    @auto_swap_slot_name.setter
+    def auto_swap_slot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_swap_slot_name", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryManagedIdentityClientId")
+    def container_registry_managed_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        return pulumi.get(self, "container_registry_managed_identity_client_id")
+
+    @container_registry_managed_identity_client_id.setter
+    def container_registry_managed_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_registry_managed_identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryUseManagedIdentity")
+    def container_registry_use_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        return pulumi.get(self, "container_registry_use_managed_identity")
+
+    @container_registry_use_managed_identity.setter
+    def container_registry_use_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "container_registry_use_managed_identity", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArgs']]:
+        """
+        a `cors` block as detailed below.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="defaultDocuments")
+    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        a `default_documents` block as detailed below.
+        """
+        return pulumi.get(self, "default_documents")
+
+    @default_documents.setter
+    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_documents", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorLoggingEnabled")
+    def detailed_error_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is detailed error logging enabled
+        """
+        return pulumi.get(self, "detailed_error_logging_enabled")
+
+    @detailed_error_logging_enabled.setter
+    def detailed_error_logging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_logging_enabled", value)
+
+    @property
+    @pulumi.getter(name="elasticInstanceMinimum")
+    def elastic_instance_minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+        """
+        return pulumi.get(self, "elastic_instance_minimum")
+
+    @elastic_instance_minimum.setter
+    def elastic_instance_minimum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "elastic_instance_minimum", value)
+
+    @property
+    @pulumi.getter(name="ftpsState")
+    def ftps_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+        """
+        return pulumi.get(self, "ftps_state")
+
+    @ftps_state.setter
+    def ftps_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ftps_state", value)
+
+    @property
+    @pulumi.getter(name="healthCheckEvictionTimeInMin")
+    def health_check_eviction_time_in_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+        """
+        return pulumi.get(self, "health_check_eviction_time_in_min")
+
+    @health_check_eviction_time_in_min.setter
+    def health_check_eviction_time_in_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_eviction_time_in_min", value)
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to be checked for this function app health.
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @health_check_path.setter
+    def health_check_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_path", value)
+
+    @property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "http2_enabled")
+
+    @http2_enabled.setter
+    def http2_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http2_enabled", value)
+
+    @property
+    @pulumi.getter(name="ipRestrictions")
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]]]:
+        """
+        an `ip_restriction` block as detailed below.
+        """
+        return pulumi.get(self, "ip_restrictions")
+
+    @ip_restrictions.setter
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]]]):
+        pulumi.set(self, "ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="linuxFxVersion")
+    def linux_fx_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Linux FX Version
+        """
+        return pulumi.get(self, "linux_fx_version")
+
+    @linux_fx_version.setter
+    def linux_fx_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linux_fx_version", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingMode")
+    def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        return pulumi.get(self, "load_balancing_mode")
+
+    @load_balancing_mode.setter
+    def load_balancing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancing_mode", value)
+
+    @property
+    @pulumi.getter(name="managedPipelineMode")
+    def managed_pipeline_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        return pulumi.get(self, "managed_pipeline_mode")
+
+    @managed_pipeline_mode.setter
+    def managed_pipeline_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_pipeline_mode", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="preWarmedInstanceCount")
+    def pre_warmed_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+        """
+        return pulumi.get(self, "pre_warmed_instance_count")
+
+    @pre_warmed_instance_count.setter
+    def pre_warmed_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "pre_warmed_instance_count", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @remote_debugging_enabled.setter
+    def remote_debugging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remote_debugging_enabled", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingVersion")
+    def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        """
+        return pulumi.get(self, "remote_debugging_version")
+
+    @remote_debugging_version.setter
+    def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="runtimeScaleMonitoringEnabled")
+    def runtime_scale_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Functions Runtime Scale Monitoring be enabled.
+        """
+        return pulumi.get(self, "runtime_scale_monitoring_enabled")
+
+    @runtime_scale_monitoring_enabled.setter
+    def runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "runtime_scale_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictions")
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]:
+        """
+        a `scm_ip_restriction` block as detailed below.
+        """
+        return pulumi.get(self, "scm_ip_restrictions")
+
+    @scm_ip_restrictions.setter
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]):
+        pulumi.set(self, "scm_ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="scmMinimumTlsVersion")
+    def scm_minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "scm_minimum_tls_version")
+
+    @scm_minimum_tls_version.setter
+    def scm_minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SCM Type in use by the Linux Function App.
+        """
+        return pulumi.get(self, "scm_type")
+
+    @scm_type.setter
+    def scm_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_type", value)
+
+    @property
+    @pulumi.getter(name="scmUseMainIpRestriction")
+    def scm_use_main_ip_restriction(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+        """
+        return pulumi.get(self, "scm_use_main_ip_restriction")
+
+    @scm_use_main_ip_restriction.setter
+    def scm_use_main_ip_restriction(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scm_use_main_ip_restriction", value)
+
+    @property
+    @pulumi.getter(name="use32BitWorker")
+    def use32_bit_worker(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Web App use a 32-bit worker.
+        """
+        return pulumi.get(self, "use32_bit_worker")
+
+    @use32_bit_worker.setter
+    def use32_bit_worker(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use32_bit_worker", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
+
+    @property
+    @pulumi.getter(name="websocketsEnabled")
+    def websockets_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "websockets_enabled")
+
+    @websockets_enabled.setter
+    def websockets_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "websockets_enabled", value)
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of Workers for this Linux Function App.
+        """
+        return pulumi.get(self, "worker_count")
+
+    @worker_count.setter
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "worker_count", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs:
+    def __init__(__self__, *,
+                 disk_quota_mb: Optional[pulumi.Input[int]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        :param pulumi.Input[int] retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        """
+        if disk_quota_mb is not None:
+            pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+
+    @property
+    @pulumi.getter(name="diskQuotaMb")
+    def disk_quota_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        """
+        return pulumi.get(self, "disk_quota_mb")
+
+    @disk_quota_mb.setter
+    def disk_quota_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_quota_mb", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
+    def __init__(__self__, *,
+                 dockers: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]]] = None,
+                 dotnet_version: Optional[pulumi.Input[str]] = None,
+                 java_version: Optional[pulumi.Input[str]] = None,
+                 node_version: Optional[pulumi.Input[str]] = None,
+                 powershell_core_version: Optional[pulumi.Input[str]] = None,
+                 python_version: Optional[pulumi.Input[str]] = None,
+                 use_custom_runtime: Optional[pulumi.Input[bool]] = None,
+                 use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]] dockers: a `docker` block as detailed below.
+        :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `3.1` and `6.0`.
+        :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `8`, and `11`.
+        :param pulumi.Input[str] node_version: The version of Node to use. Possible values include `12`, and `14`
+        :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to use. Possibles values are `7`.
+        :param pulumi.Input[str] python_version: The version of Python to use. Possible values include `3.9`, `3.8`, and `3.7`.
+        :param pulumi.Input[bool] use_custom_runtime: Should the Linux Function App use a custom runtime?
+        :param pulumi.Input[bool] use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
+        """
+        if dockers is not None:
+            pulumi.set(__self__, "dockers", dockers)
+        if dotnet_version is not None:
+            pulumi.set(__self__, "dotnet_version", dotnet_version)
+        if java_version is not None:
+            pulumi.set(__self__, "java_version", java_version)
+        if node_version is not None:
+            pulumi.set(__self__, "node_version", node_version)
+        if powershell_core_version is not None:
+            pulumi.set(__self__, "powershell_core_version", powershell_core_version)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+        if use_custom_runtime is not None:
+            pulumi.set(__self__, "use_custom_runtime", use_custom_runtime)
+        if use_dotnet_isolated_runtime is not None:
+            pulumi.set(__self__, "use_dotnet_isolated_runtime", use_dotnet_isolated_runtime)
+
+    @property
+    @pulumi.getter
+    def dockers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]]]:
+        """
+        a `docker` block as detailed below.
+        """
+        return pulumi.get(self, "dockers")
+
+    @dockers.setter
+    def dockers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]]]):
+        pulumi.set(self, "dockers", value)
+
+    @property
+    @pulumi.getter(name="dotnetVersion")
+    def dotnet_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of .Net. Possible values are `3.1` and `6.0`.
+        """
+        return pulumi.get(self, "dotnet_version")
+
+    @dotnet_version.setter
+    def dotnet_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dotnet_version", value)
+
+    @property
+    @pulumi.getter(name="javaVersion")
+    def java_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Java to use. Possible values are `8`, and `11`.
+        """
+        return pulumi.get(self, "java_version")
+
+    @java_version.setter
+    def java_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_version", value)
+
+    @property
+    @pulumi.getter(name="nodeVersion")
+    def node_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Node to use. Possible values include `12`, and `14`
+        """
+        return pulumi.get(self, "node_version")
+
+    @node_version.setter
+    def node_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_version", value)
+
+    @property
+    @pulumi.getter(name="powershellCoreVersion")
+    def powershell_core_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of PowerShell Core to use. Possibles values are `7`.
+        """
+        return pulumi.get(self, "powershell_core_version")
+
+    @powershell_core_version.setter
+    def powershell_core_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "powershell_core_version", value)
+
+    @property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Python to use. Possible values include `3.9`, `3.8`, and `3.7`.
+        """
+        return pulumi.get(self, "python_version")
+
+    @python_version.setter
+    def python_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "python_version", value)
+
+    @property
+    @pulumi.getter(name="useCustomRuntime")
+    def use_custom_runtime(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Function App use a custom runtime?
+        """
+        return pulumi.get(self, "use_custom_runtime")
+
+    @use_custom_runtime.setter
+    def use_custom_runtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_custom_runtime", value)
+
+    @property
+    @pulumi.getter(name="useDotnetIsolatedRuntime")
+    def use_dotnet_isolated_runtime(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the DotNet process use an isolated runtime. Defaults to `false`.
+        """
+        return pulumi.get(self, "use_dotnet_isolated_runtime")
+
+    @use_dotnet_isolated_runtime.setter
+    def use_dotnet_isolated_runtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_dotnet_isolated_runtime", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs:
+    def __init__(__self__, *,
+                 image_name: pulumi.Input[str],
+                 image_tag: pulumi.Input[str],
+                 registry_url: pulumi.Input[str],
+                 registry_password: Optional[pulumi.Input[str]] = None,
+                 registry_username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] image_name: The name of the Docker image to use.
+        :param pulumi.Input[str] image_tag: The image tag of the image to use.
+        :param pulumi.Input[str] registry_url: The URL of the docker registry.
+        :param pulumi.Input[str] registry_password: The password for the account to use to connect to the registry.
+        :param pulumi.Input[str] registry_username: The username to use for connections to the registry.
+        """
+        pulumi.set(__self__, "image_name", image_name)
+        pulumi.set(__self__, "image_tag", image_tag)
+        pulumi.set(__self__, "registry_url", registry_url)
+        if registry_password is not None:
+            pulumi.set(__self__, "registry_password", registry_password)
+        if registry_username is not None:
+            pulumi.set(__self__, "registry_username", registry_username)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Docker image to use.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="imageTag")
+    def image_tag(self) -> pulumi.Input[str]:
+        """
+        The image tag of the image to use.
+        """
+        return pulumi.get(self, "image_tag")
+
+    @image_tag.setter
+    def image_tag(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_tag", value)
+
+    @property
+    @pulumi.getter(name="registryUrl")
+    def registry_url(self) -> pulumi.Input[str]:
+        """
+        The URL of the docker registry.
+        """
+        return pulumi.get(self, "registry_url")
+
+    @registry_url.setter
+    def registry_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_url", value)
+
+    @property
+    @pulumi.getter(name="registryPassword")
+    def registry_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the account to use to connect to the registry.
+        """
+        return pulumi.get(self, "registry_password")
+
+    @registry_password.setter
+    def registry_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_password", value)
+
+    @property
+    @pulumi.getter(name="registryUsername")
+    def registry_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username to use for connections to the registry.
+        """
+        return pulumi.get(self, "registry_username")
+
+    @registry_username.setter
+    def registry_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_username", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotSiteConfigCorsArgs:
+    def __init__(__self__, *,
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 support_credentials: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: an `allowed_origins` block as detailed below.
+        :param pulumi.Input[bool] support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        an `allowed_origins` block as detailed below.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+        return pulumi.get(self, "support_credentials")
+
+    @support_credentials.setter
+    def support_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "support_credentials", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: a `headers` block as detailed below.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        a `headers` block as detailed below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: a `headers` block as detailed below.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        a `headers` block as detailed below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class LinuxFunctionAppSlotSiteCredentialArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The Site Credentials Username used for publishing.
+        :param pulumi.Input[str] password: The Site Credentials Password used for publishing.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Username used for publishing.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Password used for publishing.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class LinuxWebAppAuthSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 active_directory: Optional[pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArgs']] = None,
+                 additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 facebook: Optional[pulumi.Input['LinuxWebAppAuthSettingsFacebookArgs']] = None,
+                 github: Optional[pulumi.Input['LinuxWebAppAuthSettingsGithubArgs']] = None,
+                 google: Optional[pulumi.Input['LinuxWebAppAuthSettingsGoogleArgs']] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 microsoft: Optional[pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArgs']] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 twitter: Optional[pulumi.Input['LinuxWebAppAuthSettingsTwitterArgs']] = None,
+                 unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
+        :param pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+        :param pulumi.Input['LinuxWebAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsGithubArgs'] github: A `github` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+        :param pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        :param pulumi.Input['LinuxWebAppAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if additional_login_parameters is not None:
+            pulumi.set(__self__, "additional_login_parameters", additional_login_parameters)
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if facebook is not None:
+            pulumi.set(__self__, "facebook", facebook)
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if google is not None:
+            pulumi.set(__self__, "google", google)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if microsoft is not None:
+            pulumi.set(__self__, "microsoft", microsoft)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if token_refresh_extension_hours is not None:
+            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if twitter is not None:
+            pulumi.set(__self__, "twitter", twitter)
+        if unauthenticated_client_action is not None:
+            pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the Authentication / Authorization feature be enabled for the Linux Web App?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArgs']]:
+        """
+        An `active_directory` block as defined above.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter(name="additionalLoginParameters")
+    def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "additional_login_parameters")
+
+    @additional_login_parameters.setter
+    def additional_login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_login_parameters", value)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter
+    def facebook(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsFacebookArgs']]:
+        """
+        A `facebook` block as defined below.
+        """
+        return pulumi.get(self, "facebook")
+
+    @facebook.setter
+    def facebook(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsFacebookArgs']]):
+        pulumi.set(self, "facebook", value)
+
+    @property
+    @pulumi.getter
+    def github(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsGithubArgs']]:
+        """
+        A `github` block as defined below.
+        """
+        return pulumi.get(self, "github")
+
+    @github.setter
+    def github(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsGithubArgs']]):
+        pulumi.set(self, "github", value)
+
+    @property
+    @pulumi.getter
+    def google(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsGoogleArgs']]:
+        """
+        A `google` block as defined below.
+        """
+        return pulumi.get(self, "google")
+
+    @google.setter
+    def google(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsGoogleArgs']]):
+        pulumi.set(self, "google", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter
+    def microsoft(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArgs']]:
+        """
+        A `microsoft` block as defined below.
+        """
+        return pulumi.get(self, "microsoft")
+
+    @microsoft.setter
+    def microsoft(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArgs']]):
+        pulumi.set(self, "microsoft", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_hours")
+
+    @token_refresh_extension_hours.setter
+    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_hours", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter
+    def twitter(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsTwitterArgs']]:
+        """
+        A `twitter` block as defined below.
+        """
+        return pulumi.get(self, "twitter")
+
+    @twitter.setter
+    def twitter(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsTwitterArgs']]):
+        pulumi.set(self, "twitter", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedClientAction")
+    def unauthenticated_client_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        return pulumi.get(self, "unauthenticated_client_action")
+
+    @unauthenticated_client_action.setter
+    def unauthenticated_client_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_client_action", value)
+
+
+@pulumi.input_type
+class LinuxWebAppAuthSettingsActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[str] client_secret: The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+
+@pulumi.input_type
+class LinuxWebAppAuthSettingsFacebookArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret: Optional[pulumi.Input[str]] = None,
+                 app_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
+        if app_secret_setting_name is not None:
+            pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @app_secret.setter
+    def app_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxWebAppAuthSettingsGithubArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the GitHub app used for login.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxWebAppAuthSettingsGoogleArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
+        :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxWebAppAuthSettingsMicrosoftArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxWebAppAuthSettingsTwitterArgs:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret: Optional[pulumi.Input[str]] = None,
+                 consumer_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        if consumer_secret is not None:
+            pulumi.set(__self__, "consumer_secret", consumer_secret)
+        if consumer_secret_setting_name is not None:
+            pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecret")
+    def consumer_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        return pulumi.get(self, "consumer_secret")
+
+    @consumer_secret.setter
+    def consumer_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+@pulumi.input_type
+class LinuxWebAppBackupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 schedule: pulumi.Input['LinuxWebAppBackupScheduleArgs'],
+                 storage_account_url: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Backup.
+        :param pulumi.Input['LinuxWebAppBackupScheduleArgs'] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
+        :param pulumi.Input[bool] enabled: Should this backup job be enabled?
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Backup.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['LinuxWebAppBackupScheduleArgs']:
+        """
+        A `schedule` block as defined below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['LinuxWebAppBackupScheduleArgs']):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="storageAccountUrl")
+    def storage_account_url(self) -> pulumi.Input[str]:
+        """
+        The SAS URL to the container.
+        """
+        return pulumi.get(self, "storage_account_url")
+
+    @storage_account_url.setter
+    def storage_account_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_url", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this backup job be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class LinuxWebAppBackupScheduleArgs:
+    def __init__(__self__, *,
+                 frequency_interval: pulumi.Input[int],
+                 frequency_unit: pulumi.Input[str],
+                 keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
+                 last_execution_time: Optional[pulumi.Input[str]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+        :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted.
+        :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
+        """
+        pulumi.set(__self__, "frequency_interval", frequency_interval)
+        pulumi.set(__self__, "frequency_unit", frequency_unit)
+        if keep_at_least_one_backup is not None:
+            pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
+        if last_execution_time is not None:
+            pulumi.set(__self__, "last_execution_time", last_execution_time)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="frequencyInterval")
+    def frequency_interval(self) -> pulumi.Input[int]:
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        """
+        return pulumi.get(self, "frequency_interval")
+
+    @frequency_interval.setter
+    def frequency_interval(self, value: pulumi.Input[int]):
+        pulumi.set(self, "frequency_interval", value)
+
+    @property
+    @pulumi.getter(name="frequencyUnit")
+    def frequency_unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+        """
+        return pulumi.get(self, "frequency_unit")
+
+    @frequency_unit.setter
+    def frequency_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frequency_unit", value)
+
+    @property
+    @pulumi.getter(name="keepAtLeastOneBackup")
+    def keep_at_least_one_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        return pulumi.get(self, "keep_at_least_one_backup")
+
+    @keep_at_least_one_backup.setter
+    def keep_at_least_one_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keep_at_least_one_backup", value)
+
+    @property
+    @pulumi.getter(name="lastExecutionTime")
+    def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_execution_time")
+
+    @last_execution_time.setter
+    def last_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_execution_time", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        After how many days backups should be deleted.
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class LinuxWebAppConnectionStringArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input[str] type: Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+        :param pulumi.Input[str] value: The connection string value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The connection string value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LinuxWebAppIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class LinuxWebAppLogsArgs:
+    def __init__(__self__, *,
+                 application_logs: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsArgs']] = None,
+                 detailed_error_messages: Optional[pulumi.Input[bool]] = None,
+                 failed_request_tracing: Optional[pulumi.Input[bool]] = None,
+                 http_logs: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsArgs']] = None):
+        """
+        :param pulumi.Input['LinuxWebAppLogsApplicationLogsArgs'] application_logs: A `application_logs` block as defined above.
+        :param pulumi.Input[bool] detailed_error_messages: Should detailed error messages be enabled.
+        :param pulumi.Input[bool] failed_request_tracing: Should failed request tracing be enabled.
+        :param pulumi.Input['LinuxWebAppLogsHttpLogsArgs'] http_logs: An `http_logs` block as defined above.
+        """
+        if application_logs is not None:
+            pulumi.set(__self__, "application_logs", application_logs)
+        if detailed_error_messages is not None:
+            pulumi.set(__self__, "detailed_error_messages", detailed_error_messages)
+        if failed_request_tracing is not None:
+            pulumi.set(__self__, "failed_request_tracing", failed_request_tracing)
+        if http_logs is not None:
+            pulumi.set(__self__, "http_logs", http_logs)
+
+    @property
+    @pulumi.getter(name="applicationLogs")
+    def application_logs(self) -> Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsArgs']]:
+        """
+        A `application_logs` block as defined above.
+        """
+        return pulumi.get(self, "application_logs")
+
+    @application_logs.setter
+    def application_logs(self, value: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsArgs']]):
+        pulumi.set(self, "application_logs", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorMessages")
+    def detailed_error_messages(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should detailed error messages be enabled.
+        """
+        return pulumi.get(self, "detailed_error_messages")
+
+    @detailed_error_messages.setter
+    def detailed_error_messages(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_messages", value)
+
+    @property
+    @pulumi.getter(name="failedRequestTracing")
+    def failed_request_tracing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should failed request tracing be enabled.
+        """
+        return pulumi.get(self, "failed_request_tracing")
+
+    @failed_request_tracing.setter
+    def failed_request_tracing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "failed_request_tracing", value)
+
+    @property
+    @pulumi.getter(name="httpLogs")
+    def http_logs(self) -> Optional[pulumi.Input['LinuxWebAppLogsHttpLogsArgs']]:
+        """
+        An `http_logs` block as defined above.
+        """
+        return pulumi.get(self, "http_logs")
+
+    @http_logs.setter
+    def http_logs(self, value: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsArgs']]):
+        pulumi.set(self, "http_logs", value)
+
+
+@pulumi.input_type
+class LinuxWebAppLogsApplicationLogsArgs:
+    def __init__(__self__, *,
+                 file_system_level: pulumi.Input[str],
+                 azure_blob_storage: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs']] = None):
+        """
+        :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        :param pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        """
+        pulumi.set(__self__, "file_system_level", file_system_level)
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+
+    @property
+    @pulumi.getter(name="fileSystemLevel")
+    def file_system_level(self) -> pulumi.Input[str]:
+        """
+        Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        """
+        return pulumi.get(self, "file_system_level")
+
+    @file_system_level.setter
+    def file_system_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_level", value)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs']]:
+        """
+        An `azure_blob_storage` block as defined below.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @azure_blob_storage.setter
+    def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs']]):
+        pulumi.set(self, "azure_blob_storage", value)
+
+
+@pulumi.input_type
+class LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs:
+    def __init__(__self__, *,
+                 level: pulumi.Input[str],
+                 retention_in_days: pulumi.Input[int],
+                 sas_url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
+        :param pulumi.Input[str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "retention_in_days", retention_in_days)
+        pulumi.set(__self__, "sas_url", sas_url)
+
+    @property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> pulumi.Input[int]:
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> pulumi.Input[str]:
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+    @sas_url.setter
+    def sas_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sas_url", value)
+
+
+@pulumi.input_type
+class LinuxWebAppLogsHttpLogsArgs:
+    def __init__(__self__, *,
+                 azure_blob_storage: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArgs']] = None,
+                 file_system: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArgs']] = None):
+        """
+        :param pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArgs'] azure_blob_storage: A `azure_blob_storage` block as defined above.
+        :param pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArgs'] file_system: A `file_system` block as defined above.
+        """
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional[pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArgs']]:
+        """
+        A `azure_blob_storage` block as defined above.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @azure_blob_storage.setter
+    def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArgs']]):
+        pulumi.set(self, "azure_blob_storage", value)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> Optional[pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArgs']]:
+        """
+        A `file_system` block as defined above.
+        """
+        return pulumi.get(self, "file_system")
+
+    @file_system.setter
+    def file_system(self, value: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArgs']]):
+        pulumi.set(self, "file_system", value)
+
+
+@pulumi.input_type
+class LinuxWebAppLogsHttpLogsAzureBlobStorageArgs:
+    def __init__(__self__, *,
+                 sas_url: pulumi.Input[str],
+                 retention_in_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+        :param pulumi.Input[int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        pulumi.set(__self__, "sas_url", sas_url)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> pulumi.Input[str]:
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+    @sas_url.setter
+    def sas_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sas_url", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_in_days", value)
+
+
+@pulumi.input_type
+class LinuxWebAppLogsHttpLogsFileSystemArgs:
+    def __init__(__self__, *,
+                 retention_in_days: pulumi.Input[int],
+                 retention_in_mb: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] retention_in_days: The retention period in days. A values of `0` means no retention.
+        :param pulumi.Input[int] retention_in_mb: The maximum size in megabytes that log files can use.
+        """
+        pulumi.set(__self__, "retention_in_days", retention_in_days)
+        pulumi.set(__self__, "retention_in_mb", retention_in_mb)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> pulumi.Input[int]:
+        """
+        The retention period in days. A values of `0` means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="retentionInMb")
+    def retention_in_mb(self) -> pulumi.Input[int]:
+        """
+        The maximum size in megabytes that log files can use.
+        """
+        return pulumi.get(self, "retention_in_mb")
+
+    @retention_in_mb.setter
+    def retention_in_mb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_in_mb", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigArgs:
+    def __init__(__self__, *,
+                 always_on: Optional[pulumi.Input[bool]] = None,
+                 api_definition_url: Optional[pulumi.Input[str]] = None,
+                 api_management_api_id: Optional[pulumi.Input[str]] = None,
+                 app_command_line: Optional[pulumi.Input[str]] = None,
+                 application_stack: Optional[pulumi.Input['LinuxWebAppSiteConfigApplicationStackArgs']] = None,
+                 auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
+                 auto_heal_setting: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArgs']] = None,
+                 container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
+                 cors: Optional[pulumi.Input['LinuxWebAppSiteConfigCorsArgs']] = None,
+                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
+                 ftps_state: Optional[pulumi.Input[str]] = None,
+                 health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgs']]]] = None,
+                 linux_fx_version: Optional[pulumi.Input[str]] = None,
+                 load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 local_mysql_enabled: Optional[pulumi.Input[bool]] = None,
+                 managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 scm_type: Optional[pulumi.Input[str]] = None,
+                 scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
+                 use32_bit_worker: Optional[pulumi.Input[bool]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
+                 websockets_enabled: Optional[pulumi.Input[bool]] = None,
+                 worker_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] always_on: If this Linux Web App is Always On enabled. Defaults to `false`.
+        :param pulumi.Input[str] app_command_line: The App command line to launch.
+        :param pulumi.Input['LinuxWebAppSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
+        :param pulumi.Input[bool] auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
+        :param pulumi.Input['LinuxWebAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Linux Web App.
+        :param pulumi.Input[str] ftps_state: The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        :param pulumi.Input[str] health_check_path: The path to the Health Check.
+        :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
+        :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+        :param pulumi.Input[bool] use32_bit_worker: Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        :param pulumi.Input[int] worker_count: The number of Workers for this Linux App Service.
+        """
+        if always_on is not None:
+            pulumi.set(__self__, "always_on", always_on)
+        if api_definition_url is not None:
+            pulumi.set(__self__, "api_definition_url", api_definition_url)
+        if api_management_api_id is not None:
+            pulumi.set(__self__, "api_management_api_id", api_management_api_id)
+        if app_command_line is not None:
+            pulumi.set(__self__, "app_command_line", app_command_line)
+        if application_stack is not None:
+            pulumi.set(__self__, "application_stack", application_stack)
+        if auto_heal_enabled is not None:
+            pulumi.set(__self__, "auto_heal_enabled", auto_heal_enabled)
+        if auto_heal_setting is not None:
+            pulumi.set(__self__, "auto_heal_setting", auto_heal_setting)
+        if container_registry_managed_identity_client_id is not None:
+            pulumi.set(__self__, "container_registry_managed_identity_client_id", container_registry_managed_identity_client_id)
+        if container_registry_use_managed_identity is not None:
+            pulumi.set(__self__, "container_registry_use_managed_identity", container_registry_use_managed_identity)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if default_documents is not None:
+            pulumi.set(__self__, "default_documents", default_documents)
+        if detailed_error_logging_enabled is not None:
+            pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
+        if ftps_state is not None:
+            pulumi.set(__self__, "ftps_state", ftps_state)
+        if health_check_eviction_time_in_min is not None:
+            pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http2_enabled is not None:
+            pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restrictions is not None:
+            pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        if linux_fx_version is not None:
+            pulumi.set(__self__, "linux_fx_version", linux_fx_version)
+        if load_balancing_mode is not None:
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+        if local_mysql_enabled is not None:
+            pulumi.set(__self__, "local_mysql_enabled", local_mysql_enabled)
+        if managed_pipeline_mode is not None:
+            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
+        if remote_debugging_version is not None:
+            pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if scm_ip_restrictions is not None:
+            pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
+        if scm_minimum_tls_version is not None:
+            pulumi.set(__self__, "scm_minimum_tls_version", scm_minimum_tls_version)
+        if scm_type is not None:
+            pulumi.set(__self__, "scm_type", scm_type)
+        if scm_use_main_ip_restriction is not None:
+            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
+        if use32_bit_worker is not None:
+            pulumi.set(__self__, "use32_bit_worker", use32_bit_worker)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if websockets_enabled is not None:
+            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+        if worker_count is not None:
+            pulumi.set(__self__, "worker_count", worker_count)
+
+    @property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If this Linux Web App is Always On enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "always_on")
+
+    @always_on.setter
+    def always_on(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_on", value)
+
+    @property
+    @pulumi.getter(name="apiDefinitionUrl")
+    def api_definition_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "api_definition_url")
+
+    @api_definition_url.setter
+    def api_definition_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_definition_url", value)
+
+    @property
+    @pulumi.getter(name="apiManagementApiId")
+    def api_management_api_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "api_management_api_id")
+
+    @api_management_api_id.setter
+    def api_management_api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_api_id", value)
+
+    @property
+    @pulumi.getter(name="appCommandLine")
+    def app_command_line(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App command line to launch.
+        """
+        return pulumi.get(self, "app_command_line")
+
+    @app_command_line.setter
+    def app_command_line(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_command_line", value)
+
+    @property
+    @pulumi.getter(name="applicationStack")
+    def application_stack(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigApplicationStackArgs']]:
+        """
+        A `application_stack` block as defined above.
+        """
+        return pulumi.get(self, "application_stack")
+
+    @application_stack.setter
+    def application_stack(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigApplicationStackArgs']]):
+        pulumi.set(self, "application_stack", value)
+
+    @property
+    @pulumi.getter(name="autoHealEnabled")
+    def auto_heal_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        """
+        return pulumi.get(self, "auto_heal_enabled")
+
+    @auto_heal_enabled.setter
+    def auto_heal_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_heal_enabled", value)
+
+    @property
+    @pulumi.getter(name="autoHealSetting")
+    def auto_heal_setting(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArgs']]:
+        """
+        A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        """
+        return pulumi.get(self, "auto_heal_setting")
+
+    @auto_heal_setting.setter
+    def auto_heal_setting(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArgs']]):
+        pulumi.set(self, "auto_heal_setting", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryManagedIdentityClientId")
+    def container_registry_managed_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        return pulumi.get(self, "container_registry_managed_identity_client_id")
+
+    @container_registry_managed_identity_client_id.setter
+    def container_registry_managed_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_registry_managed_identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryUseManagedIdentity")
+    def container_registry_use_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        return pulumi.get(self, "container_registry_use_managed_identity")
+
+    @container_registry_use_managed_identity.setter
+    def container_registry_use_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "container_registry_use_managed_identity", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigCorsArgs']]:
+        """
+        A `cors` block as defined above.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigCorsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="defaultDocuments")
+    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Default Documents for the Linux Web App.
+        """
+        return pulumi.get(self, "default_documents")
+
+    @default_documents.setter
+    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_documents", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorLoggingEnabled")
+    def detailed_error_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "detailed_error_logging_enabled")
+
+    @detailed_error_logging_enabled.setter
+    def detailed_error_logging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_logging_enabled", value)
+
+    @property
+    @pulumi.getter(name="ftpsState")
+    def ftps_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        """
+        return pulumi.get(self, "ftps_state")
+
+    @ftps_state.setter
+    def ftps_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ftps_state", value)
+
+    @property
+    @pulumi.getter(name="healthCheckEvictionTimeInMin")
+    def health_check_eviction_time_in_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        return pulumi.get(self, "health_check_eviction_time_in_min")
+
+    @health_check_eviction_time_in_min.setter
+    def health_check_eviction_time_in_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_eviction_time_in_min", value)
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the Health Check.
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @health_check_path.setter
+    def health_check_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_path", value)
+
+    @property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the HTTP2 be enabled?
+        """
+        return pulumi.get(self, "http2_enabled")
+
+    @http2_enabled.setter
+    def http2_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http2_enabled", value)
+
+    @property
+    @pulumi.getter(name="ipRestrictions")
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgs']]]]:
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "ip_restrictions")
+
+    @ip_restrictions.setter
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgs']]]]):
+        pulumi.set(self, "ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="linuxFxVersion")
+    def linux_fx_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "linux_fx_version")
+
+    @linux_fx_version.setter
+    def linux_fx_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linux_fx_version", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingMode")
+    def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        return pulumi.get(self, "load_balancing_mode")
+
+    @load_balancing_mode.setter
+    def load_balancing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancing_mode", value)
+
+    @property
+    @pulumi.getter(name="localMysqlEnabled")
+    def local_mysql_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use Local MySQL. Defaults to `false`.
+        """
+        return pulumi.get(self, "local_mysql_enabled")
+
+    @local_mysql_enabled.setter
+    def local_mysql_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_mysql_enabled", value)
+
+    @property
+    @pulumi.getter(name="managedPipelineMode")
+    def managed_pipeline_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        """
+        return pulumi.get(self, "managed_pipeline_mode")
+
+    @managed_pipeline_mode.setter
+    def managed_pipeline_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_pipeline_mode", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @remote_debugging_enabled.setter
+    def remote_debugging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remote_debugging_enabled", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingVersion")
+    def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        """
+        return pulumi.get(self, "remote_debugging_version")
+
+    @remote_debugging_version.setter
+    def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictions")
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]]]:
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "scm_ip_restrictions")
+
+    @scm_ip_restrictions.setter
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]]]):
+        pulumi.set(self, "scm_ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="scmMinimumTlsVersion")
+    def scm_minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "scm_minimum_tls_version")
+
+    @scm_minimum_tls_version.setter
+    def scm_minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scm_type")
+
+    @scm_type.setter
+    def scm_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_type", value)
+
+    @property
+    @pulumi.getter(name="scmUseMainIpRestriction")
+    def scm_use_main_ip_restriction(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+        """
+        return pulumi.get(self, "scm_use_main_ip_restriction")
+
+    @scm_use_main_ip_restriction.setter
+    def scm_use_main_ip_restriction(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scm_use_main_ip_restriction", value)
+
+    @property
+    @pulumi.getter(name="use32BitWorker")
+    def use32_bit_worker(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        """
+        return pulumi.get(self, "use32_bit_worker")
+
+    @use32_bit_worker.setter
+    def use32_bit_worker(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use32_bit_worker", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
+
+    @property
+    @pulumi.getter(name="websocketsEnabled")
+    def websockets_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "websockets_enabled")
+
+    @websockets_enabled.setter
+    def websockets_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "websockets_enabled", value)
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of Workers for this Linux App Service.
+        """
+        return pulumi.get(self, "worker_count")
+
+    @worker_count.setter
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "worker_count", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigApplicationStackArgs:
+    def __init__(__self__, *,
+                 docker_image: Optional[pulumi.Input[str]] = None,
+                 docker_image_tag: Optional[pulumi.Input[str]] = None,
+                 dotnet_version: Optional[pulumi.Input[str]] = None,
+                 java_server: Optional[pulumi.Input[str]] = None,
+                 java_server_version: Optional[pulumi.Input[str]] = None,
+                 java_version: Optional[pulumi.Input[str]] = None,
+                 node_version: Optional[pulumi.Input[str]] = None,
+                 php_version: Optional[pulumi.Input[str]] = None,
+                 python_version: Optional[pulumi.Input[str]] = None,
+                 ruby_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] docker_image: The Docker image reference, including repository host as needed.
+        :param pulumi.Input[str] docker_image_tag: The image Tag to use. e.g. `latest`.
+        :param pulumi.Input[str] dotnet_version: The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        :param pulumi.Input[str] java_server: The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        :param pulumi.Input[str] java_server_version: The Version of the `java_server` to use.
+        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+        :param pulumi.Input[str] php_version: The version of PHP to run. Possible values include `7.4`, and `8.0`.
+        :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+        :param pulumi.Input[str] ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        """
+        if docker_image is not None:
+            pulumi.set(__self__, "docker_image", docker_image)
+        if docker_image_tag is not None:
+            pulumi.set(__self__, "docker_image_tag", docker_image_tag)
+        if dotnet_version is not None:
+            pulumi.set(__self__, "dotnet_version", dotnet_version)
+        if java_server is not None:
+            pulumi.set(__self__, "java_server", java_server)
+        if java_server_version is not None:
+            pulumi.set(__self__, "java_server_version", java_server_version)
+        if java_version is not None:
+            pulumi.set(__self__, "java_version", java_version)
+        if node_version is not None:
+            pulumi.set(__self__, "node_version", node_version)
+        if php_version is not None:
+            pulumi.set(__self__, "php_version", php_version)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+        if ruby_version is not None:
+            pulumi.set(__self__, "ruby_version", ruby_version)
+
+    @property
+    @pulumi.getter(name="dockerImage")
+    def docker_image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Docker image reference, including repository host as needed.
+        """
+        return pulumi.get(self, "docker_image")
+
+    @docker_image.setter
+    def docker_image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_image", value)
+
+    @property
+    @pulumi.getter(name="dockerImageTag")
+    def docker_image_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The image Tag to use. e.g. `latest`.
+        """
+        return pulumi.get(self, "docker_image_tag")
+
+    @docker_image_tag.setter
+    def docker_image_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_image_tag", value)
+
+    @property
+    @pulumi.getter(name="dotnetVersion")
+    def dotnet_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        """
+        return pulumi.get(self, "dotnet_version")
+
+    @dotnet_version.setter
+    def dotnet_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dotnet_version", value)
+
+    @property
+    @pulumi.getter(name="javaServer")
+    def java_server(self) -> Optional[pulumi.Input[str]]:
+        """
+        The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        """
+        return pulumi.get(self, "java_server")
+
+    @java_server.setter
+    def java_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_server", value)
+
+    @property
+    @pulumi.getter(name="javaServerVersion")
+    def java_server_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Version of the `java_server` to use.
+        """
+        return pulumi.get(self, "java_server_version")
+
+    @java_server_version.setter
+    def java_server_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_server_version", value)
+
+    @property
+    @pulumi.getter(name="javaVersion")
+    def java_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+        """
+        return pulumi.get(self, "java_version")
+
+    @java_version.setter
+    def java_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_version", value)
+
+    @property
+    @pulumi.getter(name="nodeVersion")
+    def node_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+        """
+        return pulumi.get(self, "node_version")
+
+    @node_version.setter
+    def node_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_version", value)
+
+    @property
+    @pulumi.getter(name="phpVersion")
+    def php_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of PHP to run. Possible values include `7.4`, and `8.0`.
+        """
+        return pulumi.get(self, "php_version")
+
+    @php_version.setter
+    def php_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "php_version", value)
+
+    @property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+        """
+        return pulumi.get(self, "python_version")
+
+    @python_version.setter
+    def python_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "python_version", value)
+
+    @property
+    @pulumi.getter(name="rubyVersion")
+    def ruby_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        """
+        return pulumi.get(self, "ruby_version")
+
+    @ruby_version.setter
+    def ruby_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ruby_version", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigAutoHealSettingArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArgs']] = None,
+                 trigger: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArgs']] = None):
+        """
+        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArgs'] action: A `action` block as defined above.
+        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArgs'] trigger: A `trigger` block as defined below.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if trigger is not None:
+            pulumi.set(__self__, "trigger", trigger)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArgs']]:
+        """
+        A `action` block as defined above.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArgs']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArgs']]:
+        """
+        A `trigger` block as defined below.
+        """
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArgs']]):
+        pulumi.set(self, "trigger", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigAutoHealSettingActionArgs:
+    def __init__(__self__, *,
+                 action_type: pulumi.Input[str],
+                 minimum_process_execution_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action_type: Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+        :param pulumi.Input[str] minimum_process_execution_time: The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+        """
+        pulumi.set(__self__, "action_type", action_type)
+        if minimum_process_execution_time is not None:
+            pulumi.set(__self__, "minimum_process_execution_time", minimum_process_execution_time)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[str]:
+        """
+        Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="minimumProcessExecutionTime")
+    def minimum_process_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+        """
+        return pulumi.get(self, "minimum_process_execution_time")
+
+    @minimum_process_execution_time.setter
+    def minimum_process_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_process_execution_time", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs:
+    def __init__(__self__, *,
+                 requests: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']] = None,
+                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]] = None,
+                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None):
+        """
+        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs'] requests: A `requests` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]] slow_requests: One or more `slow_request` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]] status_codes: One or more `status_code` blocks as defined above.
+        """
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if slow_requests is not None:
+            pulumi.set(__self__, "slow_requests", slow_requests)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']]:
+        """
+        A `requests` block as defined above.
+        """
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']]):
+        pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter(name="slowRequests")
+    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]:
+        """
+        One or more `slow_request` blocks as defined above.
+        """
+        return pulumi.get(self, "slow_requests")
+
+    @slow_requests.setter
+    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]):
+        pulumi.set(self, "slow_requests", value)
+
+    @property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]:
+        """
+        One or more `status_code` blocks as defined above.
+        """
+        return pulumi.get(self, "status_codes")
+
+    @status_codes.setter
+    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]):
+        pulumi.set(self, "status_codes", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] count: The number of requests in the specified `interval` to trigger this rule.
+        :param pulumi.Input[str] interval: The interval in `hh:mm:ss`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        The number of requests in the specified `interval` to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The interval in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: pulumi.Input[str],
+                 time_taken: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] count: The number of Slow Requests in the time `interval` to trigger this rule.
+        :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
+        :param pulumi.Input[str] time_taken: The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        :param pulumi.Input[str] path: The path for which this slow request rule applies.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "time_taken", time_taken)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="timeTaken")
+    def time_taken(self) -> pulumi.Input[str]:
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "time_taken")
+
+    @time_taken.setter
+    def time_taken(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_taken", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path for which this slow request rule applies.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: pulumi.Input[str],
+                 status_code_range: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None,
+                 sub_status: Optional[pulumi.Input[int]] = None,
+                 win32_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
+        :param pulumi.Input[str] status_code_range: The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+        :param pulumi.Input[str] path: The path to which this rule status code applies.
+        :param pulumi.Input[int] sub_status: The Request Sub Status of the Status Code.
+        :param pulumi.Input[str] win32_status: The Win32 Status Code of the Request.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "status_code_range", status_code_range)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if sub_status is not None:
+            pulumi.set(__self__, "sub_status", sub_status)
+        if win32_status is not None:
+            pulumi.set(__self__, "win32_status", win32_status)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="statusCodeRange")
+    def status_code_range(self) -> pulumi.Input[str]:
+        """
+        The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+        """
+        return pulumi.get(self, "status_code_range")
+
+    @status_code_range.setter
+    def status_code_range(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status_code_range", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to which this rule status code applies.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="subStatus")
+    def sub_status(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Request Sub Status of the Status Code.
+        """
+        return pulumi.get(self, "sub_status")
+
+    @sub_status.setter
+    def sub_status(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sub_status", value)
+
+    @property
+    @pulumi.getter(name="win32Status")
+    def win32_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Win32 Status Code of the Request.
+        """
+        return pulumi.get(self, "win32_status")
+
+    @win32_status.setter
+    def win32_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "win32_status", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigCorsArgs:
+    def __init__(__self__, *,
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 support_credentials: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
+        :param pulumi.Input[bool] support_credentials: Whether CORS requests with credentials are allowed. Defaults to `false`
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether CORS requests with credentials are allowed. Defaults to `false`
+        """
+        return pulumi.get(self, "support_credentials")
+
+    @support_credentials.setter
+    def support_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "support_credentials", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigScmIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSiteCredentialArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input[str] password: The Site Credentials Password used for publishing.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Password used for publishing.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotAuthSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 active_directory: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArgs']] = None,
+                 additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 facebook: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArgs']] = None,
+                 github: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArgs']] = None,
+                 google: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArgs']] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 microsoft: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArgs']] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 twitter: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArgs']] = None,
+                 unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArgs'] github: A `github` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if additional_login_parameters is not None:
+            pulumi.set(__self__, "additional_login_parameters", additional_login_parameters)
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if facebook is not None:
+            pulumi.set(__self__, "facebook", facebook)
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if google is not None:
+            pulumi.set(__self__, "google", google)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if microsoft is not None:
+            pulumi.set(__self__, "microsoft", microsoft)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if token_refresh_extension_hours is not None:
+            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if twitter is not None:
+            pulumi.set(__self__, "twitter", twitter)
+        if unauthenticated_client_action is not None:
+            pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the Authentication / Authorization feature be enabled for the Linux Web App?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArgs']]:
+        """
+        An `active_directory` block as defined above.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter(name="additionalLoginParameters")
+    def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "additional_login_parameters")
+
+    @additional_login_parameters.setter
+    def additional_login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_login_parameters", value)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter
+    def facebook(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArgs']]:
+        """
+        A `facebook` block as defined below.
+        """
+        return pulumi.get(self, "facebook")
+
+    @facebook.setter
+    def facebook(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArgs']]):
+        pulumi.set(self, "facebook", value)
+
+    @property
+    @pulumi.getter
+    def github(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArgs']]:
+        """
+        A `github` block as defined below.
+        """
+        return pulumi.get(self, "github")
+
+    @github.setter
+    def github(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArgs']]):
+        pulumi.set(self, "github", value)
+
+    @property
+    @pulumi.getter
+    def google(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArgs']]:
+        """
+        A `google` block as defined below.
+        """
+        return pulumi.get(self, "google")
+
+    @google.setter
+    def google(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArgs']]):
+        pulumi.set(self, "google", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter
+    def microsoft(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArgs']]:
+        """
+        A `microsoft` block as defined below.
+        """
+        return pulumi.get(self, "microsoft")
+
+    @microsoft.setter
+    def microsoft(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArgs']]):
+        pulumi.set(self, "microsoft", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_hours")
+
+    @token_refresh_extension_hours.setter
+    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_hours", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter
+    def twitter(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArgs']]:
+        """
+        A `twitter` block as defined below.
+        """
+        return pulumi.get(self, "twitter")
+
+    @twitter.setter
+    def twitter(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArgs']]):
+        pulumi.set(self, "twitter", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedClientAction")
+    def unauthenticated_client_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        return pulumi.get(self, "unauthenticated_client_action")
+
+    @unauthenticated_client_action.setter
+    def unauthenticated_client_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_client_action", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotAuthSettingsActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[str] client_secret: The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotAuthSettingsFacebookArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret: Optional[pulumi.Input[str]] = None,
+                 app_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
+        if app_secret_setting_name is not None:
+            pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @app_secret.setter
+    def app_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotAuthSettingsGithubArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the GitHub app used for login.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotAuthSettingsGoogleArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
+        :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotAuthSettingsMicrosoftArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotAuthSettingsTwitterArgs:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret: Optional[pulumi.Input[str]] = None,
+                 consumer_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        if consumer_secret is not None:
+            pulumi.set(__self__, "consumer_secret", consumer_secret)
+        if consumer_secret_setting_name is not None:
+            pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecret")
+    def consumer_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        return pulumi.get(self, "consumer_secret")
+
+    @consumer_secret.setter
+    def consumer_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotBackupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 schedule: pulumi.Input['LinuxWebAppSlotBackupScheduleArgs'],
+                 storage_account_url: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Backup.
+        :param pulumi.Input['LinuxWebAppSlotBackupScheduleArgs'] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
+        :param pulumi.Input[bool] enabled: Should this backup job be enabled?
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Backup.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['LinuxWebAppSlotBackupScheduleArgs']:
+        """
+        A `schedule` block as defined below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['LinuxWebAppSlotBackupScheduleArgs']):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="storageAccountUrl")
+    def storage_account_url(self) -> pulumi.Input[str]:
+        """
+        The SAS URL to the container.
+        """
+        return pulumi.get(self, "storage_account_url")
+
+    @storage_account_url.setter
+    def storage_account_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_url", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this backup job be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotBackupScheduleArgs:
+    def __init__(__self__, *,
+                 frequency_interval: pulumi.Input[int],
+                 frequency_unit: pulumi.Input[str],
+                 keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
+                 last_execution_time: Optional[pulumi.Input[str]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+        :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted.
+        :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
+        """
+        pulumi.set(__self__, "frequency_interval", frequency_interval)
+        pulumi.set(__self__, "frequency_unit", frequency_unit)
+        if keep_at_least_one_backup is not None:
+            pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
+        if last_execution_time is not None:
+            pulumi.set(__self__, "last_execution_time", last_execution_time)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="frequencyInterval")
+    def frequency_interval(self) -> pulumi.Input[int]:
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        """
+        return pulumi.get(self, "frequency_interval")
+
+    @frequency_interval.setter
+    def frequency_interval(self, value: pulumi.Input[int]):
+        pulumi.set(self, "frequency_interval", value)
+
+    @property
+    @pulumi.getter(name="frequencyUnit")
+    def frequency_unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+        """
+        return pulumi.get(self, "frequency_unit")
+
+    @frequency_unit.setter
+    def frequency_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frequency_unit", value)
+
+    @property
+    @pulumi.getter(name="keepAtLeastOneBackup")
+    def keep_at_least_one_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        return pulumi.get(self, "keep_at_least_one_backup")
+
+    @keep_at_least_one_backup.setter
+    def keep_at_least_one_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keep_at_least_one_backup", value)
+
+    @property
+    @pulumi.getter(name="lastExecutionTime")
+    def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_execution_time")
+
+    @last_execution_time.setter
+    def last_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_execution_time", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        After how many days backups should be deleted.
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotConnectionStringArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input[str] type: Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        :param pulumi.Input[str] value: The connection string value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The connection string value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App Slot.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App Slot.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotLogsArgs:
+    def __init__(__self__, *,
+                 application_logs: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArgs']] = None,
+                 detailed_error_messages: Optional[pulumi.Input[bool]] = None,
+                 failed_request_tracing: Optional[pulumi.Input[bool]] = None,
+                 http_logs: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsArgs']] = None):
+        """
+        :param pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArgs'] application_logs: A `application_logs` block as defined above.
+        :param pulumi.Input[bool] detailed_error_messages: Should detailed error messages be enabled.
+        :param pulumi.Input[bool] failed_request_tracing: Should failed request tracing be enabled.
+        :param pulumi.Input['LinuxWebAppSlotLogsHttpLogsArgs'] http_logs: An `http_logs` block as defined above.
+        """
+        if application_logs is not None:
+            pulumi.set(__self__, "application_logs", application_logs)
+        if detailed_error_messages is not None:
+            pulumi.set(__self__, "detailed_error_messages", detailed_error_messages)
+        if failed_request_tracing is not None:
+            pulumi.set(__self__, "failed_request_tracing", failed_request_tracing)
+        if http_logs is not None:
+            pulumi.set(__self__, "http_logs", http_logs)
+
+    @property
+    @pulumi.getter(name="applicationLogs")
+    def application_logs(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArgs']]:
+        """
+        A `application_logs` block as defined above.
+        """
+        return pulumi.get(self, "application_logs")
+
+    @application_logs.setter
+    def application_logs(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArgs']]):
+        pulumi.set(self, "application_logs", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorMessages")
+    def detailed_error_messages(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should detailed error messages be enabled.
+        """
+        return pulumi.get(self, "detailed_error_messages")
+
+    @detailed_error_messages.setter
+    def detailed_error_messages(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_messages", value)
+
+    @property
+    @pulumi.getter(name="failedRequestTracing")
+    def failed_request_tracing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should failed request tracing be enabled.
+        """
+        return pulumi.get(self, "failed_request_tracing")
+
+    @failed_request_tracing.setter
+    def failed_request_tracing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "failed_request_tracing", value)
+
+    @property
+    @pulumi.getter(name="httpLogs")
+    def http_logs(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsArgs']]:
+        """
+        An `http_logs` block as defined above.
+        """
+        return pulumi.get(self, "http_logs")
+
+    @http_logs.setter
+    def http_logs(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsArgs']]):
+        pulumi.set(self, "http_logs", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotLogsApplicationLogsArgs:
+    def __init__(__self__, *,
+                 file_system_level: pulumi.Input[str],
+                 azure_blob_storage: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']] = None):
+        """
+        :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        :param pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        """
+        pulumi.set(__self__, "file_system_level", file_system_level)
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+
+    @property
+    @pulumi.getter(name="fileSystemLevel")
+    def file_system_level(self) -> pulumi.Input[str]:
+        """
+        Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        """
+        return pulumi.get(self, "file_system_level")
+
+    @file_system_level.setter
+    def file_system_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_level", value)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']]:
+        """
+        An `azure_blob_storage` block as defined below.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @azure_blob_storage.setter
+    def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']]):
+        pulumi.set(self, "azure_blob_storage", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
+    def __init__(__self__, *,
+                 level: pulumi.Input[str],
+                 retention_in_days: pulumi.Input[int],
+                 sas_url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
+        :param pulumi.Input[str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "retention_in_days", retention_in_days)
+        pulumi.set(__self__, "sas_url", sas_url)
+
+    @property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> pulumi.Input[int]:
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> pulumi.Input[str]:
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+    @sas_url.setter
+    def sas_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sas_url", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotLogsHttpLogsArgs:
+    def __init__(__self__, *,
+                 azure_blob_storage: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs']] = None,
+                 file_system: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArgs']] = None):
+        """
+        :param pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs'] azure_blob_storage: A `azure_blob_storage` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArgs'] file_system: A `file_system` block as defined above.
+        """
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs']]:
+        """
+        A `azure_blob_storage` block as defined above.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @azure_blob_storage.setter
+    def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs']]):
+        pulumi.set(self, "azure_blob_storage", value)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArgs']]:
+        """
+        A `file_system` block as defined above.
+        """
+        return pulumi.get(self, "file_system")
+
+    @file_system.setter
+    def file_system(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArgs']]):
+        pulumi.set(self, "file_system", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
+    def __init__(__self__, *,
+                 sas_url: pulumi.Input[str],
+                 retention_in_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+        :param pulumi.Input[int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        pulumi.set(__self__, "sas_url", sas_url)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> pulumi.Input[str]:
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+    @sas_url.setter
+    def sas_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sas_url", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_in_days", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotLogsHttpLogsFileSystemArgs:
+    def __init__(__self__, *,
+                 retention_in_days: pulumi.Input[int],
+                 retention_in_mb: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] retention_in_days: The retention period in days. A values of `0` means no retention.
+        :param pulumi.Input[int] retention_in_mb: The maximum size in megabytes that log files can use.
+        """
+        pulumi.set(__self__, "retention_in_days", retention_in_days)
+        pulumi.set(__self__, "retention_in_mb", retention_in_mb)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> pulumi.Input[int]:
+        """
+        The retention period in days. A values of `0` means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="retentionInMb")
+    def retention_in_mb(self) -> pulumi.Input[int]:
+        """
+        The maximum size in megabytes that log files can use.
+        """
+        return pulumi.get(self, "retention_in_mb")
+
+    @retention_in_mb.setter
+    def retention_in_mb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_in_mb", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigArgs:
+    def __init__(__self__, *,
+                 always_on: Optional[pulumi.Input[bool]] = None,
+                 api_definition_url: Optional[pulumi.Input[str]] = None,
+                 api_management_api_id: Optional[pulumi.Input[str]] = None,
+                 app_command_line: Optional[pulumi.Input[str]] = None,
+                 application_stack: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArgs']] = None,
+                 auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
+                 auto_heal_setting: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArgs']] = None,
+                 auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
+                 container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
+                 cors: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigCorsArgs']] = None,
+                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
+                 ftps_state: Optional[pulumi.Input[str]] = None,
+                 health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgs']]]] = None,
+                 linux_fx_version: Optional[pulumi.Input[str]] = None,
+                 load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 local_mysql_enabled: Optional[pulumi.Input[bool]] = None,
+                 managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 scm_type: Optional[pulumi.Input[str]] = None,
+                 scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
+                 use32_bit_worker: Optional[pulumi.Input[bool]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
+                 websockets_enabled: Optional[pulumi.Input[bool]] = None,
+                 worker_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] always_on: If this Linux Web App is Always On enabled. Defaults to `false`.
+        :param pulumi.Input[str] api_definition_url: The URL to the API Definition for this Linux Web App Slot.
+        :param pulumi.Input[str] api_management_api_id: The API Management API ID this Linux Web App Slot os associated with.
+        :param pulumi.Input[str] app_command_line: The App command line to launch.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
+        :param pulumi.Input[bool] auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        :param pulumi.Input[str] auto_swap_slot_name: The Linux Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+        :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Linux Web App.
+        :param pulumi.Input[str] ftps_state: The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        :param pulumi.Input[str] health_check_path: The path to the Health Check.
+        :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
+        :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+        :param pulumi.Input[bool] use32_bit_worker: Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        :param pulumi.Input[int] worker_count: The number of Workers for this Linux App Service Slot.
+        """
+        if always_on is not None:
+            pulumi.set(__self__, "always_on", always_on)
+        if api_definition_url is not None:
+            pulumi.set(__self__, "api_definition_url", api_definition_url)
+        if api_management_api_id is not None:
+            pulumi.set(__self__, "api_management_api_id", api_management_api_id)
+        if app_command_line is not None:
+            pulumi.set(__self__, "app_command_line", app_command_line)
+        if application_stack is not None:
+            pulumi.set(__self__, "application_stack", application_stack)
+        if auto_heal_enabled is not None:
+            pulumi.set(__self__, "auto_heal_enabled", auto_heal_enabled)
+        if auto_heal_setting is not None:
+            pulumi.set(__self__, "auto_heal_setting", auto_heal_setting)
+        if auto_swap_slot_name is not None:
+            pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
+        if container_registry_managed_identity_client_id is not None:
+            pulumi.set(__self__, "container_registry_managed_identity_client_id", container_registry_managed_identity_client_id)
+        if container_registry_use_managed_identity is not None:
+            pulumi.set(__self__, "container_registry_use_managed_identity", container_registry_use_managed_identity)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if default_documents is not None:
+            pulumi.set(__self__, "default_documents", default_documents)
+        if detailed_error_logging_enabled is not None:
+            pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
+        if ftps_state is not None:
+            pulumi.set(__self__, "ftps_state", ftps_state)
+        if health_check_eviction_time_in_min is not None:
+            pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http2_enabled is not None:
+            pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restrictions is not None:
+            pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        if linux_fx_version is not None:
+            pulumi.set(__self__, "linux_fx_version", linux_fx_version)
+        if load_balancing_mode is not None:
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+        if local_mysql_enabled is not None:
+            pulumi.set(__self__, "local_mysql_enabled", local_mysql_enabled)
+        if managed_pipeline_mode is not None:
+            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
+        if remote_debugging_version is not None:
+            pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if scm_ip_restrictions is not None:
+            pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
+        if scm_minimum_tls_version is not None:
+            pulumi.set(__self__, "scm_minimum_tls_version", scm_minimum_tls_version)
+        if scm_type is not None:
+            pulumi.set(__self__, "scm_type", scm_type)
+        if scm_use_main_ip_restriction is not None:
+            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
+        if use32_bit_worker is not None:
+            pulumi.set(__self__, "use32_bit_worker", use32_bit_worker)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if websockets_enabled is not None:
+            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+        if worker_count is not None:
+            pulumi.set(__self__, "worker_count", worker_count)
+
+    @property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If this Linux Web App is Always On enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "always_on")
+
+    @always_on.setter
+    def always_on(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_on", value)
+
+    @property
+    @pulumi.getter(name="apiDefinitionUrl")
+    def api_definition_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to the API Definition for this Linux Web App Slot.
+        """
+        return pulumi.get(self, "api_definition_url")
+
+    @api_definition_url.setter
+    def api_definition_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_definition_url", value)
+
+    @property
+    @pulumi.getter(name="apiManagementApiId")
+    def api_management_api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API Management API ID this Linux Web App Slot os associated with.
+        """
+        return pulumi.get(self, "api_management_api_id")
+
+    @api_management_api_id.setter
+    def api_management_api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_api_id", value)
+
+    @property
+    @pulumi.getter(name="appCommandLine")
+    def app_command_line(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App command line to launch.
+        """
+        return pulumi.get(self, "app_command_line")
+
+    @app_command_line.setter
+    def app_command_line(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_command_line", value)
+
+    @property
+    @pulumi.getter(name="applicationStack")
+    def application_stack(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArgs']]:
+        """
+        A `application_stack` block as defined above.
+        """
+        return pulumi.get(self, "application_stack")
+
+    @application_stack.setter
+    def application_stack(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArgs']]):
+        pulumi.set(self, "application_stack", value)
+
+    @property
+    @pulumi.getter(name="autoHealEnabled")
+    def auto_heal_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        """
+        return pulumi.get(self, "auto_heal_enabled")
+
+    @auto_heal_enabled.setter
+    def auto_heal_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_heal_enabled", value)
+
+    @property
+    @pulumi.getter(name="autoHealSetting")
+    def auto_heal_setting(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArgs']]:
+        """
+        A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        """
+        return pulumi.get(self, "auto_heal_setting")
+
+    @auto_heal_setting.setter
+    def auto_heal_setting(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArgs']]):
+        pulumi.set(self, "auto_heal_setting", value)
+
+    @property
+    @pulumi.getter(name="autoSwapSlotName")
+    def auto_swap_slot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Linux Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+        """
+        return pulumi.get(self, "auto_swap_slot_name")
+
+    @auto_swap_slot_name.setter
+    def auto_swap_slot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_swap_slot_name", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryManagedIdentityClientId")
+    def container_registry_managed_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        return pulumi.get(self, "container_registry_managed_identity_client_id")
+
+    @container_registry_managed_identity_client_id.setter
+    def container_registry_managed_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_registry_managed_identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryUseManagedIdentity")
+    def container_registry_use_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        return pulumi.get(self, "container_registry_use_managed_identity")
+
+    @container_registry_use_managed_identity.setter
+    def container_registry_use_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "container_registry_use_managed_identity", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigCorsArgs']]:
+        """
+        A `cors` block as defined above.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigCorsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="defaultDocuments")
+    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Default Documents for the Linux Web App.
+        """
+        return pulumi.get(self, "default_documents")
+
+    @default_documents.setter
+    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_documents", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorLoggingEnabled")
+    def detailed_error_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "detailed_error_logging_enabled")
+
+    @detailed_error_logging_enabled.setter
+    def detailed_error_logging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_logging_enabled", value)
+
+    @property
+    @pulumi.getter(name="ftpsState")
+    def ftps_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        """
+        return pulumi.get(self, "ftps_state")
+
+    @ftps_state.setter
+    def ftps_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ftps_state", value)
+
+    @property
+    @pulumi.getter(name="healthCheckEvictionTimeInMin")
+    def health_check_eviction_time_in_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        return pulumi.get(self, "health_check_eviction_time_in_min")
+
+    @health_check_eviction_time_in_min.setter
+    def health_check_eviction_time_in_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_eviction_time_in_min", value)
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the Health Check.
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @health_check_path.setter
+    def health_check_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_path", value)
+
+    @property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the HTTP2 be enabled?
+        """
+        return pulumi.get(self, "http2_enabled")
+
+    @http2_enabled.setter
+    def http2_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http2_enabled", value)
+
+    @property
+    @pulumi.getter(name="ipRestrictions")
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgs']]]]:
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "ip_restrictions")
+
+    @ip_restrictions.setter
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgs']]]]):
+        pulumi.set(self, "ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="linuxFxVersion")
+    def linux_fx_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "linux_fx_version")
+
+    @linux_fx_version.setter
+    def linux_fx_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linux_fx_version", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingMode")
+    def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        return pulumi.get(self, "load_balancing_mode")
+
+    @load_balancing_mode.setter
+    def load_balancing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancing_mode", value)
+
+    @property
+    @pulumi.getter(name="localMysqlEnabled")
+    def local_mysql_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use Local MySQL. Defaults to `false`.
+        """
+        return pulumi.get(self, "local_mysql_enabled")
+
+    @local_mysql_enabled.setter
+    def local_mysql_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_mysql_enabled", value)
+
+    @property
+    @pulumi.getter(name="managedPipelineMode")
+    def managed_pipeline_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        """
+        return pulumi.get(self, "managed_pipeline_mode")
+
+    @managed_pipeline_mode.setter
+    def managed_pipeline_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_pipeline_mode", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @remote_debugging_enabled.setter
+    def remote_debugging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remote_debugging_enabled", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingVersion")
+    def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        """
+        return pulumi.get(self, "remote_debugging_version")
+
+    @remote_debugging_version.setter
+    def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictions")
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]]]:
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "scm_ip_restrictions")
+
+    @scm_ip_restrictions.setter
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]]]):
+        pulumi.set(self, "scm_ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="scmMinimumTlsVersion")
+    def scm_minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "scm_minimum_tls_version")
+
+    @scm_minimum_tls_version.setter
+    def scm_minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scm_type")
+
+    @scm_type.setter
+    def scm_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_type", value)
+
+    @property
+    @pulumi.getter(name="scmUseMainIpRestriction")
+    def scm_use_main_ip_restriction(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+        """
+        return pulumi.get(self, "scm_use_main_ip_restriction")
+
+    @scm_use_main_ip_restriction.setter
+    def scm_use_main_ip_restriction(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scm_use_main_ip_restriction", value)
+
+    @property
+    @pulumi.getter(name="use32BitWorker")
+    def use32_bit_worker(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        """
+        return pulumi.get(self, "use32_bit_worker")
+
+    @use32_bit_worker.setter
+    def use32_bit_worker(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use32_bit_worker", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
+
+    @property
+    @pulumi.getter(name="websocketsEnabled")
+    def websockets_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "websockets_enabled")
+
+    @websockets_enabled.setter
+    def websockets_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "websockets_enabled", value)
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of Workers for this Linux App Service Slot.
+        """
+        return pulumi.get(self, "worker_count")
+
+    @worker_count.setter
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "worker_count", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigApplicationStackArgs:
+    def __init__(__self__, *,
+                 docker_image: Optional[pulumi.Input[str]] = None,
+                 docker_image_tag: Optional[pulumi.Input[str]] = None,
+                 dotnet_version: Optional[pulumi.Input[str]] = None,
+                 java_server: Optional[pulumi.Input[str]] = None,
+                 java_server_version: Optional[pulumi.Input[str]] = None,
+                 java_version: Optional[pulumi.Input[str]] = None,
+                 node_version: Optional[pulumi.Input[str]] = None,
+                 php_version: Optional[pulumi.Input[str]] = None,
+                 python_version: Optional[pulumi.Input[str]] = None,
+                 ruby_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] docker_image: The Docker image reference, including repository host as needed.
+        :param pulumi.Input[str] docker_image_tag: The image Tag to use. e.g. `latest`.
+        :param pulumi.Input[str] dotnet_version: The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        :param pulumi.Input[str] java_server: The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        :param pulumi.Input[str] java_server_version: The Version of the `java_server` to use.
+        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+        :param pulumi.Input[str] php_version: The version of PHP to run. Possible values include `7.4`, and `8.0`.
+        :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+        :param pulumi.Input[str] ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        """
+        if docker_image is not None:
+            pulumi.set(__self__, "docker_image", docker_image)
+        if docker_image_tag is not None:
+            pulumi.set(__self__, "docker_image_tag", docker_image_tag)
+        if dotnet_version is not None:
+            pulumi.set(__self__, "dotnet_version", dotnet_version)
+        if java_server is not None:
+            pulumi.set(__self__, "java_server", java_server)
+        if java_server_version is not None:
+            pulumi.set(__self__, "java_server_version", java_server_version)
+        if java_version is not None:
+            pulumi.set(__self__, "java_version", java_version)
+        if node_version is not None:
+            pulumi.set(__self__, "node_version", node_version)
+        if php_version is not None:
+            pulumi.set(__self__, "php_version", php_version)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+        if ruby_version is not None:
+            pulumi.set(__self__, "ruby_version", ruby_version)
+
+    @property
+    @pulumi.getter(name="dockerImage")
+    def docker_image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Docker image reference, including repository host as needed.
+        """
+        return pulumi.get(self, "docker_image")
+
+    @docker_image.setter
+    def docker_image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_image", value)
+
+    @property
+    @pulumi.getter(name="dockerImageTag")
+    def docker_image_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The image Tag to use. e.g. `latest`.
+        """
+        return pulumi.get(self, "docker_image_tag")
+
+    @docker_image_tag.setter
+    def docker_image_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_image_tag", value)
+
+    @property
+    @pulumi.getter(name="dotnetVersion")
+    def dotnet_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        """
+        return pulumi.get(self, "dotnet_version")
+
+    @dotnet_version.setter
+    def dotnet_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dotnet_version", value)
+
+    @property
+    @pulumi.getter(name="javaServer")
+    def java_server(self) -> Optional[pulumi.Input[str]]:
+        """
+        The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        """
+        return pulumi.get(self, "java_server")
+
+    @java_server.setter
+    def java_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_server", value)
+
+    @property
+    @pulumi.getter(name="javaServerVersion")
+    def java_server_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Version of the `java_server` to use.
+        """
+        return pulumi.get(self, "java_server_version")
+
+    @java_server_version.setter
+    def java_server_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_server_version", value)
+
+    @property
+    @pulumi.getter(name="javaVersion")
+    def java_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+        """
+        return pulumi.get(self, "java_version")
+
+    @java_version.setter
+    def java_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_version", value)
+
+    @property
+    @pulumi.getter(name="nodeVersion")
+    def node_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+        """
+        return pulumi.get(self, "node_version")
+
+    @node_version.setter
+    def node_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_version", value)
+
+    @property
+    @pulumi.getter(name="phpVersion")
+    def php_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of PHP to run. Possible values include `7.4`, and `8.0`.
+        """
+        return pulumi.get(self, "php_version")
+
+    @php_version.setter
+    def php_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "php_version", value)
+
+    @property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+        """
+        return pulumi.get(self, "python_version")
+
+    @python_version.setter
+    def python_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "python_version", value)
+
+    @property
+    @pulumi.getter(name="rubyVersion")
+    def ruby_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        """
+        return pulumi.get(self, "ruby_version")
+
+    @ruby_version.setter
+    def ruby_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ruby_version", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigAutoHealSettingArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs']] = None,
+                 trigger: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs']] = None):
+        """
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs'] action: A `action` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs'] trigger: A `trigger` block as defined below.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if trigger is not None:
+            pulumi.set(__self__, "trigger", trigger)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs']]:
+        """
+        A `action` block as defined above.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs']]:
+        """
+        A `trigger` block as defined below.
+        """
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs']]):
+        pulumi.set(self, "trigger", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs:
+    def __init__(__self__, *,
+                 action_type: pulumi.Input[str],
+                 minimum_process_execution_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action_type: Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+        :param pulumi.Input[str] minimum_process_execution_time: The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+        """
+        pulumi.set(__self__, "action_type", action_type)
+        if minimum_process_execution_time is not None:
+            pulumi.set(__self__, "minimum_process_execution_time", minimum_process_execution_time)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[str]:
+        """
+        Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="minimumProcessExecutionTime")
+    def minimum_process_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+        """
+        return pulumi.get(self, "minimum_process_execution_time")
+
+    @minimum_process_execution_time.setter
+    def minimum_process_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_process_execution_time", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
+    def __init__(__self__, *,
+                 requests: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']] = None,
+                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]] = None,
+                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None):
+        """
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs'] requests: A `requests` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]] slow_requests: One or more `slow_request` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]] status_codes: One or more `status_code` blocks as defined above.
+        """
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if slow_requests is not None:
+            pulumi.set(__self__, "slow_requests", slow_requests)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']]:
+        """
+        A `requests` block as defined above.
+        """
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']]):
+        pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter(name="slowRequests")
+    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]:
+        """
+        One or more `slow_request` blocks as defined above.
+        """
+        return pulumi.get(self, "slow_requests")
+
+    @slow_requests.setter
+    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]):
+        pulumi.set(self, "slow_requests", value)
+
+    @property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]:
+        """
+        One or more `status_code` blocks as defined above.
+        """
+        return pulumi.get(self, "status_codes")
+
+    @status_codes.setter
+    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]):
+        pulumi.set(self, "status_codes", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] count: The number of requests in the specified `interval` to trigger this rule.
+        :param pulumi.Input[str] interval: The interval in `hh:mm:ss`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        The number of requests in the specified `interval` to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The interval in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: pulumi.Input[str],
+                 time_taken: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] count: The number of Slow Requests in the time `interval` to trigger this rule.
+        :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
+        :param pulumi.Input[str] time_taken: The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        :param pulumi.Input[str] path: The path for which this slow request rule applies.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "time_taken", time_taken)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="timeTaken")
+    def time_taken(self) -> pulumi.Input[str]:
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "time_taken")
+
+    @time_taken.setter
+    def time_taken(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_taken", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path for which this slow request rule applies.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: pulumi.Input[str],
+                 status_code_range: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None,
+                 sub_status: Optional[pulumi.Input[int]] = None,
+                 win32_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
+        :param pulumi.Input[str] status_code_range: The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+        :param pulumi.Input[str] path: The path to which this rule status code applies.
+        :param pulumi.Input[int] sub_status: The Request Sub Status of the Status Code.
+        :param pulumi.Input[str] win32_status: The Win32 Status Code of the Request.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "status_code_range", status_code_range)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if sub_status is not None:
+            pulumi.set(__self__, "sub_status", sub_status)
+        if win32_status is not None:
+            pulumi.set(__self__, "win32_status", win32_status)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="statusCodeRange")
+    def status_code_range(self) -> pulumi.Input[str]:
+        """
+        The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+        """
+        return pulumi.get(self, "status_code_range")
+
+    @status_code_range.setter
+    def status_code_range(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status_code_range", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to which this rule status code applies.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="subStatus")
+    def sub_status(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Request Sub Status of the Status Code.
+        """
+        return pulumi.get(self, "sub_status")
+
+    @sub_status.setter
+    def sub_status(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sub_status", value)
+
+    @property
+    @pulumi.getter(name="win32Status")
+    def win32_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Win32 Status Code of the Request.
+        """
+        return pulumi.get(self, "win32_status")
+
+    @win32_status.setter
+    def win32_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "win32_status", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigCorsArgs:
+    def __init__(__self__, *,
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 support_credentials: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
+        :param pulumi.Input[bool] support_credentials: Whether CORS requests with credentials are allowed. Defaults to `false`
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether CORS requests with credentials are allowed. Defaults to `false`
+        """
+        return pulumi.get(self, "support_credentials")
+
+    @support_credentials.setter
+    def support_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "support_credentials", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigScmIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotSiteCredentialArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input[str] password: The Site Credentials Password used for publishing.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Password used for publishing.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class LinuxWebAppSlotStorageAccountArgs:
+    def __init__(__self__, *,
+                 access_key: pulumi.Input[str],
+                 account_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 share_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 mount_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_key: The Access key for the storage account.
+        :param pulumi.Input[str] account_name: The Name of the Storage Account.
+        :param pulumi.Input[str] name: The name which should be used for this Storage Account.
+        :param pulumi.Input[str] share_name: The Name of the File Share or Container Name for Blob storage.
+        :param pulumi.Input[str] type: The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+        :param pulumi.Input[str] mount_path: The path at which to mount the storage share.
+        """
+        pulumi.set(__self__, "access_key", access_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "type", type)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> pulumi.Input[str]:
+        """
+        The Access key for the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the Storage Account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Storage Account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path at which to mount the storage share.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
+
+
+@pulumi.input_type
+class LinuxWebAppStorageAccountArgs:
+    def __init__(__self__, *,
+                 access_key: pulumi.Input[str],
+                 account_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 share_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 mount_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_key: The Access key for the storage account.
+        :param pulumi.Input[str] account_name: The Name of the Storage Account.
+        :param pulumi.Input[str] name: The name which should be used for this Storage Account.
+        :param pulumi.Input[str] share_name: The Name of the File Share or Container Name for Blob storage.
+        :param pulumi.Input[str] type: The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+        :param pulumi.Input[str] mount_path: The path at which to mount the storage share.
+        """
+        pulumi.set(__self__, "access_key", access_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "type", type)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> pulumi.Input[str]:
+        """
+        The Access key for the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the Storage Account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Storage Account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path at which to mount the storage share.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
+
+
+@pulumi.input_type
 class PlanSkuArgs:
     def __init__(__self__, *,
                  size: pulumi.Input[str],
@@ -6278,6 +16536,7 @@ class SlotSiteConfigArgs:
         :param pulumi.Input[str] acr_user_managed_identity_client_id: If using User Managed Identity, the User Managed Identity Client Id
         :param pulumi.Input[bool] always_on: Should the slot be loaded at all times? Defaults to `false`.
         :param pulumi.Input[str] app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+        :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap to during deployment
         :param pulumi.Input['SlotSiteConfigCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: The ordering of default documents to load, if an address isn't specified.
         :param pulumi.Input[str] dotnet_framework_version: The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
@@ -6419,6 +16678,9 @@ class SlotSiteConfigArgs:
     @property
     @pulumi.getter(name="autoSwapSlotName")
     def auto_swap_slot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the slot to automatically swap to during deployment
+        """
         return pulumi.get(self, "auto_swap_slot_name")
 
     @auto_swap_slot_name.setter
@@ -7294,6 +17556,352 @@ class SlotStorageAccountArgs:
 
 
 @pulumi.input_type
+class SourceControlGithubActionConfigurationArgs:
+    def __init__(__self__, *,
+                 code_configuration: Optional[pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArgs']] = None,
+                 container_configuration: Optional[pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArgs']] = None,
+                 generate_workflow_file: Optional[pulumi.Input[bool]] = None,
+                 linux_action: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArgs'] code_configuration: A `code_configuration` block as defined above.
+        :param pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArgs'] container_configuration: A `container_configuration` block as defined above.
+        """
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
+        if container_configuration is not None:
+            pulumi.set(__self__, "container_configuration", container_configuration)
+        if generate_workflow_file is not None:
+            pulumi.set(__self__, "generate_workflow_file", generate_workflow_file)
+        if linux_action is not None:
+            pulumi.set(__self__, "linux_action", linux_action)
+
+    @property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional[pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArgs']]:
+        """
+        A `code_configuration` block as defined above.
+        """
+        return pulumi.get(self, "code_configuration")
+
+    @code_configuration.setter
+    def code_configuration(self, value: Optional[pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArgs']]):
+        pulumi.set(self, "code_configuration", value)
+
+    @property
+    @pulumi.getter(name="containerConfiguration")
+    def container_configuration(self) -> Optional[pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArgs']]:
+        """
+        A `container_configuration` block as defined above.
+        """
+        return pulumi.get(self, "container_configuration")
+
+    @container_configuration.setter
+    def container_configuration(self, value: Optional[pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArgs']]):
+        pulumi.set(self, "container_configuration", value)
+
+    @property
+    @pulumi.getter(name="generateWorkflowFile")
+    def generate_workflow_file(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "generate_workflow_file")
+
+    @generate_workflow_file.setter
+    def generate_workflow_file(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "generate_workflow_file", value)
+
+    @property
+    @pulumi.getter(name="linuxAction")
+    def linux_action(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "linux_action")
+
+    @linux_action.setter
+    def linux_action(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "linux_action", value)
+
+
+@pulumi.input_type
+class SourceControlGithubActionConfigurationCodeConfigurationArgs:
+    def __init__(__self__, *,
+                 runtime_stack: pulumi.Input[str],
+                 runtime_version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] runtime_stack: The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] runtime_version: The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "runtime_stack", runtime_stack)
+        pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter(name="runtimeStack")
+    def runtime_stack(self) -> pulumi.Input[str]:
+        """
+        The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "runtime_stack")
+
+    @runtime_stack.setter
+    def runtime_stack(self, value: pulumi.Input[str]):
+        pulumi.set(self, "runtime_stack", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> pulumi.Input[str]:
+        """
+        The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "runtime_version", value)
+
+
+@pulumi.input_type
+class SourceControlGithubActionConfigurationContainerConfigurationArgs:
+    def __init__(__self__, *,
+                 image_name: pulumi.Input[str],
+                 registry_url: pulumi.Input[str],
+                 registry_password: Optional[pulumi.Input[str]] = None,
+                 registry_username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] image_name: The image name for the build. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] registry_url: The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] registry_password: The password used to upload the image to the container registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] registry_username: The username used to upload the image to the container registry. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "image_name", image_name)
+        pulumi.set(__self__, "registry_url", registry_url)
+        if registry_password is not None:
+            pulumi.set(__self__, "registry_password", registry_password)
+        if registry_username is not None:
+            pulumi.set(__self__, "registry_username", registry_username)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The image name for the build. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="registryUrl")
+    def registry_url(self) -> pulumi.Input[str]:
+        """
+        The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "registry_url")
+
+    @registry_url.setter
+    def registry_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_url", value)
+
+    @property
+    @pulumi.getter(name="registryPassword")
+    def registry_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password used to upload the image to the container registry. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "registry_password")
+
+    @registry_password.setter
+    def registry_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_password", value)
+
+    @property
+    @pulumi.getter(name="registryUsername")
+    def registry_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username used to upload the image to the container registry. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "registry_username")
+
+    @registry_username.setter
+    def registry_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_username", value)
+
+
+@pulumi.input_type
+class SourceControlSlotGithubActionConfigurationArgs:
+    def __init__(__self__, *,
+                 code_configuration: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArgs']] = None,
+                 container_configuration: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArgs']] = None,
+                 generate_workflow_file: Optional[pulumi.Input[bool]] = None,
+                 linux_action: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArgs'] code_configuration: A `code_configuration` block as detailed below.
+        :param pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArgs'] container_configuration: A `container_configuration` block as detailed below.
+        :param pulumi.Input[bool] generate_workflow_file: Should the service generate the GitHub Action Workflow file. Defaults to `true` Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] linux_action: Denotes this action uses a Linux base image.
+        """
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
+        if container_configuration is not None:
+            pulumi.set(__self__, "container_configuration", container_configuration)
+        if generate_workflow_file is not None:
+            pulumi.set(__self__, "generate_workflow_file", generate_workflow_file)
+        if linux_action is not None:
+            pulumi.set(__self__, "linux_action", linux_action)
+
+    @property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArgs']]:
+        """
+        A `code_configuration` block as detailed below.
+        """
+        return pulumi.get(self, "code_configuration")
+
+    @code_configuration.setter
+    def code_configuration(self, value: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArgs']]):
+        pulumi.set(self, "code_configuration", value)
+
+    @property
+    @pulumi.getter(name="containerConfiguration")
+    def container_configuration(self) -> Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArgs']]:
+        """
+        A `container_configuration` block as detailed below.
+        """
+        return pulumi.get(self, "container_configuration")
+
+    @container_configuration.setter
+    def container_configuration(self, value: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArgs']]):
+        pulumi.set(self, "container_configuration", value)
+
+    @property
+    @pulumi.getter(name="generateWorkflowFile")
+    def generate_workflow_file(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the service generate the GitHub Action Workflow file. Defaults to `true` Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "generate_workflow_file")
+
+    @generate_workflow_file.setter
+    def generate_workflow_file(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "generate_workflow_file", value)
+
+    @property
+    @pulumi.getter(name="linuxAction")
+    def linux_action(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Denotes this action uses a Linux base image.
+        """
+        return pulumi.get(self, "linux_action")
+
+    @linux_action.setter
+    def linux_action(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "linux_action", value)
+
+
+@pulumi.input_type
+class SourceControlSlotGithubActionConfigurationCodeConfigurationArgs:
+    def __init__(__self__, *,
+                 runtime_stack: pulumi.Input[str],
+                 runtime_version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] runtime_stack: The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] runtime_version: The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "runtime_stack", runtime_stack)
+        pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter(name="runtimeStack")
+    def runtime_stack(self) -> pulumi.Input[str]:
+        """
+        The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "runtime_stack")
+
+    @runtime_stack.setter
+    def runtime_stack(self, value: pulumi.Input[str]):
+        pulumi.set(self, "runtime_stack", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> pulumi.Input[str]:
+        """
+        The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "runtime_version", value)
+
+
+@pulumi.input_type
+class SourceControlSlotGithubActionConfigurationContainerConfigurationArgs:
+    def __init__(__self__, *,
+                 image_name: pulumi.Input[str],
+                 registry_url: pulumi.Input[str],
+                 registry_password: Optional[pulumi.Input[str]] = None,
+                 registry_username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] image_name: The image name for the build. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] registry_url: The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] registry_password: The password used to upload the image to the container registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] registry_username: The username used to upload the image to the container registry. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "image_name", image_name)
+        pulumi.set(__self__, "registry_url", registry_url)
+        if registry_password is not None:
+            pulumi.set(__self__, "registry_password", registry_password)
+        if registry_username is not None:
+            pulumi.set(__self__, "registry_username", registry_username)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The image name for the build. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="registryUrl")
+    def registry_url(self) -> pulumi.Input[str]:
+        """
+        The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "registry_url")
+
+    @registry_url.setter
+    def registry_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_url", value)
+
+    @property
+    @pulumi.getter(name="registryPassword")
+    def registry_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password used to upload the image to the container registry. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "registry_password")
+
+    @registry_password.setter
+    def registry_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_password", value)
+
+    @property
+    @pulumi.getter(name="registryUsername")
+    def registry_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username used to upload the image to the container registry. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "registry_username")
+
+    @registry_username.setter
+    def registry_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_username", value)
+
+
+@pulumi.input_type
 class StaticSiteIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -7301,7 +17909,7 @@ class StaticSiteIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned` and `UserAssigned`.
+        :param pulumi.Input[str] type: The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of Managed Identity ID's which should be assigned to this Static Site resource.
         """
         pulumi.set(__self__, "type", type)
@@ -7316,7 +17924,7 @@ class StaticSiteIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned` and `UserAssigned`.
+        The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -7353,5 +17961,10137 @@ class StaticSiteIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 active_directory: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgs']] = None,
+                 additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 facebook: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArgs']] = None,
+                 github: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGithubArgs']] = None,
+                 google: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArgs']] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 microsoft: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArgs']] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 twitter: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArgs']] = None,
+                 unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Windows Function App?
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsGithubArgs'] github: A `github` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+        :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if additional_login_parameters is not None:
+            pulumi.set(__self__, "additional_login_parameters", additional_login_parameters)
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if facebook is not None:
+            pulumi.set(__self__, "facebook", facebook)
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if google is not None:
+            pulumi.set(__self__, "google", google)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if microsoft is not None:
+            pulumi.set(__self__, "microsoft", microsoft)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if token_refresh_extension_hours is not None:
+            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if twitter is not None:
+            pulumi.set(__self__, "twitter", twitter)
+        if unauthenticated_client_action is not None:
+            pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the Authentication / Authorization feature be enabled for the Windows Function App?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgs']]:
+        """
+        An `active_directory` block as defined above.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter(name="additionalLoginParameters")
+    def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "additional_login_parameters")
+
+    @additional_login_parameters.setter
+    def additional_login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_login_parameters", value)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter
+    def facebook(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArgs']]:
+        """
+        A `facebook` block as defined below.
+        """
+        return pulumi.get(self, "facebook")
+
+    @facebook.setter
+    def facebook(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArgs']]):
+        pulumi.set(self, "facebook", value)
+
+    @property
+    @pulumi.getter
+    def github(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGithubArgs']]:
+        """
+        A `github` block as defined below.
+        """
+        return pulumi.get(self, "github")
+
+    @github.setter
+    def github(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGithubArgs']]):
+        pulumi.set(self, "github", value)
+
+    @property
+    @pulumi.getter
+    def google(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArgs']]:
+        """
+        A `google` block as defined below.
+        """
+        return pulumi.get(self, "google")
+
+    @google.setter
+    def google(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArgs']]):
+        pulumi.set(self, "google", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter
+    def microsoft(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArgs']]:
+        """
+        A `microsoft` block as defined below.
+        """
+        return pulumi.get(self, "microsoft")
+
+    @microsoft.setter
+    def microsoft(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArgs']]):
+        pulumi.set(self, "microsoft", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_hours")
+
+    @token_refresh_extension_hours.setter
+    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_hours", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter
+    def twitter(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArgs']]:
+        """
+        A `twitter` block as defined below.
+        """
+        return pulumi.get(self, "twitter")
+
+    @twitter.setter
+    def twitter(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArgs']]):
+        pulumi.set(self, "twitter", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedClientAction")
+    def unauthenticated_client_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        return pulumi.get(self, "unauthenticated_client_action")
+
+    @unauthenticated_client_action.setter
+    def unauthenticated_client_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_client_action", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[str] client_secret: The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsFacebookArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret: Optional[pulumi.Input[str]] = None,
+                 app_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
+        if app_secret_setting_name is not None:
+            pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @app_secret.setter
+    def app_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsGithubArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the GitHub app used for login.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsGoogleArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
+        :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsMicrosoftArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppAuthSettingsTwitterArgs:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret: Optional[pulumi.Input[str]] = None,
+                 consumer_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        if consumer_secret is not None:
+            pulumi.set(__self__, "consumer_secret", consumer_secret)
+        if consumer_secret_setting_name is not None:
+            pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecret")
+    def consumer_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        return pulumi.get(self, "consumer_secret")
+
+    @consumer_secret.setter
+    def consumer_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppBackupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 schedule: pulumi.Input['WindowsFunctionAppBackupScheduleArgs'],
+                 storage_account_url: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Backup.
+        :param pulumi.Input['WindowsFunctionAppBackupScheduleArgs'] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
+        :param pulumi.Input[bool] enabled: Should this backup job be enabled?
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Backup.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['WindowsFunctionAppBackupScheduleArgs']:
+        """
+        A `schedule` block as defined below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['WindowsFunctionAppBackupScheduleArgs']):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="storageAccountUrl")
+    def storage_account_url(self) -> pulumi.Input[str]:
+        """
+        The SAS URL to the container.
+        """
+        return pulumi.get(self, "storage_account_url")
+
+    @storage_account_url.setter
+    def storage_account_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_url", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this backup job be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppBackupScheduleArgs:
+    def __init__(__self__, *,
+                 frequency_interval: pulumi.Input[int],
+                 frequency_unit: pulumi.Input[str],
+                 keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
+                 last_execution_time: Optional[pulumi.Input[str]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+        :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted.
+        :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
+        """
+        pulumi.set(__self__, "frequency_interval", frequency_interval)
+        pulumi.set(__self__, "frequency_unit", frequency_unit)
+        if keep_at_least_one_backup is not None:
+            pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
+        if last_execution_time is not None:
+            pulumi.set(__self__, "last_execution_time", last_execution_time)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="frequencyInterval")
+    def frequency_interval(self) -> pulumi.Input[int]:
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        """
+        return pulumi.get(self, "frequency_interval")
+
+    @frequency_interval.setter
+    def frequency_interval(self, value: pulumi.Input[int]):
+        pulumi.set(self, "frequency_interval", value)
+
+    @property
+    @pulumi.getter(name="frequencyUnit")
+    def frequency_unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+        """
+        return pulumi.get(self, "frequency_unit")
+
+    @frequency_unit.setter
+    def frequency_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frequency_unit", value)
+
+    @property
+    @pulumi.getter(name="keepAtLeastOneBackup")
+    def keep_at_least_one_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        return pulumi.get(self, "keep_at_least_one_backup")
+
+    @keep_at_least_one_backup.setter
+    def keep_at_least_one_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keep_at_least_one_backup", value)
+
+    @property
+    @pulumi.getter(name="lastExecutionTime")
+    def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_execution_time")
+
+    @last_execution_time.setter
+    def last_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_execution_time", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        After how many days backups should be deleted.
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppConnectionStringArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Connection.
+        :param pulumi.Input[str] type: Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        :param pulumi.Input[str] value: The connection string value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Connection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The connection string value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Windows Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Windows Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSiteConfigArgs:
+    def __init__(__self__, *,
+                 always_on: Optional[pulumi.Input[bool]] = None,
+                 api_definition_url: Optional[pulumi.Input[str]] = None,
+                 api_management_api_id: Optional[pulumi.Input[str]] = None,
+                 app_command_line: Optional[pulumi.Input[str]] = None,
+                 app_scale_limit: Optional[pulumi.Input[int]] = None,
+                 app_service_logs: Optional[pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArgs']] = None,
+                 application_insights_connection_string: Optional[pulumi.Input[str]] = None,
+                 application_insights_key: Optional[pulumi.Input[str]] = None,
+                 application_stack: Optional[pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArgs']] = None,
+                 cors: Optional[pulumi.Input['WindowsFunctionAppSiteConfigCorsArgs']] = None,
+                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
+                 elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
+                 ftps_state: Optional[pulumi.Input[str]] = None,
+                 health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]]] = None,
+                 load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 scm_type: Optional[pulumi.Input[str]] = None,
+                 scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
+                 use32_bit_worker: Optional[pulumi.Input[bool]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
+                 websockets_enabled: Optional[pulumi.Input[bool]] = None,
+                 windows_fx_version: Optional[pulumi.Input[str]] = None,
+                 worker_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] always_on: If this Windows Function App is Always On enabled. Defaults to `false`.
+        :param pulumi.Input[str] api_definition_url: The URL of the API definition that describes this Windows Function App.
+        :param pulumi.Input[str] api_management_api_id: The ID of the API Management API for this Windows Function App.
+        :param pulumi.Input[str] app_command_line: The App command line to launch.
+        :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        :param pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArgs'] app_service_logs: An `app_service_logs` block as defined above.
+        :param pulumi.Input[str] application_insights_connection_string: The Connection String for linking the Windows Function App to Application Insights.
+        :param pulumi.Input[str] application_insights_key: The Instrumentation Key for connecting the Windows Function App to Application Insights.
+        :param pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArgs'] application_stack: An `application_stack` block as defined above.
+        :param pulumi.Input['WindowsFunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Windows Function App.
+        :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
+        :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+        :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        :param pulumi.Input[str] health_check_path: The path to be checked for this Windows Function App health.
+        :param pulumi.Input[bool] http2_enabled: Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[str] minimum_tls_version: Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this Windows Function App. Only affects apps on an Elastic Premium plan.
+        :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+        :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+        :param pulumi.Input[bool] use32_bit_worker: Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
+        :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        :param pulumi.Input[bool] websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
+        :param pulumi.Input[int] worker_count: The number of Workers for this Windows Function App.
+        """
+        if always_on is not None:
+            pulumi.set(__self__, "always_on", always_on)
+        if api_definition_url is not None:
+            pulumi.set(__self__, "api_definition_url", api_definition_url)
+        if api_management_api_id is not None:
+            pulumi.set(__self__, "api_management_api_id", api_management_api_id)
+        if app_command_line is not None:
+            pulumi.set(__self__, "app_command_line", app_command_line)
+        if app_scale_limit is not None:
+            pulumi.set(__self__, "app_scale_limit", app_scale_limit)
+        if app_service_logs is not None:
+            pulumi.set(__self__, "app_service_logs", app_service_logs)
+        if application_insights_connection_string is not None:
+            pulumi.set(__self__, "application_insights_connection_string", application_insights_connection_string)
+        if application_insights_key is not None:
+            pulumi.set(__self__, "application_insights_key", application_insights_key)
+        if application_stack is not None:
+            pulumi.set(__self__, "application_stack", application_stack)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if default_documents is not None:
+            pulumi.set(__self__, "default_documents", default_documents)
+        if detailed_error_logging_enabled is not None:
+            pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
+        if elastic_instance_minimum is not None:
+            pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
+        if ftps_state is not None:
+            pulumi.set(__self__, "ftps_state", ftps_state)
+        if health_check_eviction_time_in_min is not None:
+            pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http2_enabled is not None:
+            pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restrictions is not None:
+            pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        if load_balancing_mode is not None:
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+        if managed_pipeline_mode is not None:
+            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if pre_warmed_instance_count is not None:
+            pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
+        if remote_debugging_version is not None:
+            pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if scm_ip_restrictions is not None:
+            pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
+        if scm_minimum_tls_version is not None:
+            pulumi.set(__self__, "scm_minimum_tls_version", scm_minimum_tls_version)
+        if scm_type is not None:
+            pulumi.set(__self__, "scm_type", scm_type)
+        if scm_use_main_ip_restriction is not None:
+            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
+        if use32_bit_worker is not None:
+            pulumi.set(__self__, "use32_bit_worker", use32_bit_worker)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if websockets_enabled is not None:
+            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+        if windows_fx_version is not None:
+            pulumi.set(__self__, "windows_fx_version", windows_fx_version)
+        if worker_count is not None:
+            pulumi.set(__self__, "worker_count", worker_count)
+
+    @property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If this Windows Function App is Always On enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "always_on")
+
+    @always_on.setter
+    def always_on(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_on", value)
+
+    @property
+    @pulumi.getter(name="apiDefinitionUrl")
+    def api_definition_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the API definition that describes this Windows Function App.
+        """
+        return pulumi.get(self, "api_definition_url")
+
+    @api_definition_url.setter
+    def api_definition_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_definition_url", value)
+
+    @property
+    @pulumi.getter(name="apiManagementApiId")
+    def api_management_api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the API Management API for this Windows Function App.
+        """
+        return pulumi.get(self, "api_management_api_id")
+
+    @api_management_api_id.setter
+    def api_management_api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_api_id", value)
+
+    @property
+    @pulumi.getter(name="appCommandLine")
+    def app_command_line(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App command line to launch.
+        """
+        return pulumi.get(self, "app_command_line")
+
+    @app_command_line.setter
+    def app_command_line(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_command_line", value)
+
+    @property
+    @pulumi.getter(name="appScaleLimit")
+    def app_scale_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        return pulumi.get(self, "app_scale_limit")
+
+    @app_scale_limit.setter
+    def app_scale_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "app_scale_limit", value)
+
+    @property
+    @pulumi.getter(name="appServiceLogs")
+    def app_service_logs(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArgs']]:
+        """
+        An `app_service_logs` block as defined above.
+        """
+        return pulumi.get(self, "app_service_logs")
+
+    @app_service_logs.setter
+    def app_service_logs(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArgs']]):
+        pulumi.set(self, "app_service_logs", value)
+
+    @property
+    @pulumi.getter(name="applicationInsightsConnectionString")
+    def application_insights_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Connection String for linking the Windows Function App to Application Insights.
+        """
+        return pulumi.get(self, "application_insights_connection_string")
+
+    @application_insights_connection_string.setter
+    def application_insights_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_insights_connection_string", value)
+
+    @property
+    @pulumi.getter(name="applicationInsightsKey")
+    def application_insights_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Instrumentation Key for connecting the Windows Function App to Application Insights.
+        """
+        return pulumi.get(self, "application_insights_key")
+
+    @application_insights_key.setter
+    def application_insights_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_insights_key", value)
+
+    @property
+    @pulumi.getter(name="applicationStack")
+    def application_stack(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArgs']]:
+        """
+        An `application_stack` block as defined above.
+        """
+        return pulumi.get(self, "application_stack")
+
+    @application_stack.setter
+    def application_stack(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArgs']]):
+        pulumi.set(self, "application_stack", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigCorsArgs']]:
+        """
+        A `cors` block as defined above.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigCorsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="defaultDocuments")
+    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Default Documents for the Windows Function App.
+        """
+        return pulumi.get(self, "default_documents")
+
+    @default_documents.setter
+    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_documents", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorLoggingEnabled")
+    def detailed_error_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "detailed_error_logging_enabled")
+
+    @detailed_error_logging_enabled.setter
+    def detailed_error_logging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_logging_enabled", value)
+
+    @property
+    @pulumi.getter(name="elasticInstanceMinimum")
+    def elastic_instance_minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
+        """
+        return pulumi.get(self, "elastic_instance_minimum")
+
+    @elastic_instance_minimum.setter
+    def elastic_instance_minimum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "elastic_instance_minimum", value)
+
+    @property
+    @pulumi.getter(name="ftpsState")
+    def ftps_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+        """
+        return pulumi.get(self, "ftps_state")
+
+    @ftps_state.setter
+    def ftps_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ftps_state", value)
+
+    @property
+    @pulumi.getter(name="healthCheckEvictionTimeInMin")
+    def health_check_eviction_time_in_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        return pulumi.get(self, "health_check_eviction_time_in_min")
+
+    @health_check_eviction_time_in_min.setter
+    def health_check_eviction_time_in_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_eviction_time_in_min", value)
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to be checked for this Windows Function App health.
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @health_check_path.setter
+    def health_check_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_path", value)
+
+    @property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "http2_enabled")
+
+    @http2_enabled.setter
+    def http2_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http2_enabled", value)
+
+    @property
+    @pulumi.getter(name="ipRestrictions")
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]]]:
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "ip_restrictions")
+
+    @ip_restrictions.setter
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]]]):
+        pulumi.set(self, "ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingMode")
+    def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        return pulumi.get(self, "load_balancing_mode")
+
+    @load_balancing_mode.setter
+    def load_balancing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancing_mode", value)
+
+    @property
+    @pulumi.getter(name="managedPipelineMode")
+    def managed_pipeline_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        return pulumi.get(self, "managed_pipeline_mode")
+
+    @managed_pipeline_mode.setter
+    def managed_pipeline_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_pipeline_mode", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="preWarmedInstanceCount")
+    def pre_warmed_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of pre-warmed instances for this Windows Function App. Only affects apps on an Elastic Premium plan.
+        """
+        return pulumi.get(self, "pre_warmed_instance_count")
+
+    @pre_warmed_instance_count.setter
+    def pre_warmed_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "pre_warmed_instance_count", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @remote_debugging_enabled.setter
+    def remote_debugging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remote_debugging_enabled", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingVersion")
+    def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
+        """
+        return pulumi.get(self, "remote_debugging_version")
+
+    @remote_debugging_version.setter
+    def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="runtimeScaleMonitoringEnabled")
+    def runtime_scale_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Scale Monitoring of the Functions Runtime be enabled?
+        """
+        return pulumi.get(self, "runtime_scale_monitoring_enabled")
+
+    @runtime_scale_monitoring_enabled.setter
+    def runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "runtime_scale_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictions")
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgs']]]]:
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "scm_ip_restrictions")
+
+    @scm_ip_restrictions.setter
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgs']]]]):
+        pulumi.set(self, "scm_ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="scmMinimumTlsVersion")
+    def scm_minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "scm_minimum_tls_version")
+
+    @scm_minimum_tls_version.setter
+    def scm_minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scm_type")
+
+    @scm_type.setter
+    def scm_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_type", value)
+
+    @property
+    @pulumi.getter(name="scmUseMainIpRestriction")
+    def scm_use_main_ip_restriction(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+        """
+        return pulumi.get(self, "scm_use_main_ip_restriction")
+
+    @scm_use_main_ip_restriction.setter
+    def scm_use_main_ip_restriction(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scm_use_main_ip_restriction", value)
+
+    @property
+    @pulumi.getter(name="use32BitWorker")
+    def use32_bit_worker(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
+        """
+        return pulumi.get(self, "use32_bit_worker")
+
+    @use32_bit_worker.setter
+    def use32_bit_worker(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use32_bit_worker", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
+
+    @property
+    @pulumi.getter(name="websocketsEnabled")
+    def websockets_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "websockets_enabled")
+
+    @websockets_enabled.setter
+    def websockets_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "websockets_enabled", value)
+
+    @property
+    @pulumi.getter(name="windowsFxVersion")
+    def windows_fx_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "windows_fx_version")
+
+    @windows_fx_version.setter
+    def windows_fx_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "windows_fx_version", value)
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of Workers for this Windows Function App.
+        """
+        return pulumi.get(self, "worker_count")
+
+    @worker_count.setter
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "worker_count", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSiteConfigAppServiceLogsArgs:
+    def __init__(__self__, *,
+                 disk_quota_mb: Optional[pulumi.Input[int]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        :param pulumi.Input[int] retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        """
+        if disk_quota_mb is not None:
+            pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+
+    @property
+    @pulumi.getter(name="diskQuotaMb")
+    def disk_quota_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        """
+        return pulumi.get(self, "disk_quota_mb")
+
+    @disk_quota_mb.setter
+    def disk_quota_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_quota_mb", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSiteConfigApplicationStackArgs:
+    def __init__(__self__, *,
+                 dotnet_version: Optional[pulumi.Input[str]] = None,
+                 java_version: Optional[pulumi.Input[str]] = None,
+                 node_version: Optional[pulumi.Input[str]] = None,
+                 powershell_core_version: Optional[pulumi.Input[str]] = None,
+                 use_custom_runtime: Optional[pulumi.Input[bool]] = None,
+                 use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] dotnet_version: The version of .Net to use. Possible values include `3.1` and `6`.
+        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, and `11`.
+        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `~12`, `~14`, and `~16`.
+        :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`.
+        :param pulumi.Input[bool] use_custom_runtime: Should the Windows Function App use a custom runtime?
+        :param pulumi.Input[bool] use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
+        """
+        if dotnet_version is not None:
+            pulumi.set(__self__, "dotnet_version", dotnet_version)
+        if java_version is not None:
+            pulumi.set(__self__, "java_version", java_version)
+        if node_version is not None:
+            pulumi.set(__self__, "node_version", node_version)
+        if powershell_core_version is not None:
+            pulumi.set(__self__, "powershell_core_version", powershell_core_version)
+        if use_custom_runtime is not None:
+            pulumi.set(__self__, "use_custom_runtime", use_custom_runtime)
+        if use_dotnet_isolated_runtime is not None:
+            pulumi.set(__self__, "use_dotnet_isolated_runtime", use_dotnet_isolated_runtime)
+
+    @property
+    @pulumi.getter(name="dotnetVersion")
+    def dotnet_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of .Net to use. Possible values include `3.1` and `6`.
+        """
+        return pulumi.get(self, "dotnet_version")
+
+    @dotnet_version.setter
+    def dotnet_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dotnet_version", value)
+
+    @property
+    @pulumi.getter(name="javaVersion")
+    def java_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Version of Java to use. Supported versions include `8`, and `11`.
+        """
+        return pulumi.get(self, "java_version")
+
+    @java_version.setter
+    def java_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_version", value)
+
+    @property
+    @pulumi.getter(name="nodeVersion")
+    def node_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Node to run. Possible values include `~12`, `~14`, and `~16`.
+        """
+        return pulumi.get(self, "node_version")
+
+    @node_version.setter
+    def node_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_version", value)
+
+    @property
+    @pulumi.getter(name="powershellCoreVersion")
+    def powershell_core_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of PowerShell Core to run. Possible values are `7`.
+        """
+        return pulumi.get(self, "powershell_core_version")
+
+    @powershell_core_version.setter
+    def powershell_core_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "powershell_core_version", value)
+
+    @property
+    @pulumi.getter(name="useCustomRuntime")
+    def use_custom_runtime(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Function App use a custom runtime?
+        """
+        return pulumi.get(self, "use_custom_runtime")
+
+    @use_custom_runtime.setter
+    def use_custom_runtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_custom_runtime", value)
+
+    @property
+    @pulumi.getter(name="useDotnetIsolatedRuntime")
+    def use_dotnet_isolated_runtime(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the DotNet process use an isolated runtime. Defaults to `false`.
+        """
+        return pulumi.get(self, "use_dotnet_isolated_runtime")
+
+    @use_dotnet_isolated_runtime.setter
+    def use_dotnet_isolated_runtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_dotnet_isolated_runtime", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSiteConfigCorsArgs:
+    def __init__(__self__, *,
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 support_credentials: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
+        :param pulumi.Input[bool] support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+        return pulumi.get(self, "support_credentials")
+
+    @support_credentials.setter
+    def support_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "support_credentials", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSiteConfigIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSiteConfigScmIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSiteCredentialArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+        :param pulumi.Input[str] password: The Site Credentials Password used for publishing.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Password used for publishing.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 active_directory: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs']] = None,
+                 additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 facebook: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArgs']] = None,
+                 github: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArgs']] = None,
+                 google: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArgs']] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 microsoft: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArgs']] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 twitter: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArgs']] = None,
+                 unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled?
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: an `active_directory` block as detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArgs'] facebook: a `facebook` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArgs'] github: a `github` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArgs'] google: a `google` block as detailed below.
+        :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArgs'] microsoft: a `microsoft` block as detailed below.
+        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use.
+        :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArgs'] twitter: a `twitter` block as detailed below.
+        :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if additional_login_parameters is not None:
+            pulumi.set(__self__, "additional_login_parameters", additional_login_parameters)
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if facebook is not None:
+            pulumi.set(__self__, "facebook", facebook)
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if google is not None:
+            pulumi.set(__self__, "google", google)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if microsoft is not None:
+            pulumi.set(__self__, "microsoft", microsoft)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if token_refresh_extension_hours is not None:
+            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if twitter is not None:
+            pulumi.set(__self__, "twitter", twitter)
+        if unauthenticated_client_action is not None:
+            pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the Authentication / Authorization feature be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs']]:
+        """
+        an `active_directory` block as detailed below.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter(name="additionalLoginParameters")
+    def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
+        return pulumi.get(self, "additional_login_parameters")
+
+    @additional_login_parameters.setter
+    def additional_login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_login_parameters", value)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        an `allowed_external_redirect_urls` block as detailed below.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter
+    def facebook(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArgs']]:
+        """
+        a `facebook` block as detailed below.
+        """
+        return pulumi.get(self, "facebook")
+
+    @facebook.setter
+    def facebook(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArgs']]):
+        pulumi.set(self, "facebook", value)
+
+    @property
+    @pulumi.getter
+    def github(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArgs']]:
+        """
+        a `github` block as detailed below.
+        """
+        return pulumi.get(self, "github")
+
+    @github.setter
+    def github(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArgs']]):
+        pulumi.set(self, "github", value)
+
+    @property
+    @pulumi.getter
+    def google(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArgs']]:
+        """
+        a `google` block as detailed below.
+        """
+        return pulumi.get(self, "google")
+
+    @google.setter
+    def google(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArgs']]):
+        pulumi.set(self, "google", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter
+    def microsoft(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArgs']]:
+        """
+        a `microsoft` block as detailed below.
+        """
+        return pulumi.get(self, "microsoft")
+
+    @microsoft.setter
+    def microsoft(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArgs']]):
+        pulumi.set(self, "microsoft", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_hours")
+
+    @token_refresh_extension_hours.setter
+    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_hours", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter
+    def twitter(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArgs']]:
+        """
+        a `twitter` block as detailed below.
+        """
+        return pulumi.get(self, "twitter")
+
+    @twitter.setter
+    def twitter(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArgs']]):
+        pulumi.set(self, "twitter", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedClientAction")
+    def unauthenticated_client_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        return pulumi.get(self, "unauthenticated_client_action")
+
+    @unauthenticated_client_action.setter
+    def unauthenticated_client_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_client_action", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: an `allowed_audiences` block as detailed below.
+        :param pulumi.Input[str] client_secret: The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        an `allowed_audiences` block as detailed below.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsFacebookArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret: Optional[pulumi.Input[str]] = None,
+                 app_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: an `oauth_scopes` block as detailed below.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
+        if app_secret_setting_name is not None:
+            pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @app_secret.setter
+    def app_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        an `oauth_scopes` block as detailed below.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsGithubArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: an `oauth_scopes` block as detailed below.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the GitHub app used for login.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        an `oauth_scopes` block as detailed below.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsGoogleArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
+        :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: an `oauth_scopes` block as detailed below.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        an `oauth_scopes` block as detailed below.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsMicrosoftArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotAuthSettingsTwitterArgs:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret: Optional[pulumi.Input[str]] = None,
+                 consumer_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        if consumer_secret is not None:
+            pulumi.set(__self__, "consumer_secret", consumer_secret)
+        if consumer_secret_setting_name is not None:
+            pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecret")
+    def consumer_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        return pulumi.get(self, "consumer_secret")
+
+    @consumer_secret.setter
+    def consumer_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotBackupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 schedule: pulumi.Input['WindowsFunctionAppSlotBackupScheduleArgs'],
+                 storage_account_url: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Backup.
+        :param pulumi.Input['WindowsFunctionAppSlotBackupScheduleArgs'] schedule: a `schedule` block as detailed below.
+        :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
+        :param pulumi.Input[bool] enabled: Should this backup job be enabled?
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Backup.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['WindowsFunctionAppSlotBackupScheduleArgs']:
+        """
+        a `schedule` block as detailed below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['WindowsFunctionAppSlotBackupScheduleArgs']):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="storageAccountUrl")
+    def storage_account_url(self) -> pulumi.Input[str]:
+        """
+        The SAS URL to the container.
+        """
+        return pulumi.get(self, "storage_account_url")
+
+    @storage_account_url.setter
+    def storage_account_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_url", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this backup job be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotBackupScheduleArgs:
+    def __init__(__self__, *,
+                 frequency_interval: pulumi.Input[int],
+                 frequency_unit: pulumi.Input[str],
+                 keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
+                 last_execution_time: Optional[pulumi.Input[str]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+        :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param pulumi.Input[str] last_execution_time: The time the backup was last attempted.
+        :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted.
+        :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
+        """
+        pulumi.set(__self__, "frequency_interval", frequency_interval)
+        pulumi.set(__self__, "frequency_unit", frequency_unit)
+        if keep_at_least_one_backup is not None:
+            pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
+        if last_execution_time is not None:
+            pulumi.set(__self__, "last_execution_time", last_execution_time)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="frequencyInterval")
+    def frequency_interval(self) -> pulumi.Input[int]:
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        """
+        return pulumi.get(self, "frequency_interval")
+
+    @frequency_interval.setter
+    def frequency_interval(self, value: pulumi.Input[int]):
+        pulumi.set(self, "frequency_interval", value)
+
+    @property
+    @pulumi.getter(name="frequencyUnit")
+    def frequency_unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+        """
+        return pulumi.get(self, "frequency_unit")
+
+    @frequency_unit.setter
+    def frequency_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frequency_unit", value)
+
+    @property
+    @pulumi.getter(name="keepAtLeastOneBackup")
+    def keep_at_least_one_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        return pulumi.get(self, "keep_at_least_one_backup")
+
+    @keep_at_least_one_backup.setter
+    def keep_at_least_one_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keep_at_least_one_backup", value)
+
+    @property
+    @pulumi.getter(name="lastExecutionTime")
+    def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time the backup was last attempted.
+        """
+        return pulumi.get(self, "last_execution_time")
+
+    @last_execution_time.setter
+    def last_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_execution_time", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        After how many days backups should be deleted.
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotConnectionStringArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Connection.
+        :param pulumi.Input[str] type: Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        :param pulumi.Input[str] value: The connection string value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Connection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The connection string value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Windows Function App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App Slot.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Windows Function App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App Slot.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotSiteConfigArgs:
+    def __init__(__self__, *,
+                 always_on: Optional[pulumi.Input[bool]] = None,
+                 api_definition_url: Optional[pulumi.Input[str]] = None,
+                 api_management_api_id: Optional[pulumi.Input[str]] = None,
+                 app_command_line: Optional[pulumi.Input[str]] = None,
+                 app_scale_limit: Optional[pulumi.Input[int]] = None,
+                 app_service_logs: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs']] = None,
+                 application_insights_connection_string: Optional[pulumi.Input[str]] = None,
+                 application_insights_key: Optional[pulumi.Input[str]] = None,
+                 application_stack: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArgs']] = None,
+                 auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
+                 cors: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArgs']] = None,
+                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
+                 elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
+                 ftps_state: Optional[pulumi.Input[str]] = None,
+                 health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]]] = None,
+                 load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 scm_type: Optional[pulumi.Input[str]] = None,
+                 scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
+                 use32_bit_worker: Optional[pulumi.Input[bool]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
+                 websockets_enabled: Optional[pulumi.Input[bool]] = None,
+                 windows_fx_version: Optional[pulumi.Input[str]] = None,
+                 worker_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] always_on: If this Windows Web App is Always On enabled. Defaults to `false`.
+        :param pulumi.Input[str] api_definition_url: The URL of the API definition that describes this Windows Function App.
+        :param pulumi.Input[str] api_management_api_id: The ID of the API Management API for this Windows Function App.
+        :param pulumi.Input[str] app_command_line: The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
+        :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs'] app_service_logs: an `app_service_logs` block as detailed below.
+        :param pulumi.Input[str] application_insights_connection_string: The Connection String for linking the Windows Function App to Application Insights.
+        :param pulumi.Input[str] application_insights_key: The Instrumentation Key for connecting the Windows Function App to Application Insights.
+        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArgs'] application_stack: an `application_stack` block as detailed below.
+        :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap with when this slot is successfully deployed.
+        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArgs'] cors: a `cors` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: a `default_documents` block as detailed below.
+        :param pulumi.Input[bool] detailed_error_logging_enabled: Is detailed error logging enabled
+        :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
+        :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+        :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+        :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
+        :param pulumi.Input[bool] http2_enabled: Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: an `ip_restriction` block as detailed below.
+        :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        :param pulumi.Input[str] managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+        :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
+        :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] scm_type: The SCM Type in use by the Windows Function App.
+        :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+        :param pulumi.Input[bool] use32_bit_worker: Should the Windows Web App use a 32-bit worker.
+        :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        :param pulumi.Input[bool] websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
+        :param pulumi.Input[str] windows_fx_version: The Windows FX Version string.
+        :param pulumi.Input[int] worker_count: The number of Workers for this Windows Function App.
+        """
+        if always_on is not None:
+            pulumi.set(__self__, "always_on", always_on)
+        if api_definition_url is not None:
+            pulumi.set(__self__, "api_definition_url", api_definition_url)
+        if api_management_api_id is not None:
+            pulumi.set(__self__, "api_management_api_id", api_management_api_id)
+        if app_command_line is not None:
+            pulumi.set(__self__, "app_command_line", app_command_line)
+        if app_scale_limit is not None:
+            pulumi.set(__self__, "app_scale_limit", app_scale_limit)
+        if app_service_logs is not None:
+            pulumi.set(__self__, "app_service_logs", app_service_logs)
+        if application_insights_connection_string is not None:
+            pulumi.set(__self__, "application_insights_connection_string", application_insights_connection_string)
+        if application_insights_key is not None:
+            pulumi.set(__self__, "application_insights_key", application_insights_key)
+        if application_stack is not None:
+            pulumi.set(__self__, "application_stack", application_stack)
+        if auto_swap_slot_name is not None:
+            pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if default_documents is not None:
+            pulumi.set(__self__, "default_documents", default_documents)
+        if detailed_error_logging_enabled is not None:
+            pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
+        if elastic_instance_minimum is not None:
+            pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
+        if ftps_state is not None:
+            pulumi.set(__self__, "ftps_state", ftps_state)
+        if health_check_eviction_time_in_min is not None:
+            pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http2_enabled is not None:
+            pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restrictions is not None:
+            pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        if load_balancing_mode is not None:
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+        if managed_pipeline_mode is not None:
+            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if pre_warmed_instance_count is not None:
+            pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
+        if remote_debugging_version is not None:
+            pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if scm_ip_restrictions is not None:
+            pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
+        if scm_minimum_tls_version is not None:
+            pulumi.set(__self__, "scm_minimum_tls_version", scm_minimum_tls_version)
+        if scm_type is not None:
+            pulumi.set(__self__, "scm_type", scm_type)
+        if scm_use_main_ip_restriction is not None:
+            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
+        if use32_bit_worker is not None:
+            pulumi.set(__self__, "use32_bit_worker", use32_bit_worker)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if websockets_enabled is not None:
+            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+        if windows_fx_version is not None:
+            pulumi.set(__self__, "windows_fx_version", windows_fx_version)
+        if worker_count is not None:
+            pulumi.set(__self__, "worker_count", worker_count)
+
+    @property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If this Windows Web App is Always On enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "always_on")
+
+    @always_on.setter
+    def always_on(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_on", value)
+
+    @property
+    @pulumi.getter(name="apiDefinitionUrl")
+    def api_definition_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the API definition that describes this Windows Function App.
+        """
+        return pulumi.get(self, "api_definition_url")
+
+    @api_definition_url.setter
+    def api_definition_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_definition_url", value)
+
+    @property
+    @pulumi.getter(name="apiManagementApiId")
+    def api_management_api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the API Management API for this Windows Function App.
+        """
+        return pulumi.get(self, "api_management_api_id")
+
+    @api_management_api_id.setter
+    def api_management_api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_api_id", value)
+
+    @property
+    @pulumi.getter(name="appCommandLine")
+    def app_command_line(self) -> Optional[pulumi.Input[str]]:
+        """
+        The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
+        """
+        return pulumi.get(self, "app_command_line")
+
+    @app_command_line.setter
+    def app_command_line(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_command_line", value)
+
+    @property
+    @pulumi.getter(name="appScaleLimit")
+    def app_scale_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        return pulumi.get(self, "app_scale_limit")
+
+    @app_scale_limit.setter
+    def app_scale_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "app_scale_limit", value)
+
+    @property
+    @pulumi.getter(name="appServiceLogs")
+    def app_service_logs(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs']]:
+        """
+        an `app_service_logs` block as detailed below.
+        """
+        return pulumi.get(self, "app_service_logs")
+
+    @app_service_logs.setter
+    def app_service_logs(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs']]):
+        pulumi.set(self, "app_service_logs", value)
+
+    @property
+    @pulumi.getter(name="applicationInsightsConnectionString")
+    def application_insights_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Connection String for linking the Windows Function App to Application Insights.
+        """
+        return pulumi.get(self, "application_insights_connection_string")
+
+    @application_insights_connection_string.setter
+    def application_insights_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_insights_connection_string", value)
+
+    @property
+    @pulumi.getter(name="applicationInsightsKey")
+    def application_insights_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Instrumentation Key for connecting the Windows Function App to Application Insights.
+        """
+        return pulumi.get(self, "application_insights_key")
+
+    @application_insights_key.setter
+    def application_insights_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_insights_key", value)
+
+    @property
+    @pulumi.getter(name="applicationStack")
+    def application_stack(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArgs']]:
+        """
+        an `application_stack` block as detailed below.
+        """
+        return pulumi.get(self, "application_stack")
+
+    @application_stack.setter
+    def application_stack(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArgs']]):
+        pulumi.set(self, "application_stack", value)
+
+    @property
+    @pulumi.getter(name="autoSwapSlotName")
+    def auto_swap_slot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the slot to automatically swap with when this slot is successfully deployed.
+        """
+        return pulumi.get(self, "auto_swap_slot_name")
+
+    @auto_swap_slot_name.setter
+    def auto_swap_slot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_swap_slot_name", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArgs']]:
+        """
+        a `cors` block as detailed below.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="defaultDocuments")
+    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        a `default_documents` block as detailed below.
+        """
+        return pulumi.get(self, "default_documents")
+
+    @default_documents.setter
+    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_documents", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorLoggingEnabled")
+    def detailed_error_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is detailed error logging enabled
+        """
+        return pulumi.get(self, "detailed_error_logging_enabled")
+
+    @detailed_error_logging_enabled.setter
+    def detailed_error_logging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_logging_enabled", value)
+
+    @property
+    @pulumi.getter(name="elasticInstanceMinimum")
+    def elastic_instance_minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
+        """
+        return pulumi.get(self, "elastic_instance_minimum")
+
+    @elastic_instance_minimum.setter
+    def elastic_instance_minimum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "elastic_instance_minimum", value)
+
+    @property
+    @pulumi.getter(name="ftpsState")
+    def ftps_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+        """
+        return pulumi.get(self, "ftps_state")
+
+    @ftps_state.setter
+    def ftps_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ftps_state", value)
+
+    @property
+    @pulumi.getter(name="healthCheckEvictionTimeInMin")
+    def health_check_eviction_time_in_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+        """
+        return pulumi.get(self, "health_check_eviction_time_in_min")
+
+    @health_check_eviction_time_in_min.setter
+    def health_check_eviction_time_in_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_eviction_time_in_min", value)
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to be checked for this function app health.
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @health_check_path.setter
+    def health_check_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_path", value)
+
+    @property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "http2_enabled")
+
+    @http2_enabled.setter
+    def http2_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http2_enabled", value)
+
+    @property
+    @pulumi.getter(name="ipRestrictions")
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]]]:
+        """
+        an `ip_restriction` block as detailed below.
+        """
+        return pulumi.get(self, "ip_restrictions")
+
+    @ip_restrictions.setter
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]]]):
+        pulumi.set(self, "ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingMode")
+    def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        return pulumi.get(self, "load_balancing_mode")
+
+    @load_balancing_mode.setter
+    def load_balancing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancing_mode", value)
+
+    @property
+    @pulumi.getter(name="managedPipelineMode")
+    def managed_pipeline_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        return pulumi.get(self, "managed_pipeline_mode")
+
+    @managed_pipeline_mode.setter
+    def managed_pipeline_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_pipeline_mode", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="preWarmedInstanceCount")
+    def pre_warmed_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+        """
+        return pulumi.get(self, "pre_warmed_instance_count")
+
+    @pre_warmed_instance_count.setter
+    def pre_warmed_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "pre_warmed_instance_count", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @remote_debugging_enabled.setter
+    def remote_debugging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remote_debugging_enabled", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingVersion")
+    def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        """
+        return pulumi.get(self, "remote_debugging_version")
+
+    @remote_debugging_version.setter
+    def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="runtimeScaleMonitoringEnabled")
+    def runtime_scale_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Scale Monitoring of the Functions Runtime be enabled?
+        """
+        return pulumi.get(self, "runtime_scale_monitoring_enabled")
+
+    @runtime_scale_monitoring_enabled.setter
+    def runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "runtime_scale_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictions")
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]:
+        """
+        a `scm_ip_restriction` block as detailed below.
+        """
+        return pulumi.get(self, "scm_ip_restrictions")
+
+    @scm_ip_restrictions.setter
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]):
+        pulumi.set(self, "scm_ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="scmMinimumTlsVersion")
+    def scm_minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "scm_minimum_tls_version")
+
+    @scm_minimum_tls_version.setter
+    def scm_minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SCM Type in use by the Windows Function App.
+        """
+        return pulumi.get(self, "scm_type")
+
+    @scm_type.setter
+    def scm_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_type", value)
+
+    @property
+    @pulumi.getter(name="scmUseMainIpRestriction")
+    def scm_use_main_ip_restriction(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+        """
+        return pulumi.get(self, "scm_use_main_ip_restriction")
+
+    @scm_use_main_ip_restriction.setter
+    def scm_use_main_ip_restriction(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scm_use_main_ip_restriction", value)
+
+    @property
+    @pulumi.getter(name="use32BitWorker")
+    def use32_bit_worker(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Web App use a 32-bit worker.
+        """
+        return pulumi.get(self, "use32_bit_worker")
+
+    @use32_bit_worker.setter
+    def use32_bit_worker(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use32_bit_worker", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
+
+    @property
+    @pulumi.getter(name="websocketsEnabled")
+    def websockets_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "websockets_enabled")
+
+    @websockets_enabled.setter
+    def websockets_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "websockets_enabled", value)
+
+    @property
+    @pulumi.getter(name="windowsFxVersion")
+    def windows_fx_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Windows FX Version string.
+        """
+        return pulumi.get(self, "windows_fx_version")
+
+    @windows_fx_version.setter
+    def windows_fx_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "windows_fx_version", value)
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of Workers for this Windows Function App.
+        """
+        return pulumi.get(self, "worker_count")
+
+    @worker_count.setter
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "worker_count", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs:
+    def __init__(__self__, *,
+                 disk_quota_mb: Optional[pulumi.Input[int]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        :param pulumi.Input[int] retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        """
+        if disk_quota_mb is not None:
+            pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+
+    @property
+    @pulumi.getter(name="diskQuotaMb")
+    def disk_quota_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        """
+        return pulumi.get(self, "disk_quota_mb")
+
+    @disk_quota_mb.setter
+    def disk_quota_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_quota_mb", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
+    def __init__(__self__, *,
+                 dotnet_version: Optional[pulumi.Input[str]] = None,
+                 java_version: Optional[pulumi.Input[str]] = None,
+                 node_version: Optional[pulumi.Input[str]] = None,
+                 powershell_core_version: Optional[pulumi.Input[str]] = None,
+                 use_custom_runtime: Optional[pulumi.Input[bool]] = None,
+                 use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `3.1` and `6`
+        :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `8`, and `11`
+        :param pulumi.Input[str] node_version: The version of Node to use. Possible values include `12`, and `14`
+        :param pulumi.Input[str] powershell_core_version: The PowerShell Core version to use. Possible values are `7`.
+        :param pulumi.Input[bool] use_custom_runtime: Does the Function App use a custom Application Stack?
+        :param pulumi.Input[bool] use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
+        """
+        if dotnet_version is not None:
+            pulumi.set(__self__, "dotnet_version", dotnet_version)
+        if java_version is not None:
+            pulumi.set(__self__, "java_version", java_version)
+        if node_version is not None:
+            pulumi.set(__self__, "node_version", node_version)
+        if powershell_core_version is not None:
+            pulumi.set(__self__, "powershell_core_version", powershell_core_version)
+        if use_custom_runtime is not None:
+            pulumi.set(__self__, "use_custom_runtime", use_custom_runtime)
+        if use_dotnet_isolated_runtime is not None:
+            pulumi.set(__self__, "use_dotnet_isolated_runtime", use_dotnet_isolated_runtime)
+
+    @property
+    @pulumi.getter(name="dotnetVersion")
+    def dotnet_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of .Net. Possible values are `3.1` and `6`
+        """
+        return pulumi.get(self, "dotnet_version")
+
+    @dotnet_version.setter
+    def dotnet_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dotnet_version", value)
+
+    @property
+    @pulumi.getter(name="javaVersion")
+    def java_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Java to use. Possible values are `8`, and `11`
+        """
+        return pulumi.get(self, "java_version")
+
+    @java_version.setter
+    def java_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_version", value)
+
+    @property
+    @pulumi.getter(name="nodeVersion")
+    def node_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Node to use. Possible values include `12`, and `14`
+        """
+        return pulumi.get(self, "node_version")
+
+    @node_version.setter
+    def node_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_version", value)
+
+    @property
+    @pulumi.getter(name="powershellCoreVersion")
+    def powershell_core_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The PowerShell Core version to use. Possible values are `7`.
+        """
+        return pulumi.get(self, "powershell_core_version")
+
+    @powershell_core_version.setter
+    def powershell_core_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "powershell_core_version", value)
+
+    @property
+    @pulumi.getter(name="useCustomRuntime")
+    def use_custom_runtime(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Does the Function App use a custom Application Stack?
+        """
+        return pulumi.get(self, "use_custom_runtime")
+
+    @use_custom_runtime.setter
+    def use_custom_runtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_custom_runtime", value)
+
+    @property
+    @pulumi.getter(name="useDotnetIsolatedRuntime")
+    def use_dotnet_isolated_runtime(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the DotNet process use an isolated runtime. Defaults to `false`.
+        """
+        return pulumi.get(self, "use_dotnet_isolated_runtime")
+
+    @use_dotnet_isolated_runtime.setter
+    def use_dotnet_isolated_runtime(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_dotnet_isolated_runtime", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotSiteConfigCorsArgs:
+    def __init__(__self__, *,
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 support_credentials: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: an `allowed_origins` block as detailed below.
+        :param pulumi.Input[bool] support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        an `allowed_origins` block as detailed below.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+        return pulumi.get(self, "support_credentials")
+
+    @support_credentials.setter
+    def support_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "support_credentials", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotSiteConfigIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: a `headers` block as detailed below.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        a `headers` block as detailed below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: a `headers` block as detailed below.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        a `headers` block as detailed below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class WindowsFunctionAppSlotSiteCredentialArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The Site Credentials Username used for publishing.
+        :param pulumi.Input[str] password: The Site Credentials Password used for publishing.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Username used for publishing.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Password used for publishing.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class WindowsWebAppAuthSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 active_directory: Optional[pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArgs']] = None,
+                 additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 facebook: Optional[pulumi.Input['WindowsWebAppAuthSettingsFacebookArgs']] = None,
+                 github: Optional[pulumi.Input['WindowsWebAppAuthSettingsGithubArgs']] = None,
+                 google: Optional[pulumi.Input['WindowsWebAppAuthSettingsGoogleArgs']] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 microsoft: Optional[pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArgs']] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 twitter: Optional[pulumi.Input['WindowsWebAppAuthSettingsTwitterArgs']] = None,
+                 unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature is enabled for the Windows Web App be enabled?
+        :param pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        :param pulumi.Input['WindowsWebAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsGithubArgs'] github: A `github` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
+        :param pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
+        :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        :param pulumi.Input['WindowsWebAppAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if additional_login_parameters is not None:
+            pulumi.set(__self__, "additional_login_parameters", additional_login_parameters)
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if facebook is not None:
+            pulumi.set(__self__, "facebook", facebook)
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if google is not None:
+            pulumi.set(__self__, "google", google)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if microsoft is not None:
+            pulumi.set(__self__, "microsoft", microsoft)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if token_refresh_extension_hours is not None:
+            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if twitter is not None:
+            pulumi.set(__self__, "twitter", twitter)
+        if unauthenticated_client_action is not None:
+            pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the Authentication / Authorization feature is enabled for the Windows Web App be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArgs']]:
+        """
+        An `active_directory` block as defined above.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter(name="additionalLoginParameters")
+    def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "additional_login_parameters")
+
+    @additional_login_parameters.setter
+    def additional_login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_login_parameters", value)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter
+    def facebook(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsFacebookArgs']]:
+        """
+        A `facebook` block as defined below.
+        """
+        return pulumi.get(self, "facebook")
+
+    @facebook.setter
+    def facebook(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsFacebookArgs']]):
+        pulumi.set(self, "facebook", value)
+
+    @property
+    @pulumi.getter
+    def github(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsGithubArgs']]:
+        """
+        A `github` block as defined below.
+        """
+        return pulumi.get(self, "github")
+
+    @github.setter
+    def github(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsGithubArgs']]):
+        pulumi.set(self, "github", value)
+
+    @property
+    @pulumi.getter
+    def google(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsGoogleArgs']]:
+        """
+        A `google` block as defined below.
+        """
+        return pulumi.get(self, "google")
+
+    @google.setter
+    def google(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsGoogleArgs']]):
+        pulumi.set(self, "google", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter
+    def microsoft(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArgs']]:
+        """
+        A `microsoft` block as defined below.
+        """
+        return pulumi.get(self, "microsoft")
+
+    @microsoft.setter
+    def microsoft(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArgs']]):
+        pulumi.set(self, "microsoft", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_hours")
+
+    @token_refresh_extension_hours.setter
+    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_hours", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter
+    def twitter(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsTwitterArgs']]:
+        """
+        A `twitter` block as defined below.
+        """
+        return pulumi.get(self, "twitter")
+
+    @twitter.setter
+    def twitter(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsTwitterArgs']]):
+        pulumi.set(self, "twitter", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedClientAction")
+    def unauthenticated_client_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        return pulumi.get(self, "unauthenticated_client_action")
+
+    @unauthenticated_client_action.setter
+    def unauthenticated_client_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_client_action", value)
+
+
+@pulumi.input_type
+class WindowsWebAppAuthSettingsActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[str] client_secret: The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+
+@pulumi.input_type
+class WindowsWebAppAuthSettingsFacebookArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret: Optional[pulumi.Input[str]] = None,
+                 app_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
+        if app_secret_setting_name is not None:
+            pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @app_secret.setter
+    def app_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsWebAppAuthSettingsGithubArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the GitHub app used for login.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsWebAppAuthSettingsGoogleArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
+        :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsWebAppAuthSettingsMicrosoftArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsWebAppAuthSettingsTwitterArgs:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret: Optional[pulumi.Input[str]] = None,
+                 consumer_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        if consumer_secret is not None:
+            pulumi.set(__self__, "consumer_secret", consumer_secret)
+        if consumer_secret_setting_name is not None:
+            pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecret")
+    def consumer_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        return pulumi.get(self, "consumer_secret")
+
+    @consumer_secret.setter
+    def consumer_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+@pulumi.input_type
+class WindowsWebAppBackupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 schedule: pulumi.Input['WindowsWebAppBackupScheduleArgs'],
+                 storage_account_url: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Backup.
+        :param pulumi.Input['WindowsWebAppBackupScheduleArgs'] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
+        :param pulumi.Input[bool] enabled: Should this backup job be enabled?
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Backup.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['WindowsWebAppBackupScheduleArgs']:
+        """
+        A `schedule` block as defined below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['WindowsWebAppBackupScheduleArgs']):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="storageAccountUrl")
+    def storage_account_url(self) -> pulumi.Input[str]:
+        """
+        The SAS URL to the container.
+        """
+        return pulumi.get(self, "storage_account_url")
+
+    @storage_account_url.setter
+    def storage_account_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_url", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this backup job be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class WindowsWebAppBackupScheduleArgs:
+    def __init__(__self__, *,
+                 frequency_interval: pulumi.Input[int],
+                 frequency_unit: pulumi.Input[str],
+                 keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
+                 last_execution_time: Optional[pulumi.Input[str]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+        :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted.
+        :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
+        """
+        pulumi.set(__self__, "frequency_interval", frequency_interval)
+        pulumi.set(__self__, "frequency_unit", frequency_unit)
+        if keep_at_least_one_backup is not None:
+            pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
+        if last_execution_time is not None:
+            pulumi.set(__self__, "last_execution_time", last_execution_time)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="frequencyInterval")
+    def frequency_interval(self) -> pulumi.Input[int]:
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        """
+        return pulumi.get(self, "frequency_interval")
+
+    @frequency_interval.setter
+    def frequency_interval(self, value: pulumi.Input[int]):
+        pulumi.set(self, "frequency_interval", value)
+
+    @property
+    @pulumi.getter(name="frequencyUnit")
+    def frequency_unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+        """
+        return pulumi.get(self, "frequency_unit")
+
+    @frequency_unit.setter
+    def frequency_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frequency_unit", value)
+
+    @property
+    @pulumi.getter(name="keepAtLeastOneBackup")
+    def keep_at_least_one_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        return pulumi.get(self, "keep_at_least_one_backup")
+
+    @keep_at_least_one_backup.setter
+    def keep_at_least_one_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keep_at_least_one_backup", value)
+
+    @property
+    @pulumi.getter(name="lastExecutionTime")
+    def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_execution_time")
+
+    @last_execution_time.setter
+    def last_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_execution_time", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        After how many days backups should be deleted.
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class WindowsWebAppConnectionStringArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        :param pulumi.Input[str] type: Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        :param pulumi.Input[str] value: The connection string value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The connection string value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class WindowsWebAppIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Windows Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Windows Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class WindowsWebAppLogsArgs:
+    def __init__(__self__, *,
+                 application_logs: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsArgs']] = None,
+                 detailed_error_messages: Optional[pulumi.Input[bool]] = None,
+                 failed_request_tracing: Optional[pulumi.Input[bool]] = None,
+                 http_logs: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsArgs']] = None):
+        """
+        :param pulumi.Input['WindowsWebAppLogsApplicationLogsArgs'] application_logs: A `application_logs` block as defined above.
+        :param pulumi.Input[bool] detailed_error_messages: Should detailed error messages be enabled.
+        :param pulumi.Input[bool] failed_request_tracing: Should tracing be enabled for failed requests.
+        :param pulumi.Input['WindowsWebAppLogsHttpLogsArgs'] http_logs: A `http_logs` block as defined above.
+        """
+        if application_logs is not None:
+            pulumi.set(__self__, "application_logs", application_logs)
+        if detailed_error_messages is not None:
+            pulumi.set(__self__, "detailed_error_messages", detailed_error_messages)
+        if failed_request_tracing is not None:
+            pulumi.set(__self__, "failed_request_tracing", failed_request_tracing)
+        if http_logs is not None:
+            pulumi.set(__self__, "http_logs", http_logs)
+
+    @property
+    @pulumi.getter(name="applicationLogs")
+    def application_logs(self) -> Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsArgs']]:
+        """
+        A `application_logs` block as defined above.
+        """
+        return pulumi.get(self, "application_logs")
+
+    @application_logs.setter
+    def application_logs(self, value: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsArgs']]):
+        pulumi.set(self, "application_logs", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorMessages")
+    def detailed_error_messages(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should detailed error messages be enabled.
+        """
+        return pulumi.get(self, "detailed_error_messages")
+
+    @detailed_error_messages.setter
+    def detailed_error_messages(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_messages", value)
+
+    @property
+    @pulumi.getter(name="failedRequestTracing")
+    def failed_request_tracing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should tracing be enabled for failed requests.
+        """
+        return pulumi.get(self, "failed_request_tracing")
+
+    @failed_request_tracing.setter
+    def failed_request_tracing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "failed_request_tracing", value)
+
+    @property
+    @pulumi.getter(name="httpLogs")
+    def http_logs(self) -> Optional[pulumi.Input['WindowsWebAppLogsHttpLogsArgs']]:
+        """
+        A `http_logs` block as defined above.
+        """
+        return pulumi.get(self, "http_logs")
+
+    @http_logs.setter
+    def http_logs(self, value: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsArgs']]):
+        pulumi.set(self, "http_logs", value)
+
+
+@pulumi.input_type
+class WindowsWebAppLogsApplicationLogsArgs:
+    def __init__(__self__, *,
+                 file_system_level: pulumi.Input[str],
+                 azure_blob_storage: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs']] = None):
+        """
+        :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        :param pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        """
+        pulumi.set(__self__, "file_system_level", file_system_level)
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+
+    @property
+    @pulumi.getter(name="fileSystemLevel")
+    def file_system_level(self) -> pulumi.Input[str]:
+        """
+        Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        """
+        return pulumi.get(self, "file_system_level")
+
+    @file_system_level.setter
+    def file_system_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_level", value)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs']]:
+        """
+        An `azure_blob_storage` block as defined below.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @azure_blob_storage.setter
+    def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs']]):
+        pulumi.set(self, "azure_blob_storage", value)
+
+
+@pulumi.input_type
+class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs:
+    def __init__(__self__, *,
+                 level: pulumi.Input[str],
+                 retention_in_days: pulumi.Input[int],
+                 sas_url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
+        :param pulumi.Input[str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "retention_in_days", retention_in_days)
+        pulumi.set(__self__, "sas_url", sas_url)
+
+    @property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> pulumi.Input[int]:
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> pulumi.Input[str]:
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+    @sas_url.setter
+    def sas_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sas_url", value)
+
+
+@pulumi.input_type
+class WindowsWebAppLogsHttpLogsArgs:
+    def __init__(__self__, *,
+                 azure_blob_storage: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArgs']] = None,
+                 file_system: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArgs']] = None):
+        """
+        :param pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArgs'] azure_blob_storage: A `azure_blob_storage` block as defined above.
+        :param pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArgs'] file_system: A `file_system` block as defined above.
+        """
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional[pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArgs']]:
+        """
+        A `azure_blob_storage` block as defined above.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @azure_blob_storage.setter
+    def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArgs']]):
+        pulumi.set(self, "azure_blob_storage", value)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> Optional[pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArgs']]:
+        """
+        A `file_system` block as defined above.
+        """
+        return pulumi.get(self, "file_system")
+
+    @file_system.setter
+    def file_system(self, value: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArgs']]):
+        pulumi.set(self, "file_system", value)
+
+
+@pulumi.input_type
+class WindowsWebAppLogsHttpLogsAzureBlobStorageArgs:
+    def __init__(__self__, *,
+                 sas_url: pulumi.Input[str],
+                 retention_in_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+        :param pulumi.Input[int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        pulumi.set(__self__, "sas_url", sas_url)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> pulumi.Input[str]:
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+    @sas_url.setter
+    def sas_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sas_url", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_in_days", value)
+
+
+@pulumi.input_type
+class WindowsWebAppLogsHttpLogsFileSystemArgs:
+    def __init__(__self__, *,
+                 retention_in_days: pulumi.Input[int],
+                 retention_in_mb: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] retention_in_days: The retention period in days. A values of `0` means no retention.
+        :param pulumi.Input[int] retention_in_mb: The maximum size in megabytes that log files can use.
+        """
+        pulumi.set(__self__, "retention_in_days", retention_in_days)
+        pulumi.set(__self__, "retention_in_mb", retention_in_mb)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> pulumi.Input[int]:
+        """
+        The retention period in days. A values of `0` means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="retentionInMb")
+    def retention_in_mb(self) -> pulumi.Input[int]:
+        """
+        The maximum size in megabytes that log files can use.
+        """
+        return pulumi.get(self, "retention_in_mb")
+
+    @retention_in_mb.setter
+    def retention_in_mb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_in_mb", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigArgs:
+    def __init__(__self__, *,
+                 always_on: Optional[pulumi.Input[bool]] = None,
+                 api_definition_url: Optional[pulumi.Input[str]] = None,
+                 api_management_api_id: Optional[pulumi.Input[str]] = None,
+                 app_command_line: Optional[pulumi.Input[str]] = None,
+                 application_stack: Optional[pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgs']] = None,
+                 auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
+                 auto_heal_setting: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArgs']] = None,
+                 container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
+                 cors: Optional[pulumi.Input['WindowsWebAppSiteConfigCorsArgs']] = None,
+                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
+                 ftps_state: Optional[pulumi.Input[str]] = None,
+                 health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgs']]]] = None,
+                 linux_fx_version: Optional[pulumi.Input[str]] = None,
+                 load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 local_mysql_enabled: Optional[pulumi.Input[bool]] = None,
+                 managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 scm_type: Optional[pulumi.Input[str]] = None,
+                 scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
+                 use32_bit_worker: Optional[pulumi.Input[bool]] = None,
+                 virtual_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArgs']]]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
+                 websockets_enabled: Optional[pulumi.Input[bool]] = None,
+                 windows_fx_version: Optional[pulumi.Input[str]] = None,
+                 worker_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] always_on: If this Windows Web App is Always On enabled. Defaults to `false`.
+        :param pulumi.Input[str] api_management_api_id: The API Management API ID this Windows Web App Slot is associated with.
+        :param pulumi.Input[str] app_command_line: The App command line to launch.
+        :param pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
+        :param pulumi.Input[bool] auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
+        :param pulumi.Input['WindowsWebAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Windows Web App.
+        :param pulumi.Input[str] ftps_state: The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        :param pulumi.Input[str] health_check_path: The path to the Health Check.
+        :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
+        :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
+        :param pulumi.Input[bool] use32_bit_worker: Should the Windows Web App use a 32-bit worker.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArgs']]] virtual_applications: One or more `virtual_application` blocks as defined below.
+        :param pulumi.Input[int] worker_count: The number of Workers for this Windows App Service.
+        """
+        if always_on is not None:
+            pulumi.set(__self__, "always_on", always_on)
+        if api_definition_url is not None:
+            pulumi.set(__self__, "api_definition_url", api_definition_url)
+        if api_management_api_id is not None:
+            pulumi.set(__self__, "api_management_api_id", api_management_api_id)
+        if app_command_line is not None:
+            pulumi.set(__self__, "app_command_line", app_command_line)
+        if application_stack is not None:
+            pulumi.set(__self__, "application_stack", application_stack)
+        if auto_heal_enabled is not None:
+            pulumi.set(__self__, "auto_heal_enabled", auto_heal_enabled)
+        if auto_heal_setting is not None:
+            pulumi.set(__self__, "auto_heal_setting", auto_heal_setting)
+        if container_registry_managed_identity_client_id is not None:
+            pulumi.set(__self__, "container_registry_managed_identity_client_id", container_registry_managed_identity_client_id)
+        if container_registry_use_managed_identity is not None:
+            pulumi.set(__self__, "container_registry_use_managed_identity", container_registry_use_managed_identity)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if default_documents is not None:
+            pulumi.set(__self__, "default_documents", default_documents)
+        if detailed_error_logging_enabled is not None:
+            pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
+        if ftps_state is not None:
+            pulumi.set(__self__, "ftps_state", ftps_state)
+        if health_check_eviction_time_in_min is not None:
+            pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http2_enabled is not None:
+            pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restrictions is not None:
+            pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        if linux_fx_version is not None:
+            pulumi.set(__self__, "linux_fx_version", linux_fx_version)
+        if load_balancing_mode is not None:
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+        if local_mysql_enabled is not None:
+            pulumi.set(__self__, "local_mysql_enabled", local_mysql_enabled)
+        if managed_pipeline_mode is not None:
+            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
+        if remote_debugging_version is not None:
+            pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if scm_ip_restrictions is not None:
+            pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
+        if scm_minimum_tls_version is not None:
+            pulumi.set(__self__, "scm_minimum_tls_version", scm_minimum_tls_version)
+        if scm_type is not None:
+            pulumi.set(__self__, "scm_type", scm_type)
+        if scm_use_main_ip_restriction is not None:
+            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
+        if use32_bit_worker is not None:
+            pulumi.set(__self__, "use32_bit_worker", use32_bit_worker)
+        if virtual_applications is not None:
+            pulumi.set(__self__, "virtual_applications", virtual_applications)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if websockets_enabled is not None:
+            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+        if windows_fx_version is not None:
+            pulumi.set(__self__, "windows_fx_version", windows_fx_version)
+        if worker_count is not None:
+            pulumi.set(__self__, "worker_count", worker_count)
+
+    @property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If this Windows Web App is Always On enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "always_on")
+
+    @always_on.setter
+    def always_on(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_on", value)
+
+    @property
+    @pulumi.getter(name="apiDefinitionUrl")
+    def api_definition_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "api_definition_url")
+
+    @api_definition_url.setter
+    def api_definition_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_definition_url", value)
+
+    @property
+    @pulumi.getter(name="apiManagementApiId")
+    def api_management_api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API Management API ID this Windows Web App Slot is associated with.
+        """
+        return pulumi.get(self, "api_management_api_id")
+
+    @api_management_api_id.setter
+    def api_management_api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_api_id", value)
+
+    @property
+    @pulumi.getter(name="appCommandLine")
+    def app_command_line(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App command line to launch.
+        """
+        return pulumi.get(self, "app_command_line")
+
+    @app_command_line.setter
+    def app_command_line(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_command_line", value)
+
+    @property
+    @pulumi.getter(name="applicationStack")
+    def application_stack(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgs']]:
+        """
+        A `application_stack` block as defined above.
+        """
+        return pulumi.get(self, "application_stack")
+
+    @application_stack.setter
+    def application_stack(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgs']]):
+        pulumi.set(self, "application_stack", value)
+
+    @property
+    @pulumi.getter(name="autoHealEnabled")
+    def auto_heal_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        """
+        return pulumi.get(self, "auto_heal_enabled")
+
+    @auto_heal_enabled.setter
+    def auto_heal_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_heal_enabled", value)
+
+    @property
+    @pulumi.getter(name="autoHealSetting")
+    def auto_heal_setting(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArgs']]:
+        """
+        A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        """
+        return pulumi.get(self, "auto_heal_setting")
+
+    @auto_heal_setting.setter
+    def auto_heal_setting(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArgs']]):
+        pulumi.set(self, "auto_heal_setting", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryManagedIdentityClientId")
+    def container_registry_managed_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        return pulumi.get(self, "container_registry_managed_identity_client_id")
+
+    @container_registry_managed_identity_client_id.setter
+    def container_registry_managed_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_registry_managed_identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryUseManagedIdentity")
+    def container_registry_use_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        return pulumi.get(self, "container_registry_use_managed_identity")
+
+    @container_registry_use_managed_identity.setter
+    def container_registry_use_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "container_registry_use_managed_identity", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigCorsArgs']]:
+        """
+        A `cors` block as defined above.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigCorsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="defaultDocuments")
+    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Default Documents for the Windows Web App.
+        """
+        return pulumi.get(self, "default_documents")
+
+    @default_documents.setter
+    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_documents", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorLoggingEnabled")
+    def detailed_error_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "detailed_error_logging_enabled")
+
+    @detailed_error_logging_enabled.setter
+    def detailed_error_logging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_logging_enabled", value)
+
+    @property
+    @pulumi.getter(name="ftpsState")
+    def ftps_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        """
+        return pulumi.get(self, "ftps_state")
+
+    @ftps_state.setter
+    def ftps_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ftps_state", value)
+
+    @property
+    @pulumi.getter(name="healthCheckEvictionTimeInMin")
+    def health_check_eviction_time_in_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        return pulumi.get(self, "health_check_eviction_time_in_min")
+
+    @health_check_eviction_time_in_min.setter
+    def health_check_eviction_time_in_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_eviction_time_in_min", value)
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the Health Check.
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @health_check_path.setter
+    def health_check_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_path", value)
+
+    @property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the HTTP2 be enabled?
+        """
+        return pulumi.get(self, "http2_enabled")
+
+    @http2_enabled.setter
+    def http2_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http2_enabled", value)
+
+    @property
+    @pulumi.getter(name="ipRestrictions")
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgs']]]]:
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "ip_restrictions")
+
+    @ip_restrictions.setter
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgs']]]]):
+        pulumi.set(self, "ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="linuxFxVersion")
+    def linux_fx_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "linux_fx_version")
+
+    @linux_fx_version.setter
+    def linux_fx_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linux_fx_version", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingMode")
+    def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        return pulumi.get(self, "load_balancing_mode")
+
+    @load_balancing_mode.setter
+    def load_balancing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancing_mode", value)
+
+    @property
+    @pulumi.getter(name="localMysqlEnabled")
+    def local_mysql_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use Local MySQL. Defaults to `false`.
+        """
+        return pulumi.get(self, "local_mysql_enabled")
+
+    @local_mysql_enabled.setter
+    def local_mysql_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_mysql_enabled", value)
+
+    @property
+    @pulumi.getter(name="managedPipelineMode")
+    def managed_pipeline_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        """
+        return pulumi.get(self, "managed_pipeline_mode")
+
+    @managed_pipeline_mode.setter
+    def managed_pipeline_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_pipeline_mode", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @remote_debugging_enabled.setter
+    def remote_debugging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remote_debugging_enabled", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingVersion")
+    def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        """
+        return pulumi.get(self, "remote_debugging_version")
+
+    @remote_debugging_version.setter
+    def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictions")
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]]]:
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "scm_ip_restrictions")
+
+    @scm_ip_restrictions.setter
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]]]):
+        pulumi.set(self, "scm_ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="scmMinimumTlsVersion")
+    def scm_minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "scm_minimum_tls_version")
+
+    @scm_minimum_tls_version.setter
+    def scm_minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scm_type")
+
+    @scm_type.setter
+    def scm_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_type", value)
+
+    @property
+    @pulumi.getter(name="scmUseMainIpRestriction")
+    def scm_use_main_ip_restriction(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
+        """
+        return pulumi.get(self, "scm_use_main_ip_restriction")
+
+    @scm_use_main_ip_restriction.setter
+    def scm_use_main_ip_restriction(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scm_use_main_ip_restriction", value)
+
+    @property
+    @pulumi.getter(name="use32BitWorker")
+    def use32_bit_worker(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Web App use a 32-bit worker.
+        """
+        return pulumi.get(self, "use32_bit_worker")
+
+    @use32_bit_worker.setter
+    def use32_bit_worker(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use32_bit_worker", value)
+
+    @property
+    @pulumi.getter(name="virtualApplications")
+    def virtual_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArgs']]]]:
+        """
+        One or more `virtual_application` blocks as defined below.
+        """
+        return pulumi.get(self, "virtual_applications")
+
+    @virtual_applications.setter
+    def virtual_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArgs']]]]):
+        pulumi.set(self, "virtual_applications", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
+
+    @property
+    @pulumi.getter(name="websocketsEnabled")
+    def websockets_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "websockets_enabled")
+
+    @websockets_enabled.setter
+    def websockets_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "websockets_enabled", value)
+
+    @property
+    @pulumi.getter(name="windowsFxVersion")
+    def windows_fx_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "windows_fx_version")
+
+    @windows_fx_version.setter
+    def windows_fx_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "windows_fx_version", value)
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of Workers for this Windows App Service.
+        """
+        return pulumi.get(self, "worker_count")
+
+    @worker_count.setter
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "worker_count", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigApplicationStackArgs:
+    def __init__(__self__, *,
+                 current_stack: Optional[pulumi.Input[str]] = None,
+                 docker_container_name: Optional[pulumi.Input[str]] = None,
+                 docker_container_registry: Optional[pulumi.Input[str]] = None,
+                 docker_container_tag: Optional[pulumi.Input[str]] = None,
+                 dotnet_version: Optional[pulumi.Input[str]] = None,
+                 java_container: Optional[pulumi.Input[str]] = None,
+                 java_container_version: Optional[pulumi.Input[str]] = None,
+                 java_version: Optional[pulumi.Input[str]] = None,
+                 node_version: Optional[pulumi.Input[str]] = None,
+                 php_version: Optional[pulumi.Input[str]] = None,
+                 python_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+        :param pulumi.Input[str] docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
+        :param pulumi.Input[str] docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+        :param pulumi.Input[str] docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
+        :param pulumi.Input[str] dotnet_version: The version of .Net to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        :param pulumi.Input[str] java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
+        :param pulumi.Input[str] java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
+        :param pulumi.Input[str] java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+        :param pulumi.Input[str] php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
+        :param pulumi.Input[str] python_version: The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+        """
+        if current_stack is not None:
+            pulumi.set(__self__, "current_stack", current_stack)
+        if docker_container_name is not None:
+            pulumi.set(__self__, "docker_container_name", docker_container_name)
+        if docker_container_registry is not None:
+            pulumi.set(__self__, "docker_container_registry", docker_container_registry)
+        if docker_container_tag is not None:
+            pulumi.set(__self__, "docker_container_tag", docker_container_tag)
+        if dotnet_version is not None:
+            pulumi.set(__self__, "dotnet_version", dotnet_version)
+        if java_container is not None:
+            pulumi.set(__self__, "java_container", java_container)
+        if java_container_version is not None:
+            pulumi.set(__self__, "java_container_version", java_container_version)
+        if java_version is not None:
+            pulumi.set(__self__, "java_version", java_version)
+        if node_version is not None:
+            pulumi.set(__self__, "node_version", node_version)
+        if php_version is not None:
+            pulumi.set(__self__, "php_version", php_version)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+
+    @property
+    @pulumi.getter(name="currentStack")
+    def current_stack(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Application Stack for the Windows Web App. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+        """
+        return pulumi.get(self, "current_stack")
+
+    @current_stack.setter
+    def current_stack(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_stack", value)
+
+    @property
+    @pulumi.getter(name="dockerContainerName")
+    def docker_container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
+        """
+        return pulumi.get(self, "docker_container_name")
+
+    @docker_container_name.setter
+    def docker_container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_container_name", value)
+
+    @property
+    @pulumi.getter(name="dockerContainerRegistry")
+    def docker_container_registry(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+        """
+        return pulumi.get(self, "docker_container_registry")
+
+    @docker_container_registry.setter
+    def docker_container_registry(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_container_registry", value)
+
+    @property
+    @pulumi.getter(name="dockerContainerTag")
+    def docker_container_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Image Tag of the specified Docker Container to use. For example `latest`
+        """
+        return pulumi.get(self, "docker_container_tag")
+
+    @docker_container_tag.setter
+    def docker_container_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_container_tag", value)
+
+    @property
+    @pulumi.getter(name="dotnetVersion")
+    def dotnet_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of .Net to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        """
+        return pulumi.get(self, "dotnet_version")
+
+    @dotnet_version.setter
+    def dotnet_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dotnet_version", value)
+
+    @property
+    @pulumi.getter(name="javaContainer")
+    def java_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
+        """
+        return pulumi.get(self, "java_container")
+
+    @java_container.setter
+    def java_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_container", value)
+
+    @property
+    @pulumi.getter(name="javaContainerVersion")
+    def java_container_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Version of the `java_container` to use. Required with `java_version` and `java_container`.
+        """
+        return pulumi.get(self, "java_container_version")
+
+    @java_container_version.setter
+    def java_container_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_container_version", value)
+
+    @property
+    @pulumi.getter(name="javaVersion")
+    def java_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+        """
+        return pulumi.get(self, "java_version")
+
+    @java_version.setter
+    def java_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_version", value)
+
+    @property
+    @pulumi.getter(name="nodeVersion")
+    def node_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+        """
+        return pulumi.get(self, "node_version")
+
+    @node_version.setter
+    def node_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_version", value)
+
+    @property
+    @pulumi.getter(name="phpVersion")
+    def php_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
+        """
+        return pulumi.get(self, "php_version")
+
+    @php_version.setter
+    def php_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "php_version", value)
+
+    @property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+        """
+        return pulumi.get(self, "python_version")
+
+    @python_version.setter
+    def python_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "python_version", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigAutoHealSettingArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArgs'],
+                 trigger: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArgs']):
+        """
+        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArgs'] action: An `action` block as defined above.
+        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArgs'] trigger: A `trigger` block as defined below.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "trigger", trigger)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArgs']:
+        """
+        An `action` block as defined above.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArgs']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArgs']:
+        """
+        A `trigger` block as defined below.
+        """
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArgs']):
+        pulumi.set(self, "trigger", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigAutoHealSettingActionArgs:
+    def __init__(__self__, *,
+                 action_type: pulumi.Input[str],
+                 custom_action: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs']] = None,
+                 minimum_process_execution_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action_type: Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`, `LogEvent`, and `CustomAction`.
+        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs'] custom_action: A `custom_action` block as defined below.
+        :param pulumi.Input[str] minimum_process_execution_time: The minimum amount of time in `hh:mm:ss` the Windows Web App must have been running before the defined action will be run in the event of a trigger.
+        """
+        pulumi.set(__self__, "action_type", action_type)
+        if custom_action is not None:
+            pulumi.set(__self__, "custom_action", custom_action)
+        if minimum_process_execution_time is not None:
+            pulumi.set(__self__, "minimum_process_execution_time", minimum_process_execution_time)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[str]:
+        """
+        Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`, `LogEvent`, and `CustomAction`.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="customAction")
+    def custom_action(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs']]:
+        """
+        A `custom_action` block as defined below.
+        """
+        return pulumi.get(self, "custom_action")
+
+    @custom_action.setter
+    def custom_action(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs']]):
+        pulumi.set(self, "custom_action", value)
+
+    @property
+    @pulumi.getter(name="minimumProcessExecutionTime")
+    def minimum_process_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum amount of time in `hh:mm:ss` the Windows Web App must have been running before the defined action will be run in the event of a trigger.
+        """
+        return pulumi.get(self, "minimum_process_execution_time")
+
+    @minimum_process_execution_time.setter
+    def minimum_process_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_process_execution_time", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs:
+    def __init__(__self__, *,
+                 executable: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] executable: The executable to run for the `custom_action`.
+        :param pulumi.Input[str] parameters: The parameters to pass to the specified `executable`.
+        """
+        pulumi.set(__self__, "executable", executable)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def executable(self) -> pulumi.Input[str]:
+        """
+        The executable to run for the `custom_action`.
+        """
+        return pulumi.get(self, "executable")
+
+    @executable.setter
+    def executable(self, value: pulumi.Input[str]):
+        pulumi.set(self, "executable", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters to pass to the specified `executable`.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs:
+    def __init__(__self__, *,
+                 private_memory_kb: Optional[pulumi.Input[int]] = None,
+                 requests: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']] = None,
+                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]] = None,
+                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None):
+        """
+        :param pulumi.Input[int] private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs'] requests: A `requests` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]] slow_requests: One or more `slow_request` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]] status_codes: One or more `status_code` blocks as defined above.
+        """
+        if private_memory_kb is not None:
+            pulumi.set(__self__, "private_memory_kb", private_memory_kb)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if slow_requests is not None:
+            pulumi.set(__self__, "slow_requests", slow_requests)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+
+    @property
+    @pulumi.getter(name="privateMemoryKb")
+    def private_memory_kb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+        """
+        return pulumi.get(self, "private_memory_kb")
+
+    @private_memory_kb.setter
+    def private_memory_kb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "private_memory_kb", value)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']]:
+        """
+        A `requests` block as defined above.
+        """
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']]):
+        pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter(name="slowRequests")
+    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]:
+        """
+        One or more `slow_request` blocks as defined above.
+        """
+        return pulumi.get(self, "slow_requests")
+
+    @slow_requests.setter
+    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]):
+        pulumi.set(self, "slow_requests", value)
+
+    @property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]:
+        """
+        One or more `status_code` blocks as defined above.
+        """
+        return pulumi.get(self, "status_codes")
+
+    @status_codes.setter
+    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]):
+        pulumi.set(self, "status_codes", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] count: The number of requests in the specified `interval` to trigger this rule.
+        :param pulumi.Input[str] interval: The interval in `hh:mm:ss`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        The number of requests in the specified `interval` to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The interval in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: pulumi.Input[str],
+                 time_taken: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] count: The number of Slow Requests in the time `interval` to trigger this rule.
+        :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
+        :param pulumi.Input[str] time_taken: The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        :param pulumi.Input[str] path: The path for which this slow request rule applies.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "time_taken", time_taken)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="timeTaken")
+    def time_taken(self) -> pulumi.Input[str]:
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "time_taken")
+
+    @time_taken.setter
+    def time_taken(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_taken", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path for which this slow request rule applies.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: pulumi.Input[str],
+                 status_code_range: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None,
+                 sub_status: Optional[pulumi.Input[int]] = None,
+                 win32_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
+        :param pulumi.Input[str] status_code_range: The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+        :param pulumi.Input[str] path: The path to which this rule status code applies.
+        :param pulumi.Input[int] sub_status: The Request Sub Status of the Status Code.
+        :param pulumi.Input[str] win32_status: The Win32 Status Code of the Request.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "status_code_range", status_code_range)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if sub_status is not None:
+            pulumi.set(__self__, "sub_status", sub_status)
+        if win32_status is not None:
+            pulumi.set(__self__, "win32_status", win32_status)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="statusCodeRange")
+    def status_code_range(self) -> pulumi.Input[str]:
+        """
+        The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+        """
+        return pulumi.get(self, "status_code_range")
+
+    @status_code_range.setter
+    def status_code_range(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status_code_range", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to which this rule status code applies.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="subStatus")
+    def sub_status(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Request Sub Status of the Status Code.
+        """
+        return pulumi.get(self, "sub_status")
+
+    @sub_status.setter
+    def sub_status(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sub_status", value)
+
+    @property
+    @pulumi.getter(name="win32Status")
+    def win32_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Win32 Status Code of the Request.
+        """
+        return pulumi.get(self, "win32_status")
+
+    @win32_status.setter
+    def win32_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "win32_status", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigCorsArgs:
+    def __init__(__self__, *,
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 support_credentials: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
+        :param pulumi.Input[bool] support_credentials: Whether CORS requests with credentials are allowed. Defaults to `false`
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether CORS requests with credentials are allowed. Defaults to `false`
+        """
+        return pulumi.get(self, "support_credentials")
+
+    @support_credentials.setter
+    def support_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "support_credentials", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigScmIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigVirtualApplicationArgs:
+    def __init__(__self__, *,
+                 physical_path: pulumi.Input[str],
+                 preload: pulumi.Input[bool],
+                 virtual_path: pulumi.Input[str],
+                 virtual_directories: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs']]]] = None):
+        """
+        :param pulumi.Input[str] physical_path: The physical path for the Virtual Application.
+        :param pulumi.Input[bool] preload: Should pre-loading be enabled. Defaults to `false`.
+        :param pulumi.Input[str] virtual_path: The Virtual Path for the Virtual Application.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs']]] virtual_directories: One or more `virtual_directory` blocks as defined below.
+        """
+        pulumi.set(__self__, "physical_path", physical_path)
+        pulumi.set(__self__, "preload", preload)
+        pulumi.set(__self__, "virtual_path", virtual_path)
+        if virtual_directories is not None:
+            pulumi.set(__self__, "virtual_directories", virtual_directories)
+
+    @property
+    @pulumi.getter(name="physicalPath")
+    def physical_path(self) -> pulumi.Input[str]:
+        """
+        The physical path for the Virtual Application.
+        """
+        return pulumi.get(self, "physical_path")
+
+    @physical_path.setter
+    def physical_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "physical_path", value)
+
+    @property
+    @pulumi.getter
+    def preload(self) -> pulumi.Input[bool]:
+        """
+        Should pre-loading be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "preload")
+
+    @preload.setter
+    def preload(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "preload", value)
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> pulumi.Input[str]:
+        """
+        The Virtual Path for the Virtual Application.
+        """
+        return pulumi.get(self, "virtual_path")
+
+    @virtual_path.setter
+    def virtual_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_path", value)
+
+    @property
+    @pulumi.getter(name="virtualDirectories")
+    def virtual_directories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs']]]]:
+        """
+        One or more `virtual_directory` blocks as defined below.
+        """
+        return pulumi.get(self, "virtual_directories")
+
+    @virtual_directories.setter
+    def virtual_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs']]]]):
+        pulumi.set(self, "virtual_directories", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs:
+    def __init__(__self__, *,
+                 physical_path: Optional[pulumi.Input[str]] = None,
+                 virtual_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] physical_path: The physical path for the Virtual Application.
+        :param pulumi.Input[str] virtual_path: The Virtual Path for the Virtual Application.
+        """
+        if physical_path is not None:
+            pulumi.set(__self__, "physical_path", physical_path)
+        if virtual_path is not None:
+            pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter(name="physicalPath")
+    def physical_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The physical path for the Virtual Application.
+        """
+        return pulumi.get(self, "physical_path")
+
+    @physical_path.setter
+    def physical_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "physical_path", value)
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Path for the Virtual Application.
+        """
+        return pulumi.get(self, "virtual_path")
+
+    @virtual_path.setter
+    def virtual_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_path", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSiteCredentialArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        :param pulumi.Input[str] password: The Site Credentials Password used for publishing.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Password used for publishing.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotAuthSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 active_directory: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArgs']] = None,
+                 additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 facebook: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArgs']] = None,
+                 github: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArgs']] = None,
+                 google: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArgs']] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 microsoft: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArgs']] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 twitter: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArgs']] = None,
+                 unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Windows Web App?
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArgs'] github: A `github` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App Slot.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
+        :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Windows Web App Slot durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if additional_login_parameters is not None:
+            pulumi.set(__self__, "additional_login_parameters", additional_login_parameters)
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if facebook is not None:
+            pulumi.set(__self__, "facebook", facebook)
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if google is not None:
+            pulumi.set(__self__, "google", google)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if microsoft is not None:
+            pulumi.set(__self__, "microsoft", microsoft)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if token_refresh_extension_hours is not None:
+            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if twitter is not None:
+            pulumi.set(__self__, "twitter", twitter)
+        if unauthenticated_client_action is not None:
+            pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the Authentication / Authorization feature be enabled for the Windows Web App?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArgs']]:
+        """
+        An `active_directory` block as defined above.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter(name="additionalLoginParameters")
+    def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "additional_login_parameters")
+
+    @additional_login_parameters.setter
+    def additional_login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_login_parameters", value)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter
+    def facebook(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArgs']]:
+        """
+        A `facebook` block as defined below.
+        """
+        return pulumi.get(self, "facebook")
+
+    @facebook.setter
+    def facebook(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArgs']]):
+        pulumi.set(self, "facebook", value)
+
+    @property
+    @pulumi.getter
+    def github(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArgs']]:
+        """
+        A `github` block as defined below.
+        """
+        return pulumi.get(self, "github")
+
+    @github.setter
+    def github(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArgs']]):
+        pulumi.set(self, "github", value)
+
+    @property
+    @pulumi.getter
+    def google(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArgs']]:
+        """
+        A `google` block as defined below.
+        """
+        return pulumi.get(self, "google")
+
+    @google.setter
+    def google(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArgs']]):
+        pulumi.set(self, "google", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App Slot.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter
+    def microsoft(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArgs']]:
+        """
+        A `microsoft` block as defined below.
+        """
+        return pulumi.get(self, "microsoft")
+
+    @microsoft.setter
+    def microsoft(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArgs']]):
+        pulumi.set(self, "microsoft", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_hours")
+
+    @token_refresh_extension_hours.setter
+    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_hours", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Web App Slot durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter
+    def twitter(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArgs']]:
+        """
+        A `twitter` block as defined below.
+        """
+        return pulumi.get(self, "twitter")
+
+    @twitter.setter
+    def twitter(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArgs']]):
+        pulumi.set(self, "twitter", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedClientAction")
+    def unauthenticated_client_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        return pulumi.get(self, "unauthenticated_client_action")
+
+    @unauthenticated_client_action.setter
+    def unauthenticated_client_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_client_action", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotAuthSettingsActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[str] client_secret: The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotAuthSettingsFacebookArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret: Optional[pulumi.Input[str]] = None,
+                 app_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
+        if app_secret_setting_name is not None:
+            pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @app_secret.setter
+    def app_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotAuthSettingsGithubArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the GitHub app used for login.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotAuthSettingsGoogleArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
+        :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotAuthSettingsMicrosoftArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotAuthSettingsTwitterArgs:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret: Optional[pulumi.Input[str]] = None,
+                 consumer_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        if consumer_secret is not None:
+            pulumi.set(__self__, "consumer_secret", consumer_secret)
+        if consumer_secret_setting_name is not None:
+            pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecret")
+    def consumer_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        return pulumi.get(self, "consumer_secret")
+
+    @consumer_secret.setter
+    def consumer_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotBackupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 schedule: pulumi.Input['WindowsWebAppSlotBackupScheduleArgs'],
+                 storage_account_url: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Backup.
+        :param pulumi.Input['WindowsWebAppSlotBackupScheduleArgs'] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
+        :param pulumi.Input[bool] enabled: Should this backup job be enabled?
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "storage_account_url", storage_account_url)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Backup.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['WindowsWebAppSlotBackupScheduleArgs']:
+        """
+        A `schedule` block as defined below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['WindowsWebAppSlotBackupScheduleArgs']):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="storageAccountUrl")
+    def storage_account_url(self) -> pulumi.Input[str]:
+        """
+        The SAS URL to the container.
+        """
+        return pulumi.get(self, "storage_account_url")
+
+    @storage_account_url.setter
+    def storage_account_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_url", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this backup job be enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotBackupScheduleArgs:
+    def __init__(__self__, *,
+                 frequency_interval: pulumi.Input[int],
+                 frequency_unit: pulumi.Input[str],
+                 keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
+                 last_execution_time: Optional[pulumi.Input[str]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+        :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted.
+        :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
+        """
+        pulumi.set(__self__, "frequency_interval", frequency_interval)
+        pulumi.set(__self__, "frequency_unit", frequency_unit)
+        if keep_at_least_one_backup is not None:
+            pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
+        if last_execution_time is not None:
+            pulumi.set(__self__, "last_execution_time", last_execution_time)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="frequencyInterval")
+    def frequency_interval(self) -> pulumi.Input[int]:
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        """
+        return pulumi.get(self, "frequency_interval")
+
+    @frequency_interval.setter
+    def frequency_interval(self, value: pulumi.Input[int]):
+        pulumi.set(self, "frequency_interval", value)
+
+    @property
+    @pulumi.getter(name="frequencyUnit")
+    def frequency_unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+        """
+        return pulumi.get(self, "frequency_unit")
+
+    @frequency_unit.setter
+    def frequency_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frequency_unit", value)
+
+    @property
+    @pulumi.getter(name="keepAtLeastOneBackup")
+    def keep_at_least_one_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        return pulumi.get(self, "keep_at_least_one_backup")
+
+    @keep_at_least_one_backup.setter
+    def keep_at_least_one_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keep_at_least_one_backup", value)
+
+    @property
+    @pulumi.getter(name="lastExecutionTime")
+    def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_execution_time")
+
+    @last_execution_time.setter
+    def last_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_execution_time", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        After how many days backups should be deleted.
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotConnectionStringArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        :param pulumi.Input[str] type: Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        :param pulumi.Input[str] value: The connection string value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The connection string value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Windows Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Windows Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotLogsArgs:
+    def __init__(__self__, *,
+                 application_logs: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArgs']] = None,
+                 detailed_error_messages: Optional[pulumi.Input[bool]] = None,
+                 failed_request_tracing: Optional[pulumi.Input[bool]] = None,
+                 http_logs: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsArgs']] = None):
+        """
+        :param pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArgs'] application_logs: A `application_logs` block as defined above.
+        :param pulumi.Input[bool] detailed_error_messages: Should detailed error messages be enabled.
+        :param pulumi.Input[bool] failed_request_tracing: Should failed request tracing be enabled.
+        :param pulumi.Input['WindowsWebAppSlotLogsHttpLogsArgs'] http_logs: An `http_logs` block as defined above.
+        """
+        if application_logs is not None:
+            pulumi.set(__self__, "application_logs", application_logs)
+        if detailed_error_messages is not None:
+            pulumi.set(__self__, "detailed_error_messages", detailed_error_messages)
+        if failed_request_tracing is not None:
+            pulumi.set(__self__, "failed_request_tracing", failed_request_tracing)
+        if http_logs is not None:
+            pulumi.set(__self__, "http_logs", http_logs)
+
+    @property
+    @pulumi.getter(name="applicationLogs")
+    def application_logs(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArgs']]:
+        """
+        A `application_logs` block as defined above.
+        """
+        return pulumi.get(self, "application_logs")
+
+    @application_logs.setter
+    def application_logs(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArgs']]):
+        pulumi.set(self, "application_logs", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorMessages")
+    def detailed_error_messages(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should detailed error messages be enabled.
+        """
+        return pulumi.get(self, "detailed_error_messages")
+
+    @detailed_error_messages.setter
+    def detailed_error_messages(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_messages", value)
+
+    @property
+    @pulumi.getter(name="failedRequestTracing")
+    def failed_request_tracing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should failed request tracing be enabled.
+        """
+        return pulumi.get(self, "failed_request_tracing")
+
+    @failed_request_tracing.setter
+    def failed_request_tracing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "failed_request_tracing", value)
+
+    @property
+    @pulumi.getter(name="httpLogs")
+    def http_logs(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsArgs']]:
+        """
+        An `http_logs` block as defined above.
+        """
+        return pulumi.get(self, "http_logs")
+
+    @http_logs.setter
+    def http_logs(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsArgs']]):
+        pulumi.set(self, "http_logs", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotLogsApplicationLogsArgs:
+    def __init__(__self__, *,
+                 file_system_level: pulumi.Input[str],
+                 azure_blob_storage: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']] = None):
+        """
+        :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        :param pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        """
+        pulumi.set(__self__, "file_system_level", file_system_level)
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+
+    @property
+    @pulumi.getter(name="fileSystemLevel")
+    def file_system_level(self) -> pulumi.Input[str]:
+        """
+        Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        """
+        return pulumi.get(self, "file_system_level")
+
+    @file_system_level.setter
+    def file_system_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_level", value)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']]:
+        """
+        An `azure_blob_storage` block as defined below.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @azure_blob_storage.setter
+    def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']]):
+        pulumi.set(self, "azure_blob_storage", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
+    def __init__(__self__, *,
+                 level: pulumi.Input[str],
+                 retention_in_days: pulumi.Input[int],
+                 sas_url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
+        :param pulumi.Input[str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "retention_in_days", retention_in_days)
+        pulumi.set(__self__, "sas_url", sas_url)
+
+    @property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> pulumi.Input[int]:
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> pulumi.Input[str]:
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+    @sas_url.setter
+    def sas_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sas_url", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotLogsHttpLogsArgs:
+    def __init__(__self__, *,
+                 azure_blob_storage: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs']] = None,
+                 file_system: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArgs']] = None):
+        """
+        :param pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs'] azure_blob_storage: A `azure_blob_storage` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArgs'] file_system: A `file_system` block as defined above.
+        """
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs']]:
+        """
+        A `azure_blob_storage` block as defined above.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @azure_blob_storage.setter
+    def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs']]):
+        pulumi.set(self, "azure_blob_storage", value)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArgs']]:
+        """
+        A `file_system` block as defined above.
+        """
+        return pulumi.get(self, "file_system")
+
+    @file_system.setter
+    def file_system(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArgs']]):
+        pulumi.set(self, "file_system", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
+    def __init__(__self__, *,
+                 sas_url: pulumi.Input[str],
+                 retention_in_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+        :param pulumi.Input[int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        pulumi.set(__self__, "sas_url", sas_url)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> pulumi.Input[str]:
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+    @sas_url.setter
+    def sas_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sas_url", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_in_days", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotLogsHttpLogsFileSystemArgs:
+    def __init__(__self__, *,
+                 retention_in_days: pulumi.Input[int],
+                 retention_in_mb: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] retention_in_days: The retention period in days. A values of `0` means no retention.
+        :param pulumi.Input[int] retention_in_mb: The maximum size in megabytes that log files can use.
+        """
+        pulumi.set(__self__, "retention_in_days", retention_in_days)
+        pulumi.set(__self__, "retention_in_mb", retention_in_mb)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> pulumi.Input[int]:
+        """
+        The retention period in days. A values of `0` means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="retentionInMb")
+    def retention_in_mb(self) -> pulumi.Input[int]:
+        """
+        The maximum size in megabytes that log files can use.
+        """
+        return pulumi.get(self, "retention_in_mb")
+
+    @retention_in_mb.setter
+    def retention_in_mb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_in_mb", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigArgs:
+    def __init__(__self__, *,
+                 always_on: Optional[pulumi.Input[bool]] = None,
+                 api_definition_url: Optional[pulumi.Input[str]] = None,
+                 api_management_api_id: Optional[pulumi.Input[str]] = None,
+                 app_command_line: Optional[pulumi.Input[str]] = None,
+                 application_stack: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArgs']] = None,
+                 auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
+                 auto_heal_setting: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArgs']] = None,
+                 auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
+                 container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
+                 cors: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigCorsArgs']] = None,
+                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
+                 ftps_state: Optional[pulumi.Input[str]] = None,
+                 health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgs']]]] = None,
+                 load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 local_mysql_enabled: Optional[pulumi.Input[bool]] = None,
+                 managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 scm_type: Optional[pulumi.Input[str]] = None,
+                 scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
+                 use32_bit_worker: Optional[pulumi.Input[bool]] = None,
+                 virtual_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArgs']]]] = None,
+                 vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
+                 websockets_enabled: Optional[pulumi.Input[bool]] = None,
+                 windows_fx_version: Optional[pulumi.Input[str]] = None,
+                 worker_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] always_on: If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+        :param pulumi.Input[str] api_definition_url: The URL to the API Definition for this Windows Web App Slot.
+        :param pulumi.Input[str] api_management_api_id: The API Management API ID this Windows Web App Slot os associated with.
+        :param pulumi.Input[str] app_command_line: The App command line to launch.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
+        :param pulumi.Input[bool] auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        :param pulumi.Input[str] auto_swap_slot_name: The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+        :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Windows Web App Slot.
+        :param pulumi.Input[str] ftps_state: The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        :param pulumi.Input[str] health_check_path: The path to the Health Check.
+        :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
+        :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Web App Slot `ip_restriction` configuration be used for the SCM also.
+        :param pulumi.Input[bool] use32_bit_worker: Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArgs']]] virtual_applications: One or more `virtual_application` blocks as defined below.
+        :param pulumi.Input[int] worker_count: The number of Workers for this Windows App Service Slot.
+        """
+        if always_on is not None:
+            pulumi.set(__self__, "always_on", always_on)
+        if api_definition_url is not None:
+            pulumi.set(__self__, "api_definition_url", api_definition_url)
+        if api_management_api_id is not None:
+            pulumi.set(__self__, "api_management_api_id", api_management_api_id)
+        if app_command_line is not None:
+            pulumi.set(__self__, "app_command_line", app_command_line)
+        if application_stack is not None:
+            pulumi.set(__self__, "application_stack", application_stack)
+        if auto_heal_enabled is not None:
+            pulumi.set(__self__, "auto_heal_enabled", auto_heal_enabled)
+        if auto_heal_setting is not None:
+            pulumi.set(__self__, "auto_heal_setting", auto_heal_setting)
+        if auto_swap_slot_name is not None:
+            pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
+        if container_registry_managed_identity_client_id is not None:
+            pulumi.set(__self__, "container_registry_managed_identity_client_id", container_registry_managed_identity_client_id)
+        if container_registry_use_managed_identity is not None:
+            pulumi.set(__self__, "container_registry_use_managed_identity", container_registry_use_managed_identity)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if default_documents is not None:
+            pulumi.set(__self__, "default_documents", default_documents)
+        if detailed_error_logging_enabled is not None:
+            pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
+        if ftps_state is not None:
+            pulumi.set(__self__, "ftps_state", ftps_state)
+        if health_check_eviction_time_in_min is not None:
+            pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http2_enabled is not None:
+            pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restrictions is not None:
+            pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        if load_balancing_mode is not None:
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+        if local_mysql_enabled is not None:
+            pulumi.set(__self__, "local_mysql_enabled", local_mysql_enabled)
+        if managed_pipeline_mode is not None:
+            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
+        if remote_debugging_version is not None:
+            pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if scm_ip_restrictions is not None:
+            pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
+        if scm_minimum_tls_version is not None:
+            pulumi.set(__self__, "scm_minimum_tls_version", scm_minimum_tls_version)
+        if scm_type is not None:
+            pulumi.set(__self__, "scm_type", scm_type)
+        if scm_use_main_ip_restriction is not None:
+            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
+        if use32_bit_worker is not None:
+            pulumi.set(__self__, "use32_bit_worker", use32_bit_worker)
+        if virtual_applications is not None:
+            pulumi.set(__self__, "virtual_applications", virtual_applications)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if websockets_enabled is not None:
+            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+        if windows_fx_version is not None:
+            pulumi.set(__self__, "windows_fx_version", windows_fx_version)
+        if worker_count is not None:
+            pulumi.set(__self__, "worker_count", worker_count)
+
+    @property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "always_on")
+
+    @always_on.setter
+    def always_on(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_on", value)
+
+    @property
+    @pulumi.getter(name="apiDefinitionUrl")
+    def api_definition_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to the API Definition for this Windows Web App Slot.
+        """
+        return pulumi.get(self, "api_definition_url")
+
+    @api_definition_url.setter
+    def api_definition_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_definition_url", value)
+
+    @property
+    @pulumi.getter(name="apiManagementApiId")
+    def api_management_api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API Management API ID this Windows Web App Slot os associated with.
+        """
+        return pulumi.get(self, "api_management_api_id")
+
+    @api_management_api_id.setter
+    def api_management_api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_api_id", value)
+
+    @property
+    @pulumi.getter(name="appCommandLine")
+    def app_command_line(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App command line to launch.
+        """
+        return pulumi.get(self, "app_command_line")
+
+    @app_command_line.setter
+    def app_command_line(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_command_line", value)
+
+    @property
+    @pulumi.getter(name="applicationStack")
+    def application_stack(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArgs']]:
+        """
+        A `application_stack` block as defined above.
+        """
+        return pulumi.get(self, "application_stack")
+
+    @application_stack.setter
+    def application_stack(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArgs']]):
+        pulumi.set(self, "application_stack", value)
+
+    @property
+    @pulumi.getter(name="autoHealEnabled")
+    def auto_heal_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        """
+        return pulumi.get(self, "auto_heal_enabled")
+
+    @auto_heal_enabled.setter
+    def auto_heal_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_heal_enabled", value)
+
+    @property
+    @pulumi.getter(name="autoHealSetting")
+    def auto_heal_setting(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArgs']]:
+        """
+        A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        """
+        return pulumi.get(self, "auto_heal_setting")
+
+    @auto_heal_setting.setter
+    def auto_heal_setting(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArgs']]):
+        pulumi.set(self, "auto_heal_setting", value)
+
+    @property
+    @pulumi.getter(name="autoSwapSlotName")
+    def auto_swap_slot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+        """
+        return pulumi.get(self, "auto_swap_slot_name")
+
+    @auto_swap_slot_name.setter
+    def auto_swap_slot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_swap_slot_name", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryManagedIdentityClientId")
+    def container_registry_managed_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        return pulumi.get(self, "container_registry_managed_identity_client_id")
+
+    @container_registry_managed_identity_client_id.setter
+    def container_registry_managed_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_registry_managed_identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryUseManagedIdentity")
+    def container_registry_use_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        return pulumi.get(self, "container_registry_use_managed_identity")
+
+    @container_registry_use_managed_identity.setter
+    def container_registry_use_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "container_registry_use_managed_identity", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigCorsArgs']]:
+        """
+        A `cors` block as defined above.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigCorsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="defaultDocuments")
+    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Default Documents for the Windows Web App Slot.
+        """
+        return pulumi.get(self, "default_documents")
+
+    @default_documents.setter
+    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_documents", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorLoggingEnabled")
+    def detailed_error_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "detailed_error_logging_enabled")
+
+    @detailed_error_logging_enabled.setter
+    def detailed_error_logging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_logging_enabled", value)
+
+    @property
+    @pulumi.getter(name="ftpsState")
+    def ftps_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        """
+        return pulumi.get(self, "ftps_state")
+
+    @ftps_state.setter
+    def ftps_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ftps_state", value)
+
+    @property
+    @pulumi.getter(name="healthCheckEvictionTimeInMin")
+    def health_check_eviction_time_in_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        return pulumi.get(self, "health_check_eviction_time_in_min")
+
+    @health_check_eviction_time_in_min.setter
+    def health_check_eviction_time_in_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_eviction_time_in_min", value)
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the Health Check.
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @health_check_path.setter
+    def health_check_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_path", value)
+
+    @property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the HTTP2 be enabled?
+        """
+        return pulumi.get(self, "http2_enabled")
+
+    @http2_enabled.setter
+    def http2_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http2_enabled", value)
+
+    @property
+    @pulumi.getter(name="ipRestrictions")
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgs']]]]:
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "ip_restrictions")
+
+    @ip_restrictions.setter
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgs']]]]):
+        pulumi.set(self, "ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingMode")
+    def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        return pulumi.get(self, "load_balancing_mode")
+
+    @load_balancing_mode.setter
+    def load_balancing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancing_mode", value)
+
+    @property
+    @pulumi.getter(name="localMysqlEnabled")
+    def local_mysql_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use Local MySQL. Defaults to `false`.
+        """
+        return pulumi.get(self, "local_mysql_enabled")
+
+    @local_mysql_enabled.setter
+    def local_mysql_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_mysql_enabled", value)
+
+    @property
+    @pulumi.getter(name="managedPipelineMode")
+    def managed_pipeline_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        """
+        return pulumi.get(self, "managed_pipeline_mode")
+
+    @managed_pipeline_mode.setter
+    def managed_pipeline_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_pipeline_mode", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @remote_debugging_enabled.setter
+    def remote_debugging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remote_debugging_enabled", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingVersion")
+    def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        """
+        return pulumi.get(self, "remote_debugging_version")
+
+    @remote_debugging_version.setter
+    def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictions")
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]]]:
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "scm_ip_restrictions")
+
+    @scm_ip_restrictions.setter
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]]]):
+        pulumi.set(self, "scm_ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="scmMinimumTlsVersion")
+    def scm_minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "scm_minimum_tls_version")
+
+    @scm_minimum_tls_version.setter
+    def scm_minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scm_type")
+
+    @scm_type.setter
+    def scm_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_type", value)
+
+    @property
+    @pulumi.getter(name="scmUseMainIpRestriction")
+    def scm_use_main_ip_restriction(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Web App Slot `ip_restriction` configuration be used for the SCM also.
+        """
+        return pulumi.get(self, "scm_use_main_ip_restriction")
+
+    @scm_use_main_ip_restriction.setter
+    def scm_use_main_ip_restriction(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scm_use_main_ip_restriction", value)
+
+    @property
+    @pulumi.getter(name="use32BitWorker")
+    def use32_bit_worker(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
+        """
+        return pulumi.get(self, "use32_bit_worker")
+
+    @use32_bit_worker.setter
+    def use32_bit_worker(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use32_bit_worker", value)
+
+    @property
+    @pulumi.getter(name="virtualApplications")
+    def virtual_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArgs']]]]:
+        """
+        One or more `virtual_application` blocks as defined below.
+        """
+        return pulumi.get(self, "virtual_applications")
+
+    @virtual_applications.setter
+    def virtual_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArgs']]]]):
+        pulumi.set(self, "virtual_applications", value)
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "vnet_route_all_enabled")
+
+    @vnet_route_all_enabled.setter
+    def vnet_route_all_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_route_all_enabled", value)
+
+    @property
+    @pulumi.getter(name="websocketsEnabled")
+    def websockets_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "websockets_enabled")
+
+    @websockets_enabled.setter
+    def websockets_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "websockets_enabled", value)
+
+    @property
+    @pulumi.getter(name="windowsFxVersion")
+    def windows_fx_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "windows_fx_version")
+
+    @windows_fx_version.setter
+    def windows_fx_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "windows_fx_version", value)
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of Workers for this Windows App Service Slot.
+        """
+        return pulumi.get(self, "worker_count")
+
+    @worker_count.setter
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "worker_count", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigApplicationStackArgs:
+    def __init__(__self__, *,
+                 current_stack: Optional[pulumi.Input[str]] = None,
+                 docker_container_name: Optional[pulumi.Input[str]] = None,
+                 docker_container_registry: Optional[pulumi.Input[str]] = None,
+                 docker_container_tag: Optional[pulumi.Input[str]] = None,
+                 dotnet_version: Optional[pulumi.Input[str]] = None,
+                 java_container: Optional[pulumi.Input[str]] = None,
+                 java_container_version: Optional[pulumi.Input[str]] = None,
+                 java_version: Optional[pulumi.Input[str]] = None,
+                 node_version: Optional[pulumi.Input[str]] = None,
+                 php_version: Optional[pulumi.Input[str]] = None,
+                 python_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] current_stack: The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+        :param pulumi.Input[str] docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
+        :param pulumi.Input[str] docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+        :param pulumi.Input[str] docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
+        :param pulumi.Input[str] dotnet_version: The version of .Net to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        :param pulumi.Input[str] java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
+        :param pulumi.Input[str] java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
+        :param pulumi.Input[str] java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+        :param pulumi.Input[str] php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
+        :param pulumi.Input[str] python_version: The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+        """
+        if current_stack is not None:
+            pulumi.set(__self__, "current_stack", current_stack)
+        if docker_container_name is not None:
+            pulumi.set(__self__, "docker_container_name", docker_container_name)
+        if docker_container_registry is not None:
+            pulumi.set(__self__, "docker_container_registry", docker_container_registry)
+        if docker_container_tag is not None:
+            pulumi.set(__self__, "docker_container_tag", docker_container_tag)
+        if dotnet_version is not None:
+            pulumi.set(__self__, "dotnet_version", dotnet_version)
+        if java_container is not None:
+            pulumi.set(__self__, "java_container", java_container)
+        if java_container_version is not None:
+            pulumi.set(__self__, "java_container_version", java_container_version)
+        if java_version is not None:
+            pulumi.set(__self__, "java_version", java_version)
+        if node_version is not None:
+            pulumi.set(__self__, "node_version", node_version)
+        if php_version is not None:
+            pulumi.set(__self__, "php_version", php_version)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+
+    @property
+    @pulumi.getter(name="currentStack")
+    def current_stack(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+        """
+        return pulumi.get(self, "current_stack")
+
+    @current_stack.setter
+    def current_stack(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_stack", value)
+
+    @property
+    @pulumi.getter(name="dockerContainerName")
+    def docker_container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
+        """
+        return pulumi.get(self, "docker_container_name")
+
+    @docker_container_name.setter
+    def docker_container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_container_name", value)
+
+    @property
+    @pulumi.getter(name="dockerContainerRegistry")
+    def docker_container_registry(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
+        """
+        return pulumi.get(self, "docker_container_registry")
+
+    @docker_container_registry.setter
+    def docker_container_registry(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_container_registry", value)
+
+    @property
+    @pulumi.getter(name="dockerContainerTag")
+    def docker_container_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Image Tag of the specified Docker Container to use. For example `latest`
+        """
+        return pulumi.get(self, "docker_container_tag")
+
+    @docker_container_tag.setter
+    def docker_container_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_container_tag", value)
+
+    @property
+    @pulumi.getter(name="dotnetVersion")
+    def dotnet_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of .Net to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        """
+        return pulumi.get(self, "dotnet_version")
+
+    @dotnet_version.setter
+    def dotnet_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dotnet_version", value)
+
+    @property
+    @pulumi.getter(name="javaContainer")
+    def java_container(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
+        """
+        return pulumi.get(self, "java_container")
+
+    @java_container.setter
+    def java_container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_container", value)
+
+    @property
+    @pulumi.getter(name="javaContainerVersion")
+    def java_container_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Version of the `java_container` to use. Required with `java_version` and `java_container`.
+        """
+        return pulumi.get(self, "java_container_version")
+
+    @java_container_version.setter
+    def java_container_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_container_version", value)
+
+    @property
+    @pulumi.getter(name="javaVersion")
+    def java_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
+        """
+        return pulumi.get(self, "java_version")
+
+    @java_version.setter
+    def java_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_version", value)
+
+    @property
+    @pulumi.getter(name="nodeVersion")
+    def node_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+        """
+        return pulumi.get(self, "node_version")
+
+    @node_version.setter
+    def node_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_version", value)
+
+    @property
+    @pulumi.getter(name="phpVersion")
+    def php_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
+        """
+        return pulumi.get(self, "php_version")
+
+    @php_version.setter
+    def php_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "php_version", value)
+
+    @property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+        """
+        return pulumi.get(self, "python_version")
+
+    @python_version.setter
+    def python_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "python_version", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigAutoHealSettingArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs'],
+                 trigger: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs']):
+        """
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs'] action: A `action` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs'] trigger: A `trigger` block as defined below.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "trigger", trigger)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs']:
+        """
+        A `action` block as defined above.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs']:
+        """
+        A `trigger` block as defined below.
+        """
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs']):
+        pulumi.set(self, "trigger", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs:
+    def __init__(__self__, *,
+                 action_type: pulumi.Input[str],
+                 custom_action: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs']] = None,
+                 minimum_process_execution_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action_type: Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs'] custom_action: A `custom_action` block as defined below.
+        :param pulumi.Input[str] minimum_process_execution_time: The minimum amount of time in `hh:mm:ss` the Windows Web App Slot must have been running before the defined action will be run in the event of a trigger.
+        """
+        pulumi.set(__self__, "action_type", action_type)
+        if custom_action is not None:
+            pulumi.set(__self__, "custom_action", custom_action)
+        if minimum_process_execution_time is not None:
+            pulumi.set(__self__, "minimum_process_execution_time", minimum_process_execution_time)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[str]:
+        """
+        Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="customAction")
+    def custom_action(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs']]:
+        """
+        A `custom_action` block as defined below.
+        """
+        return pulumi.get(self, "custom_action")
+
+    @custom_action.setter
+    def custom_action(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs']]):
+        pulumi.set(self, "custom_action", value)
+
+    @property
+    @pulumi.getter(name="minimumProcessExecutionTime")
+    def minimum_process_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum amount of time in `hh:mm:ss` the Windows Web App Slot must have been running before the defined action will be run in the event of a trigger.
+        """
+        return pulumi.get(self, "minimum_process_execution_time")
+
+    @minimum_process_execution_time.setter
+    def minimum_process_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_process_execution_time", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs:
+    def __init__(__self__, *,
+                 executable: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] executable: The executable to run for the `custom_action`.
+        :param pulumi.Input[str] parameters: The parameters to pass to the specified `executable`.
+        """
+        pulumi.set(__self__, "executable", executable)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def executable(self) -> pulumi.Input[str]:
+        """
+        The executable to run for the `custom_action`.
+        """
+        return pulumi.get(self, "executable")
+
+    @executable.setter
+    def executable(self, value: pulumi.Input[str]):
+        pulumi.set(self, "executable", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters to pass to the specified `executable`.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
+    def __init__(__self__, *,
+                 private_memory_kb: Optional[pulumi.Input[int]] = None,
+                 requests: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']] = None,
+                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]] = None,
+                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None):
+        """
+        :param pulumi.Input[int] private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs'] requests: A `requests` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]] slow_requests: One or more `slow_request` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]] status_codes: One or more `status_code` blocks as defined above.
+        """
+        if private_memory_kb is not None:
+            pulumi.set(__self__, "private_memory_kb", private_memory_kb)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if slow_requests is not None:
+            pulumi.set(__self__, "slow_requests", slow_requests)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+
+    @property
+    @pulumi.getter(name="privateMemoryKb")
+    def private_memory_kb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
+        """
+        return pulumi.get(self, "private_memory_kb")
+
+    @private_memory_kb.setter
+    def private_memory_kb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "private_memory_kb", value)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']]:
+        """
+        A `requests` block as defined above.
+        """
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']]):
+        pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter(name="slowRequests")
+    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]:
+        """
+        One or more `slow_request` blocks as defined above.
+        """
+        return pulumi.get(self, "slow_requests")
+
+    @slow_requests.setter
+    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]):
+        pulumi.set(self, "slow_requests", value)
+
+    @property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]:
+        """
+        One or more `status_code` blocks as defined above.
+        """
+        return pulumi.get(self, "status_codes")
+
+    @status_codes.setter
+    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]):
+        pulumi.set(self, "status_codes", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] count: The number of requests in the specified `interval` to trigger this rule.
+        :param pulumi.Input[str] interval: The interval in `hh:mm:ss`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        The number of requests in the specified `interval` to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The interval in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: pulumi.Input[str],
+                 time_taken: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] count: The number of Slow Requests in the time `interval` to trigger this rule.
+        :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
+        :param pulumi.Input[str] time_taken: The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        :param pulumi.Input[str] path: The path for which this slow request rule applies.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "time_taken", time_taken)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="timeTaken")
+    def time_taken(self) -> pulumi.Input[str]:
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        return pulumi.get(self, "time_taken")
+
+    @time_taken.setter
+    def time_taken(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_taken", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path for which this slow request rule applies.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 interval: pulumi.Input[str],
+                 status_code_range: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None,
+                 sub_status: Optional[pulumi.Input[int]] = None,
+                 win32_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
+        :param pulumi.Input[str] status_code_range: The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+        :param pulumi.Input[str] path: The path to which this rule status code applies.
+        :param pulumi.Input[int] sub_status: The Request Sub Status of the Status Code.
+        :param pulumi.Input[str] win32_status: The Win32 Status Code of the Request.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "status_code_range", status_code_range)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if sub_status is not None:
+            pulumi.set(__self__, "sub_status", sub_status)
+        if win32_status is not None:
+            pulumi.set(__self__, "win32_status", win32_status)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="statusCodeRange")
+    def status_code_range(self) -> pulumi.Input[str]:
+        """
+        The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+        """
+        return pulumi.get(self, "status_code_range")
+
+    @status_code_range.setter
+    def status_code_range(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status_code_range", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to which this rule status code applies.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="subStatus")
+    def sub_status(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Request Sub Status of the Status Code.
+        """
+        return pulumi.get(self, "sub_status")
+
+    @sub_status.setter
+    def sub_status(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sub_status", value)
+
+    @property
+    @pulumi.getter(name="win32Status")
+    def win32_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Win32 Status Code of the Request.
+        """
+        return pulumi.get(self, "win32_status")
+
+    @win32_status.setter
+    def win32_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "win32_status", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigCorsArgs:
+    def __init__(__self__, *,
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 support_credentials: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
+        :param pulumi.Input[bool] support_credentials: Whether CORS requests with credentials are allowed. Defaults to `false`
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether CORS requests with credentials are allowed. Defaults to `false`
+        """
+        return pulumi.get(self, "support_credentials")
+
+    @support_credentials.setter
+    def support_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "support_credentials", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigScmIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigVirtualApplicationArgs:
+    def __init__(__self__, *,
+                 physical_path: pulumi.Input[str],
+                 preload: pulumi.Input[bool],
+                 virtual_path: pulumi.Input[str],
+                 virtual_directories: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs']]]] = None):
+        """
+        :param pulumi.Input[str] physical_path: The physical path for the Virtual Application.
+        :param pulumi.Input[bool] preload: Should pre-loading be enabled. Defaults to `false`.
+        :param pulumi.Input[str] virtual_path: The Virtual Path for the Virtual Application.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs']]] virtual_directories: One or more `virtual_directory` blocks as defined below.
+        """
+        pulumi.set(__self__, "physical_path", physical_path)
+        pulumi.set(__self__, "preload", preload)
+        pulumi.set(__self__, "virtual_path", virtual_path)
+        if virtual_directories is not None:
+            pulumi.set(__self__, "virtual_directories", virtual_directories)
+
+    @property
+    @pulumi.getter(name="physicalPath")
+    def physical_path(self) -> pulumi.Input[str]:
+        """
+        The physical path for the Virtual Application.
+        """
+        return pulumi.get(self, "physical_path")
+
+    @physical_path.setter
+    def physical_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "physical_path", value)
+
+    @property
+    @pulumi.getter
+    def preload(self) -> pulumi.Input[bool]:
+        """
+        Should pre-loading be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "preload")
+
+    @preload.setter
+    def preload(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "preload", value)
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> pulumi.Input[str]:
+        """
+        The Virtual Path for the Virtual Application.
+        """
+        return pulumi.get(self, "virtual_path")
+
+    @virtual_path.setter
+    def virtual_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_path", value)
+
+    @property
+    @pulumi.getter(name="virtualDirectories")
+    def virtual_directories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs']]]]:
+        """
+        One or more `virtual_directory` blocks as defined below.
+        """
+        return pulumi.get(self, "virtual_directories")
+
+    @virtual_directories.setter
+    def virtual_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs']]]]):
+        pulumi.set(self, "virtual_directories", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs:
+    def __init__(__self__, *,
+                 physical_path: Optional[pulumi.Input[str]] = None,
+                 virtual_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] physical_path: The physical path for the Virtual Application.
+        :param pulumi.Input[str] virtual_path: The Virtual Path for the Virtual Application.
+        """
+        if physical_path is not None:
+            pulumi.set(__self__, "physical_path", physical_path)
+        if virtual_path is not None:
+            pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter(name="physicalPath")
+    def physical_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The physical path for the Virtual Application.
+        """
+        return pulumi.get(self, "physical_path")
+
+    @physical_path.setter
+    def physical_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "physical_path", value)
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Path for the Virtual Application.
+        """
+        return pulumi.get(self, "virtual_path")
+
+    @virtual_path.setter
+    def virtual_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_path", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotSiteCredentialArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        :param pulumi.Input[str] password: The Site Credentials Password used for publishing.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Password used for publishing.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+
+@pulumi.input_type
+class WindowsWebAppSlotStorageAccountArgs:
+    def __init__(__self__, *,
+                 access_key: pulumi.Input[str],
+                 account_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 share_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 mount_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_key: The Access key for the storage account.
+        :param pulumi.Input[str] account_name: The Name of the Storage Account.
+        :param pulumi.Input[str] name: The name which should be used for this Storage Account.
+        :param pulumi.Input[str] share_name: The Name of the File Share or Container Name for Blob storage.
+        :param pulumi.Input[str] type: The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+        :param pulumi.Input[str] mount_path: The path at which to mount the storage share.
+        """
+        pulumi.set(__self__, "access_key", access_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "type", type)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> pulumi.Input[str]:
+        """
+        The Access key for the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the Storage Account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Storage Account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path at which to mount the storage share.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
+
+
+@pulumi.input_type
+class WindowsWebAppStorageAccountArgs:
+    def __init__(__self__, *,
+                 access_key: pulumi.Input[str],
+                 account_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 share_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 mount_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_key: The Access key for the storage account.
+        :param pulumi.Input[str] account_name: The Name of the Storage Account.
+        :param pulumi.Input[str] name: The name which should be used for this TODO.
+        :param pulumi.Input[str] share_name: The Name of the File Share or Container Name for Blob storage.
+        :param pulumi.Input[str] type: The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+        :param pulumi.Input[str] mount_path: The path at which to mount the storage share.
+        """
+        pulumi.set(__self__, "access_key", access_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "type", type)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> pulumi.Input[str]:
+        """
+        The Access key for the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the Storage Account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this TODO.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path at which to mount the storage share.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
 
 

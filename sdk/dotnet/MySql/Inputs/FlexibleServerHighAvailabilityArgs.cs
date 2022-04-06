@@ -19,7 +19,7 @@ namespace Pulumi.Azure.MySql.Inputs
         public Input<string> Mode { get; set; } = null!;
 
         /// <summary>
-        /// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+        /// Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
         /// </summary>
         [Input("standbyAvailabilityZone")]
         public Input<string>? StandbyAvailabilityZone { get; set; }

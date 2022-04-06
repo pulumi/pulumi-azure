@@ -970,10 +970,6 @@ type AccountGeoLocation struct {
 	Id *string `pulumi:"id"`
 	// The name of the Azure region to host replicated data.
 	Location string `pulumi:"location"`
-	// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
-	//
-	// Deprecated: This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
-	Prefix *string `pulumi:"prefix"`
 	// Should zone redundancy be enabled for this region? Defaults to `false`.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
@@ -996,10 +992,6 @@ type AccountGeoLocationArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the Azure region to host replicated data.
 	Location pulumi.StringInput `pulumi:"location"`
-	// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
-	//
-	// Deprecated: This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Should zone redundancy be enabled for this region? Defaults to `false`.
 	ZoneRedundant pulumi.BoolPtrInput `pulumi:"zoneRedundant"`
 }
@@ -1070,13 +1062,6 @@ func (o AccountGeoLocationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountGeoLocation) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
-//
-// Deprecated: This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
-func (o AccountGeoLocationOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountGeoLocation) *string { return v.Prefix }).(pulumi.StringPtrOutput)
-}
-
 // Should zone redundancy be enabled for this region? Defaults to `false`.
 func (o AccountGeoLocationOutput) ZoneRedundant() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountGeoLocation) *bool { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
@@ -1107,7 +1092,7 @@ type AccountIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -1127,7 +1112,7 @@ type AccountIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1218,7 +1203,7 @@ func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
 func (o AccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1267,7 +1252,7 @@ func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
 func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
 		if v == nil {
@@ -2737,29 +2722,45 @@ func (i GremlinGraphConflictResolutionPolicyArgs) ToGremlinGraphConflictResoluti
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphConflictResolutionPolicyOutput)
 }
 
-// GremlinGraphConflictResolutionPolicyArrayInput is an input type that accepts GremlinGraphConflictResolutionPolicyArray and GremlinGraphConflictResolutionPolicyArrayOutput values.
-// You can construct a concrete instance of `GremlinGraphConflictResolutionPolicyArrayInput` via:
+func (i GremlinGraphConflictResolutionPolicyArgs) ToGremlinGraphConflictResolutionPolicyPtrOutput() GremlinGraphConflictResolutionPolicyPtrOutput {
+	return i.ToGremlinGraphConflictResolutionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphConflictResolutionPolicyArgs) ToGremlinGraphConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) GremlinGraphConflictResolutionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphConflictResolutionPolicyOutput).ToGremlinGraphConflictResolutionPolicyPtrOutputWithContext(ctx)
+}
+
+// GremlinGraphConflictResolutionPolicyPtrInput is an input type that accepts GremlinGraphConflictResolutionPolicyArgs, GremlinGraphConflictResolutionPolicyPtr and GremlinGraphConflictResolutionPolicyPtrOutput values.
+// You can construct a concrete instance of `GremlinGraphConflictResolutionPolicyPtrInput` via:
 //
-//          GremlinGraphConflictResolutionPolicyArray{ GremlinGraphConflictResolutionPolicyArgs{...} }
-type GremlinGraphConflictResolutionPolicyArrayInput interface {
+//          GremlinGraphConflictResolutionPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type GremlinGraphConflictResolutionPolicyPtrInput interface {
 	pulumi.Input
 
-	ToGremlinGraphConflictResolutionPolicyArrayOutput() GremlinGraphConflictResolutionPolicyArrayOutput
-	ToGremlinGraphConflictResolutionPolicyArrayOutputWithContext(context.Context) GremlinGraphConflictResolutionPolicyArrayOutput
+	ToGremlinGraphConflictResolutionPolicyPtrOutput() GremlinGraphConflictResolutionPolicyPtrOutput
+	ToGremlinGraphConflictResolutionPolicyPtrOutputWithContext(context.Context) GremlinGraphConflictResolutionPolicyPtrOutput
 }
 
-type GremlinGraphConflictResolutionPolicyArray []GremlinGraphConflictResolutionPolicyInput
+type gremlinGraphConflictResolutionPolicyPtrType GremlinGraphConflictResolutionPolicyArgs
 
-func (GremlinGraphConflictResolutionPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GremlinGraphConflictResolutionPolicy)(nil)).Elem()
+func GremlinGraphConflictResolutionPolicyPtr(v *GremlinGraphConflictResolutionPolicyArgs) GremlinGraphConflictResolutionPolicyPtrInput {
+	return (*gremlinGraphConflictResolutionPolicyPtrType)(v)
 }
 
-func (i GremlinGraphConflictResolutionPolicyArray) ToGremlinGraphConflictResolutionPolicyArrayOutput() GremlinGraphConflictResolutionPolicyArrayOutput {
-	return i.ToGremlinGraphConflictResolutionPolicyArrayOutputWithContext(context.Background())
+func (*gremlinGraphConflictResolutionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinGraphConflictResolutionPolicy)(nil)).Elem()
 }
 
-func (i GremlinGraphConflictResolutionPolicyArray) ToGremlinGraphConflictResolutionPolicyArrayOutputWithContext(ctx context.Context) GremlinGraphConflictResolutionPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphConflictResolutionPolicyArrayOutput)
+func (i *gremlinGraphConflictResolutionPolicyPtrType) ToGremlinGraphConflictResolutionPolicyPtrOutput() GremlinGraphConflictResolutionPolicyPtrOutput {
+	return i.ToGremlinGraphConflictResolutionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *gremlinGraphConflictResolutionPolicyPtrType) ToGremlinGraphConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) GremlinGraphConflictResolutionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphConflictResolutionPolicyPtrOutput)
 }
 
 type GremlinGraphConflictResolutionPolicyOutput struct{ *pulumi.OutputState }
@@ -2774,6 +2775,16 @@ func (o GremlinGraphConflictResolutionPolicyOutput) ToGremlinGraphConflictResolu
 
 func (o GremlinGraphConflictResolutionPolicyOutput) ToGremlinGraphConflictResolutionPolicyOutputWithContext(ctx context.Context) GremlinGraphConflictResolutionPolicyOutput {
 	return o
+}
+
+func (o GremlinGraphConflictResolutionPolicyOutput) ToGremlinGraphConflictResolutionPolicyPtrOutput() GremlinGraphConflictResolutionPolicyPtrOutput {
+	return o.ToGremlinGraphConflictResolutionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o GremlinGraphConflictResolutionPolicyOutput) ToGremlinGraphConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) GremlinGraphConflictResolutionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GremlinGraphConflictResolutionPolicy) *GremlinGraphConflictResolutionPolicy {
+		return &v
+	}).(GremlinGraphConflictResolutionPolicyPtrOutput)
 }
 
 // The conflict resolution path in the case of LastWriterWins mode.
@@ -2791,24 +2802,58 @@ func (o GremlinGraphConflictResolutionPolicyOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinGraphConflictResolutionPolicy) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-type GremlinGraphConflictResolutionPolicyArrayOutput struct{ *pulumi.OutputState }
+type GremlinGraphConflictResolutionPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (GremlinGraphConflictResolutionPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GremlinGraphConflictResolutionPolicy)(nil)).Elem()
+func (GremlinGraphConflictResolutionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinGraphConflictResolutionPolicy)(nil)).Elem()
 }
 
-func (o GremlinGraphConflictResolutionPolicyArrayOutput) ToGremlinGraphConflictResolutionPolicyArrayOutput() GremlinGraphConflictResolutionPolicyArrayOutput {
+func (o GremlinGraphConflictResolutionPolicyPtrOutput) ToGremlinGraphConflictResolutionPolicyPtrOutput() GremlinGraphConflictResolutionPolicyPtrOutput {
 	return o
 }
 
-func (o GremlinGraphConflictResolutionPolicyArrayOutput) ToGremlinGraphConflictResolutionPolicyArrayOutputWithContext(ctx context.Context) GremlinGraphConflictResolutionPolicyArrayOutput {
+func (o GremlinGraphConflictResolutionPolicyPtrOutput) ToGremlinGraphConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) GremlinGraphConflictResolutionPolicyPtrOutput {
 	return o
 }
 
-func (o GremlinGraphConflictResolutionPolicyArrayOutput) Index(i pulumi.IntInput) GremlinGraphConflictResolutionPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GremlinGraphConflictResolutionPolicy {
-		return vs[0].([]GremlinGraphConflictResolutionPolicy)[vs[1].(int)]
+func (o GremlinGraphConflictResolutionPolicyPtrOutput) Elem() GremlinGraphConflictResolutionPolicyOutput {
+	return o.ApplyT(func(v *GremlinGraphConflictResolutionPolicy) GremlinGraphConflictResolutionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GremlinGraphConflictResolutionPolicy
+		return ret
 	}).(GremlinGraphConflictResolutionPolicyOutput)
+}
+
+// The conflict resolution path in the case of LastWriterWins mode.
+func (o GremlinGraphConflictResolutionPolicyPtrOutput) ConflictResolutionPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphConflictResolutionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConflictResolutionPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The procedure to resolve conflicts in the case of custom mode.
+func (o GremlinGraphConflictResolutionPolicyPtrOutput) ConflictResolutionProcedure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphConflictResolutionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConflictResolutionProcedure
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+func (o GremlinGraphConflictResolutionPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphConflictResolutionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
 }
 
 type GremlinGraphIndexPolicy struct {
@@ -2864,29 +2909,45 @@ func (i GremlinGraphIndexPolicyArgs) ToGremlinGraphIndexPolicyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphIndexPolicyOutput)
 }
 
-// GremlinGraphIndexPolicyArrayInput is an input type that accepts GremlinGraphIndexPolicyArray and GremlinGraphIndexPolicyArrayOutput values.
-// You can construct a concrete instance of `GremlinGraphIndexPolicyArrayInput` via:
+func (i GremlinGraphIndexPolicyArgs) ToGremlinGraphIndexPolicyPtrOutput() GremlinGraphIndexPolicyPtrOutput {
+	return i.ToGremlinGraphIndexPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphIndexPolicyArgs) ToGremlinGraphIndexPolicyPtrOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphIndexPolicyOutput).ToGremlinGraphIndexPolicyPtrOutputWithContext(ctx)
+}
+
+// GremlinGraphIndexPolicyPtrInput is an input type that accepts GremlinGraphIndexPolicyArgs, GremlinGraphIndexPolicyPtr and GremlinGraphIndexPolicyPtrOutput values.
+// You can construct a concrete instance of `GremlinGraphIndexPolicyPtrInput` via:
 //
-//          GremlinGraphIndexPolicyArray{ GremlinGraphIndexPolicyArgs{...} }
-type GremlinGraphIndexPolicyArrayInput interface {
+//          GremlinGraphIndexPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type GremlinGraphIndexPolicyPtrInput interface {
 	pulumi.Input
 
-	ToGremlinGraphIndexPolicyArrayOutput() GremlinGraphIndexPolicyArrayOutput
-	ToGremlinGraphIndexPolicyArrayOutputWithContext(context.Context) GremlinGraphIndexPolicyArrayOutput
+	ToGremlinGraphIndexPolicyPtrOutput() GremlinGraphIndexPolicyPtrOutput
+	ToGremlinGraphIndexPolicyPtrOutputWithContext(context.Context) GremlinGraphIndexPolicyPtrOutput
 }
 
-type GremlinGraphIndexPolicyArray []GremlinGraphIndexPolicyInput
+type gremlinGraphIndexPolicyPtrType GremlinGraphIndexPolicyArgs
 
-func (GremlinGraphIndexPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GremlinGraphIndexPolicy)(nil)).Elem()
+func GremlinGraphIndexPolicyPtr(v *GremlinGraphIndexPolicyArgs) GremlinGraphIndexPolicyPtrInput {
+	return (*gremlinGraphIndexPolicyPtrType)(v)
 }
 
-func (i GremlinGraphIndexPolicyArray) ToGremlinGraphIndexPolicyArrayOutput() GremlinGraphIndexPolicyArrayOutput {
-	return i.ToGremlinGraphIndexPolicyArrayOutputWithContext(context.Background())
+func (*gremlinGraphIndexPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinGraphIndexPolicy)(nil)).Elem()
 }
 
-func (i GremlinGraphIndexPolicyArray) ToGremlinGraphIndexPolicyArrayOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphIndexPolicyArrayOutput)
+func (i *gremlinGraphIndexPolicyPtrType) ToGremlinGraphIndexPolicyPtrOutput() GremlinGraphIndexPolicyPtrOutput {
+	return i.ToGremlinGraphIndexPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *gremlinGraphIndexPolicyPtrType) ToGremlinGraphIndexPolicyPtrOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphIndexPolicyPtrOutput)
 }
 
 type GremlinGraphIndexPolicyOutput struct{ *pulumi.OutputState }
@@ -2901,6 +2962,16 @@ func (o GremlinGraphIndexPolicyOutput) ToGremlinGraphIndexPolicyOutput() Gremlin
 
 func (o GremlinGraphIndexPolicyOutput) ToGremlinGraphIndexPolicyOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyOutput {
 	return o
+}
+
+func (o GremlinGraphIndexPolicyOutput) ToGremlinGraphIndexPolicyPtrOutput() GremlinGraphIndexPolicyPtrOutput {
+	return o.ToGremlinGraphIndexPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o GremlinGraphIndexPolicyOutput) ToGremlinGraphIndexPolicyPtrOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GremlinGraphIndexPolicy) *GremlinGraphIndexPolicy {
+		return &v
+	}).(GremlinGraphIndexPolicyPtrOutput)
 }
 
 // Indicates if the indexing policy is automatic. Defaults to `true`.
@@ -2933,24 +3004,88 @@ func (o GremlinGraphIndexPolicyOutput) SpatialIndices() GremlinGraphIndexPolicyS
 	return o.ApplyT(func(v GremlinGraphIndexPolicy) []GremlinGraphIndexPolicySpatialIndex { return v.SpatialIndices }).(GremlinGraphIndexPolicySpatialIndexArrayOutput)
 }
 
-type GremlinGraphIndexPolicyArrayOutput struct{ *pulumi.OutputState }
+type GremlinGraphIndexPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (GremlinGraphIndexPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GremlinGraphIndexPolicy)(nil)).Elem()
+func (GremlinGraphIndexPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinGraphIndexPolicy)(nil)).Elem()
 }
 
-func (o GremlinGraphIndexPolicyArrayOutput) ToGremlinGraphIndexPolicyArrayOutput() GremlinGraphIndexPolicyArrayOutput {
+func (o GremlinGraphIndexPolicyPtrOutput) ToGremlinGraphIndexPolicyPtrOutput() GremlinGraphIndexPolicyPtrOutput {
 	return o
 }
 
-func (o GremlinGraphIndexPolicyArrayOutput) ToGremlinGraphIndexPolicyArrayOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyArrayOutput {
+func (o GremlinGraphIndexPolicyPtrOutput) ToGremlinGraphIndexPolicyPtrOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyPtrOutput {
 	return o
 }
 
-func (o GremlinGraphIndexPolicyArrayOutput) Index(i pulumi.IntInput) GremlinGraphIndexPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GremlinGraphIndexPolicy {
-		return vs[0].([]GremlinGraphIndexPolicy)[vs[1].(int)]
+func (o GremlinGraphIndexPolicyPtrOutput) Elem() GremlinGraphIndexPolicyOutput {
+	return o.ApplyT(func(v *GremlinGraphIndexPolicy) GremlinGraphIndexPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GremlinGraphIndexPolicy
+		return ret
 	}).(GremlinGraphIndexPolicyOutput)
+}
+
+// Indicates if the indexing policy is automatic. Defaults to `true`.
+func (o GremlinGraphIndexPolicyPtrOutput) Automatic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphIndexPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Automatic
+	}).(pulumi.BoolPtrOutput)
+}
+
+// One or more `compositeIndex` blocks as defined below.
+func (o GremlinGraphIndexPolicyPtrOutput) CompositeIndices() GremlinGraphIndexPolicyCompositeIndexArrayOutput {
+	return o.ApplyT(func(v *GremlinGraphIndexPolicy) []GremlinGraphIndexPolicyCompositeIndex {
+		if v == nil {
+			return nil
+		}
+		return v.CompositeIndices
+	}).(GremlinGraphIndexPolicyCompositeIndexArrayOutput)
+}
+
+// List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
+func (o GremlinGraphIndexPolicyPtrOutput) ExcludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GremlinGraphIndexPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedPaths
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
+func (o GremlinGraphIndexPolicyPtrOutput) IncludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GremlinGraphIndexPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedPaths
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
+func (o GremlinGraphIndexPolicyPtrOutput) IndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphIndexPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IndexingMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `spatialIndex` blocks as defined below.
+func (o GremlinGraphIndexPolicyPtrOutput) SpatialIndices() GremlinGraphIndexPolicySpatialIndexArrayOutput {
+	return o.ApplyT(func(v *GremlinGraphIndexPolicy) []GremlinGraphIndexPolicySpatialIndex {
+		if v == nil {
+			return nil
+		}
+		return v.SpatialIndices
+	}).(GremlinGraphIndexPolicySpatialIndexArrayOutput)
 }
 
 type GremlinGraphIndexPolicyCompositeIndex struct {
@@ -6066,9 +6201,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphAutoscaleSettingsInput)(nil)).Elem(), GremlinGraphAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphAutoscaleSettingsPtrInput)(nil)).Elem(), GremlinGraphAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphConflictResolutionPolicyInput)(nil)).Elem(), GremlinGraphConflictResolutionPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphConflictResolutionPolicyArrayInput)(nil)).Elem(), GremlinGraphConflictResolutionPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphConflictResolutionPolicyPtrInput)(nil)).Elem(), GremlinGraphConflictResolutionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphIndexPolicyInput)(nil)).Elem(), GremlinGraphIndexPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphIndexPolicyArrayInput)(nil)).Elem(), GremlinGraphIndexPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphIndexPolicyPtrInput)(nil)).Elem(), GremlinGraphIndexPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphIndexPolicyCompositeIndexInput)(nil)).Elem(), GremlinGraphIndexPolicyCompositeIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphIndexPolicyCompositeIndexArrayInput)(nil)).Elem(), GremlinGraphIndexPolicyCompositeIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphIndexPolicyCompositeIndexIndexInput)(nil)).Elem(), GremlinGraphIndexPolicyCompositeIndexIndexArgs{})
@@ -6160,9 +6295,9 @@ func init() {
 	pulumi.RegisterOutputType(GremlinGraphAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(GremlinGraphAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GremlinGraphConflictResolutionPolicyOutput{})
-	pulumi.RegisterOutputType(GremlinGraphConflictResolutionPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GremlinGraphConflictResolutionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyOutput{})
-	pulumi.RegisterOutputType(GremlinGraphIndexPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GremlinGraphIndexPolicyPtrOutput{})
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyCompositeIndexOutput{})
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyCompositeIndexArrayOutput{})
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyCompositeIndexIndexOutput{})

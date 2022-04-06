@@ -118,8 +118,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         /// </summary>
-        [Output("routings")]
-        public Output<ImmutableArray<Outputs.VpnGatewayConnectionRouting>> Routings { get; private set; } = null!;
+        [Output("routing")]
+        public Output<Outputs.VpnGatewayConnectionRouting> Routing { get; private set; } = null!;
 
         /// <summary>
         /// One or more `traffic_selector_policy` blocks as defined below.
@@ -203,17 +203,11 @@ namespace Pulumi.Azure.Network
         [Input("remoteVpnSiteId", required: true)]
         public Input<string> RemoteVpnSiteId { get; set; } = null!;
 
-        [Input("routings")]
-        private InputList<Inputs.VpnGatewayConnectionRoutingArgs>? _routings;
-
         /// <summary>
         /// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         /// </summary>
-        public InputList<Inputs.VpnGatewayConnectionRoutingArgs> Routings
-        {
-            get => _routings ?? (_routings = new InputList<Inputs.VpnGatewayConnectionRoutingArgs>());
-            set => _routings = value;
-        }
+        [Input("routing")]
+        public Input<Inputs.VpnGatewayConnectionRoutingArgs>? Routing { get; set; }
 
         [Input("trafficSelectorPolicies")]
         private InputList<Inputs.VpnGatewayConnectionTrafficSelectorPolicyArgs>? _trafficSelectorPolicies;
@@ -270,17 +264,11 @@ namespace Pulumi.Azure.Network
         [Input("remoteVpnSiteId")]
         public Input<string>? RemoteVpnSiteId { get; set; }
 
-        [Input("routings")]
-        private InputList<Inputs.VpnGatewayConnectionRoutingGetArgs>? _routings;
-
         /// <summary>
         /// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
         /// </summary>
-        public InputList<Inputs.VpnGatewayConnectionRoutingGetArgs> Routings
-        {
-            get => _routings ?? (_routings = new InputList<Inputs.VpnGatewayConnectionRoutingGetArgs>());
-            set => _routings = value;
-        }
+        [Input("routing")]
+        public Input<Inputs.VpnGatewayConnectionRoutingGetArgs>? Routing { get; set; }
 
         [Input("trafficSelectorPolicies")]
         private InputList<Inputs.VpnGatewayConnectionTrafficSelectorPolicyGetArgs>? _trafficSelectorPolicies;

@@ -133,10 +133,6 @@ export class PolicyVM extends pulumi.CustomResource {
      */
     public readonly retentionYearly!: pulumi.Output<outputs.backup.PolicyVMRetentionYearly | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
      * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
@@ -163,7 +159,6 @@ export class PolicyVM extends pulumi.CustomResource {
             resourceInputs["retentionMonthly"] = state ? state.retentionMonthly : undefined;
             resourceInputs["retentionWeekly"] = state ? state.retentionWeekly : undefined;
             resourceInputs["retentionYearly"] = state ? state.retentionYearly : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as PolicyVMArgs | undefined;
@@ -185,7 +180,6 @@ export class PolicyVM extends pulumi.CustomResource {
             resourceInputs["retentionMonthly"] = args ? args.retentionMonthly : undefined;
             resourceInputs["retentionWeekly"] = args ? args.retentionWeekly : undefined;
             resourceInputs["retentionYearly"] = args ? args.retentionYearly : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timezone"] = args ? args.timezone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -234,10 +228,6 @@ export interface PolicyVMState {
      */
     retentionYearly?: pulumi.Input<inputs.backup.PolicyVMRetentionYearly>;
     /**
-     * A mapping of tags to assign to the resource.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
      * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
     timezone?: pulumi.Input<string>;
@@ -283,10 +273,6 @@ export interface PolicyVMArgs {
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
     retentionYearly?: pulumi.Input<inputs.backup.PolicyVMRetentionYearly>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */

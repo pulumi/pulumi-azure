@@ -19,9 +19,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -45,8 +45,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "exampleLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
+// 			DataFactoryId: exampleFactory.ID(),
 // 			ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
 // 				return exampleAccount.PrimaryConnectionString, nil
 // 			}).(pulumi.StringOutput),
@@ -64,9 +63,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -99,17 +98,15 @@ import (
 // 			return err
 // 		}
 // 		testLinkedServiceKeyVault, err := datafactory.NewLinkedServiceKeyVault(ctx, "testLinkedServiceKeyVault", &datafactory.LinkedServiceKeyVaultArgs{
-// 			ResourceGroupName: testResourceGroup.Name,
-// 			DataFactoryId:     testFactory.ID(),
-// 			KeyVaultId:        testKeyVault.ID(),
+// 			DataFactoryId: testFactory.ID(),
+// 			KeyVaultId:    testKeyVault.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "testLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
-// 			ResourceGroupName: testResourceGroup.Name,
-// 			DataFactoryId:     testFactory.ID(),
-// 			SasUri:            pulumi.String("https://storageaccountname.blob.core.windows.net"),
+// 			DataFactoryId: testFactory.ID(),
+// 			SasUri:        pulumi.String("https://storageaccountname.blob.core.windows.net"),
 // 			KeyVaultSasToken: &datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{
 // 				LinkedServiceName: testLinkedServiceKeyVault.Name,
 // 				SecretName:        pulumi.String("secret"),
@@ -141,10 +138,6 @@ type LinkedServiceAzureBlobStorage struct {
 	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -155,8 +148,6 @@ type LinkedServiceAzureBlobStorage struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
 	SasUri pulumi.StringPtrOutput `pulumi:"sasUri"`
 	// The Service Endpoint. Conflicts with `connectionString` and `sasUri`. Required with `useManagedIdentity`.
@@ -178,8 +169,8 @@ func NewLinkedServiceAzureBlobStorage(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	var resource LinkedServiceAzureBlobStorage
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage", name, args, &resource, opts...)
@@ -211,10 +202,6 @@ type linkedServiceAzureBlobStorageState struct {
 	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -225,8 +212,6 @@ type linkedServiceAzureBlobStorageState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
 	SasUri *string `pulumi:"sasUri"`
 	// The Service Endpoint. Conflicts with `connectionString` and `sasUri`. Required with `useManagedIdentity`.
@@ -250,10 +235,6 @@ type LinkedServiceAzureBlobStorageState struct {
 	ConnectionString pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -264,8 +245,6 @@ type LinkedServiceAzureBlobStorageState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
 	SasUri pulumi.StringPtrInput
 	// The Service Endpoint. Conflicts with `connectionString` and `sasUri`. Required with `useManagedIdentity`.
@@ -292,11 +271,7 @@ type linkedServiceAzureBlobStorageArgs struct {
 	// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -307,8 +282,6 @@ type linkedServiceAzureBlobStorageArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
 	SasUri *string `pulumi:"sasUri"`
 	// The Service Endpoint. Conflicts with `connectionString` and `sasUri`. Required with `useManagedIdentity`.
@@ -332,11 +305,7 @@ type LinkedServiceAzureBlobStorageArgs struct {
 	// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
 	ConnectionString pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -347,8 +316,6 @@ type LinkedServiceAzureBlobStorageArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
 	SasUri pulumi.StringPtrInput
 	// The Service Endpoint. Conflicts with `connectionString` and `sasUri`. Required with `useManagedIdentity`.

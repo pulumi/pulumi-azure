@@ -241,7 +241,7 @@ class GetFlexibleServerResult:
     @pulumi.getter
     def zone(self) -> str:
         """
-        The availability zones of the MySQL Flexible Server.
+        The Availability Zones where this MySQL Flexible Server is located.
         """
         return pulumi.get(self, "zone")
 

@@ -193,7 +193,7 @@ namespace Pulumi.Azure.MySql
         /// </summary>
         public readonly string Version;
         /// <summary>
-        /// The availability zones of the MySQL Flexible Server.
+        /// The Availability Zones where this MySQL Flexible Server is located.
         /// </summary>
         public readonly string Zone;
 

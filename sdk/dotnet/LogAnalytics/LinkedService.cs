@@ -66,12 +66,6 @@ namespace Pulumi.Azure.LogAnalytics
     public partial class LinkedService : Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in workspace_name. Accepted values are `automation` and `cluster`. Defaults to `automation`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("linkedServiceName")]
-        public Output<string> LinkedServiceName { get; private set; } = null!;
-
-        /// <summary>
         /// The generated name of the Linked Service. The format for this attribute is always `&lt;workspace name&gt;/&lt;linked service type&gt;`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
         /// </summary>
         [Output("name")]
@@ -90,28 +84,10 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
-        /// </summary>
-        [Output("resourceId")]
-        public Output<string> ResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
         /// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("workspaceName")]
-        public Output<string> WorkspaceName { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
@@ -166,12 +142,6 @@ namespace Pulumi.Azure.LogAnalytics
     public sealed class LinkedServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in workspace_name. Accepted values are `automation` and `cluster`. Defaults to `automation`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("linkedServiceName")]
-        public Input<string>? LinkedServiceName { get; set; }
-
-        /// <summary>
         /// The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         /// </summary>
         [Input("readAccessId")]
@@ -184,34 +154,10 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
-        /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
         /// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("workspaceId")]
-        public Input<string>? WorkspaceId { get; set; }
-
-        /// <summary>
-        /// The name of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("workspaceName")]
-        public Input<string>? WorkspaceName { get; set; }
+        [Input("workspaceId", required: true)]
+        public Input<string> WorkspaceId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
@@ -226,12 +172,6 @@ namespace Pulumi.Azure.LogAnalytics
 
     public sealed class LinkedServiceState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in workspace_name. Accepted values are `automation` and `cluster`. Defaults to `automation`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("linkedServiceName")]
-        public Input<string>? LinkedServiceName { get; set; }
-
         /// <summary>
         /// The generated name of the Linked Service. The format for this attribute is always `&lt;workspace name&gt;/&lt;linked service type&gt;`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
         /// </summary>
@@ -251,34 +191,10 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
-        /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
         /// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
-
-        /// <summary>
-        /// The name of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("workspaceName")]
-        public Input<string>? WorkspaceName { get; set; }
 
         /// <summary>
         /// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.

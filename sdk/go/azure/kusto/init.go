@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,8 +31,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterPrincipalAssignment{}
 	case "azure:kusto/database:Database":
 		r = &Database{}
-	case "azure:kusto/databasePrincipal:DatabasePrincipal":
-		r = &DatabasePrincipal{}
 	case "azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment":
 		r = &DatabasePrincipalAssignment{}
 	case "azure:kusto/eventGridDataConnection:EventGridDataConnection":
@@ -79,11 +77,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"kusto/database",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"kusto/databasePrincipal",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

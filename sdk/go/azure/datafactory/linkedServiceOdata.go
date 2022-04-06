@@ -21,8 +21,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -42,17 +42,15 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceOdata(ctx, "anonymous", &datafactory.LinkedServiceOdataArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
-// 			Url:               pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
+// 			DataFactoryId: exampleFactory.ID(),
+// 			Url:           pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceOdata(ctx, "basicAuth", &datafactory.LinkedServiceOdataArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			Url:               pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
+// 			DataFactoryId: exampleFactory.ID(),
+// 			Url:           pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
 // 			BasicAuthentication: &datafactory.LinkedServiceOdataBasicAuthenticationArgs{
 // 				Username: pulumi.String("emma"),
 // 				Password: pulumi.String("Ch4ngeM3!"),
@@ -84,10 +82,6 @@ type LinkedServiceOdata struct {
 	BasicAuthentication LinkedServiceOdataBasicAuthenticationPtrOutput `pulumi:"basicAuthentication"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service OData.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service OData.
@@ -96,8 +90,6 @@ type LinkedServiceOdata struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service OData.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service OData. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The URL of the OData service endpoint.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
@@ -109,8 +101,8 @@ func NewLinkedServiceOdata(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
@@ -145,10 +137,6 @@ type linkedServiceOdataState struct {
 	BasicAuthentication *LinkedServiceOdataBasicAuthentication `pulumi:"basicAuthentication"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service OData.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service OData.
@@ -157,8 +145,6 @@ type linkedServiceOdataState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service OData.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service OData. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The URL of the OData service endpoint.
 	Url *string `pulumi:"url"`
 }
@@ -172,10 +158,6 @@ type LinkedServiceOdataState struct {
 	BasicAuthentication LinkedServiceOdataBasicAuthenticationPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service OData.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service OData.
@@ -184,8 +166,6 @@ type LinkedServiceOdataState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service OData.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service OData. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// The URL of the OData service endpoint.
 	Url pulumi.StringPtrInput
 }
@@ -202,11 +182,7 @@ type linkedServiceOdataArgs struct {
 	// A `basicAuthentication` block as defined below.
 	BasicAuthentication *LinkedServiceOdataBasicAuthentication `pulumi:"basicAuthentication"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service OData.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service OData.
@@ -215,8 +191,6 @@ type linkedServiceOdataArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service OData.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service OData. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The URL of the OData service endpoint.
 	Url string `pulumi:"url"`
 }
@@ -230,11 +204,7 @@ type LinkedServiceOdataArgs struct {
 	// A `basicAuthentication` block as defined below.
 	BasicAuthentication LinkedServiceOdataBasicAuthenticationPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service OData.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service OData.
@@ -243,8 +213,6 @@ type LinkedServiceOdataArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service OData.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service OData. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// The URL of the OData service endpoint.
 	Url pulumi.StringInput
 }

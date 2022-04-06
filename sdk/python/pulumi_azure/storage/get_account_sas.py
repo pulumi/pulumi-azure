@@ -196,6 +196,8 @@ def get_account_sas(connection_string: Optional[str] = None,
             create=True,
             update=False,
             process=False,
+            tag=False,
+            filter=False,
         ))
     pulumi.export("sasUrlQueryString", example_account_sas.sas)
     ```
@@ -300,6 +302,8 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
             create=True,
             update=False,
             process=False,
+            tag=False,
+            filter=False,
         ))
     pulumi.export("sasUrlQueryString", example_account_sas.sas)
     ```

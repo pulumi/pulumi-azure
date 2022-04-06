@@ -13,22 +13,22 @@ namespace Pulumi.Azure.Purview.Inputs
     public sealed class AccountIdentityGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Principal (Client) in Azure Active Directory.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of Managed Identity assigned to this Purview Account.
+        /// Specifies the type of Managed Service Identity that should be configured on this Purview Account. The only possible value is `SystemAssigned`.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public AccountIdentityGetArgs()
         {

@@ -98,7 +98,7 @@ export interface GetFirewallResult {
      */
     readonly virtualHubs: outputs.network.GetFirewallVirtualHub[];
     /**
-     * The availability zones in which the Azure Firewall is created.
+     * A list of Availability Zones in which this Azure Firewall is located.
      */
     readonly zones: string[];
 }

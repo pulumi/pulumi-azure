@@ -20,17 +20,10 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, display_name=None, group_id=None, id=None, name=None, parent_management_group_id=None, subscription_ids=None):
+    def __init__(__self__, display_name=None, id=None, name=None, parent_management_group_id=None, subscription_ids=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
-        if group_id and not isinstance(group_id, str):
-            raise TypeError("Expected argument 'group_id' to be a str")
-        if group_id is not None:
-            warnings.warn("""Deprecated in favour of `name`""", DeprecationWarning)
-            pulumi.log.warn("""group_id is deprecated: Deprecated in favour of `name`""")
-
-        pulumi.set(__self__, "group_id", group_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -48,11 +41,6 @@ class GetGroupResult:
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
         return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter(name="groupId")
-    def group_id(self) -> str:
-        return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter
@@ -91,7 +79,6 @@ class AwaitableGetGroupResult(GetGroupResult):
             yield self
         return GetGroupResult(
             display_name=self.display_name,
-            group_id=self.group_id,
             id=self.id,
             name=self.name,
             parent_management_group_id=self.parent_management_group_id,
@@ -99,7 +86,6 @@ class AwaitableGetGroupResult(GetGroupResult):
 
 
 def get_group(display_name: Optional[str] = None,
-              group_id: Optional[str] = None,
               name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
@@ -117,12 +103,10 @@ def get_group(display_name: Optional[str] = None,
 
 
     :param str display_name: Specifies the display name of this Management Group.
-    :param str group_id: Specifies the name or UUID of this Management Group.
     :param str name: Specifies the name or UUID of this Management Group.
     """
     __args__ = dict()
     __args__['displayName'] = display_name
-    __args__['groupId'] = group_id
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -132,7 +116,6 @@ def get_group(display_name: Optional[str] = None,
 
     return AwaitableGetGroupResult(
         display_name=__ret__.display_name,
-        group_id=__ret__.group_id,
         id=__ret__.id,
         name=__ret__.name,
         parent_management_group_id=__ret__.parent_management_group_id,
@@ -141,7 +124,6 @@ def get_group(display_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_group)
 def get_group_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
-                     group_id: Optional[pulumi.Input[Optional[str]]] = None,
                      name: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
@@ -159,7 +141,6 @@ def get_group_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
 
 
     :param str display_name: Specifies the display name of this Management Group.
-    :param str group_id: Specifies the name or UUID of this Management Group.
     :param str name: Specifies the name or UUID of this Management Group.
     """
     ...

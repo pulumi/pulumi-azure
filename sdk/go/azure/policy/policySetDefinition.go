@@ -23,7 +23,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/policy"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -69,11 +69,7 @@ type PolicySetDefinition struct {
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-	ManagementGroupId pulumi.StringOutput `pulumi:"managementGroupId"`
-	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `management_group_id`
-	ManagementGroupName pulumi.StringOutput `pulumi:"managementGroupName"`
+	ManagementGroupId pulumi.StringPtrOutput `pulumi:"managementGroupId"`
 	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// The name of the policy set definition. Changing this forces a new resource to be created.
@@ -84,10 +80,6 @@ type PolicySetDefinition struct {
 	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayOutput `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayOutput `pulumi:"policyDefinitionReferences"`
-	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
-	//
-	// Deprecated: Deprecated in favour of `policy_definition_reference`
-	PolicyDefinitions pulumi.StringOutput `pulumi:"policyDefinitions"`
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
 }
@@ -101,6 +93,9 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.PolicyDefinitionReferences == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyDefinitionReferences'")
 	}
 	if args.PolicyType == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyType'")
@@ -133,10 +128,6 @@ type policySetDefinitionState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId *string `pulumi:"managementGroupId"`
-	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `management_group_id`
-	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
 	Metadata *string `pulumi:"metadata"`
 	// The name of the policy set definition. Changing this forces a new resource to be created.
@@ -147,10 +138,6 @@ type policySetDefinitionState struct {
 	PolicyDefinitionGroups []PolicySetDefinitionPolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences []PolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
-	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
-	//
-	// Deprecated: Deprecated in favour of `policy_definition_reference`
-	PolicyDefinitions *string `pulumi:"policyDefinitions"`
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -162,10 +149,6 @@ type PolicySetDefinitionState struct {
 	DisplayName pulumi.StringPtrInput
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrInput
-	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `management_group_id`
-	ManagementGroupName pulumi.StringPtrInput
 	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
 	Metadata pulumi.StringPtrInput
 	// The name of the policy set definition. Changing this forces a new resource to be created.
@@ -176,10 +159,6 @@ type PolicySetDefinitionState struct {
 	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayInput
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayInput
-	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
-	//
-	// Deprecated: Deprecated in favour of `policy_definition_reference`
-	PolicyDefinitions pulumi.StringPtrInput
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringPtrInput
 }
@@ -195,10 +174,6 @@ type policySetDefinitionArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId *string `pulumi:"managementGroupId"`
-	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `management_group_id`
-	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
 	Metadata *string `pulumi:"metadata"`
 	// The name of the policy set definition. Changing this forces a new resource to be created.
@@ -209,10 +184,6 @@ type policySetDefinitionArgs struct {
 	PolicyDefinitionGroups []PolicySetDefinitionPolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences []PolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
-	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
-	//
-	// Deprecated: Deprecated in favour of `policy_definition_reference`
-	PolicyDefinitions *string `pulumi:"policyDefinitions"`
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType string `pulumi:"policyType"`
 }
@@ -225,10 +196,6 @@ type PolicySetDefinitionArgs struct {
 	DisplayName pulumi.StringInput
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrInput
-	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-	//
-	// Deprecated: Deprecated in favour of `management_group_id`
-	ManagementGroupName pulumi.StringPtrInput
 	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
 	Metadata pulumi.StringPtrInput
 	// The name of the policy set definition. Changing this forces a new resource to be created.
@@ -239,10 +206,6 @@ type PolicySetDefinitionArgs struct {
 	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayInput
 	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayInput
-	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
-	//
-	// Deprecated: Deprecated in favour of `policy_definition_reference`
-	PolicyDefinitions pulumi.StringPtrInput
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringInput
 }

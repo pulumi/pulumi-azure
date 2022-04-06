@@ -16,12 +16,10 @@ __all__ = ['LinkedServiceAzureDatabricksArgs', 'LinkedServiceAzureDatabricks']
 class LinkedServiceAzureDatabricksArgs:
     def __init__(__self__, *,
                  adb_domain: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
+                 data_factory_id: pulumi.Input[str],
                  access_token: Optional[pulumi.Input[str]] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  existing_cluster_id: Optional[pulumi.Input[str]] = None,
                  instance_pool: Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs']] = None,
@@ -34,12 +32,10 @@ class LinkedServiceAzureDatabricksArgs:
         """
         The set of arguments for constructing a LinkedServiceAzureDatabricks resource.
         :param pulumi.Input[str] adb_domain: The domain URL of the databricks instance.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] access_token: Authenticate to ADB via an access token.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
-        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] existing_cluster_id: The cluster_id of an existing cluster within the linked ADB instance.
         :param pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs'] instance_pool: Leverages an instance pool within the linked ADB instance as defined by  `instance_pool` block below.
@@ -51,20 +47,13 @@ class LinkedServiceAzureDatabricksArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
         pulumi.set(__self__, "adb_domain", adb_domain)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
-        if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
-        if data_factory_name is not None:
-            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if existing_cluster_id is not None:
@@ -97,16 +86,16 @@ class LinkedServiceAzureDatabricksArgs:
         pulumi.set(self, "adb_domain", value)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
-        return pulumi.get(self, "resource_group_name")
+        return pulumi.get(self, "data_factory_id")
 
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
+    @data_factory_id.setter
+    def data_factory_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_factory_id", value)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -143,30 +132,6 @@ class LinkedServiceAzureDatabricksArgs:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "annotations", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_id")
-
-    @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -285,7 +250,6 @@ class _LinkedServiceAzureDatabricksState:
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  existing_cluster_id: Optional[pulumi.Input[str]] = None,
                  instance_pool: Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs']] = None,
@@ -294,8 +258,7 @@ class _LinkedServiceAzureDatabricksState:
                  msi_work_space_resource_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  new_cluster_config: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs']] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None):
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceAzureDatabricks resources.
         :param pulumi.Input[str] access_token: Authenticate to ADB via an access token.
@@ -303,7 +266,6 @@ class _LinkedServiceAzureDatabricksState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] existing_cluster_id: The cluster_id of an existing cluster within the linked ADB instance.
         :param pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs'] instance_pool: Leverages an instance pool within the linked ADB instance as defined by  `instance_pool` block below.
@@ -313,7 +275,6 @@ class _LinkedServiceAzureDatabricksState:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs'] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the  `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -325,11 +286,6 @@ class _LinkedServiceAzureDatabricksState:
             pulumi.set(__self__, "annotations", annotations)
         if data_factory_id is not None:
             pulumi.set(__self__, "data_factory_id", data_factory_id)
-        if data_factory_name is not None:
-            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if existing_cluster_id is not None:
@@ -348,8 +304,6 @@ class _LinkedServiceAzureDatabricksState:
             pulumi.set(__self__, "new_cluster_config", new_cluster_config)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -410,18 +364,6 @@ class _LinkedServiceAzureDatabricksState:
     @data_factory_id.setter
     def data_factory_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -531,18 +473,6 @@ class _LinkedServiceAzureDatabricksState:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
 
 class LinkedServiceAzureDatabricks(pulumi.CustomResource):
     @overload
@@ -554,7 +484,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  existing_cluster_id: Optional[pulumi.Input[str]] = None,
                  instance_pool: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArgs']]] = None,
@@ -564,7 +493,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  new_cluster_config: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
@@ -591,7 +519,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             sku="standard")
         msi_linked = azure.datafactory.LinkedServiceAzureDatabricks("msiLinked",
             data_factory_id=example_factory.id,
-            resource_group_name=example_resource_group.name,
             description="ADB Linked Service via MSI",
             adb_domain=example_workspace.workspace_url.apply(lambda workspace_url: f"https://{workspace_url}"),
             msi_work_space_resource_id=example_workspace.id,
@@ -638,7 +565,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             sku="standard")
         at_linked = azure.datafactory.LinkedServiceAzureDatabricks("atLinked",
             data_factory_id=example_factory.id,
-            resource_group_name=example_resource_group.name,
             description="ADB Linked Service via Access Token",
             existing_cluster_id="0308-201146-sly615",
             access_token="SomeDatabricksAccessToken",
@@ -660,7 +586,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] existing_cluster_id: The cluster_id of an existing cluster within the linked ADB instance.
         :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArgs']] instance_pool: Leverages an instance pool within the linked ADB instance as defined by  `instance_pool` block below.
@@ -670,7 +595,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArgs']] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the  `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
         """
         ...
     @overload
@@ -703,7 +627,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             sku="standard")
         msi_linked = azure.datafactory.LinkedServiceAzureDatabricks("msiLinked",
             data_factory_id=example_factory.id,
-            resource_group_name=example_resource_group.name,
             description="ADB Linked Service via MSI",
             adb_domain=example_workspace.workspace_url.apply(lambda workspace_url: f"https://{workspace_url}"),
             msi_work_space_resource_id=example_workspace.id,
@@ -750,7 +673,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             sku="standard")
         at_linked = azure.datafactory.LinkedServiceAzureDatabricks("atLinked",
             data_factory_id=example_factory.id,
-            resource_group_name=example_resource_group.name,
             description="ADB Linked Service via Access Token",
             existing_cluster_id="0308-201146-sly615",
             access_token="SomeDatabricksAccessToken",
@@ -785,7 +707,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  existing_cluster_id: Optional[pulumi.Input[str]] = None,
                  instance_pool: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArgs']]] = None,
@@ -795,7 +716,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  new_cluster_config: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -814,11 +734,9 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             __props__.__dict__["adb_domain"] = adb_domain
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
+            if data_factory_id is None and not opts.urn:
+                raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
-            if data_factory_name is not None and not opts.urn:
-                warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-                pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-            __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["existing_cluster_id"] = existing_cluster_id
             __props__.__dict__["instance_pool"] = instance_pool
@@ -828,9 +746,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["new_cluster_config"] = new_cluster_config
             __props__.__dict__["parameters"] = parameters
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
         super(LinkedServiceAzureDatabricks, __self__).__init__(
             'azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks',
             resource_name,
@@ -846,7 +761,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
-            data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             existing_cluster_id: Optional[pulumi.Input[str]] = None,
             instance_pool: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArgs']]] = None,
@@ -855,8 +769,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             msi_work_space_resource_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             new_cluster_config: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArgs']]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'LinkedServiceAzureDatabricks':
+            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LinkedServiceAzureDatabricks':
         """
         Get an existing LinkedServiceAzureDatabricks resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -869,7 +782,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] existing_cluster_id: The cluster_id of an existing cluster within the linked ADB instance.
         :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArgs']] instance_pool: Leverages an instance pool within the linked ADB instance as defined by  `instance_pool` block below.
@@ -879,7 +791,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArgs']] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the  `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -890,7 +801,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         __props__.__dict__["additional_properties"] = additional_properties
         __props__.__dict__["annotations"] = annotations
         __props__.__dict__["data_factory_id"] = data_factory_id
-        __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["existing_cluster_id"] = existing_cluster_id
         __props__.__dict__["instance_pool"] = instance_pool
@@ -900,7 +810,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["new_cluster_config"] = new_cluster_config
         __props__.__dict__["parameters"] = parameters
-        __props__.__dict__["resource_group_name"] = resource_group_name
         return LinkedServiceAzureDatabricks(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -942,14 +851,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Output[str]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
 
     @property
     @pulumi.getter
@@ -1022,12 +923,4 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "resource_group_name")
 

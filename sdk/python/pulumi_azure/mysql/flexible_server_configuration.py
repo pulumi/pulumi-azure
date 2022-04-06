@@ -183,7 +183,7 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
             sku_name="GP_Standard_D2ds_v4")
         example_flexible_server_configuration = azure.mysql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
             resource_group_name=example_resource_group.name,
-            server_name=azurerm_mysql_server["example"]["name"],
+            server_name=example_flexible_server.name,
             value="600")
         ```
 
@@ -230,7 +230,7 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
             sku_name="GP_Standard_D2ds_v4")
         example_flexible_server_configuration = azure.mysql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration",
             resource_group_name=example_resource_group.name,
-            server_name=azurerm_mysql_server["example"]["name"],
+            server_name=example_flexible_server.name,
             value="600")
         ```
 

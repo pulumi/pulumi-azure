@@ -197,6 +197,9 @@ namespace Pulumi.Azure.Redis
         public readonly int SslPort;
         public readonly string SubnetId;
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// A list of Availability Zones in which this Redis Cache is located.
+        /// </summary>
         public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]

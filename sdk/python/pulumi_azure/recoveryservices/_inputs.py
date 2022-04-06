@@ -73,7 +73,9 @@ class VaultIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The Type of Identity which should be used for this Recovery Services Vault. At this time the only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if principal_id is not None:
@@ -85,7 +87,7 @@ class VaultIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Type of Identity which should be used for this Recovery Services Vault. At this time the only possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -96,6 +98,9 @@ class VaultIdentityArgs:
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
@@ -105,6 +110,9 @@ class VaultIdentityArgs:
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter

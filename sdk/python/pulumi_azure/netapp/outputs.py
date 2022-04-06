@@ -477,12 +477,6 @@ class VolumeExportPolicyRule(dict):
             suggest = "allowed_clients"
         elif key == "ruleIndex":
             suggest = "rule_index"
-        elif key == "cifsEnabled":
-            suggest = "cifs_enabled"
-        elif key == "nfsv3Enabled":
-            suggest = "nfsv3_enabled"
-        elif key == "nfsv4Enabled":
-            suggest = "nfsv4_enabled"
         elif key == "protocolsEnabled":
             suggest = "protocols_enabled"
         elif key == "rootAccessEnabled":
@@ -506,9 +500,6 @@ class VolumeExportPolicyRule(dict):
     def __init__(__self__, *,
                  allowed_clients: Sequence[str],
                  rule_index: int,
-                 cifs_enabled: Optional[bool] = None,
-                 nfsv3_enabled: Optional[bool] = None,
-                 nfsv4_enabled: Optional[bool] = None,
                  protocols_enabled: Optional[str] = None,
                  root_access_enabled: Optional[bool] = None,
                  unix_read_only: Optional[bool] = None,
@@ -523,12 +514,6 @@ class VolumeExportPolicyRule(dict):
         """
         pulumi.set(__self__, "allowed_clients", allowed_clients)
         pulumi.set(__self__, "rule_index", rule_index)
-        if cifs_enabled is not None:
-            pulumi.set(__self__, "cifs_enabled", cifs_enabled)
-        if nfsv3_enabled is not None:
-            pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
-        if nfsv4_enabled is not None:
-            pulumi.set(__self__, "nfsv4_enabled", nfsv4_enabled)
         if protocols_enabled is not None:
             pulumi.set(__self__, "protocols_enabled", protocols_enabled)
         if root_access_enabled is not None:
@@ -553,21 +538,6 @@ class VolumeExportPolicyRule(dict):
         The index number of the rule.
         """
         return pulumi.get(self, "rule_index")
-
-    @property
-    @pulumi.getter(name="cifsEnabled")
-    def cifs_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "cifs_enabled")
-
-    @property
-    @pulumi.getter(name="nfsv3Enabled")
-    def nfsv3_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "nfsv3_enabled")
-
-    @property
-    @pulumi.getter(name="nfsv4Enabled")
-    def nfsv4_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "nfsv4_enabled")
 
     @property
     @pulumi.getter(name="protocolsEnabled")
@@ -775,8 +745,7 @@ class GetVolumeDataProtectionReplicationResult(dict):
                  endpoint_type: str,
                  remote_volume_location: str,
                  remote_volume_resource_id: str,
-                 replication_frequency: str,
-                 replication_schedule: str):
+                 replication_frequency: str):
         """
         :param str endpoint_type: The endpoint type.
         :param str remote_volume_location: Location of the primary volume.
@@ -787,7 +756,6 @@ class GetVolumeDataProtectionReplicationResult(dict):
         pulumi.set(__self__, "remote_volume_location", remote_volume_location)
         pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
         pulumi.set(__self__, "replication_frequency", replication_frequency)
-        pulumi.set(__self__, "replication_schedule", replication_schedule)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -820,10 +788,5 @@ class GetVolumeDataProtectionReplicationResult(dict):
         Frequency of replication.
         """
         return pulumi.get(self, "replication_frequency")
-
-    @property
-    @pulumi.getter(name="replicationSchedule")
-    def replication_schedule(self) -> str:
-        return pulumi.get(self, "replication_schedule")
 
 

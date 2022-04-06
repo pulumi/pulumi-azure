@@ -41,9 +41,8 @@ namespace Pulumi.Azure.ApiManagement
     ///         });
     ///         var exampleGateway = Output.Create(Azure.ApiManagement.GetGateway.InvokeAsync(new Azure.ApiManagement.GetGatewayArgs
     ///         {
-    ///             GatewayId = "my-gateway",
-    ///             ApiManagementName = exampleService.Apply(exampleService =&gt; exampleService.Name),
-    ///             ResourceGroupName = exampleService.Apply(exampleService =&gt; exampleService.ResourceGroupName),
+    ///             Name = "example-gateway",
+    ///             ApiManagementId = azurerm_api_management.Example.Id,
     ///         }));
     ///         var exampleGatewayApi = new Azure.ApiManagement.GatewayApi("exampleGatewayApi", new Azure.ApiManagement.GatewayApiArgs
     ///         {

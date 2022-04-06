@@ -353,7 +353,6 @@ class Certificate(pulumi.CustomResource):
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            soft_delete_enabled=True,
             tenant_id=data["azurerm_client_config"]["example"]["tenant_id"],
             sku_name="standard")
         example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
@@ -456,7 +455,6 @@ class Certificate(pulumi.CustomResource):
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            soft_delete_enabled=True,
             tenant_id=data["azurerm_client_config"]["example"]["tenant_id"],
             sku_name="standard")
         example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",

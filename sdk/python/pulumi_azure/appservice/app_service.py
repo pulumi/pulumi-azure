@@ -805,10 +805,6 @@ class AppService(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages an App Service (within an App Service Plan).
-
-        > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
-
         ## Example Usage
 
         This example provisions a Windows App Service.
@@ -881,10 +877,6 @@ class AppService(pulumi.CustomResource):
                  args: AppServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an App Service (within an App Service Plan).
-
-        > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
-
         ## Example Usage
 
         This example provisions a Windows App Service.
@@ -1208,7 +1200,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output['outputs.AppServiceIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.AppServiceIdentity']]:
         """
         An `identity` block as defined below.
         """

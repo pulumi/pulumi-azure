@@ -131,7 +131,6 @@ namespace Pulumi.Azure.OperationalInsights
         public readonly string Id;
         public readonly string Location;
         public readonly string Name;
-        public readonly string PortalUrl;
         /// <summary>
         /// The Primary shared key for the Log Analytics Workspace.
         /// </summary>
@@ -168,8 +167,6 @@ namespace Pulumi.Azure.OperationalInsights
 
             string name,
 
-            string portalUrl,
-
             string primarySharedKey,
 
             string resourceGroupName,
@@ -188,7 +185,6 @@ namespace Pulumi.Azure.OperationalInsights
             Id = id;
             Location = location;
             Name = name;
-            PortalUrl = portalUrl;
             PrimarySharedKey = primarySharedKey;
             ResourceGroupName = resourceGroupName;
             RetentionInDays = retentionInDays;

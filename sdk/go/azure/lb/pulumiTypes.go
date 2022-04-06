@@ -10,115 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type BackendAddressPoolBackendAddress struct {
-	IpAddress string `pulumi:"ipAddress"`
-	// Specifies the name of the Backend Address Pool.
-	Name             string `pulumi:"name"`
-	VirtualNetworkId string `pulumi:"virtualNetworkId"`
-}
-
-// BackendAddressPoolBackendAddressInput is an input type that accepts BackendAddressPoolBackendAddressArgs and BackendAddressPoolBackendAddressOutput values.
-// You can construct a concrete instance of `BackendAddressPoolBackendAddressInput` via:
-//
-//          BackendAddressPoolBackendAddressArgs{...}
-type BackendAddressPoolBackendAddressInput interface {
-	pulumi.Input
-
-	ToBackendAddressPoolBackendAddressOutput() BackendAddressPoolBackendAddressOutput
-	ToBackendAddressPoolBackendAddressOutputWithContext(context.Context) BackendAddressPoolBackendAddressOutput
-}
-
-type BackendAddressPoolBackendAddressArgs struct {
-	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
-	// Specifies the name of the Backend Address Pool.
-	Name             pulumi.StringInput `pulumi:"name"`
-	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
-}
-
-func (BackendAddressPoolBackendAddressArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackendAddressPoolBackendAddress)(nil)).Elem()
-}
-
-func (i BackendAddressPoolBackendAddressArgs) ToBackendAddressPoolBackendAddressOutput() BackendAddressPoolBackendAddressOutput {
-	return i.ToBackendAddressPoolBackendAddressOutputWithContext(context.Background())
-}
-
-func (i BackendAddressPoolBackendAddressArgs) ToBackendAddressPoolBackendAddressOutputWithContext(ctx context.Context) BackendAddressPoolBackendAddressOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolBackendAddressOutput)
-}
-
-// BackendAddressPoolBackendAddressArrayInput is an input type that accepts BackendAddressPoolBackendAddressArray and BackendAddressPoolBackendAddressArrayOutput values.
-// You can construct a concrete instance of `BackendAddressPoolBackendAddressArrayInput` via:
-//
-//          BackendAddressPoolBackendAddressArray{ BackendAddressPoolBackendAddressArgs{...} }
-type BackendAddressPoolBackendAddressArrayInput interface {
-	pulumi.Input
-
-	ToBackendAddressPoolBackendAddressArrayOutput() BackendAddressPoolBackendAddressArrayOutput
-	ToBackendAddressPoolBackendAddressArrayOutputWithContext(context.Context) BackendAddressPoolBackendAddressArrayOutput
-}
-
-type BackendAddressPoolBackendAddressArray []BackendAddressPoolBackendAddressInput
-
-func (BackendAddressPoolBackendAddressArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BackendAddressPoolBackendAddress)(nil)).Elem()
-}
-
-func (i BackendAddressPoolBackendAddressArray) ToBackendAddressPoolBackendAddressArrayOutput() BackendAddressPoolBackendAddressArrayOutput {
-	return i.ToBackendAddressPoolBackendAddressArrayOutputWithContext(context.Background())
-}
-
-func (i BackendAddressPoolBackendAddressArray) ToBackendAddressPoolBackendAddressArrayOutputWithContext(ctx context.Context) BackendAddressPoolBackendAddressArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolBackendAddressArrayOutput)
-}
-
-type BackendAddressPoolBackendAddressOutput struct{ *pulumi.OutputState }
-
-func (BackendAddressPoolBackendAddressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackendAddressPoolBackendAddress)(nil)).Elem()
-}
-
-func (o BackendAddressPoolBackendAddressOutput) ToBackendAddressPoolBackendAddressOutput() BackendAddressPoolBackendAddressOutput {
-	return o
-}
-
-func (o BackendAddressPoolBackendAddressOutput) ToBackendAddressPoolBackendAddressOutputWithContext(ctx context.Context) BackendAddressPoolBackendAddressOutput {
-	return o
-}
-
-func (o BackendAddressPoolBackendAddressOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v BackendAddressPoolBackendAddress) string { return v.IpAddress }).(pulumi.StringOutput)
-}
-
-// Specifies the name of the Backend Address Pool.
-func (o BackendAddressPoolBackendAddressOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v BackendAddressPoolBackendAddress) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o BackendAddressPoolBackendAddressOutput) VirtualNetworkId() pulumi.StringOutput {
-	return o.ApplyT(func(v BackendAddressPoolBackendAddress) string { return v.VirtualNetworkId }).(pulumi.StringOutput)
-}
-
-type BackendAddressPoolBackendAddressArrayOutput struct{ *pulumi.OutputState }
-
-func (BackendAddressPoolBackendAddressArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BackendAddressPoolBackendAddress)(nil)).Elem()
-}
-
-func (o BackendAddressPoolBackendAddressArrayOutput) ToBackendAddressPoolBackendAddressArrayOutput() BackendAddressPoolBackendAddressArrayOutput {
-	return o
-}
-
-func (o BackendAddressPoolBackendAddressArrayOutput) ToBackendAddressPoolBackendAddressArrayOutputWithContext(ctx context.Context) BackendAddressPoolBackendAddressArrayOutput {
-	return o
-}
-
-func (o BackendAddressPoolBackendAddressArrayOutput) Index(i pulumi.IntInput) BackendAddressPoolBackendAddressOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackendAddressPoolBackendAddress {
-		return vs[0].([]BackendAddressPoolBackendAddress)[vs[1].(int)]
-	}).(BackendAddressPoolBackendAddressOutput)
-}
-
 type BackendAddressPoolTunnelInterface struct {
 	// The unique identifier of this Gateway Lodbalancer Tunnel Interface.
 	Identifier int `pulumi:"identifier"`
@@ -244,8 +135,6 @@ func (o BackendAddressPoolTunnelInterfaceArrayOutput) Index(i pulumi.IntInput) B
 }
 
 type LoadBalancerFrontendIpConfiguration struct {
-	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
 	GatewayLoadBalancerFrontendIpConfigurationId *string `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
 	// The id of the Frontend IP Configuration.
@@ -269,9 +158,8 @@ type LoadBalancerFrontendIpConfiguration struct {
 	// The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
 	// The ID of the Subnet which should be associated with the IP Configuration.
-	SubnetId *string `pulumi:"subnetId"`
-	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
-	Zones *string `pulumi:"zones"`
+	SubnetId *string  `pulumi:"subnetId"`
+	Zones    []string `pulumi:"zones"`
 }
 
 // LoadBalancerFrontendIpConfigurationInput is an input type that accepts LoadBalancerFrontendIpConfigurationArgs and LoadBalancerFrontendIpConfigurationOutput values.
@@ -286,8 +174,6 @@ type LoadBalancerFrontendIpConfigurationInput interface {
 }
 
 type LoadBalancerFrontendIpConfigurationArgs struct {
-	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
 	GatewayLoadBalancerFrontendIpConfigurationId pulumi.StringPtrInput `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
 	// The id of the Frontend IP Configuration.
@@ -311,9 +197,8 @@ type LoadBalancerFrontendIpConfigurationArgs struct {
 	// The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
 	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
 	// The ID of the Subnet which should be associated with the IP Configuration.
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
-	Zones pulumi.StringPtrInput `pulumi:"zones"`
+	SubnetId pulumi.StringPtrInput   `pulumi:"subnetId"`
+	Zones    pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 func (LoadBalancerFrontendIpConfigurationArgs) ElementType() reflect.Type {
@@ -365,11 +250,6 @@ func (o LoadBalancerFrontendIpConfigurationOutput) ToLoadBalancerFrontendIpConfi
 
 func (o LoadBalancerFrontendIpConfigurationOutput) ToLoadBalancerFrontendIpConfigurationOutputWithContext(ctx context.Context) LoadBalancerFrontendIpConfigurationOutput {
 	return o
-}
-
-// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`.
-func (o LoadBalancerFrontendIpConfigurationOutput) AvailabilityZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
@@ -434,9 +314,8 @@ func (o LoadBalancerFrontendIpConfigurationOutput) SubnetId() pulumi.StringPtrOu
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
-func (o LoadBalancerFrontendIpConfigurationOutput) Zones() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.Zones }).(pulumi.StringPtrOutput)
+func (o LoadBalancerFrontendIpConfigurationOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 type LoadBalancerFrontendIpConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -938,8 +817,6 @@ func (o GetLBFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetLBF
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolBackendAddressInput)(nil)).Elem(), BackendAddressPoolBackendAddressArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolBackendAddressArrayInput)(nil)).Elem(), BackendAddressPoolBackendAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolTunnelInterfaceInput)(nil)).Elem(), BackendAddressPoolTunnelInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolTunnelInterfaceArrayInput)(nil)).Elem(), BackendAddressPoolTunnelInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerFrontendIpConfigurationInput)(nil)).Elem(), LoadBalancerFrontendIpConfigurationArgs{})
@@ -952,8 +829,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBackendAddressPoolBackendIpConfigurationArrayInput)(nil)).Elem(), GetBackendAddressPoolBackendIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLBFrontendIpConfigurationInput)(nil)).Elem(), GetLBFrontendIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLBFrontendIpConfigurationArrayInput)(nil)).Elem(), GetLBFrontendIpConfigurationArray{})
-	pulumi.RegisterOutputType(BackendAddressPoolBackendAddressOutput{})
-	pulumi.RegisterOutputType(BackendAddressPoolBackendAddressArrayOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolTunnelInterfaceOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolTunnelInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIpConfigurationOutput{})

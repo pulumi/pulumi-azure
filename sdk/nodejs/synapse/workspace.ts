@@ -35,6 +35,9 @@ import * as utilities from "../utilities";
  *         objectId: "00000000-0000-0000-0000-000000000000",
  *         tenantId: "00000000-0000-0000-0000-000000000000",
  *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     tags: {
  *         Env: "production",
  *     },
@@ -96,14 +99,17 @@ import * as utilities from "../utilities";
  *         keyVersionlessId: exampleKey.versionlessId,
  *         keyName: "enckey",
  *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     tags: {
  *         Env: "production",
  *     },
  * });
  * const workspacePolicy = new azure.keyvault.AccessPolicy("workspacePolicy", {
  *     keyVaultId: exampleKeyVault.id,
- *     tenantId: exampleWorkspace.identities.apply(identities => identities[0].tenantId),
- *     objectId: exampleWorkspace.identities.apply(identities => identities[0].principalId),
+ *     tenantId: exampleWorkspace.identity.apply(identity => identity.tenantId),
+ *     objectId: exampleWorkspace.identity.apply(identity => identity.principalId),
  *     keyPermissions: [
  *         "Get",
  *         "WrapKey",
@@ -193,9 +199,9 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly githubRepo!: pulumi.Output<outputs.synapse.WorkspaceGithubRepo | undefined>;
     /**
-     * An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+     * An `identity` block as defined below.
      */
-    public /*out*/ readonly identities!: pulumi.Output<outputs.synapse.WorkspaceIdentity[]>;
+    public readonly identity!: pulumi.Output<outputs.synapse.WorkspaceIdentity>;
     /**
      * Allowed Aad Tenant Ids For Linking.
      */
@@ -273,7 +279,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
             resourceInputs["dataExfiltrationProtectionEnabled"] = state ? state.dataExfiltrationProtectionEnabled : undefined;
             resourceInputs["githubRepo"] = state ? state.githubRepo : undefined;
-            resourceInputs["identities"] = state ? state.identities : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["linkingAllowedForAadTenantIds"] = state ? state.linkingAllowedForAadTenantIds : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
@@ -290,6 +296,9 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
+            if ((!args || args.identity === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'identity'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -308,6 +317,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             resourceInputs["dataExfiltrationProtectionEnabled"] = args ? args.dataExfiltrationProtectionEnabled : undefined;
             resourceInputs["githubRepo"] = args ? args.githubRepo : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["linkingAllowedForAadTenantIds"] = args ? args.linkingAllowedForAadTenantIds : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
@@ -323,7 +333,6 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["storageDataLakeGen2FilesystemId"] = args ? args.storageDataLakeGen2FilesystemId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["connectivityEndpoints"] = undefined /*out*/;
-            resourceInputs["identities"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
@@ -363,9 +372,9 @@ export interface WorkspaceState {
      */
     githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo>;
     /**
-     * An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+     * An `identity` block as defined below.
      */
-    identities?: pulumi.Input<pulumi.Input<inputs.synapse.WorkspaceIdentity>[]>;
+    identity?: pulumi.Input<inputs.synapse.WorkspaceIdentity>;
     /**
      * Allowed Aad Tenant Ids For Linking.
      */
@@ -452,6 +461,10 @@ export interface WorkspaceArgs {
      * A `githubRepo` block as defined below.
      */
     githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity: pulumi.Input<inputs.synapse.WorkspaceIdentity>;
     /**
      * Allowed Aad Tenant Ids For Linking.
      */

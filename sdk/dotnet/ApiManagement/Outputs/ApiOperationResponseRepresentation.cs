@@ -26,10 +26,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiOperationResponseRepresentationFormParameter> FormParameters;
         /// <summary>
-        /// An example of this representation.
-        /// </summary>
-        public readonly string? Sample;
-        /// <summary>
         /// The ID of an API Management Schema which represents this Response.
         /// </summary>
         public readonly string? SchemaId;
@@ -46,8 +42,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             ImmutableArray<Outputs.ApiOperationResponseRepresentationFormParameter> formParameters,
 
-            string? sample,
-
             string? schemaId,
 
             string? typeName)
@@ -55,7 +49,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
             ContentType = contentType;
             Examples = examples;
             FormParameters = formParameters;
-            Sample = sample;
             SchemaId = schemaId;
             TypeName = typeName;
         }

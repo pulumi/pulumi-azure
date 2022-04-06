@@ -25,20 +25,11 @@ namespace Pulumi.Azure.Network
     [AzureResourceType("azure:network/networkConnectionMonitor:NetworkConnectionMonitor")]
     public partial class NetworkConnectionMonitor : Pulumi.CustomResource
     {
-        [Output("autoStart")]
-        public Output<bool> AutoStart { get; private set; } = null!;
-
-        [Output("destination")]
-        public Output<Outputs.NetworkConnectionMonitorDestination> Destination { get; private set; } = null!;
-
         /// <summary>
         /// A `endpoint` block as defined below.
         /// </summary>
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.NetworkConnectionMonitorEndpoint>> Endpoints { get; private set; } = null!;
-
-        [Output("intervalInSeconds")]
-        public Output<int> IntervalInSeconds { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
@@ -69,9 +60,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("outputWorkspaceResourceIds")]
         public Output<ImmutableArray<string>> OutputWorkspaceResourceIds { get; private set; } = null!;
-
-        [Output("source")]
-        public Output<Outputs.NetworkConnectionMonitorSource> Source { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Network Connection Monitor.
@@ -137,12 +125,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class NetworkConnectionMonitorArgs : Pulumi.ResourceArgs
     {
-        [Input("autoStart")]
-        public Input<bool>? AutoStart { get; set; }
-
-        [Input("destination")]
-        public Input<Inputs.NetworkConnectionMonitorDestinationArgs>? Destination { get; set; }
-
         [Input("endpoints", required: true)]
         private InputList<Inputs.NetworkConnectionMonitorEndpointArgs>? _endpoints;
 
@@ -154,9 +136,6 @@ namespace Pulumi.Azure.Network
             get => _endpoints ?? (_endpoints = new InputList<Inputs.NetworkConnectionMonitorEndpointArgs>());
             set => _endpoints = value;
         }
-
-        [Input("intervalInSeconds")]
-        public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
         /// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
@@ -193,9 +172,6 @@ namespace Pulumi.Azure.Network
             get => _outputWorkspaceResourceIds ?? (_outputWorkspaceResourceIds = new InputList<string>());
             set => _outputWorkspaceResourceIds = value;
         }
-
-        [Input("source")]
-        public Input<Inputs.NetworkConnectionMonitorSourceArgs>? Source { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -240,12 +216,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class NetworkConnectionMonitorState : Pulumi.ResourceArgs
     {
-        [Input("autoStart")]
-        public Input<bool>? AutoStart { get; set; }
-
-        [Input("destination")]
-        public Input<Inputs.NetworkConnectionMonitorDestinationGetArgs>? Destination { get; set; }
-
         [Input("endpoints")]
         private InputList<Inputs.NetworkConnectionMonitorEndpointGetArgs>? _endpoints;
 
@@ -257,9 +227,6 @@ namespace Pulumi.Azure.Network
             get => _endpoints ?? (_endpoints = new InputList<Inputs.NetworkConnectionMonitorEndpointGetArgs>());
             set => _endpoints = value;
         }
-
-        [Input("intervalInSeconds")]
-        public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
         /// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
@@ -296,9 +263,6 @@ namespace Pulumi.Azure.Network
             get => _outputWorkspaceResourceIds ?? (_outputWorkspaceResourceIds = new InputList<string>());
             set => _outputWorkspaceResourceIds = value;
         }
-
-        [Input("source")]
-        public Input<Inputs.NetworkConnectionMonitorSourceGetArgs>? Source { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

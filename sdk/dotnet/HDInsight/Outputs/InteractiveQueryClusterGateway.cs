@@ -14,10 +14,6 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class InteractiveQueryClusterGateway
     {
         /// <summary>
-        /// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
         /// The password used for the Ambari Portal.
         /// </summary>
         public readonly string Password;
@@ -28,13 +24,10 @@ namespace Pulumi.Azure.HDInsight.Outputs
 
         [OutputConstructor]
         private InteractiveQueryClusterGateway(
-            bool? enabled,
-
             string password,
 
             string username)
         {
-            Enabled = enabled;
             Password = password;
             Username = username;
         }

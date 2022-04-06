@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -42,9 +42,8 @@ import (
 // 			return err
 // 		}
 // 		exampleGateway, err := apimanagement.LookupGateway(ctx, &apimanagement.LookupGatewayArgs{
-// 			GatewayId:         "my-gateway",
-// 			ApiManagementName: exampleService.Name,
-// 			ResourceGroupName: exampleService.ResourceGroupName,
+// 			Name:            "example-gateway",
+// 			ApiManagementId: azurerm_api_management.Example.Id,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

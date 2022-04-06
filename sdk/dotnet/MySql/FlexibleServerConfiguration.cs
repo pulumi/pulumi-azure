@@ -41,7 +41,7 @@ namespace Pulumi.Azure.MySql
     ///         var exampleFlexibleServerConfiguration = new Azure.MySql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", new Azure.MySql.FlexibleServerConfigurationArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = azurerm_mysql_server.Example.Name,
+    ///             ServerName = exampleFlexibleServer.Name,
     ///             Value = "600",
     ///         });
     ///     }

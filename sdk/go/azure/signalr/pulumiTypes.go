@@ -107,112 +107,6 @@ func (o ServiceCorArrayOutput) Index(i pulumi.IntInput) ServiceCorOutput {
 	}).(ServiceCorOutput)
 }
 
-type ServiceFeature struct {
-	// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
-	Flag string `pulumi:"flag"`
-	// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
-	Value string `pulumi:"value"`
-}
-
-// ServiceFeatureInput is an input type that accepts ServiceFeatureArgs and ServiceFeatureOutput values.
-// You can construct a concrete instance of `ServiceFeatureInput` via:
-//
-//          ServiceFeatureArgs{...}
-type ServiceFeatureInput interface {
-	pulumi.Input
-
-	ToServiceFeatureOutput() ServiceFeatureOutput
-	ToServiceFeatureOutputWithContext(context.Context) ServiceFeatureOutput
-}
-
-type ServiceFeatureArgs struct {
-	// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
-	Flag pulumi.StringInput `pulumi:"flag"`
-	// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ServiceFeatureArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceFeature)(nil)).Elem()
-}
-
-func (i ServiceFeatureArgs) ToServiceFeatureOutput() ServiceFeatureOutput {
-	return i.ToServiceFeatureOutputWithContext(context.Background())
-}
-
-func (i ServiceFeatureArgs) ToServiceFeatureOutputWithContext(ctx context.Context) ServiceFeatureOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceFeatureOutput)
-}
-
-// ServiceFeatureArrayInput is an input type that accepts ServiceFeatureArray and ServiceFeatureArrayOutput values.
-// You can construct a concrete instance of `ServiceFeatureArrayInput` via:
-//
-//          ServiceFeatureArray{ ServiceFeatureArgs{...} }
-type ServiceFeatureArrayInput interface {
-	pulumi.Input
-
-	ToServiceFeatureArrayOutput() ServiceFeatureArrayOutput
-	ToServiceFeatureArrayOutputWithContext(context.Context) ServiceFeatureArrayOutput
-}
-
-type ServiceFeatureArray []ServiceFeatureInput
-
-func (ServiceFeatureArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceFeature)(nil)).Elem()
-}
-
-func (i ServiceFeatureArray) ToServiceFeatureArrayOutput() ServiceFeatureArrayOutput {
-	return i.ToServiceFeatureArrayOutputWithContext(context.Background())
-}
-
-func (i ServiceFeatureArray) ToServiceFeatureArrayOutputWithContext(ctx context.Context) ServiceFeatureArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceFeatureArrayOutput)
-}
-
-type ServiceFeatureOutput struct{ *pulumi.OutputState }
-
-func (ServiceFeatureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceFeature)(nil)).Elem()
-}
-
-func (o ServiceFeatureOutput) ToServiceFeatureOutput() ServiceFeatureOutput {
-	return o
-}
-
-func (o ServiceFeatureOutput) ToServiceFeatureOutputWithContext(ctx context.Context) ServiceFeatureOutput {
-	return o
-}
-
-// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
-func (o ServiceFeatureOutput) Flag() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceFeature) string { return v.Flag }).(pulumi.StringOutput)
-}
-
-// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
-func (o ServiceFeatureOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceFeature) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ServiceFeatureArrayOutput struct{ *pulumi.OutputState }
-
-func (ServiceFeatureArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceFeature)(nil)).Elem()
-}
-
-func (o ServiceFeatureArrayOutput) ToServiceFeatureArrayOutput() ServiceFeatureArrayOutput {
-	return o
-}
-
-func (o ServiceFeatureArrayOutput) ToServiceFeatureArrayOutputWithContext(ctx context.Context) ServiceFeatureArrayOutput {
-	return o
-}
-
-func (o ServiceFeatureArrayOutput) Index(i pulumi.IntInput) ServiceFeatureOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceFeature {
-		return vs[0].([]ServiceFeature)[vs[1].(int)]
-	}).(ServiceFeatureOutput)
-}
-
 type ServiceNetworkAclPrivateEndpoint struct {
 	// The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 	AllowedRequestTypes []string `pulumi:"allowedRequestTypes"`
@@ -767,8 +661,6 @@ func (o ServiceUpstreamEndpointArrayOutput) Index(i pulumi.IntInput) ServiceUpst
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorInput)(nil)).Elem(), ServiceCorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorArrayInput)(nil)).Elem(), ServiceCorArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFeatureInput)(nil)).Elem(), ServiceFeatureArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFeatureArrayInput)(nil)).Elem(), ServiceFeatureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPrivateEndpointInput)(nil)).Elem(), ServiceNetworkAclPrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPrivateEndpointArrayInput)(nil)).Elem(), ServiceNetworkAclPrivateEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPublicNetworkInput)(nil)).Elem(), ServiceNetworkAclPublicNetworkArgs{})
@@ -779,8 +671,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUpstreamEndpointArrayInput)(nil)).Elem(), ServiceUpstreamEndpointArray{})
 	pulumi.RegisterOutputType(ServiceCorOutput{})
 	pulumi.RegisterOutputType(ServiceCorArrayOutput{})
-	pulumi.RegisterOutputType(ServiceFeatureOutput{})
-	pulumi.RegisterOutputType(ServiceFeatureArrayOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkAclPrivateEndpointOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkAclPrivateEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkAclPublicNetworkOutput{})

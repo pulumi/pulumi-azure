@@ -179,6 +179,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> DedicatedHostId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+        /// </summary>
+        [Output("edgeZone")]
+        public Output<string?> EdgeZone { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         [Output("enableAutomaticUpdates")]
@@ -353,6 +359,12 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
+        [Output("terminationNotification")]
+        public Output<Outputs.WindowsVirtualMachineTerminationNotification> TerminationNotification { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         /// </summary>
         [Output("timezone")]
@@ -389,10 +401,10 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineWinrmListener>> WinrmListeners { get; private set; } = null!;
 
         /// <summary>
-        /// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        /// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         /// </summary>
         [Output("zone")]
-        public Output<string> Zone { get; private set; } = null!;
+        public Output<string?> Zone { get; private set; } = null!;
 
 
         /// <summary>
@@ -511,6 +523,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("dedicatedHostId")]
         public Input<string>? DedicatedHostId { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
@@ -681,6 +699,12 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
+        [Input("terminationNotification")]
+        public Input<Inputs.WindowsVirtualMachineTerminationNotificationArgs>? TerminationNotification { get; set; }
+
+        /// <summary>
         /// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         /// </summary>
         [Input("timezone")]
@@ -717,7 +741,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        /// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
@@ -800,6 +824,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("dedicatedHostId")]
         public Input<string>? DedicatedHostId { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
         /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
@@ -1006,6 +1036,12 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
+        [Input("terminationNotification")]
+        public Input<Inputs.WindowsVirtualMachineTerminationNotificationGetArgs>? TerminationNotification { get; set; }
+
+        /// <summary>
         /// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         /// </summary>
         [Input("timezone")]
@@ -1048,7 +1084,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        /// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

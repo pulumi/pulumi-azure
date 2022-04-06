@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -61,12 +61,9 @@ type GetFunctionAppHostKeysResult struct {
 	// Function App resource's Event Grid Extension Config system key.
 	EventGridExtensionConfigKey string `pulumi:"eventGridExtensionConfigKey"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
 	// Function App resource's secret key
-	//
-	// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-	MasterKey         string `pulumi:"masterKey"`
-	Name              string `pulumi:"name"`
 	PrimaryKey        string `pulumi:"primaryKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Function App resource's SignalR Extension system key.
@@ -129,17 +126,11 @@ func (o GetFunctionAppHostKeysResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Function App resource's secret key
-//
-// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
-func (o GetFunctionAppHostKeysResultOutput) MasterKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.MasterKey }).(pulumi.StringOutput)
-}
-
 func (o GetFunctionAppHostKeysResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Function App resource's secret key
 func (o GetFunctionAppHostKeysResultOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }

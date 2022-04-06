@@ -91,12 +91,6 @@ namespace Pulumi.Azure.MSSql
         [Output("connectionPolicy")]
         public Output<string?> ConnectionPolicy { get; private set; } = null!;
 
-        [Output("extendedAuditingPolicy")]
-        public Output<Outputs.ServerExtendedAuditingPolicy> ExtendedAuditingPolicy { get; private set; } = null!;
-
-        [Output("foo")]
-        public Output<Outputs.ServerFoo?> Foo { get; private set; } = null!;
-
         /// <summary>
         /// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
         /// </summary>
@@ -239,12 +233,6 @@ namespace Pulumi.Azure.MSSql
         [Input("connectionPolicy")]
         public Input<string>? ConnectionPolicy { get; set; }
 
-        [Input("extendedAuditingPolicy")]
-        public Input<Inputs.ServerExtendedAuditingPolicyArgs>? ExtendedAuditingPolicy { get; set; }
-
-        [Input("foo")]
-        public Input<Inputs.ServerFooArgs>? Foo { get; set; }
-
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
@@ -341,12 +329,6 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("connectionPolicy")]
         public Input<string>? ConnectionPolicy { get; set; }
-
-        [Input("extendedAuditingPolicy")]
-        public Input<Inputs.ServerExtendedAuditingPolicyGetArgs>? ExtendedAuditingPolicy { get; set; }
-
-        [Input("foo")]
-        public Input<Inputs.ServerFooGetArgs>? Foo { get; set; }
 
         /// <summary>
         /// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)

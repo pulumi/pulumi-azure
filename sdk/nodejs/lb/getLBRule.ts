@@ -34,7 +34,6 @@ export function getLBRule(args: GetLBRuleArgs, opts?: pulumi.InvokeOptions): Pro
     return pulumi.runtime.invoke("azure:lb/getLBRule:getLBRule", {
         "loadbalancerId": args.loadbalancerId,
         "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
@@ -50,10 +49,6 @@ export interface GetLBRuleArgs {
      * The name of this Load Balancer Rule.
      */
     name: string;
-    /**
-     * The name of the Resource Group where the Load Balancer Rule exists.
-     */
-    resourceGroupName: string;
 }
 
 /**
@@ -110,7 +105,6 @@ export interface GetLBRuleResult {
      * The transport protocol for the external endpoint.
      */
     readonly protocol: string;
-    readonly resourceGroupName: string;
 }
 
 export function getLBRuleOutput(args: GetLBRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLBRuleResult> {
@@ -129,8 +123,4 @@ export interface GetLBRuleOutputArgs {
      * The name of this Load Balancer Rule.
      */
     name: pulumi.Input<string>;
-    /**
-     * The name of the Resource Group where the Load Balancer Rule exists.
-     */
-    resourceGroupName: pulumi.Input<string>;
 }

@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Dashboard
 {
     /// <summary>
-    /// Manages a shared dashboard in the Azure Portal.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -30,7 +28,7 @@ namespace Pulumi.Azure.Dashboard
     ///         {
     ///             Location = "West Europe",
     ///         });
-    ///         var my_board = new Azure.Dashboard.Dashboard("my-board", new Azure.Dashboard.DashboardArgs
+    ///         var my_board = new Azure.Portal.Dashboard("my-board", new Azure.Portal.DashboardArgs
     ///         {
     ///             ResourceGroupName = my_group.Name,
     ///             Location = my_group.Location,
@@ -166,6 +164,7 @@ namespace Pulumi.Azure.Dashboard
     /// 
     ///  Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
     /// </summary>
+    [Obsolete(@"azure.dashboard.Dashboard has been deprecated in favor of azure.portal.Dashboard")]
     [AzureResourceType("azure:dashboard/dashboard:Dashboard")]
     public partial class Dashboard : Pulumi.CustomResource
     {
@@ -182,14 +181,13 @@ namespace Pulumi.Azure.Dashboard
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+        /// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the dashboard.
+        /// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -259,14 +257,13 @@ namespace Pulumi.Azure.Dashboard
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+        /// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the dashboard.
+        /// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -303,14 +300,13 @@ namespace Pulumi.Azure.Dashboard
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+        /// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the dashboard.
+        /// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

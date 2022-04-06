@@ -22,9 +22,9 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/databricks"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databricks"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -55,9 +55,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewLinkedServiceAzureDatabricks(ctx, "msiLinked", &datafactory.LinkedServiceAzureDatabricksArgs{
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Description:       pulumi.String("ADB Linked Service via MSI"),
+// 			DataFactoryId: exampleFactory.ID(),
+// 			Description:   pulumi.String("ADB Linked Service via MSI"),
 // 			AdbDomain: exampleWorkspace.WorkspaceUrl.ApplyT(func(workspaceUrl string) (string, error) {
 // 				return fmt.Sprintf("%v%v", "https://", workspaceUrl), nil
 // 			}).(pulumi.StringOutput),
@@ -102,9 +101,9 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/databricks"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databricks"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -133,7 +132,6 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServiceAzureDatabricks(ctx, "atLinked", &datafactory.LinkedServiceAzureDatabricksArgs{
 // 			DataFactoryId:     exampleFactory.ID(),
-// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Description:       pulumi.String("ADB Linked Service via Access Token"),
 // 			ExistingClusterId: pulumi.String("0308-201146-sly615"),
 // 			AccessToken:       pulumi.String("SomeDatabricksAccessToken"),
@@ -169,10 +167,6 @@ type LinkedServiceAzureDatabricks struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The clusterId of an existing cluster within the linked ADB instance.
@@ -191,8 +185,6 @@ type LinkedServiceAzureDatabricks struct {
 	NewClusterConfig LinkedServiceAzureDatabricksNewClusterConfigPtrOutput `pulumi:"newClusterConfig"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewLinkedServiceAzureDatabricks registers a new resource with the given unique name, arguments, and options.
@@ -205,8 +197,8 @@ func NewLinkedServiceAzureDatabricks(ctx *pulumi.Context,
 	if args.AdbDomain == nil {
 		return nil, errors.New("invalid value for required argument 'AdbDomain'")
 	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	var resource LinkedServiceAzureDatabricks
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks", name, args, &resource, opts...)
@@ -240,10 +232,6 @@ type linkedServiceAzureDatabricksState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The clusterId of an existing cluster within the linked ADB instance.
@@ -262,8 +250,6 @@ type linkedServiceAzureDatabricksState struct {
 	NewClusterConfig *LinkedServiceAzureDatabricksNewClusterConfig `pulumi:"newClusterConfig"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type LinkedServiceAzureDatabricksState struct {
@@ -277,10 +263,6 @@ type LinkedServiceAzureDatabricksState struct {
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The clusterId of an existing cluster within the linked ADB instance.
@@ -299,8 +281,6 @@ type LinkedServiceAzureDatabricksState struct {
 	NewClusterConfig LinkedServiceAzureDatabricksNewClusterConfigPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-	ResourceGroupName pulumi.StringPtrInput
 }
 
 func (LinkedServiceAzureDatabricksState) ElementType() reflect.Type {
@@ -317,11 +297,7 @@ type linkedServiceAzureDatabricksArgs struct {
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The clusterId of an existing cluster within the linked ADB instance.
@@ -340,8 +316,6 @@ type linkedServiceAzureDatabricksArgs struct {
 	NewClusterConfig *LinkedServiceAzureDatabricksNewClusterConfig `pulumi:"newClusterConfig"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a LinkedServiceAzureDatabricks resource.
@@ -355,11 +329,7 @@ type LinkedServiceAzureDatabricksArgs struct {
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The clusterId of an existing cluster within the linked ADB instance.
@@ -378,8 +348,6 @@ type LinkedServiceAzureDatabricksArgs struct {
 	NewClusterConfig LinkedServiceAzureDatabricksNewClusterConfigPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
-	ResourceGroupName pulumi.StringInput
 }
 
 func (LinkedServiceAzureDatabricksArgs) ElementType() reflect.Type {

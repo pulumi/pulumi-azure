@@ -123,17 +123,11 @@ namespace Pulumi.Azure.EventHub
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("namespaceName")]
-        public Output<string> NamespaceName { get; private set; } = null!;
-
         /// <summary>
         /// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("requiresSession")]
         public Output<bool?> RequiresSession { get; private set; } = null!;
-
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
@@ -146,9 +140,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("topicId")]
         public Output<string> TopicId { get; private set; } = null!;
-
-        [Output("topicName")]
-        public Output<string> TopicName { get; private set; } = null!;
 
 
         /// <summary>
@@ -256,17 +247,11 @@ namespace Pulumi.Azure.EventHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
         /// <summary>
         /// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
@@ -277,11 +262,8 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("topicId")]
-        public Input<string>? TopicId { get; set; }
-
-        [Input("topicName")]
-        public Input<string>? TopicName { get; set; }
+        [Input("topicId", required: true)]
+        public Input<string> TopicId { get; set; } = null!;
 
         public SubscriptionArgs()
         {
@@ -350,17 +332,11 @@ namespace Pulumi.Azure.EventHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
         /// <summary>
         /// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
@@ -373,9 +349,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("topicId")]
         public Input<string>? TopicId { get; set; }
-
-        [Input("topicName")]
-        public Input<string>? TopicName { get; set; }
 
         public SubscriptionState()
         {

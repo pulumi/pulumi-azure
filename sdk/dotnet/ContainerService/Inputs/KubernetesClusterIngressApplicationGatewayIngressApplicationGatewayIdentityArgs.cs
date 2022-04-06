@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? ObjectId { get; set; }
 
         /// <summary>
-        /// The ID of a user assigned identity.
+        /// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         /// </summary>
         [Input("userAssignedIdentityId")]
         public Input<string>? UserAssignedIdentityId { get; set; }

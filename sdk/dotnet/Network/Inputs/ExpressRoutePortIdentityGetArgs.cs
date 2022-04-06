@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

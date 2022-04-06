@@ -12,43 +12,6 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Trigger Schedule inside a Azure Data Factory.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var testPipeline = new Azure.DataFactory.Pipeline("testPipeline", new Azure.DataFactory.PipelineArgs
-    ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             DataFactoryId = azurerm_data_factory.Test.Id,
-    ///         });
-    ///         var testTriggerSchedule = new Azure.DataFactory.TriggerSchedule("testTriggerSchedule", new Azure.DataFactory.TriggerScheduleArgs
-    ///         {
-    ///             DataFactoryId = azurerm_data_factory.Test.Id,
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             PipelineName = testPipeline.Name,
-    ///             Interval = 5,
-    ///             Frequency = "Day",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Factory Schedule Trigger can be imported using the `resource id`, e.g.
@@ -64,7 +27,7 @@ namespace Pulumi.Azure.DataFactory
         /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         /// </summary>
         [Output("activated")]
-        public Output<bool> Activated { get; private set; } = null!;
+        public Output<bool?> Activated { get; private set; } = null!;
 
         /// <summary>
         /// List of tags that can be used for describing the Data Factory Schedule Trigger.
@@ -77,12 +40,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("dataFactoryId")]
         public Output<string> DataFactoryId { get; private set; } = null!;
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Output("dataFactoryName")]
-        public Output<string> DataFactoryName { get; private set; } = null!;
 
         /// <summary>
         /// The Schedule Trigger's description.
@@ -125,12 +82,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("pipelineParameters")]
         public Output<ImmutableDictionary<string, string>?> PipelineParameters { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
@@ -211,14 +162,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryId")]
-        public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
+        [Input("dataFactoryId", required: true)]
+        public Input<string> DataFactoryId { get; set; } = null!;
 
         /// <summary>
         /// The Schedule Trigger's description.
@@ -269,12 +214,6 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
         /// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
         /// </summary>
         [Input("schedule")]
@@ -316,12 +255,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("dataFactoryId")]
         public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// The Schedule Trigger's description.
@@ -370,12 +303,6 @@ namespace Pulumi.Azure.DataFactory
             get => _pipelineParameters ?? (_pipelineParameters = new InputMap<string>());
             set => _pipelineParameters = value;
         }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.

@@ -20,7 +20,7 @@ class GetPolicyDefintionResult:
     """
     A collection of values returned by getPolicyDefintion.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, management_group_id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_rule=None, policy_type=None, type=None):
+    def __init__(__self__, description=None, display_name=None, id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_rule=None, policy_type=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -30,13 +30,6 @@ class GetPolicyDefintionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if management_group_id and not isinstance(management_group_id, str):
-            raise TypeError("Expected argument 'management_group_id' to be a str")
-        if management_group_id is not None:
-            warnings.warn("""Deprecated in favour of `management_group_name`""", DeprecationWarning)
-            pulumi.log.warn("""management_group_id is deprecated: Deprecated in favour of `management_group_name`""")
-
-        pulumi.set(__self__, "management_group_id", management_group_id)
         if management_group_name and not isinstance(management_group_name, str):
             raise TypeError("Expected argument 'management_group_name' to be a str")
         pulumi.set(__self__, "management_group_name", management_group_name)
@@ -79,11 +72,6 @@ class GetPolicyDefintionResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="managementGroupId")
-    def management_group_id(self) -> Optional[str]:
-        return pulumi.get(self, "management_group_id")
 
     @property
     @pulumi.getter(name="managementGroupName")
@@ -145,7 +133,6 @@ class AwaitableGetPolicyDefintionResult(GetPolicyDefintionResult):
             description=self.description,
             display_name=self.display_name,
             id=self.id,
-            management_group_id=self.management_group_id,
             management_group_name=self.management_group_name,
             metadata=self.metadata,
             name=self.name,
@@ -156,7 +143,6 @@ class AwaitableGetPolicyDefintionResult(GetPolicyDefintionResult):
 
 
 def get_policy_defintion(display_name: Optional[str] = None,
-                         management_group_id: Optional[str] = None,
                          management_group_name: Optional[str] = None,
                          name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDefintionResult:
@@ -180,7 +166,6 @@ def get_policy_defintion(display_name: Optional[str] = None,
     """
     __args__ = dict()
     __args__['displayName'] = display_name
-    __args__['managementGroupId'] = management_group_id
     __args__['managementGroupName'] = management_group_name
     __args__['name'] = name
     if opts is None:
@@ -193,7 +178,6 @@ def get_policy_defintion(display_name: Optional[str] = None,
         description=__ret__.description,
         display_name=__ret__.display_name,
         id=__ret__.id,
-        management_group_id=__ret__.management_group_id,
         management_group_name=__ret__.management_group_name,
         metadata=__ret__.metadata,
         name=__ret__.name,
@@ -205,7 +189,6 @@ def get_policy_defintion(display_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_policy_defintion)
 def get_policy_defintion_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
-                                management_group_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 management_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                                 name: Optional[pulumi.Input[Optional[str]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyDefintionResult]:

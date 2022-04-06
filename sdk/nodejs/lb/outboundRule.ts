@@ -35,7 +35,6 @@ import * as utilities from "../utilities";
  *     loadbalancerId: exampleLoadBalancer.id,
  * });
  * const exampleOutboundRule = new azure.lb.OutboundRule("exampleOutboundRule", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     loadbalancerId: exampleLoadBalancer.id,
  *     protocol: "Tcp",
  *     backendAddressPoolId: exampleBackendAddressPool.id,
@@ -113,10 +112,6 @@ export class OutboundRule extends pulumi.CustomResource {
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
     public readonly protocol!: pulumi.Output<string>;
-    /**
-     * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a OutboundRule resource with the given unique name, arguments, and options.
@@ -139,7 +134,6 @@ export class OutboundRule extends pulumi.CustomResource {
             resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as OutboundRuleArgs | undefined;
             if ((!args || args.backendAddressPoolId === undefined) && !opts.urn) {
@@ -151,9 +145,6 @@ export class OutboundRule extends pulumi.CustomResource {
             if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             resourceInputs["allocatedOutboundPorts"] = args ? args.allocatedOutboundPorts : undefined;
             resourceInputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
             resourceInputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
@@ -162,7 +153,6 @@ export class OutboundRule extends pulumi.CustomResource {
             resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OutboundRule.__pulumiType, name, resourceInputs, opts);
@@ -205,10 +195,6 @@ export interface OutboundRuleState {
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
     protocol?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-     */
-    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -247,8 +233,4 @@ export interface OutboundRuleArgs {
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
     protocol: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-     */
-    resourceGroupName: pulumi.Input<string>;
 }

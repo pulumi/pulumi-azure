@@ -22,10 +22,14 @@ namespace Pulumi.Azure.Network
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Azure.Network.FirewallPolicy("example", new Azure.Network.FirewallPolicyArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
-    ///             ResourceGroupName = "example",
+    ///         });
+    ///         var exampleFirewallPolicy = new Azure.Network.FirewallPolicy("exampleFirewallPolicy", new Azure.Network.FirewallPolicyArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///         });
     ///     }
     /// 
@@ -68,7 +72,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> Firewalls { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.FirewallPolicyIdentity?> Identity { get; private set; } = null!;
@@ -204,7 +208,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.FirewallPolicyDnsArgs>? Dns { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FirewallPolicyIdentityArgs>? Identity { get; set; }
@@ -331,7 +335,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FirewallPolicyIdentityGetArgs>? Identity { get; set; }

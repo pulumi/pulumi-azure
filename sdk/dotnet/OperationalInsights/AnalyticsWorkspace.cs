@@ -76,9 +76,6 @@ namespace Pulumi.Azure.OperationalInsights
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("portalUrl")]
-        public Output<string> PortalUrl { get; private set; } = null!;
-
         /// <summary>
         /// The Primary shared key for the Log Analytics Workspace.
         /// </summary>
@@ -90,9 +87,6 @@ namespace Pulumi.Azure.OperationalInsights
         /// </summary>
         [Output("reservationCapacityInGbPerDay")]
         public Output<int> ReservationCapacityInGbPerDay { get; private set; } = null!;
-
-        [Output("reservationCapcityInGbPerDay")]
-        public Output<int> ReservationCapcityInGbPerDay { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
@@ -209,9 +203,6 @@ namespace Pulumi.Azure.OperationalInsights
         [Input("reservationCapacityInGbPerDay")]
         public Input<int>? ReservationCapacityInGbPerDay { get; set; }
 
-        [Input("reservationCapcityInGbPerDay")]
-        public Input<int>? ReservationCapcityInGbPerDay { get; set; }
-
         /// <summary>
         /// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         /// </summary>
@@ -276,9 +267,6 @@ namespace Pulumi.Azure.OperationalInsights
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("portalUrl")]
-        public Input<string>? PortalUrl { get; set; }
-
         /// <summary>
         /// The Primary shared key for the Log Analytics Workspace.
         /// </summary>
@@ -290,9 +278,6 @@ namespace Pulumi.Azure.OperationalInsights
         /// </summary>
         [Input("reservationCapacityInGbPerDay")]
         public Input<int>? ReservationCapacityInGbPerDay { get; set; }
-
-        [Input("reservationCapcityInGbPerDay")]
-        public Input<int>? ReservationCapcityInGbPerDay { get; set; }
 
         /// <summary>
         /// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.

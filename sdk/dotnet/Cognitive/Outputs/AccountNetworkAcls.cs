@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
     public sealed class AccountNetworkAcls
     {
         /// <summary>
-        /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+        /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         /// </summary>
         public readonly string DefaultAction;
         /// <summary>
@@ -25,7 +25,6 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// A `virtual_network_rules` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AccountNetworkAclsVirtualNetworkRule> VirtualNetworkRules;
-        public readonly ImmutableArray<string> VirtualNetworkSubnetIds;
 
         [OutputConstructor]
         private AccountNetworkAcls(
@@ -33,14 +32,11 @@ namespace Pulumi.Azure.Cognitive.Outputs
 
             ImmutableArray<string> ipRules,
 
-            ImmutableArray<Outputs.AccountNetworkAclsVirtualNetworkRule> virtualNetworkRules,
-
-            ImmutableArray<string> virtualNetworkSubnetIds)
+            ImmutableArray<Outputs.AccountNetworkAclsVirtualNetworkRule> virtualNetworkRules)
         {
             DefaultAction = defaultAction;
             IpRules = ipRules;
             VirtualNetworkRules = virtualNetworkRules;
-            VirtualNetworkSubnetIds = virtualNetworkSubnetIds;
         }
     }
 }

@@ -28,7 +28,6 @@ class KeyVaultArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input['KeyVaultNetworkAclsArgs']] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
-                 soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -72,11 +71,6 @@ class KeyVaultArgs:
             pulumi.set(__self__, "network_acls", network_acls)
         if purge_protection_enabled is not None:
             pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
-        if soft_delete_enabled is not None:
-            warnings.warn("""Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.""", DeprecationWarning)
-            pulumi.log.warn("""soft_delete_enabled is deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.""")
-        if soft_delete_enabled is not None:
-            pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
         if soft_delete_retention_days is not None:
             pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
         if tags is not None:
@@ -239,15 +233,6 @@ class KeyVaultArgs:
         pulumi.set(self, "purge_protection_enabled", value)
 
     @property
-    @pulumi.getter(name="softDeleteEnabled")
-    def soft_delete_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "soft_delete_enabled")
-
-    @soft_delete_enabled.setter
-    def soft_delete_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "soft_delete_enabled", value)
-
-    @property
     @pulumi.getter(name="softDeleteRetentionDays")
     def soft_delete_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -287,7 +272,6 @@ class _KeyVaultState:
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -335,11 +319,6 @@ class _KeyVaultState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
-        if soft_delete_enabled is not None:
-            warnings.warn("""Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.""", DeprecationWarning)
-            pulumi.log.warn("""soft_delete_enabled is deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.""")
-        if soft_delete_enabled is not None:
-            pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
         if soft_delete_retention_days is not None:
             pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
         if tags is not None:
@@ -494,15 +473,6 @@ class _KeyVaultState:
         pulumi.set(self, "sku_name", value)
 
     @property
-    @pulumi.getter(name="softDeleteEnabled")
-    def soft_delete_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "soft_delete_enabled")
-
-    @soft_delete_enabled.setter
-    def soft_delete_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "soft_delete_enabled", value)
-
-    @property
     @pulumi.getter(name="softDeleteRetentionDays")
     def soft_delete_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -568,7 +538,6 @@ class KeyVault(pulumi.CustomResource):
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -579,8 +548,6 @@ class KeyVault(pulumi.CustomResource):
         ## Disclaimers
 
         > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `access_policy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
-
-        > **Note:** This provider will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
 
         ## Example Usage
 
@@ -646,8 +613,6 @@ class KeyVault(pulumi.CustomResource):
 
         > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `access_policy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
 
-        > **Note:** This provider will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
-
         ## Example Usage
 
         ```python
@@ -708,7 +673,6 @@ class KeyVault(pulumi.CustomResource):
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -740,10 +704,6 @@ class KeyVault(pulumi.CustomResource):
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
-            if soft_delete_enabled is not None and not opts.urn:
-                warnings.warn("""Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.""", DeprecationWarning)
-                pulumi.log.warn("""soft_delete_enabled is deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.""")
-            __props__.__dict__["soft_delete_enabled"] = soft_delete_enabled
             __props__.__dict__["soft_delete_retention_days"] = soft_delete_retention_days
             __props__.__dict__["tags"] = tags
             if tenant_id is None and not opts.urn:
@@ -772,7 +732,6 @@ class KeyVault(pulumi.CustomResource):
             purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
-            soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
             soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tenant_id: Optional[pulumi.Input[str]] = None,
@@ -817,7 +776,6 @@ class KeyVault(pulumi.CustomResource):
         __props__.__dict__["purge_protection_enabled"] = purge_protection_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
-        __props__.__dict__["soft_delete_enabled"] = soft_delete_enabled
         __props__.__dict__["soft_delete_retention_days"] = soft_delete_retention_days
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tenant_id"] = tenant_id
@@ -919,11 +877,6 @@ class KeyVault(pulumi.CustomResource):
         The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         """
         return pulumi.get(self, "sku_name")
-
-    @property
-    @pulumi.getter(name="softDeleteEnabled")
-    def soft_delete_enabled(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "soft_delete_enabled")
 
     @property
     @pulumi.getter(name="softDeleteRetentionDays")

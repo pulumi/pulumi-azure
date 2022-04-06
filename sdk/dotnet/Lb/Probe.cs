@@ -49,7 +49,6 @@ namespace Pulumi.Azure.Lb
     ///         });
     ///         var exampleProbe = new Azure.Lb.Probe("exampleProbe", new Azure.Lb.ProbeArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             LoadbalancerId = exampleLoadBalancer.Id,
     ///             Port = 22,
     ///         });
@@ -113,12 +112,6 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Output("requestPath")]
         public Output<string?> RequestPath { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group in which to create the resource.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
 
         /// <summary>
@@ -208,12 +201,6 @@ namespace Pulumi.Azure.Lb
         [Input("requestPath")]
         public Input<string>? RequestPath { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which to create the resource.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
         public ProbeArgs()
         {
         }
@@ -270,12 +257,6 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("requestPath")]
         public Input<string>? RequestPath { get; set; }
-
-        /// <summary>
-        /// The name of the resource group in which to create the resource.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         public ProbeState()
         {

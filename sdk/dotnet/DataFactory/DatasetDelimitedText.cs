@@ -33,14 +33,12 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var exampleLinkedServiceWeb = new Azure.DataFactory.LinkedServiceWeb("exampleLinkedServiceWeb", new Azure.DataFactory.LinkedServiceWebArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryId = exampleFactory.Id,
     ///             AuthenticationType = "Anonymous",
     ///             Url = "https://www.bing.com",
     ///         });
     ///         var exampleDatasetDelimitedText = new Azure.DataFactory.DatasetDelimitedText("exampleDatasetDelimitedText", new Azure.DataFactory.DatasetDelimitedTextArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryId = exampleFactory.Id,
     ///             LinkedServiceName = exampleLinkedServiceWeb.Name,
     ///             HttpServerLocation = new Azure.DataFactory.Inputs.DatasetDelimitedTextHttpServerLocationArgs
@@ -122,12 +120,6 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Output("dataFactoryName")]
-        public Output<string> DataFactoryName { get; private set; } = null!;
-
-        /// <summary>
         /// The description for the Data Factory Dataset.
         /// </summary>
         [Output("description")]
@@ -192,12 +184,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("quoteCharacter")]
         public Output<string?> QuoteCharacter { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
@@ -314,14 +300,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryId")]
-        public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
+        [Input("dataFactoryId", required: true)]
+        public Input<string> DataFactoryId { get; set; } = null!;
 
         /// <summary>
         /// The description for the Data Factory Dataset.
@@ -394,12 +374,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("quoteCharacter")]
         public Input<string>? QuoteCharacter { get; set; }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
         /// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
@@ -487,12 +461,6 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
-
-        /// <summary>
         /// The description for the Data Factory Dataset.
         /// </summary>
         [Input("description")]
@@ -563,12 +531,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("quoteCharacter")]
         public Input<string>? QuoteCharacter { get; set; }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.

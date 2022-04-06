@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,16 +39,32 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EnvironmentV3{}
 	case "azure:appservice/functionApp:FunctionApp":
 		r = &FunctionApp{}
+	case "azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot":
+		r = &FunctionAppActiveSlot{}
+	case "azure:appservice/functionAppFunction:FunctionAppFunction":
+		r = &FunctionAppFunction{}
+	case "azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection":
+		r = &FunctionAppHybridConnection{}
 	case "azure:appservice/functionAppSlot:FunctionAppSlot":
 		r = &FunctionAppSlot{}
 	case "azure:appservice/hybridConnection:HybridConnection":
 		r = &HybridConnection{}
+	case "azure:appservice/linuxFunctionApp:LinuxFunctionApp":
+		r = &LinuxFunctionApp{}
+	case "azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot":
+		r = &LinuxFunctionAppSlot{}
+	case "azure:appservice/linuxWebApp:LinuxWebApp":
+		r = &LinuxWebApp{}
+	case "azure:appservice/linuxWebAppSlot:LinuxWebAppSlot":
+		r = &LinuxWebAppSlot{}
 	case "azure:appservice/managedCertificate:ManagedCertificate":
 		r = &ManagedCertificate{}
 	case "azure:appservice/plan:Plan":
 		r = &Plan{}
 	case "azure:appservice/publicCertificate:PublicCertificate":
 		r = &PublicCertificate{}
+	case "azure:appservice/servicePlan:ServicePlan":
+		r = &ServicePlan{}
 	case "azure:appservice/slot:Slot":
 		r = &Slot{}
 	case "azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding":
@@ -57,12 +73,30 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SlotVirtualNetworkSwiftConnection{}
 	case "azure:appservice/sourceCodeToken:SourceCodeToken":
 		r = &SourceCodeToken{}
+	case "azure:appservice/sourceControl:SourceControl":
+		r = &SourceControl{}
+	case "azure:appservice/sourceControlSlot:SourceControlSlot":
+		r = &SourceControlSlot{}
+	case "azure:appservice/sourceControlToken:SourceControlToken":
+		r = &SourceControlToken{}
 	case "azure:appservice/staticSite:StaticSite":
 		r = &StaticSite{}
 	case "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain":
 		r = &StaticSiteCustomDomain{}
 	case "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection":
 		r = &VirtualNetworkSwiftConnection{}
+	case "azure:appservice/webAppActiveSlot:WebAppActiveSlot":
+		r = &WebAppActiveSlot{}
+	case "azure:appservice/webAppHybridConnection:WebAppHybridConnection":
+		r = &WebAppHybridConnection{}
+	case "azure:appservice/windowsFunctionApp:WindowsFunctionApp":
+		r = &WindowsFunctionApp{}
+	case "azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot":
+		r = &WindowsFunctionAppSlot{}
+	case "azure:appservice/windowsWebApp:WindowsWebApp":
+		r = &WindowsWebApp{}
+	case "azure:appservice/windowsWebAppSlot:WindowsWebAppSlot":
+		r = &WindowsWebAppSlot{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -123,12 +157,47 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"appservice/functionAppActiveSlot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/functionAppFunction",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/functionAppHybridConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"appservice/functionAppSlot",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appservice/hybridConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/linuxFunctionApp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/linuxFunctionAppSlot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/linuxWebApp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/linuxWebAppSlot",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -144,6 +213,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appservice/publicCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/servicePlan",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -168,6 +242,21 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"appservice/sourceControl",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/sourceControlSlot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/sourceControlToken",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"appservice/staticSite",
 		&module{version},
 	)
@@ -179,6 +268,36 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appservice/virtualNetworkSwiftConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/webAppActiveSlot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/webAppHybridConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/windowsFunctionApp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/windowsFunctionAppSlot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/windowsWebApp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/windowsWebAppSlot",
 		&module{version},
 	)
 }

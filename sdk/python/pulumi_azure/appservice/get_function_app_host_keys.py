@@ -20,7 +20,7 @@ class GetFunctionAppHostKeysResult:
     """
     A collection of values returned by getFunctionAppHostKeys.
     """
-    def __init__(__self__, default_function_key=None, durabletask_extension_key=None, event_grid_extension_config_key=None, id=None, master_key=None, name=None, primary_key=None, resource_group_name=None, signalr_extension_key=None):
+    def __init__(__self__, default_function_key=None, durabletask_extension_key=None, event_grid_extension_config_key=None, id=None, name=None, primary_key=None, resource_group_name=None, signalr_extension_key=None):
         if default_function_key and not isinstance(default_function_key, str):
             raise TypeError("Expected argument 'default_function_key' to be a str")
         pulumi.set(__self__, "default_function_key", default_function_key)
@@ -33,13 +33,6 @@ class GetFunctionAppHostKeysResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if master_key and not isinstance(master_key, str):
-            raise TypeError("Expected argument 'master_key' to be a str")
-        if master_key is not None:
-            warnings.warn("""This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""", DeprecationWarning)
-            pulumi.log.warn("""master_key is deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""")
-
-        pulumi.set(__self__, "master_key", master_key)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -86,14 +79,6 @@ class GetFunctionAppHostKeysResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="masterKey")
-    def master_key(self) -> str:
-        """
-        Function App resource's secret key
-        """
-        return pulumi.get(self, "master_key")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
@@ -101,6 +86,9 @@ class GetFunctionAppHostKeysResult:
     @property
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> str:
+        """
+        Function App resource's secret key
+        """
         return pulumi.get(self, "primary_key")
 
     @property
@@ -127,7 +115,6 @@ class AwaitableGetFunctionAppHostKeysResult(GetFunctionAppHostKeysResult):
             durabletask_extension_key=self.durabletask_extension_key,
             event_grid_extension_config_key=self.event_grid_extension_config_key,
             id=self.id,
-            master_key=self.master_key,
             name=self.name,
             primary_key=self.primary_key,
             resource_group_name=self.resource_group_name,
@@ -168,7 +155,6 @@ def get_function_app_host_keys(name: Optional[str] = None,
         durabletask_extension_key=__ret__.durabletask_extension_key,
         event_grid_extension_config_key=__ret__.event_grid_extension_config_key,
         id=__ret__.id,
-        master_key=__ret__.master_key,
         name=__ret__.name,
         primary_key=__ret__.primary_key,
         resource_group_name=__ret__.resource_group_name,

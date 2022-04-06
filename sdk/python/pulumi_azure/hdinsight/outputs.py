@@ -84,20 +84,6 @@ __all__ = [
     'KafkaClusterSecurityProfile',
     'KafkaClusterStorageAccount',
     'KafkaClusterStorageAccountGen2',
-    'MLServicesClusterGateway',
-    'MLServicesClusterRoles',
-    'MLServicesClusterRolesEdgeNode',
-    'MLServicesClusterRolesHeadNode',
-    'MLServicesClusterRolesWorkerNode',
-    'MLServicesClusterRolesZookeeperNode',
-    'MLServicesClusterStorageAccount',
-    'RServerClusterGateway',
-    'RServerClusterRoles',
-    'RServerClusterRolesEdgeNode',
-    'RServerClusterRolesHeadNode',
-    'RServerClusterRolesWorkerNode',
-    'RServerClusterRolesZookeeperNode',
-    'RServerClusterStorageAccount',
     'SparkClusterComponentVersion',
     'SparkClusterGateway',
     'SparkClusterMetastores',
@@ -117,18 +103,6 @@ __all__ = [
     'SparkClusterSecurityProfile',
     'SparkClusterStorageAccount',
     'SparkClusterStorageAccountGen2',
-    'StormClusterComponentVersion',
-    'StormClusterGateway',
-    'StormClusterMetastores',
-    'StormClusterMetastoresAmbari',
-    'StormClusterMetastoresHive',
-    'StormClusterMetastoresOozie',
-    'StormClusterMonitor',
-    'StormClusterRoles',
-    'StormClusterRolesHeadNode',
-    'StormClusterRolesWorkerNode',
-    'StormClusterRolesZookeeperNode',
-    'StormClusterStorageAccount',
     'GetClusterGatewayResult',
 ]
 
@@ -154,17 +128,13 @@ class HBaseClusterComponentVersion(dict):
 class HBaseClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
-                 username: str,
-                 enabled: Optional[bool] = None):
+                 username: str):
         """
         :param str password: The password used for the Ambari Portal.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
-        :param bool enabled: Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -181,14 +151,6 @@ class HBaseClusterGateway(dict):
         The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        """
-        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -706,8 +668,6 @@ class HBaseClusterRolesWorkerNode(dict):
             suggest = "target_instance_count"
         elif key == "vmSize":
             suggest = "vm_size"
-        elif key == "minInstanceCount":
-            suggest = "min_instance_count"
         elif key == "sshKeys":
             suggest = "ssh_keys"
         elif key == "subnetId":
@@ -731,7 +691,6 @@ class HBaseClusterRolesWorkerNode(dict):
                  username: str,
                  vm_size: str,
                  autoscale: Optional['outputs.HBaseClusterRolesWorkerNodeAutoscale'] = None,
-                 min_instance_count: Optional[int] = None,
                  password: Optional[str] = None,
                  ssh_keys: Optional[Sequence[str]] = None,
                  subnet_id: Optional[str] = None,
@@ -741,7 +700,6 @@ class HBaseClusterRolesWorkerNode(dict):
         :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
         :param 'HBaseClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
-        :param int min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -752,8 +710,6 @@ class HBaseClusterRolesWorkerNode(dict):
         pulumi.set(__self__, "vm_size", vm_size)
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
-        if min_instance_count is not None:
-            pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if ssh_keys is not None:
@@ -794,14 +750,6 @@ class HBaseClusterRolesWorkerNode(dict):
         A `autoscale` block as defined below.
         """
         return pulumi.get(self, "autoscale")
-
-    @property
-    @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[int]:
-        """
-        The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "min_instance_count")
 
     @property
     @pulumi.getter
@@ -1326,17 +1274,13 @@ class HadoopClusterComponentVersion(dict):
 class HadoopClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
-                 username: str,
-                 enabled: Optional[bool] = None):
+                 username: str):
         """
         :param str password: The password used for the Ambari Portal.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
-        :param bool enabled: Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -1353,14 +1297,6 @@ class HadoopClusterGateway(dict):
         The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        """
-        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -1982,8 +1918,6 @@ class HadoopClusterRolesWorkerNode(dict):
             suggest = "target_instance_count"
         elif key == "vmSize":
             suggest = "vm_size"
-        elif key == "minInstanceCount":
-            suggest = "min_instance_count"
         elif key == "sshKeys":
             suggest = "ssh_keys"
         elif key == "subnetId":
@@ -2007,7 +1941,6 @@ class HadoopClusterRolesWorkerNode(dict):
                  username: str,
                  vm_size: str,
                  autoscale: Optional['outputs.HadoopClusterRolesWorkerNodeAutoscale'] = None,
-                 min_instance_count: Optional[int] = None,
                  password: Optional[str] = None,
                  ssh_keys: Optional[Sequence[str]] = None,
                  subnet_id: Optional[str] = None,
@@ -2017,7 +1950,6 @@ class HadoopClusterRolesWorkerNode(dict):
         :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
         :param 'HadoopClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
-        :param int min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -2028,8 +1960,6 @@ class HadoopClusterRolesWorkerNode(dict):
         pulumi.set(__self__, "vm_size", vm_size)
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
-        if min_instance_count is not None:
-            pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if ssh_keys is not None:
@@ -2070,14 +2000,6 @@ class HadoopClusterRolesWorkerNode(dict):
         A `autoscale` block as defined below.
         """
         return pulumi.get(self, "autoscale")
-
-    @property
-    @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[int]:
-        """
-        The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "min_instance_count")
 
     @property
     @pulumi.getter
@@ -2673,17 +2595,13 @@ class InteractiveQueryClusterComponentVersion(dict):
 class InteractiveQueryClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
-                 username: str,
-                 enabled: Optional[bool] = None):
+                 username: str):
         """
         :param str password: The password used for the Ambari Portal.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
-        :param bool enabled: Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -2700,14 +2618,6 @@ class InteractiveQueryClusterGateway(dict):
         The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        """
-        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -3225,8 +3135,6 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
             suggest = "target_instance_count"
         elif key == "vmSize":
             suggest = "vm_size"
-        elif key == "minInstanceCount":
-            suggest = "min_instance_count"
         elif key == "sshKeys":
             suggest = "ssh_keys"
         elif key == "subnetId":
@@ -3250,7 +3158,6 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
                  username: str,
                  vm_size: str,
                  autoscale: Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscale'] = None,
-                 min_instance_count: Optional[int] = None,
                  password: Optional[str] = None,
                  ssh_keys: Optional[Sequence[str]] = None,
                  subnet_id: Optional[str] = None,
@@ -3260,7 +3167,6 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
         :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
         :param 'InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
-        :param int min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -3271,8 +3177,6 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
         pulumi.set(__self__, "vm_size", vm_size)
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
-        if min_instance_count is not None:
-            pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if ssh_keys is not None:
@@ -3313,14 +3217,6 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
         A `autoscale` block as defined below.
         """
         return pulumi.get(self, "autoscale")
-
-    @property
-    @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[int]:
-        """
-        The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "min_instance_count")
 
     @property
     @pulumi.getter
@@ -3905,17 +3801,13 @@ class KafkaClusterComponentVersion(dict):
 class KafkaClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
-                 username: str,
-                 enabled: Optional[bool] = None):
+                 username: str):
         """
         :param str password: The password used for the Ambari Portal.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
-        :param bool enabled: Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -3932,14 +3824,6 @@ class KafkaClusterGateway(dict):
         The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        """
-        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -4260,14 +4144,13 @@ class KafkaClusterRestProxy(dict):
 
     def __init__(__self__, *,
                  security_group_id: str,
-                 security_group_name: Optional[str] = None):
+                 security_group_name: str):
         """
         :param str security_group_id: The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
         :param str security_group_name: The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "security_group_id", security_group_id)
-        if security_group_name is not None:
-            pulumi.set(__self__, "security_group_name", security_group_name)
+        pulumi.set(__self__, "security_group_name", security_group_name)
 
     @property
     @pulumi.getter(name="securityGroupId")
@@ -4279,7 +4162,7 @@ class KafkaClusterRestProxy(dict):
 
     @property
     @pulumi.getter(name="securityGroupName")
-    def security_group_name(self) -> Optional[str]:
+    def security_group_name(self) -> str:
         """
         The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
         """
@@ -4572,8 +4455,6 @@ class KafkaClusterRolesWorkerNode(dict):
             suggest = "target_instance_count"
         elif key == "vmSize":
             suggest = "vm_size"
-        elif key == "minInstanceCount":
-            suggest = "min_instance_count"
         elif key == "sshKeys":
             suggest = "ssh_keys"
         elif key == "subnetId":
@@ -4597,7 +4478,6 @@ class KafkaClusterRolesWorkerNode(dict):
                  target_instance_count: int,
                  username: str,
                  vm_size: str,
-                 min_instance_count: Optional[int] = None,
                  password: Optional[str] = None,
                  ssh_keys: Optional[Sequence[str]] = None,
                  subnet_id: Optional[str] = None,
@@ -4607,7 +4487,6 @@ class KafkaClusterRolesWorkerNode(dict):
         :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        :param int min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -4617,8 +4496,6 @@ class KafkaClusterRolesWorkerNode(dict):
         pulumi.set(__self__, "target_instance_count", target_instance_count)
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
-        if min_instance_count is not None:
-            pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if ssh_keys is not None:
@@ -4659,14 +4536,6 @@ class KafkaClusterRolesWorkerNode(dict):
         The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[int]:
-        """
-        The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "min_instance_count")
 
     @property
     @pulumi.getter
@@ -5065,1232 +4934,6 @@ class KafkaClusterStorageAccountGen2(dict):
 
 
 @pulumi.output_type
-class MLServicesClusterGateway(dict):
-    def __init__(__self__, *,
-                 password: str,
-                 username: str,
-                 enabled: Optional[bool] = None):
-        """
-        :param str password: The password used for the Ambari Portal.
-        :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
-        :param bool enabled: Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        The password used for the Ambari Portal.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The username used for the Ambari Portal. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        """
-        return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
-class MLServicesClusterRoles(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "edgeNode":
-            suggest = "edge_node"
-        elif key == "headNode":
-            suggest = "head_node"
-        elif key == "workerNode":
-            suggest = "worker_node"
-        elif key == "zookeeperNode":
-            suggest = "zookeeper_node"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterRoles. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MLServicesClusterRoles.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MLServicesClusterRoles.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 edge_node: 'outputs.MLServicesClusterRolesEdgeNode',
-                 head_node: 'outputs.MLServicesClusterRolesHeadNode',
-                 worker_node: 'outputs.MLServicesClusterRolesWorkerNode',
-                 zookeeper_node: 'outputs.MLServicesClusterRolesZookeeperNode'):
-        """
-        :param 'MLServicesClusterRolesEdgeNodeArgs' edge_node: A `edge_node` block as defined above.
-        :param 'MLServicesClusterRolesHeadNodeArgs' head_node: A `head_node` block as defined above.
-        :param 'MLServicesClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
-        :param 'MLServicesClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
-        """
-        pulumi.set(__self__, "edge_node", edge_node)
-        pulumi.set(__self__, "head_node", head_node)
-        pulumi.set(__self__, "worker_node", worker_node)
-        pulumi.set(__self__, "zookeeper_node", zookeeper_node)
-
-    @property
-    @pulumi.getter(name="edgeNode")
-    def edge_node(self) -> 'outputs.MLServicesClusterRolesEdgeNode':
-        """
-        A `edge_node` block as defined above.
-        """
-        return pulumi.get(self, "edge_node")
-
-    @property
-    @pulumi.getter(name="headNode")
-    def head_node(self) -> 'outputs.MLServicesClusterRolesHeadNode':
-        """
-        A `head_node` block as defined above.
-        """
-        return pulumi.get(self, "head_node")
-
-    @property
-    @pulumi.getter(name="workerNode")
-    def worker_node(self) -> 'outputs.MLServicesClusterRolesWorkerNode':
-        """
-        A `worker_node` block as defined below.
-        """
-        return pulumi.get(self, "worker_node")
-
-    @property
-    @pulumi.getter(name="zookeeperNode")
-    def zookeeper_node(self) -> 'outputs.MLServicesClusterRolesZookeeperNode':
-        """
-        A `zookeeper_node` block as defined below.
-        """
-        return pulumi.get(self, "zookeeper_node")
-
-
-@pulumi.output_type
-class MLServicesClusterRolesEdgeNode(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vmSize":
-            suggest = "vm_size"
-        elif key == "sshKeys":
-            suggest = "ssh_keys"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "virtualNetworkId":
-            suggest = "virtual_network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterRolesEdgeNode. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MLServicesClusterRolesEdgeNode.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MLServicesClusterRolesEdgeNode.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 username: str,
-                 vm_size: str,
-                 password: Optional[str] = None,
-                 ssh_keys: Optional[Sequence[str]] = None,
-                 subnet_id: Optional[str] = None,
-                 virtual_network_id: Optional[str] = None):
-        """
-        :param str username: The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
-        :param str vm_size: The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
-        :param str password: The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
-        :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
-        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-        :param str virtual_network_id: The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[Sequence[str]]:
-        """
-        A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "ssh_keys")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        """
-        The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "virtual_network_id")
-
-
-@pulumi.output_type
-class MLServicesClusterRolesHeadNode(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vmSize":
-            suggest = "vm_size"
-        elif key == "sshKeys":
-            suggest = "ssh_keys"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "virtualNetworkId":
-            suggest = "virtual_network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterRolesHeadNode. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MLServicesClusterRolesHeadNode.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MLServicesClusterRolesHeadNode.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 username: str,
-                 vm_size: str,
-                 password: Optional[str] = None,
-                 ssh_keys: Optional[Sequence[str]] = None,
-                 subnet_id: Optional[str] = None,
-                 virtual_network_id: Optional[str] = None):
-        """
-        :param str username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param str vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-        :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[Sequence[str]]:
-        """
-        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "ssh_keys")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "virtual_network_id")
-
-
-@pulumi.output_type
-class MLServicesClusterRolesWorkerNode(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "targetInstanceCount":
-            suggest = "target_instance_count"
-        elif key == "vmSize":
-            suggest = "vm_size"
-        elif key == "minInstanceCount":
-            suggest = "min_instance_count"
-        elif key == "sshKeys":
-            suggest = "ssh_keys"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "virtualNetworkId":
-            suggest = "virtual_network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterRolesWorkerNode. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MLServicesClusterRolesWorkerNode.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MLServicesClusterRolesWorkerNode.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 target_instance_count: int,
-                 username: str,
-                 vm_size: str,
-                 min_instance_count: Optional[int] = None,
-                 password: Optional[str] = None,
-                 ssh_keys: Optional[Sequence[str]] = None,
-                 subnet_id: Optional[str] = None,
-                 virtual_network_id: Optional[str] = None):
-        """
-        :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
-        :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        :param int min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if min_instance_count is not None:
-            pulumi.set(__self__, "min_instance_count", min_instance_count)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> int:
-        """
-        The number of instances which should be run for the Worker Nodes.
-        """
-        return pulumi.get(self, "target_instance_count")
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[int]:
-        """
-        The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "min_instance_count")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[Sequence[str]]:
-        """
-        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "ssh_keys")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        """
-        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "virtual_network_id")
-
-
-@pulumi.output_type
-class MLServicesClusterRolesZookeeperNode(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vmSize":
-            suggest = "vm_size"
-        elif key == "sshKeys":
-            suggest = "ssh_keys"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "virtualNetworkId":
-            suggest = "virtual_network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterRolesZookeeperNode. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MLServicesClusterRolesZookeeperNode.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MLServicesClusterRolesZookeeperNode.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 username: str,
-                 vm_size: str,
-                 password: Optional[str] = None,
-                 ssh_keys: Optional[Sequence[str]] = None,
-                 subnet_id: Optional[str] = None,
-                 virtual_network_id: Optional[str] = None):
-        """
-        :param str username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param str vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[Sequence[str]]:
-        """
-        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "ssh_keys")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        """
-        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "virtual_network_id")
-
-
-@pulumi.output_type
-class MLServicesClusterStorageAccount(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isDefault":
-            suggest = "is_default"
-        elif key == "storageAccountKey":
-            suggest = "storage_account_key"
-        elif key == "storageContainerId":
-            suggest = "storage_container_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MLServicesClusterStorageAccount.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MLServicesClusterStorageAccount.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 is_default: bool,
-                 storage_account_key: str,
-                 storage_container_id: str,
-                 storage_resource_id: Optional[str] = None):
-        """
-        :param bool is_default: Is this the Default Storage Account for the HDInsight ML Services Cluster? Changing this forces a new resource to be created.
-        :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-        :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
-
-    @property
-    @pulumi.getter(name="isDefault")
-    def is_default(self) -> bool:
-        """
-        Is this the Default Storage Account for the HDInsight ML Services Cluster? Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "is_default")
-
-    @property
-    @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> str:
-        """
-        The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_key")
-
-    @property
-    @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> str:
-        """
-        The ID of the Storage Container. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_container_id")
-
-    @property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[str]:
-        return pulumi.get(self, "storage_resource_id")
-
-
-@pulumi.output_type
-class RServerClusterGateway(dict):
-    def __init__(__self__, *,
-                 password: str,
-                 username: str,
-                 enabled: Optional[bool] = None):
-        """
-        :param str password: The password used for the Ambari Portal.
-        :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
-        :param bool enabled: Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        The password used for the Ambari Portal.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The username used for the Ambari Portal. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        """
-        return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
-class RServerClusterRoles(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "edgeNode":
-            suggest = "edge_node"
-        elif key == "headNode":
-            suggest = "head_node"
-        elif key == "workerNode":
-            suggest = "worker_node"
-        elif key == "zookeeperNode":
-            suggest = "zookeeper_node"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RServerClusterRoles. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RServerClusterRoles.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RServerClusterRoles.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 edge_node: 'outputs.RServerClusterRolesEdgeNode',
-                 head_node: 'outputs.RServerClusterRolesHeadNode',
-                 worker_node: 'outputs.RServerClusterRolesWorkerNode',
-                 zookeeper_node: 'outputs.RServerClusterRolesZookeeperNode'):
-        """
-        :param 'RServerClusterRolesEdgeNodeArgs' edge_node: A `edge_node` block as defined above.
-        :param 'RServerClusterRolesHeadNodeArgs' head_node: A `head_node` block as defined above.
-        :param 'RServerClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
-        :param 'RServerClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
-        """
-        pulumi.set(__self__, "edge_node", edge_node)
-        pulumi.set(__self__, "head_node", head_node)
-        pulumi.set(__self__, "worker_node", worker_node)
-        pulumi.set(__self__, "zookeeper_node", zookeeper_node)
-
-    @property
-    @pulumi.getter(name="edgeNode")
-    def edge_node(self) -> 'outputs.RServerClusterRolesEdgeNode':
-        """
-        A `edge_node` block as defined above.
-        """
-        return pulumi.get(self, "edge_node")
-
-    @property
-    @pulumi.getter(name="headNode")
-    def head_node(self) -> 'outputs.RServerClusterRolesHeadNode':
-        """
-        A `head_node` block as defined above.
-        """
-        return pulumi.get(self, "head_node")
-
-    @property
-    @pulumi.getter(name="workerNode")
-    def worker_node(self) -> 'outputs.RServerClusterRolesWorkerNode':
-        """
-        A `worker_node` block as defined below.
-        """
-        return pulumi.get(self, "worker_node")
-
-    @property
-    @pulumi.getter(name="zookeeperNode")
-    def zookeeper_node(self) -> 'outputs.RServerClusterRolesZookeeperNode':
-        """
-        A `zookeeper_node` block as defined below.
-        """
-        return pulumi.get(self, "zookeeper_node")
-
-
-@pulumi.output_type
-class RServerClusterRolesEdgeNode(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vmSize":
-            suggest = "vm_size"
-        elif key == "sshKeys":
-            suggest = "ssh_keys"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "virtualNetworkId":
-            suggest = "virtual_network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RServerClusterRolesEdgeNode. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RServerClusterRolesEdgeNode.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RServerClusterRolesEdgeNode.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 username: str,
-                 vm_size: str,
-                 password: Optional[str] = None,
-                 ssh_keys: Optional[Sequence[str]] = None,
-                 subnet_id: Optional[str] = None,
-                 virtual_network_id: Optional[str] = None):
-        """
-        :param str username: The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
-        :param str vm_size: The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
-        :param str password: The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
-        :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
-        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-        :param str virtual_network_id: The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[Sequence[str]]:
-        """
-        A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "ssh_keys")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        """
-        The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "virtual_network_id")
-
-
-@pulumi.output_type
-class RServerClusterRolesHeadNode(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vmSize":
-            suggest = "vm_size"
-        elif key == "sshKeys":
-            suggest = "ssh_keys"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "virtualNetworkId":
-            suggest = "virtual_network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RServerClusterRolesHeadNode. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RServerClusterRolesHeadNode.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RServerClusterRolesHeadNode.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 username: str,
-                 vm_size: str,
-                 password: Optional[str] = None,
-                 ssh_keys: Optional[Sequence[str]] = None,
-                 subnet_id: Optional[str] = None,
-                 virtual_network_id: Optional[str] = None):
-        """
-        :param str username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param str vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-        :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[Sequence[str]]:
-        """
-        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "ssh_keys")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "virtual_network_id")
-
-
-@pulumi.output_type
-class RServerClusterRolesWorkerNode(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "targetInstanceCount":
-            suggest = "target_instance_count"
-        elif key == "vmSize":
-            suggest = "vm_size"
-        elif key == "minInstanceCount":
-            suggest = "min_instance_count"
-        elif key == "sshKeys":
-            suggest = "ssh_keys"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "virtualNetworkId":
-            suggest = "virtual_network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RServerClusterRolesWorkerNode. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RServerClusterRolesWorkerNode.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RServerClusterRolesWorkerNode.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 target_instance_count: int,
-                 username: str,
-                 vm_size: str,
-                 min_instance_count: Optional[int] = None,
-                 password: Optional[str] = None,
-                 ssh_keys: Optional[Sequence[str]] = None,
-                 subnet_id: Optional[str] = None,
-                 virtual_network_id: Optional[str] = None):
-        """
-        :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
-        :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        :param int min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if min_instance_count is not None:
-            pulumi.set(__self__, "min_instance_count", min_instance_count)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> int:
-        """
-        The number of instances which should be run for the Worker Nodes.
-        """
-        return pulumi.get(self, "target_instance_count")
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[int]:
-        """
-        The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "min_instance_count")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[Sequence[str]]:
-        """
-        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "ssh_keys")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        """
-        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "virtual_network_id")
-
-
-@pulumi.output_type
-class RServerClusterRolesZookeeperNode(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vmSize":
-            suggest = "vm_size"
-        elif key == "sshKeys":
-            suggest = "ssh_keys"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "virtualNetworkId":
-            suggest = "virtual_network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RServerClusterRolesZookeeperNode. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RServerClusterRolesZookeeperNode.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RServerClusterRolesZookeeperNode.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 username: str,
-                 vm_size: str,
-                 password: Optional[str] = None,
-                 ssh_keys: Optional[Sequence[str]] = None,
-                 subnet_id: Optional[str] = None,
-                 virtual_network_id: Optional[str] = None):
-        """
-        :param str username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param str vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[Sequence[str]]:
-        """
-        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "ssh_keys")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        """
-        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "virtual_network_id")
-
-
-@pulumi.output_type
-class RServerClusterStorageAccount(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isDefault":
-            suggest = "is_default"
-        elif key == "storageAccountKey":
-            suggest = "storage_account_key"
-        elif key == "storageContainerId":
-            suggest = "storage_container_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RServerClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RServerClusterStorageAccount.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RServerClusterStorageAccount.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 is_default: bool,
-                 storage_account_key: str,
-                 storage_container_id: str,
-                 storage_resource_id: Optional[str] = None):
-        """
-        :param bool is_default: Is this the Default Storage Account for the HDInsight RServer Cluster? Changing this forces a new resource to be created.
-        :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-        :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
-
-    @property
-    @pulumi.getter(name="isDefault")
-    def is_default(self) -> bool:
-        """
-        Is this the Default Storage Account for the HDInsight RServer Cluster? Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "is_default")
-
-    @property
-    @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> str:
-        """
-        The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_key")
-
-    @property
-    @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> str:
-        """
-        The ID of the Storage Container. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_container_id")
-
-    @property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[str]:
-        return pulumi.get(self, "storage_resource_id")
-
-
-@pulumi.output_type
 class SparkClusterComponentVersion(dict):
     def __init__(__self__, *,
                  spark: str):
@@ -6312,17 +4955,13 @@ class SparkClusterComponentVersion(dict):
 class SparkClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
-                 username: str,
-                 enabled: Optional[bool] = None):
+                 username: str):
         """
         :param str password: The password used for the Ambari Portal.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
-        :param bool enabled: Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -6339,14 +4978,6 @@ class SparkClusterGateway(dict):
         The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        """
-        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -6864,8 +5495,6 @@ class SparkClusterRolesWorkerNode(dict):
             suggest = "target_instance_count"
         elif key == "vmSize":
             suggest = "vm_size"
-        elif key == "minInstanceCount":
-            suggest = "min_instance_count"
         elif key == "sshKeys":
             suggest = "ssh_keys"
         elif key == "subnetId":
@@ -6889,7 +5518,6 @@ class SparkClusterRolesWorkerNode(dict):
                  username: str,
                  vm_size: str,
                  autoscale: Optional['outputs.SparkClusterRolesWorkerNodeAutoscale'] = None,
-                 min_instance_count: Optional[int] = None,
                  password: Optional[str] = None,
                  ssh_keys: Optional[Sequence[str]] = None,
                  subnet_id: Optional[str] = None,
@@ -6899,7 +5527,6 @@ class SparkClusterRolesWorkerNode(dict):
         :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
         :param 'SparkClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
-        :param int min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -6910,8 +5537,6 @@ class SparkClusterRolesWorkerNode(dict):
         pulumi.set(__self__, "vm_size", vm_size)
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
-        if min_instance_count is not None:
-            pulumi.set(__self__, "min_instance_count", min_instance_count)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if ssh_keys is not None:
@@ -6952,14 +5577,6 @@ class SparkClusterRolesWorkerNode(dict):
         A `autoscale` block as defined below.
         """
         return pulumi.get(self, "autoscale")
-
-    @property
-    @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[int]:
-        """
-        The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "min_instance_count")
 
     @property
     @pulumi.getter
@@ -7519,819 +6136,6 @@ class SparkClusterStorageAccountGen2(dict):
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_resource_id")
-
-
-@pulumi.output_type
-class StormClusterComponentVersion(dict):
-    def __init__(__self__, *,
-                 storm: str):
-        """
-        :param str storm: The version of Storm which should be used for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "storm", storm)
-
-    @property
-    @pulumi.getter
-    def storm(self) -> str:
-        """
-        The version of Storm which should be used for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storm")
-
-
-@pulumi.output_type
-class StormClusterGateway(dict):
-    def __init__(__self__, *,
-                 password: str,
-                 username: str,
-                 enabled: Optional[bool] = None):
-        """
-        :param str password: The password used for the Ambari Portal.
-        :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
-        :param bool enabled: Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        The password used for the Ambari Portal.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The username used for the Ambari Portal. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-        """
-        return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
-class StormClusterMetastores(dict):
-    def __init__(__self__, *,
-                 ambari: Optional['outputs.StormClusterMetastoresAmbari'] = None,
-                 hive: Optional['outputs.StormClusterMetastoresHive'] = None,
-                 oozie: Optional['outputs.StormClusterMetastoresOozie'] = None):
-        """
-        :param 'StormClusterMetastoresAmbariArgs' ambari: An `ambari` block as defined below.
-        :param 'StormClusterMetastoresHiveArgs' hive: A `hive` block as defined below.
-        :param 'StormClusterMetastoresOozieArgs' oozie: An `oozie` block as defined below.
-        """
-        if ambari is not None:
-            pulumi.set(__self__, "ambari", ambari)
-        if hive is not None:
-            pulumi.set(__self__, "hive", hive)
-        if oozie is not None:
-            pulumi.set(__self__, "oozie", oozie)
-
-    @property
-    @pulumi.getter
-    def ambari(self) -> Optional['outputs.StormClusterMetastoresAmbari']:
-        """
-        An `ambari` block as defined below.
-        """
-        return pulumi.get(self, "ambari")
-
-    @property
-    @pulumi.getter
-    def hive(self) -> Optional['outputs.StormClusterMetastoresHive']:
-        """
-        A `hive` block as defined below.
-        """
-        return pulumi.get(self, "hive")
-
-    @property
-    @pulumi.getter
-    def oozie(self) -> Optional['outputs.StormClusterMetastoresOozie']:
-        """
-        An `oozie` block as defined below.
-        """
-        return pulumi.get(self, "oozie")
-
-
-@pulumi.output_type
-class StormClusterMetastoresAmbari(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "databaseName":
-            suggest = "database_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StormClusterMetastoresAmbari. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StormClusterMetastoresAmbari.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StormClusterMetastoresAmbari.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 database_name: str,
-                 password: str,
-                 server: str,
-                 username: str):
-        """
-        :param str database_name: The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param str password: The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
-        :param str username: The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
-        """
-        The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "database_name")
-
-    @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter
-    def server(self) -> str:
-        """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "server")
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-
-@pulumi.output_type
-class StormClusterMetastoresHive(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "databaseName":
-            suggest = "database_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StormClusterMetastoresHive. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StormClusterMetastoresHive.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StormClusterMetastoresHive.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 database_name: str,
-                 password: str,
-                 server: str,
-                 username: str):
-        """
-        :param str database_name: The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param str password: The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
-        :param str username: The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
-        """
-        The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "database_name")
-
-    @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter
-    def server(self) -> str:
-        """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "server")
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-
-@pulumi.output_type
-class StormClusterMetastoresOozie(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "databaseName":
-            suggest = "database_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StormClusterMetastoresOozie. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StormClusterMetastoresOozie.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StormClusterMetastoresOozie.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 database_name: str,
-                 password: str,
-                 server: str,
-                 username: str):
-        """
-        :param str database_name: The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
-        :param str password: The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
-        :param str username: The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
-        """
-        The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "database_name")
-
-    @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter
-    def server(self) -> str:
-        """
-        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "server")
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-
-@pulumi.output_type
-class StormClusterMonitor(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "logAnalyticsWorkspaceId":
-            suggest = "log_analytics_workspace_id"
-        elif key == "primaryKey":
-            suggest = "primary_key"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StormClusterMonitor. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StormClusterMonitor.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StormClusterMonitor.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 log_analytics_workspace_id: str,
-                 primary_key: str):
-        """
-        :param str log_analytics_workspace_id: The Operations Management Suite (OMS) workspace ID.
-        :param str primary_key: The Operations Management Suite (OMS) workspace key.
-        """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "primary_key", primary_key)
-
-    @property
-    @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> str:
-        """
-        The Operations Management Suite (OMS) workspace ID.
-        """
-        return pulumi.get(self, "log_analytics_workspace_id")
-
-    @property
-    @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> str:
-        """
-        The Operations Management Suite (OMS) workspace key.
-        """
-        return pulumi.get(self, "primary_key")
-
-
-@pulumi.output_type
-class StormClusterRoles(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "headNode":
-            suggest = "head_node"
-        elif key == "workerNode":
-            suggest = "worker_node"
-        elif key == "zookeeperNode":
-            suggest = "zookeeper_node"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StormClusterRoles. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StormClusterRoles.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StormClusterRoles.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 head_node: 'outputs.StormClusterRolesHeadNode',
-                 worker_node: 'outputs.StormClusterRolesWorkerNode',
-                 zookeeper_node: 'outputs.StormClusterRolesZookeeperNode'):
-        """
-        :param 'StormClusterRolesHeadNodeArgs' head_node: A `head_node` block as defined above.
-        :param 'StormClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
-        :param 'StormClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
-        """
-        pulumi.set(__self__, "head_node", head_node)
-        pulumi.set(__self__, "worker_node", worker_node)
-        pulumi.set(__self__, "zookeeper_node", zookeeper_node)
-
-    @property
-    @pulumi.getter(name="headNode")
-    def head_node(self) -> 'outputs.StormClusterRolesHeadNode':
-        """
-        A `head_node` block as defined above.
-        """
-        return pulumi.get(self, "head_node")
-
-    @property
-    @pulumi.getter(name="workerNode")
-    def worker_node(self) -> 'outputs.StormClusterRolesWorkerNode':
-        """
-        A `worker_node` block as defined below.
-        """
-        return pulumi.get(self, "worker_node")
-
-    @property
-    @pulumi.getter(name="zookeeperNode")
-    def zookeeper_node(self) -> 'outputs.StormClusterRolesZookeeperNode':
-        """
-        A `zookeeper_node` block as defined below.
-        """
-        return pulumi.get(self, "zookeeper_node")
-
-
-@pulumi.output_type
-class StormClusterRolesHeadNode(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vmSize":
-            suggest = "vm_size"
-        elif key == "sshKeys":
-            suggest = "ssh_keys"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "virtualNetworkId":
-            suggest = "virtual_network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StormClusterRolesHeadNode. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StormClusterRolesHeadNode.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StormClusterRolesHeadNode.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 username: str,
-                 vm_size: str,
-                 password: Optional[str] = None,
-                 ssh_keys: Optional[Sequence[str]] = None,
-                 subnet_id: Optional[str] = None,
-                 virtual_network_id: Optional[str] = None):
-        """
-        :param str username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param str vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-        :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[Sequence[str]]:
-        """
-        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "ssh_keys")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "virtual_network_id")
-
-
-@pulumi.output_type
-class StormClusterRolesWorkerNode(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "targetInstanceCount":
-            suggest = "target_instance_count"
-        elif key == "vmSize":
-            suggest = "vm_size"
-        elif key == "minInstanceCount":
-            suggest = "min_instance_count"
-        elif key == "sshKeys":
-            suggest = "ssh_keys"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "virtualNetworkId":
-            suggest = "virtual_network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StormClusterRolesWorkerNode. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StormClusterRolesWorkerNode.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StormClusterRolesWorkerNode.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 target_instance_count: int,
-                 username: str,
-                 vm_size: str,
-                 min_instance_count: Optional[int] = None,
-                 password: Optional[str] = None,
-                 ssh_keys: Optional[Sequence[str]] = None,
-                 subnet_id: Optional[str] = None,
-                 virtual_network_id: Optional[str] = None):
-        """
-        :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
-        :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        :param int min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if min_instance_count is not None:
-            pulumi.set(__self__, "min_instance_count", min_instance_count)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> int:
-        """
-        The number of instances which should be run for the Worker Nodes.
-        """
-        return pulumi.get(self, "target_instance_count")
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[int]:
-        """
-        The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "min_instance_count")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[Sequence[str]]:
-        """
-        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "ssh_keys")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        """
-        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "virtual_network_id")
-
-
-@pulumi.output_type
-class StormClusterRolesZookeeperNode(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vmSize":
-            suggest = "vm_size"
-        elif key == "sshKeys":
-            suggest = "ssh_keys"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "virtualNetworkId":
-            suggest = "virtual_network_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StormClusterRolesZookeeperNode. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StormClusterRolesZookeeperNode.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StormClusterRolesZookeeperNode.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 username: str,
-                 vm_size: str,
-                 password: Optional[str] = None,
-                 ssh_keys: Optional[Sequence[str]] = None,
-                 subnet_id: Optional[str] = None,
-                 virtual_network_id: Optional[str] = None):
-        """
-        :param str username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param str vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "username")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[Sequence[str]]:
-        """
-        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "ssh_keys")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        """
-        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> Optional[str]:
-        """
-        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "virtual_network_id")
-
-
-@pulumi.output_type
-class StormClusterStorageAccount(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isDefault":
-            suggest = "is_default"
-        elif key == "storageAccountKey":
-            suggest = "storage_account_key"
-        elif key == "storageContainerId":
-            suggest = "storage_container_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StormClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StormClusterStorageAccount.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StormClusterStorageAccount.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 is_default: bool,
-                 storage_account_key: str,
-                 storage_container_id: str,
-                 storage_resource_id: Optional[str] = None):
-        """
-        :param bool is_default: Is this the Default Storage Account for the HDInsight Storm Cluster? Changing this forces a new resource to be created.
-        :param str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-        :param str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
-
-    @property
-    @pulumi.getter(name="isDefault")
-    def is_default(self) -> bool:
-        """
-        Is this the Default Storage Account for the HDInsight Storm Cluster? Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "is_default")
-
-    @property
-    @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> str:
-        """
-        The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_key")
-
-    @property
-    @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> str:
-        """
-        The ID of the Storage Container. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_container_id")
-
-    @property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[str]:
         return pulumi.get(self, "storage_resource_id")
 
 

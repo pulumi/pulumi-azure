@@ -21,8 +21,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -42,10 +42,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewIntegrationRuntimeManaged(ctx, "exampleIntegrationRuntimeManaged", &datafactory.IntegrationRuntimeManagedArgs{
-// 			DataFactoryName:   exampleFactory.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			NodeSize:          pulumi.String("Standard_D8_v3"),
+// 			DataFactoryId: exampleFactory.ID(),
+// 			Location:      exampleResourceGroup.Location,
+// 			NodeSize:      pulumi.String("Standard_D8_v3"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -69,8 +68,8 @@ type IntegrationRuntimeManaged struct {
 	CatalogInfo IntegrationRuntimeManagedCatalogInfoPtrOutput `pulumi:"catalogInfo"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeManagedCustomSetupScriptPtrOutput `pulumi:"customSetupScript"`
-	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// Integration runtime description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -87,8 +86,6 @@ type IntegrationRuntimeManaged struct {
 	NodeSize pulumi.StringOutput `pulumi:"nodeSize"`
 	// Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
 	NumberOfNodes pulumi.IntPtrOutput `pulumi:"numberOfNodes"`
-	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `vnetIntegration` block as defined below.
 	VnetIntegration IntegrationRuntimeManagedVnetIntegrationPtrOutput `pulumi:"vnetIntegration"`
 }
@@ -100,14 +97,11 @@ func NewIntegrationRuntimeManaged(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
 	if args.NodeSize == nil {
 		return nil, errors.New("invalid value for required argument 'NodeSize'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource IntegrationRuntimeManaged
 	err := ctx.RegisterResource("azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged", name, args, &resource, opts...)
@@ -135,8 +129,8 @@ type integrationRuntimeManagedState struct {
 	CatalogInfo *IntegrationRuntimeManagedCatalogInfo `pulumi:"catalogInfo"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript *IntegrationRuntimeManagedCustomSetupScript `pulumi:"customSetupScript"`
-	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -153,8 +147,6 @@ type integrationRuntimeManagedState struct {
 	NodeSize *string `pulumi:"nodeSize"`
 	// Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
 	NumberOfNodes *int `pulumi:"numberOfNodes"`
-	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `vnetIntegration` block as defined below.
 	VnetIntegration *IntegrationRuntimeManagedVnetIntegration `pulumi:"vnetIntegration"`
 }
@@ -164,8 +156,8 @@ type IntegrationRuntimeManagedState struct {
 	CatalogInfo IntegrationRuntimeManagedCatalogInfoPtrInput
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeManagedCustomSetupScriptPtrInput
-	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
-	DataFactoryName pulumi.StringPtrInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -182,8 +174,6 @@ type IntegrationRuntimeManagedState struct {
 	NodeSize pulumi.StringPtrInput
 	// Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
 	NumberOfNodes pulumi.IntPtrInput
-	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringPtrInput
 	// A `vnetIntegration` block as defined below.
 	VnetIntegration IntegrationRuntimeManagedVnetIntegrationPtrInput
 }
@@ -197,8 +187,8 @@ type integrationRuntimeManagedArgs struct {
 	CatalogInfo *IntegrationRuntimeManagedCatalogInfo `pulumi:"catalogInfo"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript *IntegrationRuntimeManagedCustomSetupScript `pulumi:"customSetupScript"`
-	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -215,8 +205,6 @@ type integrationRuntimeManagedArgs struct {
 	NodeSize string `pulumi:"nodeSize"`
 	// Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
 	NumberOfNodes *int `pulumi:"numberOfNodes"`
-	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `vnetIntegration` block as defined below.
 	VnetIntegration *IntegrationRuntimeManagedVnetIntegration `pulumi:"vnetIntegration"`
 }
@@ -227,8 +215,8 @@ type IntegrationRuntimeManagedArgs struct {
 	CatalogInfo IntegrationRuntimeManagedCatalogInfoPtrInput
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeManagedCustomSetupScriptPtrInput
-	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
-	DataFactoryName pulumi.StringInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -245,8 +233,6 @@ type IntegrationRuntimeManagedArgs struct {
 	NodeSize pulumi.StringInput
 	// Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
 	NumberOfNodes pulumi.IntPtrInput
-	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
 	// A `vnetIntegration` block as defined below.
 	VnetIntegration IntegrationRuntimeManagedVnetIntegrationPtrInput
 }

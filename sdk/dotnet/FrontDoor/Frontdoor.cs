@@ -37,7 +37,6 @@ namespace Pulumi.Azure.FrontDoor
     ///         var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("exampleFrontdoor", new Azure.FrontDoor.FrontdoorArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             EnforceBackendPoolsCertificateNameCheck = false,
     ///             RoutingRules = 
     ///             {
     ///                 new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleArgs
@@ -145,6 +144,9 @@ namespace Pulumi.Azure.FrontDoor
         [Output("backendPoolLoadBalancings")]
         public Output<ImmutableArray<Outputs.FrontdoorBackendPoolLoadBalancing>> BackendPoolLoadBalancings { get; private set; } = null!;
 
+        [Output("backendPoolSettings")]
+        public Output<ImmutableArray<Outputs.FrontdoorBackendPoolSetting>> BackendPoolSettings { get; private set; } = null!;
+
         /// <summary>
         /// A `backend_pool` block as defined below.
         /// </summary>
@@ -158,22 +160,10 @@ namespace Pulumi.Azure.FrontDoor
         public Output<ImmutableDictionary<string, string>> BackendPoolsMap { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
-        /// </summary>
-        [Output("backendPoolsSendReceiveTimeoutSeconds")]
-        public Output<int?> BackendPoolsSendReceiveTimeoutSeconds { get; private set; } = null!;
-
-        /// <summary>
         /// The host that each frontendEndpoint must CNAME to.
         /// </summary>
         [Output("cname")]
         public Output<string> Cname { get; private set; } = null!;
-
-        /// <summary>
-        /// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
-        /// </summary>
-        [Output("enforceBackendPoolsCertificateNameCheck")]
-        public Output<bool> EnforceBackendPoolsCertificateNameCheck { get; private set; } = null!;
 
         [Output("explicitResourceOrders")]
         public Output<ImmutableArray<Outputs.FrontdoorExplicitResourceOrder>> ExplicitResourceOrders { get; private set; } = null!;
@@ -207,12 +197,6 @@ namespace Pulumi.Azure.FrontDoor
         /// </summary>
         [Output("loadBalancerEnabled")]
         public Output<bool?> LoadBalancerEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// The `location` argument is deprecated and is now always set to `global`.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
@@ -314,6 +298,14 @@ namespace Pulumi.Azure.FrontDoor
             set => _backendPoolLoadBalancings = value;
         }
 
+        [Input("backendPoolSettings")]
+        private InputList<Inputs.FrontdoorBackendPoolSettingArgs>? _backendPoolSettings;
+        public InputList<Inputs.FrontdoorBackendPoolSettingArgs> BackendPoolSettings
+        {
+            get => _backendPoolSettings ?? (_backendPoolSettings = new InputList<Inputs.FrontdoorBackendPoolSettingArgs>());
+            set => _backendPoolSettings = value;
+        }
+
         [Input("backendPools", required: true)]
         private InputList<Inputs.FrontdoorBackendPoolArgs>? _backendPools;
 
@@ -325,18 +317,6 @@ namespace Pulumi.Azure.FrontDoor
             get => _backendPools ?? (_backendPools = new InputList<Inputs.FrontdoorBackendPoolArgs>());
             set => _backendPools = value;
         }
-
-        /// <summary>
-        /// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
-        /// </summary>
-        [Input("backendPoolsSendReceiveTimeoutSeconds")]
-        public Input<int>? BackendPoolsSendReceiveTimeoutSeconds { get; set; }
-
-        /// <summary>
-        /// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
-        /// </summary>
-        [Input("enforceBackendPoolsCertificateNameCheck", required: true)]
-        public Input<bool> EnforceBackendPoolsCertificateNameCheck { get; set; } = null!;
 
         /// <summary>
         /// A friendly name for the Front Door service.
@@ -361,12 +341,6 @@ namespace Pulumi.Azure.FrontDoor
         /// </summary>
         [Input("loadBalancerEnabled")]
         public Input<bool>? LoadBalancerEnabled { get; set; }
-
-        /// <summary>
-        /// The `location` argument is deprecated and is now always set to `global`.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
@@ -459,6 +433,14 @@ namespace Pulumi.Azure.FrontDoor
             set => _backendPoolLoadBalancings = value;
         }
 
+        [Input("backendPoolSettings")]
+        private InputList<Inputs.FrontdoorBackendPoolSettingGetArgs>? _backendPoolSettings;
+        public InputList<Inputs.FrontdoorBackendPoolSettingGetArgs> BackendPoolSettings
+        {
+            get => _backendPoolSettings ?? (_backendPoolSettings = new InputList<Inputs.FrontdoorBackendPoolSettingGetArgs>());
+            set => _backendPoolSettings = value;
+        }
+
         [Input("backendPools")]
         private InputList<Inputs.FrontdoorBackendPoolGetArgs>? _backendPools;
 
@@ -484,22 +466,10 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
-        /// </summary>
-        [Input("backendPoolsSendReceiveTimeoutSeconds")]
-        public Input<int>? BackendPoolsSendReceiveTimeoutSeconds { get; set; }
-
-        /// <summary>
         /// The host that each frontendEndpoint must CNAME to.
         /// </summary>
         [Input("cname")]
         public Input<string>? Cname { get; set; }
-
-        /// <summary>
-        /// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
-        /// </summary>
-        [Input("enforceBackendPoolsCertificateNameCheck")]
-        public Input<bool>? EnforceBackendPoolsCertificateNameCheck { get; set; }
 
         [Input("explicitResourceOrders")]
         private InputList<Inputs.FrontdoorExplicitResourceOrderGetArgs>? _explicitResourceOrders;
@@ -550,12 +520,6 @@ namespace Pulumi.Azure.FrontDoor
         /// </summary>
         [Input("loadBalancerEnabled")]
         public Input<bool>? LoadBalancerEnabled { get; set; }
-
-        /// <summary>
-        /// The `location` argument is deprecated and is now always set to `global`.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.

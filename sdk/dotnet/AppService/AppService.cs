@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
-    /// Manages an App Service (within an App Service Plan).
-    /// 
-    /// &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
-    /// 
     /// ## Example Usage
     /// 
     /// This example provisions a Windows App Service.
@@ -156,7 +152,7 @@ namespace Pulumi.Azure.AppService
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.AppServiceIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.AppServiceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)

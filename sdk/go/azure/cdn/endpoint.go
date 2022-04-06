@@ -17,8 +17,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/cdn"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -71,12 +71,12 @@ type Endpoint struct {
 	ContentTypesToCompresses pulumi.StringArrayOutput `pulumi:"contentTypesToCompresses"`
 	// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
 	DeliveryRules EndpointDeliveryRuleArrayOutput `pulumi:"deliveryRules"`
+	// The Fully Qualified Domain Name of the CDN Endpoint.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
 	GeoFilters EndpointGeoFilterArrayOutput `pulumi:"geoFilters"`
 	// Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
 	GlobalDeliveryRule EndpointGlobalDeliveryRulePtrOutput `pulumi:"globalDeliveryRule"`
-	// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled pulumi.BoolPtrOutput `pulumi:"isCompressionEnabled"`
 	// Defaults to `true`.
@@ -149,12 +149,12 @@ type endpointState struct {
 	ContentTypesToCompresses []string `pulumi:"contentTypesToCompresses"`
 	// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
 	DeliveryRules []EndpointDeliveryRule `pulumi:"deliveryRules"`
+	// The Fully Qualified Domain Name of the CDN Endpoint.
+	Fqdn *string `pulumi:"fqdn"`
 	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
 	GeoFilters []EndpointGeoFilter `pulumi:"geoFilters"`
 	// Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
 	GlobalDeliveryRule *EndpointGlobalDeliveryRule `pulumi:"globalDeliveryRule"`
-	// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-	HostName *string `pulumi:"hostName"`
 	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
 	// Defaults to `true`.
@@ -190,12 +190,12 @@ type EndpointState struct {
 	ContentTypesToCompresses pulumi.StringArrayInput
 	// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
 	DeliveryRules EndpointDeliveryRuleArrayInput
+	// The Fully Qualified Domain Name of the CDN Endpoint.
+	Fqdn pulumi.StringPtrInput
 	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
 	GeoFilters EndpointGeoFilterArrayInput
 	// Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
 	GlobalDeliveryRule EndpointGlobalDeliveryRulePtrInput
-	// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-	HostName pulumi.StringPtrInput
 	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled pulumi.BoolPtrInput
 	// Defaults to `true`.

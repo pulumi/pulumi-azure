@@ -88,12 +88,6 @@ namespace Pulumi.Azure.Management
         /// <summary>
         /// Specifies the name or UUID of this Management Group.
         /// </summary>
-        [Input("groupId")]
-        public string? GroupId { get; set; }
-
-        /// <summary>
-        /// Specifies the name or UUID of this Management Group.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -113,12 +107,6 @@ namespace Pulumi.Azure.Management
         /// <summary>
         /// Specifies the name or UUID of this Management Group.
         /// </summary>
-        [Input("groupId")]
-        public Input<string>? GroupId { get; set; }
-
-        /// <summary>
-        /// Specifies the name or UUID of this Management Group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -132,7 +120,6 @@ namespace Pulumi.Azure.Management
     public sealed class GetGroupResult
     {
         public readonly string DisplayName;
-        public readonly string GroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -151,8 +138,6 @@ namespace Pulumi.Azure.Management
         private GetGroupResult(
             string displayName,
 
-            string groupId,
-
             string id,
 
             string name,
@@ -162,7 +147,6 @@ namespace Pulumi.Azure.Management
             ImmutableArray<string> subscriptionIds)
         {
             DisplayName = displayName;
-            GroupId = groupId;
             Id = id;
             Name = name;
             ParentManagementGroupId = parentManagementGroupId;

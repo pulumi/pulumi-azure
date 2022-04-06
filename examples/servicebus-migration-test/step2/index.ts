@@ -15,8 +15,7 @@ const exampleNamespace = new azure.servicebus.Namespace("example", {
 const serviceBusQueue = new azure.servicebus.Queue("example", {
     enablePartitioning: true,
     name: "tfex_servicebus_queue",
-    namespaceName: exampleNamespace.name,
-    resourceGroupName: exampleResourceGroup.name,
+    namespaceId: exampleNamespace.id,
 });
 
 serviceBusQueue.onEvent("Test", async (context, arg) => {

@@ -7,13 +7,11 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./account";
 export * from "./datasetBlobStorage";
-export * from "./datasetDataLakeGen1";
 export * from "./datasetDataLakeGen2";
 export * from "./datasetKustoCluster";
 export * from "./datasetKustoDatabase";
 export * from "./getAccount";
 export * from "./getDatasetBlobStorage";
-export * from "./getDatasetDataLakeGen1";
 export * from "./getDatasetDataLakeGen2";
 export * from "./getDatasetKustoCluster";
 export * from "./getDatasetKustoDatabase";
@@ -23,7 +21,6 @@ export * from "./share";
 // Import resources to register:
 import { Account } from "./account";
 import { DatasetBlobStorage } from "./datasetBlobStorage";
-import { DatasetDataLakeGen1 } from "./datasetDataLakeGen1";
 import { DatasetDataLakeGen2 } from "./datasetDataLakeGen2";
 import { DatasetKustoCluster } from "./datasetKustoCluster";
 import { DatasetKustoDatabase } from "./datasetKustoDatabase";
@@ -37,8 +34,6 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "azure:datashare/datasetBlobStorage:DatasetBlobStorage":
                 return new DatasetBlobStorage(name, <any>undefined, { urn })
-            case "azure:datashare/datasetDataLakeGen1:DatasetDataLakeGen1":
-                return new DatasetDataLakeGen1(name, <any>undefined, { urn })
             case "azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2":
                 return new DatasetDataLakeGen2(name, <any>undefined, { urn })
             case "azure:datashare/datasetKustoCluster:DatasetKustoCluster":
@@ -54,7 +49,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "datashare/account", _module)
 pulumi.runtime.registerResourceModule("azure", "datashare/datasetBlobStorage", _module)
-pulumi.runtime.registerResourceModule("azure", "datashare/datasetDataLakeGen1", _module)
 pulumi.runtime.registerResourceModule("azure", "datashare/datasetDataLakeGen2", _module)
 pulumi.runtime.registerResourceModule("azure", "datashare/datasetKustoCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "datashare/datasetKustoDatabase", _module)

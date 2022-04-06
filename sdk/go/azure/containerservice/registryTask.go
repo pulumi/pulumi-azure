@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -88,7 +88,7 @@ type RegistryTask struct {
 	EncodedStep RegistryTaskEncodedStepPtrOutput `pulumi:"encodedStep"`
 	// A `fileStep` block as defined below.
 	FileStep RegistryTaskFileStepPtrOutput `pulumi:"fileStep"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity RegistryTaskIdentityPtrOutput `pulumi:"identity"`
 	// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
 	IsSystemTask pulumi.BoolPtrOutput `pulumi:"isSystemTask"`
@@ -158,7 +158,7 @@ type registryTaskState struct {
 	EncodedStep *RegistryTaskEncodedStep `pulumi:"encodedStep"`
 	// A `fileStep` block as defined below.
 	FileStep *RegistryTaskFileStep `pulumi:"fileStep"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity *RegistryTaskIdentity `pulumi:"identity"`
 	// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
 	IsSystemTask *bool `pulumi:"isSystemTask"`
@@ -197,7 +197,7 @@ type RegistryTaskState struct {
 	EncodedStep RegistryTaskEncodedStepPtrInput
 	// A `fileStep` block as defined below.
 	FileStep RegistryTaskFileStepPtrInput
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity RegistryTaskIdentityPtrInput
 	// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
 	IsSystemTask pulumi.BoolPtrInput
@@ -240,7 +240,7 @@ type registryTaskArgs struct {
 	EncodedStep *RegistryTaskEncodedStep `pulumi:"encodedStep"`
 	// A `fileStep` block as defined below.
 	FileStep *RegistryTaskFileStep `pulumi:"fileStep"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity *RegistryTaskIdentity `pulumi:"identity"`
 	// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
 	IsSystemTask *bool `pulumi:"isSystemTask"`
@@ -280,7 +280,7 @@ type RegistryTaskArgs struct {
 	EncodedStep RegistryTaskEncodedStepPtrInput
 	// A `fileStep` block as defined below.
 	FileStep RegistryTaskFileStepPtrInput
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity RegistryTaskIdentityPtrInput
 	// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
 	IsSystemTask pulumi.BoolPtrInput

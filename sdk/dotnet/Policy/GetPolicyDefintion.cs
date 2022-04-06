@@ -85,9 +85,6 @@ namespace Pulumi.Azure.Policy
         [Input("displayName")]
         public string? DisplayName { get; set; }
 
-        [Input("managementGroupId")]
-        public string? ManagementGroupId { get; set; }
-
         /// <summary>
         /// Only retrieve Policy Definitions from this Management Group.
         /// </summary>
@@ -112,9 +109,6 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
-
-        [Input("managementGroupId")]
-        public Input<string>? ManagementGroupId { get; set; }
 
         /// <summary>
         /// Only retrieve Policy Definitions from this Management Group.
@@ -146,7 +140,6 @@ namespace Pulumi.Azure.Policy
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string? ManagementGroupId;
         public readonly string? ManagementGroupName;
         /// <summary>
         /// Any Metadata defined in the Policy.
@@ -178,8 +171,6 @@ namespace Pulumi.Azure.Policy
 
             string id,
 
-            string? managementGroupId,
-
             string? managementGroupName,
 
             string metadata,
@@ -197,7 +188,6 @@ namespace Pulumi.Azure.Policy
             Description = description;
             DisplayName = displayName;
             Id = id;
-            ManagementGroupId = managementGroupId;
             ManagementGroupName = managementGroupName;
             Metadata = metadata;
             Name = name;

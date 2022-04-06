@@ -31,7 +31,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned` and `UserAssigned`.
+        /// The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

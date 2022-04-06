@@ -21,8 +21,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -73,11 +73,7 @@ type KubernetesCluster struct {
 	pulumi.CustomResourceState
 
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
-	AciConnectorLinux KubernetesClusterAciConnectorLinuxOutput `pulumi:"aciConnectorLinux"`
-	// An `addonProfile` block as defined below.
-	//
-	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
-	AddonProfile KubernetesClusterAddonProfileOutput `pulumi:"addonProfile"`
+	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrOutput `pulumi:"aciConnectorLinux"`
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
@@ -85,9 +81,9 @@ type KubernetesCluster struct {
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	AutomaticChannelUpgrade pulumi.StringPtrOutput `pulumi:"automaticChannelUpgrade"`
 	// - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
-	AzureActiveDirectoryRoleBasedAccessControl KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput `pulumi:"azureActiveDirectoryRoleBasedAccessControl"`
+	AzureActiveDirectoryRoleBasedAccessControl KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput `pulumi:"azureActiveDirectoryRoleBasedAccessControl"`
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-	AzurePolicyEnabled pulumi.BoolOutput `pulumi:"azurePolicyEnabled"`
+	AzurePolicyEnabled pulumi.BoolPtrOutput `pulumi:"azurePolicyEnabled"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
@@ -100,7 +96,7 @@ type KubernetesCluster struct {
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// Should HTTP Application Routing be enabled?
-	HttpApplicationRoutingEnabled pulumi.BoolOutput `pulumi:"httpApplicationRoutingEnabled"`
+	HttpApplicationRoutingEnabled pulumi.BoolPtrOutput `pulumi:"httpApplicationRoutingEnabled"`
 	// The Zone Name of the HTTP Application Routing.
 	HttpApplicationRoutingZoneName pulumi.StringOutput `pulumi:"httpApplicationRoutingZoneName"`
 	// A `httpProxyConfig` block as defined below.
@@ -108,9 +104,9 @@ type KubernetesCluster struct {
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
 	// A `ingressApplicationGateway` block as defined below.
-	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayOutput `pulumi:"ingressApplicationGateway"`
+	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrOutput `pulumi:"ingressApplicationGateway"`
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
-	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderOutput `pulumi:"keyVaultSecretsProvider"`
+	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderPtrOutput `pulumi:"keyVaultSecretsProvider"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigRaw pulumi.StringOutput `pulumi:"kubeAdminConfigRaw"`
 	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
@@ -120,7 +116,7 @@ type KubernetesCluster struct {
 	// A `kubeConfig` block as defined below.
 	KubeConfigs KubernetesClusterKubeConfigArrayOutput `pulumi:"kubeConfigs"`
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
-	KubeletIdentities KubernetesClusterKubeletIdentityArrayOutput `pulumi:"kubeletIdentities"`
+	KubeletIdentity KubernetesClusterKubeletIdentityOutput `pulumi:"kubeletIdentity"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
@@ -138,28 +134,24 @@ type KubernetesCluster struct {
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
 	// A `omsAgent` block as defined below.
-	OmsAgent KubernetesClusterOmsAgentOutput `pulumi:"omsAgent"`
+	OmsAgent KubernetesClusterOmsAgentPtrOutput `pulumi:"omsAgent"`
 	// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
-	OpenServiceMeshEnabled pulumi.BoolOutput `pulumi:"openServiceMeshEnabled"`
+	OpenServiceMeshEnabled pulumi.BoolPtrOutput `pulumi:"openServiceMeshEnabled"`
 	// The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PortalFqdn pulumi.StringOutput `pulumi:"portalFqdn"`
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
-	PrivateClusterEnabled pulumi.BoolOutput `pulumi:"privateClusterEnabled"`
+	PrivateClusterEnabled pulumi.BoolPtrOutput `pulumi:"privateClusterEnabled"`
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrOutput `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-	PrivateFqdn pulumi.StringOutput `pulumi:"privateFqdn"`
-	// Deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
-	PrivateLinkEnabled         pulumi.BoolOutput    `pulumi:"privateLinkEnabled"`
+	PrivateFqdn                pulumi.StringOutput  `pulumi:"privateFqdn"`
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Deprecated: `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider
-	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlOutput `pulumi:"roleBasedAccessControl"`
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
-	RoleBasedAccessControlEnabled pulumi.BoolOutput `pulumi:"roleBasedAccessControlEnabled"`
+	RoleBasedAccessControlEnabled pulumi.BoolPtrOutput `pulumi:"roleBasedAccessControlEnabled"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
@@ -207,10 +199,6 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 type kubernetesClusterState struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
-	// An `addonProfile` block as defined below.
-	//
-	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
-	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
@@ -253,7 +241,7 @@ type kubernetesClusterState struct {
 	// A `kubeConfig` block as defined below.
 	KubeConfigs []KubernetesClusterKubeConfig `pulumi:"kubeConfigs"`
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
-	KubeletIdentities []KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentities"`
+	KubeletIdentity *KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentity"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
@@ -283,14 +271,10 @@ type kubernetesClusterState struct {
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-	PrivateFqdn *string `pulumi:"privateFqdn"`
-	// Deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
-	PrivateLinkEnabled         *bool `pulumi:"privateLinkEnabled"`
-	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	PrivateFqdn                *string `pulumi:"privateFqdn"`
+	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Deprecated: `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider
-	RoleBasedAccessControl *KubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControl"`
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
 	RoleBasedAccessControlEnabled *bool `pulumi:"roleBasedAccessControlEnabled"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
@@ -306,10 +290,6 @@ type kubernetesClusterState struct {
 type KubernetesClusterState struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
-	// An `addonProfile` block as defined below.
-	//
-	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
-	AddonProfile KubernetesClusterAddonProfilePtrInput
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
@@ -352,7 +332,7 @@ type KubernetesClusterState struct {
 	// A `kubeConfig` block as defined below.
 	KubeConfigs KubernetesClusterKubeConfigArrayInput
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
-	KubeletIdentities KubernetesClusterKubeletIdentityArrayInput
+	KubeletIdentity KubernetesClusterKubeletIdentityPtrInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
@@ -382,14 +362,10 @@ type KubernetesClusterState struct {
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-	PrivateFqdn pulumi.StringPtrInput
-	// Deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
-	PrivateLinkEnabled         pulumi.BoolPtrInput
+	PrivateFqdn                pulumi.StringPtrInput
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Deprecated: `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider
-	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlPtrInput
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
 	RoleBasedAccessControlEnabled pulumi.BoolPtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
@@ -409,10 +385,6 @@ func (KubernetesClusterState) ElementType() reflect.Type {
 type kubernetesClusterArgs struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
-	// An `addonProfile` block as defined below.
-	//
-	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
-	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
@@ -443,7 +415,7 @@ type kubernetesClusterArgs struct {
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
 	KeyVaultSecretsProvider *KubernetesClusterKeyVaultSecretsProvider `pulumi:"keyVaultSecretsProvider"`
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
-	KubeletIdentities []KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentities"`
+	KubeletIdentity *KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentity"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
@@ -469,14 +441,10 @@ type kubernetesClusterArgs struct {
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
-	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
-	// Deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
-	PrivateLinkEnabled         *bool `pulumi:"privateLinkEnabled"`
-	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	PrivateDnsZoneId           *string `pulumi:"privateDnsZoneId"`
+	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Deprecated: `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider
-	RoleBasedAccessControl *KubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControl"`
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
 	RoleBasedAccessControlEnabled *bool `pulumi:"roleBasedAccessControlEnabled"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
@@ -493,10 +461,6 @@ type kubernetesClusterArgs struct {
 type KubernetesClusterArgs struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
-	// An `addonProfile` block as defined below.
-	//
-	// Deprecated: `addon_profile` block has been deprecated and will be removed in version 3.0 of the AzureRM Provider. All properties within the block will move to the top level.
-	AddonProfile KubernetesClusterAddonProfilePtrInput
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
@@ -527,7 +491,7 @@ type KubernetesClusterArgs struct {
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
 	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderPtrInput
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
-	KubeletIdentities KubernetesClusterKubeletIdentityArrayInput
+	KubeletIdentity KubernetesClusterKubeletIdentityPtrInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
@@ -553,14 +517,10 @@ type KubernetesClusterArgs struct {
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
-	PrivateDnsZoneId pulumi.StringPtrInput
-	// Deprecated: `private_link_enabled` is deprecated in favour of `private_cluster_enabled` and will be removed in version 3.0 of the AzureRM Provider
-	PrivateLinkEnabled         pulumi.BoolPtrInput
+	PrivateDnsZoneId           pulumi.StringPtrInput
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Deprecated: `role_based_access_control` is deprecated in favour of the properties `role_based_access_control_enabled` and `azure_active_directory_role_based_access_control` and will be removed in version 3.0 of the AzureRM provider
-	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlPtrInput
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
 	RoleBasedAccessControlEnabled pulumi.BoolPtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.

@@ -112,7 +112,7 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
     /**
      * A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
      */
-    public readonly routings!: pulumi.Output<outputs.network.VpnGatewayConnectionRouting[]>;
+    public readonly routing!: pulumi.Output<outputs.network.VpnGatewayConnectionRouting>;
     /**
      * One or more `trafficSelectorPolicy` blocks as defined below.
      */
@@ -142,7 +142,7 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
             resourceInputs["internetSecurityEnabled"] = state ? state.internetSecurityEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["remoteVpnSiteId"] = state ? state.remoteVpnSiteId : undefined;
-            resourceInputs["routings"] = state ? state.routings : undefined;
+            resourceInputs["routing"] = state ? state.routing : undefined;
             resourceInputs["trafficSelectorPolicies"] = state ? state.trafficSelectorPolicies : undefined;
             resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
             resourceInputs["vpnLinks"] = state ? state.vpnLinks : undefined;
@@ -160,7 +160,7 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
             resourceInputs["internetSecurityEnabled"] = args ? args.internetSecurityEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["remoteVpnSiteId"] = args ? args.remoteVpnSiteId : undefined;
-            resourceInputs["routings"] = args ? args.routings : undefined;
+            resourceInputs["routing"] = args ? args.routing : undefined;
             resourceInputs["trafficSelectorPolicies"] = args ? args.trafficSelectorPolicies : undefined;
             resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             resourceInputs["vpnLinks"] = args ? args.vpnLinks : undefined;
@@ -189,7 +189,7 @@ export interface VpnGatewayConnectionState {
     /**
      * A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
      */
-    routings?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionRouting>[]>;
+    routing?: pulumi.Input<inputs.network.VpnGatewayConnectionRouting>;
     /**
      * One or more `trafficSelectorPolicy` blocks as defined below.
      */
@@ -223,7 +223,7 @@ export interface VpnGatewayConnectionArgs {
     /**
      * A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
      */
-    routings?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionRouting>[]>;
+    routing?: pulumi.Input<inputs.network.VpnGatewayConnectionRouting>;
     /**
      * One or more `trafficSelectorPolicy` blocks as defined below.
      */

@@ -14,19 +14,19 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class RegistryIdentity
     {
         /// <summary>
-        /// A list of User Managed Identity ID's which should be assigned to the Container Registry.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Container Registry.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         public readonly string Type;
 

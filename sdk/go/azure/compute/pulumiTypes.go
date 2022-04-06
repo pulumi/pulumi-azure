@@ -185,295 +185,12 @@ func (o BastionHostIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type ConfigurationPolicyAssignmentConfiguration struct {
-	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-	Name string `pulumi:"name"`
-	// One or more `parameter` blocks which define what configuration parameters and values against.
-	Parameters []ConfigurationPolicyAssignmentConfigurationParameter `pulumi:"parameters"`
-	// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-	Version *string `pulumi:"version"`
-}
-
-// ConfigurationPolicyAssignmentConfigurationInput is an input type that accepts ConfigurationPolicyAssignmentConfigurationArgs and ConfigurationPolicyAssignmentConfigurationOutput values.
-// You can construct a concrete instance of `ConfigurationPolicyAssignmentConfigurationInput` via:
-//
-//          ConfigurationPolicyAssignmentConfigurationArgs{...}
-type ConfigurationPolicyAssignmentConfigurationInput interface {
-	pulumi.Input
-
-	ToConfigurationPolicyAssignmentConfigurationOutput() ConfigurationPolicyAssignmentConfigurationOutput
-	ToConfigurationPolicyAssignmentConfigurationOutputWithContext(context.Context) ConfigurationPolicyAssignmentConfigurationOutput
-}
-
-type ConfigurationPolicyAssignmentConfigurationArgs struct {
-	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-	Name pulumi.StringInput `pulumi:"name"`
-	// One or more `parameter` blocks which define what configuration parameters and values against.
-	Parameters ConfigurationPolicyAssignmentConfigurationParameterArrayInput `pulumi:"parameters"`
-	// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (ConfigurationPolicyAssignmentConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationPolicyAssignmentConfiguration)(nil)).Elem()
-}
-
-func (i ConfigurationPolicyAssignmentConfigurationArgs) ToConfigurationPolicyAssignmentConfigurationOutput() ConfigurationPolicyAssignmentConfigurationOutput {
-	return i.ToConfigurationPolicyAssignmentConfigurationOutputWithContext(context.Background())
-}
-
-func (i ConfigurationPolicyAssignmentConfigurationArgs) ToConfigurationPolicyAssignmentConfigurationOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationOutput)
-}
-
-func (i ConfigurationPolicyAssignmentConfigurationArgs) ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return i.ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationPolicyAssignmentConfigurationArgs) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationOutput).ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx)
-}
-
-// ConfigurationPolicyAssignmentConfigurationPtrInput is an input type that accepts ConfigurationPolicyAssignmentConfigurationArgs, ConfigurationPolicyAssignmentConfigurationPtr and ConfigurationPolicyAssignmentConfigurationPtrOutput values.
-// You can construct a concrete instance of `ConfigurationPolicyAssignmentConfigurationPtrInput` via:
-//
-//          ConfigurationPolicyAssignmentConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ConfigurationPolicyAssignmentConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput
-	ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput
-}
-
-type configurationPolicyAssignmentConfigurationPtrType ConfigurationPolicyAssignmentConfigurationArgs
-
-func ConfigurationPolicyAssignmentConfigurationPtr(v *ConfigurationPolicyAssignmentConfigurationArgs) ConfigurationPolicyAssignmentConfigurationPtrInput {
-	return (*configurationPolicyAssignmentConfigurationPtrType)(v)
-}
-
-func (*configurationPolicyAssignmentConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationPolicyAssignmentConfiguration)(nil)).Elem()
-}
-
-func (i *configurationPolicyAssignmentConfigurationPtrType) ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return i.ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *configurationPolicyAssignmentConfigurationPtrType) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationPtrOutput)
-}
-
-type ConfigurationPolicyAssignmentConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationPolicyAssignmentConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationPolicyAssignmentConfiguration)(nil)).Elem()
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyAssignmentConfigurationOutput() ConfigurationPolicyAssignmentConfigurationOutput {
-	return o
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyAssignmentConfigurationOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationOutput {
-	return o
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return o.ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyAssignmentConfiguration) *ConfigurationPolicyAssignmentConfiguration {
-		return &v
-	}).(ConfigurationPolicyAssignmentConfigurationPtrOutput)
-}
-
-// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-func (o ConfigurationPolicyAssignmentConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfiguration) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// One or more `parameter` blocks which define what configuration parameters and values against.
-func (o ConfigurationPolicyAssignmentConfigurationOutput) Parameters() ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
-	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfiguration) []ConfigurationPolicyAssignmentConfigurationParameter {
-		return v.Parameters
-	}).(ConfigurationPolicyAssignmentConfigurationParameterArrayOutput)
-}
-
-// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-func (o ConfigurationPolicyAssignmentConfigurationOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type ConfigurationPolicyAssignmentConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationPolicyAssignmentConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationPolicyAssignmentConfiguration)(nil)).Elem()
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return o
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return o
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Elem() ConfigurationPolicyAssignmentConfigurationOutput {
-	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) ConfigurationPolicyAssignmentConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationPolicyAssignmentConfiguration
-		return ret
-	}).(ConfigurationPolicyAssignmentConfigurationOutput)
-}
-
-// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// One or more `parameter` blocks which define what configuration parameters and values against.
-func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Parameters() ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
-	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) []ConfigurationPolicyAssignmentConfigurationParameter {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(ConfigurationPolicyAssignmentConfigurationParameterArrayOutput)
-}
-
-// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-type ConfigurationPolicyAssignmentConfigurationParameter struct {
-	// The name of the configuration parameter to check.
-	Name string `pulumi:"name"`
-	// The value to check the configuration parameter with.
-	Value string `pulumi:"value"`
-}
-
-// ConfigurationPolicyAssignmentConfigurationParameterInput is an input type that accepts ConfigurationPolicyAssignmentConfigurationParameterArgs and ConfigurationPolicyAssignmentConfigurationParameterOutput values.
-// You can construct a concrete instance of `ConfigurationPolicyAssignmentConfigurationParameterInput` via:
-//
-//          ConfigurationPolicyAssignmentConfigurationParameterArgs{...}
-type ConfigurationPolicyAssignmentConfigurationParameterInput interface {
-	pulumi.Input
-
-	ToConfigurationPolicyAssignmentConfigurationParameterOutput() ConfigurationPolicyAssignmentConfigurationParameterOutput
-	ToConfigurationPolicyAssignmentConfigurationParameterOutputWithContext(context.Context) ConfigurationPolicyAssignmentConfigurationParameterOutput
-}
-
-type ConfigurationPolicyAssignmentConfigurationParameterArgs struct {
-	// The name of the configuration parameter to check.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value to check the configuration parameter with.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ConfigurationPolicyAssignmentConfigurationParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationPolicyAssignmentConfigurationParameter)(nil)).Elem()
-}
-
-func (i ConfigurationPolicyAssignmentConfigurationParameterArgs) ToConfigurationPolicyAssignmentConfigurationParameterOutput() ConfigurationPolicyAssignmentConfigurationParameterOutput {
-	return i.ToConfigurationPolicyAssignmentConfigurationParameterOutputWithContext(context.Background())
-}
-
-func (i ConfigurationPolicyAssignmentConfigurationParameterArgs) ToConfigurationPolicyAssignmentConfigurationParameterOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationParameterOutput)
-}
-
-// ConfigurationPolicyAssignmentConfigurationParameterArrayInput is an input type that accepts ConfigurationPolicyAssignmentConfigurationParameterArray and ConfigurationPolicyAssignmentConfigurationParameterArrayOutput values.
-// You can construct a concrete instance of `ConfigurationPolicyAssignmentConfigurationParameterArrayInput` via:
-//
-//          ConfigurationPolicyAssignmentConfigurationParameterArray{ ConfigurationPolicyAssignmentConfigurationParameterArgs{...} }
-type ConfigurationPolicyAssignmentConfigurationParameterArrayInput interface {
-	pulumi.Input
-
-	ToConfigurationPolicyAssignmentConfigurationParameterArrayOutput() ConfigurationPolicyAssignmentConfigurationParameterArrayOutput
-	ToConfigurationPolicyAssignmentConfigurationParameterArrayOutputWithContext(context.Context) ConfigurationPolicyAssignmentConfigurationParameterArrayOutput
-}
-
-type ConfigurationPolicyAssignmentConfigurationParameterArray []ConfigurationPolicyAssignmentConfigurationParameterInput
-
-func (ConfigurationPolicyAssignmentConfigurationParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationPolicyAssignmentConfigurationParameter)(nil)).Elem()
-}
-
-func (i ConfigurationPolicyAssignmentConfigurationParameterArray) ToConfigurationPolicyAssignmentConfigurationParameterArrayOutput() ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
-	return i.ToConfigurationPolicyAssignmentConfigurationParameterArrayOutputWithContext(context.Background())
-}
-
-func (i ConfigurationPolicyAssignmentConfigurationParameterArray) ToConfigurationPolicyAssignmentConfigurationParameterArrayOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationParameterArrayOutput)
-}
-
-type ConfigurationPolicyAssignmentConfigurationParameterOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationPolicyAssignmentConfigurationParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationPolicyAssignmentConfigurationParameter)(nil)).Elem()
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationParameterOutput) ToConfigurationPolicyAssignmentConfigurationParameterOutput() ConfigurationPolicyAssignmentConfigurationParameterOutput {
-	return o
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationParameterOutput) ToConfigurationPolicyAssignmentConfigurationParameterOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationParameterOutput {
-	return o
-}
-
-// The name of the configuration parameter to check.
-func (o ConfigurationPolicyAssignmentConfigurationParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfigurationParameter) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The value to check the configuration parameter with.
-func (o ConfigurationPolicyAssignmentConfigurationParameterOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfigurationParameter) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ConfigurationPolicyAssignmentConfigurationParameterArrayOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationPolicyAssignmentConfigurationParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationPolicyAssignmentConfigurationParameter)(nil)).Elem()
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationParameterArrayOutput) ToConfigurationPolicyAssignmentConfigurationParameterArrayOutput() ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
-	return o
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationParameterArrayOutput) ToConfigurationPolicyAssignmentConfigurationParameterArrayOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
-	return o
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationParameterArrayOutput) Index(i pulumi.IntInput) ConfigurationPolicyAssignmentConfigurationParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationPolicyAssignmentConfigurationParameter {
-		return vs[0].([]ConfigurationPolicyAssignmentConfigurationParameter)[vs[1].(int)]
-	}).(ConfigurationPolicyAssignmentConfigurationParameterOutput)
-}
-
 type DiskEncryptionSetIdentity struct {
 	// The (Client) ID of the Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId *string `pulumi:"tenantId"`
-	// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+	// The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -493,7 +210,7 @@ type DiskEncryptionSetIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The ID of the Tenant the Service Principal is assigned in.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+	// The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -584,7 +301,7 @@ func (o DiskEncryptionSetIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskEncryptionSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+// The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
 func (o DiskEncryptionSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskEncryptionSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -633,7 +350,7 @@ func (o DiskEncryptionSetIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+// The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
 func (o DiskEncryptionSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionSetIdentity) *string {
 		if v == nil {
@@ -1389,13 +1106,13 @@ func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.
 }
 
 type LinuxVirtualMachineIdentity struct {
-	// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The ID of the System Managed Service Principal.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The ID of the Tenant the System Managed Service Principal is assigned in.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -1411,13 +1128,13 @@ type LinuxVirtualMachineIdentityInput interface {
 }
 
 type LinuxVirtualMachineIdentityArgs struct {
-	// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The ID of the System Managed Service Principal.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The ID of the Tenant the System Managed Service Principal is assigned in.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1498,22 +1215,22 @@ func (o LinuxVirtualMachineIdentityOutput) ToLinuxVirtualMachineIdentityPtrOutpu
 	}).(LinuxVirtualMachineIdentityPtrOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
 func (o LinuxVirtualMachineIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the System Managed Service Principal.
+// The Principal ID associated with this Managed Service Identity.
 func (o LinuxVirtualMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Tenant the System Managed Service Principal is assigned in.
+// The Tenant ID associated with this Managed Service Identity.
 func (o LinuxVirtualMachineIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o LinuxVirtualMachineIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1542,7 +1259,7 @@ func (o LinuxVirtualMachineIdentityPtrOutput) Elem() LinuxVirtualMachineIdentity
 	}).(LinuxVirtualMachineIdentityOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
 func (o LinuxVirtualMachineIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineIdentity) []string {
 		if v == nil {
@@ -1552,7 +1269,7 @@ func (o LinuxVirtualMachineIdentityPtrOutput) IdentityIds() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ID of the System Managed Service Principal.
+// The Principal ID associated with this Managed Service Identity.
 func (o LinuxVirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineIdentity) *string {
 		if v == nil {
@@ -1562,7 +1279,7 @@ func (o LinuxVirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Tenant the System Managed Service Principal is assigned in.
+// The Tenant ID associated with this Managed Service Identity.
 func (o LinuxVirtualMachineIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineIdentity) *string {
 		if v == nil {
@@ -1572,7 +1289,7 @@ func (o LinuxVirtualMachineIdentityPtrOutput) TenantId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o LinuxVirtualMachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineIdentity) *string {
 		if v == nil {
@@ -2846,14 +2563,6 @@ type LinuxVirtualMachineScaleSetDataDisk struct {
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-	//
-	// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
-	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-	//
-	// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -2884,14 +2593,6 @@ type LinuxVirtualMachineScaleSetDataDiskArgs struct {
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
-	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-	//
-	// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-	DiskIopsReadWrite pulumi.IntPtrInput `pulumi:"diskIopsReadWrite"`
-	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-	//
-	// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-	DiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -2968,20 +2669,6 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.StringP
 // The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-//
-// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskIopsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.DiskIopsReadWrite }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-//
-// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskMbpsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.DiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 // The size of the Data Disk which should be created.
@@ -3211,12 +2898,13 @@ func (o LinuxVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInput
 }
 
 type LinuxVirtualMachineScaleSetIdentity struct {
-	// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The ID of the System Managed Service Principal.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	TenantId    *string `pulumi:"tenantId"`
-	// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -3232,12 +2920,13 @@ type LinuxVirtualMachineScaleSetIdentityInput interface {
 }
 
 type LinuxVirtualMachineScaleSetIdentityArgs struct {
-	// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The ID of the System Managed Service Principal.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3318,21 +3007,22 @@ func (o LinuxVirtualMachineScaleSetIdentityOutput) ToLinuxVirtualMachineScaleSet
 	}).(LinuxVirtualMachineScaleSetIdentityPtrOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
 func (o LinuxVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the System Managed Service Principal.
+// The Principal ID associated with this Managed Service Identity.
 func (o LinuxVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o LinuxVirtualMachineScaleSetIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o LinuxVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3361,7 +3051,7 @@ func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) Elem() LinuxVirtualMachine
 	}).(LinuxVirtualMachineScaleSetIdentityOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
 func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetIdentity) []string {
 		if v == nil {
@@ -3371,7 +3061,7 @@ func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ID of the System Managed Service Principal.
+// The Principal ID associated with this Managed Service Identity.
 func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetIdentity) *string {
 		if v == nil {
@@ -3381,6 +3071,7 @@ func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) PrincipalId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetIdentity) *string {
 		if v == nil {
@@ -3390,7 +3081,7 @@ func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) TenantId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o LinuxVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetIdentity) *string {
 		if v == nil {
@@ -5675,6 +5366,162 @@ func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type LinuxVirtualMachineTerminationNotification struct {
+	// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+	Enabled bool `pulumi:"enabled"`
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	Timeout *string `pulumi:"timeout"`
+}
+
+// LinuxVirtualMachineTerminationNotificationInput is an input type that accepts LinuxVirtualMachineTerminationNotificationArgs and LinuxVirtualMachineTerminationNotificationOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineTerminationNotificationInput` via:
+//
+//          LinuxVirtualMachineTerminationNotificationArgs{...}
+type LinuxVirtualMachineTerminationNotificationInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineTerminationNotificationOutput() LinuxVirtualMachineTerminationNotificationOutput
+	ToLinuxVirtualMachineTerminationNotificationOutputWithContext(context.Context) LinuxVirtualMachineTerminationNotificationOutput
+}
+
+type LinuxVirtualMachineTerminationNotificationArgs struct {
+	// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (LinuxVirtualMachineTerminationNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineTerminationNotification)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineTerminationNotificationArgs) ToLinuxVirtualMachineTerminationNotificationOutput() LinuxVirtualMachineTerminationNotificationOutput {
+	return i.ToLinuxVirtualMachineTerminationNotificationOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineTerminationNotificationArgs) ToLinuxVirtualMachineTerminationNotificationOutputWithContext(ctx context.Context) LinuxVirtualMachineTerminationNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineTerminationNotificationOutput)
+}
+
+func (i LinuxVirtualMachineTerminationNotificationArgs) ToLinuxVirtualMachineTerminationNotificationPtrOutput() LinuxVirtualMachineTerminationNotificationPtrOutput {
+	return i.ToLinuxVirtualMachineTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineTerminationNotificationArgs) ToLinuxVirtualMachineTerminationNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineTerminationNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineTerminationNotificationOutput).ToLinuxVirtualMachineTerminationNotificationPtrOutputWithContext(ctx)
+}
+
+// LinuxVirtualMachineTerminationNotificationPtrInput is an input type that accepts LinuxVirtualMachineTerminationNotificationArgs, LinuxVirtualMachineTerminationNotificationPtr and LinuxVirtualMachineTerminationNotificationPtrOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineTerminationNotificationPtrInput` via:
+//
+//          LinuxVirtualMachineTerminationNotificationArgs{...}
+//
+//  or:
+//
+//          nil
+type LinuxVirtualMachineTerminationNotificationPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineTerminationNotificationPtrOutput() LinuxVirtualMachineTerminationNotificationPtrOutput
+	ToLinuxVirtualMachineTerminationNotificationPtrOutputWithContext(context.Context) LinuxVirtualMachineTerminationNotificationPtrOutput
+}
+
+type linuxVirtualMachineTerminationNotificationPtrType LinuxVirtualMachineTerminationNotificationArgs
+
+func LinuxVirtualMachineTerminationNotificationPtr(v *LinuxVirtualMachineTerminationNotificationArgs) LinuxVirtualMachineTerminationNotificationPtrInput {
+	return (*linuxVirtualMachineTerminationNotificationPtrType)(v)
+}
+
+func (*linuxVirtualMachineTerminationNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineTerminationNotification)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineTerminationNotificationPtrType) ToLinuxVirtualMachineTerminationNotificationPtrOutput() LinuxVirtualMachineTerminationNotificationPtrOutput {
+	return i.ToLinuxVirtualMachineTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineTerminationNotificationPtrType) ToLinuxVirtualMachineTerminationNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineTerminationNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineTerminationNotificationPtrOutput)
+}
+
+type LinuxVirtualMachineTerminationNotificationOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineTerminationNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineTerminationNotification)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineTerminationNotificationOutput) ToLinuxVirtualMachineTerminationNotificationOutput() LinuxVirtualMachineTerminationNotificationOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineTerminationNotificationOutput) ToLinuxVirtualMachineTerminationNotificationOutputWithContext(ctx context.Context) LinuxVirtualMachineTerminationNotificationOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineTerminationNotificationOutput) ToLinuxVirtualMachineTerminationNotificationPtrOutput() LinuxVirtualMachineTerminationNotificationPtrOutput {
+	return o.ToLinuxVirtualMachineTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineTerminationNotificationOutput) ToLinuxVirtualMachineTerminationNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineTerminationNotificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineTerminationNotification) *LinuxVirtualMachineTerminationNotification {
+		return &v
+	}).(LinuxVirtualMachineTerminationNotificationPtrOutput)
+}
+
+// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+func (o LinuxVirtualMachineTerminationNotificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+func (o LinuxVirtualMachineTerminationNotificationOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineTerminationNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type LinuxVirtualMachineTerminationNotificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineTerminationNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineTerminationNotification)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineTerminationNotificationPtrOutput) ToLinuxVirtualMachineTerminationNotificationPtrOutput() LinuxVirtualMachineTerminationNotificationPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineTerminationNotificationPtrOutput) ToLinuxVirtualMachineTerminationNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineTerminationNotificationPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineTerminationNotificationPtrOutput) Elem() LinuxVirtualMachineTerminationNotificationOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineTerminationNotification) LinuxVirtualMachineTerminationNotification {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineTerminationNotification
+		return ret
+	}).(LinuxVirtualMachineTerminationNotificationOutput)
+}
+
+// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+func (o LinuxVirtualMachineTerminationNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineTerminationNotification) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+func (o LinuxVirtualMachineTerminationNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineTerminationNotification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.StringPtrOutput)
+}
+
 type ManagedDiskEncryptionSettings struct {
 	// A `diskEncryptionKey` block as defined above.
 	DiskEncryptionKey *ManagedDiskEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
@@ -6448,19 +6295,15 @@ func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccou
 }
 
 type OrchestratedVirtualMachineScaleSetDataDisk struct {
-	Caching             string  `pulumi:"caching"`
-	CreateOption        *string `pulumi:"createOption"`
-	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
-	// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-	DiskMbpsReadWrite         *int   `pulumi:"diskMbpsReadWrite"`
-	DiskSizeGb                int    `pulumi:"diskSizeGb"`
-	Lun                       int    `pulumi:"lun"`
-	StorageAccountType        string `pulumi:"storageAccountType"`
-	UltraSsdDiskIopsReadWrite *int   `pulumi:"ultraSsdDiskIopsReadWrite"`
-	UltraSsdDiskMbpsReadWrite *int   `pulumi:"ultraSsdDiskMbpsReadWrite"`
-	WriteAcceleratorEnabled   *bool  `pulumi:"writeAcceleratorEnabled"`
+	Caching                   string  `pulumi:"caching"`
+	CreateOption              *string `pulumi:"createOption"`
+	DiskEncryptionSetId       *string `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb                int     `pulumi:"diskSizeGb"`
+	Lun                       int     `pulumi:"lun"`
+	StorageAccountType        string  `pulumi:"storageAccountType"`
+	UltraSsdDiskIopsReadWrite *int    `pulumi:"ultraSsdDiskIopsReadWrite"`
+	UltraSsdDiskMbpsReadWrite *int    `pulumi:"ultraSsdDiskMbpsReadWrite"`
+	WriteAcceleratorEnabled   *bool   `pulumi:"writeAcceleratorEnabled"`
 }
 
 // OrchestratedVirtualMachineScaleSetDataDiskInput is an input type that accepts OrchestratedVirtualMachineScaleSetDataDiskArgs and OrchestratedVirtualMachineScaleSetDataDiskOutput values.
@@ -6475,19 +6318,15 @@ type OrchestratedVirtualMachineScaleSetDataDiskInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetDataDiskArgs struct {
-	Caching             pulumi.StringInput    `pulumi:"caching"`
-	CreateOption        pulumi.StringPtrInput `pulumi:"createOption"`
-	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
-	// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-	DiskIopsReadWrite pulumi.IntPtrInput `pulumi:"diskIopsReadWrite"`
-	// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-	DiskMbpsReadWrite         pulumi.IntPtrInput  `pulumi:"diskMbpsReadWrite"`
-	DiskSizeGb                pulumi.IntInput     `pulumi:"diskSizeGb"`
-	Lun                       pulumi.IntInput     `pulumi:"lun"`
-	StorageAccountType        pulumi.StringInput  `pulumi:"storageAccountType"`
-	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput  `pulumi:"ultraSsdDiskIopsReadWrite"`
-	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput  `pulumi:"ultraSsdDiskMbpsReadWrite"`
-	WriteAcceleratorEnabled   pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
+	Caching                   pulumi.StringInput    `pulumi:"caching"`
+	CreateOption              pulumi.StringPtrInput `pulumi:"createOption"`
+	DiskEncryptionSetId       pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb                pulumi.IntInput       `pulumi:"diskSizeGb"`
+	Lun                       pulumi.IntInput       `pulumi:"lun"`
+	StorageAccountType        pulumi.StringInput    `pulumi:"storageAccountType"`
+	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput    `pulumi:"ultraSsdDiskIopsReadWrite"`
+	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput    `pulumi:"ultraSsdDiskMbpsReadWrite"`
+	WriteAcceleratorEnabled   pulumi.BoolPtrInput   `pulumi:"writeAcceleratorEnabled"`
 }
 
 func (OrchestratedVirtualMachineScaleSetDataDiskArgs) ElementType() reflect.Type {
@@ -6551,16 +6390,6 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.
 
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskIopsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.DiskIopsReadWrite }).(pulumi.IntPtrOutput)
-}
-
-// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskMbpsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.DiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntOutput {
@@ -14170,11 +13999,11 @@ func (o VirtualMachineBootDiagnosticsPtrOutput) StorageUri() pulumi.StringPtrOut
 }
 
 type VirtualMachineIdentity struct {
-	// Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+	// Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -14190,11 +14019,11 @@ type VirtualMachineIdentityInput interface {
 }
 
 type VirtualMachineIdentityArgs struct {
-	// Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+	// Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -14275,17 +14104,17 @@ func (o VirtualMachineIdentityOutput) ToVirtualMachineIdentityPtrOutputWithConte
 	}).(VirtualMachineIdentityPtrOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
 func (o VirtualMachineIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+// The Principal ID associated with this Managed Service Identity.
 func (o VirtualMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+// Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o VirtualMachineIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14314,7 +14143,7 @@ func (o VirtualMachineIdentityPtrOutput) Elem() VirtualMachineIdentityOutput {
 	}).(VirtualMachineIdentityOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
 func (o VirtualMachineIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualMachineIdentity) []string {
 		if v == nil {
@@ -14324,7 +14153,7 @@ func (o VirtualMachineIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+// The Principal ID associated with this Managed Service Identity.
 func (o VirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineIdentity) *string {
 		if v == nil {
@@ -14334,7 +14163,7 @@ func (o VirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+// Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o VirtualMachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineIdentity) *string {
 		if v == nil {
@@ -16709,13 +16538,13 @@ func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulum
 }
 
 type WindowsVirtualMachineIdentity struct {
-	// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The ID of the System Managed Service Principal.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The ID of the Tenant the System Managed Service Principal is assigned in.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -16731,13 +16560,13 @@ type WindowsVirtualMachineIdentityInput interface {
 }
 
 type WindowsVirtualMachineIdentityArgs struct {
-	// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The ID of the System Managed Service Principal.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The ID of the Tenant the System Managed Service Principal is assigned in.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -16818,22 +16647,22 @@ func (o WindowsVirtualMachineIdentityOutput) ToWindowsVirtualMachineIdentityPtrO
 	}).(WindowsVirtualMachineIdentityPtrOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
 func (o WindowsVirtualMachineIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the System Managed Service Principal.
+// The Principal ID associated with this Managed Service Identity.
 func (o WindowsVirtualMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Tenant the System Managed Service Principal is assigned in.
+// The Tenant ID associated with this Managed Service Identity.
 func (o WindowsVirtualMachineIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o WindowsVirtualMachineIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -16862,7 +16691,7 @@ func (o WindowsVirtualMachineIdentityPtrOutput) Elem() WindowsVirtualMachineIden
 	}).(WindowsVirtualMachineIdentityOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
 func (o WindowsVirtualMachineIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineIdentity) []string {
 		if v == nil {
@@ -16872,7 +16701,7 @@ func (o WindowsVirtualMachineIdentityPtrOutput) IdentityIds() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ID of the System Managed Service Principal.
+// The Principal ID associated with this Managed Service Identity.
 func (o WindowsVirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineIdentity) *string {
 		if v == nil {
@@ -16882,7 +16711,7 @@ func (o WindowsVirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Tenant the System Managed Service Principal is assigned in.
+// The Tenant ID associated with this Managed Service Identity.
 func (o WindowsVirtualMachineIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineIdentity) *string {
 		if v == nil {
@@ -16892,7 +16721,7 @@ func (o WindowsVirtualMachineIdentityPtrOutput) TenantId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o WindowsVirtualMachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineIdentity) *string {
 		if v == nil {
@@ -18166,14 +17995,6 @@ type WindowsVirtualMachineScaleSetDataDisk struct {
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-	//
-	// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
-	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-	//
-	// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -18204,14 +18025,6 @@ type WindowsVirtualMachineScaleSetDataDiskArgs struct {
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
-	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-	//
-	// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-	DiskIopsReadWrite pulumi.IntPtrInput `pulumi:"diskIopsReadWrite"`
-	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-	//
-	// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-	DiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -18288,20 +18101,6 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.Strin
 // The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-//
-// Deprecated: This property has been renamed to `ultra_ssd_disk_iops_read_write` and will be removed in v3.0 of the provider
-func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskIopsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.DiskIopsReadWrite }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-//
-// Deprecated: This property has been renamed to `ultra_ssd_disk_mbps_read_write` and will be removed in v3.0 of the provider
-func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskMbpsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.DiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
 
 // The size of the Data Disk which should be created.
@@ -18531,12 +18330,13 @@ func (o WindowsVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInp
 }
 
 type WindowsVirtualMachineScaleSetIdentity struct {
-	// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The ID of the System Managed Service Principal.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	TenantId    *string `pulumi:"tenantId"`
-	// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -18552,12 +18352,13 @@ type WindowsVirtualMachineScaleSetIdentityInput interface {
 }
 
 type WindowsVirtualMachineScaleSetIdentityArgs struct {
-	// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The ID of the System Managed Service Principal.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18638,21 +18439,22 @@ func (o WindowsVirtualMachineScaleSetIdentityOutput) ToWindowsVirtualMachineScal
 	}).(WindowsVirtualMachineScaleSetIdentityPtrOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
 func (o WindowsVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the System Managed Service Principal.
+// The Principal ID associated with this Managed Service Identity.
 func (o WindowsVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o WindowsVirtualMachineScaleSetIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o WindowsVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18681,7 +18483,7 @@ func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) Elem() WindowsVirtualMac
 	}).(WindowsVirtualMachineScaleSetIdentityOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
 func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetIdentity) []string {
 		if v == nil {
@@ -18691,7 +18493,7 @@ func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ID of the System Managed Service Principal.
+// The Principal ID associated with this Managed Service Identity.
 func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetIdentity) *string {
 		if v == nil {
@@ -18701,6 +18503,7 @@ func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) PrincipalId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetIdentity) *string {
 		if v == nil {
@@ -18710,7 +18513,7 @@ func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) TenantId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o WindowsVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetIdentity) *string {
 		if v == nil {
@@ -21119,6 +20922,162 @@ func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type WindowsVirtualMachineTerminationNotification struct {
+	// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+	Enabled bool `pulumi:"enabled"`
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	Timeout *string `pulumi:"timeout"`
+}
+
+// WindowsVirtualMachineTerminationNotificationInput is an input type that accepts WindowsVirtualMachineTerminationNotificationArgs and WindowsVirtualMachineTerminationNotificationOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineTerminationNotificationInput` via:
+//
+//          WindowsVirtualMachineTerminationNotificationArgs{...}
+type WindowsVirtualMachineTerminationNotificationInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineTerminationNotificationOutput() WindowsVirtualMachineTerminationNotificationOutput
+	ToWindowsVirtualMachineTerminationNotificationOutputWithContext(context.Context) WindowsVirtualMachineTerminationNotificationOutput
+}
+
+type WindowsVirtualMachineTerminationNotificationArgs struct {
+	// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (WindowsVirtualMachineTerminationNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineTerminationNotification)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineTerminationNotificationArgs) ToWindowsVirtualMachineTerminationNotificationOutput() WindowsVirtualMachineTerminationNotificationOutput {
+	return i.ToWindowsVirtualMachineTerminationNotificationOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineTerminationNotificationArgs) ToWindowsVirtualMachineTerminationNotificationOutputWithContext(ctx context.Context) WindowsVirtualMachineTerminationNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineTerminationNotificationOutput)
+}
+
+func (i WindowsVirtualMachineTerminationNotificationArgs) ToWindowsVirtualMachineTerminationNotificationPtrOutput() WindowsVirtualMachineTerminationNotificationPtrOutput {
+	return i.ToWindowsVirtualMachineTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineTerminationNotificationArgs) ToWindowsVirtualMachineTerminationNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineTerminationNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineTerminationNotificationOutput).ToWindowsVirtualMachineTerminationNotificationPtrOutputWithContext(ctx)
+}
+
+// WindowsVirtualMachineTerminationNotificationPtrInput is an input type that accepts WindowsVirtualMachineTerminationNotificationArgs, WindowsVirtualMachineTerminationNotificationPtr and WindowsVirtualMachineTerminationNotificationPtrOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineTerminationNotificationPtrInput` via:
+//
+//          WindowsVirtualMachineTerminationNotificationArgs{...}
+//
+//  or:
+//
+//          nil
+type WindowsVirtualMachineTerminationNotificationPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineTerminationNotificationPtrOutput() WindowsVirtualMachineTerminationNotificationPtrOutput
+	ToWindowsVirtualMachineTerminationNotificationPtrOutputWithContext(context.Context) WindowsVirtualMachineTerminationNotificationPtrOutput
+}
+
+type windowsVirtualMachineTerminationNotificationPtrType WindowsVirtualMachineTerminationNotificationArgs
+
+func WindowsVirtualMachineTerminationNotificationPtr(v *WindowsVirtualMachineTerminationNotificationArgs) WindowsVirtualMachineTerminationNotificationPtrInput {
+	return (*windowsVirtualMachineTerminationNotificationPtrType)(v)
+}
+
+func (*windowsVirtualMachineTerminationNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineTerminationNotification)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineTerminationNotificationPtrType) ToWindowsVirtualMachineTerminationNotificationPtrOutput() WindowsVirtualMachineTerminationNotificationPtrOutput {
+	return i.ToWindowsVirtualMachineTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineTerminationNotificationPtrType) ToWindowsVirtualMachineTerminationNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineTerminationNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineTerminationNotificationPtrOutput)
+}
+
+type WindowsVirtualMachineTerminationNotificationOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineTerminationNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineTerminationNotification)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineTerminationNotificationOutput) ToWindowsVirtualMachineTerminationNotificationOutput() WindowsVirtualMachineTerminationNotificationOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineTerminationNotificationOutput) ToWindowsVirtualMachineTerminationNotificationOutputWithContext(ctx context.Context) WindowsVirtualMachineTerminationNotificationOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineTerminationNotificationOutput) ToWindowsVirtualMachineTerminationNotificationPtrOutput() WindowsVirtualMachineTerminationNotificationPtrOutput {
+	return o.ToWindowsVirtualMachineTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineTerminationNotificationOutput) ToWindowsVirtualMachineTerminationNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineTerminationNotificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineTerminationNotification) *WindowsVirtualMachineTerminationNotification {
+		return &v
+	}).(WindowsVirtualMachineTerminationNotificationPtrOutput)
+}
+
+// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+func (o WindowsVirtualMachineTerminationNotificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+func (o WindowsVirtualMachineTerminationNotificationOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineTerminationNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineTerminationNotificationPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineTerminationNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineTerminationNotification)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineTerminationNotificationPtrOutput) ToWindowsVirtualMachineTerminationNotificationPtrOutput() WindowsVirtualMachineTerminationNotificationPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineTerminationNotificationPtrOutput) ToWindowsVirtualMachineTerminationNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineTerminationNotificationPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineTerminationNotificationPtrOutput) Elem() WindowsVirtualMachineTerminationNotificationOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineTerminationNotification) WindowsVirtualMachineTerminationNotification {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineTerminationNotification
+		return ret
+	}).(WindowsVirtualMachineTerminationNotificationOutput)
+}
+
+// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+func (o WindowsVirtualMachineTerminationNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineTerminationNotification) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+func (o WindowsVirtualMachineTerminationNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineTerminationNotification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.StringPtrOutput)
+}
+
 type WindowsVirtualMachineWinrmListener struct {
 	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
 	CertificateUrl *string `pulumi:"certificateUrl"`
@@ -22836,12 +22795,13 @@ func (o GetVirtualMachineIdentityArrayOutput) Index(i pulumi.IntInput) GetVirtua
 }
 
 type GetVirtualMachineScaleSetIdentity struct {
-	// The list of User Managed Identity ID's which are assigned to the Virtual Machine Scale Set.
+	// The list of User Assigned Managed Identity IDs assigned to this Virtual Machine Scale Set.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Virtual Machine Scale Set.
 	PrincipalId string `pulumi:"principalId"`
-	TenantId    string `pulumi:"tenantId"`
-	// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Virtual Machine Scale Set.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
 	Type string `pulumi:"type"`
 }
 
@@ -22857,12 +22817,13 @@ type GetVirtualMachineScaleSetIdentityInput interface {
 }
 
 type GetVirtualMachineScaleSetIdentityArgs struct {
-	// The list of User Managed Identity ID's which are assigned to the Virtual Machine Scale Set.
+	// The list of User Assigned Managed Identity IDs assigned to this Virtual Machine Scale Set.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Virtual Machine Scale Set.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	TenantId    pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Virtual Machine Scale Set.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -22917,21 +22878,22 @@ func (o GetVirtualMachineScaleSetIdentityOutput) ToGetVirtualMachineScaleSetIden
 	return o
 }
 
-// The list of User Managed Identity ID's which are assigned to the Virtual Machine Scale Set.
+// The list of User Assigned Managed Identity IDs assigned to this Virtual Machine Scale Set.
 func (o GetVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Virtual Machine Scale Set.
 func (o GetVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Virtual Machine Scale Set.
 func (o GetVirtualMachineScaleSetIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
 func (o GetVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23410,7 +23372,7 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressA
 
 type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag struct {
 	Tag string `pulumi:"tag"`
-	// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+	// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
 	Type string `pulumi:"type"`
 }
 
@@ -23427,7 +23389,7 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTa
 
 type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs struct {
 	Tag pulumi.StringInput `pulumi:"tag"`
-	// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+	// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23488,7 +23450,7 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
 	}).(pulumi.StringOutput)
 }
 
-// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
 func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
 		return v.Type
@@ -23518,10 +23480,6 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostIpConfigurationInput)(nil)).Elem(), BastionHostIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostIpConfigurationPtrInput)(nil)).Elem(), BastionHostIpConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentConfigurationInput)(nil)).Elem(), ConfigurationPolicyAssignmentConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentConfigurationPtrInput)(nil)).Elem(), ConfigurationPolicyAssignmentConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentConfigurationParameterInput)(nil)).Elem(), ConfigurationPolicyAssignmentConfigurationParameterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentConfigurationParameterArrayInput)(nil)).Elem(), ConfigurationPolicyAssignmentConfigurationParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetIdentityInput)(nil)).Elem(), DiskEncryptionSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetIdentityPtrInput)(nil)).Elem(), DiskEncryptionSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageDataDiskInput)(nil)).Elem(), ImageDataDiskArgs{})
@@ -23588,6 +23546,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineSecretCertificateArrayInput)(nil)).Elem(), LinuxVirtualMachineSecretCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineSourceImageReferenceInput)(nil)).Elem(), LinuxVirtualMachineSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineSourceImageReferencePtrInput)(nil)).Elem(), LinuxVirtualMachineSourceImageReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineTerminationNotificationInput)(nil)).Elem(), LinuxVirtualMachineTerminationNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineTerminationNotificationPtrInput)(nil)).Elem(), LinuxVirtualMachineTerminationNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDiskEncryptionSettingsInput)(nil)).Elem(), ManagedDiskEncryptionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDiskEncryptionSettingsPtrInput)(nil)).Elem(), ManagedDiskEncryptionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDiskEncryptionSettingsDiskEncryptionKeyInput)(nil)).Elem(), ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs{})
@@ -23786,6 +23746,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineSecretCertificateArrayInput)(nil)).Elem(), WindowsVirtualMachineSecretCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineSourceImageReferenceInput)(nil)).Elem(), WindowsVirtualMachineSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineSourceImageReferencePtrInput)(nil)).Elem(), WindowsVirtualMachineSourceImageReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineTerminationNotificationInput)(nil)).Elem(), WindowsVirtualMachineTerminationNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineTerminationNotificationPtrInput)(nil)).Elem(), WindowsVirtualMachineTerminationNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineWinrmListenerInput)(nil)).Elem(), WindowsVirtualMachineWinrmListenerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineWinrmListenerArrayInput)(nil)).Elem(), WindowsVirtualMachineWinrmListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageDataDiskInput)(nil)).Elem(), GetImageDataDiskArgs{})
@@ -23826,10 +23788,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput)(nil)).Elem(), GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{})
 	pulumi.RegisterOutputType(BastionHostIpConfigurationOutput{})
 	pulumi.RegisterOutputType(BastionHostIpConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentConfigurationOutput{})
-	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentConfigurationParameterOutput{})
-	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentConfigurationParameterArrayOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetIdentityOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ImageDataDiskOutput{})
@@ -23896,6 +23854,8 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineSecretCertificateArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineSourceImageReferenceOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineSourceImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineTerminationNotificationOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineTerminationNotificationPtrOutput{})
 	pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsOutput{})
 	pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput{})
@@ -24094,6 +24054,8 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineSecretCertificateArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineSourceImageReferenceOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineSourceImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineTerminationNotificationOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineTerminationNotificationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineWinrmListenerOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineWinrmListenerArrayOutput{})
 	pulumi.RegisterOutputType(GetImageDataDiskOutput{})

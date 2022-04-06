@@ -69,7 +69,7 @@ class ServiceArgs:
         :param pulumi.Input['ServiceVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
         """
         pulumi.set(__self__, "publisher_email", publisher_email)
         pulumi.set(__self__, "publisher_name", publisher_name)
@@ -425,7 +425,7 @@ class ServiceArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of availability zones.
+        Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -507,7 +507,7 @@ class _ServiceState:
         :param pulumi.Input['ServiceVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
         """
         if additional_locations is not None:
             pulumi.set(__self__, "additional_locations", additional_locations)
@@ -979,7 +979,7 @@ class _ServiceState:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of availability zones.
+        Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -1072,7 +1072,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
         """
         ...
     @overload
@@ -1284,7 +1284,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1595,7 +1595,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of availability zones.
+        Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
         """
         return pulumi.get(self, "zones")
 

@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -113,10 +113,10 @@ type Firewall struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
-	ThreatIntelMode pulumi.StringPtrOutput `pulumi:"threatIntelMode"`
+	ThreatIntelMode pulumi.StringOutput `pulumi:"threatIntelMode"`
 	// A `virtualHub` block as documented below.
 	VirtualHub FirewallVirtualHubPtrOutput `pulumi:"virtualHub"`
-	// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -129,6 +129,12 @@ func NewFirewall(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SkuName == nil {
+		return nil, errors.New("invalid value for required argument 'SkuName'")
+	}
+	if args.SkuTier == nil {
+		return nil, errors.New("invalid value for required argument 'SkuTier'")
 	}
 	var resource Firewall
 	err := ctx.RegisterResource("azure:network/firewall:Firewall", name, args, &resource, opts...)
@@ -178,7 +184,7 @@ type firewallState struct {
 	ThreatIntelMode *string `pulumi:"threatIntelMode"`
 	// A `virtualHub` block as documented below.
 	VirtualHub *FirewallVirtualHub `pulumi:"virtualHub"`
-	// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -209,7 +215,7 @@ type FirewallState struct {
 	ThreatIntelMode pulumi.StringPtrInput
 	// A `virtualHub` block as documented below.
 	VirtualHub FirewallVirtualHubPtrInput
-	// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -235,16 +241,16 @@ type firewallArgs struct {
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
-	SkuName *string `pulumi:"skuName"`
+	SkuName string `pulumi:"skuName"`
 	// Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
-	SkuTier *string `pulumi:"skuTier"`
+	SkuTier string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
 	ThreatIntelMode *string `pulumi:"threatIntelMode"`
 	// A `virtualHub` block as documented below.
 	VirtualHub *FirewallVirtualHub `pulumi:"virtualHub"`
-	// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -267,16 +273,16 @@ type FirewallArgs struct {
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
-	SkuName pulumi.StringPtrInput
+	SkuName pulumi.StringInput
 	// Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
-	SkuTier pulumi.StringPtrInput
+	SkuTier pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
 	ThreatIntelMode pulumi.StringPtrInput
 	// A `virtualHub` block as documented below.
 	VirtualHub FirewallVirtualHubPtrInput
-	// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+	// Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
 	Zones pulumi.StringArrayInput
 }
 

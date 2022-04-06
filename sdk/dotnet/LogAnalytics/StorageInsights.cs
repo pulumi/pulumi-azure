@@ -100,12 +100,6 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<ImmutableArray<string>> TableNames { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
         /// The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
         /// </summary>
         [Output("workspaceId")]
@@ -205,18 +199,6 @@ namespace Pulumi.Azure.LogAnalytics
             set => _tableNames = value;
         }
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
         /// <summary>
         /// The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
         /// </summary>
@@ -276,18 +258,6 @@ namespace Pulumi.Azure.LogAnalytics
         {
             get => _tableNames ?? (_tableNames = new InputList<string>());
             set => _tableNames = value;
-        }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Log Analytics Storage Insights.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
         }
 
         /// <summary>

@@ -23,9 +23,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/hsm"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hsm"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -163,7 +163,7 @@ type Module struct {
 	StampId pulumi.StringPtrOutput `pulumi:"stampId"`
 	// A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -219,7 +219,7 @@ type moduleState struct {
 	StampId *string `pulumi:"stampId"`
 	// A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
 	Tags map[string]string `pulumi:"tags"`
-	// The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -238,7 +238,7 @@ type ModuleState struct {
 	StampId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
 	Tags pulumi.StringMapInput
-	// The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -261,7 +261,7 @@ type moduleArgs struct {
 	StampId *string `pulumi:"stampId"`
 	// A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
 	Tags map[string]string `pulumi:"tags"`
-	// The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -281,7 +281,7 @@ type ModuleArgs struct {
 	StampId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
 	Tags pulumi.StringMapInput
-	// The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Zones pulumi.StringArrayInput
 }
 

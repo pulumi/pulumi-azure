@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.dashboard.Dashboard` resource.
+ * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
  *
  * ## Example Usage
  *
@@ -13,14 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = azure.dashboard.azurerm_portal_dashboard({
+ * const example = azure.portal.getDashboard({
  *     name: "existing-dashboard",
  *     resourceGroupName: "dashboard-rg",
  * });
  * export const id = data.azurerm_dashboard.example.id;
  * ```
  */
+/** @deprecated azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard */
 export function azurerm_portal_dashboard(args: Azurerm_portal_dashboardArgs, opts?: pulumi.InvokeOptions): Promise<Azurerm_portal_dashboardResult> {
+    pulumi.log.warn("azurerm_portal_dashboard is deprecated: azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard")
     if (!opts) {
         opts = {}
     }

@@ -141,7 +141,7 @@ namespace Pulumi.Azure.ContainerService
     ///         });
     ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
     ///         {
-    ///             PrincipalId = exampleKubernetesCluster.KubeletIdentities.Apply(kubeletIdentities =&gt; kubeletIdentities[0].ObjectId),
+    ///             PrincipalId = exampleKubernetesCluster.KubeletIdentity.Apply(kubeletIdentity =&gt; kubeletIdentity.ObjectId),
     ///             RoleDefinitionName = "AcrPull",
     ///             Scope = exampleRegistry.Id,
     ///             SkipServicePrincipalAadCheck = true,
@@ -203,12 +203,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("exportPolicyEnabled")]
         public Output<bool?> ExportPolicyEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// A list of Azure locations where the container registry should be geo-replicated.
-        /// </summary>
-        [Output("georeplicationLocations")]
-        public Output<ImmutableArray<string>> GeoreplicationLocations { get; private set; } = null!;
 
         /// <summary>
         /// A `georeplications` block as documented below.
@@ -277,13 +271,10 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.RegistryRetentionPolicy> RetentionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
         /// </summary>
         [Output("sku")]
-        public Output<string?> Sku { get; private set; } = null!;
-
-        [Output("storageAccountId")]
-        public Output<string> StorageAccountId { get; private set; } = null!;
+        public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -379,19 +370,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("exportPolicyEnabled")]
         public Input<bool>? ExportPolicyEnabled { get; set; }
 
-        [Input("georeplicationLocations")]
-        private InputList<string>? _georeplicationLocations;
-
-        /// <summary>
-        /// A list of Azure locations where the container registry should be geo-replicated.
-        /// </summary>
-        [Obsolete(@"Deprecated in favour of `georeplications`")]
-        public InputList<string> GeoreplicationLocations
-        {
-            get => _georeplicationLocations ?? (_georeplicationLocations = new InputList<string>());
-            set => _georeplicationLocations = value;
-        }
-
         [Input("georeplications")]
         private InputList<Inputs.RegistryGeoreplicationArgs>? _georeplications;
 
@@ -459,13 +437,10 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.RegistryRetentionPolicyArgs>? RetentionPolicy { get; set; }
 
         /// <summary>
-        /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
         /// </summary>
-        [Input("sku")]
-        public Input<string>? Sku { get; set; }
-
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
+        [Input("sku", required: true)]
+        public Input<string> Sku { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -540,19 +515,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("exportPolicyEnabled")]
         public Input<bool>? ExportPolicyEnabled { get; set; }
 
-        [Input("georeplicationLocations")]
-        private InputList<string>? _georeplicationLocations;
-
-        /// <summary>
-        /// A list of Azure locations where the container registry should be geo-replicated.
-        /// </summary>
-        [Obsolete(@"Deprecated in favour of `georeplications`")]
-        public InputList<string> GeoreplicationLocations
-        {
-            get => _georeplicationLocations ?? (_georeplicationLocations = new InputList<string>());
-            set => _georeplicationLocations = value;
-        }
-
         [Input("georeplications")]
         private InputList<Inputs.RegistryGeoreplicationGetArgs>? _georeplications;
 
@@ -626,13 +588,10 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.RegistryRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
 
         /// <summary>
-        /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
-
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

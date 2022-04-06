@@ -4747,121 +4747,6 @@ func (o DatasetSnowflakeSchemaColumnArrayOutput) Index(i pulumi.IntInput) Datase
 	}).(DatasetSnowflakeSchemaColumnOutput)
 }
 
-type DatasetSnowflakeStructureColumn struct {
-	// The description of the column.
-	Description *string `pulumi:"description"`
-	// The name of the column.
-	Name string `pulumi:"name"`
-	// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-	Type *string `pulumi:"type"`
-}
-
-// DatasetSnowflakeStructureColumnInput is an input type that accepts DatasetSnowflakeStructureColumnArgs and DatasetSnowflakeStructureColumnOutput values.
-// You can construct a concrete instance of `DatasetSnowflakeStructureColumnInput` via:
-//
-//          DatasetSnowflakeStructureColumnArgs{...}
-type DatasetSnowflakeStructureColumnInput interface {
-	pulumi.Input
-
-	ToDatasetSnowflakeStructureColumnOutput() DatasetSnowflakeStructureColumnOutput
-	ToDatasetSnowflakeStructureColumnOutputWithContext(context.Context) DatasetSnowflakeStructureColumnOutput
-}
-
-type DatasetSnowflakeStructureColumnArgs struct {
-	// The description of the column.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The name of the column.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (DatasetSnowflakeStructureColumnArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetSnowflakeStructureColumn)(nil)).Elem()
-}
-
-func (i DatasetSnowflakeStructureColumnArgs) ToDatasetSnowflakeStructureColumnOutput() DatasetSnowflakeStructureColumnOutput {
-	return i.ToDatasetSnowflakeStructureColumnOutputWithContext(context.Background())
-}
-
-func (i DatasetSnowflakeStructureColumnArgs) ToDatasetSnowflakeStructureColumnOutputWithContext(ctx context.Context) DatasetSnowflakeStructureColumnOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakeStructureColumnOutput)
-}
-
-// DatasetSnowflakeStructureColumnArrayInput is an input type that accepts DatasetSnowflakeStructureColumnArray and DatasetSnowflakeStructureColumnArrayOutput values.
-// You can construct a concrete instance of `DatasetSnowflakeStructureColumnArrayInput` via:
-//
-//          DatasetSnowflakeStructureColumnArray{ DatasetSnowflakeStructureColumnArgs{...} }
-type DatasetSnowflakeStructureColumnArrayInput interface {
-	pulumi.Input
-
-	ToDatasetSnowflakeStructureColumnArrayOutput() DatasetSnowflakeStructureColumnArrayOutput
-	ToDatasetSnowflakeStructureColumnArrayOutputWithContext(context.Context) DatasetSnowflakeStructureColumnArrayOutput
-}
-
-type DatasetSnowflakeStructureColumnArray []DatasetSnowflakeStructureColumnInput
-
-func (DatasetSnowflakeStructureColumnArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetSnowflakeStructureColumn)(nil)).Elem()
-}
-
-func (i DatasetSnowflakeStructureColumnArray) ToDatasetSnowflakeStructureColumnArrayOutput() DatasetSnowflakeStructureColumnArrayOutput {
-	return i.ToDatasetSnowflakeStructureColumnArrayOutputWithContext(context.Background())
-}
-
-func (i DatasetSnowflakeStructureColumnArray) ToDatasetSnowflakeStructureColumnArrayOutputWithContext(ctx context.Context) DatasetSnowflakeStructureColumnArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakeStructureColumnArrayOutput)
-}
-
-type DatasetSnowflakeStructureColumnOutput struct{ *pulumi.OutputState }
-
-func (DatasetSnowflakeStructureColumnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetSnowflakeStructureColumn)(nil)).Elem()
-}
-
-func (o DatasetSnowflakeStructureColumnOutput) ToDatasetSnowflakeStructureColumnOutput() DatasetSnowflakeStructureColumnOutput {
-	return o
-}
-
-func (o DatasetSnowflakeStructureColumnOutput) ToDatasetSnowflakeStructureColumnOutputWithContext(ctx context.Context) DatasetSnowflakeStructureColumnOutput {
-	return o
-}
-
-// The description of the column.
-func (o DatasetSnowflakeStructureColumnOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetSnowflakeStructureColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The name of the column.
-func (o DatasetSnowflakeStructureColumnOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetSnowflakeStructureColumn) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-func (o DatasetSnowflakeStructureColumnOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetSnowflakeStructureColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type DatasetSnowflakeStructureColumnArrayOutput struct{ *pulumi.OutputState }
-
-func (DatasetSnowflakeStructureColumnArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetSnowflakeStructureColumn)(nil)).Elem()
-}
-
-func (o DatasetSnowflakeStructureColumnArrayOutput) ToDatasetSnowflakeStructureColumnArrayOutput() DatasetSnowflakeStructureColumnArrayOutput {
-	return o
-}
-
-func (o DatasetSnowflakeStructureColumnArrayOutput) ToDatasetSnowflakeStructureColumnArrayOutputWithContext(ctx context.Context) DatasetSnowflakeStructureColumnArrayOutput {
-	return o
-}
-
-func (o DatasetSnowflakeStructureColumnArrayOutput) Index(i pulumi.IntInput) DatasetSnowflakeStructureColumnOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetSnowflakeStructureColumn {
-		return vs[0].([]DatasetSnowflakeStructureColumn)[vs[1].(int)]
-	}).(DatasetSnowflakeStructureColumnOutput)
-}
-
 type DatasetSqlServerTableSchemaColumn struct {
 	// The description of the column.
 	Description *string `pulumi:"description"`
@@ -5306,13 +5191,13 @@ func (o FactoryGlobalParameterArrayOutput) Index(i pulumi.IntInput) FactoryGloba
 }
 
 type FactoryIdentity struct {
-	// Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The ID of the Principal (Client) in Azure Active Directory
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// Specifies the Tenant ID associated with the VSTS account.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -5328,13 +5213,13 @@ type FactoryIdentityInput interface {
 }
 
 type FactoryIdentityArgs struct {
-	// Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The ID of the Principal (Client) in Azure Active Directory
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// Specifies the Tenant ID associated with the VSTS account.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5415,12 +5300,12 @@ func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutputWithContext(ctx context
 	}).(FactoryIdentityPtrOutput)
 }
 
-// Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 func (o FactoryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FactoryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the Principal (Client) in Azure Active Directory
+// The Principal ID associated with this Managed Service Identity.
 func (o FactoryIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FactoryIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -5430,7 +5315,7 @@ func (o FactoryIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FactoryIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o FactoryIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5459,7 +5344,7 @@ func (o FactoryIdentityPtrOutput) Elem() FactoryIdentityOutput {
 	}).(FactoryIdentityOutput)
 }
 
-// Specifies the IDs of user assigned identities. Required if `UserAssigned` or `SystemAssigned,UserAssigned` type is used.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 func (o FactoryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FactoryIdentity) []string {
 		if v == nil {
@@ -5469,7 +5354,7 @@ func (o FactoryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ID of the Principal (Client) in Azure Active Directory
+// The Principal ID associated with this Managed Service Identity.
 func (o FactoryIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryIdentity) *string {
 		if v == nil {
@@ -5489,7 +5374,7 @@ func (o FactoryIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned,UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o FactoryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryIdentity) *string {
 		if v == nil {
@@ -11643,12 +11528,13 @@ func (o GetFactoryGithubConfigurationArrayOutput) Index(i pulumi.IntInput) GetFa
 }
 
 type GetFactoryIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Data Factory.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The ID of the Principal (Client) in Azure Active Directory.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Data Factory.
 	PrincipalId string `pulumi:"principalId"`
 	// The Tenant ID associated with the VSTS account.
 	TenantId string `pulumi:"tenantId"`
-	// The identity type of the Data Factory.
+	// The type of Managed Service Identity that is configured on this Data Factory.
 	Type string `pulumi:"type"`
 }
 
@@ -11664,12 +11550,13 @@ type GetFactoryIdentityInput interface {
 }
 
 type GetFactoryIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Data Factory.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The ID of the Principal (Client) in Azure Active Directory.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Data Factory.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Tenant ID associated with the VSTS account.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type of the Data Factory.
+	// The type of Managed Service Identity that is configured on this Data Factory.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -11724,11 +11611,12 @@ func (o GetFactoryIdentityOutput) ToGetFactoryIdentityOutputWithContext(ctx cont
 	return o
 }
 
+// The list of User Assigned Managed Identity IDs assigned to this Data Factory.
 func (o GetFactoryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFactoryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the Principal (Client) in Azure Active Directory.
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Data Factory.
 func (o GetFactoryIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFactoryIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -11738,7 +11626,7 @@ func (o GetFactoryIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFactoryIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type of the Data Factory.
+// The type of Managed Service Identity that is configured on this Data Factory.
 func (o GetFactoryIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11966,8 +11854,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetPostgresqlSchemaColumnArrayInput)(nil)).Elem(), DatasetPostgresqlSchemaColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSnowflakeSchemaColumnInput)(nil)).Elem(), DatasetSnowflakeSchemaColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSnowflakeSchemaColumnArrayInput)(nil)).Elem(), DatasetSnowflakeSchemaColumnArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSnowflakeStructureColumnInput)(nil)).Elem(), DatasetSnowflakeStructureColumnArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSnowflakeStructureColumnArrayInput)(nil)).Elem(), DatasetSnowflakeStructureColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSqlServerTableSchemaColumnInput)(nil)).Elem(), DatasetSqlServerTableSchemaColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSqlServerTableSchemaColumnArrayInput)(nil)).Elem(), DatasetSqlServerTableSchemaColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FactoryGithubConfigurationInput)(nil)).Elem(), FactoryGithubConfigurationArgs{})
@@ -12116,8 +12002,6 @@ func init() {
 	pulumi.RegisterOutputType(DatasetPostgresqlSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetSnowflakeSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetSnowflakeSchemaColumnArrayOutput{})
-	pulumi.RegisterOutputType(DatasetSnowflakeStructureColumnOutput{})
-	pulumi.RegisterOutputType(DatasetSnowflakeStructureColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetSqlServerTableSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetSqlServerTableSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(FactoryGithubConfigurationOutput{})

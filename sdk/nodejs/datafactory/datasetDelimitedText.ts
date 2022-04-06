@@ -20,13 +20,11 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLinkedServiceWeb = new azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     authenticationType: "Anonymous",
  *     url: "https://www.bing.com",
  * });
  * const exampleDatasetDelimitedText = new azure.datafactory.DatasetDelimitedText("exampleDatasetDelimitedText", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceWeb.name,
  *     httpServerLocation: {
@@ -113,12 +111,6 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * The description for the Data Factory Dataset.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -163,10 +155,6 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     public readonly quoteCharacter!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
      */
     public readonly rowDelimiter!: pulumi.Output<string | undefined>;
@@ -196,7 +184,6 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
             resourceInputs["compressionCodec"] = state ? state.compressionCodec : undefined;
             resourceInputs["compressionLevel"] = state ? state.compressionLevel : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["encoding"] = state ? state.encoding : undefined;
             resourceInputs["escapeCharacter"] = state ? state.escapeCharacter : undefined;
@@ -208,16 +195,15 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
             resourceInputs["nullValue"] = state ? state.nullValue : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["quoteCharacter"] = state ? state.quoteCharacter : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["rowDelimiter"] = state ? state.rowDelimiter : undefined;
             resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
         } else {
             const args = argsOrState as DatasetDelimitedTextArgs | undefined;
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
+            }
             if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
@@ -227,7 +213,6 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
             resourceInputs["compressionCodec"] = args ? args.compressionCodec : undefined;
             resourceInputs["compressionLevel"] = args ? args.compressionLevel : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["encoding"] = args ? args.encoding : undefined;
             resourceInputs["escapeCharacter"] = args ? args.escapeCharacter : undefined;
@@ -239,7 +224,6 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
             resourceInputs["nullValue"] = args ? args.nullValue : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["quoteCharacter"] = args ? args.quoteCharacter : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rowDelimiter"] = args ? args.rowDelimiter : undefined;
             resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
         }
@@ -285,12 +269,6 @@ export interface DatasetDelimitedTextState {
      */
     dataFactoryId?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
-    /**
      * The description for the Data Factory Dataset.
      */
     description?: pulumi.Input<string>;
@@ -334,10 +312,6 @@ export interface DatasetDelimitedTextState {
      * The quote character. Defaults to `"`.
      */
     quoteCharacter?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
      */
@@ -383,13 +357,7 @@ export interface DatasetDelimitedTextArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */
@@ -434,10 +402,6 @@ export interface DatasetDelimitedTextArgs {
      * The quote character. Defaults to `"`.
      */
     quoteCharacter?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
      */

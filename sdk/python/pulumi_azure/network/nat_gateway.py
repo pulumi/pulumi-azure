@@ -17,8 +17,6 @@ class NatGatewayArgs:
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 public_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 public_ip_prefix_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -28,11 +26,9 @@ class NatGatewayArgs:
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout which should be used in minutes. Defaults to `4`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_address_ids: A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_prefix_ids: / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if idle_timeout_in_minutes is not None:
@@ -41,16 +37,6 @@ class NatGatewayArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if public_ip_address_ids is not None:
-            warnings.warn("""Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_ip_address_ids is deprecated: Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.""")
-        if public_ip_address_ids is not None:
-            pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
-        if public_ip_prefix_ids is not None:
-            warnings.warn("""Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_ip_prefix_ids is deprecated: Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.""")
-        if public_ip_prefix_ids is not None:
-            pulumi.set(__self__, "public_ip_prefix_ids", public_ip_prefix_ids)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
@@ -107,30 +93,6 @@ class NatGatewayArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="publicIpAddressIds")
-    def public_ip_address_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        """
-        return pulumi.get(self, "public_ip_address_ids")
-
-    @public_ip_address_ids.setter
-    def public_ip_address_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "public_ip_address_ids", value)
-
-    @property
-    @pulumi.getter(name="publicIpPrefixIds")
-    def public_ip_prefix_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
-        """
-        return pulumi.get(self, "public_ip_prefix_ids")
-
-    @public_ip_prefix_ids.setter
-    def public_ip_prefix_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "public_ip_prefix_ids", value)
-
-    @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -158,7 +120,7 @@ class NatGatewayArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -173,8 +135,6 @@ class _NatGatewayState:
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 public_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 public_ip_prefix_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -185,13 +145,11 @@ class _NatGatewayState:
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout which should be used in minutes. Defaults to `4`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_address_ids: A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_prefix_ids: / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the NAT Gateway.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         """
         if idle_timeout_in_minutes is not None:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
@@ -199,16 +157,6 @@ class _NatGatewayState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if public_ip_address_ids is not None:
-            warnings.warn("""Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_ip_address_ids is deprecated: Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.""")
-        if public_ip_address_ids is not None:
-            pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
-        if public_ip_prefix_ids is not None:
-            warnings.warn("""Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_ip_prefix_ids is deprecated: Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.""")
-        if public_ip_prefix_ids is not None:
-            pulumi.set(__self__, "public_ip_prefix_ids", public_ip_prefix_ids)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if resource_guid is not None:
@@ -255,30 +203,6 @@ class _NatGatewayState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="publicIpAddressIds")
-    def public_ip_address_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        """
-        return pulumi.get(self, "public_ip_address_ids")
-
-    @public_ip_address_ids.setter
-    def public_ip_address_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "public_ip_address_ids", value)
-
-    @property
-    @pulumi.getter(name="publicIpPrefixIds")
-    def public_ip_prefix_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
-        """
-        return pulumi.get(self, "public_ip_prefix_ids")
-
-    @public_ip_prefix_ids.setter
-    def public_ip_prefix_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "public_ip_prefix_ids", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -332,7 +256,7 @@ class _NatGatewayState:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -349,8 +273,6 @@ class NatGateway(pulumi.CustomResource):
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 public_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 public_ip_prefix_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -358,34 +280,6 @@ class NatGateway(pulumi.CustomResource):
                  __props__=None):
         """
         Manages a Azure NAT Gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard",
-            zones=["1"])
-        example_public_ip_prefix = azure.network.PublicIpPrefix("examplePublicIpPrefix",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            prefix_length=30,
-            zones=["1"])
-        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            public_ip_address_ids=[example_public_ip.id],
-            public_ip_prefix_ids=[example_public_ip_prefix.id],
-            sku_name="Standard",
-            idle_timeout_in_minutes=10,
-            zones=["1"])
-        ```
 
         ## Import
 
@@ -400,12 +294,10 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout which should be used in minutes. Defaults to `4`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_address_ids: A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_prefix_ids: / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         """
         ...
     @overload
@@ -415,34 +307,6 @@ class NatGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure NAT Gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard",
-            zones=["1"])
-        example_public_ip_prefix = azure.network.PublicIpPrefix("examplePublicIpPrefix",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            prefix_length=30,
-            zones=["1"])
-        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            public_ip_address_ids=[example_public_ip.id],
-            public_ip_prefix_ids=[example_public_ip_prefix.id],
-            sku_name="Standard",
-            idle_timeout_in_minutes=10,
-            zones=["1"])
-        ```
 
         ## Import
 
@@ -470,8 +334,6 @@ class NatGateway(pulumi.CustomResource):
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 public_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 public_ip_prefix_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -491,14 +353,6 @@ class NatGateway(pulumi.CustomResource):
             __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if public_ip_address_ids is not None and not opts.urn:
-                warnings.warn("""Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
-                pulumi.log.warn("""public_ip_address_ids is deprecated: Inline Public IP Address ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.""")
-            __props__.__dict__["public_ip_address_ids"] = public_ip_address_ids
-            if public_ip_prefix_ids is not None and not opts.urn:
-                warnings.warn("""Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.""", DeprecationWarning)
-                pulumi.log.warn("""public_ip_prefix_ids is deprecated: Inline Public IP Prefix ID Associations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_prefix_association` resource. This field will be removed in the next major version of the Azure Provider.""")
-            __props__.__dict__["public_ip_prefix_ids"] = public_ip_prefix_ids
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -519,8 +373,6 @@ class NatGateway(pulumi.CustomResource):
             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            public_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            public_ip_prefix_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             resource_guid: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
@@ -536,13 +388,11 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout which should be used in minutes. Defaults to `4`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_address_ids: A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_prefix_ids: / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the NAT Gateway.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -551,8 +401,6 @@ class NatGateway(pulumi.CustomResource):
         __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
-        __props__.__dict__["public_ip_address_ids"] = public_ip_address_ids
-        __props__.__dict__["public_ip_prefix_ids"] = public_ip_prefix_ids
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["resource_guid"] = resource_guid
         __props__.__dict__["sku_name"] = sku_name
@@ -583,22 +431,6 @@ class NatGateway(pulumi.CustomResource):
         Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="publicIpAddressIds")
-    def public_ip_address_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        """
-        return pulumi.get(self, "public_ip_address_ids")
-
-    @property
-    @pulumi.getter(name="publicIpPrefixIds")
-    def public_ip_prefix_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        / **Deprecated in favour of `network.NatGatewayPublicIpPrefixAssociation`**) A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
-        """
-        return pulumi.get(self, "public_ip_prefix_ids")
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -636,7 +468,7 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         """
         return pulumi.get(self, "zones")
 

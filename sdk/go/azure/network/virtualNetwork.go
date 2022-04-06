@@ -26,8 +26,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -97,6 +97,8 @@ type VirtualNetwork struct {
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrOutput `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
+	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"flowTimeoutInMinutes"`
 	// The GUID of the virtual network.
@@ -111,8 +113,6 @@ type VirtualNetwork struct {
 	Subnets VirtualNetworkSubnetArrayOutput `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: This is deprecated in favor of `ddos_protection_plan`
-	VmProtectionEnabled pulumi.BoolPtrOutput `pulumi:"vmProtectionEnabled"`
 }
 
 // NewVirtualNetwork registers a new resource with the given unique name, arguments, and options.
@@ -158,6 +158,8 @@ type virtualNetworkState struct {
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
 	DnsServers []string `pulumi:"dnsServers"`
+	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
 	// The GUID of the virtual network.
@@ -172,8 +174,6 @@ type virtualNetworkState struct {
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: This is deprecated in favor of `ddos_protection_plan`
-	VmProtectionEnabled *bool `pulumi:"vmProtectionEnabled"`
 }
 
 type VirtualNetworkState struct {
@@ -185,6 +185,8 @@ type VirtualNetworkState struct {
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
 	// List of IP addresses of DNS servers
 	DnsServers pulumi.StringArrayInput
+	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+	EdgeZone pulumi.StringPtrInput
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes pulumi.IntPtrInput
 	// The GUID of the virtual network.
@@ -199,8 +201,6 @@ type VirtualNetworkState struct {
 	Subnets VirtualNetworkSubnetArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Deprecated: This is deprecated in favor of `ddos_protection_plan`
-	VmProtectionEnabled pulumi.BoolPtrInput
 }
 
 func (VirtualNetworkState) ElementType() reflect.Type {
@@ -216,6 +216,8 @@ type virtualNetworkArgs struct {
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
 	DnsServers []string `pulumi:"dnsServers"`
+	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -228,8 +230,6 @@ type virtualNetworkArgs struct {
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: This is deprecated in favor of `ddos_protection_plan`
-	VmProtectionEnabled *bool `pulumi:"vmProtectionEnabled"`
 }
 
 // The set of arguments for constructing a VirtualNetwork resource.
@@ -242,6 +242,8 @@ type VirtualNetworkArgs struct {
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
 	// List of IP addresses of DNS servers
 	DnsServers pulumi.StringArrayInput
+	// Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+	EdgeZone pulumi.StringPtrInput
 	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
 	FlowTimeoutInMinutes pulumi.IntPtrInput
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -254,8 +256,6 @@ type VirtualNetworkArgs struct {
 	Subnets VirtualNetworkSubnetArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Deprecated: This is deprecated in favor of `ddos_protection_plan`
-	VmProtectionEnabled pulumi.BoolPtrInput
 }
 
 func (VirtualNetworkArgs) ElementType() reflect.Type {

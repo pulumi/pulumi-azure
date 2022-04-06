@@ -21,10 +21,10 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/lb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/privatedns"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

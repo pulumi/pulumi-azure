@@ -145,12 +145,6 @@ namespace Pulumi.Azure.Hpc
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-        /// </summary>
-        [Output("rootSquashEnabled")]
-        public Output<bool> RootSquashEnabled { get; private set; } = null!;
-
-        /// <summary>
         /// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuName")]
@@ -281,12 +275,6 @@ namespace Pulumi.Azure.Hpc
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-        /// </summary>
-        [Input("rootSquashEnabled")]
-        public Input<bool>? RootSquashEnabled { get; set; }
-
-        /// <summary>
         /// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName", required: true)]
@@ -394,12 +382,6 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
-
-        /// <summary>
-        /// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-        /// </summary>
-        [Input("rootSquashEnabled")]
-        public Input<bool>? RootSquashEnabled { get; set; }
 
         /// <summary>
         /// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.

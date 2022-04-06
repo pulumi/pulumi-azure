@@ -13,12 +13,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class KafkaClusterRolesWorkerNodeGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("minInstanceCount")]
-        public Input<int>? MinInstanceCount { get; set; }
-
-        /// <summary>
         /// The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
         /// </summary>
         [Input("numberOfDisksPerNode", required: true)]

@@ -9,103 +9,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EndpointCustomHeaderArgs',
-    'EndpointSubnetArgs',
     'ProfileDnsConfigArgs',
     'ProfileMonitorConfigArgs',
     'ProfileMonitorConfigCustomHeaderArgs',
 ]
-
-@pulumi.input_type
-class EndpointCustomHeaderArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: The name of the custom header.
-        :param pulumi.Input[str] value: The value of custom header. Applicable for Http and Https protocol.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the custom header.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value of custom header. Applicable for Http and Https protocol.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class EndpointSubnetArgs:
-    def __init__(__self__, *,
-                 first: pulumi.Input[str],
-                 last: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] first: The First IP....
-        :param pulumi.Input[str] last: The Last IP...
-        :param pulumi.Input[int] scope: The Scope...
-        """
-        pulumi.set(__self__, "first", first)
-        if last is not None:
-            pulumi.set(__self__, "last", last)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-
-    @property
-    @pulumi.getter
-    def first(self) -> pulumi.Input[str]:
-        """
-        The First IP....
-        """
-        return pulumi.get(self, "first")
-
-    @first.setter
-    def first(self, value: pulumi.Input[str]):
-        pulumi.set(self, "first", value)
-
-    @property
-    @pulumi.getter
-    def last(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Last IP...
-        """
-        return pulumi.get(self, "last")
-
-    @last.setter
-    def last(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last", value)
-
-    @property
-    @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[int]]:
-        """
-        The Scope...
-        """
-        return pulumi.get(self, "scope")
-
-    @scope.setter
-    def scope(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "scope", value)
-
 
 @pulumi.input_type
 class ProfileDnsConfigArgs:

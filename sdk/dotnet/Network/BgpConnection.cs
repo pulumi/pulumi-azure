@@ -51,7 +51,10 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.5.1.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.5.1.0/24",
+    ///             },
     ///         });
     ///         var exampleVirtualHubIp = new Azure.Network.VirtualHubIp("exampleVirtualHubIp", new Azure.Network.VirtualHubIpArgs
     ///         {

@@ -23,8 +23,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/mysql"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -36,7 +36,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
+// 		exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
 // 			ResourceGroupName:     pulumi.Any(azurerm_resource_group.Test.Name),
 // 			Location:              pulumi.Any(azurerm_resource_group.Test.Location),
 // 			AdministratorLogin:    pulumi.String("adminTerraform"),
@@ -48,7 +48,7 @@ import (
 // 		}
 // 		_, err = mysql.NewFlexibleServerConfiguration(ctx, "exampleFlexibleServerConfiguration", &mysql.FlexibleServerConfigurationArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServerName:        pulumi.Any(azurerm_mysql_server.Example.Name),
+// 			ServerName:        exampleFlexibleServer.Name,
 // 			Value:             pulumi.String("600"),
 // 		})
 // 		if err != nil {

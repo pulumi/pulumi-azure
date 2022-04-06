@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Iot.Outputs
     public sealed class IoTHubCloudToDeviceFeedback
     {
         /// <summary>
-        /// The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+        /// The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
         /// </summary>
         public readonly string? LockDuration;
         /// <summary>
-        /// The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+        /// The maximum delivery count for the feedback queue. This value must be between `1` and `100`. Defaults to `10`.
         /// </summary>
         public readonly int? MaxDeliveryCount;
         /// <summary>
-        /// The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+        /// The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         /// </summary>
         public readonly string? TimeToLive;
 

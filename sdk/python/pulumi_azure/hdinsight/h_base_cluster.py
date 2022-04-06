@@ -607,7 +607,6 @@ class HBaseCluster(pulumi.CustomResource):
                 hbase="1.1",
             ),
             gateway=azure.hdinsight.HBaseClusterGatewayArgs(
-                enabled=True,
                 username="acctestusrgw",
                 password="Password123!",
             ),
@@ -695,7 +694,6 @@ class HBaseCluster(pulumi.CustomResource):
                 hbase="1.1",
             ),
             gateway=azure.hdinsight.HBaseClusterGatewayArgs(
-                enabled=True,
                 username="acctestusrgw",
                 password="Password123!",
             ),

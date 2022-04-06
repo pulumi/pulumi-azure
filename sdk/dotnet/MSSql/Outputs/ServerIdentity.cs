@@ -14,6 +14,10 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class ServerIdentity
     {
         /// <summary>
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
         /// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         /// </summary>
         public readonly string? PrincipalId;
@@ -22,28 +26,24 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
+        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primary_user_assigned_identity_id`.
-        /// </summary>
-        public readonly ImmutableArray<string> UserAssignedIdentityIds;
 
         [OutputConstructor]
         private ServerIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
-            string type,
-
-            ImmutableArray<string> userAssignedIdentityIds)
+            string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
-            UserAssignedIdentityIds = userAssignedIdentityIds;
         }
     }
 }

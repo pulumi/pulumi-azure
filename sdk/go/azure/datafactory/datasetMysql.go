@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,15 +40,13 @@ import (
 // 			return err
 // 		}
 // 		exampleLinkedServiceMysql, err := datafactory.NewLinkedServiceMysql(ctx, "exampleLinkedServiceMysql", &datafactory.LinkedServiceMysqlArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			ConnectionString:  pulumi.String("Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test"),
+// 			DataFactoryId:    exampleFactory.ID(),
+// 			ConnectionString: pulumi.String("Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = datafactory.NewDatasetMysql(ctx, "exampleDatasetMysql", &datafactory.DatasetMysqlArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			DataFactoryId:     exampleFactory.ID(),
 // 			LinkedServiceName: exampleLinkedServiceMysql.Name,
 // 		})
@@ -76,10 +74,6 @@ type DatasetMysql struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset MySQL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -90,8 +84,6 @@ type DatasetMysql struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset MySQL.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetMysqlSchemaColumnArrayOutput `pulumi:"schemaColumns"`
 	// The table name of the Data Factory Dataset MySQL.
@@ -105,11 +97,11 @@ func NewDatasetMysql(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
+	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DatasetMysql
 	err := ctx.RegisterResource("azure:datafactory/datasetMysql:DatasetMysql", name, args, &resource, opts...)
@@ -139,10 +131,6 @@ type datasetMysqlState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset MySQL.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -153,8 +141,6 @@ type datasetMysqlState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset MySQL.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetMysqlSchemaColumn `pulumi:"schemaColumns"`
 	// The table name of the Data Factory Dataset MySQL.
@@ -168,10 +154,6 @@ type DatasetMysqlState struct {
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset MySQL.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -182,8 +164,6 @@ type DatasetMysqlState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset MySQL.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetMysqlSchemaColumnArrayInput
 	// The table name of the Data Factory Dataset MySQL.
@@ -200,11 +180,7 @@ type datasetMysqlArgs struct {
 	// List of tags that can be used for describing the Data Factory Dataset MySQL.
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Dataset MySQL.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -215,8 +191,6 @@ type datasetMysqlArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset MySQL.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetMysqlSchemaColumn `pulumi:"schemaColumns"`
 	// The table name of the Data Factory Dataset MySQL.
@@ -230,11 +204,7 @@ type DatasetMysqlArgs struct {
 	// List of tags that can be used for describing the Data Factory Dataset MySQL.
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Dataset MySQL.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -245,8 +215,6 @@ type DatasetMysqlArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset MySQL.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetMysqlSchemaColumnArrayInput
 	// The table name of the Data Factory Dataset MySQL.

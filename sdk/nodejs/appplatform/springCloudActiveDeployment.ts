@@ -27,11 +27,13 @@ import * as utilities from "../utilities";
  * });
  * const exampleSpringCloudJavaDeployment = new azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", {
  *     springCloudAppId: exampleSpringCloudApp.id,
- *     cpu: 2,
- *     memoryInGb: 4,
  *     instanceCount: 2,
  *     jvmOptions: "-XX:+PrintGC",
  *     runtimeVersion: "Java_11",
+ *     quota: {
+ *         cpu: "2",
+ *         memory: "4Gi",
+ *     },
  *     environmentVariables: {
  *         Env: "Staging",
  *     },

@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,7 +40,6 @@ import (
 // 			return err
 // 		}
 // 		exampleLinkedServiceWeb, err := datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			DataFactoryId:      exampleFactory.ID(),
 // 			AuthenticationType: pulumi.String("Anonymous"),
 // 			Url:                pulumi.String("https://www.bing.com"),
@@ -49,7 +48,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewDatasetHttp(ctx, "exampleDatasetHttp", &datafactory.DatasetHttpArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			DataFactoryId:     exampleFactory.ID(),
 // 			LinkedServiceName: exampleLinkedServiceWeb.Name,
 // 			RelativeUrl:       pulumi.String("http://www.bing.com"),
@@ -80,10 +78,6 @@ type DatasetHttp struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -100,8 +94,6 @@ type DatasetHttp struct {
 	RequestBody pulumi.StringPtrOutput `pulumi:"requestBody"`
 	// The HTTP method for the HTTP request. (e.g. GET, POST)
 	RequestMethod pulumi.StringPtrOutput `pulumi:"requestMethod"`
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetHttpSchemaColumnArrayOutput `pulumi:"schemaColumns"`
 }
@@ -113,11 +105,11 @@ func NewDatasetHttp(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
+	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DatasetHttp
 	err := ctx.RegisterResource("azure:datafactory/datasetHttp:DatasetHttp", name, args, &resource, opts...)
@@ -147,10 +139,6 @@ type datasetHttpState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -167,8 +155,6 @@ type datasetHttpState struct {
 	RequestBody *string `pulumi:"requestBody"`
 	// The HTTP method for the HTTP request. (e.g. GET, POST)
 	RequestMethod *string `pulumi:"requestMethod"`
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetHttpSchemaColumn `pulumi:"schemaColumns"`
 }
@@ -180,10 +166,6 @@ type DatasetHttpState struct {
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -200,8 +182,6 @@ type DatasetHttpState struct {
 	RequestBody pulumi.StringPtrInput
 	// The HTTP method for the HTTP request. (e.g. GET, POST)
 	RequestMethod pulumi.StringPtrInput
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetHttpSchemaColumnArrayInput
 }
@@ -216,11 +196,7 @@ type datasetHttpArgs struct {
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -237,8 +213,6 @@ type datasetHttpArgs struct {
 	RequestBody *string `pulumi:"requestBody"`
 	// The HTTP method for the HTTP request. (e.g. GET, POST)
 	RequestMethod *string `pulumi:"requestMethod"`
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetHttpSchemaColumn `pulumi:"schemaColumns"`
 }
@@ -250,11 +224,7 @@ type DatasetHttpArgs struct {
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -271,8 +241,6 @@ type DatasetHttpArgs struct {
 	RequestBody pulumi.StringPtrInput
 	// The HTTP method for the HTTP request. (e.g. GET, POST)
 	RequestMethod pulumi.StringPtrInput
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetHttpSchemaColumnArrayInput
 }

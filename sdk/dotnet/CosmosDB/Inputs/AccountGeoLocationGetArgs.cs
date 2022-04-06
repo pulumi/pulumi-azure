@@ -31,12 +31,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        /// <summary>
         /// Should zone redundancy be enabled for this region? Defaults to `false`.
         /// </summary>
         [Input("zoneRedundant")]

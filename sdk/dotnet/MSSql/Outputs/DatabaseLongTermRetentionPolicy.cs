@@ -18,7 +18,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string? MonthlyRetention;
         /// <summary>
-        /// The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+        /// The week of year to take the yearly backup. Value has to be between `1` and `52`.
         /// </summary>
         public readonly int? WeekOfYear;
         /// <summary>

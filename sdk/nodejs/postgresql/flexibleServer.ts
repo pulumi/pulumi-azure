@@ -104,12 +104,6 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly backupRetentionDays!: pulumi.Output<number>;
     /**
-     * The status showing whether the data encryption is enabled with a customer-managed key.
-     *
-     * @deprecated This attribute has been removed from the API and will be removed in version 3.0 of the provider.
-     */
-    public /*out*/ readonly cmkEnabled!: pulumi.Output<string>;
-    /**
      * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
@@ -179,7 +173,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly version!: pulumi.Output<string>;
     /**
-     * The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+     * Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
      */
     public readonly zone!: pulumi.Output<string | undefined>;
 
@@ -199,7 +193,6 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             resourceInputs["administratorPassword"] = state ? state.administratorPassword : undefined;
             resourceInputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
-            resourceInputs["cmkEnabled"] = state ? state.cmkEnabled : undefined;
             resourceInputs["createMode"] = state ? state.createMode : undefined;
             resourceInputs["delegatedSubnetId"] = state ? state.delegatedSubnetId : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
@@ -242,7 +235,6 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
-            resourceInputs["cmkEnabled"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["publicNetworkAccessEnabled"] = undefined /*out*/;
         }
@@ -267,12 +259,6 @@ export interface FlexibleServerState {
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      */
     backupRetentionDays?: pulumi.Input<number>;
-    /**
-     * The status showing whether the data encryption is enabled with a customer-managed key.
-     *
-     * @deprecated This attribute has been removed from the API and will be removed in version 3.0 of the provider.
-     */
-    cmkEnabled?: pulumi.Input<string>;
     /**
      * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
@@ -343,7 +329,7 @@ export interface FlexibleServerState {
      */
     version?: pulumi.Input<string>;
     /**
-     * The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+     * Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
      */
     zone?: pulumi.Input<string>;
 }
@@ -426,7 +412,7 @@ export interface FlexibleServerArgs {
      */
     version?: pulumi.Input<string>;
     /**
-     * The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
+     * Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
      */
     zone?: pulumi.Input<string>;
 }

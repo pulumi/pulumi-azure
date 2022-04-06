@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
-    /// Manages an App Service Plan component.
-    /// 
     /// ## Example Usage
     /// ### Dedicated)
     /// 

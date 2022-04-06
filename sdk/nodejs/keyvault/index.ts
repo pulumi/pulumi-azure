@@ -13,6 +13,7 @@ export * from "./getAccessPolicy";
 export * from "./getCertificate";
 export * from "./getCertificateData";
 export * from "./getCertificateIssuer";
+export * from "./getEncryptedValue";
 export * from "./getKey";
 export * from "./getKeyVault";
 export * from "./getManagedHardwareSecurityModule";

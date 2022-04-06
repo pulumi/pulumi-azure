@@ -15,7 +15,7 @@ type AccountIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
+	// Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -35,7 +35,7 @@ type AccountIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
+	// Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -126,7 +126,7 @@ func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
+// Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
 func (o AccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -175,7 +175,7 @@ func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`. Changing this forces a new resource to be created.
+// Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
 func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
 		if v == nil {
@@ -536,11 +536,11 @@ func (o ShareSnapshotSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 type GetAccountIdentity struct {
-	// The ID of the Principal (Client) in Azure Active Directory.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The ID of the Azure Active Directory Tenant.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId string `pulumi:"tenantId"`
-	// The identity type of the Data Share Account.
+	// The identity type of this Managed Service Identity.
 	Type string `pulumi:"type"`
 }
 
@@ -556,11 +556,11 @@ type GetAccountIdentityInput interface {
 }
 
 type GetAccountIdentityArgs struct {
-	// The ID of the Principal (Client) in Azure Active Directory.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The ID of the Azure Active Directory Tenant.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type of the Data Share Account.
+	// The identity type of this Managed Service Identity.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -615,17 +615,17 @@ func (o GetAccountIdentityOutput) ToGetAccountIdentityOutputWithContext(ctx cont
 	return o
 }
 
-// The ID of the Principal (Client) in Azure Active Directory.
+// The Principal ID associated with this Managed Service Identity.
 func (o GetAccountIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The ID of the Azure Active Directory Tenant.
+// The Tenant ID associated with this Managed Service Identity.
 func (o GetAccountIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type of the Data Share Account.
+// The identity type of this Managed Service Identity.
 func (o GetAccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -53,12 +53,6 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly metadataHost!: pulumi.Output<string | undefined>;
     /**
-     * Deprecated - replaced by `metadata_host`.
-     *
-     * @deprecated use `metadata_host` instead
-     */
-    public readonly metadataUrl!: pulumi.Output<string | undefined>;
-    /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
      * automatically.
      */
@@ -97,15 +91,12 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["environment"] = (args ? args.environment : undefined) ?? (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
             resourceInputs["features"] = pulumi.output(args ? args.features : undefined).apply(JSON.stringify);
             resourceInputs["metadataHost"] = (args ? args.metadataHost : undefined) ?? utilities.getEnv("ARM_METADATA_HOSTNAME");
-            resourceInputs["metadataUrl"] = (args ? args.metadataUrl : undefined) ?? utilities.getEnv("ARM_METADATA_URL");
             resourceInputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
             resourceInputs["partnerId"] = args ? args.partnerId : undefined;
-            resourceInputs["skipCredentialsValidation"] = pulumi.output(args ? args.skipCredentialsValidation : undefined).apply(JSON.stringify);
             resourceInputs["skipProviderRegistration"] = pulumi.output((args ? args.skipProviderRegistration : undefined) ?? (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false)).apply(JSON.stringify);
             resourceInputs["storageUseAzuread"] = pulumi.output((args ? args.storageUseAzuread : undefined) ?? (utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false)).apply(JSON.stringify);
             resourceInputs["subscriptionId"] = (args ? args.subscriptionId : undefined) ?? (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["useMsal"] = pulumi.output(args ? args.useMsal : undefined).apply(JSON.stringify);
             resourceInputs["useMsi"] = pulumi.output(args ? args.useMsi : undefined).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -154,12 +145,6 @@ export interface ProviderArgs {
      */
     metadataHost?: pulumi.Input<string>;
     /**
-     * Deprecated - replaced by `metadata_host`.
-     *
-     * @deprecated use `metadata_host` instead
-     */
-    metadataUrl?: pulumi.Input<string>;
-    /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
      * automatically.
      */
@@ -168,12 +153,6 @@ export interface ProviderArgs {
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */
     partnerId?: pulumi.Input<string>;
-    /**
-     * [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
-     *
-     * @deprecated This field is deprecated and will be removed in version 3.0 of the Azure Provider
-     */
-    skipCredentialsValidation?: pulumi.Input<boolean>;
     /**
      * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
      * registered?
@@ -191,10 +170,6 @@ export interface ProviderArgs {
      * The Tenant ID which should be used.
      */
     tenantId?: pulumi.Input<string>;
-    /**
-     * Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
-     */
-    useMsal?: pulumi.Input<boolean>;
     /**
      * Allowed Managed Service Identity be used for Authentication.
      */

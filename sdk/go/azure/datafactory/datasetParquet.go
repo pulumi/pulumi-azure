@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -40,7 +40,6 @@ import (
 // 			return err
 // 		}
 // 		exampleLinkedServiceWeb, err := datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			DataFactoryId:      exampleFactory.ID(),
 // 			AuthenticationType: pulumi.String("Anonymous"),
 // 			Url:                pulumi.String("https://www.bing.com"),
@@ -49,7 +48,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewDatasetParquet(ctx, "exampleDatasetParquet", &datafactory.DatasetParquetArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			DataFactoryId:     exampleFactory.ID(),
 // 			LinkedServiceName: exampleLinkedServiceWeb.Name,
 // 			HttpServerLocation: &datafactory.DatasetParquetHttpServerLocationArgs{
@@ -85,11 +83,8 @@ type DatasetParquet struct {
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
 	CompressionCodec pulumi.StringPtrOutput `pulumi:"compressionCodec"`
 	CompressionLevel pulumi.StringPtrOutput `pulumi:"compressionLevel"`
-	DataFactoryId    pulumi.StringOutput    `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -102,8 +97,6 @@ type DatasetParquet struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetParquetSchemaColumnArrayOutput `pulumi:"schemaColumns"`
 }
@@ -115,11 +108,11 @@ func NewDatasetParquet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
+	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DatasetParquet
 	err := ctx.RegisterResource("azure:datafactory/datasetParquet:DatasetParquet", name, args, &resource, opts...)
@@ -152,11 +145,8 @@ type datasetParquetState struct {
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
 	CompressionCodec *string `pulumi:"compressionCodec"`
 	CompressionLevel *string `pulumi:"compressionLevel"`
-	DataFactoryId    *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -169,8 +159,6 @@ type datasetParquetState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetParquetSchemaColumn `pulumi:"schemaColumns"`
 }
@@ -185,11 +173,8 @@ type DatasetParquetState struct {
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
 	CompressionCodec pulumi.StringPtrInput
 	CompressionLevel pulumi.StringPtrInput
-	DataFactoryId    pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	// The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -202,8 +187,6 @@ type DatasetParquetState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetParquetSchemaColumnArrayInput
 }
@@ -222,11 +205,8 @@ type datasetParquetArgs struct {
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
 	CompressionCodec *string `pulumi:"compressionCodec"`
 	CompressionLevel *string `pulumi:"compressionLevel"`
-	DataFactoryId    *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -239,8 +219,6 @@ type datasetParquetArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
 	SchemaColumns []DatasetParquetSchemaColumn `pulumi:"schemaColumns"`
 }
@@ -256,11 +234,8 @@ type DatasetParquetArgs struct {
 	// The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
 	CompressionCodec pulumi.StringPtrInput
 	CompressionLevel pulumi.StringPtrInput
-	DataFactoryId    pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	// The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -273,8 +248,6 @@ type DatasetParquetArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// A `schemaColumn` block as defined below.
 	SchemaColumns DatasetParquetSchemaColumnArrayInput
 }

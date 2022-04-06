@@ -20,12 +20,12 @@ class VirtualNetworkArgs:
                  bgp_community: Optional[pulumi.Input[str]] = None,
                  ddos_protection_plan: Optional[pulumi.Input['VirtualNetworkDdosProtectionPlanArgs']] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm_protection_enabled: Optional[pulumi.Input[bool]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
@@ -33,6 +33,7 @@ class VirtualNetworkArgs:
         :param pulumi.Input[str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
         :param pulumi.Input['VirtualNetworkDdosProtectionPlanArgs'] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
@@ -47,6 +48,8 @@ class VirtualNetworkArgs:
             pulumi.set(__self__, "ddos_protection_plan", ddos_protection_plan)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if flow_timeout_in_minutes is not None:
             pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
         if location is not None:
@@ -57,11 +60,6 @@ class VirtualNetworkArgs:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if vm_protection_enabled is not None:
-            warnings.warn("""This is deprecated in favor of `ddos_protection_plan`""", DeprecationWarning)
-            pulumi.log.warn("""vm_protection_enabled is deprecated: This is deprecated in favor of `ddos_protection_plan`""")
-        if vm_protection_enabled is not None:
-            pulumi.set(__self__, "vm_protection_enabled", vm_protection_enabled)
 
     @property
     @pulumi.getter(name="addressSpaces")
@@ -124,6 +122,18 @@ class VirtualNetworkArgs:
         pulumi.set(self, "dns_servers", value)
 
     @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
+
+    @property
     @pulumi.getter(name="flowTimeoutInMinutes")
     def flow_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
@@ -183,15 +193,6 @@ class VirtualNetworkArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="vmProtectionEnabled")
-    def vm_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "vm_protection_enabled")
-
-    @vm_protection_enabled.setter
-    def vm_protection_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "vm_protection_enabled", value)
-
 
 @pulumi.input_type
 class _VirtualNetworkState:
@@ -200,20 +201,21 @@ class _VirtualNetworkState:
                  bgp_community: Optional[pulumi.Input[str]] = None,
                  ddos_protection_plan: Optional[pulumi.Input['VirtualNetworkDdosProtectionPlanArgs']] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm_protection_enabled: Optional[pulumi.Input[bool]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualNetwork resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
         :param pulumi.Input[str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
         :param pulumi.Input['VirtualNetworkDdosProtectionPlanArgs'] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] guid: The GUID of the virtual network.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -230,6 +232,8 @@ class _VirtualNetworkState:
             pulumi.set(__self__, "ddos_protection_plan", ddos_protection_plan)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if flow_timeout_in_minutes is not None:
             pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
         if guid is not None:
@@ -244,11 +248,6 @@ class _VirtualNetworkState:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if vm_protection_enabled is not None:
-            warnings.warn("""This is deprecated in favor of `ddos_protection_plan`""", DeprecationWarning)
-            pulumi.log.warn("""vm_protection_enabled is deprecated: This is deprecated in favor of `ddos_protection_plan`""")
-        if vm_protection_enabled is not None:
-            pulumi.set(__self__, "vm_protection_enabled", vm_protection_enabled)
 
     @property
     @pulumi.getter(name="addressSpaces")
@@ -297,6 +296,18 @@ class _VirtualNetworkState:
     @dns_servers.setter
     def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_servers", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="flowTimeoutInMinutes")
@@ -382,15 +393,6 @@ class _VirtualNetworkState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="vmProtectionEnabled")
-    def vm_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "vm_protection_enabled")
-
-    @vm_protection_enabled.setter
-    def vm_protection_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "vm_protection_enabled", value)
-
 
 class VirtualNetwork(pulumi.CustomResource):
     @overload
@@ -401,13 +403,13 @@ class VirtualNetwork(pulumi.CustomResource):
                  bgp_community: Optional[pulumi.Input[str]] = None,
                  ddos_protection_plan: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a virtual network including any configured subnets. Each subnet can
@@ -467,6 +469,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
@@ -551,13 +554,13 @@ class VirtualNetwork(pulumi.CustomResource):
                  bgp_community: Optional[pulumi.Input[str]] = None,
                  ddos_protection_plan: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -576,6 +579,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["bgp_community"] = bgp_community
             __props__.__dict__["ddos_protection_plan"] = ddos_protection_plan
             __props__.__dict__["dns_servers"] = dns_servers
+            __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["flow_timeout_in_minutes"] = flow_timeout_in_minutes
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -584,10 +588,6 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
-            if vm_protection_enabled is not None and not opts.urn:
-                warnings.warn("""This is deprecated in favor of `ddos_protection_plan`""", DeprecationWarning)
-                pulumi.log.warn("""vm_protection_enabled is deprecated: This is deprecated in favor of `ddos_protection_plan`""")
-            __props__.__dict__["vm_protection_enabled"] = vm_protection_enabled
             __props__.__dict__["guid"] = None
         super(VirtualNetwork, __self__).__init__(
             'azure:network/virtualNetwork:VirtualNetwork',
@@ -603,14 +603,14 @@ class VirtualNetwork(pulumi.CustomResource):
             bgp_community: Optional[pulumi.Input[str]] = None,
             ddos_protection_plan: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            edge_zone: Optional[pulumi.Input[str]] = None,
             flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
             guid: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            vm_protection_enabled: Optional[pulumi.Input[bool]] = None) -> 'VirtualNetwork':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'VirtualNetwork':
         """
         Get an existing VirtualNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -622,6 +622,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] guid: The GUID of the virtual network.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -638,6 +639,7 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__.__dict__["bgp_community"] = bgp_community
         __props__.__dict__["ddos_protection_plan"] = ddos_protection_plan
         __props__.__dict__["dns_servers"] = dns_servers
+        __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["flow_timeout_in_minutes"] = flow_timeout_in_minutes
         __props__.__dict__["guid"] = guid
         __props__.__dict__["location"] = location
@@ -645,7 +647,6 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["subnets"] = subnets
         __props__.__dict__["tags"] = tags
-        __props__.__dict__["vm_protection_enabled"] = vm_protection_enabled
         return VirtualNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -679,6 +680,14 @@ class VirtualNetwork(pulumi.CustomResource):
         List of IP addresses of DNS servers
         """
         return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
+        """
+        return pulumi.get(self, "edge_zone")
 
     @property
     @pulumi.getter(name="flowTimeoutInMinutes")
@@ -735,9 +744,4 @@ class VirtualNetwork(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="vmProtectionEnabled")
-    def vm_protection_enabled(self) -> pulumi.Output[Optional[bool]]:
-        return pulumi.get(self, "vm_protection_enabled")
 

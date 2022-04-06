@@ -2018,8 +2018,8 @@ type WorkspaceIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The tenant id of the Azure AD Administrator of this Synapse Workspace.
 	TenantId *string `pulumi:"tenantId"`
-	// The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
-	Type *string `pulumi:"type"`
+	// Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
+	Type string `pulumi:"type"`
 }
 
 // WorkspaceIdentityInput is an input type that accepts WorkspaceIdentityArgs and WorkspaceIdentityOutput values.
@@ -2038,8 +2038,8 @@ type WorkspaceIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The tenant id of the Azure AD Administrator of this Synapse Workspace.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (WorkspaceIdentityArgs) ElementType() reflect.Type {
@@ -2054,29 +2054,45 @@ func (i WorkspaceIdentityArgs) ToWorkspaceIdentityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdentityOutput)
 }
 
-// WorkspaceIdentityArrayInput is an input type that accepts WorkspaceIdentityArray and WorkspaceIdentityArrayOutput values.
-// You can construct a concrete instance of `WorkspaceIdentityArrayInput` via:
+func (i WorkspaceIdentityArgs) ToWorkspaceIdentityPtrOutput() WorkspaceIdentityPtrOutput {
+	return i.ToWorkspaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceIdentityArgs) ToWorkspaceIdentityPtrOutputWithContext(ctx context.Context) WorkspaceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdentityOutput).ToWorkspaceIdentityPtrOutputWithContext(ctx)
+}
+
+// WorkspaceIdentityPtrInput is an input type that accepts WorkspaceIdentityArgs, WorkspaceIdentityPtr and WorkspaceIdentityPtrOutput values.
+// You can construct a concrete instance of `WorkspaceIdentityPtrInput` via:
 //
-//          WorkspaceIdentityArray{ WorkspaceIdentityArgs{...} }
-type WorkspaceIdentityArrayInput interface {
+//          WorkspaceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceIdentityPtrInput interface {
 	pulumi.Input
 
-	ToWorkspaceIdentityArrayOutput() WorkspaceIdentityArrayOutput
-	ToWorkspaceIdentityArrayOutputWithContext(context.Context) WorkspaceIdentityArrayOutput
+	ToWorkspaceIdentityPtrOutput() WorkspaceIdentityPtrOutput
+	ToWorkspaceIdentityPtrOutputWithContext(context.Context) WorkspaceIdentityPtrOutput
 }
 
-type WorkspaceIdentityArray []WorkspaceIdentityInput
+type workspaceIdentityPtrType WorkspaceIdentityArgs
 
-func (WorkspaceIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkspaceIdentity)(nil)).Elem()
+func WorkspaceIdentityPtr(v *WorkspaceIdentityArgs) WorkspaceIdentityPtrInput {
+	return (*workspaceIdentityPtrType)(v)
 }
 
-func (i WorkspaceIdentityArray) ToWorkspaceIdentityArrayOutput() WorkspaceIdentityArrayOutput {
-	return i.ToWorkspaceIdentityArrayOutputWithContext(context.Background())
+func (*workspaceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceIdentity)(nil)).Elem()
 }
 
-func (i WorkspaceIdentityArray) ToWorkspaceIdentityArrayOutputWithContext(ctx context.Context) WorkspaceIdentityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdentityArrayOutput)
+func (i *workspaceIdentityPtrType) ToWorkspaceIdentityPtrOutput() WorkspaceIdentityPtrOutput {
+	return i.ToWorkspaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceIdentityPtrType) ToWorkspaceIdentityPtrOutputWithContext(ctx context.Context) WorkspaceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdentityPtrOutput)
 }
 
 type WorkspaceIdentityOutput struct{ *pulumi.OutputState }
@@ -2093,6 +2109,16 @@ func (o WorkspaceIdentityOutput) ToWorkspaceIdentityOutputWithContext(ctx contex
 	return o
 }
 
+func (o WorkspaceIdentityOutput) ToWorkspaceIdentityPtrOutput() WorkspaceIdentityPtrOutput {
+	return o.ToWorkspaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceIdentityOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx context.Context) WorkspaceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceIdentity) *WorkspaceIdentity {
+		return &v
+	}).(WorkspaceIdentityPtrOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
 func (o WorkspaceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -2103,29 +2129,63 @@ func (o WorkspaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
-func (o WorkspaceIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+// Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
+func (o WorkspaceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type WorkspaceIdentityArrayOutput struct{ *pulumi.OutputState }
+type WorkspaceIdentityPtrOutput struct{ *pulumi.OutputState }
 
-func (WorkspaceIdentityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkspaceIdentity)(nil)).Elem()
+func (WorkspaceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceIdentity)(nil)).Elem()
 }
 
-func (o WorkspaceIdentityArrayOutput) ToWorkspaceIdentityArrayOutput() WorkspaceIdentityArrayOutput {
+func (o WorkspaceIdentityPtrOutput) ToWorkspaceIdentityPtrOutput() WorkspaceIdentityPtrOutput {
 	return o
 }
 
-func (o WorkspaceIdentityArrayOutput) ToWorkspaceIdentityArrayOutputWithContext(ctx context.Context) WorkspaceIdentityArrayOutput {
+func (o WorkspaceIdentityPtrOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx context.Context) WorkspaceIdentityPtrOutput {
 	return o
 }
 
-func (o WorkspaceIdentityArrayOutput) Index(i pulumi.IntInput) WorkspaceIdentityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceIdentity {
-		return vs[0].([]WorkspaceIdentity)[vs[1].(int)]
+func (o WorkspaceIdentityPtrOutput) Elem() WorkspaceIdentityOutput {
+	return o.ApplyT(func(v *WorkspaceIdentity) WorkspaceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceIdentity
+		return ret
 	}).(WorkspaceIdentityOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+func (o WorkspaceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant id of the Azure AD Administrator of this Synapse Workspace.
+func (o WorkspaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Synapse Workspace. The only possible value is `SystemAssigned`.
+func (o WorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type WorkspaceSqlAadAdminType struct {
@@ -2619,7 +2679,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceGithubRepoInput)(nil)).Elem(), WorkspaceGithubRepoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceGithubRepoPtrInput)(nil)).Elem(), WorkspaceGithubRepoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityInput)(nil)).Elem(), WorkspaceIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityArrayInput)(nil)).Elem(), WorkspaceIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityPtrInput)(nil)).Elem(), WorkspaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSqlAadAdminTypeInput)(nil)).Elem(), WorkspaceSqlAadAdminTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSqlAadAdminTypePtrInput)(nil)).Elem(), WorkspaceSqlAadAdminTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceVulnerabilityAssessmentRecurringScansInput)(nil)).Elem(), WorkspaceVulnerabilityAssessmentRecurringScansArgs{})
@@ -2651,7 +2711,7 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceGithubRepoOutput{})
 	pulumi.RegisterOutputType(WorkspaceGithubRepoPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})
-	pulumi.RegisterOutputType(WorkspaceIdentityArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceSqlAadAdminTypeOutput{})
 	pulumi.RegisterOutputType(WorkspaceSqlAadAdminTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceVulnerabilityAssessmentRecurringScansOutput{})

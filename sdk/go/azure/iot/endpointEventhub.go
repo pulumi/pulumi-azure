@@ -21,9 +21,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/iot"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -112,10 +112,6 @@ type EndpointEventhub struct {
 	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
-	// The IoTHub name for the endpoint.
-	//
-	// Deprecated: Deprecated in favour of `iothub_id`
-	IothubName pulumi.StringOutput `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
@@ -129,6 +125,9 @@ func NewEndpointEventhub(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.IothubId == nil {
+		return nil, errors.New("invalid value for required argument 'IothubId'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -166,10 +165,6 @@ type endpointEventhubState struct {
 	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId *string `pulumi:"iothubId"`
-	// The IoTHub name for the endpoint.
-	//
-	// Deprecated: Deprecated in favour of `iothub_id`
-	IothubName *string `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
@@ -189,10 +184,6 @@ type EndpointEventhubState struct {
 	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringPtrInput
-	// The IoTHub name for the endpoint.
-	//
-	// Deprecated: Deprecated in favour of `iothub_id`
-	IothubName pulumi.StringPtrInput
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
@@ -215,11 +206,7 @@ type endpointEventhubArgs struct {
 	// ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
 	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
-	IothubId *string `pulumi:"iothubId"`
-	// The IoTHub name for the endpoint.
-	//
-	// Deprecated: Deprecated in favour of `iothub_id`
-	IothubName *string `pulumi:"iothubName"`
+	IothubId string `pulumi:"iothubId"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
@@ -239,11 +226,7 @@ type EndpointEventhubArgs struct {
 	// ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
 	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint.
-	IothubId pulumi.StringPtrInput
-	// The IoTHub name for the endpoint.
-	//
-	// Deprecated: Deprecated in favour of `iothub_id`
-	IothubName pulumi.StringPtrInput
+	IothubId pulumi.StringInput
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.

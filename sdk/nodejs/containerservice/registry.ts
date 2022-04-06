@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
- *     principalId: exampleKubernetesCluster.kubeletIdentities.apply(kubeletIdentities => kubeletIdentities[0].objectId),
+ *     principalId: exampleKubernetesCluster.kubeletIdentity.apply(kubeletIdentity => kubeletIdentity.objectId),
  *     roleDefinitionName: "AcrPull",
  *     scope: exampleRegistry.id,
  *     skipServicePrincipalAadCheck: true,
@@ -164,15 +164,9 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly exportPolicyEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of Azure locations where the container registry should be geo-replicated.
-     *
-     * @deprecated Deprecated in favour of `georeplications`
-     */
-    public readonly georeplicationLocations!: pulumi.Output<string[]>;
-    /**
      * A `georeplications` block as documented below.
      */
-    public readonly georeplications!: pulumi.Output<outputs.containerservice.RegistryGeoreplication[]>;
+    public readonly georeplications!: pulumi.Output<outputs.containerservice.RegistryGeoreplication[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
@@ -214,13 +208,9 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly retentionPolicy!: pulumi.Output<outputs.containerservice.RegistryRetentionPolicy>;
     /**
-     * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+     * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
-    /**
-     * @deprecated this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
-     */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    public readonly sku!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -254,7 +244,6 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["dataEndpointEnabled"] = state ? state.dataEndpointEnabled : undefined;
             resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["exportPolicyEnabled"] = state ? state.exportPolicyEnabled : undefined;
-            resourceInputs["georeplicationLocations"] = state ? state.georeplicationLocations : undefined;
             resourceInputs["georeplications"] = state ? state.georeplications : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -267,7 +256,6 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["trustPolicy"] = state ? state.trustPolicy : undefined;
             resourceInputs["zoneRedundancyEnabled"] = state ? state.zoneRedundancyEnabled : undefined;
@@ -276,12 +264,14 @@ export class Registry extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.sku === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sku'");
+            }
             resourceInputs["adminEnabled"] = args ? args.adminEnabled : undefined;
             resourceInputs["anonymousPullEnabled"] = args ? args.anonymousPullEnabled : undefined;
             resourceInputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["exportPolicyEnabled"] = args ? args.exportPolicyEnabled : undefined;
-            resourceInputs["georeplicationLocations"] = args ? args.georeplicationLocations : undefined;
             resourceInputs["georeplications"] = args ? args.georeplications : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -293,7 +283,6 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trustPolicy"] = args ? args.trustPolicy : undefined;
             resourceInputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
@@ -339,12 +328,6 @@ export interface RegistryState {
      */
     exportPolicyEnabled?: pulumi.Input<boolean>;
     /**
-     * A list of Azure locations where the container registry should be geo-replicated.
-     *
-     * @deprecated Deprecated in favour of `georeplications`
-     */
-    georeplicationLocations?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * A `georeplications` block as documented below.
      */
     georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
@@ -389,13 +372,9 @@ export interface RegistryState {
      */
     retentionPolicy?: pulumi.Input<inputs.containerservice.RegistryRetentionPolicy>;
     /**
-     * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+     * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
      */
     sku?: pulumi.Input<string>;
-    /**
-     * @deprecated this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
-     */
-    storageAccountId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -434,12 +413,6 @@ export interface RegistryArgs {
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      */
     exportPolicyEnabled?: pulumi.Input<boolean>;
-    /**
-     * A list of Azure locations where the container registry should be geo-replicated.
-     *
-     * @deprecated Deprecated in favour of `georeplications`
-     */
-    georeplicationLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `georeplications` block as documented below.
      */
@@ -481,13 +454,9 @@ export interface RegistryArgs {
      */
     retentionPolicy?: pulumi.Input<inputs.containerservice.RegistryRetentionPolicy>;
     /**
-     * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+     * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`.
      */
-    sku?: pulumi.Input<string>;
-    /**
-     * @deprecated this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
-     */
-    storageAccountId?: pulumi.Input<string>;
+    sku: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

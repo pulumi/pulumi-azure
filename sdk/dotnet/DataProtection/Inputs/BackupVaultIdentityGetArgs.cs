@@ -25,7 +25,7 @@ namespace Pulumi.Azure.DataProtection.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

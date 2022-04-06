@@ -13,54 +13,6 @@ import (
 
 // Manages a Trigger Schedule inside a Azure Data Factory.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testPipeline, err := datafactory.NewPipeline(ctx, "testPipeline", &datafactory.PipelineArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
-// 			DataFactoryId:     pulumi.Any(azurerm_data_factory.Test.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewTriggerSchedule(ctx, "testTriggerSchedule", &datafactory.TriggerScheduleArgs{
-// 			DataFactoryId:     pulumi.Any(azurerm_data_factory.Test.Id),
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
-// 			PipelineName:      testPipeline.Name,
-// 			Interval:          pulumi.Int(5),
-// 			Frequency:         pulumi.String("Day"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // Data Factory Schedule Trigger can be imported using the `resource id`, e.g.
@@ -72,15 +24,11 @@ type TriggerSchedule struct {
 	pulumi.CustomResourceState
 
 	// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
-	Activated pulumi.BoolOutput `pulumi:"activated"`
+	Activated pulumi.BoolPtrOutput `pulumi:"activated"`
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The Schedule Trigger's description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The time the Schedule Trigger should end. The time will be represented in UTC.
@@ -95,8 +43,6 @@ type TriggerSchedule struct {
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters pulumi.StringMapOutput `pulumi:"pipelineParameters"`
-	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule TriggerScheduleSchedulePtrOutput `pulumi:"schedule"`
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
@@ -110,11 +56,11 @@ func NewTriggerSchedule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataFactoryId == nil {
+		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
+	}
 	if args.PipelineName == nil {
 		return nil, errors.New("invalid value for required argument 'PipelineName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource TriggerSchedule
 	err := ctx.RegisterResource("azure:datafactory/triggerSchedule:TriggerSchedule", name, args, &resource, opts...)
@@ -144,10 +90,6 @@ type triggerScheduleState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The Schedule Trigger's description.
 	Description *string `pulumi:"description"`
 	// The time the Schedule Trigger should end. The time will be represented in UTC.
@@ -162,8 +104,6 @@ type triggerScheduleState struct {
 	PipelineName *string `pulumi:"pipelineName"`
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters map[string]string `pulumi:"pipelineParameters"`
-	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule *TriggerScheduleSchedule `pulumi:"schedule"`
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
@@ -177,10 +117,6 @@ type TriggerScheduleState struct {
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
 	// The Schedule Trigger's description.
 	Description pulumi.StringPtrInput
 	// The time the Schedule Trigger should end. The time will be represented in UTC.
@@ -195,8 +131,6 @@ type TriggerScheduleState struct {
 	PipelineName pulumi.StringPtrInput
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-	ResourceGroupName pulumi.StringPtrInput
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule TriggerScheduleSchedulePtrInput
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
@@ -213,11 +147,7 @@ type triggerScheduleArgs struct {
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId *string `pulumi:"dataFactoryId"`
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName *string `pulumi:"dataFactoryName"`
+	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The Schedule Trigger's description.
 	Description *string `pulumi:"description"`
 	// The time the Schedule Trigger should end. The time will be represented in UTC.
@@ -232,8 +162,6 @@ type triggerScheduleArgs struct {
 	PipelineName string `pulumi:"pipelineName"`
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters map[string]string `pulumi:"pipelineParameters"`
-	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule *TriggerScheduleSchedule `pulumi:"schedule"`
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
@@ -247,11 +175,7 @@ type TriggerScheduleArgs struct {
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations pulumi.StringArrayInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryId pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	//
-	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-	DataFactoryName pulumi.StringPtrInput
+	DataFactoryId pulumi.StringInput
 	// The Schedule Trigger's description.
 	Description pulumi.StringPtrInput
 	// The time the Schedule Trigger should end. The time will be represented in UTC.
@@ -266,8 +190,6 @@ type TriggerScheduleArgs struct {
 	PipelineName pulumi.StringInput
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters pulumi.StringMapInput
-	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-	ResourceGroupName pulumi.StringInput
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule TriggerScheduleSchedulePtrInput
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.

@@ -228,7 +228,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * a `ssl policy` block as defined below.
      */
-    public readonly sslPolicies!: pulumi.Output<outputs.network.ApplicationGatewaySslPolicy[]>;
+    public readonly sslPolicy!: pulumi.Output<outputs.network.ApplicationGatewaySslPolicy>;
     /**
      * One or more `sslProfile` blocks as defined below.
      */
@@ -254,7 +254,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly wafConfiguration!: pulumi.Output<outputs.network.ApplicationGatewayWafConfiguration | undefined>;
     /**
-     * A collection of availability zones to spread the Application Gateway over.
+     * Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -296,7 +296,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["rewriteRuleSets"] = state ? state.rewriteRuleSets : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["sslCertificates"] = state ? state.sslCertificates : undefined;
-            resourceInputs["sslPolicies"] = state ? state.sslPolicies : undefined;
+            resourceInputs["sslPolicy"] = state ? state.sslPolicy : undefined;
             resourceInputs["sslProfiles"] = state ? state.sslProfiles : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["trustedClientCertificates"] = state ? state.trustedClientCertificates : undefined;
@@ -357,7 +357,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["rewriteRuleSets"] = args ? args.rewriteRuleSets : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["sslCertificates"] = args ? args.sslCertificates : undefined;
-            resourceInputs["sslPolicies"] = args ? args.sslPolicies : undefined;
+            resourceInputs["sslPolicy"] = args ? args.sslPolicy : undefined;
             resourceInputs["sslProfiles"] = args ? args.sslProfiles : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trustedClientCertificates"] = args ? args.trustedClientCertificates : undefined;
@@ -479,7 +479,7 @@ export interface ApplicationGatewayState {
     /**
      * a `ssl policy` block as defined below.
      */
-    sslPolicies?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>[]>;
+    sslPolicy?: pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>;
     /**
      * One or more `sslProfile` blocks as defined below.
      */
@@ -505,7 +505,7 @@ export interface ApplicationGatewayState {
      */
     wafConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayWafConfiguration>;
     /**
-     * A collection of availability zones to spread the Application Gateway over.
+     * Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -613,7 +613,7 @@ export interface ApplicationGatewayArgs {
     /**
      * a `ssl policy` block as defined below.
      */
-    sslPolicies?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>[]>;
+    sslPolicy?: pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>;
     /**
      * One or more `sslProfile` blocks as defined below.
      */
@@ -639,7 +639,7 @@ export interface ApplicationGatewayArgs {
      */
     wafConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayWafConfiguration>;
     /**
-     * A collection of availability zones to spread the Application Gateway over.
+     * Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -103,6 +103,18 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The Autonomous System Number of the Virtual Hub BGP router.
+        /// </summary>
+        [Output("virtualRouterAsn")]
+        public Output<int> VirtualRouterAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// The IP addresses of the Virtual Hub BGP router.
+        /// </summary>
+        [Output("virtualRouterIps")]
+        public Output<ImmutableArray<string>> VirtualRouterIps { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("virtualWanId")]
@@ -279,6 +291,24 @@ namespace Pulumi.Azure.Network
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        /// <summary>
+        /// The Autonomous System Number of the Virtual Hub BGP router.
+        /// </summary>
+        [Input("virtualRouterAsn")]
+        public Input<int>? VirtualRouterAsn { get; set; }
+
+        [Input("virtualRouterIps")]
+        private InputList<string>? _virtualRouterIps;
+
+        /// <summary>
+        /// The IP addresses of the Virtual Hub BGP router.
+        /// </summary>
+        public InputList<string> VirtualRouterIps
+        {
+            get => _virtualRouterIps ?? (_virtualRouterIps = new InputList<string>());
+            set => _virtualRouterIps = value;
         }
 
         /// <summary>

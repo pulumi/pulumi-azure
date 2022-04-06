@@ -32,7 +32,7 @@ class ModuleArgs:
         :param pulumi.Input[str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         pulumi.set(__self__, "network_profile", network_profile)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -136,7 +136,7 @@ class ModuleArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+        Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -165,7 +165,7 @@ class _ModuleState:
         :param pulumi.Input[str] sku_name: The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -272,7 +272,7 @@ class _ModuleState:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+        Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -382,7 +382,7 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         ...
     @overload
@@ -549,7 +549,7 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -625,7 +625,7 @@ class Module(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+        Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "zones")
 

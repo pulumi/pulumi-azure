@@ -1841,6 +1841,112 @@ func (o FrontdoorBackendPoolLoadBalancingArrayOutput) Index(i pulumi.IntInput) F
 	}).(FrontdoorBackendPoolLoadBalancingOutput)
 }
 
+type FrontdoorBackendPoolSetting struct {
+	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+	BackendPoolsSendReceiveTimeoutSeconds *int `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
+	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+	EnforceBackendPoolsCertificateNameCheck bool `pulumi:"enforceBackendPoolsCertificateNameCheck"`
+}
+
+// FrontdoorBackendPoolSettingInput is an input type that accepts FrontdoorBackendPoolSettingArgs and FrontdoorBackendPoolSettingOutput values.
+// You can construct a concrete instance of `FrontdoorBackendPoolSettingInput` via:
+//
+//          FrontdoorBackendPoolSettingArgs{...}
+type FrontdoorBackendPoolSettingInput interface {
+	pulumi.Input
+
+	ToFrontdoorBackendPoolSettingOutput() FrontdoorBackendPoolSettingOutput
+	ToFrontdoorBackendPoolSettingOutputWithContext(context.Context) FrontdoorBackendPoolSettingOutput
+}
+
+type FrontdoorBackendPoolSettingArgs struct {
+	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+	BackendPoolsSendReceiveTimeoutSeconds pulumi.IntPtrInput `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
+	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+	EnforceBackendPoolsCertificateNameCheck pulumi.BoolInput `pulumi:"enforceBackendPoolsCertificateNameCheck"`
+}
+
+func (FrontdoorBackendPoolSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorBackendPoolSetting)(nil)).Elem()
+}
+
+func (i FrontdoorBackendPoolSettingArgs) ToFrontdoorBackendPoolSettingOutput() FrontdoorBackendPoolSettingOutput {
+	return i.ToFrontdoorBackendPoolSettingOutputWithContext(context.Background())
+}
+
+func (i FrontdoorBackendPoolSettingArgs) ToFrontdoorBackendPoolSettingOutputWithContext(ctx context.Context) FrontdoorBackendPoolSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolSettingOutput)
+}
+
+// FrontdoorBackendPoolSettingArrayInput is an input type that accepts FrontdoorBackendPoolSettingArray and FrontdoorBackendPoolSettingArrayOutput values.
+// You can construct a concrete instance of `FrontdoorBackendPoolSettingArrayInput` via:
+//
+//          FrontdoorBackendPoolSettingArray{ FrontdoorBackendPoolSettingArgs{...} }
+type FrontdoorBackendPoolSettingArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorBackendPoolSettingArrayOutput() FrontdoorBackendPoolSettingArrayOutput
+	ToFrontdoorBackendPoolSettingArrayOutputWithContext(context.Context) FrontdoorBackendPoolSettingArrayOutput
+}
+
+type FrontdoorBackendPoolSettingArray []FrontdoorBackendPoolSettingInput
+
+func (FrontdoorBackendPoolSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorBackendPoolSetting)(nil)).Elem()
+}
+
+func (i FrontdoorBackendPoolSettingArray) ToFrontdoorBackendPoolSettingArrayOutput() FrontdoorBackendPoolSettingArrayOutput {
+	return i.ToFrontdoorBackendPoolSettingArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorBackendPoolSettingArray) ToFrontdoorBackendPoolSettingArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolSettingArrayOutput)
+}
+
+type FrontdoorBackendPoolSettingOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorBackendPoolSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorBackendPoolSetting)(nil)).Elem()
+}
+
+func (o FrontdoorBackendPoolSettingOutput) ToFrontdoorBackendPoolSettingOutput() FrontdoorBackendPoolSettingOutput {
+	return o
+}
+
+func (o FrontdoorBackendPoolSettingOutput) ToFrontdoorBackendPoolSettingOutputWithContext(ctx context.Context) FrontdoorBackendPoolSettingOutput {
+	return o
+}
+
+// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+func (o FrontdoorBackendPoolSettingOutput) BackendPoolsSendReceiveTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FrontdoorBackendPoolSetting) *int { return v.BackendPoolsSendReceiveTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+func (o FrontdoorBackendPoolSettingOutput) EnforceBackendPoolsCertificateNameCheck() pulumi.BoolOutput {
+	return o.ApplyT(func(v FrontdoorBackendPoolSetting) bool { return v.EnforceBackendPoolsCertificateNameCheck }).(pulumi.BoolOutput)
+}
+
+type FrontdoorBackendPoolSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorBackendPoolSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorBackendPoolSetting)(nil)).Elem()
+}
+
+func (o FrontdoorBackendPoolSettingArrayOutput) ToFrontdoorBackendPoolSettingArrayOutput() FrontdoorBackendPoolSettingArrayOutput {
+	return o
+}
+
+func (o FrontdoorBackendPoolSettingArrayOutput) ToFrontdoorBackendPoolSettingArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolSettingArrayOutput {
+	return o
+}
+
+func (o FrontdoorBackendPoolSettingArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorBackendPoolSetting {
+		return vs[0].([]FrontdoorBackendPoolSetting)[vs[1].(int)]
+	}).(FrontdoorBackendPoolSettingOutput)
+}
+
 type FrontdoorExplicitResourceOrder struct {
 	BackendPoolHealthProbeIds   []string `pulumi:"backendPoolHealthProbeIds"`
 	BackendPoolIds              []string `pulumi:"backendPoolIds"`
@@ -3448,6 +3554,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorBackendPoolHealthProbeArrayInput)(nil)).Elem(), FrontdoorBackendPoolHealthProbeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorBackendPoolLoadBalancingInput)(nil)).Elem(), FrontdoorBackendPoolLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorBackendPoolLoadBalancingArrayInput)(nil)).Elem(), FrontdoorBackendPoolLoadBalancingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorBackendPoolSettingInput)(nil)).Elem(), FrontdoorBackendPoolSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorBackendPoolSettingArrayInput)(nil)).Elem(), FrontdoorBackendPoolSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorExplicitResourceOrderInput)(nil)).Elem(), FrontdoorExplicitResourceOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorExplicitResourceOrderArrayInput)(nil)).Elem(), FrontdoorExplicitResourceOrderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFrontendEndpointInput)(nil)).Elem(), FrontdoorFrontendEndpointArgs{})
@@ -3494,6 +3602,8 @@ func init() {
 	pulumi.RegisterOutputType(FrontdoorBackendPoolHealthProbeArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorBackendPoolLoadBalancingOutput{})
 	pulumi.RegisterOutputType(FrontdoorBackendPoolLoadBalancingArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorBackendPoolSettingOutput{})
+	pulumi.RegisterOutputType(FrontdoorBackendPoolSettingArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorExplicitResourceOrderOutput{})
 	pulumi.RegisterOutputType(FrontdoorExplicitResourceOrderArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorFrontendEndpointOutput{})

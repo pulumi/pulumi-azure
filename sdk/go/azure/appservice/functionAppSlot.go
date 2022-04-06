@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Function App deployment Slot.
-//
 // ## Example Usage
 // ### With App Service Plan)
 //
@@ -20,9 +18,9 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -96,10 +94,6 @@ type FunctionAppSlot struct {
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// An `authSettings` block as defined below.
 	AuthSettings FunctionAppSlotAuthSettingsOutput `pulumi:"authSettings"`
-	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated.
-	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
 	// A `connectionString` block as defined below.
 	ConnectionStrings FunctionAppSlotConnectionStringArrayOutput `pulumi:"connectionStrings"`
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
@@ -115,7 +109,7 @@ type FunctionAppSlot struct {
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
-	Identity FunctionAppSlotIdentityOutput `pulumi:"identity"`
+	Identity FunctionAppSlotIdentityPtrOutput `pulumi:"identity"`
 	// The Function App kind - such as `functionapp,linux,container`
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -194,10 +188,6 @@ type functionAppSlotState struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// An `authSettings` block as defined below.
 	AuthSettings *FunctionAppSlotAuthSettings `pulumi:"authSettings"`
-	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated.
-	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// A `connectionString` block as defined below.
 	ConnectionStrings []FunctionAppSlotConnectionString `pulumi:"connectionStrings"`
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
@@ -249,10 +239,6 @@ type FunctionAppSlotState struct {
 	AppSettings pulumi.StringMapInput
 	// An `authSettings` block as defined below.
 	AuthSettings FunctionAppSlotAuthSettingsPtrInput
-	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated.
-	ClientAffinityEnabled pulumi.BoolPtrInput
 	// A `connectionString` block as defined below.
 	ConnectionStrings FunctionAppSlotConnectionStringArrayInput
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
@@ -308,10 +294,6 @@ type functionAppSlotArgs struct {
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// An `authSettings` block as defined below.
 	AuthSettings *FunctionAppSlotAuthSettings `pulumi:"authSettings"`
-	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated.
-	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// A `connectionString` block as defined below.
 	ConnectionStrings []FunctionAppSlotConnectionString `pulumi:"connectionStrings"`
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
@@ -354,10 +336,6 @@ type FunctionAppSlotArgs struct {
 	AppSettings pulumi.StringMapInput
 	// An `authSettings` block as defined below.
 	AuthSettings FunctionAppSlotAuthSettingsPtrInput
-	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-	//
-	// Deprecated: This property is no longer configurable in the service and has been deprecated.
-	ClientAffinityEnabled pulumi.BoolPtrInput
 	// A `connectionString` block as defined below.
 	ConnectionStrings FunctionAppSlotConnectionStringArrayInput
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.

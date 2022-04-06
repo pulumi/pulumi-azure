@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Iot.Inputs
     public sealed class IoTHubEndpointGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        /// The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         /// </summary>
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<string>? FileNameFormat { get; set; }
 
         /// <summary>
-        /// ID of the User Managed Identity used to authenticate against the endpoint.
+        /// The ID of the User Managed Identity used to authenticate against the endpoint.
         /// </summary>
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }

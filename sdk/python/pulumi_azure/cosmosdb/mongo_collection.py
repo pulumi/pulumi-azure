@@ -30,12 +30,10 @@ class MongoCollectionArgs:
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        :param pulumi.Input['MongoCollectionAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
-        :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
-        :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]] indices: One or more `index` blocks as defined below.
+        :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+               * # `index` - (Optional) One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
-        :param pulumi.Input[int] throughput: The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "database_name", database_name)
@@ -103,9 +101,6 @@ class MongoCollectionArgs:
     @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']]:
-        """
-        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
-        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -116,7 +111,8 @@ class MongoCollectionArgs:
     @pulumi.getter(name="defaultTtlSeconds")
     def default_ttl_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
+        The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+        * # `index` - (Optional) One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "default_ttl_seconds")
 
@@ -127,9 +123,6 @@ class MongoCollectionArgs:
     @property
     @pulumi.getter
     def indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]:
-        """
-        One or more `index` blocks as defined below.
-        """
         return pulumi.get(self, "indices")
 
     @indices.setter
@@ -163,9 +156,6 @@ class MongoCollectionArgs:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
-        """
-        The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -190,15 +180,13 @@ class _MongoCollectionState:
         """
         Input properties used for looking up and filtering MongoCollection resources.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        :param pulumi.Input['MongoCollectionAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
-        :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]] indices: One or more `index` blocks as defined below.
+        :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+               * # `index` - (Optional) One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
         :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]] system_indexes: One or more `system_indexes` blocks as defined below.
-        :param pulumi.Input[int] throughput: The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -247,9 +235,6 @@ class _MongoCollectionState:
     @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']]:
-        """
-        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
-        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -272,7 +257,8 @@ class _MongoCollectionState:
     @pulumi.getter(name="defaultTtlSeconds")
     def default_ttl_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
+        The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+        * # `index` - (Optional) One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "default_ttl_seconds")
 
@@ -283,9 +269,6 @@ class _MongoCollectionState:
     @property
     @pulumi.getter
     def indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]:
-        """
-        One or more `index` blocks as defined below.
-        """
         return pulumi.get(self, "indices")
 
     @indices.setter
@@ -343,9 +326,6 @@ class _MongoCollectionState:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
-        """
-        The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -407,14 +387,12 @@ class MongoCollection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        :param pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]] indices: One or more `index` blocks as defined below.
+        :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+               * # `index` - (Optional) One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
-        :param pulumi.Input[int] throughput: The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
         """
         ...
     @overload
@@ -540,15 +518,13 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        :param pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]] indices: One or more `index` blocks as defined below.
+        :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+               * # `index` - (Optional) One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionSystemIndexArgs']]]] system_indexes: One or more `system_indexes` blocks as defined below.
-        :param pulumi.Input[int] throughput: The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -583,9 +559,6 @@ class MongoCollection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> pulumi.Output[Optional['outputs.MongoCollectionAutoscaleSettings']]:
-        """
-        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create. Requires `shard_key` to be set.
-        """
         return pulumi.get(self, "autoscale_settings")
 
     @property
@@ -600,16 +573,14 @@ class MongoCollection(pulumi.CustomResource):
     @pulumi.getter(name="defaultTtlSeconds")
     def default_ttl_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
+        The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
+        * # `index` - (Optional) One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "default_ttl_seconds")
 
     @property
     @pulumi.getter
     def indices(self) -> pulumi.Output[Optional[Sequence['outputs.MongoCollectionIndex']]]:
-        """
-        One or more `index` blocks as defined below.
-        """
         return pulumi.get(self, "indices")
 
     @property
@@ -647,8 +618,5 @@ class MongoCollection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def throughput(self) -> pulumi.Output[int]:
-        """
-        The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy/create.
-        """
         return pulumi.get(self, "throughput")
 

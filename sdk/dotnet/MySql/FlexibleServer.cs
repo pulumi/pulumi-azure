@@ -239,7 +239,7 @@ namespace Pulumi.Azure.MySql
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
-        /// The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
+        /// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
         /// </summary>
         [Output("zone")]
         public Output<string?> Zone { get; private set; } = null!;
@@ -411,7 +411,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
+        /// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
@@ -562,7 +562,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// The availability zone information of the MySQL Flexible Server. Possible values are `1`, `2` and `3`.
+        /// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

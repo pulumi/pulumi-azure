@@ -129,10 +129,6 @@ class ActiveSlot(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Promotes an App Service Slot to Production within an App Service.
-
-        > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
-
         ## Example Usage
 
         ```python
@@ -169,10 +165,6 @@ class ActiveSlot(pulumi.CustomResource):
                  args: ActiveSlotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Promotes an App Service Slot to Production within an App Service.
-
-        > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
-
         ## Example Usage
 
         ```python

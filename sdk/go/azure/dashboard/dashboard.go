@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a shared dashboard in the Azure Portal.
-//
 // ## Example Usage
 //
 // ```go
@@ -21,8 +19,8 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/dashboard"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/portal"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 // )
@@ -48,7 +46,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = dashboard.NewDashboard(ctx, "my-board", &dashboard.DashboardArgs{
+// 		_, err = portal.NewDashboard(ctx, "my-board", &portal.DashboardArgs{
 // 			ResourceGroupName: my_group.Name,
 // 			Location:          my_group.Location,
 // 			Tags: pulumi.StringMap{
@@ -76,6 +74,8 @@ import (
 // ```
 //
 //  Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
+//
+// Deprecated: azure.dashboard.Dashboard has been deprecated in favor of azure.portal.Dashboard
 type Dashboard struct {
 	pulumi.CustomResourceState
 
@@ -83,10 +83,9 @@ type Dashboard struct {
 	DashboardProperties pulumi.StringOutput `pulumi:"dashboardProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the dashboard.
+	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -128,10 +127,9 @@ type dashboardState struct {
 	DashboardProperties *string `pulumi:"dashboardProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the dashboard.
+	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -142,10 +140,9 @@ type DashboardState struct {
 	DashboardProperties pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the dashboard.
+	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -160,10 +157,9 @@ type dashboardArgs struct {
 	DashboardProperties *string `pulumi:"dashboardProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the dashboard.
+	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -175,10 +171,9 @@ type DashboardArgs struct {
 	DashboardProperties pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the dashboard.
+	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

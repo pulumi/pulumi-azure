@@ -83,10 +83,6 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * @deprecated Deprecated in favor of "queue_id"
-     */
-    public readonly namespaceName!: pulumi.Output<string>;
-    /**
      * The Primary Connection String for the Authorization Rule.
      */
     public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
@@ -102,14 +98,6 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
      * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
      */
     public readonly queueId!: pulumi.Output<string>;
-    /**
-     * @deprecated Deprecated in favor of "queue_id"
-     */
-    public readonly queueName!: pulumi.Output<string>;
-    /**
-     * @deprecated Deprecated in favor of "queue_id"
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Secondary Connection String for the Authorization Rule.
      */
@@ -134,7 +122,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: QueueAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: QueueAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: QueueAuthorizationRuleArgs | QueueAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -143,26 +131,23 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["listen"] = state ? state.listen : undefined;
             resourceInputs["manage"] = state ? state.manage : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             resourceInputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
             resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
             resourceInputs["queueId"] = state ? state.queueId : undefined;
-            resourceInputs["queueName"] = state ? state.queueName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
             resourceInputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
             resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             resourceInputs["send"] = state ? state.send : undefined;
         } else {
             const args = argsOrState as QueueAuthorizationRuleArgs | undefined;
+            if ((!args || args.queueId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'queueId'");
+            }
             resourceInputs["listen"] = args ? args.listen : undefined;
             resourceInputs["manage"] = args ? args.manage : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["queueId"] = args ? args.queueId : undefined;
-            resourceInputs["queueName"] = args ? args.queueName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["send"] = args ? args.send : undefined;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["primaryConnectionStringAlias"] = undefined /*out*/;
@@ -195,10 +180,6 @@ export interface QueueAuthorizationRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of "queue_id"
-     */
-    namespaceName?: pulumi.Input<string>;
-    /**
      * The Primary Connection String for the Authorization Rule.
      */
     primaryConnectionString?: pulumi.Input<string>;
@@ -214,14 +195,6 @@ export interface QueueAuthorizationRuleState {
      * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
      */
     queueId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "queue_id"
-     */
-    queueName?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "queue_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Secondary Connection String for the Authorization Rule.
      */
@@ -257,21 +230,9 @@ export interface QueueAuthorizationRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated Deprecated in favor of "queue_id"
-     */
-    namespaceName?: pulumi.Input<string>;
-    /**
      * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
      */
-    queueId?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "queue_id"
-     */
-    queueName?: pulumi.Input<string>;
-    /**
-     * @deprecated Deprecated in favor of "queue_id"
-     */
-    resourceGroupName?: pulumi.Input<string>;
+    queueId: pulumi.Input<string>;
     /**
      * Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
      */

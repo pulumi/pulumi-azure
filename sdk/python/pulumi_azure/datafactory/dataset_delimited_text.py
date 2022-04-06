@@ -15,8 +15,8 @@ __all__ = ['DatasetDelimitedTextArgs', 'DatasetDelimitedText']
 @pulumi.input_type
 class DatasetDelimitedTextArgs:
     def __init__(__self__, *,
+                 data_factory_id: pulumi.Input[str],
                  linked_service_name: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  azure_blob_fs_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']] = None,
@@ -24,8 +24,6 @@ class DatasetDelimitedTextArgs:
                  column_delimiter: Optional[pulumi.Input[str]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
-                 data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
                  escape_character: Optional[pulumi.Input[str]] = None,
@@ -40,8 +38,8 @@ class DatasetDelimitedTextArgs:
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]] = None):
         """
         The set of arguments for constructing a DatasetDelimitedText resource.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs'] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
@@ -49,8 +47,6 @@ class DatasetDelimitedTextArgs:
         :param pulumi.Input[str] column_delimiter: The column delimiter. Defaults to `,`.
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
-        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] encoding: The encoding format for the file.
         :param pulumi.Input[str] escape_character: The escape character. Defaults to `\`.
@@ -64,8 +60,8 @@ class DatasetDelimitedTextArgs:
         :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
+        pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
@@ -80,13 +76,6 @@ class DatasetDelimitedTextArgs:
             pulumi.set(__self__, "compression_codec", compression_codec)
         if compression_level is not None:
             pulumi.set(__self__, "compression_level", compression_level)
-        if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
-        if data_factory_name is not None:
-            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encoding is not None:
@@ -113,6 +102,18 @@ class DatasetDelimitedTextArgs:
             pulumi.set(__self__, "schema_columns", schema_columns)
 
     @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> pulumi.Input[str]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_factory_id", value)
+
+    @property
     @pulumi.getter(name="linkedServiceName")
     def linked_service_name(self) -> pulumi.Input[str]:
         """
@@ -123,18 +124,6 @@ class DatasetDelimitedTextArgs:
     @linked_service_name.setter
     def linked_service_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "linked_service_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -219,30 +208,6 @@ class DatasetDelimitedTextArgs:
     @compression_level.setter
     def compression_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "compression_level", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryId")
-    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_id")
-
-    @data_factory_id.setter
-    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -400,7 +365,6 @@ class _DatasetDelimitedTextState:
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
                  escape_character: Optional[pulumi.Input[str]] = None,
@@ -412,7 +376,6 @@ class _DatasetDelimitedTextState:
                  null_value: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  quote_character: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  row_delimiter: Optional[pulumi.Input[str]] = None,
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]] = None):
         """
@@ -425,7 +388,6 @@ class _DatasetDelimitedTextState:
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] encoding: The encoding format for the file.
         :param pulumi.Input[str] escape_character: The escape character. Defaults to `\`.
@@ -437,7 +399,6 @@ class _DatasetDelimitedTextState:
         :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
         :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
@@ -457,11 +418,6 @@ class _DatasetDelimitedTextState:
             pulumi.set(__self__, "compression_level", compression_level)
         if data_factory_id is not None:
             pulumi.set(__self__, "data_factory_id", data_factory_id)
-        if data_factory_name is not None:
-            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-        if data_factory_name is not None:
-            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encoding is not None:
@@ -484,8 +440,6 @@ class _DatasetDelimitedTextState:
             pulumi.set(__self__, "parameters", parameters)
         if quote_character is not None:
             pulumi.set(__self__, "quote_character", quote_character)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if row_delimiter is not None:
             pulumi.set(__self__, "row_delimiter", row_delimiter)
         if schema_columns is not None:
@@ -586,18 +540,6 @@ class _DatasetDelimitedTextState:
     @data_factory_id.setter
     def data_factory_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -732,18 +674,6 @@ class _DatasetDelimitedTextState:
         pulumi.set(self, "quote_character", value)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter(name="rowDelimiter")
     def row_delimiter(self) -> Optional[pulumi.Input[str]]:
         """
@@ -781,7 +711,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
                  escape_character: Optional[pulumi.Input[str]] = None,
@@ -793,7 +722,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
                  null_value: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  quote_character: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  row_delimiter: Optional[pulumi.Input[str]] = None,
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDelimitedTextSchemaColumnArgs']]]]] = None,
                  __props__=None):
@@ -811,12 +739,10 @@ class DatasetDelimitedText(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
         example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
-            resource_group_name=example_resource_group.name,
             data_factory_id=example_factory.id,
             authentication_type="Anonymous",
             url="https://www.bing.com")
         example_dataset_delimited_text = azure.datafactory.DatasetDelimitedText("exampleDatasetDelimitedText",
-            resource_group_name=example_resource_group.name,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
             http_server_location=azure.datafactory.DatasetDelimitedTextHttpServerLocationArgs(
@@ -851,7 +777,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] encoding: The encoding format for the file.
         :param pulumi.Input[str] escape_character: The escape character. Defaults to `\`.
@@ -863,7 +788,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
         :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDelimitedTextSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
         """
@@ -887,12 +811,10 @@ class DatasetDelimitedText(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
         example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
-            resource_group_name=example_resource_group.name,
             data_factory_id=example_factory.id,
             authentication_type="Anonymous",
             url="https://www.bing.com")
         example_dataset_delimited_text = azure.datafactory.DatasetDelimitedText("exampleDatasetDelimitedText",
-            resource_group_name=example_resource_group.name,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
             http_server_location=azure.datafactory.DatasetDelimitedTextHttpServerLocationArgs(
@@ -940,7 +862,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
-                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
                  escape_character: Optional[pulumi.Input[str]] = None,
@@ -952,7 +873,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
                  null_value: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  quote_character: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  row_delimiter: Optional[pulumi.Input[str]] = None,
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDelimitedTextSchemaColumnArgs']]]]] = None,
                  __props__=None):
@@ -974,11 +894,9 @@ class DatasetDelimitedText(pulumi.CustomResource):
             __props__.__dict__["column_delimiter"] = column_delimiter
             __props__.__dict__["compression_codec"] = compression_codec
             __props__.__dict__["compression_level"] = compression_level
+            if data_factory_id is None and not opts.urn:
+                raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
-            if data_factory_name is not None and not opts.urn:
-                warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
-                pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
-            __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["encoding"] = encoding
             __props__.__dict__["escape_character"] = escape_character
@@ -992,9 +910,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
             __props__.__dict__["null_value"] = null_value
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["quote_character"] = quote_character
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["row_delimiter"] = row_delimiter
             __props__.__dict__["schema_columns"] = schema_columns
         super(DatasetDelimitedText, __self__).__init__(
@@ -1015,7 +930,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
             compression_codec: Optional[pulumi.Input[str]] = None,
             compression_level: Optional[pulumi.Input[str]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
-            data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             encoding: Optional[pulumi.Input[str]] = None,
             escape_character: Optional[pulumi.Input[str]] = None,
@@ -1027,7 +941,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
             null_value: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             quote_character: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
             row_delimiter: Optional[pulumi.Input[str]] = None,
             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDelimitedTextSchemaColumnArgs']]]]] = None) -> 'DatasetDelimitedText':
         """
@@ -1045,7 +958,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] encoding: The encoding format for the file.
         :param pulumi.Input[str] escape_character: The escape character. Defaults to `\`.
@@ -1057,7 +969,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
         :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDelimitedTextSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
         """
@@ -1073,7 +984,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
         __props__.__dict__["compression_codec"] = compression_codec
         __props__.__dict__["compression_level"] = compression_level
         __props__.__dict__["data_factory_id"] = data_factory_id
-        __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["encoding"] = encoding
         __props__.__dict__["escape_character"] = escape_character
@@ -1085,7 +995,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
         __props__.__dict__["null_value"] = null_value
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["quote_character"] = quote_character
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["row_delimiter"] = row_delimiter
         __props__.__dict__["schema_columns"] = schema_columns
         return DatasetDelimitedText(resource_name, opts=opts, __props__=__props__)
@@ -1153,14 +1062,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
         The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Output[str]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
 
     @property
     @pulumi.getter
@@ -1249,14 +1150,6 @@ class DatasetDelimitedText(pulumi.CustomResource):
         The quote character. Defaults to `"`.
         """
         return pulumi.get(self, "quote_character")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-        """
-        return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="rowDelimiter")

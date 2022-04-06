@@ -24,15 +24,12 @@ class ProviderArgs:
                  environment: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input['ProviderFeaturesArgs']] = None,
                  metadata_host: Optional[pulumi.Input[str]] = None,
-                 metadata_url: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  partner_id: Optional[pulumi.Input[str]] = None,
-                 skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  skip_provider_registration: Optional[pulumi.Input[bool]] = None,
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 use_msal: Optional[pulumi.Input[bool]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
@@ -46,17 +43,14 @@ class ProviderArgs:
         :param pulumi.Input[bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
         :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         :param pulumi.Input[str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
-        :param pulumi.Input[str] metadata_url: Deprecated - replaced by `metadata_host`.
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
                automatically.
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
-        :param pulumi.Input[bool] skip_credentials_validation: [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
         :param pulumi.Input[bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
                registered?
         :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
-        :param pulumi.Input[bool] use_msal: Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
         :param pulumi.Input[bool] use_msi: Allowed Managed Service Identity be used for Authentication.
         """
         if auxiliary_tenant_ids is not None:
@@ -83,22 +77,10 @@ class ProviderArgs:
             metadata_host = _utilities.get_env('ARM_METADATA_HOSTNAME')
         if metadata_host is not None:
             pulumi.set(__self__, "metadata_host", metadata_host)
-        if metadata_url is None:
-            metadata_url = _utilities.get_env('ARM_METADATA_URL')
-        if metadata_url is not None:
-            warnings.warn("""use `metadata_host` instead""", DeprecationWarning)
-            pulumi.log.warn("""metadata_url is deprecated: use `metadata_host` instead""")
-        if metadata_url is not None:
-            pulumi.set(__self__, "metadata_url", metadata_url)
         if msi_endpoint is not None:
             pulumi.set(__self__, "msi_endpoint", msi_endpoint)
         if partner_id is not None:
             pulumi.set(__self__, "partner_id", partner_id)
-        if skip_credentials_validation is not None:
-            warnings.warn("""This field is deprecated and will be removed in version 3.0 of the Azure Provider""", DeprecationWarning)
-            pulumi.log.warn("""skip_credentials_validation is deprecated: This field is deprecated and will be removed in version 3.0 of the Azure Provider""")
-        if skip_credentials_validation is not None:
-            pulumi.set(__self__, "skip_credentials_validation", skip_credentials_validation)
         if skip_provider_registration is None:
             skip_provider_registration = (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
         if skip_provider_registration is not None:
@@ -113,8 +95,6 @@ class ProviderArgs:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-        if use_msal is not None:
-            pulumi.set(__self__, "use_msal", use_msal)
         if use_msi is not None:
             pulumi.set(__self__, "use_msi", use_msi)
 
@@ -235,18 +215,6 @@ class ProviderArgs:
         pulumi.set(self, "metadata_host", value)
 
     @property
-    @pulumi.getter(name="metadataUrl")
-    def metadata_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        Deprecated - replaced by `metadata_host`.
-        """
-        return pulumi.get(self, "metadata_url")
-
-    @metadata_url.setter
-    def metadata_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metadata_url", value)
-
-    @property
     @pulumi.getter(name="msiEndpoint")
     def msi_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -270,18 +238,6 @@ class ProviderArgs:
     @partner_id.setter
     def partner_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "partner_id", value)
-
-    @property
-    @pulumi.getter(name="skipCredentialsValidation")
-    def skip_credentials_validation(self) -> Optional[pulumi.Input[bool]]:
-        """
-        [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
-        """
-        return pulumi.get(self, "skip_credentials_validation")
-
-    @skip_credentials_validation.setter
-    def skip_credentials_validation(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "skip_credentials_validation", value)
 
     @property
     @pulumi.getter(name="skipProviderRegistration")
@@ -333,18 +289,6 @@ class ProviderArgs:
         pulumi.set(self, "tenant_id", value)
 
     @property
-    @pulumi.getter(name="useMsal")
-    def use_msal(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
-        """
-        return pulumi.get(self, "use_msal")
-
-    @use_msal.setter
-    def use_msal(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "use_msal", value)
-
-    @property
     @pulumi.getter(name="useMsi")
     def use_msi(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -372,15 +316,12 @@ class Provider(pulumi.ProviderResource):
                  environment: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input[pulumi.InputType['ProviderFeaturesArgs']]] = None,
                  metadata_host: Optional[pulumi.Input[str]] = None,
-                 metadata_url: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  partner_id: Optional[pulumi.Input[str]] = None,
-                 skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  skip_provider_registration: Optional[pulumi.Input[bool]] = None,
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 use_msal: Optional[pulumi.Input[bool]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -401,17 +342,14 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
         :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         :param pulumi.Input[str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
-        :param pulumi.Input[str] metadata_url: Deprecated - replaced by `metadata_host`.
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
                automatically.
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
-        :param pulumi.Input[bool] skip_credentials_validation: [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
         :param pulumi.Input[bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
                registered?
         :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
-        :param pulumi.Input[bool] use_msal: Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
         :param pulumi.Input[bool] use_msi: Allowed Managed Service Identity be used for Authentication.
         """
         ...
@@ -451,15 +389,12 @@ class Provider(pulumi.ProviderResource):
                  environment: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input[pulumi.InputType['ProviderFeaturesArgs']]] = None,
                  metadata_host: Optional[pulumi.Input[str]] = None,
-                 metadata_url: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  partner_id: Optional[pulumi.Input[str]] = None,
-                 skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  skip_provider_registration: Optional[pulumi.Input[bool]] = None,
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 use_msal: Optional[pulumi.Input[bool]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -487,18 +422,8 @@ class Provider(pulumi.ProviderResource):
             if metadata_host is None:
                 metadata_host = _utilities.get_env('ARM_METADATA_HOSTNAME')
             __props__.__dict__["metadata_host"] = metadata_host
-            if metadata_url is None:
-                metadata_url = _utilities.get_env('ARM_METADATA_URL')
-            if metadata_url is not None and not opts.urn:
-                warnings.warn("""use `metadata_host` instead""", DeprecationWarning)
-                pulumi.log.warn("""metadata_url is deprecated: use `metadata_host` instead""")
-            __props__.__dict__["metadata_url"] = metadata_url
             __props__.__dict__["msi_endpoint"] = msi_endpoint
             __props__.__dict__["partner_id"] = partner_id
-            if skip_credentials_validation is not None and not opts.urn:
-                warnings.warn("""This field is deprecated and will be removed in version 3.0 of the Azure Provider""", DeprecationWarning)
-                pulumi.log.warn("""skip_credentials_validation is deprecated: This field is deprecated and will be removed in version 3.0 of the Azure Provider""")
-            __props__.__dict__["skip_credentials_validation"] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
             if skip_provider_registration is None:
                 skip_provider_registration = (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
             __props__.__dict__["skip_provider_registration"] = pulumi.Output.from_input(skip_provider_registration).apply(pulumi.runtime.to_json) if skip_provider_registration is not None else None
@@ -509,7 +434,6 @@ class Provider(pulumi.ProviderResource):
                 subscription_id = (_utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tenant_id"] = tenant_id
-            __props__.__dict__["use_msal"] = pulumi.Output.from_input(use_msal).apply(pulumi.runtime.to_json) if use_msal is not None else None
             __props__.__dict__["use_msi"] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
         super(Provider, __self__).__init__(
             'azure',
@@ -566,14 +490,6 @@ class Provider(pulumi.ProviderResource):
         The Hostname which should be used for the Azure Metadata Service.
         """
         return pulumi.get(self, "metadata_host")
-
-    @property
-    @pulumi.getter(name="metadataUrl")
-    def metadata_url(self) -> pulumi.Output[Optional[str]]:
-        """
-        Deprecated - replaced by `metadata_host`.
-        """
-        return pulumi.get(self, "metadata_url")
 
     @property
     @pulumi.getter(name="msiEndpoint")

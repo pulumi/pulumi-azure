@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure"
+	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Group{}
 	case "azure:management/groupPolicyAssignment:GroupPolicyAssignment":
 		r = &GroupPolicyAssignment{}
+	case "azure:management/groupPolicyRemediation:GroupPolicyRemediation":
+		r = &GroupPolicyRemediation{}
 	case "azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation":
 		r = &GroupSubscriptionAssociation{}
 	case "azure:management/groupTemplateDeployment:GroupTemplateDeployment":
@@ -52,6 +54,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"management/groupPolicyAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"management/groupPolicyRemediation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

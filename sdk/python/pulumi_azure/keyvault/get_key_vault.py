@@ -21,7 +21,7 @@ class GetKeyVaultResult:
     """
     A collection of values returned by getKeyVault.
     """
-    def __init__(__self__, access_policies=None, enable_rbac_authorization=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, id=None, location=None, name=None, network_acls=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, soft_delete_enabled=None, tags=None, tenant_id=None, vault_uri=None):
+    def __init__(__self__, access_policies=None, enable_rbac_authorization=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, id=None, location=None, name=None, network_acls=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, tags=None, tenant_id=None, vault_uri=None):
         if access_policies and not isinstance(access_policies, list):
             raise TypeError("Expected argument 'access_policies' to be a list")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -58,13 +58,6 @@ class GetKeyVaultResult:
         if sku_name and not isinstance(sku_name, str):
             raise TypeError("Expected argument 'sku_name' to be a str")
         pulumi.set(__self__, "sku_name", sku_name)
-        if soft_delete_enabled and not isinstance(soft_delete_enabled, bool):
-            raise TypeError("Expected argument 'soft_delete_enabled' to be a bool")
-        if soft_delete_enabled is not None:
-            warnings.warn("""Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field will always return 'true' and will be removed in version 3.0 of the Azure Provider.""", DeprecationWarning)
-            pulumi.log.warn("""soft_delete_enabled is deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field will always return 'true' and will be removed in version 3.0 of the Azure Provider.""")
-
-        pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -163,11 +156,6 @@ class GetKeyVaultResult:
         return pulumi.get(self, "sku_name")
 
     @property
-    @pulumi.getter(name="softDeleteEnabled")
-    def soft_delete_enabled(self) -> bool:
-        return pulumi.get(self, "soft_delete_enabled")
-
-    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -210,7 +198,6 @@ class AwaitableGetKeyVaultResult(GetKeyVaultResult):
             purge_protection_enabled=self.purge_protection_enabled,
             resource_group_name=self.resource_group_name,
             sku_name=self.sku_name,
-            soft_delete_enabled=self.soft_delete_enabled,
             tags=self.tags,
             tenant_id=self.tenant_id,
             vault_uri=self.vault_uri)
@@ -259,7 +246,6 @@ def get_key_vault(name: Optional[str] = None,
         purge_protection_enabled=__ret__.purge_protection_enabled,
         resource_group_name=__ret__.resource_group_name,
         sku_name=__ret__.sku_name,
-        soft_delete_enabled=__ret__.soft_delete_enabled,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
         vault_uri=__ret__.vault_uri)

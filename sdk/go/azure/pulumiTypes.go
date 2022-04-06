@@ -12,6 +12,7 @@ import (
 
 type ProviderFeatures struct {
 	ApiManagement          *ProviderFeaturesApiManagement          `pulumi:"apiManagement"`
+	ApplicationInsights    *ProviderFeaturesApplicationInsights    `pulumi:"applicationInsights"`
 	CognitiveAccount       *ProviderFeaturesCognitiveAccount       `pulumi:"cognitiveAccount"`
 	KeyVault               *ProviderFeaturesKeyVault               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  *ProviderFeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
@@ -35,6 +36,7 @@ type ProviderFeaturesInput interface {
 
 type ProviderFeaturesArgs struct {
 	ApiManagement          ProviderFeaturesApiManagementPtrInput          `pulumi:"apiManagement"`
+	ApplicationInsights    ProviderFeaturesApplicationInsightsPtrInput    `pulumi:"applicationInsights"`
 	CognitiveAccount       ProviderFeaturesCognitiveAccountPtrInput       `pulumi:"cognitiveAccount"`
 	KeyVault               ProviderFeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
 	LogAnalyticsWorkspace  ProviderFeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
@@ -126,6 +128,10 @@ func (o ProviderFeaturesOutput) ApiManagement() ProviderFeaturesApiManagementPtr
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesApiManagement { return v.ApiManagement }).(ProviderFeaturesApiManagementPtrOutput)
 }
 
+func (o ProviderFeaturesOutput) ApplicationInsights() ProviderFeaturesApplicationInsightsPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesApplicationInsights { return v.ApplicationInsights }).(ProviderFeaturesApplicationInsightsPtrOutput)
+}
+
 func (o ProviderFeaturesOutput) CognitiveAccount() ProviderFeaturesCognitiveAccountPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesCognitiveAccount { return v.CognitiveAccount }).(ProviderFeaturesCognitiveAccountPtrOutput)
 }
@@ -189,6 +195,15 @@ func (o ProviderFeaturesPtrOutput) ApiManagement() ProviderFeaturesApiManagement
 		}
 		return v.ApiManagement
 	}).(ProviderFeaturesApiManagementPtrOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) ApplicationInsights() ProviderFeaturesApplicationInsightsPtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesApplicationInsights {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationInsights
+	}).(ProviderFeaturesApplicationInsightsPtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) CognitiveAccount() ProviderFeaturesCognitiveAccountPtrOutput {
@@ -265,6 +280,7 @@ func (o ProviderFeaturesPtrOutput) VirtualMachineScaleSet() ProviderFeaturesVirt
 
 type ProviderFeaturesApiManagement struct {
 	PurgeSoftDeleteOnDestroy *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+	RecoverSoftDeleted       *bool `pulumi:"recoverSoftDeleted"`
 }
 
 // ProviderFeaturesApiManagementInput is an input type that accepts ProviderFeaturesApiManagementArgs and ProviderFeaturesApiManagementOutput values.
@@ -280,6 +296,7 @@ type ProviderFeaturesApiManagementInput interface {
 
 type ProviderFeaturesApiManagementArgs struct {
 	PurgeSoftDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+	RecoverSoftDeleted       pulumi.BoolPtrInput `pulumi:"recoverSoftDeleted"`
 }
 
 func (ProviderFeaturesApiManagementArgs) ElementType() reflect.Type {
@@ -363,6 +380,10 @@ func (o ProviderFeaturesApiManagementOutput) PurgeSoftDeleteOnDestroy() pulumi.B
 	return o.ApplyT(func(v ProviderFeaturesApiManagement) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
+func (o ProviderFeaturesApiManagementOutput) RecoverSoftDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesApiManagement) *bool { return v.RecoverSoftDeleted }).(pulumi.BoolPtrOutput)
+}
+
 type ProviderFeaturesApiManagementPtrOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesApiManagementPtrOutput) ElementType() reflect.Type {
@@ -393,6 +414,148 @@ func (o ProviderFeaturesApiManagementPtrOutput) PurgeSoftDeleteOnDestroy() pulum
 			return nil
 		}
 		return v.PurgeSoftDeleteOnDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesApiManagementPtrOutput) RecoverSoftDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesApiManagement) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RecoverSoftDeleted
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesApplicationInsights struct {
+	DisableGeneratedRule *bool `pulumi:"disableGeneratedRule"`
+}
+
+// ProviderFeaturesApplicationInsightsInput is an input type that accepts ProviderFeaturesApplicationInsightsArgs and ProviderFeaturesApplicationInsightsOutput values.
+// You can construct a concrete instance of `ProviderFeaturesApplicationInsightsInput` via:
+//
+//          ProviderFeaturesApplicationInsightsArgs{...}
+type ProviderFeaturesApplicationInsightsInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesApplicationInsightsOutput() ProviderFeaturesApplicationInsightsOutput
+	ToProviderFeaturesApplicationInsightsOutputWithContext(context.Context) ProviderFeaturesApplicationInsightsOutput
+}
+
+type ProviderFeaturesApplicationInsightsArgs struct {
+	DisableGeneratedRule pulumi.BoolPtrInput `pulumi:"disableGeneratedRule"`
+}
+
+func (ProviderFeaturesApplicationInsightsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesApplicationInsights)(nil)).Elem()
+}
+
+func (i ProviderFeaturesApplicationInsightsArgs) ToProviderFeaturesApplicationInsightsOutput() ProviderFeaturesApplicationInsightsOutput {
+	return i.ToProviderFeaturesApplicationInsightsOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesApplicationInsightsArgs) ToProviderFeaturesApplicationInsightsOutputWithContext(ctx context.Context) ProviderFeaturesApplicationInsightsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesApplicationInsightsOutput)
+}
+
+func (i ProviderFeaturesApplicationInsightsArgs) ToProviderFeaturesApplicationInsightsPtrOutput() ProviderFeaturesApplicationInsightsPtrOutput {
+	return i.ToProviderFeaturesApplicationInsightsPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesApplicationInsightsArgs) ToProviderFeaturesApplicationInsightsPtrOutputWithContext(ctx context.Context) ProviderFeaturesApplicationInsightsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesApplicationInsightsOutput).ToProviderFeaturesApplicationInsightsPtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesApplicationInsightsPtrInput is an input type that accepts ProviderFeaturesApplicationInsightsArgs, ProviderFeaturesApplicationInsightsPtr and ProviderFeaturesApplicationInsightsPtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesApplicationInsightsPtrInput` via:
+//
+//          ProviderFeaturesApplicationInsightsArgs{...}
+//
+//  or:
+//
+//          nil
+type ProviderFeaturesApplicationInsightsPtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesApplicationInsightsPtrOutput() ProviderFeaturesApplicationInsightsPtrOutput
+	ToProviderFeaturesApplicationInsightsPtrOutputWithContext(context.Context) ProviderFeaturesApplicationInsightsPtrOutput
+}
+
+type providerFeaturesApplicationInsightsPtrType ProviderFeaturesApplicationInsightsArgs
+
+func ProviderFeaturesApplicationInsightsPtr(v *ProviderFeaturesApplicationInsightsArgs) ProviderFeaturesApplicationInsightsPtrInput {
+	return (*providerFeaturesApplicationInsightsPtrType)(v)
+}
+
+func (*providerFeaturesApplicationInsightsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesApplicationInsights)(nil)).Elem()
+}
+
+func (i *providerFeaturesApplicationInsightsPtrType) ToProviderFeaturesApplicationInsightsPtrOutput() ProviderFeaturesApplicationInsightsPtrOutput {
+	return i.ToProviderFeaturesApplicationInsightsPtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesApplicationInsightsPtrType) ToProviderFeaturesApplicationInsightsPtrOutputWithContext(ctx context.Context) ProviderFeaturesApplicationInsightsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesApplicationInsightsPtrOutput)
+}
+
+type ProviderFeaturesApplicationInsightsOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesApplicationInsightsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesApplicationInsights)(nil)).Elem()
+}
+
+func (o ProviderFeaturesApplicationInsightsOutput) ToProviderFeaturesApplicationInsightsOutput() ProviderFeaturesApplicationInsightsOutput {
+	return o
+}
+
+func (o ProviderFeaturesApplicationInsightsOutput) ToProviderFeaturesApplicationInsightsOutputWithContext(ctx context.Context) ProviderFeaturesApplicationInsightsOutput {
+	return o
+}
+
+func (o ProviderFeaturesApplicationInsightsOutput) ToProviderFeaturesApplicationInsightsPtrOutput() ProviderFeaturesApplicationInsightsPtrOutput {
+	return o.ToProviderFeaturesApplicationInsightsPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesApplicationInsightsOutput) ToProviderFeaturesApplicationInsightsPtrOutputWithContext(ctx context.Context) ProviderFeaturesApplicationInsightsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesApplicationInsights) *ProviderFeaturesApplicationInsights {
+		return &v
+	}).(ProviderFeaturesApplicationInsightsPtrOutput)
+}
+
+func (o ProviderFeaturesApplicationInsightsOutput) DisableGeneratedRule() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesApplicationInsights) *bool { return v.DisableGeneratedRule }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesApplicationInsightsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesApplicationInsightsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesApplicationInsights)(nil)).Elem()
+}
+
+func (o ProviderFeaturesApplicationInsightsPtrOutput) ToProviderFeaturesApplicationInsightsPtrOutput() ProviderFeaturesApplicationInsightsPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesApplicationInsightsPtrOutput) ToProviderFeaturesApplicationInsightsPtrOutputWithContext(ctx context.Context) ProviderFeaturesApplicationInsightsPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesApplicationInsightsPtrOutput) Elem() ProviderFeaturesApplicationInsightsOutput {
+	return o.ApplyT(func(v *ProviderFeaturesApplicationInsights) ProviderFeaturesApplicationInsights {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesApplicationInsights
+		return ret
+	}).(ProviderFeaturesApplicationInsightsOutput)
+}
+
+func (o ProviderFeaturesApplicationInsightsPtrOutput) DisableGeneratedRule() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesApplicationInsights) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableGeneratedRule
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -530,8 +693,14 @@ func (o ProviderFeaturesCognitiveAccountPtrOutput) PurgeSoftDeleteOnDestroy() pu
 }
 
 type ProviderFeaturesKeyVault struct {
-	PurgeSoftDeleteOnDestroy    *bool `pulumi:"purgeSoftDeleteOnDestroy"`
-	RecoverSoftDeletedKeyVaults *bool `pulumi:"recoverSoftDeletedKeyVaults"`
+	PurgeSoftDeleteOnDestroy              *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+	PurgeSoftDeletedCertificatesOnDestroy *bool `pulumi:"purgeSoftDeletedCertificatesOnDestroy"`
+	PurgeSoftDeletedKeysOnDestroy         *bool `pulumi:"purgeSoftDeletedKeysOnDestroy"`
+	PurgeSoftDeletedSecretsOnDestroy      *bool `pulumi:"purgeSoftDeletedSecretsOnDestroy"`
+	RecoverSoftDeletedCertificates        *bool `pulumi:"recoverSoftDeletedCertificates"`
+	RecoverSoftDeletedKeyVaults           *bool `pulumi:"recoverSoftDeletedKeyVaults"`
+	RecoverSoftDeletedKeys                *bool `pulumi:"recoverSoftDeletedKeys"`
+	RecoverSoftDeletedSecrets             *bool `pulumi:"recoverSoftDeletedSecrets"`
 }
 
 // ProviderFeaturesKeyVaultInput is an input type that accepts ProviderFeaturesKeyVaultArgs and ProviderFeaturesKeyVaultOutput values.
@@ -546,8 +715,14 @@ type ProviderFeaturesKeyVaultInput interface {
 }
 
 type ProviderFeaturesKeyVaultArgs struct {
-	PurgeSoftDeleteOnDestroy    pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
-	RecoverSoftDeletedKeyVaults pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeyVaults"`
+	PurgeSoftDeleteOnDestroy              pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+	PurgeSoftDeletedCertificatesOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedCertificatesOnDestroy"`
+	PurgeSoftDeletedKeysOnDestroy         pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedKeysOnDestroy"`
+	PurgeSoftDeletedSecretsOnDestroy      pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedSecretsOnDestroy"`
+	RecoverSoftDeletedCertificates        pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedCertificates"`
+	RecoverSoftDeletedKeyVaults           pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeyVaults"`
+	RecoverSoftDeletedKeys                pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeys"`
+	RecoverSoftDeletedSecrets             pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedSecrets"`
 }
 
 func (ProviderFeaturesKeyVaultArgs) ElementType() reflect.Type {
@@ -631,8 +806,32 @@ func (o ProviderFeaturesKeyVaultOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPt
 	return o.ApplyT(func(v ProviderFeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
+func (o ProviderFeaturesKeyVaultOutput) PurgeSoftDeletedCertificatesOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesKeyVault) *bool { return v.PurgeSoftDeletedCertificatesOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultOutput) PurgeSoftDeletedKeysOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesKeyVault) *bool { return v.PurgeSoftDeletedKeysOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultOutput) PurgeSoftDeletedSecretsOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesKeyVault) *bool { return v.PurgeSoftDeletedSecretsOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultOutput) RecoverSoftDeletedCertificates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesKeyVault) *bool { return v.RecoverSoftDeletedCertificates }).(pulumi.BoolPtrOutput)
+}
+
 func (o ProviderFeaturesKeyVaultOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeyVaults }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultOutput) RecoverSoftDeletedKeys() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeys }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultOutput) RecoverSoftDeletedSecrets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesKeyVault) *bool { return v.RecoverSoftDeletedSecrets }).(pulumi.BoolPtrOutput)
 }
 
 type ProviderFeaturesKeyVaultPtrOutput struct{ *pulumi.OutputState }
@@ -668,6 +867,42 @@ func (o ProviderFeaturesKeyVaultPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o ProviderFeaturesKeyVaultPtrOutput) PurgeSoftDeletedCertificatesOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesKeyVault) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeSoftDeletedCertificatesOnDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultPtrOutput) PurgeSoftDeletedKeysOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesKeyVault) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeSoftDeletedKeysOnDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultPtrOutput) PurgeSoftDeletedSecretsOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesKeyVault) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeSoftDeletedSecretsOnDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultPtrOutput) RecoverSoftDeletedCertificates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesKeyVault) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RecoverSoftDeletedCertificates
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o ProviderFeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProviderFeaturesKeyVault) *bool {
 		if v == nil {
@@ -677,8 +912,26 @@ func (o ProviderFeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o ProviderFeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeys() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesKeyVault) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RecoverSoftDeletedKeys
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultPtrOutput) RecoverSoftDeletedSecrets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesKeyVault) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RecoverSoftDeletedSecrets
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ProviderFeaturesLogAnalyticsWorkspace struct {
-	PermanentlyDeleteOnDestroy bool `pulumi:"permanentlyDeleteOnDestroy"`
+	PermanentlyDeleteOnDestroy *bool `pulumi:"permanentlyDeleteOnDestroy"`
 }
 
 // ProviderFeaturesLogAnalyticsWorkspaceInput is an input type that accepts ProviderFeaturesLogAnalyticsWorkspaceArgs and ProviderFeaturesLogAnalyticsWorkspaceOutput values.
@@ -693,7 +946,7 @@ type ProviderFeaturesLogAnalyticsWorkspaceInput interface {
 }
 
 type ProviderFeaturesLogAnalyticsWorkspaceArgs struct {
-	PermanentlyDeleteOnDestroy pulumi.BoolInput `pulumi:"permanentlyDeleteOnDestroy"`
+	PermanentlyDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"permanentlyDeleteOnDestroy"`
 }
 
 func (ProviderFeaturesLogAnalyticsWorkspaceArgs) ElementType() reflect.Type {
@@ -773,8 +1026,8 @@ func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) ToProviderFeaturesLogAnalyt
 	}).(ProviderFeaturesLogAnalyticsWorkspacePtrOutput)
 }
 
-func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) PermanentlyDeleteOnDestroy() pulumi.BoolOutput {
-	return o.ApplyT(func(v ProviderFeaturesLogAnalyticsWorkspace) bool { return v.PermanentlyDeleteOnDestroy }).(pulumi.BoolOutput)
+func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) PermanentlyDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesLogAnalyticsWorkspace) *bool { return v.PermanentlyDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
 type ProviderFeaturesLogAnalyticsWorkspacePtrOutput struct{ *pulumi.OutputState }
@@ -806,7 +1059,7 @@ func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) PermanentlyDeleteOnDestr
 		if v == nil {
 			return nil
 		}
-		return &v.PermanentlyDeleteOnDestroy
+		return v.PermanentlyDeleteOnDestroy
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1540,6 +1793,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesPtrInput)(nil)).Elem(), ProviderFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesApiManagementInput)(nil)).Elem(), ProviderFeaturesApiManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesApiManagementPtrInput)(nil)).Elem(), ProviderFeaturesApiManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesApplicationInsightsInput)(nil)).Elem(), ProviderFeaturesApplicationInsightsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesApplicationInsightsPtrInput)(nil)).Elem(), ProviderFeaturesApplicationInsightsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesCognitiveAccountInput)(nil)).Elem(), ProviderFeaturesCognitiveAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesCognitiveAccountPtrInput)(nil)).Elem(), ProviderFeaturesCognitiveAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesKeyVaultInput)(nil)).Elem(), ProviderFeaturesKeyVaultArgs{})
@@ -1560,6 +1815,8 @@ func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesApiManagementOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesApiManagementPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesApplicationInsightsOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesApplicationInsightsPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesCognitiveAccountOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesCognitiveAccountPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultOutput{})

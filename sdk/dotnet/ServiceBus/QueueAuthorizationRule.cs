@@ -82,9 +82,6 @@ namespace Pulumi.Azure.ServiceBus
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("namespaceName")]
-        public Output<string> NamespaceName { get; private set; } = null!;
-
         /// <summary>
         /// The Primary Connection String for the Authorization Rule.
         /// </summary>
@@ -108,12 +105,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Output("queueId")]
         public Output<string> QueueId { get; private set; } = null!;
-
-        [Output("queueName")]
-        public Output<string> QueueName { get; private set; } = null!;
-
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The Secondary Connection String for the Authorization Rule.
@@ -147,7 +138,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public QueueAuthorizationRule(string name, QueueAuthorizationRuleArgs? args = null, CustomResourceOptions? options = null)
+        public QueueAuthorizationRule(string name, QueueAuthorizationRuleArgs args, CustomResourceOptions? options = null)
             : base("azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule", name, args ?? new QueueAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -207,20 +198,11 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
         /// <summary>
         /// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("queueId")]
-        public Input<string>? QueueId { get; set; }
-
-        [Input("queueName")]
-        public Input<string>? QueueName { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
+        [Input("queueId", required: true)]
+        public Input<string> QueueId { get; set; } = null!;
 
         /// <summary>
         /// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
@@ -253,9 +235,6 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
         /// <summary>
         /// The Primary Connection String for the Authorization Rule.
         /// </summary>
@@ -279,12 +258,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("queueId")]
         public Input<string>? QueueId { get; set; }
-
-        [Input("queueName")]
-        public Input<string>? QueueName { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The Secondary Connection String for the Authorization Rule.

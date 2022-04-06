@@ -353,8 +353,7 @@ class DataFlow(pulumi.CustomResource):
         }}
         \"\"\"))
         example1 = azure.datafactory.DatasetJson("example1",
-            resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
             azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
                 container="container",
@@ -363,8 +362,7 @@ class DataFlow(pulumi.CustomResource):
             ),
             encoding="UTF-8")
         example2 = azure.datafactory.DatasetJson("example2",
-            resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
             azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
                 container="container",
@@ -452,8 +450,7 @@ class DataFlow(pulumi.CustomResource):
         }}
         \"\"\"))
         example1 = azure.datafactory.DatasetJson("example1",
-            resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
             azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
                 container="container",
@@ -462,8 +459,7 @@ class DataFlow(pulumi.CustomResource):
             ),
             encoding="UTF-8")
         example2 = azure.datafactory.DatasetJson("example2",
-            resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
             azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
                 container="container",

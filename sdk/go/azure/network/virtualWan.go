@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -56,8 +56,6 @@ type VirtualWan struct {
 
 	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
 	AllowBranchToBranchTraffic pulumi.BoolPtrOutput `pulumi:"allowBranchToBranchTraffic"`
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	AllowVnetToVnetTraffic pulumi.BoolPtrOutput `pulumi:"allowVnetToVnetTraffic"`
 	// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
 	DisableVpnEncryption pulumi.BoolPtrOutput `pulumi:"disableVpnEncryption"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -108,8 +106,6 @@ func GetVirtualWan(ctx *pulumi.Context,
 type virtualWanState struct {
 	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
 	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	AllowVnetToVnetTraffic *bool `pulumi:"allowVnetToVnetTraffic"`
 	// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
 	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -129,8 +125,6 @@ type virtualWanState struct {
 type VirtualWanState struct {
 	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
 	AllowBranchToBranchTraffic pulumi.BoolPtrInput
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	AllowVnetToVnetTraffic pulumi.BoolPtrInput
 	// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
 	DisableVpnEncryption pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -154,8 +148,6 @@ func (VirtualWanState) ElementType() reflect.Type {
 type virtualWanArgs struct {
 	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
 	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	AllowVnetToVnetTraffic *bool `pulumi:"allowVnetToVnetTraffic"`
 	// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
 	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -176,8 +168,6 @@ type virtualWanArgs struct {
 type VirtualWanArgs struct {
 	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
 	AllowBranchToBranchTraffic pulumi.BoolPtrInput
-	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
-	AllowVnetToVnetTraffic pulumi.BoolPtrInput
 	// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
 	DisableVpnEncryption pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

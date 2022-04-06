@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/mysql"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -92,7 +92,7 @@ type LookupFlexibleServerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of the MySQL Flexible Server.
 	Version string `pulumi:"version"`
-	// The availability zones of the MySQL Flexible Server.
+	// The Availability Zones where this MySQL Flexible Server is located.
 	Zone string `pulumi:"zone"`
 }
 
@@ -229,7 +229,7 @@ func (o LookupFlexibleServerResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.Version }).(pulumi.StringOutput)
 }
 
-// The availability zones of the MySQL Flexible Server.
+// The Availability Zones where this MySQL Flexible Server is located.
 func (o LookupFlexibleServerResultOutput) Zone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.Zone }).(pulumi.StringOutput)
 }

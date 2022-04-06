@@ -377,7 +377,7 @@ class InferenceCluster(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.1.0.0/24")
+            address_prefixes=["10.1.0.0/24"])
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -475,7 +475,7 @@ class InferenceCluster(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.1.0.0/24")
+            address_prefixes=["10.1.0.0/24"])
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,

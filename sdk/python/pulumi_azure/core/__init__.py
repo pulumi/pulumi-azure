@@ -18,12 +18,15 @@ from .portal_tenant_configuration import *
 from .resource_group import *
 from .resource_group_cost_management_export import *
 from .resource_group_policy_assignment import *
+from .resource_group_policy_remediation import *
 from .resource_group_template_deployment import *
 from .resource_policy_assignment import *
+from .resource_policy_remediation import *
 from .resource_provider_registration import *
 from .subscription import *
 from .subscription_cost_management_export import *
 from .subscription_policy_assignment import *
+from .subscription_policy_remediation import *
 from .subscription_template_deployment import *
 from .template_deployment import *
 from .tenant_template_deployment import *

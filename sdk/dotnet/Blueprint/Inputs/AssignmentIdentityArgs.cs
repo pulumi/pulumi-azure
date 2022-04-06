@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Blueprint.Inputs
     {
         [Input("identityIds", required: true)]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
@@ -21,7 +25,7 @@ namespace Pulumi.Azure.Blueprint.Inputs
         }
 
         /// <summary>
-        /// The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+        /// Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

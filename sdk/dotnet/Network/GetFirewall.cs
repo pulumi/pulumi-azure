@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallVirtualHubResult> VirtualHubs;
         /// <summary>
-        /// The availability zones in which the Azure Firewall is created.
+        /// A list of Availability Zones in which this Azure Firewall is located.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
 

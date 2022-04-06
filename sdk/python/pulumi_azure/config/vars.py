@@ -86,13 +86,6 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('metadataHost') or _utilities.get_env('ARM_METADATA_HOSTNAME')
 
     @property
-    def metadata_url(self) -> Optional[str]:
-        """
-        Deprecated - replaced by `metadata_host`.
-        """
-        return __config__.get('metadataUrl') or _utilities.get_env('ARM_METADATA_URL')
-
-    @property
     def msi_endpoint(self) -> Optional[str]:
         """
         The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -106,13 +99,6 @@ class _ExportableConfig(types.ModuleType):
         A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         """
         return __config__.get('partnerId')
-
-    @property
-    def skip_credentials_validation(self) -> Optional[bool]:
-        """
-        [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
-        """
-        return __config__.get_bool('skipCredentialsValidation')
 
     @property
     def skip_provider_registration(self) -> bool:
@@ -142,13 +128,6 @@ class _ExportableConfig(types.ModuleType):
         The Tenant ID which should be used.
         """
         return __config__.get('tenantId')
-
-    @property
-    def use_msal(self) -> Optional[bool]:
-        """
-        Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
-        """
-        return __config__.get_bool('useMsal')
 
     @property
     def use_msi(self) -> Optional[bool]:

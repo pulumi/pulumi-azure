@@ -19,10 +19,10 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/cognitive"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cognitive"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -66,7 +66,6 @@ import (
 // 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			TenantId:               pulumi.String(current.TenantId),
 // 			SkuName:                pulumi.String("standard"),
-// 			SoftDeleteEnabled:      pulumi.Bool(true),
 // 			PurgeProtectionEnabled: pulumi.Bool(true),
 // 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 // 				&keyvault.KeyVaultAccessPolicyArgs{

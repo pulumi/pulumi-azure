@@ -206,12 +206,6 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.iot.IoTHubIdentity | undefined>;
     /**
-     * One or more `ipFilterRule` blocks as defined below.
-     *
-     * @deprecated This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
-     */
-    public readonly ipFilterRules!: pulumi.Output<outputs.iot.IoTHubIpFilterRule[] | undefined>;
-    /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -283,7 +277,6 @@ export class IoTHub extends pulumi.CustomResource {
             resourceInputs["fileUpload"] = state ? state.fileUpload : undefined;
             resourceInputs["hostname"] = state ? state.hostname : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["ipFilterRules"] = state ? state.ipFilterRules : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -311,7 +304,6 @@ export class IoTHub extends pulumi.CustomResource {
             resourceInputs["fallbackRoute"] = args ? args.fallbackRoute : undefined;
             resourceInputs["fileUpload"] = args ? args.fileUpload : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["ipFilterRules"] = args ? args.ipFilterRules : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -396,12 +388,6 @@ export interface IoTHubState {
      */
     identity?: pulumi.Input<inputs.iot.IoTHubIdentity>;
     /**
-     * One or more `ipFilterRule` blocks as defined below.
-     *
-     * @deprecated This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
-     */
-    ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubIpFilterRule>[]>;
-    /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -483,12 +469,6 @@ export interface IoTHubArgs {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.iot.IoTHubIdentity>;
-    /**
-     * One or more `ipFilterRule` blocks as defined below.
-     *
-     * @deprecated This property block is deprecated in favour of `network_rule_set` and will be removed in version 3.0 of the provider.
-     */
-    ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubIpFilterRule>[]>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */

@@ -35,26 +35,33 @@ class AccountIdentity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 type: str,
                  principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None,
-                 type: Optional[str] = None):
+                 tenant_id: Optional[str] = None):
         """
-        :param str principal_id: The ID of the Principal (Client) in Azure Active Directory.
-        :param str tenant_id: The ID of the Azure Active Directory Tenant.
-        :param str type: The type of Managed Identity assigned to this Purview Account.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Purview Account. The only possible value is `SystemAssigned`.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
+        pulumi.set(__self__, "type", type)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Purview Account. The only possible value is `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
         """
-        The ID of the Principal (Client) in Azure Active Directory.
+        The Principal ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -62,17 +69,9 @@ class AccountIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        The ID of the Azure Active Directory Tenant.
+        The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The type of Managed Identity assigned to this Purview Account.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

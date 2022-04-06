@@ -112,7 +112,10 @@ export class Account extends pulumi.CustomResource {
      * A `networkAcls` block as defined below.
      */
     public readonly networkAcls!: pulumi.Output<outputs.cognitive.AccountNetworkAcls | undefined>;
-    public readonly outboundNetworkAccessRestrited!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+     */
+    public readonly outboundNetworkAccessRestricted!: pulumi.Output<boolean | undefined>;
     /**
      * A primary access key which can be used to connect to the Cognitive Service Account.
      */
@@ -172,7 +175,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["metricsAdvisorWebsiteName"] = state ? state.metricsAdvisorWebsiteName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkAcls"] = state ? state.networkAcls : undefined;
-            resourceInputs["outboundNetworkAccessRestrited"] = state ? state.outboundNetworkAccessRestrited : undefined;
+            resourceInputs["outboundNetworkAccessRestricted"] = state ? state.outboundNetworkAccessRestricted : undefined;
             resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["qnaRuntimeEndpoint"] = state ? state.qnaRuntimeEndpoint : undefined;
@@ -204,7 +207,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["metricsAdvisorWebsiteName"] = args ? args.metricsAdvisorWebsiteName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
-            resourceInputs["outboundNetworkAccessRestrited"] = args ? args.outboundNetworkAccessRestrited : undefined;
+            resourceInputs["outboundNetworkAccessRestricted"] = args ? args.outboundNetworkAccessRestricted : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["qnaRuntimeEndpoint"] = args ? args.qnaRuntimeEndpoint : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -276,7 +279,10 @@ export interface AccountState {
      * A `networkAcls` block as defined below.
      */
     networkAcls?: pulumi.Input<inputs.cognitive.AccountNetworkAcls>;
-    outboundNetworkAccessRestrited?: pulumi.Input<boolean>;
+    /**
+     * Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+     */
+    outboundNetworkAccessRestricted?: pulumi.Input<boolean>;
     /**
      * A primary access key which can be used to connect to the Cognitive Service Account.
      */
@@ -363,7 +369,10 @@ export interface AccountArgs {
      * A `networkAcls` block as defined below.
      */
     networkAcls?: pulumi.Input<inputs.cognitive.AccountNetworkAcls>;
-    outboundNetworkAccessRestrited?: pulumi.Input<boolean>;
+    /**
+     * Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
+     */
+    outboundNetworkAccessRestricted?: pulumi.Input<boolean>;
     /**
      * Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
      */

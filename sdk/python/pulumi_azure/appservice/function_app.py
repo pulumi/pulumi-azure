@@ -17,9 +17,10 @@ class FunctionAppArgs:
     def __init__(__self__, *,
                  app_service_plan_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 storage_account_access_key: pulumi.Input[str],
+                 storage_account_name: pulumi.Input[str],
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
@@ -33,18 +34,16 @@ class FunctionAppArgs:
                  os_type: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input['FunctionAppSiteConfigArgs']] = None,
                  source_control: Optional[pulumi.Input['FunctionAppSourceControlArgs']] = None,
-                 storage_account_access_key: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_connection_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FunctionApp resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
+        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['FunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
-        :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
@@ -58,22 +57,17 @@ class FunctionAppArgs:
         :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app.
         :param pulumi.Input['FunctionAppSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input['FunctionAppSourceControlArgs'] source_control: A `source_control` block, as defined below.
-        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
-        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
         """
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
-        if client_affinity_enabled is not None:
-            warnings.warn("""This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""")
-        if client_affinity_enabled is not None:
-            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if client_cert_mode is not None:
             pulumi.set(__self__, "client_cert_mode", client_cert_mode)
         if connection_strings is not None:
@@ -100,15 +94,6 @@ class FunctionAppArgs:
             pulumi.set(__self__, "site_config", site_config)
         if source_control is not None:
             pulumi.set(__self__, "source_control", source_control)
-        if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
-        if storage_connection_string is not None:
-            warnings.warn("""Deprecated in favour of `storage_account_name` and `storage_account_access_key`""", DeprecationWarning)
-            pulumi.log.warn("""storage_connection_string is deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`""")
-        if storage_connection_string is not None:
-            pulumi.set(__self__, "storage_connection_string", storage_connection_string)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
@@ -139,6 +124,30 @@ class FunctionAppArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="storageAccountAccessKey")
+    def storage_account_access_key(self) -> pulumi.Input[str]:
+        """
+        The access key which will be used to access the backend storage account for the Function App.
+        """
+        return pulumi.get(self, "storage_account_access_key")
+
+    @storage_account_access_key.setter
+    def storage_account_access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_access_key", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        """
+        The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -161,18 +170,6 @@ class FunctionAppArgs:
     @auth_settings.setter
     def auth_settings(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
-
-    @property
-    @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        """
-        return pulumi.get(self, "client_affinity_enabled")
-
-    @client_affinity_enabled.setter
-    def client_affinity_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "client_affinity_enabled", value)
 
     @property
     @pulumi.getter(name="clientCertMode")
@@ -331,39 +328,6 @@ class FunctionAppArgs:
         pulumi.set(self, "source_control", value)
 
     @property
-    @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The access key which will be used to access the backend storage account for the Function App.
-        """
-        return pulumi.get(self, "storage_account_access_key")
-
-    @storage_account_access_key.setter
-    def storage_account_access_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_access_key", value)
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The backend storage account name which will be used by this Function App (such as the dashboard, logs).
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_name", value)
-
-    @property
-    @pulumi.getter(name="storageConnectionString")
-    def storage_connection_string(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "storage_connection_string")
-
-    @storage_connection_string.setter
-    def storage_connection_string(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_connection_string", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -394,7 +358,6 @@ class _FunctionAppState:
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]] = None,
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
@@ -417,7 +380,6 @@ class _FunctionAppState:
                  source_control: Optional[pulumi.Input['FunctionAppSourceControlArgs']] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_connection_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -425,7 +387,6 @@ class _FunctionAppState:
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['FunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
-        :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
@@ -457,11 +418,6 @@ class _FunctionAppState:
             pulumi.set(__self__, "app_settings", app_settings)
         if auth_settings is not None:
             pulumi.set(__self__, "auth_settings", auth_settings)
-        if client_affinity_enabled is not None:
-            warnings.warn("""This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""")
-        if client_affinity_enabled is not None:
-            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if client_cert_mode is not None:
             pulumi.set(__self__, "client_cert_mode", client_cert_mode)
         if connection_strings is not None:
@@ -506,11 +462,6 @@ class _FunctionAppState:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
-        if storage_connection_string is not None:
-            warnings.warn("""Deprecated in favour of `storage_account_name` and `storage_account_access_key`""", DeprecationWarning)
-            pulumi.log.warn("""storage_connection_string is deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`""")
-        if storage_connection_string is not None:
-            pulumi.set(__self__, "storage_connection_string", storage_connection_string)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
@@ -551,18 +502,6 @@ class _FunctionAppState:
     @auth_settings.setter
     def auth_settings(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']]):
         pulumi.set(self, "auth_settings", value)
-
-    @property
-    @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        """
-        return pulumi.get(self, "client_affinity_enabled")
-
-    @client_affinity_enabled.setter
-    def client_affinity_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "client_affinity_enabled", value)
 
     @property
     @pulumi.getter(name="clientCertMode")
@@ -829,15 +768,6 @@ class _FunctionAppState:
         pulumi.set(self, "storage_account_name", value)
 
     @property
-    @pulumi.getter(name="storageConnectionString")
-    def storage_connection_string(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "storage_connection_string")
-
-    @storage_connection_string.setter
-    def storage_connection_string(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_connection_string", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -870,7 +800,6 @@ class FunctionApp(pulumi.CustomResource):
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']]] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
@@ -887,16 +816,10 @@ class FunctionApp(pulumi.CustomResource):
                  source_control: Optional[pulumi.Input[pulumi.InputType['FunctionAppSourceControlArgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_connection_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Function App.
-
-        > **Note:** To connect an Azure Function App and a subnet within the same region `appservice.VirtualNetworkSwiftConnection` can be used.
-        For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
-
         ## Example Usage
         ### With App Service Plan)
 
@@ -1033,7 +956,6 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
-        :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
@@ -1060,11 +982,6 @@ class FunctionApp(pulumi.CustomResource):
                  args: FunctionAppArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Function App.
-
-        > **Note:** To connect an Azure Function App and a subnet within the same region `appservice.VirtualNetworkSwiftConnection` can be used.
-        For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
-
         ## Example Usage
         ### With App Service Plan)
 
@@ -1214,7 +1131,6 @@ class FunctionApp(pulumi.CustomResource):
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']]] = None,
-                 client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
@@ -1231,7 +1147,6 @@ class FunctionApp(pulumi.CustomResource):
                  source_control: Optional[pulumi.Input[pulumi.InputType['FunctionAppSourceControlArgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_connection_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1251,10 +1166,6 @@ class FunctionApp(pulumi.CustomResource):
             __props__.__dict__["app_service_plan_id"] = app_service_plan_id
             __props__.__dict__["app_settings"] = app_settings
             __props__.__dict__["auth_settings"] = auth_settings
-            if client_affinity_enabled is not None and not opts.urn:
-                warnings.warn("""This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""", DeprecationWarning)
-                pulumi.log.warn("""client_affinity_enabled is deprecated: This property is no longer configurable in the service and has been deprecated. It will be removed in 3.0 of the provider.""")
-            __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["client_cert_mode"] = client_cert_mode
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
@@ -1271,12 +1182,12 @@ class FunctionApp(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["site_config"] = site_config
             __props__.__dict__["source_control"] = source_control
+            if storage_account_access_key is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_account_access_key'")
             __props__.__dict__["storage_account_access_key"] = storage_account_access_key
+            if storage_account_name is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_account_name'")
             __props__.__dict__["storage_account_name"] = storage_account_name
-            if storage_connection_string is not None and not opts.urn:
-                warnings.warn("""Deprecated in favour of `storage_account_name` and `storage_account_access_key`""", DeprecationWarning)
-                pulumi.log.warn("""storage_connection_string is deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`""")
-            __props__.__dict__["storage_connection_string"] = storage_connection_string
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
             __props__.__dict__["custom_domain_verification_id"] = None
@@ -1298,7 +1209,6 @@ class FunctionApp(pulumi.CustomResource):
             app_service_plan_id: Optional[pulumi.Input[str]] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']]] = None,
-            client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
             client_cert_mode: Optional[pulumi.Input[str]] = None,
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]]] = None,
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
@@ -1321,7 +1231,6 @@ class FunctionApp(pulumi.CustomResource):
             source_control: Optional[pulumi.Input[pulumi.InputType['FunctionAppSourceControlArgs']]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None,
-            storage_connection_string: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'FunctionApp':
         """
@@ -1334,7 +1243,6 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
-        :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
@@ -1367,7 +1275,6 @@ class FunctionApp(pulumi.CustomResource):
         __props__.__dict__["app_service_plan_id"] = app_service_plan_id
         __props__.__dict__["app_settings"] = app_settings
         __props__.__dict__["auth_settings"] = auth_settings
-        __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
         __props__.__dict__["client_cert_mode"] = client_cert_mode
         __props__.__dict__["connection_strings"] = connection_strings
         __props__.__dict__["custom_domain_verification_id"] = custom_domain_verification_id
@@ -1390,7 +1297,6 @@ class FunctionApp(pulumi.CustomResource):
         __props__.__dict__["source_control"] = source_control
         __props__.__dict__["storage_account_access_key"] = storage_account_access_key
         __props__.__dict__["storage_account_name"] = storage_account_name
-        __props__.__dict__["storage_connection_string"] = storage_connection_string
         __props__.__dict__["tags"] = tags
         __props__.__dict__["version"] = version
         return FunctionApp(resource_name, opts=opts, __props__=__props__)
@@ -1418,14 +1324,6 @@ class FunctionApp(pulumi.CustomResource):
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
-
-    @property
-    @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> pulumi.Output[bool]:
-        """
-        Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        """
-        return pulumi.get(self, "client_affinity_enabled")
 
     @property
     @pulumi.getter(name="clientCertMode")
@@ -1493,7 +1391,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output['outputs.FunctionAppIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.FunctionAppIdentity']]:
         """
         An `identity` block as defined below.
         """
@@ -1602,11 +1500,6 @@ class FunctionApp(pulumi.CustomResource):
         The backend storage account name which will be used by this Function App (such as the dashboard, logs).
         """
         return pulumi.get(self, "storage_account_name")
-
-    @property
-    @pulumi.getter(name="storageConnectionString")
-    def storage_connection_string(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "storage_connection_string")
 
     @property
     @pulumi.getter

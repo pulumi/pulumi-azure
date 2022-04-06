@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Management.Outputs
     public sealed class GroupPolicyAssignmentIdentity
     {
         /// <summary>
+        /// A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
         /// The Principal ID of the Policy Assignment for this Management Group.
         /// </summary>
         public readonly string? PrincipalId;
@@ -22,18 +26,21 @@ namespace Pulumi.Azure.Management.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
+        /// The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GroupPolicyAssignmentIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

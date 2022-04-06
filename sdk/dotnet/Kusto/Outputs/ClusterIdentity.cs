@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Kusto.Outputs
     public sealed class ClusterIdentity
     {
         /// <summary>
-        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

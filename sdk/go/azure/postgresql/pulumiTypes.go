@@ -13,7 +13,7 @@ import (
 type FlexibleServerHighAvailability struct {
 	// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
 	Mode string `pulumi:"mode"`
-	// The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+	// Specifies the Availability Zone in which the standby Flexible Server should be located.
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -31,7 +31,7 @@ type FlexibleServerHighAvailabilityInput interface {
 type FlexibleServerHighAvailabilityArgs struct {
 	// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+	// Specifies the Availability Zone in which the standby Flexible Server should be located.
 	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -117,7 +117,7 @@ func (o FlexibleServerHighAvailabilityOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+// Specifies the Availability Zone in which the standby Flexible Server should be located.
 func (o FlexibleServerHighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -156,7 +156,7 @@ func (o FlexibleServerHighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+// Specifies the Availability Zone in which the standby Flexible Server should be located.
 func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerHighAvailability) *string {
 		if v == nil {
@@ -342,11 +342,11 @@ func (o FlexibleServerMaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOut
 }
 
 type ServerIdentity struct {
-	// The Client ID of the Service Principal assigned to this PostgreSQL Server.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
-	// The ID of the Tenant the Service Principal is assigned in.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// The Type of Identity which should be used for this PostgreSQL Server. At this time the only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -362,11 +362,11 @@ type ServerIdentityInput interface {
 }
 
 type ServerIdentityArgs struct {
-	// The Client ID of the Service Principal assigned to this PostgreSQL Server.
+	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The ID of the Tenant the Service Principal is assigned in.
+	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The Type of Identity which should be used for this PostgreSQL Server. At this time the only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -447,17 +447,17 @@ func (o ServerIdentityOutput) ToServerIdentityPtrOutputWithContext(ctx context.C
 	}).(ServerIdentityPtrOutput)
 }
 
-// The Client ID of the Service Principal assigned to this PostgreSQL Server.
+// The Principal ID associated with this Managed Service Identity.
 func (o ServerIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Tenant the Service Principal is assigned in.
+// The Tenant ID associated with this Managed Service Identity.
 func (o ServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for this PostgreSQL Server. At this time the only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
 func (o ServerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -486,7 +486,7 @@ func (o ServerIdentityPtrOutput) Elem() ServerIdentityOutput {
 	}).(ServerIdentityOutput)
 }
 
-// The Client ID of the Service Principal assigned to this PostgreSQL Server.
+// The Principal ID associated with this Managed Service Identity.
 func (o ServerIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerIdentity) *string {
 		if v == nil {
@@ -496,7 +496,7 @@ func (o ServerIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Tenant the Service Principal is assigned in.
+// The Tenant ID associated with this Managed Service Identity.
 func (o ServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerIdentity) *string {
 		if v == nil {
@@ -506,7 +506,7 @@ func (o ServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Identity which should be used for this PostgreSQL Server. At this time the only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
 func (o ServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerIdentity) *string {
 		if v == nil {
@@ -514,216 +514,6 @@ func (o ServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-type ServerStorageProfile struct {
-	// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-	AutoGrow *string `pulumi:"autoGrow"`
-	// Backup retention days for the server, supported values are between `7` and `35` days.
-	//
-	// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
-	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage).
-	//
-	// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-	StorageMb *int `pulumi:"storageMb"`
-}
-
-// ServerStorageProfileInput is an input type that accepts ServerStorageProfileArgs and ServerStorageProfileOutput values.
-// You can construct a concrete instance of `ServerStorageProfileInput` via:
-//
-//          ServerStorageProfileArgs{...}
-type ServerStorageProfileInput interface {
-	pulumi.Input
-
-	ToServerStorageProfileOutput() ServerStorageProfileOutput
-	ToServerStorageProfileOutputWithContext(context.Context) ServerStorageProfileOutput
-}
-
-type ServerStorageProfileArgs struct {
-	// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-	AutoGrow pulumi.StringPtrInput `pulumi:"autoGrow"`
-	// Backup retention days for the server, supported values are between `7` and `35` days.
-	//
-	// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
-	// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
-	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage).
-	//
-	// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-	StorageMb pulumi.IntPtrInput `pulumi:"storageMb"`
-}
-
-func (ServerStorageProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerStorageProfile)(nil)).Elem()
-}
-
-func (i ServerStorageProfileArgs) ToServerStorageProfileOutput() ServerStorageProfileOutput {
-	return i.ToServerStorageProfileOutputWithContext(context.Background())
-}
-
-func (i ServerStorageProfileArgs) ToServerStorageProfileOutputWithContext(ctx context.Context) ServerStorageProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerStorageProfileOutput)
-}
-
-func (i ServerStorageProfileArgs) ToServerStorageProfilePtrOutput() ServerStorageProfilePtrOutput {
-	return i.ToServerStorageProfilePtrOutputWithContext(context.Background())
-}
-
-func (i ServerStorageProfileArgs) ToServerStorageProfilePtrOutputWithContext(ctx context.Context) ServerStorageProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerStorageProfileOutput).ToServerStorageProfilePtrOutputWithContext(ctx)
-}
-
-// ServerStorageProfilePtrInput is an input type that accepts ServerStorageProfileArgs, ServerStorageProfilePtr and ServerStorageProfilePtrOutput values.
-// You can construct a concrete instance of `ServerStorageProfilePtrInput` via:
-//
-//          ServerStorageProfileArgs{...}
-//
-//  or:
-//
-//          nil
-type ServerStorageProfilePtrInput interface {
-	pulumi.Input
-
-	ToServerStorageProfilePtrOutput() ServerStorageProfilePtrOutput
-	ToServerStorageProfilePtrOutputWithContext(context.Context) ServerStorageProfilePtrOutput
-}
-
-type serverStorageProfilePtrType ServerStorageProfileArgs
-
-func ServerStorageProfilePtr(v *ServerStorageProfileArgs) ServerStorageProfilePtrInput {
-	return (*serverStorageProfilePtrType)(v)
-}
-
-func (*serverStorageProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerStorageProfile)(nil)).Elem()
-}
-
-func (i *serverStorageProfilePtrType) ToServerStorageProfilePtrOutput() ServerStorageProfilePtrOutput {
-	return i.ToServerStorageProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *serverStorageProfilePtrType) ToServerStorageProfilePtrOutputWithContext(ctx context.Context) ServerStorageProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerStorageProfilePtrOutput)
-}
-
-type ServerStorageProfileOutput struct{ *pulumi.OutputState }
-
-func (ServerStorageProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerStorageProfile)(nil)).Elem()
-}
-
-func (o ServerStorageProfileOutput) ToServerStorageProfileOutput() ServerStorageProfileOutput {
-	return o
-}
-
-func (o ServerStorageProfileOutput) ToServerStorageProfileOutputWithContext(ctx context.Context) ServerStorageProfileOutput {
-	return o
-}
-
-func (o ServerStorageProfileOutput) ToServerStorageProfilePtrOutput() ServerStorageProfilePtrOutput {
-	return o.ToServerStorageProfilePtrOutputWithContext(context.Background())
-}
-
-func (o ServerStorageProfileOutput) ToServerStorageProfilePtrOutputWithContext(ctx context.Context) ServerStorageProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerStorageProfile) *ServerStorageProfile {
-		return &v
-	}).(ServerStorageProfilePtrOutput)
-}
-
-// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-func (o ServerStorageProfileOutput) AutoGrow() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *string { return v.AutoGrow }).(pulumi.StringPtrOutput)
-}
-
-// Backup retention days for the server, supported values are between `7` and `35` days.
-//
-// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-func (o ServerStorageProfileOutput) BackupRetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
-}
-
-// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-func (o ServerStorageProfileOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
-}
-
-// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage).
-//
-// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-func (o ServerStorageProfileOutput) StorageMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *int { return v.StorageMb }).(pulumi.IntPtrOutput)
-}
-
-type ServerStorageProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (ServerStorageProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerStorageProfile)(nil)).Elem()
-}
-
-func (o ServerStorageProfilePtrOutput) ToServerStorageProfilePtrOutput() ServerStorageProfilePtrOutput {
-	return o
-}
-
-func (o ServerStorageProfilePtrOutput) ToServerStorageProfilePtrOutputWithContext(ctx context.Context) ServerStorageProfilePtrOutput {
-	return o
-}
-
-func (o ServerStorageProfilePtrOutput) Elem() ServerStorageProfileOutput {
-	return o.ApplyT(func(v *ServerStorageProfile) ServerStorageProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ServerStorageProfile
-		return ret
-	}).(ServerStorageProfileOutput)
-}
-
-// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-func (o ServerStorageProfilePtrOutput) AutoGrow() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerStorageProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AutoGrow
-	}).(pulumi.StringPtrOutput)
-}
-
-// Backup retention days for the server, supported values are between `7` and `35` days.
-//
-// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-func (o ServerStorageProfilePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServerStorageProfile) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BackupRetentionDays
-	}).(pulumi.IntPtrOutput)
-}
-
-// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-func (o ServerStorageProfilePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerStorageProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GeoRedundantBackup
-	}).(pulumi.StringPtrOutput)
-}
-
-// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#storage).
-//
-// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
-func (o ServerStorageProfilePtrOutput) StorageMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServerStorageProfile) *int {
-		if v == nil {
-			return nil
-		}
-		return v.StorageMb
-	}).(pulumi.IntPtrOutput)
 }
 
 type ServerThreatDetectionPolicy struct {
@@ -1099,8 +889,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerMaintenanceWindowPtrInput)(nil)).Elem(), FlexibleServerMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityInput)(nil)).Elem(), ServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityPtrInput)(nil)).Elem(), ServerIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerStorageProfileInput)(nil)).Elem(), ServerStorageProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerStorageProfilePtrInput)(nil)).Elem(), ServerStorageProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerThreatDetectionPolicyInput)(nil)).Elem(), ServerThreatDetectionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerThreatDetectionPolicyPtrInput)(nil)).Elem(), ServerThreatDetectionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityInput)(nil)).Elem(), GetServerIdentityArgs{})
@@ -1111,8 +899,6 @@ func init() {
 	pulumi.RegisterOutputType(FlexibleServerMaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityOutput{})
 	pulumi.RegisterOutputType(ServerIdentityPtrOutput{})
-	pulumi.RegisterOutputType(ServerStorageProfileOutput{})
-	pulumi.RegisterOutputType(ServerStorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(ServerThreatDetectionPolicyOutput{})
 	pulumi.RegisterOutputType(ServerThreatDetectionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityOutput{})

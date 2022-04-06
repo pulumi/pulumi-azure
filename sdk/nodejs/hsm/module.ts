@@ -148,7 +148,7 @@ export class Module extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+     * Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -231,7 +231,7 @@ export interface ModuleState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+     * Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -269,7 +269,7 @@ export interface ModuleArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+     * Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -81,6 +81,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly dnsServers!: pulumi.Output<string[]>;
     /**
+     * Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+     */
+    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    /**
      * Should Accelerated Networking be enabled? Defaults to `false`.
      */
     public readonly enableAcceleratedNetworking!: pulumi.Output<boolean | undefined>;
@@ -148,6 +152,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             const state = argsOrState as NetworkInterfaceState | undefined;
             resourceInputs["appliedDnsServers"] = state ? state.appliedDnsServers : undefined;
             resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
+            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["enableAcceleratedNetworking"] = state ? state.enableAcceleratedNetworking : undefined;
             resourceInputs["enableIpForwarding"] = state ? state.enableIpForwarding : undefined;
             resourceInputs["internalDnsNameLabel"] = state ? state.internalDnsNameLabel : undefined;
@@ -170,6 +175,7 @@ export class NetworkInterface extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
             resourceInputs["enableIpForwarding"] = args ? args.enableIpForwarding : undefined;
             resourceInputs["internalDnsNameLabel"] = args ? args.internalDnsNameLabel : undefined;
@@ -202,6 +208,10 @@ export interface NetworkInterfaceState {
      * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * Should Accelerated Networking be enabled? Defaults to `false`.
      */
@@ -264,6 +274,10 @@ export interface NetworkInterfaceArgs {
      * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * Should Accelerated Networking be enabled? Defaults to `false`.
      */

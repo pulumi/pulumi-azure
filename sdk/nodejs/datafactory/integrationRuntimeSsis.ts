@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleIntegrationRuntimeSsis = new azure.datafactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis", {
  *     dataFactoryId: exampleFactory.id,
- *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     nodeSize: "Standard_D8_v3",
  * });
@@ -76,12 +75,6 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    public readonly dataFactoryName!: pulumi.Output<string>;
-    /**
      * Integration runtime description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -126,10 +119,6 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
      */
     public readonly proxy!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisProxy | undefined>;
     /**
-     * The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * A `vnetIntegration` block as defined below.
      */
     public readonly vnetIntegration!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisVnetIntegration | undefined>;
@@ -150,7 +139,6 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
             resourceInputs["catalogInfo"] = state ? state.catalogInfo : undefined;
             resourceInputs["customSetupScript"] = state ? state.customSetupScript : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["edition"] = state ? state.edition : undefined;
             resourceInputs["expressCustomSetup"] = state ? state.expressCustomSetup : undefined;
@@ -162,20 +150,18 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
             resourceInputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
             resourceInputs["packageStores"] = state ? state.packageStores : undefined;
             resourceInputs["proxy"] = state ? state.proxy : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["vnetIntegration"] = state ? state.vnetIntegration : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeSsisArgs | undefined;
+            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataFactoryId'");
+            }
             if ((!args || args.nodeSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeSize'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["catalogInfo"] = args ? args.catalogInfo : undefined;
             resourceInputs["customSetupScript"] = args ? args.customSetupScript : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["edition"] = args ? args.edition : undefined;
             resourceInputs["expressCustomSetup"] = args ? args.expressCustomSetup : undefined;
@@ -187,7 +173,6 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
             resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
             resourceInputs["packageStores"] = args ? args.packageStores : undefined;
             resourceInputs["proxy"] = args ? args.proxy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["vnetIntegration"] = args ? args.vnetIntegration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -211,12 +196,6 @@ export interface IntegrationRuntimeSsisState {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
     dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */
@@ -262,10 +241,6 @@ export interface IntegrationRuntimeSsisState {
      */
     proxy?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisProxy>;
     /**
-     * The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * A `vnetIntegration` block as defined below.
      */
     vnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisVnetIntegration>;
@@ -286,13 +261,7 @@ export interface IntegrationRuntimeSsisArgs {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryId?: pulumi.Input<string>;
-    /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-     *
-     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
-     */
-    dataFactoryName?: pulumi.Input<string>;
+    dataFactoryId: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */
@@ -337,10 +306,6 @@ export interface IntegrationRuntimeSsisArgs {
      * A `proxy` block as defined below.
      */
     proxy?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisProxy>;
-    /**
-     * The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * A `vnetIntegration` block as defined below.
      */

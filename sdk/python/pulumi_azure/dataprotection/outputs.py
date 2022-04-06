@@ -274,7 +274,7 @@ class BackupVaultIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
         """
@@ -288,7 +288,7 @@ class BackupVaultIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -316,9 +316,9 @@ class GetBackupVaultIdentityResult(dict):
                  tenant_id: str,
                  type: str):
         """
-        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
-        :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
-        :param str type: Specifies the identity type of the Backup Vault.
+        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
+        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
+        :param str type: The type of Managed Service Identity that is configured on this Backup Vault.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -328,7 +328,7 @@ class GetBackupVaultIdentityResult(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
         """
         return pulumi.get(self, "principal_id")
 
@@ -336,7 +336,7 @@ class GetBackupVaultIdentityResult(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -344,7 +344,7 @@ class GetBackupVaultIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Backup Vault.
+        The type of Managed Service Identity that is configured on this Backup Vault.
         """
         return pulumi.get(self, "type")
 

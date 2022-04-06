@@ -137,6 +137,10 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly defaultLocalNetworkGatewayId!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+     */
+    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    /**
      * If `true`, BGP (Border Gateway Protocol) will be enabled
      * for this Virtual Network Gateway. Defaults to `false`.
      */
@@ -220,6 +224,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["bgpSettings"] = state ? state.bgpSettings : undefined;
             resourceInputs["customRoute"] = state ? state.customRoute : undefined;
             resourceInputs["defaultLocalNetworkGatewayId"] = state ? state.defaultLocalNetworkGatewayId : undefined;
+            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["enableBgp"] = state ? state.enableBgp : undefined;
             resourceInputs["generation"] = state ? state.generation : undefined;
             resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
@@ -250,6 +255,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             resourceInputs["customRoute"] = args ? args.customRoute : undefined;
             resourceInputs["defaultLocalNetworkGatewayId"] = args ? args.defaultLocalNetworkGatewayId : undefined;
+            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
             resourceInputs["generation"] = args ? args.generation : undefined;
             resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
@@ -292,6 +298,10 @@ export interface VirtualNetworkGatewayState {
      * If not specified, forced tunnelling is disabled.
      */
     defaultLocalNetworkGatewayId?: pulumi.Input<string>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * If `true`, BGP (Border Gateway Protocol) will be enabled
      * for this Virtual Network Gateway. Defaults to `false`.
@@ -384,6 +394,10 @@ export interface VirtualNetworkGatewayArgs {
      * If not specified, forced tunnelling is disabled.
      */
     defaultLocalNetworkGatewayId?: pulumi.Input<string>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     /**
      * If `true`, BGP (Border Gateway Protocol) will be enabled
      * for this Virtual Network Gateway. Defaults to `false`.

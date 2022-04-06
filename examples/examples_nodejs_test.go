@@ -46,7 +46,7 @@ func TestAccLoadbalancer(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:                      filepath.Join(getCwd(t), "loadbalancer"),
-			RunUpdateTest:            true,
+			RunUpdateTest:            false, // the subresources now longer have a resource group in them
 			AllowEmptyPreviewChanges: true,
 			AllowEmptyUpdateChanges:  true,
 			// TO-DO: (@stack72) there is a strangeness with lb.Loadbalancer and the FrontendIpConfiguration

@@ -12,8 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `accessPolicy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
  *
- * > **Note:** This provider will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -125,10 +123,6 @@ export class KeyVault extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * @deprecated Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
-     */
-    public readonly softDeleteEnabled!: pulumi.Output<boolean>;
-    /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      */
     public readonly softDeleteRetentionDays!: pulumi.Output<number | undefined>;
@@ -170,7 +164,6 @@ export class KeyVault extends pulumi.CustomResource {
             resourceInputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["softDeleteEnabled"] = state ? state.softDeleteEnabled : undefined;
             resourceInputs["softDeleteRetentionDays"] = state ? state.softDeleteRetentionDays : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tenantId"] = state ? state.tenantId : undefined;
@@ -198,7 +191,6 @@ export class KeyVault extends pulumi.CustomResource {
             resourceInputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["softDeleteEnabled"] = args ? args.softDeleteEnabled : undefined;
             resourceInputs["softDeleteRetentionDays"] = args ? args.softDeleteRetentionDays : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
@@ -261,10 +253,6 @@ export interface KeyVaultState {
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      */
     skuName?: pulumi.Input<string>;
-    /**
-     * @deprecated Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
-     */
-    softDeleteEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      */
@@ -335,10 +323,6 @@ export interface KeyVaultArgs {
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      */
     skuName: pulumi.Input<string>;
-    /**
-     * @deprecated Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
-     */
-    softDeleteEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      */

@@ -33,13 +33,11 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var exampleLinkedServiceSqlServer = new Azure.DataFactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", new Azure.DataFactory.LinkedServiceSqlServerArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryId = exampleFactory.Id,
     ///             ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
     ///         });
     ///         var exampleDatasetSqlServerTable = new Azure.DataFactory.DatasetSqlServerTable("exampleDatasetSqlServerTable", new Azure.DataFactory.DatasetSqlServerTableArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryId = exampleFactory.Id,
     ///             LinkedServiceName = exampleLinkedServiceSqlServer.Name,
     ///         });
@@ -78,12 +76,6 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Output("dataFactoryName")]
-        public Output<string> DataFactoryName { get; private set; } = null!;
-
-        /// <summary>
         /// The description for the Data Factory Dataset SQL Server Table.
         /// </summary>
         [Output("description")]
@@ -112,12 +104,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A `schema_column` block as defined below.
@@ -204,14 +190,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryId")]
-        public Input<string>? DataFactoryId { get; set; }
-
-        /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
+        [Input("dataFactoryId", required: true)]
+        public Input<string> DataFactoryId { get; set; } = null!;
 
         /// <summary>
         /// The description for the Data Factory Dataset SQL Server Table.
@@ -248,12 +228,6 @@ namespace Pulumi.Azure.DataFactory
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("schemaColumns")]
         private InputList<Inputs.DatasetSqlServerTableSchemaColumnArgs>? _schemaColumns;
@@ -311,12 +285,6 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        /// </summary>
-        [Input("dataFactoryName")]
-        public Input<string>? DataFactoryName { get; set; }
-
-        /// <summary>
         /// The description for the Data Factory Dataset SQL Server Table.
         /// </summary>
         [Input("description")]
@@ -351,12 +319,6 @@ namespace Pulumi.Azure.DataFactory
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
-
-        /// <summary>
-        /// The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         [Input("schemaColumns")]
         private InputList<Inputs.DatasetSqlServerTableSchemaColumnGetArgs>? _schemaColumns;

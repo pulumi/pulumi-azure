@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Compute.Outputs
     {
         public readonly string Tag;
         /// <summary>
-        /// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+        /// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
         /// </summary>
         public readonly string Type;
 
