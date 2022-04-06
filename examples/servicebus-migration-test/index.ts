@@ -21,8 +21,7 @@ const exampleNamespace = new azure.eventhub.Namespace("example", {
 const serviceBusQueue = new azure.eventhub.Queue("example", {
     enablePartitioning: true,
     name: "servicebus-queue",
-    namespaceName: exampleNamespace.name,
-    resourceGroupName: exampleResourceGroup.name,
+    namespaceId: exampleNamespace.id,
 });
 
 serviceBusQueue.onEvent("Test", async (context, arg) => {

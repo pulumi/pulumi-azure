@@ -42,7 +42,6 @@ const lb = new azure.lb.LoadBalancer("lb", {
 });
 
 const backendPool = new azure.lb.BackendAddressPool("backendPool", {
-    resourceGroupName: resourceGroup.name,
     loadbalancerId: lb.id,
 });
 
@@ -56,7 +55,6 @@ const tcp = new azure.lb.NatRule("tcp", {
 });
 
 const lbprobe = new azure.lb.Probe("lbprobe", {
-    resourceGroupName: resourceGroup.name,
     loadbalancerId: lb.id,
     protocol: "tcp",
     port: 80,
@@ -65,14 +63,13 @@ const lbprobe = new azure.lb.Probe("lbprobe", {
 });
 
 const lbrule = new azure.lb.Rule("lbrule", {
-    resourceGroupName: resourceGroup.name,
     loadbalancerId: lb.id,
     protocol: "tcp",
     frontendPort: 80,
     backendPort: 80,
     frontendIpConfigurationName: "LoadBalancerFrontEnd",
     enableFloatingIp: true,
-    backendAddressPoolId: backendPool.id,
+    backendAddressPoolIds: [backendPool.id],
     idleTimeoutInMinutes: 5,
     probeId: lbprobe.id,
 });

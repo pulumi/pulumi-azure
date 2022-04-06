@@ -232,10 +232,12 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
         name: string, container: storage.Container,
         args: BlobEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
 
+        const resourceGroupName = resolveResourceGroupName(container);
+
         super("azure:storage:BlobEventSubscription",
             name,
             new BlobFunction(name, { ...args, container }),
-            { ...args },
+            { ...args, resourceGroupName },
             { parent: container, ...opts });
 
         this.registerOutputs();
@@ -506,19 +508,29 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 
         opts = { parent: queue, ...opts };
 
+        const resourceGroupName = resolveResourceGroupName(queue)
+
         super("azure:storage:QueueEventSubscription", name, new QueueFunction(name, { ...args, queue }), {
             ...args,
+            resourceGroupName,
         }, opts);
 
         this.registerOutputs();
     }
 }
 
+// Given a Queue or a Table, resolve the resource group name of the corresponding storage account
+function resolveResourceGroupName(container: { storageAccountName: pulumi.Output<string>, id: pulumi.Output<string> }) {
+    const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) =>
+        storage.getAccount({ name: storageAccountName }));
+    return account.resourceGroupName!.apply(n => n!);
+}
+
 // Given a Queue or a Table, produce App Settings and a Connection String Key relevant to the Storage Account
 function resolveAccount(container: { storageAccountName: pulumi.Output<string>, id: pulumi.Output<string> }) {
     const connectionKey = pulumi.interpolate`Storage${container.storageAccountName}ConnectionStringKey`;
     const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) =>
-        storage.getAccount({ name: storageAccountName }, { async: true }));
+        storage.getAccount({ name: storageAccountName }));
 
     const settings = pulumi.all([account.primaryConnectionString, connectionKey]).apply(
         ([connectionString, key]) => ({ [key]: connectionString }));

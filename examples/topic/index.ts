@@ -11,8 +11,7 @@ const namespace = new eventhub.Namespace("test", {
 });
 
 const topic = new eventhub.Topic("test", {
-    resourceGroupName: resourceGroup.name,
-    namespaceName: namespace.name,
+    namespaceId: namespace.id,
 });
 
 export const subscription = topic.onEvent("test", async (context, arg) => {
