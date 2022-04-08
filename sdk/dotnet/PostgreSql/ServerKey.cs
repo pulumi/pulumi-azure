@@ -37,8 +37,8 @@ namespace Pulumi.Azure.PostgreSql
     ///         });
     ///         var exampleServer = new Azure.PostgreSql.Server("exampleServer", new Azure.PostgreSql.ServerArgs
     ///         {
-    ///             Location = azurerm_resource_group.Test.Location,
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             AdministratorLogin = "psqladmin",
     ///             AdministratorLoginPassword = "H@Sh1CoR3!",
     ///             SkuName = "GP_Gen5_2",
@@ -57,9 +57,9 @@ namespace Pulumi.Azure.PostgreSql
     ///             ObjectId = exampleServer.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "get",
-    ///                 "unwrapkey",
-    ///                 "wrapkey",
+    ///                 "Get",
+    ///                 "UnwrapKey",
+    ///                 "WrapKey",
     ///             },
     ///             SecretPermissions = 
     ///             {
@@ -73,23 +73,23 @@ namespace Pulumi.Azure.PostgreSql
     ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///             KeyPermissions = 
     ///             {
-    ///                 "get",
-    ///                 "create",
-    ///                 "delete",
-    ///                 "list",
-    ///                 "restore",
-    ///                 "recover",
-    ///                 "unwrapkey",
-    ///                 "wrapkey",
-    ///                 "purge",
-    ///                 "encrypt",
-    ///                 "decrypt",
-    ///                 "sign",
-    ///                 "verify",
+    ///                 "Get",
+    ///                 "Create",
+    ///                 "Delete",
+    ///                 "List",
+    ///                 "Restore",
+    ///                 "Recover",
+    ///                 "UnwrapKey",
+    ///                 "WrapKey",
+    ///                 "Purge",
+    ///                 "Encrypt",
+    ///                 "Decrypt",
+    ///                 "Sign",
+    ///                 "Verify",
     ///             },
     ///             SecretPermissions = 
     ///             {
-    ///                 "get",
+    ///                 "Get",
     ///             },
     ///         });
     ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs

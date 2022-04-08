@@ -204,6 +204,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("vnetRouteAllEnabled")]
         public Input<bool>? VnetRouteAllEnabled { get; set; }
 
+        /// <summary>
+        /// Should Web Sockets be enabled. Defaults to `false`.
+        /// </summary>
         [Input("websocketsEnabled")]
         public Input<bool>? WebsocketsEnabled { get; set; }
 

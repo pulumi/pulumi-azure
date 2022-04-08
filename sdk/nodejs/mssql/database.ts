@@ -111,6 +111,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly geoBackupEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly ledgerEnabled!: pulumi.Output<boolean>;
+    /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
     public readonly licenseType!: pulumi.Output<string>;
@@ -167,7 +171,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
      */
     public readonly storageAccountType!: pulumi.Output<string | undefined>;
     /**
@@ -203,6 +207,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["creationSourceDatabaseId"] = state ? state.creationSourceDatabaseId : undefined;
             resourceInputs["elasticPoolId"] = state ? state.elasticPoolId : undefined;
             resourceInputs["geoBackupEnabled"] = state ? state.geoBackupEnabled : undefined;
+            resourceInputs["ledgerEnabled"] = state ? state.ledgerEnabled : undefined;
             resourceInputs["licenseType"] = state ? state.licenseType : undefined;
             resourceInputs["longTermRetentionPolicy"] = state ? state.longTermRetentionPolicy : undefined;
             resourceInputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
@@ -233,6 +238,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["creationSourceDatabaseId"] = args ? args.creationSourceDatabaseId : undefined;
             resourceInputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
             resourceInputs["geoBackupEnabled"] = args ? args.geoBackupEnabled : undefined;
+            resourceInputs["ledgerEnabled"] = args ? args.ledgerEnabled : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["longTermRetentionPolicy"] = args ? args.longTermRetentionPolicy : undefined;
             resourceInputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
@@ -286,6 +292,10 @@ export interface DatabaseState {
      * A boolean that specifies if the Geo Backup Policy is enabled.
      */
     geoBackupEnabled?: pulumi.Input<boolean>;
+    /**
+     * A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    ledgerEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
@@ -343,7 +353,7 @@ export interface DatabaseState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**
@@ -389,6 +399,10 @@ export interface DatabaseArgs {
      * A boolean that specifies if the Geo Backup Policy is enabled.
      */
     geoBackupEnabled?: pulumi.Input<boolean>;
+    /**
+     * A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    ledgerEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
@@ -446,7 +460,7 @@ export interface DatabaseArgs {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**

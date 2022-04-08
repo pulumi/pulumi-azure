@@ -150,9 +150,9 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string AccountTier;
         /// <summary>
-        /// Is public access allowed to all blobs or containers in the storage account?
+        /// Can nested items in the storage account opt into allowing public access?
         /// </summary>
-        public readonly bool AllowBlobPublicAccess;
+        public readonly bool AllowNestedItemsToBePublic;
         /// <summary>
         /// A `custom_domain` block as documented below.
         /// </summary>
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.Storage
 
             string accountTier,
 
-            bool allowBlobPublicAccess,
+            bool allowNestedItemsToBePublic,
 
             ImmutableArray<Outputs.GetAccountCustomDomainResult> customDomains,
 
@@ -434,7 +434,7 @@ namespace Pulumi.Azure.Storage
             AccountKind = accountKind;
             AccountReplicationType = accountReplicationType;
             AccountTier = accountTier;
-            AllowBlobPublicAccess = allowBlobPublicAccess;
+            AllowNestedItemsToBePublic = allowNestedItemsToBePublic;
             CustomDomains = customDomains;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             Id = id;

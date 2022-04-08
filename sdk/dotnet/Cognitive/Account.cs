@@ -52,6 +52,12 @@ namespace Pulumi.Azure.Cognitive
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
+        /// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+        /// </summary>
+        [Output("customQuestionAnsweringSearchServiceId")]
+        public Output<string?> CustomQuestionAnsweringSearchServiceId { get; private set; } = null!;
+
+        /// <summary>
         /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         /// </summary>
         [Output("customSubdomainName")]
@@ -230,6 +236,12 @@ namespace Pulumi.Azure.Cognitive
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+        /// </summary>
+        [Input("customQuestionAnsweringSearchServiceId")]
+        public Input<string>? CustomQuestionAnsweringSearchServiceId { get; set; }
+
+        /// <summary>
         /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         /// </summary>
         [Input("customSubdomainName")]
@@ -368,6 +380,12 @@ namespace Pulumi.Azure.Cognitive
 
     public sealed class AccountState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+        /// </summary>
+        [Input("customQuestionAnsweringSearchServiceId")]
+        public Input<string>? CustomQuestionAnsweringSearchServiceId { get; set; }
+
         /// <summary>
         /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         /// </summary>

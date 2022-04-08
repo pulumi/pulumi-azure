@@ -119,6 +119,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsWebAppSiteConfigVirtualApplication> VirtualApplications;
         public readonly bool? VnetRouteAllEnabled;
+        /// <summary>
+        /// Should Web Sockets be enabled. Defaults to `false`.
+        /// </summary>
         public readonly bool? WebsocketsEnabled;
         public readonly string? WindowsFxVersion;
         /// <summary>

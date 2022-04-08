@@ -74,7 +74,7 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
      */
     public readonly aces!: pulumi.Output<outputs.storage.DataLakeGen2FilesystemAce[]>;
     /**
-     * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+     * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      */
     public readonly group!: pulumi.Output<string>;
     /**
@@ -82,7 +82,7 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+     * Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
      */
     public readonly owner!: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export interface DataLakeGen2FilesystemState {
      */
     aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[]>;
     /**
-     * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+     * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      */
     group?: pulumi.Input<string>;
     /**
@@ -147,7 +147,7 @@ export interface DataLakeGen2FilesystemState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+     * Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
      */
     owner?: pulumi.Input<string>;
     /**
@@ -169,7 +169,7 @@ export interface DataLakeGen2FilesystemArgs {
      */
     aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[]>;
     /**
-     * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+     * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      */
     group?: pulumi.Input<string>;
     /**
@@ -177,7 +177,7 @@ export interface DataLakeGen2FilesystemArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+     * Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
      */
     owner?: pulumi.Input<string>;
     /**

@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableArray<Outputs.DataLakeGen2FilesystemAce>> Aces { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         /// </summary>
         [Output("group")]
         public Output<string> Group { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        /// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        /// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        /// Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }

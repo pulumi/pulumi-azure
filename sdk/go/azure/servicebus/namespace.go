@@ -60,6 +60,8 @@ type Namespace struct {
 
 	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
+	// An `customerManagedKey` block as defined below.
+	CustomerManagedKey NamespaceCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString pulumi.StringOutput `pulumi:"defaultPrimaryConnectionString"`
@@ -72,6 +74,8 @@ type Namespace struct {
 	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
 	// An `identity` block as defined below.
 	Identity NamespaceIdentityPtrOutput `pulumi:"identity"`
+	// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
@@ -131,6 +135,8 @@ func GetNamespace(ctx *pulumi.Context,
 type namespaceState struct {
 	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity *int `pulumi:"capacity"`
+	// An `customerManagedKey` block as defined below.
+	CustomerManagedKey *NamespaceCustomerManagedKey `pulumi:"customerManagedKey"`
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString *string `pulumi:"defaultPrimaryConnectionString"`
@@ -143,6 +149,8 @@ type namespaceState struct {
 	DefaultSecondaryKey *string `pulumi:"defaultSecondaryKey"`
 	// An `identity` block as defined below.
 	Identity *NamespaceIdentity `pulumi:"identity"`
+	// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
@@ -162,6 +170,8 @@ type namespaceState struct {
 type NamespaceState struct {
 	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity pulumi.IntPtrInput
+	// An `customerManagedKey` block as defined below.
+	CustomerManagedKey NamespaceCustomerManagedKeyPtrInput
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString pulumi.StringPtrInput
@@ -174,6 +184,8 @@ type NamespaceState struct {
 	DefaultSecondaryKey pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity NamespaceIdentityPtrInput
+	// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
@@ -197,8 +209,12 @@ func (NamespaceState) ElementType() reflect.Type {
 type namespaceArgs struct {
 	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity *int `pulumi:"capacity"`
+	// An `customerManagedKey` block as defined below.
+	CustomerManagedKey *NamespaceCustomerManagedKey `pulumi:"customerManagedKey"`
 	// An `identity` block as defined below.
 	Identity *NamespaceIdentity `pulumi:"identity"`
+	// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
@@ -219,8 +235,12 @@ type namespaceArgs struct {
 type NamespaceArgs struct {
 	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
 	Capacity pulumi.IntPtrInput
+	// An `customerManagedKey` block as defined below.
+	CustomerManagedKey NamespaceCustomerManagedKeyPtrInput
 	// An `identity` block as defined below.
 	Identity NamespaceIdentityPtrInput
+	// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a

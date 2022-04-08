@@ -41,6 +41,7 @@ class KubernetesClusterArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
+                 oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
                  oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']] = None,
                  open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
@@ -79,6 +80,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
         :param pulumi.Input['KubernetesClusterOmsAgentArgs'] oms_agent: A `oms_agent` block as defined below.
         :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
@@ -140,6 +142,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "network_profile", network_profile)
         if node_resource_group is not None:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
+        if oidc_issuer_enabled is not None:
+            pulumi.set(__self__, "oidc_issuer_enabled", oidc_issuer_enabled)
         if oms_agent is not None:
             pulumi.set(__self__, "oms_agent", oms_agent)
         if open_service_mesh_enabled is not None:
@@ -473,6 +477,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "node_resource_group", value)
 
     @property
+    @pulumi.getter(name="oidcIssuerEnabled")
+    def oidc_issuer_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+        """
+        return pulumi.get(self, "oidc_issuer_enabled")
+
+    @oidc_issuer_enabled.setter
+    def oidc_issuer_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "oidc_issuer_enabled", value)
+
+    @property
     @pulumi.getter(name="omsAgent")
     def oms_agent(self) -> Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']]:
         """
@@ -636,6 +652,8 @@ class _KubernetesClusterState:
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
+                 oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
+                 oidc_issuer_url: Optional[pulumi.Input[str]] = None,
                  oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']] = None,
                  open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
                  portal_fqdn: Optional[pulumi.Input[str]] = None,
@@ -682,6 +700,8 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+        :param pulumi.Input[str] oidc_issuer_url: The OIDC issuer URL that is associated with the cluster.
         :param pulumi.Input['KubernetesClusterOmsAgentArgs'] oms_agent: A `oms_agent` block as defined below.
         :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[str] portal_fqdn: The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
@@ -758,6 +778,10 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "network_profile", network_profile)
         if node_resource_group is not None:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
+        if oidc_issuer_enabled is not None:
+            pulumi.set(__self__, "oidc_issuer_enabled", oidc_issuer_enabled)
+        if oidc_issuer_url is not None:
+            pulumi.set(__self__, "oidc_issuer_url", oidc_issuer_url)
         if oms_agent is not None:
             pulumi.set(__self__, "oms_agent", oms_agent)
         if open_service_mesh_enabled is not None:
@@ -1157,6 +1181,30 @@ class _KubernetesClusterState:
         pulumi.set(self, "node_resource_group", value)
 
     @property
+    @pulumi.getter(name="oidcIssuerEnabled")
+    def oidc_issuer_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+        """
+        return pulumi.get(self, "oidc_issuer_enabled")
+
+    @oidc_issuer_enabled.setter
+    def oidc_issuer_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "oidc_issuer_enabled", value)
+
+    @property
+    @pulumi.getter(name="oidcIssuerUrl")
+    def oidc_issuer_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OIDC issuer URL that is associated with the cluster.
+        """
+        return pulumi.get(self, "oidc_issuer_url")
+
+    @oidc_issuer_url.setter
+    def oidc_issuer_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oidc_issuer_url", value)
+
+    @property
     @pulumi.getter(name="omsAgent")
     def oms_agent(self) -> Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']]:
         """
@@ -1352,6 +1400,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
+                 oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
                  oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']]] = None,
                  open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1430,6 +1479,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']] oms_agent: A `oms_agent` block as defined below.
         :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
@@ -1527,6 +1577,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
+                 oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
                  oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']]] = None,
                  open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1578,6 +1629,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_resource_group"] = node_resource_group
+            __props__.__dict__["oidc_issuer_enabled"] = oidc_issuer_enabled
             __props__.__dict__["oms_agent"] = oms_agent
             __props__.__dict__["open_service_mesh_enabled"] = open_service_mesh_enabled
             __props__.__dict__["private_cluster_enabled"] = private_cluster_enabled
@@ -1598,6 +1650,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["kube_admin_configs"] = None
             __props__.__dict__["kube_config_raw"] = None
             __props__.__dict__["kube_configs"] = None
+            __props__.__dict__["oidc_issuer_url"] = None
             __props__.__dict__["portal_fqdn"] = None
             __props__.__dict__["private_fqdn"] = None
         super(KubernetesCluster, __self__).__init__(
@@ -1641,6 +1694,8 @@ class KubernetesCluster(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
             node_resource_group: Optional[pulumi.Input[str]] = None,
+            oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
+            oidc_issuer_url: Optional[pulumi.Input[str]] = None,
             oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']]] = None,
             open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
             portal_fqdn: Optional[pulumi.Input[str]] = None,
@@ -1692,6 +1747,8 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+        :param pulumi.Input[str] oidc_issuer_url: The OIDC issuer URL that is associated with the cluster.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']] oms_agent: A `oms_agent` block as defined below.
         :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[str] portal_fqdn: The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
@@ -1741,6 +1798,8 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile"] = network_profile
         __props__.__dict__["node_resource_group"] = node_resource_group
+        __props__.__dict__["oidc_issuer_enabled"] = oidc_issuer_enabled
+        __props__.__dict__["oidc_issuer_url"] = oidc_issuer_url
         __props__.__dict__["oms_agent"] = oms_agent
         __props__.__dict__["open_service_mesh_enabled"] = open_service_mesh_enabled
         __props__.__dict__["portal_fqdn"] = portal_fqdn
@@ -2001,6 +2060,22 @@ class KubernetesCluster(pulumi.CustomResource):
         The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_resource_group")
+
+    @property
+    @pulumi.getter(name="oidcIssuerEnabled")
+    def oidc_issuer_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+        """
+        return pulumi.get(self, "oidc_issuer_enabled")
+
+    @property
+    @pulumi.getter(name="oidcIssuerUrl")
+    def oidc_issuer_url(self) -> pulumi.Output[str]:
+        """
+        The OIDC issuer URL that is associated with the cluster.
+        """
+        return pulumi.get(self, "oidc_issuer_url")
 
     @property
     @pulumi.getter(name="omsAgent")

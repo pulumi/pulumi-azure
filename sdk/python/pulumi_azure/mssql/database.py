@@ -22,6 +22,7 @@ class DatabaseArgs:
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
@@ -49,6 +50,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
+        :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
@@ -62,7 +64,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input['DatabaseShortTermRetentionPolicyArgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
@@ -80,6 +82,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
         if geo_backup_enabled is not None:
             pulumi.set(__self__, "geo_backup_enabled", geo_backup_enabled)
+        if ledger_enabled is not None:
+            pulumi.set(__self__, "ledger_enabled", ledger_enabled)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if long_term_retention_policy is not None:
@@ -200,6 +204,18 @@ class DatabaseArgs:
     @geo_backup_enabled.setter
     def geo_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "geo_backup_enabled", value)
+
+    @property
+    @pulumi.getter(name="ledgerEnabled")
+    def ledger_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ledger_enabled")
+
+    @ledger_enabled.setter
+    def ledger_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ledger_enabled", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -361,7 +377,7 @@ class DatabaseArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -424,6 +440,7 @@ class _DatabaseState:
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
@@ -451,6 +468,7 @@ class _DatabaseState:
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
+        :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
@@ -465,7 +483,7 @@ class _DatabaseState:
         :param pulumi.Input[str] server_id: The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input['DatabaseShortTermRetentionPolicyArgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
@@ -482,6 +500,8 @@ class _DatabaseState:
             pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
         if geo_backup_enabled is not None:
             pulumi.set(__self__, "geo_backup_enabled", geo_backup_enabled)
+        if ledger_enabled is not None:
+            pulumi.set(__self__, "ledger_enabled", ledger_enabled)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if long_term_retention_policy is not None:
@@ -592,6 +612,18 @@ class _DatabaseState:
     @geo_backup_enabled.setter
     def geo_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "geo_backup_enabled", value)
+
+    @property
+    @pulumi.getter(name="ledgerEnabled")
+    def ledger_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ledger_enabled")
+
+    @ledger_enabled.setter
+    def ledger_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ledger_enabled", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -765,7 +797,7 @@ class _DatabaseState:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -830,6 +862,7 @@ class Database(pulumi.CustomResource):
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
@@ -871,6 +904,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
+        :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
@@ -885,7 +919,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
@@ -930,6 +964,7 @@ class Database(pulumi.CustomResource):
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
@@ -967,6 +1002,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["creation_source_database_id"] = creation_source_database_id
             __props__.__dict__["elastic_pool_id"] = elastic_pool_id
             __props__.__dict__["geo_backup_enabled"] = geo_backup_enabled
+            __props__.__dict__["ledger_enabled"] = ledger_enabled
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
             __props__.__dict__["max_size_gb"] = max_size_gb
@@ -1004,6 +1040,7 @@ class Database(pulumi.CustomResource):
             creation_source_database_id: Optional[pulumi.Input[str]] = None,
             elastic_pool_id: Optional[pulumi.Input[str]] = None,
             geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+            ledger_enabled: Optional[pulumi.Input[bool]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
             max_size_gb: Optional[pulumi.Input[int]] = None,
@@ -1036,6 +1073,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
+        :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
@@ -1050,7 +1088,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will force a new resource to be created.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
@@ -1065,6 +1103,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["creation_source_database_id"] = creation_source_database_id
         __props__.__dict__["elastic_pool_id"] = elastic_pool_id
         __props__.__dict__["geo_backup_enabled"] = geo_backup_enabled
+        __props__.__dict__["ledger_enabled"] = ledger_enabled
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
         __props__.__dict__["max_size_gb"] = max_size_gb
@@ -1133,6 +1172,14 @@ class Database(pulumi.CustomResource):
         A boolean that specifies if the Geo Backup Policy is enabled.
         """
         return pulumi.get(self, "geo_backup_enabled")
+
+    @property
+    @pulumi.getter(name="ledgerEnabled")
+    def ledger_enabled(self) -> pulumi.Output[bool]:
+        """
+        A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ledger_enabled")
 
     @property
     @pulumi.getter(name="licenseType")
@@ -1250,7 +1297,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         """
         return pulumi.get(self, "storage_account_type")
 

@@ -3592,6 +3592,8 @@ class KubernetesClusterNetworkProfile(dict):
             suggest = "dns_service_ip"
         elif key == "dockerBridgeCidr":
             suggest = "docker_bridge_cidr"
+        elif key == "ipVersions":
+            suggest = "ip_versions"
         elif key == "loadBalancerProfile":
             suggest = "load_balancer_profile"
         elif key == "loadBalancerSku":
@@ -3624,6 +3626,7 @@ class KubernetesClusterNetworkProfile(dict):
                  network_plugin: str,
                  dns_service_ip: Optional[str] = None,
                  docker_bridge_cidr: Optional[str] = None,
+                 ip_versions: Optional[Sequence[str]] = None,
                  load_balancer_profile: Optional['outputs.KubernetesClusterNetworkProfileLoadBalancerProfile'] = None,
                  load_balancer_sku: Optional[str] = None,
                  nat_gateway_profile: Optional['outputs.KubernetesClusterNetworkProfileNatGatewayProfile'] = None,
@@ -3636,6 +3639,7 @@ class KubernetesClusterNetworkProfile(dict):
         :param str network_plugin: Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
         :param str dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param str docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
+        :param Sequence[str] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
         :param 'KubernetesClusterNetworkProfileLoadBalancerProfileArgs' load_balancer_profile: A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
         :param str load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
         :param 'KubernetesClusterNetworkProfileNatGatewayProfileArgs' nat_gateway_profile: A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
@@ -3650,6 +3654,8 @@ class KubernetesClusterNetworkProfile(dict):
             pulumi.set(__self__, "dns_service_ip", dns_service_ip)
         if docker_bridge_cidr is not None:
             pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+        if ip_versions is not None:
+            pulumi.set(__self__, "ip_versions", ip_versions)
         if load_balancer_profile is not None:
             pulumi.set(__self__, "load_balancer_profile", load_balancer_profile)
         if load_balancer_sku is not None:
@@ -3690,6 +3696,14 @@ class KubernetesClusterNetworkProfile(dict):
         IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "docker_bridge_cidr")
+
+    @property
+    @pulumi.getter(name="ipVersions")
+    def ip_versions(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ip_versions")
 
     @property
     @pulumi.getter(name="loadBalancerProfile")

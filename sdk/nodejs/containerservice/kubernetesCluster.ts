@@ -195,6 +195,14 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly nodeResourceGroup!: pulumi.Output<string>;
     /**
+     * Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+     */
+    public readonly oidcIssuerEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The OIDC issuer URL that is associated with the cluster.
+     */
+    public /*out*/ readonly oidcIssuerUrl!: pulumi.Output<string>;
+    /**
      * A `omsAgent` block as defined below.
      */
     public readonly omsAgent!: pulumi.Output<outputs.containerservice.KubernetesClusterOmsAgent | undefined>;
@@ -292,6 +300,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
             resourceInputs["nodeResourceGroup"] = state ? state.nodeResourceGroup : undefined;
+            resourceInputs["oidcIssuerEnabled"] = state ? state.oidcIssuerEnabled : undefined;
+            resourceInputs["oidcIssuerUrl"] = state ? state.oidcIssuerUrl : undefined;
             resourceInputs["omsAgent"] = state ? state.omsAgent : undefined;
             resourceInputs["openServiceMeshEnabled"] = state ? state.openServiceMeshEnabled : undefined;
             resourceInputs["portalFqdn"] = state ? state.portalFqdn : undefined;
@@ -339,6 +349,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
+            resourceInputs["oidcIssuerEnabled"] = args ? args.oidcIssuerEnabled : undefined;
             resourceInputs["omsAgent"] = args ? args.omsAgent : undefined;
             resourceInputs["openServiceMeshEnabled"] = args ? args.openServiceMeshEnabled : undefined;
             resourceInputs["privateClusterEnabled"] = args ? args.privateClusterEnabled : undefined;
@@ -357,6 +368,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["kubeAdminConfigs"] = undefined /*out*/;
             resourceInputs["kubeConfigRaw"] = undefined /*out*/;
             resourceInputs["kubeConfigs"] = undefined /*out*/;
+            resourceInputs["oidcIssuerUrl"] = undefined /*out*/;
             resourceInputs["portalFqdn"] = undefined /*out*/;
             resourceInputs["privateFqdn"] = undefined /*out*/;
         }
@@ -490,6 +502,14 @@ export interface KubernetesClusterState {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     nodeResourceGroup?: pulumi.Input<string>;
+    /**
+     * Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+     */
+    oidcIssuerEnabled?: pulumi.Input<boolean>;
+    /**
+     * The OIDC issuer URL that is associated with the cluster.
+     */
+    oidcIssuerUrl?: pulumi.Input<string>;
     /**
      * A `omsAgent` block as defined below.
      */
@@ -646,6 +666,10 @@ export interface KubernetesClusterArgs {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     nodeResourceGroup?: pulumi.Input<string>;
+    /**
+     * Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+     */
+    oidcIssuerEnabled?: pulumi.Input<boolean>;
     /**
      * A `omsAgent` block as defined below.
      */

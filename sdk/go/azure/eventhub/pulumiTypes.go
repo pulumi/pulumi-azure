@@ -6458,6 +6458,181 @@ func (o EventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type NamespaceCustomerManagedKeyType struct {
+	// The ID of the User Assigned Identity that has access to the key.
+	IdentityId string `pulumi:"identityId"`
+	// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
+	// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+}
+
+// NamespaceCustomerManagedKeyTypeInput is an input type that accepts NamespaceCustomerManagedKeyTypeArgs and NamespaceCustomerManagedKeyTypeOutput values.
+// You can construct a concrete instance of `NamespaceCustomerManagedKeyTypeInput` via:
+//
+//          NamespaceCustomerManagedKeyTypeArgs{...}
+type NamespaceCustomerManagedKeyTypeInput interface {
+	pulumi.Input
+
+	ToNamespaceCustomerManagedKeyTypeOutput() NamespaceCustomerManagedKeyTypeOutput
+	ToNamespaceCustomerManagedKeyTypeOutputWithContext(context.Context) NamespaceCustomerManagedKeyTypeOutput
+}
+
+type NamespaceCustomerManagedKeyTypeArgs struct {
+	// The ID of the User Assigned Identity that has access to the key.
+	IdentityId pulumi.StringInput `pulumi:"identityId"`
+	// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+	InfrastructureEncryptionEnabled pulumi.BoolPtrInput `pulumi:"infrastructureEncryptionEnabled"`
+	// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+}
+
+func (NamespaceCustomerManagedKeyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceCustomerManagedKeyType)(nil)).Elem()
+}
+
+func (i NamespaceCustomerManagedKeyTypeArgs) ToNamespaceCustomerManagedKeyTypeOutput() NamespaceCustomerManagedKeyTypeOutput {
+	return i.ToNamespaceCustomerManagedKeyTypeOutputWithContext(context.Background())
+}
+
+func (i NamespaceCustomerManagedKeyTypeArgs) ToNamespaceCustomerManagedKeyTypeOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyTypeOutput)
+}
+
+func (i NamespaceCustomerManagedKeyTypeArgs) ToNamespaceCustomerManagedKeyTypePtrOutput() NamespaceCustomerManagedKeyTypePtrOutput {
+	return i.ToNamespaceCustomerManagedKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (i NamespaceCustomerManagedKeyTypeArgs) ToNamespaceCustomerManagedKeyTypePtrOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyTypeOutput).ToNamespaceCustomerManagedKeyTypePtrOutputWithContext(ctx)
+}
+
+// NamespaceCustomerManagedKeyTypePtrInput is an input type that accepts NamespaceCustomerManagedKeyTypeArgs, NamespaceCustomerManagedKeyTypePtr and NamespaceCustomerManagedKeyTypePtrOutput values.
+// You can construct a concrete instance of `NamespaceCustomerManagedKeyTypePtrInput` via:
+//
+//          NamespaceCustomerManagedKeyTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type NamespaceCustomerManagedKeyTypePtrInput interface {
+	pulumi.Input
+
+	ToNamespaceCustomerManagedKeyTypePtrOutput() NamespaceCustomerManagedKeyTypePtrOutput
+	ToNamespaceCustomerManagedKeyTypePtrOutputWithContext(context.Context) NamespaceCustomerManagedKeyTypePtrOutput
+}
+
+type namespaceCustomerManagedKeyTypePtrType NamespaceCustomerManagedKeyTypeArgs
+
+func NamespaceCustomerManagedKeyTypePtr(v *NamespaceCustomerManagedKeyTypeArgs) NamespaceCustomerManagedKeyTypePtrInput {
+	return (*namespaceCustomerManagedKeyTypePtrType)(v)
+}
+
+func (*namespaceCustomerManagedKeyTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceCustomerManagedKeyType)(nil)).Elem()
+}
+
+func (i *namespaceCustomerManagedKeyTypePtrType) ToNamespaceCustomerManagedKeyTypePtrOutput() NamespaceCustomerManagedKeyTypePtrOutput {
+	return i.ToNamespaceCustomerManagedKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (i *namespaceCustomerManagedKeyTypePtrType) ToNamespaceCustomerManagedKeyTypePtrOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyTypePtrOutput)
+}
+
+type NamespaceCustomerManagedKeyTypeOutput struct{ *pulumi.OutputState }
+
+func (NamespaceCustomerManagedKeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceCustomerManagedKeyType)(nil)).Elem()
+}
+
+func (o NamespaceCustomerManagedKeyTypeOutput) ToNamespaceCustomerManagedKeyTypeOutput() NamespaceCustomerManagedKeyTypeOutput {
+	return o
+}
+
+func (o NamespaceCustomerManagedKeyTypeOutput) ToNamespaceCustomerManagedKeyTypeOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyTypeOutput {
+	return o
+}
+
+func (o NamespaceCustomerManagedKeyTypeOutput) ToNamespaceCustomerManagedKeyTypePtrOutput() NamespaceCustomerManagedKeyTypePtrOutput {
+	return o.ToNamespaceCustomerManagedKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (o NamespaceCustomerManagedKeyTypeOutput) ToNamespaceCustomerManagedKeyTypePtrOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceCustomerManagedKeyType) *NamespaceCustomerManagedKeyType {
+		return &v
+	}).(NamespaceCustomerManagedKeyTypePtrOutput)
+}
+
+// The ID of the User Assigned Identity that has access to the key.
+func (o NamespaceCustomerManagedKeyTypeOutput) IdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceCustomerManagedKeyType) string { return v.IdentityId }).(pulumi.StringOutput)
+}
+
+// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+func (o NamespaceCustomerManagedKeyTypeOutput) InfrastructureEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NamespaceCustomerManagedKeyType) *bool { return v.InfrastructureEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+func (o NamespaceCustomerManagedKeyTypeOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceCustomerManagedKeyType) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+type NamespaceCustomerManagedKeyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (NamespaceCustomerManagedKeyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceCustomerManagedKeyType)(nil)).Elem()
+}
+
+func (o NamespaceCustomerManagedKeyTypePtrOutput) ToNamespaceCustomerManagedKeyTypePtrOutput() NamespaceCustomerManagedKeyTypePtrOutput {
+	return o
+}
+
+func (o NamespaceCustomerManagedKeyTypePtrOutput) ToNamespaceCustomerManagedKeyTypePtrOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyTypePtrOutput {
+	return o
+}
+
+func (o NamespaceCustomerManagedKeyTypePtrOutput) Elem() NamespaceCustomerManagedKeyTypeOutput {
+	return o.ApplyT(func(v *NamespaceCustomerManagedKeyType) NamespaceCustomerManagedKeyType {
+		if v != nil {
+			return *v
+		}
+		var ret NamespaceCustomerManagedKeyType
+		return ret
+	}).(NamespaceCustomerManagedKeyTypeOutput)
+}
+
+// The ID of the User Assigned Identity that has access to the key.
+func (o NamespaceCustomerManagedKeyTypePtrOutput) IdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceCustomerManagedKeyType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+func (o NamespaceCustomerManagedKeyTypePtrOutput) InfrastructureEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NamespaceCustomerManagedKeyType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InfrastructureEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+func (o NamespaceCustomerManagedKeyTypePtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceCustomerManagedKeyType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type NamespaceIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -7028,6 +7203,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionSubjectFilterPtrInput)(nil)).Elem(), EventSubscriptionSubjectFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionWebhookEndpointInput)(nil)).Elem(), EventSubscriptionWebhookEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionWebhookEndpointPtrInput)(nil)).Elem(), EventSubscriptionWebhookEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceCustomerManagedKeyTypeInput)(nil)).Elem(), NamespaceCustomerManagedKeyTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceCustomerManagedKeyTypePtrInput)(nil)).Elem(), NamespaceCustomerManagedKeyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceIdentityInput)(nil)).Elem(), NamespaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceIdentityPtrInput)(nil)).Elem(), NamespaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleCorrelationFilterInput)(nil)).Elem(), SubscriptionRuleCorrelationFilterArgs{})
@@ -7118,6 +7295,8 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionSubjectFilterPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionWebhookEndpointOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionWebhookEndpointPtrOutput{})
+	pulumi.RegisterOutputType(NamespaceCustomerManagedKeyTypeOutput{})
+	pulumi.RegisterOutputType(NamespaceCustomerManagedKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(NamespaceIdentityOutput{})
 	pulumi.RegisterOutputType(NamespaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionRuleCorrelationFilterOutput{})

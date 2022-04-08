@@ -62,6 +62,12 @@ namespace Pulumi.Azure.MSSql
         public Output<bool?> GeoBackupEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("ledgerEnabled")]
+        public Output<bool> LedgerEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         /// </summary>
         [Output("licenseType")]
@@ -146,7 +152,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         /// </summary>
         [Output("storageAccountType")]
         public Output<string?> StorageAccountType { get; private set; } = null!;
@@ -255,6 +261,12 @@ namespace Pulumi.Azure.MSSql
         public Input<bool>? GeoBackupEnabled { get; set; }
 
         /// <summary>
+        /// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("ledgerEnabled")]
+        public Input<bool>? LedgerEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         /// </summary>
         [Input("licenseType")]
@@ -339,7 +351,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }
@@ -413,6 +425,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("geoBackupEnabled")]
         public Input<bool>? GeoBackupEnabled { get; set; }
+
+        /// <summary>
+        /// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("ledgerEnabled")]
+        public Input<bool>? LedgerEnabled { get; set; }
 
         /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -499,7 +517,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }

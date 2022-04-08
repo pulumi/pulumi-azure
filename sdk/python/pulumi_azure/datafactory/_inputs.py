@@ -1010,7 +1010,7 @@ class DatasetDelimitedTextAzureBlobStorageLocationArgs:
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the file.
-        :param pulumi.Input[str] path: The folder path to the file.
+        :param pulumi.Input[str] path: The folder path to the file. This can be an empty string.
         """
         pulumi.set(__self__, "container", container)
         if dynamic_filename_enabled is not None:
@@ -1074,7 +1074,7 @@ class DatasetDelimitedTextAzureBlobStorageLocationArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
-        The folder path to the file.
+        The folder path to the file. This can be an empty string.
         """
         return pulumi.get(self, "path")
 

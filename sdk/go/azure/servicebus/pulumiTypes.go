@@ -10,6 +10,181 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type NamespaceCustomerManagedKey struct {
+	// The ID of the User Assigned Identity that has access to the key.
+	IdentityId string `pulumi:"identityId"`
+	// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
+	// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+}
+
+// NamespaceCustomerManagedKeyInput is an input type that accepts NamespaceCustomerManagedKeyArgs and NamespaceCustomerManagedKeyOutput values.
+// You can construct a concrete instance of `NamespaceCustomerManagedKeyInput` via:
+//
+//          NamespaceCustomerManagedKeyArgs{...}
+type NamespaceCustomerManagedKeyInput interface {
+	pulumi.Input
+
+	ToNamespaceCustomerManagedKeyOutput() NamespaceCustomerManagedKeyOutput
+	ToNamespaceCustomerManagedKeyOutputWithContext(context.Context) NamespaceCustomerManagedKeyOutput
+}
+
+type NamespaceCustomerManagedKeyArgs struct {
+	// The ID of the User Assigned Identity that has access to the key.
+	IdentityId pulumi.StringInput `pulumi:"identityId"`
+	// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+	InfrastructureEncryptionEnabled pulumi.BoolPtrInput `pulumi:"infrastructureEncryptionEnabled"`
+	// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+}
+
+func (NamespaceCustomerManagedKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceCustomerManagedKey)(nil)).Elem()
+}
+
+func (i NamespaceCustomerManagedKeyArgs) ToNamespaceCustomerManagedKeyOutput() NamespaceCustomerManagedKeyOutput {
+	return i.ToNamespaceCustomerManagedKeyOutputWithContext(context.Background())
+}
+
+func (i NamespaceCustomerManagedKeyArgs) ToNamespaceCustomerManagedKeyOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyOutput)
+}
+
+func (i NamespaceCustomerManagedKeyArgs) ToNamespaceCustomerManagedKeyPtrOutput() NamespaceCustomerManagedKeyPtrOutput {
+	return i.ToNamespaceCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i NamespaceCustomerManagedKeyArgs) ToNamespaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyOutput).ToNamespaceCustomerManagedKeyPtrOutputWithContext(ctx)
+}
+
+// NamespaceCustomerManagedKeyPtrInput is an input type that accepts NamespaceCustomerManagedKeyArgs, NamespaceCustomerManagedKeyPtr and NamespaceCustomerManagedKeyPtrOutput values.
+// You can construct a concrete instance of `NamespaceCustomerManagedKeyPtrInput` via:
+//
+//          NamespaceCustomerManagedKeyArgs{...}
+//
+//  or:
+//
+//          nil
+type NamespaceCustomerManagedKeyPtrInput interface {
+	pulumi.Input
+
+	ToNamespaceCustomerManagedKeyPtrOutput() NamespaceCustomerManagedKeyPtrOutput
+	ToNamespaceCustomerManagedKeyPtrOutputWithContext(context.Context) NamespaceCustomerManagedKeyPtrOutput
+}
+
+type namespaceCustomerManagedKeyPtrType NamespaceCustomerManagedKeyArgs
+
+func NamespaceCustomerManagedKeyPtr(v *NamespaceCustomerManagedKeyArgs) NamespaceCustomerManagedKeyPtrInput {
+	return (*namespaceCustomerManagedKeyPtrType)(v)
+}
+
+func (*namespaceCustomerManagedKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceCustomerManagedKey)(nil)).Elem()
+}
+
+func (i *namespaceCustomerManagedKeyPtrType) ToNamespaceCustomerManagedKeyPtrOutput() NamespaceCustomerManagedKeyPtrOutput {
+	return i.ToNamespaceCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *namespaceCustomerManagedKeyPtrType) ToNamespaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyPtrOutput)
+}
+
+type NamespaceCustomerManagedKeyOutput struct{ *pulumi.OutputState }
+
+func (NamespaceCustomerManagedKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceCustomerManagedKey)(nil)).Elem()
+}
+
+func (o NamespaceCustomerManagedKeyOutput) ToNamespaceCustomerManagedKeyOutput() NamespaceCustomerManagedKeyOutput {
+	return o
+}
+
+func (o NamespaceCustomerManagedKeyOutput) ToNamespaceCustomerManagedKeyOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyOutput {
+	return o
+}
+
+func (o NamespaceCustomerManagedKeyOutput) ToNamespaceCustomerManagedKeyPtrOutput() NamespaceCustomerManagedKeyPtrOutput {
+	return o.ToNamespaceCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (o NamespaceCustomerManagedKeyOutput) ToNamespaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceCustomerManagedKey) *NamespaceCustomerManagedKey {
+		return &v
+	}).(NamespaceCustomerManagedKeyPtrOutput)
+}
+
+// The ID of the User Assigned Identity that has access to the key.
+func (o NamespaceCustomerManagedKeyOutput) IdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceCustomerManagedKey) string { return v.IdentityId }).(pulumi.StringOutput)
+}
+
+// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+func (o NamespaceCustomerManagedKeyOutput) InfrastructureEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NamespaceCustomerManagedKey) *bool { return v.InfrastructureEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+func (o NamespaceCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceCustomerManagedKey) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+type NamespaceCustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (NamespaceCustomerManagedKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceCustomerManagedKey)(nil)).Elem()
+}
+
+func (o NamespaceCustomerManagedKeyPtrOutput) ToNamespaceCustomerManagedKeyPtrOutput() NamespaceCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o NamespaceCustomerManagedKeyPtrOutput) ToNamespaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o NamespaceCustomerManagedKeyPtrOutput) Elem() NamespaceCustomerManagedKeyOutput {
+	return o.ApplyT(func(v *NamespaceCustomerManagedKey) NamespaceCustomerManagedKey {
+		if v != nil {
+			return *v
+		}
+		var ret NamespaceCustomerManagedKey
+		return ret
+	}).(NamespaceCustomerManagedKeyOutput)
+}
+
+// The ID of the User Assigned Identity that has access to the key.
+func (o NamespaceCustomerManagedKeyPtrOutput) IdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+func (o NamespaceCustomerManagedKeyPtrOutput) InfrastructureEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NamespaceCustomerManagedKey) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InfrastructureEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+func (o NamespaceCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type NamespaceIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -600,12 +775,16 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) To() pulumi.StringPtrOutput 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceCustomerManagedKeyInput)(nil)).Elem(), NamespaceCustomerManagedKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceCustomerManagedKeyPtrInput)(nil)).Elem(), NamespaceCustomerManagedKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceIdentityInput)(nil)).Elem(), NamespaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceIdentityPtrInput)(nil)).Elem(), NamespaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetNetworkRuleInput)(nil)).Elem(), NamespaceNetworkRuleSetNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetNetworkRuleArrayInput)(nil)).Elem(), NamespaceNetworkRuleSetNetworkRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleCorrelationFilterInput)(nil)).Elem(), SubscriptionRuleCorrelationFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleCorrelationFilterPtrInput)(nil)).Elem(), SubscriptionRuleCorrelationFilterArgs{})
+	pulumi.RegisterOutputType(NamespaceCustomerManagedKeyOutput{})
+	pulumi.RegisterOutputType(NamespaceCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceIdentityOutput{})
 	pulumi.RegisterOutputType(NamespaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetNetworkRuleOutput{})

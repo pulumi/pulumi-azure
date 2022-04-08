@@ -30,7 +30,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string? Filename;
         /// <summary>
-        /// The folder path to the file.
+        /// The folder path to the file. This can be an empty string.
         /// </summary>
         public readonly string? Path;
 

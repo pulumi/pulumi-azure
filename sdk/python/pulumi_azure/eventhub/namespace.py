@@ -18,7 +18,9 @@ class NamespaceArgs:
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input[str],
                  capacity: Optional[pulumi.Input[int]] = None,
+                 customer_managed_key: Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']] = None,
                  identity: Optional[pulumi.Input['NamespaceIdentityArgs']] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -29,7 +31,9 @@ class NamespaceArgs:
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
         :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        :param pulumi.Input['NamespaceCustomerManagedKeyArgs'] customer_managed_key: An `customer_managed_key` block as defined below.
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.
@@ -40,8 +44,12 @@ class NamespaceArgs:
         pulumi.set(__self__, "sku", sku)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if customer_managed_key is not None:
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if local_auth_enabled is not None:
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -89,6 +97,18 @@ class NamespaceArgs:
         pulumi.set(self, "capacity", value)
 
     @property
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']]:
+        """
+        An `customer_managed_key` block as defined below.
+        """
+        return pulumi.get(self, "customer_managed_key")
+
+    @customer_managed_key.setter
+    def customer_managed_key(self, value: Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']]):
+        pulumi.set(self, "customer_managed_key", value)
+
+    @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['NamespaceIdentityArgs']]:
         """
@@ -99,6 +119,18 @@ class NamespaceArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['NamespaceIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_auth_enabled")
+
+    @local_auth_enabled.setter
+    def local_auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_auth_enabled", value)
 
     @property
     @pulumi.getter
@@ -154,11 +186,13 @@ class NamespaceArgs:
 class _NamespaceState:
     def __init__(__self__, *,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 customer_managed_key: Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']] = None,
                  default_primary_connection_string: Optional[pulumi.Input[str]] = None,
                  default_primary_key: Optional[pulumi.Input[str]] = None,
                  default_secondary_connection_string: Optional[pulumi.Input[str]] = None,
                  default_secondary_key: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['NamespaceIdentityArgs']] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -168,6 +202,7 @@ class _NamespaceState:
         """
         Input properties used for looking up and filtering Namespace resources.
         :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        :param pulumi.Input['NamespaceCustomerManagedKeyArgs'] customer_managed_key: An `customer_managed_key` block as defined below.
         :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization
                rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -175,6 +210,7 @@ class _NamespaceState:
                authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.
@@ -186,6 +222,8 @@ class _NamespaceState:
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if customer_managed_key is not None:
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if default_primary_connection_string is not None:
             pulumi.set(__self__, "default_primary_connection_string", default_primary_connection_string)
         if default_primary_key is not None:
@@ -196,6 +234,8 @@ class _NamespaceState:
             pulumi.set(__self__, "default_secondary_key", default_secondary_key)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if local_auth_enabled is not None:
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -220,6 +260,18 @@ class _NamespaceState:
     @capacity.setter
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']]:
+        """
+        An `customer_managed_key` block as defined below.
+        """
+        return pulumi.get(self, "customer_managed_key")
+
+    @customer_managed_key.setter
+    def customer_managed_key(self, value: Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']]):
+        pulumi.set(self, "customer_managed_key", value)
 
     @property
     @pulumi.getter(name="defaultPrimaryConnectionString")
@@ -282,6 +334,18 @@ class _NamespaceState:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['NamespaceIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_auth_enabled")
+
+    @local_auth_enabled.setter
+    def local_auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_auth_enabled", value)
 
     @property
     @pulumi.getter
@@ -369,7 +433,9 @@ class Namespace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 customer_managed_key: Optional[pulumi.Input[pulumi.InputType['NamespaceCustomerManagedKeyArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['NamespaceIdentityArgs']]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -407,7 +473,9 @@ class Namespace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        :param pulumi.Input[pulumi.InputType['NamespaceCustomerManagedKeyArgs']] customer_managed_key: An `customer_managed_key` block as defined below.
         :param pulumi.Input[pulumi.InputType['NamespaceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.
@@ -466,7 +534,9 @@ class Namespace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 customer_managed_key: Optional[pulumi.Input[pulumi.InputType['NamespaceCustomerManagedKeyArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['NamespaceIdentityArgs']]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -487,7 +557,9 @@ class Namespace(pulumi.CustomResource):
             __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
             __props__.__dict__["capacity"] = capacity
+            __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -513,11 +585,13 @@ class Namespace(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             capacity: Optional[pulumi.Input[int]] = None,
+            customer_managed_key: Optional[pulumi.Input[pulumi.InputType['NamespaceCustomerManagedKeyArgs']]] = None,
             default_primary_connection_string: Optional[pulumi.Input[str]] = None,
             default_primary_key: Optional[pulumi.Input[str]] = None,
             default_secondary_connection_string: Optional[pulumi.Input[str]] = None,
             default_secondary_key: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['NamespaceIdentityArgs']]] = None,
+            local_auth_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -532,6 +606,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        :param pulumi.Input[pulumi.InputType['NamespaceCustomerManagedKeyArgs']] customer_managed_key: An `customer_managed_key` block as defined below.
         :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization
                rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -539,6 +614,7 @@ class Namespace(pulumi.CustomResource):
                authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[pulumi.InputType['NamespaceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.
@@ -553,11 +629,13 @@ class Namespace(pulumi.CustomResource):
         __props__ = _NamespaceState.__new__(_NamespaceState)
 
         __props__.__dict__["capacity"] = capacity
+        __props__.__dict__["customer_managed_key"] = customer_managed_key
         __props__.__dict__["default_primary_connection_string"] = default_primary_connection_string
         __props__.__dict__["default_primary_key"] = default_primary_key
         __props__.__dict__["default_secondary_connection_string"] = default_secondary_connection_string
         __props__.__dict__["default_secondary_key"] = default_secondary_key
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["local_auth_enabled"] = local_auth_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -573,6 +651,14 @@ class Namespace(pulumi.CustomResource):
         Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
         """
         return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> pulumi.Output[Optional['outputs.NamespaceCustomerManagedKey']]:
+        """
+        An `customer_managed_key` block as defined below.
+        """
+        return pulumi.get(self, "customer_managed_key")
 
     @property
     @pulumi.getter(name="defaultPrimaryConnectionString")
@@ -615,6 +701,14 @@ class Namespace(pulumi.CustomResource):
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_auth_enabled")
 
     @property
     @pulumi.getter

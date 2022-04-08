@@ -254,6 +254,18 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> NodeResourceGroup { get; private set; } = null!;
 
         /// <summary>
+        /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+        /// </summary>
+        [Output("oidcIssuerEnabled")]
+        public Output<bool?> OidcIssuerEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The OIDC issuer URL that is associated with the cluster.
+        /// </summary>
+        [Output("oidcIssuerUrl")]
+        public Output<string> OidcIssuerUrl { get; private set; } = null!;
+
+        /// <summary>
         /// A `oms_agent` block as defined below.
         /// </summary>
         [Output("omsAgent")]
@@ -532,6 +544,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("nodeResourceGroup")]
         public Input<string>? NodeResourceGroup { get; set; }
+
+        /// <summary>
+        /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+        /// </summary>
+        [Input("oidcIssuerEnabled")]
+        public Input<bool>? OidcIssuerEnabled { get; set; }
 
         /// <summary>
         /// A `oms_agent` block as defined below.
@@ -815,6 +833,18 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("nodeResourceGroup")]
         public Input<string>? NodeResourceGroup { get; set; }
+
+        /// <summary>
+        /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+        /// </summary>
+        [Input("oidcIssuerEnabled")]
+        public Input<bool>? OidcIssuerEnabled { get; set; }
+
+        /// <summary>
+        /// The OIDC issuer URL that is associated with the cluster.
+        /// </summary>
+        [Input("oidcIssuerUrl")]
+        public Input<string>? OidcIssuerUrl { get; set; }
 
         /// <summary>
         /// A `oms_agent` block as defined below.

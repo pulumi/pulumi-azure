@@ -96,6 +96,10 @@ export interface GetServicePlanResult {
      * The number of Workers (instances) allocated.
      */
     readonly workerCount: number;
+    /**
+     * Is the Service Plan balance across Availability Zones in the region?
+     */
+    readonly zoneBalancingEnabled: boolean;
 }
 
 export function getServicePlanOutput(args: GetServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServicePlanResult> {

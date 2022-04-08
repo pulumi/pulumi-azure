@@ -22,7 +22,8 @@ class ServicePlanArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  per_site_scaling_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 worker_count: Optional[pulumi.Input[int]] = None):
+                 worker_count: Optional[pulumi.Input[int]] = None,
+                 zone_balancing_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ServicePlan resource.
         :param pulumi.Input[str] os_type: The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
@@ -35,6 +36,7 @@ class ServicePlanArgs:
         :param pulumi.Input[bool] per_site_scaling_enabled: Should Per Site Scaling be enabled. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[int] worker_count: The number of Workers (instances) to be allocated.
+        :param pulumi.Input[bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
         """
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -53,6 +55,8 @@ class ServicePlanArgs:
             pulumi.set(__self__, "tags", tags)
         if worker_count is not None:
             pulumi.set(__self__, "worker_count", worker_count)
+        if zone_balancing_enabled is not None:
+            pulumi.set(__self__, "zone_balancing_enabled", zone_balancing_enabled)
 
     @property
     @pulumi.getter(name="osType")
@@ -174,6 +178,18 @@ class ServicePlanArgs:
     def worker_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "worker_count", value)
 
+    @property
+    @pulumi.getter(name="zoneBalancingEnabled")
+    def zone_balancing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_balancing_enabled")
+
+    @zone_balancing_enabled.setter
+    def zone_balancing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_balancing_enabled", value)
+
 
 @pulumi.input_type
 class _ServicePlanState:
@@ -189,7 +205,8 @@ class _ServicePlanState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 worker_count: Optional[pulumi.Input[int]] = None):
+                 worker_count: Optional[pulumi.Input[int]] = None,
+                 zone_balancing_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering ServicePlan resources.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment to create this Service Plan in.
@@ -204,6 +221,7 @@ class _ServicePlanState:
         :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, and `WS3`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[int] worker_count: The number of Workers (instances) to be allocated.
+        :param pulumi.Input[bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
         """
         if app_service_environment_id is not None:
             pulumi.set(__self__, "app_service_environment_id", app_service_environment_id)
@@ -229,6 +247,8 @@ class _ServicePlanState:
             pulumi.set(__self__, "tags", tags)
         if worker_count is not None:
             pulumi.set(__self__, "worker_count", worker_count)
+        if zone_balancing_enabled is not None:
+            pulumi.set(__self__, "zone_balancing_enabled", zone_balancing_enabled)
 
     @property
     @pulumi.getter(name="appServiceEnvironmentId")
@@ -374,6 +394,18 @@ class _ServicePlanState:
     def worker_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "worker_count", value)
 
+    @property
+    @pulumi.getter(name="zoneBalancingEnabled")
+    def zone_balancing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_balancing_enabled")
+
+    @zone_balancing_enabled.setter
+    def zone_balancing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_balancing_enabled", value)
+
 
 class ServicePlan(pulumi.CustomResource):
     @overload
@@ -390,6 +422,7 @@ class ServicePlan(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  worker_count: Optional[pulumi.Input[int]] = None,
+                 zone_balancing_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages an App Service: Service Plan.
@@ -404,6 +437,7 @@ class ServicePlan(pulumi.CustomResource):
         example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
             resource_group_name=example_resource_group.name,
             location="West Europe",
+            os_type="Linux",
             sku_name="P1V2")
         ```
 
@@ -427,6 +461,7 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, and `WS3`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[int] worker_count: The number of Workers (instances) to be allocated.
+        :param pulumi.Input[bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
         """
         ...
     @overload
@@ -447,6 +482,7 @@ class ServicePlan(pulumi.CustomResource):
         example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
             resource_group_name=example_resource_group.name,
             location="West Europe",
+            os_type="Linux",
             sku_name="P1V2")
         ```
 
@@ -483,6 +519,7 @@ class ServicePlan(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  worker_count: Optional[pulumi.Input[int]] = None,
+                 zone_balancing_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -511,6 +548,7 @@ class ServicePlan(pulumi.CustomResource):
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["worker_count"] = worker_count
+            __props__.__dict__["zone_balancing_enabled"] = zone_balancing_enabled
             __props__.__dict__["kind"] = None
             __props__.__dict__["reserved"] = None
         super(ServicePlan, __self__).__init__(
@@ -534,7 +572,8 @@ class ServicePlan(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            worker_count: Optional[pulumi.Input[int]] = None) -> 'ServicePlan':
+            worker_count: Optional[pulumi.Input[int]] = None,
+            zone_balancing_enabled: Optional[pulumi.Input[bool]] = None) -> 'ServicePlan':
         """
         Get an existing ServicePlan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -554,6 +593,7 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, and `WS3`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[int] worker_count: The number of Workers (instances) to be allocated.
+        :param pulumi.Input[bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -571,6 +611,7 @@ class ServicePlan(pulumi.CustomResource):
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["worker_count"] = worker_count
+        __props__.__dict__["zone_balancing_enabled"] = zone_balancing_enabled
         return ServicePlan(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -668,4 +709,12 @@ class ServicePlan(pulumi.CustomResource):
         The number of Workers (instances) to be allocated.
         """
         return pulumi.get(self, "worker_count")
+
+    @property
+    @pulumi.getter(name="zoneBalancingEnabled")
+    def zone_balancing_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_balancing_enabled")
 

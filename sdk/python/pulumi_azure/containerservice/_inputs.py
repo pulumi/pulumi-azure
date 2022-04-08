@@ -3670,6 +3670,7 @@ class KubernetesClusterNetworkProfileArgs:
                  network_plugin: pulumi.Input[str],
                  dns_service_ip: Optional[pulumi.Input[str]] = None,
                  docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
+                 ip_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']] = None,
                  load_balancer_sku: Optional[pulumi.Input[str]] = None,
                  nat_gateway_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs']] = None,
@@ -3682,6 +3683,7 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[str] network_plugin: Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param pulumi.Input[str] docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
         :param pulumi.Input[str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
         :param pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs'] nat_gateway_profile: A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
@@ -3696,6 +3698,8 @@ class KubernetesClusterNetworkProfileArgs:
             pulumi.set(__self__, "dns_service_ip", dns_service_ip)
         if docker_bridge_cidr is not None:
             pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+        if ip_versions is not None:
+            pulumi.set(__self__, "ip_versions", ip_versions)
         if load_balancer_profile is not None:
             pulumi.set(__self__, "load_balancer_profile", load_balancer_profile)
         if load_balancer_sku is not None:
@@ -3748,6 +3752,18 @@ class KubernetesClusterNetworkProfileArgs:
     @docker_bridge_cidr.setter
     def docker_bridge_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "docker_bridge_cidr", value)
+
+    @property
+    @pulumi.getter(name="ipVersions")
+    def ip_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ip_versions")
+
+    @ip_versions.setter
+    def ip_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_versions", value)
 
     @property
     @pulumi.getter(name="loadBalancerProfile")

@@ -108,7 +108,7 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<string>;
     /**
-     * Specifies the identifier key of the Threat Detection audit storage account.
+     * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
      */
     public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
     /**
@@ -197,7 +197,7 @@ export interface ServerSecurityAlertPolicyState {
      */
     state?: pulumi.Input<string>;
     /**
-     * Specifies the identifier key of the Threat Detection audit storage account.
+     * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**
@@ -239,7 +239,7 @@ export interface ServerSecurityAlertPolicyArgs {
      */
     state: pulumi.Input<string>;
     /**
-     * Specifies the identifier key of the Threat Detection audit storage account.
+     * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**

@@ -133,6 +133,10 @@ type KubernetesCluster struct {
 	NetworkProfile KubernetesClusterNetworkProfileOutput `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
+	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+	OidcIssuerEnabled pulumi.BoolPtrOutput `pulumi:"oidcIssuerEnabled"`
+	// The OIDC issuer URL that is associated with the cluster.
+	OidcIssuerUrl pulumi.StringOutput `pulumi:"oidcIssuerUrl"`
 	// A `omsAgent` block as defined below.
 	OmsAgent KubernetesClusterOmsAgentPtrOutput `pulumi:"omsAgent"`
 	// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
@@ -258,6 +262,10 @@ type kubernetesClusterState struct {
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
+	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
+	// The OIDC issuer URL that is associated with the cluster.
+	OidcIssuerUrl *string `pulumi:"oidcIssuerUrl"`
 	// A `omsAgent` block as defined below.
 	OmsAgent *KubernetesClusterOmsAgent `pulumi:"omsAgent"`
 	// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
@@ -349,6 +357,10 @@ type KubernetesClusterState struct {
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringPtrInput
+	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+	OidcIssuerEnabled pulumi.BoolPtrInput
+	// The OIDC issuer URL that is associated with the cluster.
+	OidcIssuerUrl pulumi.StringPtrInput
 	// A `omsAgent` block as defined below.
 	OmsAgent KubernetesClusterOmsAgentPtrInput
 	// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
@@ -432,6 +444,8 @@ type kubernetesClusterArgs struct {
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
+	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
 	// A `omsAgent` block as defined below.
 	OmsAgent *KubernetesClusterOmsAgent `pulumi:"omsAgent"`
 	// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
@@ -508,6 +522,8 @@ type KubernetesClusterArgs struct {
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringPtrInput
+	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+	OidcIssuerEnabled pulumi.BoolPtrInput
 	// A `omsAgent` block as defined below.
 	OmsAgent KubernetesClusterOmsAgentPtrInput
 	// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).

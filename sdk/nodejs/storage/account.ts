@@ -115,7 +115,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly accountTier!: pulumi.Output<string>;
     /**
-     * Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+     * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
      */
     public readonly allowNestedItemsToBePublic!: pulumi.Output<boolean | undefined>;
     /**
@@ -164,7 +164,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      */
     public readonly minTlsVersion!: pulumi.Output<string | undefined>;
     /**
@@ -514,7 +514,7 @@ export interface AccountState {
      */
     accountTier?: pulumi.Input<string>;
     /**
-     * Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+     * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
      */
     allowNestedItemsToBePublic?: pulumi.Input<boolean>;
     /**
@@ -563,7 +563,7 @@ export interface AccountState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      */
     minTlsVersion?: pulumi.Input<string>;
     /**
@@ -762,7 +762,7 @@ export interface AccountArgs {
      */
     accountTier: pulumi.Input<string>;
     /**
-     * Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+     * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
      */
     allowNestedItemsToBePublic?: pulumi.Input<boolean>;
     /**
@@ -811,7 +811,7 @@ export interface AccountArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      */
     minTlsVersion?: pulumi.Input<string>;
     /**

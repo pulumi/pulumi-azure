@@ -9,10 +9,73 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'NamespaceCustomerManagedKey',
     'NamespaceIdentity',
     'NamespaceNetworkRuleSetNetworkRule',
     'SubscriptionRuleCorrelationFilter',
 ]
+
+@pulumi.output_type
+class NamespaceCustomerManagedKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityId":
+            suggest = "identity_id"
+        elif key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "infrastructureEncryptionEnabled":
+            suggest = "infrastructure_encryption_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NamespaceCustomerManagedKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NamespaceCustomerManagedKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NamespaceCustomerManagedKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_id: str,
+                 key_vault_key_id: str,
+                 infrastructure_encryption_enabled: Optional[bool] = None):
+        """
+        :param str identity_id: The ID of the User Assigned Identity that has access to the key.
+        :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+        :param bool infrastructure_encryption_enabled: Used to specify whether enable Infrastructure Encryption (Double Encryption).
+        """
+        pulumi.set(__self__, "identity_id", identity_id)
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if infrastructure_encryption_enabled is not None:
+            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+
+    @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> str:
+        """
+        The ID of the User Assigned Identity that has access to the key.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> str:
+        """
+        The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="infrastructureEncryptionEnabled")
+    def infrastructure_encryption_enabled(self) -> Optional[bool]:
+        """
+        Used to specify whether enable Infrastructure Encryption (Double Encryption).
+        """
+        return pulumi.get(self, "infrastructure_encryption_enabled")
+
 
 @pulumi.output_type
 class NamespaceIdentity(dict):

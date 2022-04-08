@@ -5316,7 +5316,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
         :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs'] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
         :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
-        :param bool terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+        :param bool terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
         :param Sequence[str] web_categories: Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
         """
         pulumi.set(__self__, "name", name)
@@ -5417,7 +5417,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @pulumi.getter(name="terminateTls")
     def terminate_tls(self) -> Optional[bool]:
         """
-        Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+        Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
         """
         return pulumi.get(self, "terminate_tls")
 

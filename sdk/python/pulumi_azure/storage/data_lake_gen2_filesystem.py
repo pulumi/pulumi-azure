@@ -25,9 +25,9 @@ class DataLakeGen2FilesystemArgs:
         The set of arguments for constructing a DataLakeGen2Filesystem resource.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
-        :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         :param pulumi.Input[str] name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        :param pulumi.Input[str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         """
         pulumi.set(__self__, "storage_account_id", storage_account_id)
@@ -70,7 +70,7 @@ class DataLakeGen2FilesystemArgs:
     @pulumi.getter
     def group(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         """
         return pulumi.get(self, "group")
 
@@ -94,7 +94,7 @@ class DataLakeGen2FilesystemArgs:
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         """
         return pulumi.get(self, "owner")
 
@@ -127,9 +127,9 @@ class _DataLakeGen2FilesystemState:
         """
         Input properties used for looking up and filtering DataLakeGen2Filesystem resources.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
-        :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         :param pulumi.Input[str] name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        :param pulumi.Input[str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         """
@@ -162,7 +162,7 @@ class _DataLakeGen2FilesystemState:
     @pulumi.getter
     def group(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         """
         return pulumi.get(self, "group")
 
@@ -186,7 +186,7 @@ class _DataLakeGen2FilesystemState:
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         """
         return pulumi.get(self, "owner")
 
@@ -268,9 +268,9 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArgs']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
-        :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         :param pulumi.Input[str] name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        :param pulumi.Input[str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         """
@@ -379,9 +379,9 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArgs']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
-        :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         :param pulumi.Input[str] name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        :param pulumi.Input[str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         """
@@ -409,7 +409,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
     @pulumi.getter
     def group(self) -> pulumi.Output[str]:
         """
-        Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`).
+        Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
         """
         return pulumi.get(self, "group")
 
@@ -425,7 +425,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
     @pulumi.getter
     def owner(self) -> pulumi.Output[str]:
         """
-        Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`).
+        Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         """
         return pulumi.get(self, "owner")
 

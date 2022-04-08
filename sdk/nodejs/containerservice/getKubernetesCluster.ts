@@ -151,6 +151,14 @@ export interface GetKubernetesClusterResult {
      */
     readonly nodeResourceGroup: string;
     /**
+     * Whether or not the OIDC feature is enabled or disabled.
+     */
+    readonly oidcIssuerEnabled: boolean;
+    /**
+     * The OIDC issuer URL that is associated with the cluster.
+     */
+    readonly oidcIssuerUrl: string;
+    /**
      * An `omsAgent` block as documented below.
      */
     readonly omsAgents: outputs.containerservice.GetKubernetesClusterOmsAgent[];

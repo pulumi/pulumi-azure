@@ -16,6 +16,7 @@ from .group import *
 from .kubernetes_cluster import *
 from .kubernetes_cluster_node_pool import *
 from .registry import *
+from .registry_agent_pool import *
 from .registry_scope_map import *
 from .registry_task import *
 from .registry_token import *

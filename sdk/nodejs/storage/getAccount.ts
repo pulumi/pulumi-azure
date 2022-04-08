@@ -73,9 +73,9 @@ export interface GetAccountResult {
      */
     readonly accountTier: string;
     /**
-     * Is public access allowed to all blobs or containers in the storage account?
+     * Can nested items in the storage account opt into allowing public access?
      */
-    readonly allowBlobPublicAccess: boolean;
+    readonly allowNestedItemsToBePublic: boolean;
     /**
      * A `customDomain` block as documented below.
      */

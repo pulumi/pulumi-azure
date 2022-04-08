@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class LinuxWebAppConnectionStringArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        /// The name of the Connection String.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

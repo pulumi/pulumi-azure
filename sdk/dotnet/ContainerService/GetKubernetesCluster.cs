@@ -216,6 +216,14 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string NodeResourceGroup;
         /// <summary>
+        /// Whether or not the OIDC feature is enabled or disabled.
+        /// </summary>
+        public readonly bool OidcIssuerEnabled;
+        /// <summary>
+        /// The OIDC issuer URL that is associated with the cluster.
+        /// </summary>
+        public readonly string OidcIssuerUrl;
+        /// <summary>
         /// An `oms_agent` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterOmsAgentResult> OmsAgents;
@@ -301,6 +309,10 @@ namespace Pulumi.Azure.ContainerService
 
             string nodeResourceGroup,
 
+            bool oidcIssuerEnabled,
+
+            string oidcIssuerUrl,
+
             ImmutableArray<Outputs.GetKubernetesClusterOmsAgentResult> omsAgents,
 
             bool openServiceMeshEnabled,
@@ -344,6 +356,8 @@ namespace Pulumi.Azure.ContainerService
             Name = name;
             NetworkProfiles = networkProfiles;
             NodeResourceGroup = nodeResourceGroup;
+            OidcIssuerEnabled = oidcIssuerEnabled;
+            OidcIssuerUrl = oidcIssuerUrl;
             OmsAgents = omsAgents;
             OpenServiceMeshEnabled = openServiceMeshEnabled;
             PrivateClusterEnabled = privateClusterEnabled;

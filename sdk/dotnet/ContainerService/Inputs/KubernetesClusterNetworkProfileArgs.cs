@@ -24,6 +24,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("dockerBridgeCidr")]
         public Input<string>? DockerBridgeCidr { get; set; }
 
+        [Input("ipVersions")]
+        private InputList<string>? _ipVersions;
+
+        /// <summary>
+        /// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> IpVersions
+        {
+            get => _ipVersions ?? (_ipVersions = new InputList<string>());
+            set => _ipVersions = value;
+        }
+
         /// <summary>
         /// A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
         /// </summary>

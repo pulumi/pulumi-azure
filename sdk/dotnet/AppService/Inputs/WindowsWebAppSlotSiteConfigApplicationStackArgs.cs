@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsWebAppSlotSiteConfigApplicationStackArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+        /// The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
         /// </summary>
         [Input("currentStack")]
         public Input<string>? CurrentStack { get; set; }

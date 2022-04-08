@@ -66,6 +66,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     /**
+     * An `customerManagedKey` block as defined below.
+     */
+    public readonly customerManagedKey!: pulumi.Output<outputs.servicebus.NamespaceCustomerManagedKey | undefined>;
+    /**
      * The primary connection string for the authorization
      * rule `RootManageSharedAccessKey`.
      */
@@ -87,6 +91,10 @@ export class Namespace extends pulumi.CustomResource {
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.servicebus.NamespaceIdentity | undefined>;
+    /**
+     * Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+     */
+    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -128,11 +136,13 @@ export class Namespace extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as NamespaceState | undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
+            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
             resourceInputs["defaultPrimaryConnectionString"] = state ? state.defaultPrimaryConnectionString : undefined;
             resourceInputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
             resourceInputs["defaultSecondaryConnectionString"] = state ? state.defaultSecondaryConnectionString : undefined;
             resourceInputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -148,7 +158,9 @@ export class Namespace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["capacity"] = args ? args.capacity : undefined;
+            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -176,6 +188,10 @@ export interface NamespaceState {
      */
     capacity?: pulumi.Input<number>;
     /**
+     * An `customerManagedKey` block as defined below.
+     */
+    customerManagedKey?: pulumi.Input<inputs.servicebus.NamespaceCustomerManagedKey>;
+    /**
      * The primary connection string for the authorization
      * rule `RootManageSharedAccessKey`.
      */
@@ -197,6 +213,10 @@ export interface NamespaceState {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.servicebus.NamespaceIdentity>;
+    /**
+     * Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -234,9 +254,17 @@ export interface NamespaceArgs {
      */
     capacity?: pulumi.Input<number>;
     /**
+     * An `customerManagedKey` block as defined below.
+     */
+    customerManagedKey?: pulumi.Input<inputs.servicebus.NamespaceCustomerManagedKey>;
+    /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.servicebus.NamespaceIdentity>;
+    /**
+     * Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

@@ -35,6 +35,7 @@ import (
 // 		_, err = appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          pulumi.String("West Europe"),
+// 			OsType:            pulumi.String("Linux"),
 // 			SkuName:           pulumi.String("P1V2"),
 // 		})
 // 		if err != nil {
@@ -79,6 +80,8 @@ type ServicePlan struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The number of Workers (instances) to be allocated.
 	WorkerCount pulumi.IntOutput `pulumi:"workerCount"`
+	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+	ZoneBalancingEnabled pulumi.BoolPtrOutput `pulumi:"zoneBalancingEnabled"`
 }
 
 // NewServicePlan registers a new resource with the given unique name, arguments, and options.
@@ -143,6 +146,8 @@ type servicePlanState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The number of Workers (instances) to be allocated.
 	WorkerCount *int `pulumi:"workerCount"`
+	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+	ZoneBalancingEnabled *bool `pulumi:"zoneBalancingEnabled"`
 }
 
 type ServicePlanState struct {
@@ -170,6 +175,8 @@ type ServicePlanState struct {
 	Tags pulumi.StringMapInput
 	// The number of Workers (instances) to be allocated.
 	WorkerCount pulumi.IntPtrInput
+	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+	ZoneBalancingEnabled pulumi.BoolPtrInput
 }
 
 func (ServicePlanState) ElementType() reflect.Type {
@@ -197,6 +204,8 @@ type servicePlanArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The number of Workers (instances) to be allocated.
 	WorkerCount *int `pulumi:"workerCount"`
+	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+	ZoneBalancingEnabled *bool `pulumi:"zoneBalancingEnabled"`
 }
 
 // The set of arguments for constructing a ServicePlan resource.
@@ -221,6 +230,8 @@ type ServicePlanArgs struct {
 	Tags pulumi.StringMapInput
 	// The number of Workers (instances) to be allocated.
 	WorkerCount pulumi.IntPtrInput
+	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+	ZoneBalancingEnabled pulumi.BoolPtrInput
 }
 
 func (ServicePlanArgs) ElementType() reflect.Type {

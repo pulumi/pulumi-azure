@@ -1854,6 +1854,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerservice/registryAgentPool",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/registryAgentPool:RegistryAgentPool": "RegistryAgentPool"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerservice/registryScopeMap",
   "fqn": "pulumi_azure.containerservice",
   "classes": {

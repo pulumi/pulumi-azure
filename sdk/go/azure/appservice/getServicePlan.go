@@ -79,6 +79,8 @@ type LookupServicePlanResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The number of Workers (instances) allocated.
 	WorkerCount int `pulumi:"workerCount"`
+	// Is the Service Plan balance across Availability Zones in the region?
+	ZoneBalancingEnabled bool `pulumi:"zoneBalancingEnabled"`
 }
 
 func LookupServicePlanOutput(ctx *pulumi.Context, args LookupServicePlanOutputArgs, opts ...pulumi.InvokeOption) LookupServicePlanResultOutput {
@@ -178,6 +180,11 @@ func (o LookupServicePlanResultOutput) Tags() pulumi.StringMapOutput {
 // The number of Workers (instances) allocated.
 func (o LookupServicePlanResultOutput) WorkerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupServicePlanResult) int { return v.WorkerCount }).(pulumi.IntOutput)
+}
+
+// Is the Service Plan balance across Availability Zones in the region?
+func (o LookupServicePlanResultOutput) ZoneBalancingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServicePlanResult) bool { return v.ZoneBalancingEnabled }).(pulumi.BoolOutput)
 }
 
 func init() {

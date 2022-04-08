@@ -60,7 +60,7 @@ type LookupAccountResult struct {
 	ConsistencyPolicies []GetAccountConsistencyPolicy `pulumi:"consistencyPolicies"`
 	// If automatic failover is enabled for this CosmosDB Account.
 	EnableAutomaticFailover bool `pulumi:"enableAutomaticFailover"`
-	// If Free Tier pricing option is enabled for this CosmosDB Account.
+	// If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
 	EnableFreeTier bool `pulumi:"enableFreeTier"`
 	// If multiple write locations are enabled for this Cosmos DB account.
 	EnableMultipleWriteLocations bool `pulumi:"enableMultipleWriteLocations"`
@@ -151,7 +151,7 @@ func (o LookupAccountResultOutput) EnableAutomaticFailover() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableAutomaticFailover }).(pulumi.BoolOutput)
 }
 
-// If Free Tier pricing option is enabled for this CosmosDB Account.
+// If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
 func (o LookupAccountResultOutput) EnableFreeTier() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableFreeTier }).(pulumi.BoolOutput)
 }

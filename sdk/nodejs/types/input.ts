@@ -4611,7 +4611,7 @@ export namespace appservice {
 
     export interface LinuxWebAppConnectionString {
         /**
-         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * The name of the Connection String.
          */
         name: pulumi.Input<string>;
         /**
@@ -4818,6 +4818,9 @@ export namespace appservice {
          */
         use32BitWorker?: pulumi.Input<boolean>;
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
         websocketsEnabled?: pulumi.Input<boolean>;
         /**
          * The number of Workers for this Linux App Service.
@@ -7776,7 +7779,7 @@ export namespace appservice {
 
     export interface WindowsWebAppConnectionString {
         /**
-         * The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+         * The name of the Connection String.
          */
         name: pulumi.Input<string>;
         /**
@@ -7990,6 +7993,9 @@ export namespace appservice {
          */
         virtualApplications?: pulumi.Input<pulumi.Input<inputs.appservice.WindowsWebAppSiteConfigVirtualApplication>[]>;
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
         websocketsEnabled?: pulumi.Input<boolean>;
         windowsFxVersion?: pulumi.Input<string>;
         /**
@@ -8000,7 +8006,7 @@ export namespace appservice {
 
     export interface WindowsWebAppSiteConfigApplicationStack {
         /**
-         * The Application Stack for the Windows Web App. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+         * The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
          */
         currentStack?: pulumi.Input<string>;
         /**
@@ -8755,7 +8761,7 @@ export namespace appservice {
 
     export interface WindowsWebAppSlotSiteConfigApplicationStack {
         /**
-         * The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+         * The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
          */
         currentStack?: pulumi.Input<string>;
         /**
@@ -12514,7 +12520,7 @@ export namespace consumption {
 
     export interface BudgetManagementGroupFilterDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
          */
         name: pulumi.Input<string>;
         /**
@@ -12540,7 +12546,7 @@ export namespace consumption {
 
     export interface BudgetManagementGroupFilterNotDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
          */
         name: pulumi.Input<string>;
         /**
@@ -12634,7 +12640,7 @@ export namespace consumption {
 
     export interface BudgetResourceGroupFilterDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
          */
         name: pulumi.Input<string>;
         /**
@@ -12660,7 +12666,7 @@ export namespace consumption {
 
     export interface BudgetResourceGroupFilterNotDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
          */
         name: pulumi.Input<string>;
         /**
@@ -12762,7 +12768,7 @@ export namespace consumption {
 
     export interface BudgetSubscriptionFilterDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
          */
         name: pulumi.Input<string>;
         /**
@@ -12788,7 +12794,7 @@ export namespace consumption {
 
     export interface BudgetSubscriptionFilterNotDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
          */
         name: pulumi.Input<string>;
         /**
@@ -13830,6 +13836,10 @@ export namespace containerservice {
          * IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
          */
         dockerBridgeCidr?: pulumi.Input<string>;
+        /**
+         * Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+         */
+        ipVersions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
          */
@@ -15659,7 +15669,7 @@ export namespace datafactory {
          */
         filename?: pulumi.Input<string>;
         /**
-         * The folder path to the file.
+         * The folder path to the file. This can be an empty string.
          */
         path?: pulumi.Input<string>;
     }
@@ -18734,6 +18744,21 @@ export namespace eventhub {
          * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: pulumi.Input<string>;
+    }
+
+    export interface NamespaceCustomerManagedKey {
+        /**
+         * The ID of the User Assigned Identity that has access to the key.
+         */
+        identityId: pulumi.Input<string>;
+        /**
+         * Used to specify whether enable Infrastructure Encryption (Double Encryption).
+         */
+        infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+        /**
+         * The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+         */
+        keyVaultKeyId: pulumi.Input<string>;
     }
 
     export interface NamespaceIdentity {
@@ -27081,7 +27106,7 @@ export namespace network {
          */
         sourceIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+         * Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
          */
         terminateTls?: pulumi.Input<boolean>;
         /**
@@ -29465,6 +29490,21 @@ export namespace sentinel {
 }
 
 export namespace servicebus {
+    export interface NamespaceCustomerManagedKey {
+        /**
+         * The ID of the User Assigned Identity that has access to the key.
+         */
+        identityId: pulumi.Input<string>;
+        /**
+         * Used to specify whether enable Infrastructure Encryption (Double Encryption).
+         */
+        infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+        /**
+         * The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+         */
+        keyVaultKeyId: pulumi.Input<string>;
+    }
+
     export interface NamespaceIdentity {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.

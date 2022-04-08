@@ -57,6 +57,8 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
+	// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+	CustomQuestionAnsweringSearchServiceId pulumi.StringPtrOutput `pulumi:"customQuestionAnsweringSearchServiceId"`
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrOutput `pulumi:"customSubdomainName"`
 	// The endpoint used to connect to the Cognitive Service Account.
@@ -141,6 +143,8 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
+	// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+	CustomQuestionAnsweringSearchServiceId *string `pulumi:"customQuestionAnsweringSearchServiceId"`
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// The endpoint used to connect to the Cognitive Service Account.
@@ -188,6 +192,8 @@ type accountState struct {
 }
 
 type AccountState struct {
+	// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+	CustomQuestionAnsweringSearchServiceId pulumi.StringPtrInput
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
 	// The endpoint used to connect to the Cognitive Service Account.
@@ -239,6 +245,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+	CustomQuestionAnsweringSearchServiceId *string `pulumi:"customQuestionAnsweringSearchServiceId"`
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// List of FQDNs allowed for the Cognitive Account.
@@ -281,6 +289,8 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+	CustomQuestionAnsweringSearchServiceId pulumi.StringPtrInput
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
 	// List of FQDNs allowed for the Cognitive Account.
