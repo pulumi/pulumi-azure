@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppSlotSiteConfigApplicationStack
     {
         /// <summary>
-        /// The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+        /// The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
         /// </summary>
         public readonly string? CurrentStack;
         /// <summary>

@@ -22,6 +22,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? DockerBridgeCidr;
         /// <summary>
+        /// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly ImmutableArray<string> IpVersions;
+        /// <summary>
         /// A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
         /// </summary>
         public readonly Outputs.KubernetesClusterNetworkProfileLoadBalancerProfile? LoadBalancerProfile;
@@ -64,6 +68,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? dockerBridgeCidr,
 
+            ImmutableArray<string> ipVersions,
+
             Outputs.KubernetesClusterNetworkProfileLoadBalancerProfile? loadBalancerProfile,
 
             string? loadBalancerSku,
@@ -84,6 +90,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         {
             DnsServiceIp = dnsServiceIp;
             DockerBridgeCidr = dockerBridgeCidr;
+            IpVersions = ipVersions;
             LoadBalancerProfile = loadBalancerProfile;
             LoadBalancerSku = loadBalancerSku;
             NatGatewayProfile = natGatewayProfile;

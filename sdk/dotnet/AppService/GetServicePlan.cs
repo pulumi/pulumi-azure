@@ -167,6 +167,10 @@ namespace Pulumi.Azure.AppService
         /// The number of Workers (instances) allocated.
         /// </summary>
         public readonly int WorkerCount;
+        /// <summary>
+        /// Is the Service Plan balance across Availability Zones in the region?
+        /// </summary>
+        public readonly bool ZoneBalancingEnabled;
 
         [OutputConstructor]
         private GetServicePlanResult(
@@ -194,7 +198,9 @@ namespace Pulumi.Azure.AppService
 
             ImmutableDictionary<string, string> tags,
 
-            int workerCount)
+            int workerCount,
+
+            bool zoneBalancingEnabled)
         {
             AppServiceEnvironmentId = appServiceEnvironmentId;
             Id = id;
@@ -209,6 +215,7 @@ namespace Pulumi.Azure.AppService
             SkuName = skuName;
             Tags = tags;
             WorkerCount = workerCount;
+            ZoneBalancingEnabled = zoneBalancingEnabled;
         }
     }
 }

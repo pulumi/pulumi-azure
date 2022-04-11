@@ -116,7 +116,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier key of the Threat Detection audit storage account.
+        /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
         /// </summary>
         [Output("storageAccountAccessKey")]
         public Output<string?> StorageAccountAccessKey { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string> State { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier key of the Threat Detection audit storage account.
+        /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
         /// </summary>
         [Input("storageAccountAccessKey")]
         public Input<string>? StorageAccountAccessKey { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// Specifies the identifier key of the Threat Detection audit storage account.
+        /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
         /// </summary>
         [Input("storageAccountAccessKey")]
         public Input<string>? StorageAccountAccessKey { get; set; }

@@ -38,7 +38,8 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Dynamic",
+    ///             AllocationMethod = "Static",
+    ///             Sku = "Standard",
     ///         });
     ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
     ///         {

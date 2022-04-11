@@ -589,9 +589,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_kubernetes_cluster_node_pool": {
 				Tok: azureResource(azureContainerService, "KubernetesClusterNodePool"),
 			},
-			"azurerm_container_registry_scope_map": {Tok: azureResource(azureContainerService, "RegistryScopeMap")},
-			"azurerm_container_registry_token":     {Tok: azureResource(azureContainerService, "RegistryToken")},
-			"azurerm_container_registry_task":      {Tok: azureResource(azureContainerService, "RegistryTask")},
+			"azurerm_container_registry_scope_map":  {Tok: azureResource(azureContainerService, "RegistryScopeMap")},
+			"azurerm_container_registry_token":      {Tok: azureResource(azureContainerService, "RegistryToken")},
+			"azurerm_container_registry_task":       {Tok: azureResource(azureContainerService, "RegistryTask")},
+			"azurerm_container_registry_agent_pool": {Tok: azureResource(azureContainerService, "RegistryAgentPool")},
 
 			// Batch
 			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},

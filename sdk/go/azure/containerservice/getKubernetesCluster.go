@@ -104,6 +104,10 @@ type LookupKubernetesClusterResult struct {
 	NetworkProfiles []GetKubernetesClusterNetworkProfile `pulumi:"networkProfiles"`
 	// Auto-generated Resource Group containing AKS Cluster resources.
 	NodeResourceGroup string `pulumi:"nodeResourceGroup"`
+	// Whether or not the OIDC feature is enabled or disabled.
+	OidcIssuerEnabled bool `pulumi:"oidcIssuerEnabled"`
+	// The OIDC issuer URL that is associated with the cluster.
+	OidcIssuerUrl string `pulumi:"oidcIssuerUrl"`
 	// An `omsAgent` block as documented below.
 	OmsAgents []GetKubernetesClusterOmsAgent `pulumi:"omsAgents"`
 	// Is Open Service Mesh enabled for this managed Kubernetes Cluster?
@@ -294,6 +298,16 @@ func (o LookupKubernetesClusterResultOutput) NetworkProfiles() GetKubernetesClus
 // Auto-generated Resource Group containing AKS Cluster resources.
 func (o LookupKubernetesClusterResultOutput) NodeResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.NodeResourceGroup }).(pulumi.StringOutput)
+}
+
+// Whether or not the OIDC feature is enabled or disabled.
+func (o LookupKubernetesClusterResultOutput) OidcIssuerEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.OidcIssuerEnabled }).(pulumi.BoolOutput)
+}
+
+// The OIDC issuer URL that is associated with the cluster.
+func (o LookupKubernetesClusterResultOutput) OidcIssuerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.OidcIssuerUrl }).(pulumi.StringOutput)
 }
 
 // An `omsAgent` block as documented below.

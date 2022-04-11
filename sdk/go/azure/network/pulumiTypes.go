@@ -9713,7 +9713,7 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule struct {
 	SourceAddresses []string `pulumi:"sourceAddresses"`
 	// Specifies a list of source IP groups.
 	SourceIpGroups []string `pulumi:"sourceIpGroups"`
-	// Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+	// Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
 	TerminateTls *bool `pulumi:"terminateTls"`
 	// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
 	WebCategories []string `pulumi:"webCategories"`
@@ -9749,7 +9749,7 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs struct {
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
 	// Specifies a list of source IP groups.
 	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
-	// Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+	// Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
 	TerminateTls pulumi.BoolPtrInput `pulumi:"terminateTls"`
 	// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
 	WebCategories pulumi.StringArrayInput `pulumi:"webCategories"`
@@ -9865,7 +9865,7 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) So
 	}).(pulumi.StringArrayOutput)
 }
 
-// Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+// Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) TerminateTls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) *bool { return v.TerminateTls }).(pulumi.BoolPtrOutput)
 }

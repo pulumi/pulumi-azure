@@ -7467,6 +7467,8 @@ type KubernetesClusterNetworkProfile struct {
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
 	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
+	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+	IpVersions []string `pulumi:"ipVersions"`
 	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
 	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
@@ -7503,6 +7505,8 @@ type KubernetesClusterNetworkProfileArgs struct {
 	DnsServiceIp pulumi.StringPtrInput `pulumi:"dnsServiceIp"`
 	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
+	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+	IpVersions pulumi.StringArrayInput `pulumi:"ipVersions"`
 	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
 	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
@@ -7610,6 +7614,11 @@ func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringP
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+func (o KubernetesClusterNetworkProfileOutput) IpVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.IpVersions }).(pulumi.StringArrayOutput)
+}
+
 // A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
 func (o KubernetesClusterNetworkProfileOutput) LoadBalancerProfile() KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
@@ -7701,6 +7710,16 @@ func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.Stri
 		}
 		return v.DockerBridgeCidr
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+func (o KubernetesClusterNetworkProfilePtrOutput) IpVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpVersions
+	}).(pulumi.StringArrayOutput)
 }
 
 // A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.

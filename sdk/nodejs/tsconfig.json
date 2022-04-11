@@ -312,6 +312,7 @@
         "containerservice/kubernetesCluster.ts",
         "containerservice/kubernetesClusterNodePool.ts",
         "containerservice/registry.ts",
+        "containerservice/registryAgentPool.ts",
         "containerservice/registryScopeMap.ts",
         "containerservice/registryTask.ts",
         "containerservice/registryToken.ts",

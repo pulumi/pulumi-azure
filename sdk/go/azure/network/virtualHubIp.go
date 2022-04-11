@@ -45,7 +45,8 @@ import (
 // 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Dynamic"),
+// 			AllocationMethod:  pulumi.String("Static"),
+// 			Sku:               pulumi.String("Standard"),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -16,6 +16,7 @@ export * from "./group";
 export * from "./kubernetesCluster";
 export * from "./kubernetesClusterNodePool";
 export * from "./registry";
+export * from "./registryAgentPool";
 export * from "./registryScopeMap";
 export * from "./registryTask";
 export * from "./registryToken";
@@ -27,6 +28,7 @@ import { Group } from "./group";
 import { KubernetesCluster } from "./kubernetesCluster";
 import { KubernetesClusterNodePool } from "./kubernetesClusterNodePool";
 import { Registry } from "./registry";
+import { RegistryAgentPool } from "./registryAgentPool";
 import { RegistryScopeMap } from "./registryScopeMap";
 import { RegistryTask } from "./registryTask";
 import { RegistryToken } from "./registryToken";
@@ -45,6 +47,8 @@ const _module = {
                 return new KubernetesClusterNodePool(name, <any>undefined, { urn })
             case "azure:containerservice/registry:Registry":
                 return new Registry(name, <any>undefined, { urn })
+            case "azure:containerservice/registryAgentPool:RegistryAgentPool":
+                return new RegistryAgentPool(name, <any>undefined, { urn })
             case "azure:containerservice/registryScopeMap:RegistryScopeMap":
                 return new RegistryScopeMap(name, <any>undefined, { urn })
             case "azure:containerservice/registryTask:RegistryTask":
@@ -64,6 +68,7 @@ pulumi.runtime.registerResourceModule("azure", "containerservice/group", _module
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesClusterNodePool", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registry", _module)
+pulumi.runtime.registerResourceModule("azure", "containerservice/registryAgentPool", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryScopeMap", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryTask", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryToken", _module)

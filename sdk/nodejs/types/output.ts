@@ -8018,7 +8018,7 @@ export namespace appservice {
 
     export interface LinuxWebAppConnectionString {
         /**
-         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * The name of the Connection String.
          */
         name: string;
         /**
@@ -8225,6 +8225,9 @@ export namespace appservice {
          */
         use32BitWorker?: boolean;
         vnetRouteAllEnabled?: boolean;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
         websocketsEnabled?: boolean;
         /**
          * The number of Workers for this Linux App Service.
@@ -11183,7 +11186,7 @@ export namespace appservice {
 
     export interface WindowsWebAppConnectionString {
         /**
-         * The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+         * The name of the Connection String.
          */
         name: string;
         /**
@@ -11397,6 +11400,9 @@ export namespace appservice {
          */
         virtualApplications?: outputs.appservice.WindowsWebAppSiteConfigVirtualApplication[];
         vnetRouteAllEnabled?: boolean;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
         websocketsEnabled?: boolean;
         windowsFxVersion: string;
         /**
@@ -11407,7 +11413,7 @@ export namespace appservice {
 
     export interface WindowsWebAppSiteConfigApplicationStack {
         /**
-         * The Application Stack for the Windows Web App. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+         * The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
          */
         currentStack?: string;
         /**
@@ -12162,7 +12168,7 @@ export namespace appservice {
 
     export interface WindowsWebAppSlotSiteConfigApplicationStack {
         /**
-         * The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+         * The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
          */
         currentStack?: string;
         /**
@@ -16591,7 +16597,7 @@ export namespace consumption {
 
     export interface BudgetManagementGroupFilterDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
          */
         name: string;
         /**
@@ -16617,7 +16623,7 @@ export namespace consumption {
 
     export interface BudgetManagementGroupFilterNotDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
          */
         name: string;
         /**
@@ -16711,7 +16717,7 @@ export namespace consumption {
 
     export interface BudgetResourceGroupFilterDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
          */
         name: string;
         /**
@@ -16737,7 +16743,7 @@ export namespace consumption {
 
     export interface BudgetResourceGroupFilterNotDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
          */
         name: string;
         /**
@@ -16839,7 +16845,7 @@ export namespace consumption {
 
     export interface BudgetSubscriptionFilterDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
          */
         name: string;
         /**
@@ -16865,7 +16871,7 @@ export namespace consumption {
 
     export interface BudgetSubscriptionFilterNotDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
          */
         name: string;
         /**
@@ -18521,6 +18527,10 @@ export namespace containerservice {
          * IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
          */
         dockerBridgeCidr: string;
+        /**
+         * Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+         */
+        ipVersions: string[];
         /**
          * A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
          */
@@ -20521,7 +20531,7 @@ export namespace datafactory {
          */
         filename?: string;
         /**
-         * The folder path to the file.
+         * The folder path to the file. This can be an empty string.
          */
         path?: string;
     }
@@ -23892,6 +23902,21 @@ export namespace eventhub {
          * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: string;
+    }
+
+    export interface NamespaceCustomerManagedKey {
+        /**
+         * The ID of the User Assigned Identity that has access to the key.
+         */
+        identityId: string;
+        /**
+         * Used to specify whether enable Infrastructure Encryption (Double Encryption).
+         */
+        infrastructureEncryptionEnabled?: boolean;
+        /**
+         * The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+         */
+        keyVaultKeyId: string;
     }
 
     export interface NamespaceIdentity {
@@ -31811,11 +31836,11 @@ export namespace network {
         /**
          * The Private IP Address to use for the Application Gateway.
          */
-        privateIpAddress: string;
+        privateIpAddress?: string;
         /**
          * The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
          */
-        privateIpAddressAllocation: string;
+        privateIpAddressAllocation?: string;
         /**
          * The ID of the associated private link configuration.
          */
@@ -31827,11 +31852,11 @@ export namespace network {
         /**
          * The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
          */
-        publicIpAddressId: string;
+        publicIpAddressId?: string;
         /**
          * The ID of the Subnet.
          */
-        subnetId: string;
+        subnetId?: string;
     }
 
     export interface ApplicationGatewayFrontendPort {
@@ -33079,7 +33104,7 @@ export namespace network {
          */
         sourceIpGroups?: string[];
         /**
-         * Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+         * Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
          */
         terminateTls?: boolean;
         /**
@@ -36417,6 +36442,21 @@ export namespace sentinel {
 }
 
 export namespace servicebus {
+    export interface NamespaceCustomerManagedKey {
+        /**
+         * The ID of the User Assigned Identity that has access to the key.
+         */
+        identityId: string;
+        /**
+         * Used to specify whether enable Infrastructure Encryption (Double Encryption).
+         */
+        infrastructureEncryptionEnabled?: boolean;
+        /**
+         * The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+         */
+        keyVaultKeyId: string;
+    }
+
     export interface NamespaceIdentity {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.

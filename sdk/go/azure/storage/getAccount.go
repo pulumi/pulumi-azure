@@ -65,8 +65,8 @@ type LookupAccountResult struct {
 	AccountReplicationType string `pulumi:"accountReplicationType"`
 	// The Tier of this storage account.
 	AccountTier string `pulumi:"accountTier"`
-	// Is public access allowed to all blobs or containers in the storage account?
-	AllowBlobPublicAccess bool `pulumi:"allowBlobPublicAccess"`
+	// Can nested items in the storage account opt into allowing public access?
+	AllowNestedItemsToBePublic bool `pulumi:"allowNestedItemsToBePublic"`
 	// A `customDomain` block as documented below.
 	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
 	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
@@ -217,9 +217,9 @@ func (o LookupAccountResultOutput) AccountTier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.AccountTier }).(pulumi.StringOutput)
 }
 
-// Is public access allowed to all blobs or containers in the storage account?
-func (o LookupAccountResultOutput) AllowBlobPublicAccess() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupAccountResult) bool { return v.AllowBlobPublicAccess }).(pulumi.BoolOutput)
+// Can nested items in the storage account opt into allowing public access?
+func (o LookupAccountResultOutput) AllowNestedItemsToBePublic() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.AllowNestedItemsToBePublic }).(pulumi.BoolOutput)
 }
 
 // A `customDomain` block as documented below.

@@ -2664,7 +2664,7 @@ type DatasetDelimitedTextAzureBlobStorageLocation struct {
 	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The filename of the file.
 	Filename *string `pulumi:"filename"`
-	// The folder path to the file.
+	// The folder path to the file. This can be an empty string.
 	Path *string `pulumi:"path"`
 }
 
@@ -2688,7 +2688,7 @@ type DatasetDelimitedTextAzureBlobStorageLocationArgs struct {
 	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
 	// The filename of the file.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
-	// The folder path to the file.
+	// The folder path to the file. This can be an empty string.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -2789,7 +2789,7 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Filename() pulumi.St
 	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
 
-// The folder path to the file.
+// The folder path to the file. This can be an empty string.
 func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -2858,7 +2858,7 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Filename() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The folder path to the file.
+// The folder path to the file. This can be an empty string.
 func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobStorageLocation) *string {
 		if v == nil {

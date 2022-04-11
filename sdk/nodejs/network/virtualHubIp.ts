@@ -24,7 +24,8 @@ import * as utilities from "../utilities";
  * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     allocationMethod: "Dynamic",
+ *     allocationMethod: "Static",
+ *     sku: "Standard",
  * });
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     addressSpaces: ["10.5.0.0/16"],

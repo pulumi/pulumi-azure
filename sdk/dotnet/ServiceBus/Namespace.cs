@@ -59,6 +59,12 @@ namespace Pulumi.Azure.ServiceBus
         public Output<int?> Capacity { get; private set; } = null!;
 
         /// <summary>
+        /// An `customer_managed_key` block as defined below.
+        /// </summary>
+        [Output("customerManagedKey")]
+        public Output<Outputs.NamespaceCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
+
+        /// <summary>
         /// The primary connection string for the authorization
         /// rule `RootManageSharedAccessKey`.
         /// </summary>
@@ -89,6 +95,12 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Output("identity")]
         public Output<Outputs.NamespaceIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+        /// </summary>
+        [Output("localAuthEnabled")]
+        public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -185,10 +197,22 @@ namespace Pulumi.Azure.ServiceBus
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
+        /// An `customer_managed_key` block as defined below.
+        /// </summary>
+        [Input("customerManagedKey")]
+        public Input<Inputs.NamespaceCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NamespaceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -248,6 +272,12 @@ namespace Pulumi.Azure.ServiceBus
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
+        /// An `customer_managed_key` block as defined below.
+        /// </summary>
+        [Input("customerManagedKey")]
+        public Input<Inputs.NamespaceCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
+
+        /// <summary>
         /// The primary connection string for the authorization
         /// rule `RootManageSharedAccessKey`.
         /// </summary>
@@ -278,6 +308,12 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NamespaceIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

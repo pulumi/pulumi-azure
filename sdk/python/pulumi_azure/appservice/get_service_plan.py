@@ -20,7 +20,7 @@ class GetServicePlanResult:
     """
     A collection of values returned by getServicePlan.
     """
-    def __init__(__self__, app_service_environment_id=None, id=None, kind=None, location=None, maximum_elastic_worker_count=None, name=None, os_type=None, per_site_scaling_enabled=None, reserved=None, resource_group_name=None, sku_name=None, tags=None, worker_count=None):
+    def __init__(__self__, app_service_environment_id=None, id=None, kind=None, location=None, maximum_elastic_worker_count=None, name=None, os_type=None, per_site_scaling_enabled=None, reserved=None, resource_group_name=None, sku_name=None, tags=None, worker_count=None, zone_balancing_enabled=None):
         if app_service_environment_id and not isinstance(app_service_environment_id, str):
             raise TypeError("Expected argument 'app_service_environment_id' to be a str")
         pulumi.set(__self__, "app_service_environment_id", app_service_environment_id)
@@ -60,6 +60,9 @@ class GetServicePlanResult:
         if worker_count and not isinstance(worker_count, int):
             raise TypeError("Expected argument 'worker_count' to be a int")
         pulumi.set(__self__, "worker_count", worker_count)
+        if zone_balancing_enabled and not isinstance(zone_balancing_enabled, bool):
+            raise TypeError("Expected argument 'zone_balancing_enabled' to be a bool")
+        pulumi.set(__self__, "zone_balancing_enabled", zone_balancing_enabled)
 
     @property
     @pulumi.getter(name="appServiceEnvironmentId")
@@ -159,6 +162,14 @@ class GetServicePlanResult:
         """
         return pulumi.get(self, "worker_count")
 
+    @property
+    @pulumi.getter(name="zoneBalancingEnabled")
+    def zone_balancing_enabled(self) -> bool:
+        """
+        Is the Service Plan balance across Availability Zones in the region?
+        """
+        return pulumi.get(self, "zone_balancing_enabled")
+
 
 class AwaitableGetServicePlanResult(GetServicePlanResult):
     # pylint: disable=using-constant-test
@@ -178,7 +189,8 @@ class AwaitableGetServicePlanResult(GetServicePlanResult):
             resource_group_name=self.resource_group_name,
             sku_name=self.sku_name,
             tags=self.tags,
-            worker_count=self.worker_count)
+            worker_count=self.worker_count,
+            zone_balancing_enabled=self.zone_balancing_enabled)
 
 
 def get_service_plan(name: Optional[str] = None,
@@ -224,7 +236,8 @@ def get_service_plan(name: Optional[str] = None,
         resource_group_name=__ret__.resource_group_name,
         sku_name=__ret__.sku_name,
         tags=__ret__.tags,
-        worker_count=__ret__.worker_count)
+        worker_count=__ret__.worker_count,
+        zone_balancing_enabled=__ret__.zone_balancing_enabled)
 
 
 @_utilities.lift_output_func(get_service_plan)

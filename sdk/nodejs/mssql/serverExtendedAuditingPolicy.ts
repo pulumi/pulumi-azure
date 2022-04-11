@@ -91,7 +91,7 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     accountKind: "StorageV2",
- *     allowBlobPublicAccess: false,
+ *     allowNestedItemsToBePublic: false,
  *     networkRules: {
  *         defaultAction: "Deny",
  *         ipRules: ["127.0.0.1"],

@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// Boolean specifying if TLS shall be terminated (true) or not (false). Needs Premium SKU for Firewall Policy.
+        /// Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
         /// </summary>
         [Input("terminateTls")]
         public Input<bool>? TerminateTls { get; set; }

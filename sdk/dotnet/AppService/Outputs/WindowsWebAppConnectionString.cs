@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppConnectionString
     {
         /// <summary>
-        /// The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        /// The name of the Connection String.
         /// </summary>
         public readonly string Name;
         /// <summary>

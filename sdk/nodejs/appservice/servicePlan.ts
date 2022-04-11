@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: "West Europe",
+ *     osType: "Linux",
  *     skuName: "P1V2",
  * });
  * ```
@@ -105,6 +106,10 @@ export class ServicePlan extends pulumi.CustomResource {
      * The number of Workers (instances) to be allocated.
      */
     public readonly workerCount!: pulumi.Output<number>;
+    /**
+     * Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+     */
+    public readonly zoneBalancingEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ServicePlan resource with the given unique name, arguments, and options.
@@ -131,6 +136,7 @@ export class ServicePlan extends pulumi.CustomResource {
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["workerCount"] = state ? state.workerCount : undefined;
+            resourceInputs["zoneBalancingEnabled"] = state ? state.zoneBalancingEnabled : undefined;
         } else {
             const args = argsOrState as ServicePlanArgs | undefined;
             if ((!args || args.osType === undefined) && !opts.urn) {
@@ -152,6 +158,7 @@ export class ServicePlan extends pulumi.CustomResource {
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workerCount"] = args ? args.workerCount : undefined;
+            resourceInputs["zoneBalancingEnabled"] = args ? args.zoneBalancingEnabled : undefined;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["reserved"] = undefined /*out*/;
         }
@@ -212,6 +219,10 @@ export interface ServicePlanState {
      * The number of Workers (instances) to be allocated.
      */
     workerCount?: pulumi.Input<number>;
+    /**
+     * Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+     */
+    zoneBalancingEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -258,4 +269,8 @@ export interface ServicePlanArgs {
      * The number of Workers (instances) to be allocated.
      */
     workerCount?: pulumi.Input<number>;
+    /**
+     * Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+     */
+    zoneBalancingEnabled?: pulumi.Input<boolean>;
 }

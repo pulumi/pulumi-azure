@@ -131,7 +131,7 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         public readonly bool EnableAutomaticFailover;
         /// <summary>
-        /// If Free Tier pricing option is enabled for this CosmosDB Account.
+        /// If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
         /// </summary>
         public readonly bool EnableFreeTier;
         /// <summary>

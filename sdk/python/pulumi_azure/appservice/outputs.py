@@ -10963,7 +10963,7 @@ class LinuxWebAppConnectionString(dict):
                  type: str,
                  value: str):
         """
-        :param str name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        :param str name: The name of the Connection String.
         :param str type: Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
         :param str value: The connection string value.
         """
@@ -10975,7 +10975,7 @@ class LinuxWebAppConnectionString(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        The name of the Connection String.
         """
         return pulumi.get(self, "name")
 
@@ -11536,6 +11536,7 @@ class LinuxWebAppSiteConfig(dict):
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param int worker_count: The number of Workers for this Linux App Service.
         """
         if always_on is not None:
@@ -11825,6 +11826,9 @@ class LinuxWebAppSiteConfig(dict):
     @property
     @pulumi.getter(name="websocketsEnabled")
     def websockets_enabled(self) -> Optional[bool]:
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "websockets_enabled")
 
     @property
@@ -23096,7 +23100,7 @@ class WindowsWebAppConnectionString(dict):
                  type: str,
                  value: str):
         """
-        :param str name: The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        :param str name: The name of the Connection String.
         :param str type: Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
         :param str value: The connection string value.
         """
@@ -23108,7 +23112,7 @@ class WindowsWebAppConnectionString(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        The name of the Connection String.
         """
         return pulumi.get(self, "name")
 
@@ -23677,6 +23681,7 @@ class WindowsWebAppSiteConfig(dict):
         :param bool scm_use_main_ip_restriction: Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Web App use a 32-bit worker.
         :param Sequence['WindowsWebAppSiteConfigVirtualApplicationArgs'] virtual_applications: One or more `virtual_application` blocks as defined below.
+        :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param int worker_count: The number of Workers for this Windows App Service.
         """
         if always_on is not None:
@@ -23981,6 +23986,9 @@ class WindowsWebAppSiteConfig(dict):
     @property
     @pulumi.getter(name="websocketsEnabled")
     def websockets_enabled(self) -> Optional[bool]:
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
         return pulumi.get(self, "websockets_enabled")
 
     @property
@@ -24049,7 +24057,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
                  php_version: Optional[str] = None,
                  python_version: Optional[str] = None):
         """
-        :param str current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+        :param str current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
         :param str docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
         :param str docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param str docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
@@ -24088,7 +24096,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="currentStack")
     def current_stack(self) -> Optional[str]:
         """
-        The Application Stack for the Windows Web App. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+        The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
         """
         return pulumi.get(self, "current_stack")
 
@@ -26947,7 +26955,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
                  php_version: Optional[str] = None,
                  python_version: Optional[str] = None):
         """
-        :param str current_stack: The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+        :param str current_stack: The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
         :param str docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
         :param str docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param str docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
@@ -26986,7 +26994,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="currentStack")
     def current_stack(self) -> Optional[str]:
         """
-        The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `node`, `python`, `php`, and `java`.
+        The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
         """
         return pulumi.get(self, "current_stack")
 

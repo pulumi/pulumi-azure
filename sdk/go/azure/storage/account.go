@@ -136,7 +136,7 @@ type Account struct {
 	AccountReplicationType pulumi.StringOutput `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringOutput `pulumi:"accountTier"`
-	// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	AllowNestedItemsToBePublic pulumi.BoolPtrOutput `pulumi:"allowNestedItemsToBePublic"`
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrOutput `pulumi:"azureFilesAuthentication"`
@@ -161,7 +161,7 @@ type Account struct {
 	LargeFileShareEnabled pulumi.BoolOutput `pulumi:"largeFileShareEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	MinTlsVersion pulumi.StringPtrOutput `pulumi:"minTlsVersion"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -298,7 +298,7 @@ type accountState struct {
 	AccountReplicationType *string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier *string `pulumi:"accountTier"`
-	// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	AllowNestedItemsToBePublic *bool `pulumi:"allowNestedItemsToBePublic"`
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
@@ -323,7 +323,7 @@ type accountState struct {
 	LargeFileShareEnabled *bool `pulumi:"largeFileShareEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name *string `pulumi:"name"`
@@ -423,7 +423,7 @@ type AccountState struct {
 	AccountReplicationType pulumi.StringPtrInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringPtrInput
-	// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	AllowNestedItemsToBePublic pulumi.BoolPtrInput
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
@@ -448,7 +448,7 @@ type AccountState struct {
 	LargeFileShareEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringPtrInput
@@ -552,7 +552,7 @@ type accountArgs struct {
 	AccountReplicationType string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier string `pulumi:"accountTier"`
-	// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	AllowNestedItemsToBePublic *bool `pulumi:"allowNestedItemsToBePublic"`
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
@@ -577,7 +577,7 @@ type accountArgs struct {
 	LargeFileShareEnabled *bool `pulumi:"largeFileShareEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name *string `pulumi:"name"`
@@ -614,7 +614,7 @@ type AccountArgs struct {
 	AccountReplicationType pulumi.StringInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringInput
-	// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	AllowNestedItemsToBePublic pulumi.BoolPtrInput
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
@@ -639,7 +639,7 @@ type AccountArgs struct {
 	LargeFileShareEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringPtrInput

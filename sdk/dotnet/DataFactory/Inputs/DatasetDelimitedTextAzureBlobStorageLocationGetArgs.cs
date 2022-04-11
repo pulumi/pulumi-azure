@@ -37,7 +37,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string>? Filename { get; set; }
 
         /// <summary>
-        /// The folder path to the file.
+        /// The folder path to the file. This can be an empty string.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

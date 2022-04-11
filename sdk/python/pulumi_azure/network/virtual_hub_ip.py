@@ -246,7 +246,8 @@ class VirtualHubIp(pulumi.CustomResource):
         example_public_ip = azure.network.PublicIp("examplePublicIp",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            allocation_method="Dynamic")
+            allocation_method="Static",
+            sku="Standard")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
             address_spaces=["10.5.0.0/16"],
             location=example_resource_group.location,
@@ -305,7 +306,8 @@ class VirtualHubIp(pulumi.CustomResource):
         example_public_ip = azure.network.PublicIp("examplePublicIp",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            allocation_method="Dynamic")
+            allocation_method="Static",
+            sku="Standard")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
             address_spaces=["10.5.0.0/16"],
             location=example_resource_group.location,

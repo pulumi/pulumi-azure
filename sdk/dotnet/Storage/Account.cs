@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> AccountTier { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
         /// </summary>
         [Output("allowNestedItemsToBePublic")]
         public Output<bool?> AllowNestedItemsToBePublic { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+        /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
         /// </summary>
         [Output("minTlsVersion")]
         public Output<string?> MinTlsVersion { get; private set; } = null!;
@@ -552,7 +552,7 @@ namespace Pulumi.Azure.Storage
         public Input<string> AccountTier { get; set; } = null!;
 
         /// <summary>
-        /// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
         /// </summary>
         [Input("allowNestedItemsToBePublic")]
         public Input<bool>? AllowNestedItemsToBePublic { get; set; }
@@ -625,7 +625,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+        /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
         /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
@@ -737,7 +737,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountTier { get; set; }
 
         /// <summary>
-        /// Allow or disallow public access to all nested items in the storage account. Defaults to `true`.
+        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
         /// </summary>
         [Input("allowNestedItemsToBePublic")]
         public Input<bool>? AllowNestedItemsToBePublic { get; set; }
@@ -810,7 +810,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+        /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
         /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }

@@ -30,6 +30,7 @@ namespace Pulumi.Azure.AppService
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = "West Europe",
+    ///             OsType = "Linux",
     ///             SkuName = "P1V2",
     ///         });
     ///     }
@@ -119,6 +120,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Output("workerCount")]
         public Output<int> WorkerCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+        /// </summary>
+        [Output("zoneBalancingEnabled")]
+        public Output<bool?> ZoneBalancingEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -232,6 +239,12 @@ namespace Pulumi.Azure.AppService
         [Input("workerCount")]
         public Input<int>? WorkerCount { get; set; }
 
+        /// <summary>
+        /// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+        /// </summary>
+        [Input("zoneBalancingEnabled")]
+        public Input<bool>? ZoneBalancingEnabled { get; set; }
+
         public ServicePlanArgs()
         {
         }
@@ -316,6 +329,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("workerCount")]
         public Input<int>? WorkerCount { get; set; }
+
+        /// <summary>
+        /// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+        /// </summary>
+        [Input("zoneBalancingEnabled")]
+        public Input<bool>? ZoneBalancingEnabled { get; set; }
 
         public ServicePlanState()
         {

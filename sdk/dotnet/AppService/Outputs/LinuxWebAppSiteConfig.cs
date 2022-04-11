@@ -112,6 +112,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? Use32BitWorker;
         public readonly bool? VnetRouteAllEnabled;
+        /// <summary>
+        /// Should Web Sockets be enabled. Defaults to `false`.
+        /// </summary>
         public readonly bool? WebsocketsEnabled;
         /// <summary>
         /// The number of Workers for this Linux App Service.
