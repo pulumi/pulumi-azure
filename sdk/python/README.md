@@ -13,7 +13,7 @@
 > Azure Classic is based on the Terraform azurerm provider. It has fewer resources and resource options and receives new Azure features more slowly than Azure Native. However, Azure Classic remains fully-supported for existing usage.
 
 The Azure Classic resource provider for Pulumi lets you use Azure resources in your cloud programs.  To use
-this package, please [install the Pulumi CLI first](https://pulumi.io/). For a streamlined Pulumi walkthrough, including language runtime installation and Azure configuration, click "Get Started" below.
+this package, please [install the Pulumi CLI first](https://pulumi.io/). For a streamlined Pulumi walkthrough, including language runtime installation and Azure configuration, select "Get Started" below.
 
 <div>
     <a href="https://www.pulumi.com/docs/get-started/azure" title="Get Started">
@@ -62,10 +62,10 @@ including (but not limited to), 'appinsights', 'compute', 'cosmosdb', 'keyvault'
 ## Configuring credentials
 
 There are a variety of ways credentials may be configured for the Azure provider, appropriate for
-different use cases. They are enumerated [in the quickstart guide](
-https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/).
+different use cases. Refer to the [Azure configuration options](
+https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#configuration-options).
 
 ## Reference
 
-For further information, please visit [the Azure provider docs](https://www.pulumi.com/docs/intro/cloud-providers/azure) or for detailed reference documentation, please visit [the API docs](
-https://www.pulumi.com/docs/reference/azure).
+For further information, visit [Azure in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure-native/)
+or for detailed API reference documentation, visit [Azure API Docs in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure-native/api-docs/).
