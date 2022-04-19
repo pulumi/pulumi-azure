@@ -119,7 +119,7 @@ namespace Pulumi.Azure.MySql
         public Output<string?> AdministratorPassword { get; private set; } = null!;
 
         /// <summary>
-        /// The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+        /// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         /// </summary>
         [Output("backupRetentionDays")]
         public Output<int?> BackupRetentionDays { get; private set; } = null!;
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? AdministratorPassword { get; set; }
 
         /// <summary>
-        /// The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+        /// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         /// </summary>
         [Input("backupRetentionDays")]
         public Input<int>? BackupRetentionDays { get; set; }
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? AdministratorPassword { get; set; }
 
         /// <summary>
-        /// The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+        /// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         /// </summary>
         [Input("backupRetentionDays")]
         public Input<int>? BackupRetentionDays { get; set; }

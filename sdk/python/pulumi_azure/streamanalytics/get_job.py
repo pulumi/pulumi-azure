@@ -21,7 +21,7 @@ class GetJobResult:
     """
     A collection of values returned by getJob.
     """
-    def __init__(__self__, compatibility_level=None, data_locale=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, id=None, identities=None, job_id=None, location=None, name=None, output_error_policy=None, resource_group_name=None, streaming_units=None, transformation_query=None):
+    def __init__(__self__, compatibility_level=None, data_locale=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, id=None, identities=None, job_id=None, last_output_time=None, location=None, name=None, output_error_policy=None, resource_group_name=None, start_mode=None, start_time=None, streaming_units=None, transformation_query=None):
         if compatibility_level and not isinstance(compatibility_level, str):
             raise TypeError("Expected argument 'compatibility_level' to be a str")
         pulumi.set(__self__, "compatibility_level", compatibility_level)
@@ -46,6 +46,9 @@ class GetJobResult:
         if job_id and not isinstance(job_id, str):
             raise TypeError("Expected argument 'job_id' to be a str")
         pulumi.set(__self__, "job_id", job_id)
+        if last_output_time and not isinstance(last_output_time, str):
+            raise TypeError("Expected argument 'last_output_time' to be a str")
+        pulumi.set(__self__, "last_output_time", last_output_time)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -58,6 +61,12 @@ class GetJobResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if start_mode and not isinstance(start_mode, str):
+            raise TypeError("Expected argument 'start_mode' to be a str")
+        pulumi.set(__self__, "start_mode", start_mode)
+        if start_time and not isinstance(start_time, str):
+            raise TypeError("Expected argument 'start_time' to be a str")
+        pulumi.set(__self__, "start_time", start_time)
         if streaming_units and not isinstance(streaming_units, int):
             raise TypeError("Expected argument 'streaming_units' to be a int")
         pulumi.set(__self__, "streaming_units", streaming_units)
@@ -117,7 +126,7 @@ class GetJobResult:
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetJobIdentityResult']:
         """
-        (Optional) An `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identities")
 
@@ -128,6 +137,14 @@ class GetJobResult:
         The Job ID assigned by the Stream Analytics Job.
         """
         return pulumi.get(self, "job_id")
+
+    @property
+    @pulumi.getter(name="lastOutputTime")
+    def last_output_time(self) -> str:
+        """
+        The time at which the Stream Analytics job last produced an output.
+        """
+        return pulumi.get(self, "last_output_time")
 
     @property
     @pulumi.getter
@@ -156,10 +173,26 @@ class GetJobResult:
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="startMode")
+    def start_mode(self) -> str:
+        """
+        The starting mode set for this Stream Analytics Job.
+        """
+        return pulumi.get(self, "start_mode")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The time at which this Stream Analytics Job was scheduled to start.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
     @pulumi.getter(name="streamingUnits")
     def streaming_units(self) -> int:
         """
-        The number of streaming units that the streaming job uses.
+        The number of streaming units that this Stream Analytics Job uses.
         """
         return pulumi.get(self, "streaming_units")
 
@@ -167,7 +200,7 @@ class GetJobResult:
     @pulumi.getter(name="transformationQuery")
     def transformation_query(self) -> str:
         """
-        The query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+        The query that will be run in this Stream Analytics Job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         """
         return pulumi.get(self, "transformation_query")
 
@@ -186,10 +219,13 @@ class AwaitableGetJobResult(GetJobResult):
             id=self.id,
             identities=self.identities,
             job_id=self.job_id,
+            last_output_time=self.last_output_time,
             location=self.location,
             name=self.name,
             output_error_policy=self.output_error_policy,
             resource_group_name=self.resource_group_name,
+            start_mode=self.start_mode,
+            start_time=self.start_time,
             streaming_units=self.streaming_units,
             transformation_query=self.transformation_query)
 
@@ -233,10 +269,13 @@ def get_job(name: Optional[str] = None,
         id=__ret__.id,
         identities=__ret__.identities,
         job_id=__ret__.job_id,
+        last_output_time=__ret__.last_output_time,
         location=__ret__.location,
         name=__ret__.name,
         output_error_policy=__ret__.output_error_policy,
         resource_group_name=__ret__.resource_group_name,
+        start_mode=__ret__.start_mode,
+        start_time=__ret__.start_time,
         streaming_units=__ret__.streaming_units,
         transformation_query=__ret__.transformation_query)
 

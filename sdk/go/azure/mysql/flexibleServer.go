@@ -116,7 +116,7 @@ type FlexibleServer struct {
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword pulumi.StringPtrOutput `pulumi:"administratorPassword"`
-	// The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays pulumi.IntPtrOutput `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
@@ -196,7 +196,7 @@ type flexibleServerState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
-	// The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	CreateMode *string `pulumi:"createMode"`
@@ -245,7 +245,7 @@ type FlexibleServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword pulumi.StringPtrInput
-	// The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	CreateMode pulumi.StringPtrInput
@@ -298,7 +298,7 @@ type flexibleServerArgs struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
-	// The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	CreateMode *string `pulumi:"createMode"`
@@ -342,7 +342,7 @@ type FlexibleServerArgs struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword pulumi.StringPtrInput
-	// The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	CreateMode pulumi.StringPtrInput

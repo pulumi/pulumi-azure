@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./getGroup";
 export * from "./group";
 export * from "./groupPolicyAssignment";
+export * from "./groupPolicyExemption";
 export * from "./groupPolicyRemediation";
 export * from "./groupSubscriptionAssociation";
 export * from "./groupTemplateDeployment";
@@ -16,6 +17,7 @@ export * from "./lock";
 // Import resources to register:
 import { Group } from "./group";
 import { GroupPolicyAssignment } from "./groupPolicyAssignment";
+import { GroupPolicyExemption } from "./groupPolicyExemption";
 import { GroupPolicyRemediation } from "./groupPolicyRemediation";
 import { GroupSubscriptionAssociation } from "./groupSubscriptionAssociation";
 import { GroupTemplateDeployment } from "./groupTemplateDeployment";
@@ -29,6 +31,8 @@ const _module = {
                 return new Group(name, <any>undefined, { urn })
             case "azure:management/groupPolicyAssignment:GroupPolicyAssignment":
                 return new GroupPolicyAssignment(name, <any>undefined, { urn })
+            case "azure:management/groupPolicyExemption:GroupPolicyExemption":
+                return new GroupPolicyExemption(name, <any>undefined, { urn })
             case "azure:management/groupPolicyRemediation:GroupPolicyRemediation":
                 return new GroupPolicyRemediation(name, <any>undefined, { urn })
             case "azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation":
@@ -44,6 +48,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "management/group", _module)
 pulumi.runtime.registerResourceModule("azure", "management/groupPolicyAssignment", _module)
+pulumi.runtime.registerResourceModule("azure", "management/groupPolicyExemption", _module)
 pulumi.runtime.registerResourceModule("azure", "management/groupPolicyRemediation", _module)
 pulumi.runtime.registerResourceModule("azure", "management/groupSubscriptionAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "management/groupTemplateDeployment", _module)

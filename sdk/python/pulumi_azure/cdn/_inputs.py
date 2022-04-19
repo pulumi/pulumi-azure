@@ -1556,7 +1556,7 @@ class EndpointDeliveryRuleUrlPathConditionArgs:
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
@@ -1573,7 +1573,7 @@ class EndpointDeliveryRuleUrlPathConditionArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
         """
         return pulumi.get(self, "operator")
 

@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Media
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The number of scale units.
+        /// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
         /// </summary>
         [Output("scaleUnits")]
         public Output<int> ScaleUnits { get; private set; } = null!;
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.Media
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The number of scale units.
+        /// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
         /// </summary>
         [Input("scaleUnits", required: true)]
         public Input<int> ScaleUnits { get; set; } = null!;
@@ -487,7 +487,7 @@ namespace Pulumi.Azure.Media
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The number of scale units.
+        /// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
         /// </summary>
         [Input("scaleUnits")]
         public Input<int>? ScaleUnits { get; set; }

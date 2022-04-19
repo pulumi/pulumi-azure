@@ -116,6 +116,9 @@ namespace Pulumi.Azure.Kusto
         [Output("optimizedAutoScale")]
         public Output<Outputs.ClusterOptimizedAutoScale?> OptimizedAutoScale { get; private set; } = null!;
 
+        /// <summary>
+        /// Is the public network access enabled? Defaults to `true`.
+        /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
@@ -279,6 +282,9 @@ namespace Pulumi.Azure.Kusto
         [Input("optimizedAutoScale")]
         public Input<Inputs.ClusterOptimizedAutoScaleArgs>? OptimizedAutoScale { get; set; }
 
+        /// <summary>
+        /// Is the public network access enabled? Defaults to `true`.
+        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -421,6 +427,9 @@ namespace Pulumi.Azure.Kusto
         [Input("optimizedAutoScale")]
         public Input<Inputs.ClusterOptimizedAutoScaleGetArgs>? OptimizedAutoScale { get; set; }
 
+        /// <summary>
+        /// Is the public network access enabled? Defaults to `true`.
+        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 

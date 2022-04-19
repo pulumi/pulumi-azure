@@ -10,6 +10,7 @@ from .function_java_script_udf import *
 from .function_javascript_uda import *
 from .get_job import *
 from .job import *
+from .job_schedule import *
 from .managed_private_endpoint import *
 from .output_blob import *
 from .output_event_hub import *

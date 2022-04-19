@@ -163,7 +163,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<int>? NetNetfilterNfConntrackBuckets { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("netNetfilterNfConntrackMax")]
         public Input<int>? NetNetfilterNfConntrackMax { get; set; }

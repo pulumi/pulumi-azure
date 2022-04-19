@@ -79,11 +79,11 @@ export class DataLakeGen2Path extends pulumi.CustomResource {
      */
     public readonly filesystemName!: pulumi.Output<string>;
     /**
-     * Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+     * Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
      */
     public readonly group!: pulumi.Output<string>;
     /**
-     * Specifies the Object ID of the Azure Active Directory User to make the owning user.
+     * Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
      */
     public readonly owner!: pulumi.Output<string>;
     /**
@@ -159,11 +159,11 @@ export interface DataLakeGen2PathState {
      */
     filesystemName?: pulumi.Input<string>;
     /**
-     * Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+     * Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
      */
     group?: pulumi.Input<string>;
     /**
-     * Specifies the Object ID of the Azure Active Directory User to make the owning user.
+     * Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
      */
     owner?: pulumi.Input<string>;
     /**
@@ -193,11 +193,11 @@ export interface DataLakeGen2PathArgs {
      */
     filesystemName: pulumi.Input<string>;
     /**
-     * Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+     * Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
      */
     group?: pulumi.Input<string>;
     /**
-     * Specifies the Object ID of the Azure Active Directory User to make the owning user.
+     * Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
      */
     owner?: pulumi.Input<string>;
     /**

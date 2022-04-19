@@ -14,6 +14,7 @@ from .database_principal_assignment import *
 from .event_grid_data_connection import *
 from .eventhub_data_connection import *
 from .get_cluster import *
+from .get_database import *
 from .iot_hub_data_connection import *
 from .script import *
 from ._inputs import *

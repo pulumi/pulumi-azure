@@ -79,9 +79,9 @@ type DataLakeGen2Path struct {
 	Aces DataLakeGen2PathAceArrayOutput `pulumi:"aces"`
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	FilesystemName pulumi.StringOutput `pulumi:"filesystemName"`
-	// Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+	// Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
 	Group pulumi.StringOutput `pulumi:"group"`
-	// Specifies the Object ID of the Azure Active Directory User to make the owning user.
+	// Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
 	Path pulumi.StringOutput `pulumi:"path"`
@@ -136,9 +136,9 @@ type dataLakeGen2PathState struct {
 	Aces []DataLakeGen2PathAce `pulumi:"aces"`
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	FilesystemName *string `pulumi:"filesystemName"`
-	// Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+	// Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
 	Group *string `pulumi:"group"`
-	// Specifies the Object ID of the Azure Active Directory User to make the owning user.
+	// Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
 	Owner *string `pulumi:"owner"`
 	// The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
 	Path *string `pulumi:"path"`
@@ -153,9 +153,9 @@ type DataLakeGen2PathState struct {
 	Aces DataLakeGen2PathAceArrayInput
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	FilesystemName pulumi.StringPtrInput
-	// Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+	// Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
 	Group pulumi.StringPtrInput
-	// Specifies the Object ID of the Azure Active Directory User to make the owning user.
+	// Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
 	Owner pulumi.StringPtrInput
 	// The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrInput
@@ -174,9 +174,9 @@ type dataLakeGen2PathArgs struct {
 	Aces []DataLakeGen2PathAce `pulumi:"aces"`
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	FilesystemName string `pulumi:"filesystemName"`
-	// Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+	// Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
 	Group *string `pulumi:"group"`
-	// Specifies the Object ID of the Azure Active Directory User to make the owning user.
+	// Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
 	Owner *string `pulumi:"owner"`
 	// The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
 	Path string `pulumi:"path"`
@@ -192,9 +192,9 @@ type DataLakeGen2PathArgs struct {
 	Aces DataLakeGen2PathAceArrayInput
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	FilesystemName pulumi.StringInput
-	// Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+	// Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
 	Group pulumi.StringPtrInput
-	// Specifies the Object ID of the Azure Active Directory User to make the owning user.
+	// Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
 	Owner pulumi.StringPtrInput
 	// The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
 	Path pulumi.StringInput

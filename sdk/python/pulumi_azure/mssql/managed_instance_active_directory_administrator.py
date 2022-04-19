@@ -20,6 +20,7 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
                  azuread_authentication_only: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ManagedInstanceActiveDirectoryAdministrator resource.
+        :param pulumi.Input[str] login_username: The login name of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] object_id: The Object ID of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory Tenant ID.
@@ -35,6 +36,9 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
     @property
     @pulumi.getter(name="loginUsername")
     def login_username(self) -> pulumi.Input[str]:
+        """
+        The login name of the principal to set as the Managed Instance Administrator.
+        """
         return pulumi.get(self, "login_username")
 
     @login_username.setter
@@ -101,6 +105,7 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
         """
         Input properties used for looking up and filtering ManagedInstanceActiveDirectoryAdministrator resources.
         :param pulumi.Input[bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        :param pulumi.Input[str] login_username: The login name of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] object_id: The Object ID of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory Tenant ID.
@@ -131,6 +136,9 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
     @property
     @pulumi.getter(name="loginUsername")
     def login_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The login name of the principal to set as the Managed Instance Administrator.
+        """
         return pulumi.get(self, "login_username")
 
     @login_username.setter
@@ -199,6 +207,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        :param pulumi.Input[str] login_username: The login name of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] object_id: The Object ID of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory Tenant ID.
@@ -288,6 +297,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        :param pulumi.Input[str] login_username: The login name of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] object_id: The Object ID of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory Tenant ID.
@@ -314,6 +324,9 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
     @property
     @pulumi.getter(name="loginUsername")
     def login_username(self) -> pulumi.Output[str]:
+        """
+        The login name of the principal to set as the Managed Instance Administrator.
+        """
         return pulumi.get(self, "login_username")
 
     @property

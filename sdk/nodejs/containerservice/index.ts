@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./connectedRegistry";
 export * from "./getClusterNodePool";
 export * from "./getGroup";
 export * from "./getKubernetesCluster";
@@ -24,6 +25,7 @@ export * from "./registryWebhook";
 export * from "./registryWebook";
 
 // Import resources to register:
+import { ConnectedRegistry } from "./connectedRegistry";
 import { Group } from "./group";
 import { KubernetesCluster } from "./kubernetesCluster";
 import { KubernetesClusterNodePool } from "./kubernetesClusterNodePool";
@@ -39,6 +41,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:containerservice/connectedRegistry:ConnectedRegistry":
+                return new ConnectedRegistry(name, <any>undefined, { urn })
             case "azure:containerservice/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "azure:containerservice/kubernetesCluster:KubernetesCluster":
@@ -64,6 +68,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "containerservice/connectedRegistry", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/group", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesClusterNodePool", _module)

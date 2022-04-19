@@ -146,13 +146,17 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// (Optional) An `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobIdentityResult> Identities;
         /// <summary>
         /// The Job ID assigned by the Stream Analytics Job.
         /// </summary>
         public readonly string JobId;
+        /// <summary>
+        /// The time at which the Stream Analytics job last produced an output.
+        /// </summary>
+        public readonly string LastOutputTime;
         /// <summary>
         /// The Azure location where the Stream Analytics Job exists.
         /// </summary>
@@ -164,11 +168,19 @@ namespace Pulumi.Azure.StreamAnalytics
         public readonly string OutputErrorPolicy;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The number of streaming units that the streaming job uses.
+        /// The starting mode set for this Stream Analytics Job.
+        /// </summary>
+        public readonly string StartMode;
+        /// <summary>
+        /// The time at which this Stream Analytics Job was scheduled to start.
+        /// </summary>
+        public readonly string StartTime;
+        /// <summary>
+        /// The number of streaming units that this Stream Analytics Job uses.
         /// </summary>
         public readonly int StreamingUnits;
         /// <summary>
-        /// The query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+        /// The query that will be run in this Stream Analytics Job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         /// </summary>
         public readonly string TransformationQuery;
 
@@ -190,6 +202,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
             string jobId,
 
+            string lastOutputTime,
+
             string location,
 
             string name,
@@ -197,6 +211,10 @@ namespace Pulumi.Azure.StreamAnalytics
             string outputErrorPolicy,
 
             string resourceGroupName,
+
+            string startMode,
+
+            string startTime,
 
             int streamingUnits,
 
@@ -210,10 +228,13 @@ namespace Pulumi.Azure.StreamAnalytics
             Id = id;
             Identities = identities;
             JobId = jobId;
+            LastOutputTime = lastOutputTime;
             Location = location;
             Name = name;
             OutputErrorPolicy = outputErrorPolicy;
             ResourceGroupName = resourceGroupName;
+            StartMode = startMode;
+            StartTime = startTime;
             StreamingUnits = streamingUnits;
             TransformationQuery = transformationQuery;
         }

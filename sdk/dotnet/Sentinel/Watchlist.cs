@@ -49,6 +49,7 @@ namespace Pulumi.Azure.Sentinel
     ///         {
     ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
     ///             DisplayName = "example-wl",
+    ///             ItemSearchKey = "Key",
     ///         });
     ///     }
     /// 
@@ -83,6 +84,12 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+        /// </summary>
+        [Output("itemSearchKey")]
+        public Output<string> ItemSearchKey { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
@@ -166,6 +173,12 @@ namespace Pulumi.Azure.Sentinel
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+        /// </summary>
+        [Input("itemSearchKey", required: true)]
+        public Input<string> ItemSearchKey { get; set; } = null!;
+
         [Input("labels")]
         private InputList<string>? _labels;
 
@@ -214,6 +227,12 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+        /// </summary>
+        [Input("itemSearchKey")]
+        public Input<string>? ItemSearchKey { get; set; }
 
         [Input("labels")]
         private InputList<string>? _labels;

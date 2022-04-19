@@ -25,7 +25,8 @@ type ManagedInstanceActiveDirectoryAdministrator struct {
 
 	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
 	AzureadAuthenticationOnly pulumi.BoolPtrOutput `pulumi:"azureadAuthenticationOnly"`
-	LoginUsername             pulumi.StringOutput  `pulumi:"loginUsername"`
+	// The login name of the principal to set as the Managed Instance Administrator.
+	LoginUsername pulumi.StringOutput `pulumi:"loginUsername"`
 	// The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringOutput `pulumi:"managedInstanceId"`
 	// The Object ID of the principal to set as the Managed Instance Administrator.
@@ -76,8 +77,9 @@ func GetManagedInstanceActiveDirectoryAdministrator(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ManagedInstanceActiveDirectoryAdministrator resources.
 type managedInstanceActiveDirectoryAdministratorState struct {
 	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
-	AzureadAuthenticationOnly *bool   `pulumi:"azureadAuthenticationOnly"`
-	LoginUsername             *string `pulumi:"loginUsername"`
+	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
+	// The login name of the principal to set as the Managed Instance Administrator.
+	LoginUsername *string `pulumi:"loginUsername"`
 	// The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
 	ManagedInstanceId *string `pulumi:"managedInstanceId"`
 	// The Object ID of the principal to set as the Managed Instance Administrator.
@@ -89,7 +91,8 @@ type managedInstanceActiveDirectoryAdministratorState struct {
 type ManagedInstanceActiveDirectoryAdministratorState struct {
 	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
 	AzureadAuthenticationOnly pulumi.BoolPtrInput
-	LoginUsername             pulumi.StringPtrInput
+	// The login name of the principal to set as the Managed Instance Administrator.
+	LoginUsername pulumi.StringPtrInput
 	// The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringPtrInput
 	// The Object ID of the principal to set as the Managed Instance Administrator.
@@ -104,8 +107,9 @@ func (ManagedInstanceActiveDirectoryAdministratorState) ElementType() reflect.Ty
 
 type managedInstanceActiveDirectoryAdministratorArgs struct {
 	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
-	AzureadAuthenticationOnly *bool  `pulumi:"azureadAuthenticationOnly"`
-	LoginUsername             string `pulumi:"loginUsername"`
+	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
+	// The login name of the principal to set as the Managed Instance Administrator.
+	LoginUsername string `pulumi:"loginUsername"`
 	// The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
 	ManagedInstanceId string `pulumi:"managedInstanceId"`
 	// The Object ID of the principal to set as the Managed Instance Administrator.
@@ -118,7 +122,8 @@ type managedInstanceActiveDirectoryAdministratorArgs struct {
 type ManagedInstanceActiveDirectoryAdministratorArgs struct {
 	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
 	AzureadAuthenticationOnly pulumi.BoolPtrInput
-	LoginUsername             pulumi.StringInput
+	// The login name of the principal to set as the Managed Instance Administrator.
+	LoginUsername pulumi.StringInput
 	// The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringInput
 	// The Object ID of the principal to set as the Managed Instance Administrator.

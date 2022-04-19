@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly bool? NegateCondition;
         /// <summary>
-        /// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        /// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
         /// </summary>
         public readonly string Operator;
         /// <summary>

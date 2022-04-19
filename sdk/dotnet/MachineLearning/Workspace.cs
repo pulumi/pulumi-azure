@@ -432,10 +432,16 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> PrimaryUserAssignedIdentity { get; private set; } = null!;
 
         /// <summary>
+        /// Enable public access when this Machine Learning Workspace is behind a VNet.
+        /// </summary>
+        [Output("publicAccessBehindVirtualNetworkEnabled")]
+        public Output<bool> PublicAccessBehindVirtualNetworkEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Enable public access when this Machine Learning Workspace is behind VNet.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
-        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+        public Output<bool> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -577,6 +583,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? PrimaryUserAssignedIdentity { get; set; }
 
         /// <summary>
+        /// Enable public access when this Machine Learning Workspace is behind a VNet.
+        /// </summary>
+        [Input("publicAccessBehindVirtualNetworkEnabled")]
+        public Input<bool>? PublicAccessBehindVirtualNetworkEnabled { get; set; }
+
+        /// <summary>
         /// Enable public access when this Machine Learning Workspace is behind VNet.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
@@ -693,6 +705,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("primaryUserAssignedIdentity")]
         public Input<string>? PrimaryUserAssignedIdentity { get; set; }
+
+        /// <summary>
+        /// Enable public access when this Machine Learning Workspace is behind a VNet.
+        /// </summary>
+        [Input("publicAccessBehindVirtualNetworkEnabled")]
+        public Input<bool>? PublicAccessBehindVirtualNetworkEnabled { get; set; }
 
         /// <summary>
         /// Enable public access when this Machine Learning Workspace is behind VNet.

@@ -31,12 +31,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResourceGroupCostManagementExport{}
 	case "azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment":
 		r = &ResourceGroupPolicyAssignment{}
+	case "azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption":
+		r = &ResourceGroupPolicyExemption{}
 	case "azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation":
 		r = &ResourceGroupPolicyRemediation{}
 	case "azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment":
 		r = &ResourceGroupTemplateDeployment{}
 	case "azure:core/resourcePolicyAssignment:ResourcePolicyAssignment":
 		r = &ResourcePolicyAssignment{}
+	case "azure:core/resourcePolicyExemption:ResourcePolicyExemption":
+		r = &ResourcePolicyExemption{}
 	case "azure:core/resourcePolicyRemediation:ResourcePolicyRemediation":
 		r = &ResourcePolicyRemediation{}
 	case "azure:core/resourceProviderRegistration:ResourceProviderRegistration":
@@ -47,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SubscriptionCostManagementExport{}
 	case "azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment":
 		r = &SubscriptionPolicyAssignment{}
+	case "azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption":
+		r = &SubscriptionPolicyExemption{}
 	case "azure:core/subscriptionPolicyRemediation:SubscriptionPolicyRemediation":
 		r = &SubscriptionPolicyRemediation{}
 	case "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment":
@@ -95,6 +101,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"core/resourceGroupPolicyExemption",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"core/resourceGroupPolicyRemediation",
 		&module{version},
 	)
@@ -106,6 +117,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"core/resourcePolicyAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"core/resourcePolicyExemption",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -131,6 +147,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"core/subscriptionPolicyAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"core/subscriptionPolicyExemption",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -81,7 +81,7 @@ export class OutboundRule extends pulumi.CustomResource {
     }
 
     /**
-     * The number of outbound ports to be used for NAT.
+     * The number of outbound ports to be used for NAT. Defaults to `1024`.
      */
     public readonly allocatedOutboundPorts!: pulumi.Output<number | undefined>;
     /**
@@ -164,7 +164,7 @@ export class OutboundRule extends pulumi.CustomResource {
  */
 export interface OutboundRuleState {
     /**
-     * The number of outbound ports to be used for NAT.
+     * The number of outbound ports to be used for NAT. Defaults to `1024`.
      */
     allocatedOutboundPorts?: pulumi.Input<number>;
     /**
@@ -202,7 +202,7 @@ export interface OutboundRuleState {
  */
 export interface OutboundRuleArgs {
     /**
-     * The number of outbound ports to be used for NAT.
+     * The number of outbound ports to be used for NAT. Defaults to `1024`.
      */
     allocatedOutboundPorts?: pulumi.Input<number>;
     /**

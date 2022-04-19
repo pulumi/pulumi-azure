@@ -10,6 +10,130 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ConnectedRegistryNotification struct {
+	// The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
+	Action string `pulumi:"action"`
+	// The digest of the artifact that wants to be subscribed for the Connected Registry.
+	Digest *string `pulumi:"digest"`
+	// The name of the artifact that wants to be subscribed for the Connected Registry.
+	Name string `pulumi:"name"`
+	// The tag of the artifact that wants to be subscribed for the Connected Registry.
+	Tag *string `pulumi:"tag"`
+}
+
+// ConnectedRegistryNotificationInput is an input type that accepts ConnectedRegistryNotificationArgs and ConnectedRegistryNotificationOutput values.
+// You can construct a concrete instance of `ConnectedRegistryNotificationInput` via:
+//
+//          ConnectedRegistryNotificationArgs{...}
+type ConnectedRegistryNotificationInput interface {
+	pulumi.Input
+
+	ToConnectedRegistryNotificationOutput() ConnectedRegistryNotificationOutput
+	ToConnectedRegistryNotificationOutputWithContext(context.Context) ConnectedRegistryNotificationOutput
+}
+
+type ConnectedRegistryNotificationArgs struct {
+	// The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
+	Action pulumi.StringInput `pulumi:"action"`
+	// The digest of the artifact that wants to be subscribed for the Connected Registry.
+	Digest pulumi.StringPtrInput `pulumi:"digest"`
+	// The name of the artifact that wants to be subscribed for the Connected Registry.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The tag of the artifact that wants to be subscribed for the Connected Registry.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+}
+
+func (ConnectedRegistryNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedRegistryNotification)(nil)).Elem()
+}
+
+func (i ConnectedRegistryNotificationArgs) ToConnectedRegistryNotificationOutput() ConnectedRegistryNotificationOutput {
+	return i.ToConnectedRegistryNotificationOutputWithContext(context.Background())
+}
+
+func (i ConnectedRegistryNotificationArgs) ToConnectedRegistryNotificationOutputWithContext(ctx context.Context) ConnectedRegistryNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectedRegistryNotificationOutput)
+}
+
+// ConnectedRegistryNotificationArrayInput is an input type that accepts ConnectedRegistryNotificationArray and ConnectedRegistryNotificationArrayOutput values.
+// You can construct a concrete instance of `ConnectedRegistryNotificationArrayInput` via:
+//
+//          ConnectedRegistryNotificationArray{ ConnectedRegistryNotificationArgs{...} }
+type ConnectedRegistryNotificationArrayInput interface {
+	pulumi.Input
+
+	ToConnectedRegistryNotificationArrayOutput() ConnectedRegistryNotificationArrayOutput
+	ToConnectedRegistryNotificationArrayOutputWithContext(context.Context) ConnectedRegistryNotificationArrayOutput
+}
+
+type ConnectedRegistryNotificationArray []ConnectedRegistryNotificationInput
+
+func (ConnectedRegistryNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectedRegistryNotification)(nil)).Elem()
+}
+
+func (i ConnectedRegistryNotificationArray) ToConnectedRegistryNotificationArrayOutput() ConnectedRegistryNotificationArrayOutput {
+	return i.ToConnectedRegistryNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectedRegistryNotificationArray) ToConnectedRegistryNotificationArrayOutputWithContext(ctx context.Context) ConnectedRegistryNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectedRegistryNotificationArrayOutput)
+}
+
+type ConnectedRegistryNotificationOutput struct{ *pulumi.OutputState }
+
+func (ConnectedRegistryNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectedRegistryNotification)(nil)).Elem()
+}
+
+func (o ConnectedRegistryNotificationOutput) ToConnectedRegistryNotificationOutput() ConnectedRegistryNotificationOutput {
+	return o
+}
+
+func (o ConnectedRegistryNotificationOutput) ToConnectedRegistryNotificationOutputWithContext(ctx context.Context) ConnectedRegistryNotificationOutput {
+	return o
+}
+
+// The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
+func (o ConnectedRegistryNotificationOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectedRegistryNotification) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The digest of the artifact that wants to be subscribed for the Connected Registry.
+func (o ConnectedRegistryNotificationOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectedRegistryNotification) *string { return v.Digest }).(pulumi.StringPtrOutput)
+}
+
+// The name of the artifact that wants to be subscribed for the Connected Registry.
+func (o ConnectedRegistryNotificationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectedRegistryNotification) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tag of the artifact that wants to be subscribed for the Connected Registry.
+func (o ConnectedRegistryNotificationOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectedRegistryNotification) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+type ConnectedRegistryNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectedRegistryNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectedRegistryNotification)(nil)).Elem()
+}
+
+func (o ConnectedRegistryNotificationArrayOutput) ToConnectedRegistryNotificationArrayOutput() ConnectedRegistryNotificationArrayOutput {
+	return o
+}
+
+func (o ConnectedRegistryNotificationArrayOutput) ToConnectedRegistryNotificationArrayOutputWithContext(ctx context.Context) ConnectedRegistryNotificationArrayOutput {
+	return o
+}
+
+func (o ConnectedRegistryNotificationArrayOutput) Index(i pulumi.IntInput) ConnectedRegistryNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectedRegistryNotification {
+		return vs[0].([]ConnectedRegistryNotification)[vs[1].(int)]
+	}).(ConnectedRegistryNotificationOutput)
+}
+
 type GroupContainer struct {
 	// A list of commands which should be run on the container. Changing this forces a new resource to be created.
 	Commands []string `pulumi:"commands"`
@@ -2465,6 +2589,492 @@ func (o GroupImageRegistryCredentialArrayOutput) Index(i pulumi.IntInput) GroupI
 	}).(GroupImageRegistryCredentialOutput)
 }
 
+type GroupInitContainer struct {
+	// A list of commands which should be run on the container. Changing this forces a new resource to be created.
+	Commands []string `pulumi:"commands"`
+	// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
+	// The container image name. Changing this forces a new resource to be created.
+	Image string `pulumi:"image"`
+	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+	SecureEnvironmentVariables map[string]string `pulumi:"secureEnvironmentVariables"`
+	// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+	Volumes []GroupInitContainerVolume `pulumi:"volumes"`
+}
+
+// GroupInitContainerInput is an input type that accepts GroupInitContainerArgs and GroupInitContainerOutput values.
+// You can construct a concrete instance of `GroupInitContainerInput` via:
+//
+//          GroupInitContainerArgs{...}
+type GroupInitContainerInput interface {
+	pulumi.Input
+
+	ToGroupInitContainerOutput() GroupInitContainerOutput
+	ToGroupInitContainerOutputWithContext(context.Context) GroupInitContainerOutput
+}
+
+type GroupInitContainerArgs struct {
+	// A list of commands which should be run on the container. Changing this forces a new resource to be created.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
+	// The container image name. Changing this forces a new resource to be created.
+	Image pulumi.StringInput `pulumi:"image"`
+	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+	SecureEnvironmentVariables pulumi.StringMapInput `pulumi:"secureEnvironmentVariables"`
+	// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+	Volumes GroupInitContainerVolumeArrayInput `pulumi:"volumes"`
+}
+
+func (GroupInitContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInitContainer)(nil)).Elem()
+}
+
+func (i GroupInitContainerArgs) ToGroupInitContainerOutput() GroupInitContainerOutput {
+	return i.ToGroupInitContainerOutputWithContext(context.Background())
+}
+
+func (i GroupInitContainerArgs) ToGroupInitContainerOutputWithContext(ctx context.Context) GroupInitContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerOutput)
+}
+
+// GroupInitContainerArrayInput is an input type that accepts GroupInitContainerArray and GroupInitContainerArrayOutput values.
+// You can construct a concrete instance of `GroupInitContainerArrayInput` via:
+//
+//          GroupInitContainerArray{ GroupInitContainerArgs{...} }
+type GroupInitContainerArrayInput interface {
+	pulumi.Input
+
+	ToGroupInitContainerArrayOutput() GroupInitContainerArrayOutput
+	ToGroupInitContainerArrayOutputWithContext(context.Context) GroupInitContainerArrayOutput
+}
+
+type GroupInitContainerArray []GroupInitContainerInput
+
+func (GroupInitContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupInitContainer)(nil)).Elem()
+}
+
+func (i GroupInitContainerArray) ToGroupInitContainerArrayOutput() GroupInitContainerArrayOutput {
+	return i.ToGroupInitContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GroupInitContainerArray) ToGroupInitContainerArrayOutputWithContext(ctx context.Context) GroupInitContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerArrayOutput)
+}
+
+type GroupInitContainerOutput struct{ *pulumi.OutputState }
+
+func (GroupInitContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInitContainer)(nil)).Elem()
+}
+
+func (o GroupInitContainerOutput) ToGroupInitContainerOutput() GroupInitContainerOutput {
+	return o
+}
+
+func (o GroupInitContainerOutput) ToGroupInitContainerOutputWithContext(ctx context.Context) GroupInitContainerOutput {
+	return o
+}
+
+// A list of commands which should be run on the container. Changing this forces a new resource to be created.
+func (o GroupInitContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+func (o GroupInitContainerOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GroupInitContainer) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
+}
+
+// The container image name. Changing this forces a new resource to be created.
+func (o GroupInitContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupInitContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+func (o GroupInitContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupInitContainer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+func (o GroupInitContainerOutput) SecureEnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GroupInitContainer) map[string]string { return v.SecureEnvironmentVariables }).(pulumi.StringMapOutput)
+}
+
+// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+func (o GroupInitContainerOutput) Volumes() GroupInitContainerVolumeArrayOutput {
+	return o.ApplyT(func(v GroupInitContainer) []GroupInitContainerVolume { return v.Volumes }).(GroupInitContainerVolumeArrayOutput)
+}
+
+type GroupInitContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupInitContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupInitContainer)(nil)).Elem()
+}
+
+func (o GroupInitContainerArrayOutput) ToGroupInitContainerArrayOutput() GroupInitContainerArrayOutput {
+	return o
+}
+
+func (o GroupInitContainerArrayOutput) ToGroupInitContainerArrayOutputWithContext(ctx context.Context) GroupInitContainerArrayOutput {
+	return o
+}
+
+func (o GroupInitContainerArrayOutput) Index(i pulumi.IntInput) GroupInitContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupInitContainer {
+		return vs[0].([]GroupInitContainer)[vs[1].(int)]
+	}).(GroupInitContainerOutput)
+}
+
+type GroupInitContainerVolume struct {
+	// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+	EmptyDir *bool `pulumi:"emptyDir"`
+	// A `gitRepo` block as defined below.
+	GitRepo *GroupInitContainerVolumeGitRepo `pulumi:"gitRepo"`
+	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
+	MountPath string `pulumi:"mountPath"`
+	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
+	ReadOnly *bool `pulumi:"readOnly"`
+	// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+	Secret map[string]string `pulumi:"secret"`
+	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
+	ShareName *string `pulumi:"shareName"`
+	// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
+	StorageAccountKey *string `pulumi:"storageAccountKey"`
+	// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
+	StorageAccountName *string `pulumi:"storageAccountName"`
+}
+
+// GroupInitContainerVolumeInput is an input type that accepts GroupInitContainerVolumeArgs and GroupInitContainerVolumeOutput values.
+// You can construct a concrete instance of `GroupInitContainerVolumeInput` via:
+//
+//          GroupInitContainerVolumeArgs{...}
+type GroupInitContainerVolumeInput interface {
+	pulumi.Input
+
+	ToGroupInitContainerVolumeOutput() GroupInitContainerVolumeOutput
+	ToGroupInitContainerVolumeOutputWithContext(context.Context) GroupInitContainerVolumeOutput
+}
+
+type GroupInitContainerVolumeArgs struct {
+	// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+	EmptyDir pulumi.BoolPtrInput `pulumi:"emptyDir"`
+	// A `gitRepo` block as defined below.
+	GitRepo GroupInitContainerVolumeGitRepoPtrInput `pulumi:"gitRepo"`
+	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
+	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+	Secret pulumi.StringMapInput `pulumi:"secret"`
+	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
+	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
+	// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
+	StorageAccountKey pulumi.StringPtrInput `pulumi:"storageAccountKey"`
+	// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
+	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+}
+
+func (GroupInitContainerVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInitContainerVolume)(nil)).Elem()
+}
+
+func (i GroupInitContainerVolumeArgs) ToGroupInitContainerVolumeOutput() GroupInitContainerVolumeOutput {
+	return i.ToGroupInitContainerVolumeOutputWithContext(context.Background())
+}
+
+func (i GroupInitContainerVolumeArgs) ToGroupInitContainerVolumeOutputWithContext(ctx context.Context) GroupInitContainerVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerVolumeOutput)
+}
+
+// GroupInitContainerVolumeArrayInput is an input type that accepts GroupInitContainerVolumeArray and GroupInitContainerVolumeArrayOutput values.
+// You can construct a concrete instance of `GroupInitContainerVolumeArrayInput` via:
+//
+//          GroupInitContainerVolumeArray{ GroupInitContainerVolumeArgs{...} }
+type GroupInitContainerVolumeArrayInput interface {
+	pulumi.Input
+
+	ToGroupInitContainerVolumeArrayOutput() GroupInitContainerVolumeArrayOutput
+	ToGroupInitContainerVolumeArrayOutputWithContext(context.Context) GroupInitContainerVolumeArrayOutput
+}
+
+type GroupInitContainerVolumeArray []GroupInitContainerVolumeInput
+
+func (GroupInitContainerVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupInitContainerVolume)(nil)).Elem()
+}
+
+func (i GroupInitContainerVolumeArray) ToGroupInitContainerVolumeArrayOutput() GroupInitContainerVolumeArrayOutput {
+	return i.ToGroupInitContainerVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i GroupInitContainerVolumeArray) ToGroupInitContainerVolumeArrayOutputWithContext(ctx context.Context) GroupInitContainerVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerVolumeArrayOutput)
+}
+
+type GroupInitContainerVolumeOutput struct{ *pulumi.OutputState }
+
+func (GroupInitContainerVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInitContainerVolume)(nil)).Elem()
+}
+
+func (o GroupInitContainerVolumeOutput) ToGroupInitContainerVolumeOutput() GroupInitContainerVolumeOutput {
+	return o
+}
+
+func (o GroupInitContainerVolumeOutput) ToGroupInitContainerVolumeOutputWithContext(ctx context.Context) GroupInitContainerVolumeOutput {
+	return o
+}
+
+// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeOutput) EmptyDir() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GroupInitContainerVolume) *bool { return v.EmptyDir }).(pulumi.BoolPtrOutput)
+}
+
+// A `gitRepo` block as defined below.
+func (o GroupInitContainerVolumeOutput) GitRepo() GroupInitContainerVolumeGitRepoPtrOutput {
+	return o.ApplyT(func(v GroupInitContainerVolume) *GroupInitContainerVolumeGitRepo { return v.GitRepo }).(GroupInitContainerVolumeGitRepoPtrOutput)
+}
+
+// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupInitContainerVolume) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupInitContainerVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GroupInitContainerVolume) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeOutput) Secret() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GroupInitContainerVolume) map[string]string { return v.Secret }).(pulumi.StringMapOutput)
+}
+
+// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeOutput) ShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupInitContainerVolume) *string { return v.ShareName }).(pulumi.StringPtrOutput)
+}
+
+// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeOutput) StorageAccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupInitContainerVolume) *string { return v.StorageAccountKey }).(pulumi.StringPtrOutput)
+}
+
+// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupInitContainerVolume) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+type GroupInitContainerVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupInitContainerVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupInitContainerVolume)(nil)).Elem()
+}
+
+func (o GroupInitContainerVolumeArrayOutput) ToGroupInitContainerVolumeArrayOutput() GroupInitContainerVolumeArrayOutput {
+	return o
+}
+
+func (o GroupInitContainerVolumeArrayOutput) ToGroupInitContainerVolumeArrayOutputWithContext(ctx context.Context) GroupInitContainerVolumeArrayOutput {
+	return o
+}
+
+func (o GroupInitContainerVolumeArrayOutput) Index(i pulumi.IntInput) GroupInitContainerVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupInitContainerVolume {
+		return vs[0].([]GroupInitContainerVolume)[vs[1].(int)]
+	}).(GroupInitContainerVolumeOutput)
+}
+
+type GroupInitContainerVolumeGitRepo struct {
+	// Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+	Directory *string `pulumi:"directory"`
+	// Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+	Revision *string `pulumi:"revision"`
+	// Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+	Url string `pulumi:"url"`
+}
+
+// GroupInitContainerVolumeGitRepoInput is an input type that accepts GroupInitContainerVolumeGitRepoArgs and GroupInitContainerVolumeGitRepoOutput values.
+// You can construct a concrete instance of `GroupInitContainerVolumeGitRepoInput` via:
+//
+//          GroupInitContainerVolumeGitRepoArgs{...}
+type GroupInitContainerVolumeGitRepoInput interface {
+	pulumi.Input
+
+	ToGroupInitContainerVolumeGitRepoOutput() GroupInitContainerVolumeGitRepoOutput
+	ToGroupInitContainerVolumeGitRepoOutputWithContext(context.Context) GroupInitContainerVolumeGitRepoOutput
+}
+
+type GroupInitContainerVolumeGitRepoArgs struct {
+	// Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+	Directory pulumi.StringPtrInput `pulumi:"directory"`
+	// Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+	Revision pulumi.StringPtrInput `pulumi:"revision"`
+	// Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GroupInitContainerVolumeGitRepoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInitContainerVolumeGitRepo)(nil)).Elem()
+}
+
+func (i GroupInitContainerVolumeGitRepoArgs) ToGroupInitContainerVolumeGitRepoOutput() GroupInitContainerVolumeGitRepoOutput {
+	return i.ToGroupInitContainerVolumeGitRepoOutputWithContext(context.Background())
+}
+
+func (i GroupInitContainerVolumeGitRepoArgs) ToGroupInitContainerVolumeGitRepoOutputWithContext(ctx context.Context) GroupInitContainerVolumeGitRepoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerVolumeGitRepoOutput)
+}
+
+func (i GroupInitContainerVolumeGitRepoArgs) ToGroupInitContainerVolumeGitRepoPtrOutput() GroupInitContainerVolumeGitRepoPtrOutput {
+	return i.ToGroupInitContainerVolumeGitRepoPtrOutputWithContext(context.Background())
+}
+
+func (i GroupInitContainerVolumeGitRepoArgs) ToGroupInitContainerVolumeGitRepoPtrOutputWithContext(ctx context.Context) GroupInitContainerVolumeGitRepoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerVolumeGitRepoOutput).ToGroupInitContainerVolumeGitRepoPtrOutputWithContext(ctx)
+}
+
+// GroupInitContainerVolumeGitRepoPtrInput is an input type that accepts GroupInitContainerVolumeGitRepoArgs, GroupInitContainerVolumeGitRepoPtr and GroupInitContainerVolumeGitRepoPtrOutput values.
+// You can construct a concrete instance of `GroupInitContainerVolumeGitRepoPtrInput` via:
+//
+//          GroupInitContainerVolumeGitRepoArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupInitContainerVolumeGitRepoPtrInput interface {
+	pulumi.Input
+
+	ToGroupInitContainerVolumeGitRepoPtrOutput() GroupInitContainerVolumeGitRepoPtrOutput
+	ToGroupInitContainerVolumeGitRepoPtrOutputWithContext(context.Context) GroupInitContainerVolumeGitRepoPtrOutput
+}
+
+type groupInitContainerVolumeGitRepoPtrType GroupInitContainerVolumeGitRepoArgs
+
+func GroupInitContainerVolumeGitRepoPtr(v *GroupInitContainerVolumeGitRepoArgs) GroupInitContainerVolumeGitRepoPtrInput {
+	return (*groupInitContainerVolumeGitRepoPtrType)(v)
+}
+
+func (*groupInitContainerVolumeGitRepoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupInitContainerVolumeGitRepo)(nil)).Elem()
+}
+
+func (i *groupInitContainerVolumeGitRepoPtrType) ToGroupInitContainerVolumeGitRepoPtrOutput() GroupInitContainerVolumeGitRepoPtrOutput {
+	return i.ToGroupInitContainerVolumeGitRepoPtrOutputWithContext(context.Background())
+}
+
+func (i *groupInitContainerVolumeGitRepoPtrType) ToGroupInitContainerVolumeGitRepoPtrOutputWithContext(ctx context.Context) GroupInitContainerVolumeGitRepoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerVolumeGitRepoPtrOutput)
+}
+
+type GroupInitContainerVolumeGitRepoOutput struct{ *pulumi.OutputState }
+
+func (GroupInitContainerVolumeGitRepoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInitContainerVolumeGitRepo)(nil)).Elem()
+}
+
+func (o GroupInitContainerVolumeGitRepoOutput) ToGroupInitContainerVolumeGitRepoOutput() GroupInitContainerVolumeGitRepoOutput {
+	return o
+}
+
+func (o GroupInitContainerVolumeGitRepoOutput) ToGroupInitContainerVolumeGitRepoOutputWithContext(ctx context.Context) GroupInitContainerVolumeGitRepoOutput {
+	return o
+}
+
+func (o GroupInitContainerVolumeGitRepoOutput) ToGroupInitContainerVolumeGitRepoPtrOutput() GroupInitContainerVolumeGitRepoPtrOutput {
+	return o.ToGroupInitContainerVolumeGitRepoPtrOutputWithContext(context.Background())
+}
+
+func (o GroupInitContainerVolumeGitRepoOutput) ToGroupInitContainerVolumeGitRepoPtrOutputWithContext(ctx context.Context) GroupInitContainerVolumeGitRepoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupInitContainerVolumeGitRepo) *GroupInitContainerVolumeGitRepo {
+		return &v
+	}).(GroupInitContainerVolumeGitRepoPtrOutput)
+}
+
+// Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeGitRepoOutput) Directory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupInitContainerVolumeGitRepo) *string { return v.Directory }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeGitRepoOutput) Revision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupInitContainerVolumeGitRepo) *string { return v.Revision }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeGitRepoOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupInitContainerVolumeGitRepo) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GroupInitContainerVolumeGitRepoPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupInitContainerVolumeGitRepoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupInitContainerVolumeGitRepo)(nil)).Elem()
+}
+
+func (o GroupInitContainerVolumeGitRepoPtrOutput) ToGroupInitContainerVolumeGitRepoPtrOutput() GroupInitContainerVolumeGitRepoPtrOutput {
+	return o
+}
+
+func (o GroupInitContainerVolumeGitRepoPtrOutput) ToGroupInitContainerVolumeGitRepoPtrOutputWithContext(ctx context.Context) GroupInitContainerVolumeGitRepoPtrOutput {
+	return o
+}
+
+func (o GroupInitContainerVolumeGitRepoPtrOutput) Elem() GroupInitContainerVolumeGitRepoOutput {
+	return o.ApplyT(func(v *GroupInitContainerVolumeGitRepo) GroupInitContainerVolumeGitRepo {
+		if v != nil {
+			return *v
+		}
+		var ret GroupInitContainerVolumeGitRepo
+		return ret
+	}).(GroupInitContainerVolumeGitRepoOutput)
+}
+
+// Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeGitRepoPtrOutput) Directory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupInitContainerVolumeGitRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Directory
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeGitRepoPtrOutput) Revision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupInitContainerVolumeGitRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Revision
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+func (o GroupInitContainerVolumeGitRepoPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupInitContainerVolumeGitRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterAciConnectorLinux struct {
 	// The subnet name for the virtual nodes to run.
 	SubnetName string `pulumi:"subnetName"`
@@ -4518,7 +5128,7 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig struct {
 	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
 	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackBuckets *int `pulumi:"netNetfilterNfConntrackBuckets"`
-	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackMax *int `pulumi:"netNetfilterNfConntrackMax"`
 	// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
 	VmMaxMapCount *int `pulumi:"vmMaxMapCount"`
@@ -4590,7 +5200,7 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs struct {
 	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
 	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackBuckets"`
-	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackMax pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackMax"`
 	// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
 	VmMaxMapCount pulumi.IntPtrInput `pulumi:"vmMaxMapCount"`
@@ -4828,7 +5438,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetNetf
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
 		return v.NetNetfilterNfConntrackMax
@@ -5124,7 +5734,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetN
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
 		if v == nil {
@@ -8774,7 +9384,7 @@ type KubernetesClusterNodePoolLinuxOsConfigSysctlConfig struct {
 	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
 	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackBuckets *int `pulumi:"netNetfilterNfConntrackBuckets"`
-	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackMax *int `pulumi:"netNetfilterNfConntrackMax"`
 	// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
 	VmMaxMapCount *int `pulumi:"vmMaxMapCount"`
@@ -8846,7 +9456,7 @@ type KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs struct {
 	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
 	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackBuckets"`
-	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackMax pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackMax"`
 	// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
 	VmMaxMapCount pulumi.IntPtrInput `pulumi:"vmMaxMapCount"`
@@ -9060,7 +9670,7 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetNetfilterNf
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetNetfilterNfConntrackMax }).(pulumi.IntPtrOutput)
 }
@@ -9354,7 +9964,7 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetNetfilte
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
 		if v == nil {
@@ -16154,6 +16764,8 @@ func (o GetKubernetesClusterWindowsProfileArrayOutput) Index(i pulumi.IntInput) 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedRegistryNotificationInput)(nil)).Elem(), ConnectedRegistryNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedRegistryNotificationArrayInput)(nil)).Elem(), ConnectedRegistryNotificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerInput)(nil)).Elem(), GroupContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerArrayInput)(nil)).Elem(), GroupContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerGpuInput)(nil)).Elem(), GroupContainerGpuArgs{})
@@ -16184,6 +16796,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupIdentityPtrInput)(nil)).Elem(), GroupIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupImageRegistryCredentialInput)(nil)).Elem(), GroupImageRegistryCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupImageRegistryCredentialArrayInput)(nil)).Elem(), GroupImageRegistryCredentialArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerInput)(nil)).Elem(), GroupInitContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerArrayInput)(nil)).Elem(), GroupInitContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerVolumeInput)(nil)).Elem(), GroupInitContainerVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerVolumeArrayInput)(nil)).Elem(), GroupInitContainerVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerVolumeGitRepoInput)(nil)).Elem(), GroupInitContainerVolumeGitRepoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerVolumeGitRepoPtrInput)(nil)).Elem(), GroupInitContainerVolumeGitRepoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAciConnectorLinuxInput)(nil)).Elem(), KubernetesClusterAciConnectorLinuxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAciConnectorLinuxPtrInput)(nil)).Elem(), KubernetesClusterAciConnectorLinuxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAutoScalerProfileInput)(nil)).Elem(), KubernetesClusterAutoScalerProfileArgs{})
@@ -16332,6 +16950,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServicePrincipalArrayInput)(nil)).Elem(), GetKubernetesClusterServicePrincipalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterWindowsProfileInput)(nil)).Elem(), GetKubernetesClusterWindowsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterWindowsProfileArrayInput)(nil)).Elem(), GetKubernetesClusterWindowsProfileArray{})
+	pulumi.RegisterOutputType(ConnectedRegistryNotificationOutput{})
+	pulumi.RegisterOutputType(ConnectedRegistryNotificationArrayOutput{})
 	pulumi.RegisterOutputType(GroupContainerOutput{})
 	pulumi.RegisterOutputType(GroupContainerArrayOutput{})
 	pulumi.RegisterOutputType(GroupContainerGpuOutput{})
@@ -16362,6 +16982,12 @@ func init() {
 	pulumi.RegisterOutputType(GroupIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GroupImageRegistryCredentialOutput{})
 	pulumi.RegisterOutputType(GroupImageRegistryCredentialArrayOutput{})
+	pulumi.RegisterOutputType(GroupInitContainerOutput{})
+	pulumi.RegisterOutputType(GroupInitContainerArrayOutput{})
+	pulumi.RegisterOutputType(GroupInitContainerVolumeOutput{})
+	pulumi.RegisterOutputType(GroupInitContainerVolumeArrayOutput{})
+	pulumi.RegisterOutputType(GroupInitContainerVolumeGitRepoOutput{})
+	pulumi.RegisterOutputType(GroupInitContainerVolumeGitRepoPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAciConnectorLinuxOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAciConnectorLinuxPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfileOutput{})

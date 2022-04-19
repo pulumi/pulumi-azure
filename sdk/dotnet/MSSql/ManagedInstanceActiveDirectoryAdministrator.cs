@@ -29,6 +29,9 @@ namespace Pulumi.Azure.MSSql
         [Output("azureadAuthenticationOnly")]
         public Output<bool?> AzureadAuthenticationOnly { get; private set; } = null!;
 
+        /// <summary>
+        /// The login name of the principal to set as the Managed Instance Administrator.
+        /// </summary>
         [Output("loginUsername")]
         public Output<string> LoginUsername { get; private set; } = null!;
 
@@ -102,6 +105,9 @@ namespace Pulumi.Azure.MSSql
         [Input("azureadAuthenticationOnly")]
         public Input<bool>? AzureadAuthenticationOnly { get; set; }
 
+        /// <summary>
+        /// The login name of the principal to set as the Managed Instance Administrator.
+        /// </summary>
         [Input("loginUsername", required: true)]
         public Input<string> LoginUsername { get; set; } = null!;
 
@@ -136,6 +142,9 @@ namespace Pulumi.Azure.MSSql
         [Input("azureadAuthenticationOnly")]
         public Input<bool>? AzureadAuthenticationOnly { get; set; }
 
+        /// <summary>
+        /// The login name of the principal to set as the Managed Instance Administrator.
+        /// </summary>
         [Input("loginUsername")]
         public Input<string>? LoginUsername { get; set; }
 

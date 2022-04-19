@@ -1570,7 +1570,7 @@ class EndpointDeliveryRuleUrlPathCondition(dict):
                  negate_condition: Optional[bool] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
-        :param str operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        :param str operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
         :param Sequence[str] match_values: List of string values. This is required if `operator` is not `Any`.
         :param bool negate_condition: Defaults to `false`.
         :param Sequence[str] transforms: Valid values are `Lowercase` and `Uppercase`.
@@ -1587,7 +1587,7 @@ class EndpointDeliveryRuleUrlPathCondition(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
         """
         return pulumi.get(self, "operator")
 

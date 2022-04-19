@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: "West Europe",
  *     osType: "Linux",
- *     skuName: "P1V2",
+ *     skuName: "P1v2",
  * });
  * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("exampleLinuxWebApp", {
  *     resourceGroupName: exampleResourceGroup.name,

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: "West Europe",
- *     skuName: "P1V2",
+ *     skuName: "P1v2",
  * });
  * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("exampleWindowsWebApp", {
  *     resourceGroupName: exampleResourceGroup.name,

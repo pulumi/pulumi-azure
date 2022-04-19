@@ -31,7 +31,7 @@ namespace Pulumi.Azure.AppService
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = "West Europe",
     ///             OsType = "Windows",
-    ///             SkuName = "P1V2",
+    ///             SkuName = "P1v2",
     ///         });
     ///         var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new Azure.AppService.WindowsWebAppArgs
     ///         {

@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ConnectedRegistryNotificationArgs',
     'GroupContainerArgs',
     'GroupContainerGpuArgs',
     'GroupContainerLivenessProbeArgs',
@@ -24,6 +25,9 @@ __all__ = [
     'GroupExposedPortArgs',
     'GroupIdentityArgs',
     'GroupImageRegistryCredentialArgs',
+    'GroupInitContainerArgs',
+    'GroupInitContainerVolumeArgs',
+    'GroupInitContainerVolumeGitRepoArgs',
     'KubernetesClusterAciConnectorLinuxArgs',
     'KubernetesClusterAutoScalerProfileArgs',
     'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs',
@@ -79,6 +83,75 @@ __all__ = [
     'RegistryTaskTimerTriggerArgs',
     'RegistryTrustPolicyArgs',
 ]
+
+@pulumi.input_type
+class ConnectedRegistryNotificationArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 digest: Optional[pulumi.Input[str]] = None,
+                 tag: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
+        :param pulumi.Input[str] name: The name of the artifact that wants to be subscribed for the Connected Registry.
+        :param pulumi.Input[str] digest: The digest of the artifact that wants to be subscribed for the Connected Registry.
+        :param pulumi.Input[str] tag: The tag of the artifact that wants to be subscribed for the Connected Registry.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        if digest is not None:
+            pulumi.set(__self__, "digest", digest)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the artifact that wants to be subscribed for the Connected Registry.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def digest(self) -> Optional[pulumi.Input[str]]:
+        """
+        The digest of the artifact that wants to be subscribed for the Connected Registry.
+        """
+        return pulumi.get(self, "digest")
+
+    @digest.setter
+    def digest(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "digest", value)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag of the artifact that wants to be subscribed for the Connected Registry.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag", value)
+
 
 @pulumi.input_type
 class GroupContainerArgs:
@@ -1208,6 +1281,310 @@ class GroupImageRegistryCredentialArgs:
     @username.setter
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class GroupInitContainerArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 secure_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArgs']]]] = None):
+        """
+        :param pulumi.Input[str] image: The container image name. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArgs']]] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if secure_environment_variables is not None:
+            pulumi.set(__self__, "secure_environment_variables", secure_environment_variables)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[str]:
+        """
+        The container image name. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of commands which should be run on the container. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "commands", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter(name="secureEnvironmentVariables")
+    def secure_environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_environment_variables")
+
+    @secure_environment_variables.setter
+    def secure_environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "secure_environment_variables", value)
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArgs']]]]:
+        """
+        The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "volumes")
+
+    @volumes.setter
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArgs']]]]):
+        pulumi.set(self, "volumes", value)
+
+
+@pulumi.input_type
+class GroupInitContainerVolumeArgs:
+    def __init__(__self__, *,
+                 mount_path: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 empty_dir: Optional[pulumi.Input[bool]] = None,
+                 git_repo: Optional[pulumi.Input['GroupInitContainerVolumeGitRepoArgs']] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 secret: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 share_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_key: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input['GroupInitContainerVolumeGitRepoArgs'] git_repo: A `git_repo` block as defined below.
+        :param pulumi.Input[bool] read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] share_name: The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_key: The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "mount_path", mount_path)
+        pulumi.set(__self__, "name", name)
+        if empty_dir is not None:
+            pulumi.set(__self__, "empty_dir", empty_dir)
+        if git_repo is not None:
+            pulumi.set(__self__, "git_repo", git_repo)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if share_name is not None:
+            pulumi.set(__self__, "share_name", share_name)
+        if storage_account_key is not None:
+            pulumi.set(__self__, "storage_account_key", storage_account_key)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[str]:
+        """
+        The path on which this volume is to be mounted. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mount_path", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="emptyDir")
+    def empty_dir(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "empty_dir")
+
+    @empty_dir.setter
+    def empty_dir(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "empty_dir", value)
+
+    @property
+    @pulumi.getter(name="gitRepo")
+    def git_repo(self) -> Optional[pulumi.Input['GroupInitContainerVolumeGitRepoArgs']]:
+        """
+        A `git_repo` block as defined below.
+        """
+        return pulumi.get(self, "git_repo")
+
+    @git_repo.setter
+    def git_repo(self, value: Optional[pulumi.Input['GroupInitContainerVolumeGitRepoArgs']]):
+        pulumi.set(self, "git_repo", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountKey")
+    def storage_account_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_key")
+
+    @storage_account_key.setter
+    def storage_account_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_key", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_name", value)
+
+
+@pulumi.input_type
+class GroupInitContainerVolumeGitRepoArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[str],
+                 directory: Optional[pulumi.Input[str]] = None,
+                 revision: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] url: Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] directory: Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] revision: Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "url", url)
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "directory")
+
+    @directory.setter
+    def directory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "directory", value)
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "revision")
+
+    @revision.setter
+    def revision(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revision", value)
 
 
 @pulumi.input_type
@@ -2387,7 +2764,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs:
         :param pulumi.Input[int] net_ipv4_tcp_max_tw_buckets: The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] net_ipv4_tcp_tw_reuse: The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
         :param pulumi.Input[int] net_netfilter_nf_conntrack_buckets: The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] net_netfilter_nf_conntrack_max: The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_netfilter_nf_conntrack_max: The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vm_max_map_count: The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vm_swappiness: The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vm_vfs_cache_pressure: The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
@@ -2755,7 +3132,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs:
     @pulumi.getter(name="netNetfilterNfConntrackMax")
     def net_netfilter_nf_conntrack_max(self) -> Optional[pulumi.Input[int]]:
         """
-        The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+        The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "net_netfilter_nf_conntrack_max")
 
@@ -4316,7 +4693,7 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs:
         :param pulumi.Input[int] net_ipv4_tcp_max_tw_buckets: The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] net_ipv4_tcp_tw_reuse: Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[int] net_netfilter_nf_conntrack_buckets: The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] net_netfilter_nf_conntrack_max: The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] net_netfilter_nf_conntrack_max: The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vm_max_map_count: The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vm_swappiness: The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vm_vfs_cache_pressure: The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
@@ -4684,7 +5061,7 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs:
     @pulumi.getter(name="netNetfilterNfConntrackMax")
     def net_netfilter_nf_conntrack_max(self) -> Optional[pulumi.Input[int]]:
         """
-        The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+        The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "net_netfilter_nf_conntrack_max")
 

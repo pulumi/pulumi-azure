@@ -24,6 +24,7 @@ class GroupArgs:
                  exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]] = None,
                  identity: Optional[pulumi.Input['GroupIdentityArgs']] = None,
                  image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -41,6 +42,7 @@ class GroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -63,6 +65,8 @@ class GroupArgs:
             pulumi.set(__self__, "identity", identity)
         if image_registry_credentials is not None:
             pulumi.set(__self__, "image_registry_credentials", image_registry_credentials)
+        if init_containers is not None:
+            pulumi.set(__self__, "init_containers", init_containers)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if location is not None:
@@ -185,6 +189,18 @@ class GroupArgs:
         pulumi.set(self, "image_registry_credentials", value)
 
     @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]]]:
+        """
+        The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "init_containers")
+
+    @init_containers.setter
+    def init_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]]]):
+        pulumi.set(self, "init_containers", value)
+
+    @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -268,6 +284,7 @@ class _GroupState:
                  fqdn: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['GroupIdentityArgs']] = None,
                  image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -287,6 +304,7 @@ class _GroupState:
         :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
         :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -313,6 +331,8 @@ class _GroupState:
             pulumi.set(__self__, "identity", identity)
         if image_registry_credentials is not None:
             pulumi.set(__self__, "image_registry_credentials", image_registry_credentials)
+        if init_containers is not None:
+            pulumi.set(__self__, "init_containers", init_containers)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
         if ip_address_type is not None:
@@ -427,6 +447,18 @@ class _GroupState:
     @image_registry_credentials.setter
     def image_registry_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]]]):
         pulumi.set(self, "image_registry_credentials", value)
+
+    @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]]]:
+        """
+        The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "init_containers")
+
+    @init_containers.setter
+    def init_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]]]):
+        pulumi.set(self, "init_containers", value)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -549,6 +581,7 @@ class Group(pulumi.CustomResource):
                  exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
                  image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -616,6 +649,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -702,6 +736,7 @@ class Group(pulumi.CustomResource):
                  exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
                  image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -731,6 +766,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["exposed_ports"] = exposed_ports
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_registry_credentials"] = image_registry_credentials
+            __props__.__dict__["init_containers"] = init_containers
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -763,6 +799,7 @@ class Group(pulumi.CustomResource):
             fqdn: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
             image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]]] = None,
+            init_containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
             ip_address_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -787,6 +824,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
         :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -809,6 +847,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["fqdn"] = fqdn
         __props__.__dict__["identity"] = identity
         __props__.__dict__["image_registry_credentials"] = image_registry_credentials
+        __props__.__dict__["init_containers"] = init_containers
         __props__.__dict__["ip_address"] = ip_address
         __props__.__dict__["ip_address_type"] = ip_address_type
         __props__.__dict__["location"] = location
@@ -883,6 +922,14 @@ class Group(pulumi.CustomResource):
         A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "image_registry_credentials")
+
+    @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> pulumi.Output[Optional[Sequence['outputs.GroupInitContainer']]]:
+        """
+        The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "init_containers")
 
     @property
     @pulumi.getter(name="ipAddress")

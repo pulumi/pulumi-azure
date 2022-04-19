@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:containerservice/connectedRegistry:ConnectedRegistry":
+		r = &ConnectedRegistry{}
 	case "azure:containerservice/group:Group":
 		r = &Group{}
 	case "azure:containerservice/kubernetesCluster:KubernetesCluster":
@@ -54,6 +56,11 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerservice/connectedRegistry",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerservice/group",

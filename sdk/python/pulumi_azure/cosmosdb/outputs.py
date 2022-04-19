@@ -681,7 +681,7 @@ class CassandraKeyspaceAutoscaleSettings(dict):
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
-        :param int max_throughput: The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param int max_throughput: The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
@@ -690,7 +690,7 @@ class CassandraKeyspaceAutoscaleSettings(dict):
     @pulumi.getter(name="maxThroughput")
     def max_throughput(self) -> Optional[int]:
         """
-        The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
@@ -717,7 +717,7 @@ class CassandraTableAutoscaleSettings(dict):
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
-        :param int max_throughput: The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param int max_throughput: The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
@@ -726,7 +726,7 @@ class CassandraTableAutoscaleSettings(dict):
     @pulumi.getter(name="maxThroughput")
     def max_throughput(self) -> Optional[int]:
         """
-        The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
@@ -906,7 +906,7 @@ class GremlinDatabaseAutoscaleSettings(dict):
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
-        :param int max_throughput: The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param int max_throughput: The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
@@ -915,7 +915,7 @@ class GremlinDatabaseAutoscaleSettings(dict):
     @pulumi.getter(name="maxThroughput")
     def max_throughput(self) -> Optional[int]:
         """
-        The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
@@ -942,7 +942,7 @@ class GremlinGraphAutoscaleSettings(dict):
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
-        :param int max_throughput: The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param int max_throughput: The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
@@ -951,7 +951,7 @@ class GremlinGraphAutoscaleSettings(dict):
     @pulumi.getter(name="maxThroughput")
     def max_throughput(self) -> Optional[int]:
         """
-        The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
@@ -1233,7 +1233,7 @@ class MongoCollectionAutoscaleSettings(dict):
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
-        :param int max_throughput: The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param int max_throughput: The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
@@ -1242,7 +1242,7 @@ class MongoCollectionAutoscaleSettings(dict):
     @pulumi.getter(name="maxThroughput")
     def max_throughput(self) -> Optional[int]:
         """
-        The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
@@ -1330,7 +1330,7 @@ class MongoDatabaseAutoscaleSettings(dict):
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
-        :param int max_throughput: The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param int max_throughput: The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
@@ -1339,7 +1339,7 @@ class MongoDatabaseAutoscaleSettings(dict):
     @pulumi.getter(name="maxThroughput")
     def max_throughput(self) -> Optional[int]:
         """
-        The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
@@ -1366,7 +1366,7 @@ class SqlContainerAutoscaleSettings(dict):
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
-        :param int max_throughput: The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param int max_throughput: The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
@@ -1375,7 +1375,7 @@ class SqlContainerAutoscaleSettings(dict):
     @pulumi.getter(name="maxThroughput")
     def max_throughput(self) -> Optional[int]:
         """
-        The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
@@ -1686,7 +1686,7 @@ class SqlDatabaseAutoscaleSettings(dict):
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
-        :param int max_throughput: The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param int max_throughput: The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
@@ -1695,7 +1695,7 @@ class SqlDatabaseAutoscaleSettings(dict):
     @pulumi.getter(name="maxThroughput")
     def max_throughput(self) -> Optional[int]:
         """
-        The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
@@ -1757,7 +1757,7 @@ class TableAutoscaleSettings(dict):
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
-        :param int max_throughput: The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param int max_throughput: The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
@@ -1766,7 +1766,7 @@ class TableAutoscaleSettings(dict):
     @pulumi.getter(name="maxThroughput")
     def max_throughput(self) -> Optional[int]:
         """
-        The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 

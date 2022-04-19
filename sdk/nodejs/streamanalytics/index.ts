@@ -10,6 +10,7 @@ export * from "./functionJavaScriptUDF";
 export * from "./functionJavascriptUda";
 export * from "./getJob";
 export * from "./job";
+export * from "./jobSchedule";
 export * from "./managedPrivateEndpoint";
 export * from "./outputBlob";
 export * from "./outputEventHub";
@@ -30,6 +31,7 @@ import { Cluster } from "./cluster";
 import { FunctionJavaScriptUDF } from "./functionJavaScriptUDF";
 import { FunctionJavascriptUda } from "./functionJavascriptUda";
 import { Job } from "./job";
+import { JobSchedule } from "./jobSchedule";
 import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
 import { OutputBlob } from "./outputBlob";
 import { OutputEventHub } from "./outputEventHub";
@@ -57,6 +59,8 @@ const _module = {
                 return new FunctionJavascriptUda(name, <any>undefined, { urn })
             case "azure:streamanalytics/job:Job":
                 return new Job(name, <any>undefined, { urn })
+            case "azure:streamanalytics/jobSchedule:JobSchedule":
+                return new JobSchedule(name, <any>undefined, { urn })
             case "azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint":
                 return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputBlob:OutputBlob":
@@ -94,6 +98,7 @@ pulumi.runtime.registerResourceModule("azure", "streamanalytics/cluster", _modul
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/functionJavaScriptUDF", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/functionJavascriptUda", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/job", _module)
+pulumi.runtime.registerResourceModule("azure", "streamanalytics/jobSchedule", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/managedPrivateEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputBlob", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputEventHub", _module)

@@ -2974,7 +2974,7 @@ type EndpointDeliveryRuleUrlPathCondition struct {
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
-	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
 	Operator string `pulumi:"operator"`
 	// Valid values are `Lowercase` and `Uppercase`.
 	Transforms []string `pulumi:"transforms"`
@@ -2996,7 +2996,7 @@ type EndpointDeliveryRuleUrlPathConditionArgs struct {
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
-	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Valid values are `Lowercase` and `Uppercase`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
@@ -3063,7 +3063,7 @@ func (o EndpointDeliveryRuleUrlPathConditionOutput) NegateCondition() pulumi.Boo
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlPathCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
 
-// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
 func (o EndpointDeliveryRuleUrlPathConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlPathCondition) string { return v.Operator }).(pulumi.StringOutput)
 }

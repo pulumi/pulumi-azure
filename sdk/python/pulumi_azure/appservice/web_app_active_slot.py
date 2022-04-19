@@ -128,7 +128,7 @@ class WebAppActiveSlot(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location="West Europe",
             os_type="Windows",
-            sku_name="P1V2")
+            sku_name="P1v2")
         example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
             resource_group_name=example_resource_group.name,
             location=example_service_plan.location,
@@ -174,7 +174,7 @@ class WebAppActiveSlot(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location="West Europe",
             os_type="Windows",
-            sku_name="P1V2")
+            sku_name="P1v2")
         example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
             resource_group_name=example_resource_group.name,
             location=example_service_plan.location,
