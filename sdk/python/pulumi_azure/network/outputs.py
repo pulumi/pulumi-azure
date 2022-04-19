@@ -10426,10 +10426,10 @@ class VpnServerConfigurationRadius(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "serverRootCertificates":
-            suggest = "server_root_certificates"
-        elif key == "clientRootCertificates":
+        if key == "clientRootCertificates":
             suggest = "client_root_certificates"
+        elif key == "serverRootCertificates":
+            suggest = "server_root_certificates"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VpnServerConfigurationRadius. Access the value via the '{suggest}' property getter instead.")
@@ -10443,27 +10443,20 @@ class VpnServerConfigurationRadius(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 server_root_certificates: Sequence['outputs.VpnServerConfigurationRadiusServerRootCertificate'],
                  client_root_certificates: Optional[Sequence['outputs.VpnServerConfigurationRadiusClientRootCertificate']] = None,
+                 server_root_certificates: Optional[Sequence['outputs.VpnServerConfigurationRadiusServerRootCertificate']] = None,
                  servers: Optional[Sequence['outputs.VpnServerConfigurationRadiusServer']] = None):
         """
-        :param Sequence['VpnServerConfigurationRadiusServerRootCertificateArgs'] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
         :param Sequence['VpnServerConfigurationRadiusClientRootCertificateArgs'] client_root_certificates: One or more `client_root_certificate` blocks as defined above.
+        :param Sequence['VpnServerConfigurationRadiusServerRootCertificateArgs'] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
         :param Sequence['VpnServerConfigurationRadiusServerArgs'] servers: One or more `server` blocks as defined below.
         """
-        pulumi.set(__self__, "server_root_certificates", server_root_certificates)
         if client_root_certificates is not None:
             pulumi.set(__self__, "client_root_certificates", client_root_certificates)
+        if server_root_certificates is not None:
+            pulumi.set(__self__, "server_root_certificates", server_root_certificates)
         if servers is not None:
             pulumi.set(__self__, "servers", servers)
-
-    @property
-    @pulumi.getter(name="serverRootCertificates")
-    def server_root_certificates(self) -> Sequence['outputs.VpnServerConfigurationRadiusServerRootCertificate']:
-        """
-        One or more `server_root_certificate` blocks as defined below.
-        """
-        return pulumi.get(self, "server_root_certificates")
 
     @property
     @pulumi.getter(name="clientRootCertificates")
@@ -10472,6 +10465,14 @@ class VpnServerConfigurationRadius(dict):
         One or more `client_root_certificate` blocks as defined above.
         """
         return pulumi.get(self, "client_root_certificates")
+
+    @property
+    @pulumi.getter(name="serverRootCertificates")
+    def server_root_certificates(self) -> Optional[Sequence['outputs.VpnServerConfigurationRadiusServerRootCertificate']]:
+        """
+        One or more `server_root_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "server_root_certificates")
 
     @property
     @pulumi.getter

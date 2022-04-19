@@ -36,7 +36,7 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          pulumi.String("West Europe"),
 // 			OsType:            pulumi.String("Linux"),
-// 			SkuName:           pulumi.String("P1V2"),
+// 			SkuName:           pulumi.String("P1v2"),
 // 		})
 // 		if err != nil {
 // 			return err

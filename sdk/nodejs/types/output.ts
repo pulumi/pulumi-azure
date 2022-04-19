@@ -13845,7 +13845,7 @@ export namespace cdn {
          */
         negateCondition?: boolean;
         /**
-         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
          */
         operator: string;
         /**
@@ -17209,6 +17209,25 @@ export namespace consumption {
 }
 
 export namespace containerservice {
+    export interface ConnectedRegistryNotification {
+        /**
+         * The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
+         */
+        action: string;
+        /**
+         * The digest of the artifact that wants to be subscribed for the Connected Registry.
+         */
+        digest?: string;
+        /**
+         * The name of the artifact that wants to be subscribed for the Connected Registry.
+         */
+        name: string;
+        /**
+         * The tag of the artifact that wants to be subscribed for the Connected Registry.
+         */
+        tag?: string;
+    }
+
     export interface GetClusterNodePoolUpgradeSetting {
         /**
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
@@ -17878,6 +17897,87 @@ export namespace containerservice {
         username: string;
     }
 
+    export interface GroupInitContainer {
+        /**
+         * A list of commands which should be run on the container. Changing this forces a new resource to be created.
+         */
+        commands: string[];
+        /**
+         * A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+         */
+        environmentVariables?: {[key: string]: string};
+        /**
+         * The container image name. Changing this forces a new resource to be created.
+         */
+        image: string;
+        /**
+         * Specifies the name of the Container Group. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+         */
+        secureEnvironmentVariables?: {[key: string]: string};
+        /**
+         * The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+         */
+        volumes?: outputs.containerservice.GroupInitContainerVolume[];
+    }
+
+    export interface GroupInitContainerVolume {
+        /**
+         * Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        emptyDir?: boolean;
+        /**
+         * A `gitRepo` block as defined below.
+         */
+        gitRepo?: outputs.containerservice.GroupInitContainerVolumeGitRepo;
+        /**
+         * The path on which this volume is to be mounted. Changing this forces a new resource to be created.
+         */
+        mountPath: string;
+        /**
+         * Specifies the name of the Container Group. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
+         */
+        readOnly?: boolean;
+        /**
+         * A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+         */
+        secret?: {[key: string]: string};
+        /**
+         * The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
+         */
+        shareName?: string;
+        /**
+         * The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
+         */
+        storageAccountKey?: string;
+        /**
+         * The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
+         */
+        storageAccountName?: string;
+    }
+
+    export interface GroupInitContainerVolumeGitRepo {
+        /**
+         * Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+         */
+        directory?: string;
+        /**
+         * Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+         */
+        revision?: string;
+        /**
+         * Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+         */
+        url: string;
+    }
+
     export interface KubernetesClusterAciConnectorLinux {
         /**
          * The subnet name for the virtual nodes to run.
@@ -18264,7 +18364,7 @@ export namespace containerservice {
          */
         netNetfilterNfConntrackBuckets?: number;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
          */
         netNetfilterNfConntrackMax?: number;
         /**
@@ -18775,7 +18875,7 @@ export namespace containerservice {
          */
         netNetfilterNfConntrackBuckets?: number;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
          */
         netNetfilterNfConntrackMax?: number;
         /**
@@ -19619,14 +19719,14 @@ export namespace cosmosdb {
 
     export interface CassandraKeyspaceAutoscaleSettings {
         /**
-         * The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         * The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
     }
 
     export interface CassandraTableAutoscaleSettings {
         /**
-         * The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         * The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
     }
@@ -19760,14 +19860,14 @@ export namespace cosmosdb {
 
     export interface GremlinDatabaseAutoscaleSettings {
         /**
-         * The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         * The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
     }
 
     export interface GremlinGraphAutoscaleSettings {
         /**
-         * The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         * The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
     }
@@ -19849,7 +19949,7 @@ export namespace cosmosdb {
 
     export interface MongoCollectionAutoscaleSettings {
         /**
-         * The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         * The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
     }
@@ -19878,14 +19978,14 @@ export namespace cosmosdb {
 
     export interface MongoDatabaseAutoscaleSettings {
         /**
-         * The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         * The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
     }
 
     export interface SqlContainerAutoscaleSettings {
         /**
-         * The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         * The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
     }
@@ -19980,7 +20080,7 @@ export namespace cosmosdb {
 
     export interface SqlDatabaseAutoscaleSettings {
         /**
-         * The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         * The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
     }
@@ -19994,7 +20094,7 @@ export namespace cosmosdb {
 
     export interface TableAutoscaleSettings {
         /**
-         * The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         * The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
     }
@@ -35117,7 +35217,7 @@ export namespace network {
         /**
          * One or more `serverRootCertificate` blocks as defined below.
          */
-        serverRootCertificates: outputs.network.VpnServerConfigurationRadiusServerRootCertificate[];
+        serverRootCertificates?: outputs.network.VpnServerConfigurationRadiusServerRootCertificate[];
         /**
          * One or more `server` blocks as defined below.
          */

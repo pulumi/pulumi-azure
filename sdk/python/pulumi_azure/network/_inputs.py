@@ -10459,31 +10459,20 @@ class VpnServerConfigurationIpsecPolicyArgs:
 @pulumi.input_type
 class VpnServerConfigurationRadiusArgs:
     def __init__(__self__, *,
-                 server_root_certificates: pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]],
                  client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]] = None,
+                 server_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]] = None,
                  servers: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]] client_root_certificates: One or more `client_root_certificate` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]] servers: One or more `server` blocks as defined below.
         """
-        pulumi.set(__self__, "server_root_certificates", server_root_certificates)
         if client_root_certificates is not None:
             pulumi.set(__self__, "client_root_certificates", client_root_certificates)
+        if server_root_certificates is not None:
+            pulumi.set(__self__, "server_root_certificates", server_root_certificates)
         if servers is not None:
             pulumi.set(__self__, "servers", servers)
-
-    @property
-    @pulumi.getter(name="serverRootCertificates")
-    def server_root_certificates(self) -> pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]:
-        """
-        One or more `server_root_certificate` blocks as defined below.
-        """
-        return pulumi.get(self, "server_root_certificates")
-
-    @server_root_certificates.setter
-    def server_root_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]):
-        pulumi.set(self, "server_root_certificates", value)
 
     @property
     @pulumi.getter(name="clientRootCertificates")
@@ -10496,6 +10485,18 @@ class VpnServerConfigurationRadiusArgs:
     @client_root_certificates.setter
     def client_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]]):
         pulumi.set(self, "client_root_certificates", value)
+
+    @property
+    @pulumi.getter(name="serverRootCertificates")
+    def server_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]]:
+        """
+        One or more `server_root_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "server_root_certificates")
+
+    @server_root_certificates.setter
+    def server_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]]):
+        pulumi.set(self, "server_root_certificates", value)
 
     @property
     @pulumi.getter

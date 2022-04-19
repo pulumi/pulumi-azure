@@ -114,7 +114,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? NetNetfilterNfConntrackBuckets;
         /// <summary>
-        /// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int? NetNetfilterNfConntrackMax;
         /// <summary>

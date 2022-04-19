@@ -58,6 +58,7 @@ import (
 // 		_, err = sentinel.NewWatchlist(ctx, "exampleWatchlist", &sentinel.WatchlistArgs{
 // 			LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
 // 			DisplayName:             pulumi.String("example-wl"),
+// 			ItemSearchKey:           pulumi.String("Key"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -83,6 +84,8 @@ type Watchlist struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+	ItemSearchKey pulumi.StringOutput `pulumi:"itemSearchKey"`
 	// Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
 	Labels pulumi.StringArrayOutput `pulumi:"labels"`
 	// The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
@@ -100,6 +103,9 @@ func NewWatchlist(ctx *pulumi.Context,
 
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.ItemSearchKey == nil {
+		return nil, errors.New("invalid value for required argument 'ItemSearchKey'")
 	}
 	if args.LogAnalyticsWorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'LogAnalyticsWorkspaceId'")
@@ -132,6 +138,8 @@ type watchlistState struct {
 	Description *string `pulumi:"description"`
 	// The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
 	DisplayName *string `pulumi:"displayName"`
+	// The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+	ItemSearchKey *string `pulumi:"itemSearchKey"`
 	// Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
 	Labels []string `pulumi:"labels"`
 	// The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
@@ -147,6 +155,8 @@ type WatchlistState struct {
 	Description pulumi.StringPtrInput
 	// The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
 	DisplayName pulumi.StringPtrInput
+	// The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+	ItemSearchKey pulumi.StringPtrInput
 	// Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
 	Labels pulumi.StringArrayInput
 	// The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
@@ -166,6 +176,8 @@ type watchlistArgs struct {
 	Description *string `pulumi:"description"`
 	// The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
 	DisplayName string `pulumi:"displayName"`
+	// The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+	ItemSearchKey string `pulumi:"itemSearchKey"`
 	// Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
 	Labels []string `pulumi:"labels"`
 	// The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
@@ -182,6 +194,8 @@ type WatchlistArgs struct {
 	Description pulumi.StringPtrInput
 	// The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
 	DisplayName pulumi.StringInput
+	// The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+	ItemSearchKey pulumi.StringInput
 	// Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
 	Labels pulumi.StringArrayInput
 	// The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.

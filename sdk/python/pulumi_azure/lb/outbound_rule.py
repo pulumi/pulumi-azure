@@ -28,7 +28,7 @@ class OutboundRuleArgs:
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-        :param pulumi.Input[int] allocated_outbound_ports: The number of outbound ports to be used for NAT.
+        :param pulumi.Input[int] allocated_outbound_ports: The number of outbound ports to be used for NAT. Defaults to `1024`.
         :param pulumi.Input[bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[int] idle_timeout_in_minutes: The timeout for the TCP idle connection
@@ -88,7 +88,7 @@ class OutboundRuleArgs:
     @pulumi.getter(name="allocatedOutboundPorts")
     def allocated_outbound_ports(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of outbound ports to be used for NAT.
+        The number of outbound ports to be used for NAT. Defaults to `1024`.
         """
         return pulumi.get(self, "allocated_outbound_ports")
 
@@ -158,7 +158,7 @@ class _OutboundRuleState:
                  protocol: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OutboundRule resources.
-        :param pulumi.Input[int] allocated_outbound_ports: The number of outbound ports to be used for NAT.
+        :param pulumi.Input[int] allocated_outbound_ports: The number of outbound ports to be used for NAT. Defaults to `1024`.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         :param pulumi.Input[bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
@@ -188,7 +188,7 @@ class _OutboundRuleState:
     @pulumi.getter(name="allocatedOutboundPorts")
     def allocated_outbound_ports(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of outbound ports to be used for NAT.
+        The number of outbound ports to be used for NAT. Defaults to `1024`.
         """
         return pulumi.get(self, "allocated_outbound_ports")
 
@@ -310,7 +310,7 @@ class OutboundRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] allocated_outbound_ports: The number of outbound ports to be used for NAT.
+        :param pulumi.Input[int] allocated_outbound_ports: The number of outbound ports to be used for NAT. Defaults to `1024`.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         :param pulumi.Input[bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutboundRuleFrontendIpConfigurationArgs']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
@@ -412,7 +412,7 @@ class OutboundRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] allocated_outbound_ports: The number of outbound ports to be used for NAT.
+        :param pulumi.Input[int] allocated_outbound_ports: The number of outbound ports to be used for NAT. Defaults to `1024`.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         :param pulumi.Input[bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutboundRuleFrontendIpConfigurationArgs']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
@@ -439,7 +439,7 @@ class OutboundRule(pulumi.CustomResource):
     @pulumi.getter(name="allocatedOutboundPorts")
     def allocated_outbound_ports(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of outbound ports to be used for NAT.
+        The number of outbound ports to be used for NAT. Defaults to `1024`.
         """
         return pulumi.get(self, "allocated_outbound_ports")
 

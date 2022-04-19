@@ -67,19 +67,25 @@ type LookupJobResult struct {
 	EventsOutOfOrderPolicy string `pulumi:"eventsOutOfOrderPolicy"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// (Optional) An `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identities []GetJobIdentity `pulumi:"identities"`
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId string `pulumi:"jobId"`
+	// The time at which the Stream Analytics job last produced an output.
+	LastOutputTime string `pulumi:"lastOutputTime"`
 	// The Azure location where the Stream Analytics Job exists.
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
 	// The policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size).
 	OutputErrorPolicy string `pulumi:"outputErrorPolicy"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The number of streaming units that the streaming job uses.
+	// The starting mode set for this Stream Analytics Job.
+	StartMode string `pulumi:"startMode"`
+	// The time at which this Stream Analytics Job was scheduled to start.
+	StartTime string `pulumi:"startTime"`
+	// The number of streaming units that this Stream Analytics Job uses.
 	StreamingUnits int `pulumi:"streamingUnits"`
-	// The query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+	// The query that will be run in this Stream Analytics Job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery string `pulumi:"transformationQuery"`
 }
 
@@ -149,7 +155,7 @@ func (o LookupJobResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// (Optional) An `identity` block as defined below.
+// An `identity` block as defined below.
 func (o LookupJobResultOutput) Identities() GetJobIdentityArrayOutput {
 	return o.ApplyT(func(v LookupJobResult) []GetJobIdentity { return v.Identities }).(GetJobIdentityArrayOutput)
 }
@@ -157,6 +163,11 @@ func (o LookupJobResultOutput) Identities() GetJobIdentityArrayOutput {
 // The Job ID assigned by the Stream Analytics Job.
 func (o LookupJobResultOutput) JobId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobResult) string { return v.JobId }).(pulumi.StringOutput)
+}
+
+// The time at which the Stream Analytics job last produced an output.
+func (o LookupJobResultOutput) LastOutputTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.LastOutputTime }).(pulumi.StringOutput)
 }
 
 // The Azure location where the Stream Analytics Job exists.
@@ -177,12 +188,22 @@ func (o LookupJobResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The number of streaming units that the streaming job uses.
+// The starting mode set for this Stream Analytics Job.
+func (o LookupJobResultOutput) StartMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.StartMode }).(pulumi.StringOutput)
+}
+
+// The time at which this Stream Analytics Job was scheduled to start.
+func (o LookupJobResultOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// The number of streaming units that this Stream Analytics Job uses.
 func (o LookupJobResultOutput) StreamingUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupJobResult) int { return v.StreamingUnits }).(pulumi.IntOutput)
 }
 
-// The query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+// The query that will be run in this Stream Analytics Job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 func (o LookupJobResultOutput) TransformationQuery() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobResult) string { return v.TransformationQuery }).(pulumi.StringOutput)
 }

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Lb
     public partial class OutboundRule : Pulumi.CustomResource
     {
         /// <summary>
-        /// The number of outbound ports to be used for NAT.
+        /// The number of outbound ports to be used for NAT. Defaults to `1024`.
         /// </summary>
         [Output("allocatedOutboundPorts")]
         public Output<int?> AllocatedOutboundPorts { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Lb
     public sealed class OutboundRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of outbound ports to be used for NAT.
+        /// The number of outbound ports to be used for NAT. Defaults to `1024`.
         /// </summary>
         [Input("allocatedOutboundPorts")]
         public Input<int>? AllocatedOutboundPorts { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Lb
     public sealed class OutboundRuleState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of outbound ports to be used for NAT.
+        /// The number of outbound ports to be used for NAT. Defaults to `1024`.
         /// </summary>
         [Input("allocatedOutboundPorts")]
         public Input<int>? AllocatedOutboundPorts { get; set; }

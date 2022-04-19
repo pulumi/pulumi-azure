@@ -14,6 +14,7 @@ __all__ = ['WatchlistArgs', 'Watchlist']
 class WatchlistArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
+                 item_search_key: pulumi.Input[str],
                  log_analytics_workspace_id: pulumi.Input[str],
                  default_duration: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -22,6 +23,7 @@ class WatchlistArgs:
         """
         The set of arguments for constructing a Watchlist resource.
         :param pulumi.Input[str] display_name: The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
+        :param pulumi.Input[str] item_search_key: The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] default_duration: The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] description: The description of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
@@ -29,6 +31,7 @@ class WatchlistArgs:
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         """
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "item_search_key", item_search_key)
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if default_duration is not None:
             pulumi.set(__self__, "default_duration", default_duration)
@@ -50,6 +53,18 @@ class WatchlistArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="itemSearchKey")
+    def item_search_key(self) -> pulumi.Input[str]:
+        """
+        The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+        """
+        return pulumi.get(self, "item_search_key")
+
+    @item_search_key.setter
+    def item_search_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "item_search_key", value)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -118,6 +133,7 @@ class _WatchlistState:
                  default_duration: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 item_search_key: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -126,6 +142,7 @@ class _WatchlistState:
         :param pulumi.Input[str] default_duration: The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] description: The description of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] display_name: The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
+        :param pulumi.Input[str] item_search_key: The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
@@ -136,6 +153,8 @@ class _WatchlistState:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if item_search_key is not None:
+            pulumi.set(__self__, "item_search_key", item_search_key)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
         if log_analytics_workspace_id is not None:
@@ -178,6 +197,18 @@ class _WatchlistState:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="itemSearchKey")
+    def item_search_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+        """
+        return pulumi.get(self, "item_search_key")
+
+    @item_search_key.setter
+    def item_search_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "item_search_key", value)
 
     @property
     @pulumi.getter
@@ -224,6 +255,7 @@ class Watchlist(pulumi.CustomResource):
                  default_duration: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 item_search_key: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -254,7 +286,8 @@ class Watchlist(pulumi.CustomResource):
             ))
         example_watchlist = azure.sentinel.Watchlist("exampleWatchlist",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
-            display_name="example-wl")
+            display_name="example-wl",
+            item_search_key="Key")
         ```
 
         ## Import
@@ -270,6 +303,7 @@ class Watchlist(pulumi.CustomResource):
         :param pulumi.Input[str] default_duration: The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] description: The description of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] display_name: The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
+        :param pulumi.Input[str] item_search_key: The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
@@ -306,7 +340,8 @@ class Watchlist(pulumi.CustomResource):
             ))
         example_watchlist = azure.sentinel.Watchlist("exampleWatchlist",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
-            display_name="example-wl")
+            display_name="example-wl",
+            item_search_key="Key")
         ```
 
         ## Import
@@ -335,6 +370,7 @@ class Watchlist(pulumi.CustomResource):
                  default_duration: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 item_search_key: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -355,6 +391,9 @@ class Watchlist(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            if item_search_key is None and not opts.urn:
+                raise TypeError("Missing required property 'item_search_key'")
+            __props__.__dict__["item_search_key"] = item_search_key
             __props__.__dict__["labels"] = labels
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
@@ -373,6 +412,7 @@ class Watchlist(pulumi.CustomResource):
             default_duration: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
+            item_search_key: Optional[pulumi.Input[str]] = None,
             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'Watchlist':
@@ -386,6 +426,7 @@ class Watchlist(pulumi.CustomResource):
         :param pulumi.Input[str] default_duration: The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] description: The description of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] display_name: The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
+        :param pulumi.Input[str] item_search_key: The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
@@ -397,6 +438,7 @@ class Watchlist(pulumi.CustomResource):
         __props__.__dict__["default_duration"] = default_duration
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["item_search_key"] = item_search_key
         __props__.__dict__["labels"] = labels
         __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
         __props__.__dict__["name"] = name
@@ -425,6 +467,14 @@ class Watchlist(pulumi.CustomResource):
         The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="itemSearchKey")
+    def item_search_key(self) -> pulumi.Output[str]:
+        """
+        The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+        """
+        return pulumi.get(self, "item_search_key")
 
     @property
     @pulumi.getter

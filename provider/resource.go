@@ -593,6 +593,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_registry_token":      {Tok: azureResource(azureContainerService, "RegistryToken")},
 			"azurerm_container_registry_task":       {Tok: azureResource(azureContainerService, "RegistryTask")},
 			"azurerm_container_registry_agent_pool": {Tok: azureResource(azureContainerService, "RegistryAgentPool")},
+			"azurerm_container_connected_registry":  {Tok: azureResource(azureContainerService, "ConnectedRegistry")},
 
 			// Batch
 			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},
@@ -635,12 +636,30 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_template_deployment":                {Tok: azureResource(azureCore, "TemplateDeployment")},
 			"azurerm_resource_group_template_deployment": {Tok: azureResource(azureCore, "ResourceGroupTemplateDeployment")},
 			"azurerm_resource_group_policy_assignment":   {Tok: azureResource(azureCore, "ResourceGroupPolicyAssignment")},
-			"azurerm_resource_policy_assignment":         {Tok: azureResource(azureCore, "ResourcePolicyAssignment")},
-			"azurerm_subscription_template_deployment":   {Tok: azureResource(azureCore, "SubscriptionTemplateDeployment")},
-			"azurerm_custom_provider":                    {Tok: azureResource(azureCore, "CustomProvider")},
-			"azurerm_resource_provider_registration":     {Tok: azureResource(azureCore, "ResourceProviderRegistration")},
-			"azurerm_subscription":                       {Tok: azureResource(azureCore, "Subscription")},
-			"azurerm_subscription_policy_assignment":     {Tok: azureResource(azureCore, "SubscriptionPolicyAssignment")},
+			"azurerm_resource_group_policy_exemption": {
+				Tok: azureResource(azureCore, "ResourceGroupPolicyExemption"),
+				Docs: &tfbridge.DocInfo{
+					Source: "policy_resource_group_policy_exemption.html.markdown",
+				},
+			},
+			"azurerm_resource_policy_assignment": {Tok: azureResource(azureCore, "ResourcePolicyAssignment")},
+			"azurerm_resource_policy_exemption": {
+				Tok: azureResource(azureCore, "ResourcePolicyExemption"),
+				Docs: &tfbridge.DocInfo{
+					Source: "policy_resource_policy_exemption.html.markdown",
+				},
+			},
+			"azurerm_subscription_template_deployment": {Tok: azureResource(azureCore, "SubscriptionTemplateDeployment")},
+			"azurerm_custom_provider":                  {Tok: azureResource(azureCore, "CustomProvider")},
+			"azurerm_resource_provider_registration":   {Tok: azureResource(azureCore, "ResourceProviderRegistration")},
+			"azurerm_subscription":                     {Tok: azureResource(azureCore, "Subscription")},
+			"azurerm_subscription_policy_assignment":   {Tok: azureResource(azureCore, "SubscriptionPolicyAssignment")},
+			"azurerm_subscription_policy_exemption": {
+				Tok: azureResource(azureCore, "SubscriptionPolicyExemption"),
+				Docs: &tfbridge.DocInfo{
+					Source: "policy_subscription_policy_exemption.html.markdown",
+				},
+			},
 			"azurerm_subscription_policy_remediation": {
 				Tok: azureResource(azureCore, "SubscriptionPolicyRemediation"),
 				Docs: &tfbridge.DocInfo{
@@ -1731,14 +1750,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_managed_private_endpoint": {Tok: azureResource(azureStreamAnalytics, "ManagedPrivateEndpoint")},
 			"azurerm_stream_analytics_output_function":          {Tok: azureResource(azureStreamAnalytics, "OutputFunction")},
 			"azurerm_stream_analytics_function_javascript_uda":  {Tok: azureResource(azureStreamAnalytics, "FunctionJavascriptUda")},
+			"azurerm_stream_analytics_job_schedule":             {Tok: azureResource(azureStreamAnalytics, "JobSchedule")},
 
 			// Marketplace
 			"azurerm_marketplace_agreement": {Tok: azureResource(azureMarketPlace, "Agreement")},
 
 			// Kusto
 			"azurerm_kusto_cluster":                      {Tok: azureResource(azureKusto, "Cluster")},
-			"azurerm_kusto_script":                       {Tok: azureResource(azureKusto, "Script")},
 			"azurerm_kusto_database":                     {Tok: azureResource(azureKusto, "Database")},
+			"azurerm_kusto_script":                       {Tok: azureResource(azureKusto, "Script")},
 			"azurerm_kusto_eventhub_data_connection":     {Tok: azureResource(azureKusto, "EventhubDataConnection")},
 			"azurerm_kusto_cluster_principal_assignment": {Tok: azureResource(azureKusto, "ClusterPrincipalAssignment")},
 			"azurerm_kusto_iothub_data_connection":       {Tok: azureResource(azureKusto, "IotHubDataConnection")},
@@ -2026,6 +2046,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_management_group_template_deployment":      {Tok: azureResource(azureManagement, "GroupTemplateDeployment")},
 			"azurerm_management_group_subscription_association": {Tok: azureResource(azureManagement, "GroupSubscriptionAssociation")},
 			"azurerm_management_group_policy_assignment":        {Tok: azureResource(azureManagement, "GroupPolicyAssignment")},
+			"azurerm_management_group_policy_exemption": {
+				Tok: azureResource(azureManagement, "GroupPolicyExemption"),
+				Docs: &tfbridge.DocInfo{
+					Source: "policy_management_group_policy_exemption.html.markdown",
+				},
+			},
 			"azurerm_management_group_policy_remediation": {
 				Tok: azureResource(azureManagement, "GroupPolicyRemediation"),
 				Docs: &tfbridge.DocInfo{
@@ -2347,6 +2373,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_database_migration_project":      {Tok: azureDataSource(azureDatabaseMigration, "getProject")},
 			"azurerm_database_migration_service":      {Tok: azureDataSource(azureDatabaseMigration, "getService")},
 			"azurerm_kusto_cluster":                   {Tok: azureDataSource(azureKusto, "getCluster")},
+			"azurerm_kusto_database":                  {Tok: azureDataSource(azureKusto, "getDatabase")},
 			"azurerm_servicebus_topic_authorization_rule": {
 				Tok: azureDataSource(azureServiceBus, "getTopicAuthorizationRule"),
 			},

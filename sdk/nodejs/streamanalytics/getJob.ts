@@ -76,13 +76,17 @@ export interface GetJobResult {
      */
     readonly id: string;
     /**
-     * (Optional) An `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     readonly identities: outputs.streamanalytics.GetJobIdentity[];
     /**
      * The Job ID assigned by the Stream Analytics Job.
      */
     readonly jobId: string;
+    /**
+     * The time at which the Stream Analytics job last produced an output.
+     */
+    readonly lastOutputTime: string;
     /**
      * The Azure location where the Stream Analytics Job exists.
      */
@@ -94,11 +98,19 @@ export interface GetJobResult {
     readonly outputErrorPolicy: string;
     readonly resourceGroupName: string;
     /**
-     * The number of streaming units that the streaming job uses.
+     * The starting mode set for this Stream Analytics Job.
+     */
+    readonly startMode: string;
+    /**
+     * The time at which this Stream Analytics Job was scheduled to start.
+     */
+    readonly startTime: string;
+    /**
+     * The number of streaming units that this Stream Analytics Job uses.
      */
     readonly streamingUnits: number;
     /**
-     * The query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+     * The query that will be run in this Stream Analytics Job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      */
     readonly transformationQuery: string;
 }

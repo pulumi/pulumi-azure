@@ -182,7 +182,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The number of scale units.
+     * The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
      */
     public readonly scaleUnits!: pulumi.Output<number>;
     /**
@@ -313,7 +313,7 @@ export interface StreamingEndpointState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The number of scale units.
+     * The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
      */
     scaleUnits?: pulumi.Input<number>;
     /**
@@ -379,7 +379,7 @@ export interface StreamingEndpointArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The number of scale units.
+     * The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
      */
     scaleUnits: pulumi.Input<number>;
     /**

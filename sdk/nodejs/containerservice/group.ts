@@ -116,6 +116,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly imageRegistryCredentials!: pulumi.Output<outputs.containerservice.GroupImageRegistryCredential[] | undefined>;
     /**
+     * The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
+     */
+    public readonly initContainers!: pulumi.Output<outputs.containerservice.GroupInitContainer[] | undefined>;
+    /**
      * The IP address allocated to the container group.
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
@@ -173,6 +177,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["imageRegistryCredentials"] = state ? state.imageRegistryCredentials : undefined;
+            resourceInputs["initContainers"] = state ? state.initContainers : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -200,6 +205,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["exposedPorts"] = args ? args.exposedPorts : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
+            resourceInputs["initContainers"] = args ? args.initContainers : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -252,6 +258,10 @@ export interface GroupState {
      * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
     imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[]>;
+    /**
+     * The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
+     */
+    initContainers?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupInitContainer>[]>;
     /**
      * The IP address allocated to the container group.
      */
@@ -322,6 +332,10 @@ export interface GroupArgs {
      * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
     imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[]>;
+    /**
+     * The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
+     */
+    initContainers?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupInitContainer>[]>;
     /**
      * Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
      */

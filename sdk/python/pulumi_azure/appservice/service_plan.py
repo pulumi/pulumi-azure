@@ -438,7 +438,7 @@ class ServicePlan(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location="West Europe",
             os_type="Linux",
-            sku_name="P1V2")
+            sku_name="P1v2")
         ```
 
         ## Import
@@ -483,7 +483,7 @@ class ServicePlan(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location="West Europe",
             os_type="Linux",
-            sku_name="P1V2")
+            sku_name="P1v2")
         ```
 
         ## Import

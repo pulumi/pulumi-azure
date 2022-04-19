@@ -25,7 +25,7 @@ import (
 type OutboundRule struct {
 	pulumi.CustomResourceState
 
-	// The number of outbound ports to be used for NAT.
+	// The number of outbound ports to be used for NAT. Defaults to `1024`.
 	AllocatedOutboundPorts pulumi.IntPtrOutput `pulumi:"allocatedOutboundPorts"`
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
 	BackendAddressPoolId pulumi.StringOutput `pulumi:"backendAddressPoolId"`
@@ -81,7 +81,7 @@ func GetOutboundRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OutboundRule resources.
 type outboundRuleState struct {
-	// The number of outbound ports to be used for NAT.
+	// The number of outbound ports to be used for NAT. Defaults to `1024`.
 	AllocatedOutboundPorts *int `pulumi:"allocatedOutboundPorts"`
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
 	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
@@ -100,7 +100,7 @@ type outboundRuleState struct {
 }
 
 type OutboundRuleState struct {
-	// The number of outbound ports to be used for NAT.
+	// The number of outbound ports to be used for NAT. Defaults to `1024`.
 	AllocatedOutboundPorts pulumi.IntPtrInput
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
 	BackendAddressPoolId pulumi.StringPtrInput
@@ -123,7 +123,7 @@ func (OutboundRuleState) ElementType() reflect.Type {
 }
 
 type outboundRuleArgs struct {
-	// The number of outbound ports to be used for NAT.
+	// The number of outbound ports to be used for NAT. Defaults to `1024`.
 	AllocatedOutboundPorts *int `pulumi:"allocatedOutboundPorts"`
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
 	BackendAddressPoolId string `pulumi:"backendAddressPoolId"`
@@ -143,7 +143,7 @@ type outboundRuleArgs struct {
 
 // The set of arguments for constructing a OutboundRule resource.
 type OutboundRuleArgs struct {
-	// The number of outbound ports to be used for NAT.
+	// The number of outbound ports to be used for NAT. Defaults to `1024`.
 	AllocatedOutboundPorts pulumi.IntPtrInput
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
 	BackendAddressPoolId pulumi.StringInput

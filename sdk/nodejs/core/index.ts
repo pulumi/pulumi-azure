@@ -18,14 +18,17 @@ export * from "./portalTenantConfiguration";
 export * from "./resourceGroup";
 export * from "./resourceGroupCostManagementExport";
 export * from "./resourceGroupPolicyAssignment";
+export * from "./resourceGroupPolicyExemption";
 export * from "./resourceGroupPolicyRemediation";
 export * from "./resourceGroupTemplateDeployment";
 export * from "./resourcePolicyAssignment";
+export * from "./resourcePolicyExemption";
 export * from "./resourcePolicyRemediation";
 export * from "./resourceProviderRegistration";
 export * from "./subscription";
 export * from "./subscriptionCostManagementExport";
 export * from "./subscriptionPolicyAssignment";
+export * from "./subscriptionPolicyExemption";
 export * from "./subscriptionPolicyRemediation";
 export * from "./subscriptionTemplateDeployment";
 export * from "./templateDeployment";
@@ -38,14 +41,17 @@ import { PortalTenantConfiguration } from "./portalTenantConfiguration";
 import { ResourceGroup } from "./resourceGroup";
 import { ResourceGroupCostManagementExport } from "./resourceGroupCostManagementExport";
 import { ResourceGroupPolicyAssignment } from "./resourceGroupPolicyAssignment";
+import { ResourceGroupPolicyExemption } from "./resourceGroupPolicyExemption";
 import { ResourceGroupPolicyRemediation } from "./resourceGroupPolicyRemediation";
 import { ResourceGroupTemplateDeployment } from "./resourceGroupTemplateDeployment";
 import { ResourcePolicyAssignment } from "./resourcePolicyAssignment";
+import { ResourcePolicyExemption } from "./resourcePolicyExemption";
 import { ResourcePolicyRemediation } from "./resourcePolicyRemediation";
 import { ResourceProviderRegistration } from "./resourceProviderRegistration";
 import { Subscription } from "./subscription";
 import { SubscriptionCostManagementExport } from "./subscriptionCostManagementExport";
 import { SubscriptionPolicyAssignment } from "./subscriptionPolicyAssignment";
+import { SubscriptionPolicyExemption } from "./subscriptionPolicyExemption";
 import { SubscriptionPolicyRemediation } from "./subscriptionPolicyRemediation";
 import { SubscriptionTemplateDeployment } from "./subscriptionTemplateDeployment";
 import { TemplateDeployment } from "./templateDeployment";
@@ -65,12 +71,16 @@ const _module = {
                 return new ResourceGroupCostManagementExport(name, <any>undefined, { urn })
             case "azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment":
                 return new ResourceGroupPolicyAssignment(name, <any>undefined, { urn })
+            case "azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption":
+                return new ResourceGroupPolicyExemption(name, <any>undefined, { urn })
             case "azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation":
                 return new ResourceGroupPolicyRemediation(name, <any>undefined, { urn })
             case "azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment":
                 return new ResourceGroupTemplateDeployment(name, <any>undefined, { urn })
             case "azure:core/resourcePolicyAssignment:ResourcePolicyAssignment":
                 return new ResourcePolicyAssignment(name, <any>undefined, { urn })
+            case "azure:core/resourcePolicyExemption:ResourcePolicyExemption":
+                return new ResourcePolicyExemption(name, <any>undefined, { urn })
             case "azure:core/resourcePolicyRemediation:ResourcePolicyRemediation":
                 return new ResourcePolicyRemediation(name, <any>undefined, { urn })
             case "azure:core/resourceProviderRegistration:ResourceProviderRegistration":
@@ -81,6 +91,8 @@ const _module = {
                 return new SubscriptionCostManagementExport(name, <any>undefined, { urn })
             case "azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment":
                 return new SubscriptionPolicyAssignment(name, <any>undefined, { urn })
+            case "azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption":
+                return new SubscriptionPolicyExemption(name, <any>undefined, { urn })
             case "azure:core/subscriptionPolicyRemediation:SubscriptionPolicyRemediation":
                 return new SubscriptionPolicyRemediation(name, <any>undefined, { urn })
             case "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment":
@@ -99,14 +111,17 @@ pulumi.runtime.registerResourceModule("azure", "core/portalTenantConfiguration",
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupCostManagementExport", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupPolicyAssignment", _module)
+pulumi.runtime.registerResourceModule("azure", "core/resourceGroupPolicyExemption", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupPolicyRemediation", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupTemplateDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourcePolicyAssignment", _module)
+pulumi.runtime.registerResourceModule("azure", "core/resourcePolicyExemption", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourcePolicyRemediation", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceProviderRegistration", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscription", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionCostManagementExport", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionPolicyAssignment", _module)
+pulumi.runtime.registerResourceModule("azure", "core/subscriptionPolicyExemption", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionPolicyRemediation", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionTemplateDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/templateDeployment", _module)

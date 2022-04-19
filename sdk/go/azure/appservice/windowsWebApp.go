@@ -35,7 +35,7 @@ import (
 // 		exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          pulumi.String("West Europe"),
-// 			SkuName:           pulumi.String("P1V2"),
+// 			SkuName:           pulumi.String("P1v2"),
 // 		})
 // 		if err != nil {
 // 			return err

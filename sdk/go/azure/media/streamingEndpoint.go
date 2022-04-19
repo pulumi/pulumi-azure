@@ -186,7 +186,7 @@ type StreamingEndpoint struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The number of scale units.
+	// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
 	ScaleUnits pulumi.IntOutput `pulumi:"scaleUnits"`
 	// A mapping of tags which should be assigned to the Streaming Endpoint.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -258,7 +258,7 @@ type streamingEndpointState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The number of scale units.
+	// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
 	ScaleUnits *int `pulumi:"scaleUnits"`
 	// A mapping of tags which should be assigned to the Streaming Endpoint.
 	Tags map[string]string `pulumi:"tags"`
@@ -293,7 +293,7 @@ type StreamingEndpointState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The number of scale units.
+	// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
 	ScaleUnits pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the Streaming Endpoint.
 	Tags pulumi.StringMapInput
@@ -330,7 +330,7 @@ type streamingEndpointArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The number of scale units.
+	// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
 	ScaleUnits int `pulumi:"scaleUnits"`
 	// A mapping of tags which should be assigned to the Streaming Endpoint.
 	Tags map[string]string `pulumi:"tags"`
@@ -364,7 +364,7 @@ type StreamingEndpointArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
 	ResourceGroupName pulumi.StringInput
-	// The number of scale units.
+	// The number of scale units. To create a Standard Streaming Endpoint set 0. For Premium Streaming Endpoint valid values are between 1 and 10.
 	ScaleUnits pulumi.IntInput
 	// A mapping of tags which should be assigned to the Streaming Endpoint.
 	Tags pulumi.StringMapInput

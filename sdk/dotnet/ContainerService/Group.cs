@@ -130,6 +130,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<Outputs.GroupImageRegistryCredential>> ImageRegistryCredentials { get; private set; } = null!;
 
         /// <summary>
+        /// The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("initContainers")]
+        public Output<ImmutableArray<Outputs.GroupInitContainer>> InitContainers { get; private set; } = null!;
+
+        /// <summary>
         /// The IP address allocated to the container group.
         /// </summary>
         [Output("ipAddress")]
@@ -289,6 +295,18 @@ namespace Pulumi.Azure.ContainerService
             set => _imageRegistryCredentials = value;
         }
 
+        [Input("initContainers")]
+        private InputList<Inputs.GroupInitContainerArgs>? _initContainers;
+
+        /// <summary>
+        /// The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<Inputs.GroupInitContainerArgs> InitContainers
+        {
+            get => _initContainers ?? (_initContainers = new InputList<Inputs.GroupInitContainerArgs>());
+            set => _initContainers = value;
+        }
+
         /// <summary>
         /// Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         /// </summary>
@@ -414,6 +432,18 @@ namespace Pulumi.Azure.ContainerService
         {
             get => _imageRegistryCredentials ?? (_imageRegistryCredentials = new InputList<Inputs.GroupImageRegistryCredentialGetArgs>());
             set => _imageRegistryCredentials = value;
+        }
+
+        [Input("initContainers")]
+        private InputList<Inputs.GroupInitContainerGetArgs>? _initContainers;
+
+        /// <summary>
+        /// The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<Inputs.GroupInitContainerGetArgs> InitContainers
+        {
+            get => _initContainers ?? (_initContainers = new InputList<Inputs.GroupInitContainerGetArgs>());
+            set => _initContainers = value;
         }
 
         /// <summary>

@@ -98,6 +98,8 @@ type Group struct {
 	Identity GroupIdentityPtrOutput `pulumi:"identity"`
 	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayOutput `pulumi:"imageRegistryCredentials"`
+	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
+	InitContainers GroupInitContainerArrayOutput `pulumi:"initContainers"`
 	// The IP address allocated to the container group.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
@@ -172,6 +174,8 @@ type groupState struct {
 	Identity *GroupIdentity `pulumi:"identity"`
 	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials []GroupImageRegistryCredential `pulumi:"imageRegistryCredentials"`
+	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
+	InitContainers []GroupInitContainer `pulumi:"initContainers"`
 	// The IP address allocated to the container group.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
@@ -209,6 +213,8 @@ type GroupState struct {
 	Identity GroupIdentityPtrInput
 	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayInput
+	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
+	InitContainers GroupInitContainerArrayInput
 	// The IP address allocated to the container group.
 	IpAddress pulumi.StringPtrInput
 	// Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
@@ -248,6 +254,8 @@ type groupArgs struct {
 	Identity *GroupIdentity `pulumi:"identity"`
 	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials []GroupImageRegistryCredential `pulumi:"imageRegistryCredentials"`
+	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
+	InitContainers []GroupInitContainer `pulumi:"initContainers"`
 	// Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -282,6 +290,8 @@ type GroupArgs struct {
 	Identity GroupIdentityPtrInput
 	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayInput
+	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
+	InitContainers GroupInitContainerArrayInput
 	// Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

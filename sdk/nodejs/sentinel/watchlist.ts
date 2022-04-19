@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  * const exampleWatchlist = new azure.sentinel.Watchlist("exampleWatchlist", {
  *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     displayName: "example-wl",
+ *     itemSearchKey: "Key",
  * });
  * ```
  *
@@ -85,6 +86,10 @@ export class Watchlist extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
+     * The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+     */
+    public readonly itemSearchKey!: pulumi.Output<string>;
+    /**
      * Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
     public readonly labels!: pulumi.Output<string[] | undefined>;
@@ -113,6 +118,7 @@ export class Watchlist extends pulumi.CustomResource {
             resourceInputs["defaultDuration"] = state ? state.defaultDuration : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["itemSearchKey"] = state ? state.itemSearchKey : undefined;
             resourceInputs["labels"] = state ? state.labels : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -121,12 +127,16 @@ export class Watchlist extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
+            if ((!args || args.itemSearchKey === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'itemSearchKey'");
+            }
             if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
             resourceInputs["defaultDuration"] = args ? args.defaultDuration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["itemSearchKey"] = args ? args.itemSearchKey : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -152,6 +162,10 @@ export interface WatchlistState {
      * The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+     */
+    itemSearchKey?: pulumi.Input<string>;
     /**
      * Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
@@ -182,6 +196,10 @@ export interface WatchlistArgs {
      * The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
     displayName: pulumi.Input<string>;
+    /**
+     * The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
+     */
+    itemSearchKey: pulumi.Input<string>;
     /**
      * Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */

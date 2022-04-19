@@ -1650,7 +1650,7 @@ func (o AccountVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) AccountVi
 }
 
 type CassandraKeyspaceAutoscaleSettings struct {
-	// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
 }
 
@@ -1666,7 +1666,7 @@ type CassandraKeyspaceAutoscaleSettingsInput interface {
 }
 
 type CassandraKeyspaceAutoscaleSettingsArgs struct {
-	// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
 }
 
@@ -1747,7 +1747,7 @@ func (o CassandraKeyspaceAutoscaleSettingsOutput) ToCassandraKeyspaceAutoscaleSe
 	}).(CassandraKeyspaceAutoscaleSettingsPtrOutput)
 }
 
-// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o CassandraKeyspaceAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CassandraKeyspaceAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
 }
@@ -1776,7 +1776,7 @@ func (o CassandraKeyspaceAutoscaleSettingsPtrOutput) Elem() CassandraKeyspaceAut
 	}).(CassandraKeyspaceAutoscaleSettingsOutput)
 }
 
-// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o CassandraKeyspaceAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraKeyspaceAutoscaleSettings) *int {
 		if v == nil {
@@ -1787,7 +1787,7 @@ func (o CassandraKeyspaceAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntP
 }
 
 type CassandraTableAutoscaleSettings struct {
-	// The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
 }
 
@@ -1803,7 +1803,7 @@ type CassandraTableAutoscaleSettingsInput interface {
 }
 
 type CassandraTableAutoscaleSettingsArgs struct {
-	// The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
 }
 
@@ -1884,7 +1884,7 @@ func (o CassandraTableAutoscaleSettingsOutput) ToCassandraTableAutoscaleSettings
 	}).(CassandraTableAutoscaleSettingsPtrOutput)
 }
 
-// The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o CassandraTableAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CassandraTableAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
 }
@@ -1913,7 +1913,7 @@ func (o CassandraTableAutoscaleSettingsPtrOutput) Elem() CassandraTableAutoscale
 	}).(CassandraTableAutoscaleSettingsOutput)
 }
 
-// The maximum throughput of the Cassandra Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o CassandraTableAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraTableAutoscaleSettings) *int {
 		if v == nil {
@@ -2408,7 +2408,7 @@ func (o CassandraTableSchemaPartitionKeyArrayOutput) Index(i pulumi.IntInput) Ca
 }
 
 type GremlinDatabaseAutoscaleSettings struct {
-	// The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
 }
 
@@ -2424,7 +2424,7 @@ type GremlinDatabaseAutoscaleSettingsInput interface {
 }
 
 type GremlinDatabaseAutoscaleSettingsArgs struct {
-	// The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
 }
 
@@ -2505,7 +2505,7 @@ func (o GremlinDatabaseAutoscaleSettingsOutput) ToGremlinDatabaseAutoscaleSettin
 	}).(GremlinDatabaseAutoscaleSettingsPtrOutput)
 }
 
-// The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o GremlinDatabaseAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GremlinDatabaseAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
 }
@@ -2534,7 +2534,7 @@ func (o GremlinDatabaseAutoscaleSettingsPtrOutput) Elem() GremlinDatabaseAutosca
 	}).(GremlinDatabaseAutoscaleSettingsOutput)
 }
 
-// The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o GremlinDatabaseAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GremlinDatabaseAutoscaleSettings) *int {
 		if v == nil {
@@ -2545,7 +2545,7 @@ func (o GremlinDatabaseAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtr
 }
 
 type GremlinGraphAutoscaleSettings struct {
-	// The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
 }
 
@@ -2561,7 +2561,7 @@ type GremlinGraphAutoscaleSettingsInput interface {
 }
 
 type GremlinGraphAutoscaleSettingsArgs struct {
-	// The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
 }
 
@@ -2642,7 +2642,7 @@ func (o GremlinGraphAutoscaleSettingsOutput) ToGremlinGraphAutoscaleSettingsPtrO
 	}).(GremlinGraphAutoscaleSettingsPtrOutput)
 }
 
-// The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o GremlinGraphAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GremlinGraphAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
 }
@@ -2671,7 +2671,7 @@ func (o GremlinGraphAutoscaleSettingsPtrOutput) Elem() GremlinGraphAutoscaleSett
 	}).(GremlinGraphAutoscaleSettingsOutput)
 }
 
-// The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o GremlinGraphAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GremlinGraphAutoscaleSettings) *int {
 		if v == nil {
@@ -3494,7 +3494,7 @@ func (o GremlinGraphUniqueKeyArrayOutput) Index(i pulumi.IntInput) GremlinGraphU
 }
 
 type MongoCollectionAutoscaleSettings struct {
-	// The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
 }
 
@@ -3510,7 +3510,7 @@ type MongoCollectionAutoscaleSettingsInput interface {
 }
 
 type MongoCollectionAutoscaleSettingsArgs struct {
-	// The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
 }
 
@@ -3591,7 +3591,7 @@ func (o MongoCollectionAutoscaleSettingsOutput) ToMongoCollectionAutoscaleSettin
 	}).(MongoCollectionAutoscaleSettingsPtrOutput)
 }
 
-// The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o MongoCollectionAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MongoCollectionAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
 }
@@ -3620,7 +3620,7 @@ func (o MongoCollectionAutoscaleSettingsPtrOutput) Elem() MongoCollectionAutosca
 	}).(MongoCollectionAutoscaleSettingsOutput)
 }
 
-// The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o MongoCollectionAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MongoCollectionAutoscaleSettings) *int {
 		if v == nil {
@@ -3843,7 +3843,7 @@ func (o MongoCollectionSystemIndexArrayOutput) Index(i pulumi.IntInput) MongoCol
 }
 
 type MongoDatabaseAutoscaleSettings struct {
-	// The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
 }
 
@@ -3859,7 +3859,7 @@ type MongoDatabaseAutoscaleSettingsInput interface {
 }
 
 type MongoDatabaseAutoscaleSettingsArgs struct {
-	// The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
 }
 
@@ -3940,7 +3940,7 @@ func (o MongoDatabaseAutoscaleSettingsOutput) ToMongoDatabaseAutoscaleSettingsPt
 	}).(MongoDatabaseAutoscaleSettingsPtrOutput)
 }
 
-// The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o MongoDatabaseAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MongoDatabaseAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
 }
@@ -3969,7 +3969,7 @@ func (o MongoDatabaseAutoscaleSettingsPtrOutput) Elem() MongoDatabaseAutoscaleSe
 	}).(MongoDatabaseAutoscaleSettingsOutput)
 }
 
-// The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o MongoDatabaseAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MongoDatabaseAutoscaleSettings) *int {
 		if v == nil {
@@ -3980,7 +3980,7 @@ func (o MongoDatabaseAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOu
 }
 
 type SqlContainerAutoscaleSettings struct {
-	// The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
 }
 
@@ -3996,7 +3996,7 @@ type SqlContainerAutoscaleSettingsInput interface {
 }
 
 type SqlContainerAutoscaleSettingsArgs struct {
-	// The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
 }
 
@@ -4077,7 +4077,7 @@ func (o SqlContainerAutoscaleSettingsOutput) ToSqlContainerAutoscaleSettingsPtrO
 	}).(SqlContainerAutoscaleSettingsPtrOutput)
 }
 
-// The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o SqlContainerAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlContainerAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
 }
@@ -4106,7 +4106,7 @@ func (o SqlContainerAutoscaleSettingsPtrOutput) Elem() SqlContainerAutoscaleSett
 	}).(SqlContainerAutoscaleSettingsOutput)
 }
 
-// The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o SqlContainerAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlContainerAutoscaleSettings) *int {
 		if v == nil {
@@ -5109,7 +5109,7 @@ func (o SqlContainerUniqueKeyArrayOutput) Index(i pulumi.IntInput) SqlContainerU
 }
 
 type SqlDatabaseAutoscaleSettings struct {
-	// The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
 }
 
@@ -5125,7 +5125,7 @@ type SqlDatabaseAutoscaleSettingsInput interface {
 }
 
 type SqlDatabaseAutoscaleSettingsArgs struct {
-	// The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
 }
 
@@ -5206,7 +5206,7 @@ func (o SqlDatabaseAutoscaleSettingsOutput) ToSqlDatabaseAutoscaleSettingsPtrOut
 	}).(SqlDatabaseAutoscaleSettingsPtrOutput)
 }
 
-// The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o SqlDatabaseAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlDatabaseAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
 }
@@ -5235,7 +5235,7 @@ func (o SqlDatabaseAutoscaleSettingsPtrOutput) Elem() SqlDatabaseAutoscaleSettin
 	}).(SqlDatabaseAutoscaleSettingsOutput)
 }
 
-// The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o SqlDatabaseAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlDatabaseAutoscaleSettings) *int {
 		if v == nil {
@@ -5343,7 +5343,7 @@ func (o SqlRoleDefinitionPermissionArrayOutput) Index(i pulumi.IntInput) SqlRole
 }
 
 type TableAutoscaleSettings struct {
-	// The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
 }
 
@@ -5359,7 +5359,7 @@ type TableAutoscaleSettingsInput interface {
 }
 
 type TableAutoscaleSettingsArgs struct {
-	// The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	// The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
 }
 
@@ -5440,7 +5440,7 @@ func (o TableAutoscaleSettingsOutput) ToTableAutoscaleSettingsPtrOutputWithConte
 	}).(TableAutoscaleSettingsPtrOutput)
 }
 
-// The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o TableAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
 }
@@ -5469,7 +5469,7 @@ func (o TableAutoscaleSettingsPtrOutput) Elem() TableAutoscaleSettingsOutput {
 	}).(TableAutoscaleSettingsOutput)
 }
 
-// The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+// The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 func (o TableAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableAutoscaleSettings) *int {
 		if v == nil {

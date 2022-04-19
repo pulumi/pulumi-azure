@@ -47,6 +47,9 @@ export class ManagedInstanceActiveDirectoryAdministrator extends pulumi.CustomRe
      * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
      */
     public readonly azureadAuthenticationOnly!: pulumi.Output<boolean | undefined>;
+    /**
+     * The login name of the principal to set as the Managed Instance Administrator.
+     */
     public readonly loginUsername!: pulumi.Output<string>;
     /**
      * The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
@@ -112,6 +115,9 @@ export interface ManagedInstanceActiveDirectoryAdministratorState {
      * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
      */
     azureadAuthenticationOnly?: pulumi.Input<boolean>;
+    /**
+     * The login name of the principal to set as the Managed Instance Administrator.
+     */
     loginUsername?: pulumi.Input<string>;
     /**
      * The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
@@ -135,6 +141,9 @@ export interface ManagedInstanceActiveDirectoryAdministratorArgs {
      * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
      */
     azureadAuthenticationOnly?: pulumi.Input<boolean>;
+    /**
+     * The login name of the principal to set as the Managed Instance Administrator.
+     */
     loginUsername: pulumi.Input<string>;
     /**
      * The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.

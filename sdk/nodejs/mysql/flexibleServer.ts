@@ -98,7 +98,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly administratorPassword!: pulumi.Output<string | undefined>;
     /**
-     * The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+     * The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
      */
     public readonly backupRetentionDays!: pulumi.Output<number | undefined>;
     /**
@@ -265,7 +265,7 @@ export interface FlexibleServerState {
      */
     administratorPassword?: pulumi.Input<string>;
     /**
-     * The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+     * The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
      */
     backupRetentionDays?: pulumi.Input<number>;
     /**
@@ -363,7 +363,7 @@ export interface FlexibleServerArgs {
      */
     administratorPassword?: pulumi.Input<string>;
     /**
-     * The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+     * The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
      */
     backupRetentionDays?: pulumi.Input<number>;
     /**

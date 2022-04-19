@@ -14,6 +14,7 @@ export * from "./databasePrincipalAssignment";
 export * from "./eventGridDataConnection";
 export * from "./eventhubDataConnection";
 export * from "./getCluster";
+export * from "./getDatabase";
 export * from "./iotHubDataConnection";
 export * from "./script";
 

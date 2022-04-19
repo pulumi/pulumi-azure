@@ -104,6 +104,9 @@ export class Cluster extends pulumi.CustomResource {
      * An `optimizedAutoScale` block as defined below.
      */
     public readonly optimizedAutoScale!: pulumi.Output<outputs.kusto.ClusterOptimizedAutoScale | undefined>;
+    /**
+     * Is the public network access enabled? Defaults to `true`.
+     */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies if the purge operations are enabled.
@@ -253,6 +256,9 @@ export interface ClusterState {
      * An `optimizedAutoScale` block as defined below.
      */
     optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
+    /**
+     * Is the public network access enabled? Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies if the purge operations are enabled.
@@ -332,6 +338,9 @@ export interface ClusterArgs {
      * An `optimizedAutoScale` block as defined below.
      */
     optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
+    /**
+     * Is the public network access enabled? Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies if the purge operations are enabled.

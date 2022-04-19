@@ -40,7 +40,7 @@ class FlexibleServerArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_login: The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
-        :param pulumi.Input[int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+        :param pulumi.Input[int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
@@ -138,7 +138,7 @@ class FlexibleServerArgs:
     @pulumi.getter(name="backupRetentionDays")
     def backup_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+        The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         """
         return pulumi.get(self, "backup_retention_days")
 
@@ -369,7 +369,7 @@ class _FlexibleServerState:
         Input properties used for looking up and filtering FlexibleServer resources.
         :param pulumi.Input[str] administrator_login: The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
-        :param pulumi.Input[int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+        :param pulumi.Input[int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the MySQL Flexible Server.
@@ -466,7 +466,7 @@ class _FlexibleServerState:
     @pulumi.getter(name="backupRetentionDays")
     def backup_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+        The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         """
         return pulumi.get(self, "backup_retention_days")
 
@@ -796,7 +796,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
-        :param pulumi.Input[int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+        :param pulumi.Input[int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
@@ -986,7 +986,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
-        :param pulumi.Input[int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+        :param pulumi.Input[int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the MySQL Flexible Server.
@@ -1057,7 +1057,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter(name="backupRetentionDays")
     def backup_retention_days(self) -> pulumi.Output[Optional[int]]:
         """
-        The backup retention days for the MySQL Flexible Server. Possible values are between `7` and `35` days. Defaults to `7`.
+        The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         """
         return pulumi.get(self, "backup_retention_days")
 

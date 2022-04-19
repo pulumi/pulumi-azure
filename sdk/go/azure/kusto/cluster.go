@@ -80,8 +80,9 @@ type Cluster struct {
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
-	OptimizedAutoScale         ClusterOptimizedAutoScalePtrOutput `pulumi:"optimizedAutoScale"`
-	PublicNetworkAccessEnabled pulumi.BoolPtrOutput               `pulumi:"publicNetworkAccessEnabled"`
+	OptimizedAutoScale ClusterOptimizedAutoScalePtrOutput `pulumi:"optimizedAutoScale"`
+	// Is the public network access enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies if the purge operations are enabled.
 	PurgeEnabled pulumi.BoolPtrOutput `pulumi:"purgeEnabled"`
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -156,8 +157,9 @@ type clusterState struct {
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
-	OptimizedAutoScale         *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
-	PublicNetworkAccessEnabled *bool                      `pulumi:"publicNetworkAccessEnabled"`
+	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
+	// Is the public network access enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies if the purge operations are enabled.
 	PurgeEnabled *bool `pulumi:"purgeEnabled"`
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -198,7 +200,8 @@ type ClusterState struct {
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An `optimizedAutoScale` block as defined below.
-	OptimizedAutoScale         ClusterOptimizedAutoScalePtrInput
+	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
+	// Is the public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies if the purge operations are enabled.
 	PurgeEnabled pulumi.BoolPtrInput
@@ -242,8 +245,9 @@ type clusterArgs struct {
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
-	OptimizedAutoScale         *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
-	PublicNetworkAccessEnabled *bool                      `pulumi:"publicNetworkAccessEnabled"`
+	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
+	// Is the public network access enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies if the purge operations are enabled.
 	PurgeEnabled *bool `pulumi:"purgeEnabled"`
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -281,7 +285,8 @@ type ClusterArgs struct {
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An `optimizedAutoScale` block as defined below.
-	OptimizedAutoScale         ClusterOptimizedAutoScalePtrInput
+	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
+	// Is the public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies if the purge operations are enabled.
 	PurgeEnabled pulumi.BoolPtrInput

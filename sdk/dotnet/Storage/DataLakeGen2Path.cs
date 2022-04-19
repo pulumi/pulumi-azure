@@ -77,13 +77,13 @@ namespace Pulumi.Azure.Storage
         public Output<string> FilesystemName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
         /// </summary>
         [Output("group")]
         public Output<string> Group { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory User to make the owning user.
+        /// Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
         /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
@@ -171,13 +171,13 @@ namespace Pulumi.Azure.Storage
         public Input<string> FilesystemName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
 
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory User to make the owning user.
+        /// Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
@@ -226,13 +226,13 @@ namespace Pulumi.Azure.Storage
         public Input<string>? FilesystemName { get; set; }
 
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+        /// Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
 
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory User to make the owning user.
+        /// Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }

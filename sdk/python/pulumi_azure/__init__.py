@@ -1822,6 +1822,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerservice/connectedRegistry",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/connectedRegistry:ConnectedRegistry": "ConnectedRegistry"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerservice/group",
   "fqn": "pulumi_azure.containerservice",
   "classes": {
@@ -1942,6 +1950,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "core/resourceGroupPolicyExemption",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption": "ResourceGroupPolicyExemption"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "core/resourceGroupPolicyRemediation",
   "fqn": "pulumi_azure.core",
   "classes": {
@@ -1962,6 +1978,14 @@ _utilities.register(
   "fqn": "pulumi_azure.core",
   "classes": {
    "azure:core/resourcePolicyAssignment:ResourcePolicyAssignment": "ResourcePolicyAssignment"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "core/resourcePolicyExemption",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/resourcePolicyExemption:ResourcePolicyExemption": "ResourcePolicyExemption"
   }
  },
  {
@@ -2002,6 +2026,14 @@ _utilities.register(
   "fqn": "pulumi_azure.core",
   "classes": {
    "azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment": "SubscriptionPolicyAssignment"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "core/subscriptionPolicyExemption",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption": "SubscriptionPolicyExemption"
   }
  },
  {
@@ -4042,6 +4074,14 @@ _utilities.register(
   "fqn": "pulumi_azure.management",
   "classes": {
    "azure:management/groupPolicyAssignment:GroupPolicyAssignment": "GroupPolicyAssignment"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "management/groupPolicyExemption",
+  "fqn": "pulumi_azure.management",
+  "classes": {
+   "azure:management/groupPolicyExemption:GroupPolicyExemption": "GroupPolicyExemption"
   }
  },
  {
@@ -6274,6 +6314,14 @@ _utilities.register(
   "fqn": "pulumi_azure.streamanalytics",
   "classes": {
    "azure:streamanalytics/job:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "streamanalytics/jobSchedule",
+  "fqn": "pulumi_azure.streamanalytics",
+  "classes": {
+   "azure:streamanalytics/jobSchedule:JobSchedule": "JobSchedule"
   }
  },
  {

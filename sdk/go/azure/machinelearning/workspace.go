@@ -434,8 +434,12 @@ type Workspace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity pulumi.StringPtrOutput `pulumi:"primaryUserAssignedIdentity"`
+	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolOutput `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
 	// Enable public access when this Machine Learning Workspace is behind VNet.
-	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
+	//
+	// Deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
+	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
@@ -515,7 +519,11 @@ type workspaceState struct {
 	Name *string `pulumi:"name"`
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
+	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	PublicAccessBehindVirtualNetworkEnabled *bool `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
 	// Enable public access when this Machine Learning Workspace is behind VNet.
+	//
+	// Deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -553,7 +561,11 @@ type WorkspaceState struct {
 	Name pulumi.StringPtrInput
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity pulumi.StringPtrInput
+	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Enable public access when this Machine Learning Workspace is behind VNet.
+	//
+	// Deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -593,7 +605,11 @@ type workspaceArgs struct {
 	Name *string `pulumi:"name"`
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
+	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	PublicAccessBehindVirtualNetworkEnabled *bool `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
 	// Enable public access when this Machine Learning Workspace is behind VNet.
+	//
+	// Deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -630,7 +646,11 @@ type WorkspaceArgs struct {
 	Name pulumi.StringPtrInput
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity pulumi.StringPtrInput
+	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Enable public access when this Machine Learning Workspace is behind VNet.
+	//
+	// Deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

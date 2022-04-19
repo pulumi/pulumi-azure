@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Network.Inputs
             set => _clientRootCertificates = value;
         }
 
-        [Input("serverRootCertificates", required: true)]
+        [Input("serverRootCertificates")]
         private InputList<Inputs.VpnServerConfigurationRadiusServerRootCertificateGetArgs>? _serverRootCertificates;
 
         /// <summary>
