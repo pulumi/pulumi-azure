@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     sku: {
  *         name: "S1",
- *         capacity: "1",
+ *         capacity: 1,
  *     },
  * });
  * const exampleSecuritySolution = new azure.iot.SecuritySolution("exampleSecuritySolution", {

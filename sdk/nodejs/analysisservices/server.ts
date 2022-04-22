@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *         rangeEnd: "210.117.252.255",
  *     }],
  *     tags: {
- *         abc: 123,
+ *         abc: "123",
  *     },
  * });
  * ```

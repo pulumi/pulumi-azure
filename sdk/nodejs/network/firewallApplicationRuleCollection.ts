@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *         sourceAddresses: ["10.0.0.0/16"],
  *         targetFqdns: ["*.google.com"],
  *         protocols: [{
- *             port: "443",
+ *             port: 443,
  *             type: "Https",
  *         }],
  *     }],

@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *                 "1000-2000",
  *             ],
  *             translatedAddress: "192.168.0.1",
- *             translatedPort: "8080",
+ *             translatedPort: 8080,
  *         }],
  *     }],
  * });

@@ -27,8 +27,8 @@ import * as utilities from "../utilities";
  *         {
  *             name: "hello-world",
  *             image: "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
- *             cpu: "0.5",
- *             memory: "1.5",
+ *             cpu: 0.5,
+ *             memory: 1.5,
  *             ports: [{
  *                 port: 443,
  *                 protocol: "TCP",
@@ -37,8 +37,8 @@ import * as utilities from "../utilities";
  *         {
  *             name: "sidecar",
  *             image: "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
- *             cpu: "0.5",
- *             memory: "1.5",
+ *             cpu: 0.5,
+ *             memory: 1.5,
  *         },
  *     ],
  *     tags: {

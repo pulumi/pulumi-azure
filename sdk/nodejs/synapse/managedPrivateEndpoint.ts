@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     accountKind: "StorageV2",
- *     isHnsEnabled: "true",
+ *     isHnsEnabled: true,
  * });
  * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
  * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {

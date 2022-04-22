@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a boolean variable in Azure Automation
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: [{
- *         name: "Basic",
- *     }],
- * });
- * const exampleBoolVariable = new azure.automation.BoolVariable("exampleBoolVariable", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     automationAccountName: exampleAccount.name,
- *     value: false,
- * });
- * ```
- *
  * ## Import
  *
  * Automation Bool Variable can be imported using the `resource id`, e.g.

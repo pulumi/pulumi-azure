@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     accountKind: "StorageV2",
- *     isHnsEnabled: "true",
+ *     isHnsEnabled: true,
  * });
  * const exampleCluster = new azure.streamanalytics.Cluster("exampleCluster", {
  *     resourceGroupName: exampleResourceGroup.name,

@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *     publisher: "Microsoft.GuestConfiguration",
  *     type: "ConfigurationforWindows",
  *     typeHandlerVersion: "1.0",
- *     autoUpgradeMinorVersion: "true",
+ *     autoUpgradeMinorVersion: true,
  * });
  * const exampleVirtualMachineConfigurationAssignment = new azure.policy.VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment", {
  *     location: exampleWindowsVirtualMachine.location,

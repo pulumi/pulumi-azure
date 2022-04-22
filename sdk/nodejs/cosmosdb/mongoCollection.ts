@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
  *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
  *     databaseName: exampleMongoDatabase.name,
- *     defaultTtlSeconds: "777",
+ *     defaultTtlSeconds: 777,
  *     shardKey: "uniqueKey",
  *     throughput: 400,
  *     indices: [{

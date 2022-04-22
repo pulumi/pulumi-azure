@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  * const exampleDataDiskAttachment = new azure.compute.DataDiskAttachment("exampleDataDiskAttachment", {
  *     managedDiskId: exampleManagedDisk.id,
  *     virtualMachineId: exampleVirtualMachine.id,
- *     lun: "10",
+ *     lun: 10,
  *     caching: "ReadWrite",
  * });
  * ```

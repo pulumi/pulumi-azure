@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
- *     diskSizeGb: "10",
+ *     diskSizeGb: 10,
  * });
  * const exampleSnapshot = new azure.compute.Snapshot("exampleSnapshot", {
  *     location: exampleResourceGroup.location,

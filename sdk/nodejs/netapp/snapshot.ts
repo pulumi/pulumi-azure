@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     serviceLevel: "Premium",
- *     sizeInTb: "4",
+ *     sizeInTb: 4,
  * });
  * const exampleVolume = new azure.netapp.Volume("exampleVolume", {
  *     location: exampleResourceGroup.location,
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *     volumePath: "my-unique-file-path",
  *     serviceLevel: "Premium",
  *     subnetId: azurerm_subnet.test.id,
- *     storageQuotaInGb: "100",
+ *     storageQuotaInGb: 100,
  * });
  * const exampleSnapshot = new azure.netapp.Snapshot("exampleSnapshot", {
  *     accountName: exampleAccount.name,

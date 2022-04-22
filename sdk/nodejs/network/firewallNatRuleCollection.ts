@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *         sourceAddresses: ["10.0.0.0/16"],
  *         destinationPorts: ["53"],
  *         destinationAddresses: [examplePublicIp.ipAddress],
- *         translatedPort: 53,
+ *         translatedPort: "53",
  *         translatedAddress: "8.8.8.8",
  *         protocols: [
  *             "TCP",
