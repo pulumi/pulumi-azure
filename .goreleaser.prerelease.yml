@@ -1,6 +1,6 @@
 archives:
 - id: archive
-  name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
+  name_template: "{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}"
 before:
   hooks:
   - make tfgen
@@ -27,11 +27,12 @@ builds:
   ignore: []
   ldflags:
   - -X github.com/pulumi/pulumi-azure/provider/v5/pkg/version.Version={{.Tag}}
-  - -X github.com/hashicorp/terraform-provider-azurerm/version.ProviderVersion={{.Tag}}
+  - -X
+    github.com/hashicorp/terraform-provider-azurerm/version.ProviderVersion={{.Tag}}
   main: ./cmd/pulumi-resource-azure/
 changelog:
   skip: true
 release:
   disable: true
 snapshot:
-  name_template: '{{ .Tag }}-SNAPSHOT'
+  name_template: "{{ .Tag }}-SNAPSHOT"
