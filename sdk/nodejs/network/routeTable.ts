@@ -78,7 +78,7 @@ export class RouteTable extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the route.
+     * The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -149,7 +149,7 @@ export interface RouteTableState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the route.
+     * The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
      */
     name?: pulumi.Input<string>;
     /**
@@ -183,7 +183,7 @@ export interface RouteTableArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the route.
+     * The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
      */
     name?: pulumi.Input<string>;
     /**

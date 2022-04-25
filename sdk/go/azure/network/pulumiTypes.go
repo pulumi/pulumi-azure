@@ -14995,9 +14995,9 @@ func (o RouteFilterRulePtrOutput) RuleType() pulumi.StringPtrOutput {
 }
 
 type RouteTableRoute struct {
-	// The destination CIDR to which the route applies, such as 10.1.0.0/16. Tags such as `VirtualNetwork`, `AzureLoadBalancer` or `Internet` can also be used.
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix string `pulumi:"addressPrefix"`
-	// The name of the route.
+	// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	Name string `pulumi:"name"`
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress *string `pulumi:"nextHopInIpAddress"`
@@ -15017,9 +15017,9 @@ type RouteTableRouteInput interface {
 }
 
 type RouteTableRouteArgs struct {
-	// The destination CIDR to which the route applies, such as 10.1.0.0/16. Tags such as `VirtualNetwork`, `AzureLoadBalancer` or `Internet` can also be used.
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
-	// The name of the route.
+	// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress pulumi.StringPtrInput `pulumi:"nextHopInIpAddress"`
@@ -15078,12 +15078,12 @@ func (o RouteTableRouteOutput) ToRouteTableRouteOutputWithContext(ctx context.Co
 	return o
 }
 
-// The destination CIDR to which the route applies, such as 10.1.0.0/16. Tags such as `VirtualNetwork`, `AzureLoadBalancer` or `Internet` can also be used.
+// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 func (o RouteTableRouteOutput) AddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteTableRoute) string { return v.AddressPrefix }).(pulumi.StringOutput)
 }
 
-// The name of the route.
+// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 func (o RouteTableRouteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteTableRoute) string { return v.Name }).(pulumi.StringOutput)
 }

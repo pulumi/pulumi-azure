@@ -782,6 +782,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appplatform/springCloudContainerDeployment",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment": "SpringCloudContainerDeployment"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appplatform/springCloudCustomDomain",
   "fqn": "pulumi_azure.appplatform",
   "classes": {

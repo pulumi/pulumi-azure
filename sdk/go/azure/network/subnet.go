@@ -110,6 +110,9 @@ func NewSubnet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AddressPrefixes == nil {
+		return nil, errors.New("invalid value for required argument 'AddressPrefixes'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}

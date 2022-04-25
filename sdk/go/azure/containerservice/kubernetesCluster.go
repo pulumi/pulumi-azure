@@ -127,6 +127,8 @@ type KubernetesCluster struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `maintenanceWindow` block as defined below.
 	MaintenanceWindow KubernetesClusterMaintenanceWindowPtrOutput `pulumi:"maintenanceWindow"`
+	// A `microsoftDefender` block as defined below.
+	MicrosoftDefender KubernetesClusterMicrosoftDefenderPtrOutput `pulumi:"microsoftDefender"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkProfile` block as defined below.
@@ -256,6 +258,8 @@ type kubernetesClusterState struct {
 	Location *string `pulumi:"location"`
 	// A `maintenanceWindow` block as defined below.
 	MaintenanceWindow *KubernetesClusterMaintenanceWindow `pulumi:"maintenanceWindow"`
+	// A `microsoftDefender` block as defined below.
+	MicrosoftDefender *KubernetesClusterMicrosoftDefender `pulumi:"microsoftDefender"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
@@ -351,6 +355,8 @@ type KubernetesClusterState struct {
 	Location pulumi.StringPtrInput
 	// A `maintenanceWindow` block as defined below.
 	MaintenanceWindow KubernetesClusterMaintenanceWindowPtrInput
+	// A `microsoftDefender` block as defined below.
+	MicrosoftDefender KubernetesClusterMicrosoftDefenderPtrInput
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
@@ -438,6 +444,8 @@ type kubernetesClusterArgs struct {
 	Location *string `pulumi:"location"`
 	// A `maintenanceWindow` block as defined below.
 	MaintenanceWindow *KubernetesClusterMaintenanceWindow `pulumi:"maintenanceWindow"`
+	// A `microsoftDefender` block as defined below.
+	MicrosoftDefender *KubernetesClusterMicrosoftDefender `pulumi:"microsoftDefender"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
@@ -516,6 +524,8 @@ type KubernetesClusterArgs struct {
 	Location pulumi.StringPtrInput
 	// A `maintenanceWindow` block as defined below.
 	MaintenanceWindow KubernetesClusterMaintenanceWindowPtrInput
+	// A `microsoftDefender` block as defined below.
+	MicrosoftDefender KubernetesClusterMicrosoftDefenderPtrInput
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.

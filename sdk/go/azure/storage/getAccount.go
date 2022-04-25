@@ -86,6 +86,8 @@ type LookupAccountResult struct {
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// The Custom Domain Name used for the Storage Account.
 	Name string `pulumi:"name"`
+	// Is NFSv3 protocol enabled?
+	Nfsv3Enabled bool `pulumi:"nfsv3Enabled"`
 	// The primary access key for the Storage Account.
 	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
 	// The connection string associated with the primary blob location
@@ -263,6 +265,11 @@ func (o LookupAccountResultOutput) MinTlsVersion() pulumi.StringPtrOutput {
 // The Custom Domain Name used for the Storage Account.
 func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Is NFSv3 protocol enabled?
+func (o LookupAccountResultOutput) Nfsv3Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.Nfsv3Enabled }).(pulumi.BoolOutput)
 }
 
 // The primary access key for the Storage Account.

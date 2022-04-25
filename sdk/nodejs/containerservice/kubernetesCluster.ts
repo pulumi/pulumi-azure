@@ -183,6 +183,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly maintenanceWindow!: pulumi.Output<outputs.containerservice.KubernetesClusterMaintenanceWindow | undefined>;
     /**
+     * A `microsoftDefender` block as defined below.
+     */
+    public readonly microsoftDefender!: pulumi.Output<outputs.containerservice.KubernetesClusterMicrosoftDefender | undefined>;
+    /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -297,6 +301,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["localAccountDisabled"] = state ? state.localAccountDisabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
+            resourceInputs["microsoftDefender"] = state ? state.microsoftDefender : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
             resourceInputs["nodeResourceGroup"] = state ? state.nodeResourceGroup : undefined;
@@ -346,6 +351,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["localAccountDisabled"] = args ? args.localAccountDisabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            resourceInputs["microsoftDefender"] = args ? args.microsoftDefender : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
@@ -490,6 +496,10 @@ export interface KubernetesClusterState {
      * A `maintenanceWindow` block as defined below.
      */
     maintenanceWindow?: pulumi.Input<inputs.containerservice.KubernetesClusterMaintenanceWindow>;
+    /**
+     * A `microsoftDefender` block as defined below.
+     */
+    microsoftDefender?: pulumi.Input<inputs.containerservice.KubernetesClusterMicrosoftDefender>;
     /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      */
@@ -654,6 +664,10 @@ export interface KubernetesClusterArgs {
      * A `maintenanceWindow` block as defined below.
      */
     maintenanceWindow?: pulumi.Input<inputs.containerservice.KubernetesClusterMaintenanceWindow>;
+    /**
+     * A `microsoftDefender` block as defined below.
+     */
+    microsoftDefender?: pulumi.Input<inputs.containerservice.KubernetesClusterMicrosoftDefender>;
     /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      */

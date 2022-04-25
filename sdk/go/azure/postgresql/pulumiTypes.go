@@ -167,9 +167,9 @@ func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulum
 }
 
 type FlexibleServerMaintenanceWindow struct {
-	// The day of week for maintenance window. Defaults to `0`.
+	// The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
 	DayOfWeek *int `pulumi:"dayOfWeek"`
-	// The day of week for maintenance window. Defaults to `0`.
+	// The start hour for maintenance window. Defaults to `0`.
 	StartHour *int `pulumi:"startHour"`
 	// The start minute for maintenance window. Defaults to `0`.
 	StartMinute *int `pulumi:"startMinute"`
@@ -187,9 +187,9 @@ type FlexibleServerMaintenanceWindowInput interface {
 }
 
 type FlexibleServerMaintenanceWindowArgs struct {
-	// The day of week for maintenance window. Defaults to `0`.
+	// The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
 	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
-	// The day of week for maintenance window. Defaults to `0`.
+	// The start hour for maintenance window. Defaults to `0`.
 	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
 	// The start minute for maintenance window. Defaults to `0`.
 	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
@@ -272,12 +272,12 @@ func (o FlexibleServerMaintenanceWindowOutput) ToFlexibleServerMaintenanceWindow
 	}).(FlexibleServerMaintenanceWindowPtrOutput)
 }
 
-// The day of week for maintenance window. Defaults to `0`.
+// The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
 func (o FlexibleServerMaintenanceWindowOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
 }
 
-// The day of week for maintenance window. Defaults to `0`.
+// The start hour for maintenance window. Defaults to `0`.
 func (o FlexibleServerMaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.StartHour }).(pulumi.IntPtrOutput)
 }
@@ -311,7 +311,7 @@ func (o FlexibleServerMaintenanceWindowPtrOutput) Elem() FlexibleServerMaintenan
 	}).(FlexibleServerMaintenanceWindowOutput)
 }
 
-// The day of week for maintenance window. Defaults to `0`.
+// The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
 func (o FlexibleServerMaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) *int {
 		if v == nil {
@@ -321,7 +321,7 @@ func (o FlexibleServerMaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The day of week for maintenance window. Defaults to `0`.
+// The start hour for maintenance window. Defaults to `0`.
 func (o FlexibleServerMaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) *int {
 		if v == nil {

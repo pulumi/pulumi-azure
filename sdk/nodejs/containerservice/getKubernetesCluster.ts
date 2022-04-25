@@ -139,6 +139,10 @@ export interface GetKubernetesClusterResult {
      */
     readonly location: string;
     /**
+     * A `microsoftDefender` block as defined below.
+     */
+    readonly microsoftDefenders: outputs.containerservice.GetKubernetesClusterMicrosoftDefender[];
+    /**
      * The name assigned to this pool of agents.
      */
     readonly name: string;

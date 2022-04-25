@@ -85,6 +85,8 @@ type OutputTable struct {
 
 	// The number of records for a batch operation. Must be between `1` and `100`.
 	BatchSize pulumi.IntOutput `pulumi:"batchSize"`
+	// A list of the column names to be removed from output event entities.
+	ColumnsToRemoves pulumi.StringArrayOutput `pulumi:"columnsToRemoves"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the output column that contains the partition key.
@@ -158,6 +160,8 @@ func GetOutputTable(ctx *pulumi.Context,
 type outputTableState struct {
 	// The number of records for a batch operation. Must be between `1` and `100`.
 	BatchSize *int `pulumi:"batchSize"`
+	// A list of the column names to be removed from output event entities.
+	ColumnsToRemoves []string `pulumi:"columnsToRemoves"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the output column that contains the partition key.
@@ -179,6 +183,8 @@ type outputTableState struct {
 type OutputTableState struct {
 	// The number of records for a batch operation. Must be between `1` and `100`.
 	BatchSize pulumi.IntPtrInput
+	// A list of the column names to be removed from output event entities.
+	ColumnsToRemoves pulumi.StringArrayInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the output column that contains the partition key.
@@ -204,6 +210,8 @@ func (OutputTableState) ElementType() reflect.Type {
 type outputTableArgs struct {
 	// The number of records for a batch operation. Must be between `1` and `100`.
 	BatchSize int `pulumi:"batchSize"`
+	// A list of the column names to be removed from output event entities.
+	ColumnsToRemoves []string `pulumi:"columnsToRemoves"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the output column that contains the partition key.
@@ -226,6 +234,8 @@ type outputTableArgs struct {
 type OutputTableArgs struct {
 	// The number of records for a batch operation. Must be between `1` and `100`.
 	BatchSize pulumi.IntInput
+	// A list of the column names to be removed from output event entities.
+	ColumnsToRemoves pulumi.StringArrayInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the output column that contains the partition key.

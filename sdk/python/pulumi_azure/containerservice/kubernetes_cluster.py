@@ -38,6 +38,7 @@ class KubernetesClusterArgs:
                  local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']] = None,
+                 microsoft_defender: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -77,6 +78,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] local_account_disabled: - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input['KubernetesClusterMicrosoftDefenderArgs'] microsoft_defender: A `microsoft_defender` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -136,6 +138,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if microsoft_defender is not None:
+            pulumi.set(__self__, "microsoft_defender", microsoft_defender)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
@@ -441,6 +445,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "maintenance_window", value)
 
     @property
+    @pulumi.getter(name="microsoftDefender")
+    def microsoft_defender(self) -> Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']]:
+        """
+        A `microsoft_defender` block as defined below.
+        """
+        return pulumi.get(self, "microsoft_defender")
+
+    @microsoft_defender.setter
+    def microsoft_defender(self, value: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']]):
+        pulumi.set(self, "microsoft_defender", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -649,6 +665,7 @@ class _KubernetesClusterState:
                  local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']] = None,
+                 microsoft_defender: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -697,6 +714,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[bool] local_account_disabled: - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input['KubernetesClusterMicrosoftDefenderArgs'] microsoft_defender: A `microsoft_defender` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -772,6 +790,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if microsoft_defender is not None:
+            pulumi.set(__self__, "microsoft_defender", microsoft_defender)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
@@ -1145,6 +1165,18 @@ class _KubernetesClusterState:
         pulumi.set(self, "maintenance_window", value)
 
     @property
+    @pulumi.getter(name="microsoftDefender")
+    def microsoft_defender(self) -> Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']]:
+        """
+        A `microsoft_defender` block as defined below.
+        """
+        return pulumi.get(self, "microsoft_defender")
+
+    @microsoft_defender.setter
+    def microsoft_defender(self, value: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']]):
+        pulumi.set(self, "microsoft_defender", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1397,6 +1429,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
+                 microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -1476,6 +1509,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] local_account_disabled: - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']] microsoft_defender: A `microsoft_defender` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -1574,6 +1608,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
+                 microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -1626,6 +1661,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["local_account_disabled"] = local_account_disabled
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_window"] = maintenance_window
+            __props__.__dict__["microsoft_defender"] = microsoft_defender
             __props__.__dict__["name"] = name
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_resource_group"] = node_resource_group
@@ -1691,6 +1727,7 @@ class KubernetesCluster(pulumi.CustomResource):
             local_account_disabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
+            microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
             node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -1744,6 +1781,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] local_account_disabled: - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']] microsoft_defender: A `microsoft_defender` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -1795,6 +1833,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["local_account_disabled"] = local_account_disabled
         __props__.__dict__["location"] = location
         __props__.__dict__["maintenance_window"] = maintenance_window
+        __props__.__dict__["microsoft_defender"] = microsoft_defender
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile"] = network_profile
         __props__.__dict__["node_resource_group"] = node_resource_group
@@ -2036,6 +2075,14 @@ class KubernetesCluster(pulumi.CustomResource):
         A `maintenance_window` block as defined below.
         """
         return pulumi.get(self, "maintenance_window")
+
+    @property
+    @pulumi.getter(name="microsoftDefender")
+    def microsoft_defender(self) -> pulumi.Output[Optional['outputs.KubernetesClusterMicrosoftDefender']]:
+        """
+        A `microsoft_defender` block as defined below.
+        """
+        return pulumi.get(self, "microsoft_defender")
 
     @property
     @pulumi.getter

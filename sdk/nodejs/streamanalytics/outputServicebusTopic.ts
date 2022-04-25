@@ -116,6 +116,10 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
      */
     public readonly streamAnalyticsJobName!: pulumi.Output<string>;
     /**
+     * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+     */
+    public readonly systemPropertyColumns!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The name of the Service Bus Topic.
      */
     public readonly topicName!: pulumi.Output<string>;
@@ -141,6 +145,7 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
             resourceInputs["sharedAccessPolicyKey"] = state ? state.sharedAccessPolicyKey : undefined;
             resourceInputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
             resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["systemPropertyColumns"] = state ? state.systemPropertyColumns : undefined;
             resourceInputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as OutputServicebusTopicArgs | undefined;
@@ -173,6 +178,7 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
             resourceInputs["sharedAccessPolicyKey"] = args ? args.sharedAccessPolicyKey : undefined;
             resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["systemPropertyColumns"] = args ? args.systemPropertyColumns : undefined;
             resourceInputs["topicName"] = args ? args.topicName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -217,6 +223,10 @@ export interface OutputServicebusTopicState {
      */
     streamAnalyticsJobName?: pulumi.Input<string>;
     /**
+     * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+     */
+    systemPropertyColumns?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The name of the Service Bus Topic.
      */
     topicName?: pulumi.Input<string>;
@@ -258,6 +268,10 @@ export interface OutputServicebusTopicArgs {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     streamAnalyticsJobName: pulumi.Input<string>;
+    /**
+     * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+     */
+    systemPropertyColumns?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Service Bus Topic.
      */

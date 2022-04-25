@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     licenseType: "LicenseIncluded",
  *     maxSizeGb: 4,
  *     readScale: true,
- *     skuName: "BC_Gen5_2",
+ *     skuName: "S0",
  *     zoneRedundant: true,
  *     extendedAuditingPolicy: [{
  *         storageEndpoint: exampleAccount.primaryBlobEndpoint,

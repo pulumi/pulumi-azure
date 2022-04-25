@@ -85,6 +85,14 @@ export class OutputMssql extends pulumi.CustomResource {
 
     public readonly database!: pulumi.Output<string>;
     /**
+     * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+     */
+    public readonly maxBatchCount!: pulumi.Output<number | undefined>;
+    /**
+     * The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+     */
+    public readonly maxWriterCount!: pulumi.Output<number | undefined>;
+    /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -127,6 +135,8 @@ export class OutputMssql extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as OutputMssqlState | undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["maxBatchCount"] = state ? state.maxBatchCount : undefined;
+            resourceInputs["maxWriterCount"] = state ? state.maxWriterCount : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -158,6 +168,8 @@ export class OutputMssql extends pulumi.CustomResource {
                 throw new Error("Missing required property 'user'");
             }
             resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["maxBatchCount"] = args ? args.maxBatchCount : undefined;
+            resourceInputs["maxWriterCount"] = args ? args.maxWriterCount : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["password"] = args ? args.password : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -176,6 +188,14 @@ export class OutputMssql extends pulumi.CustomResource {
  */
 export interface OutputMssqlState {
     database?: pulumi.Input<string>;
+    /**
+     * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+     */
+    maxBatchCount?: pulumi.Input<number>;
+    /**
+     * The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+     */
+    maxWriterCount?: pulumi.Input<number>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
@@ -211,6 +231,14 @@ export interface OutputMssqlState {
  */
 export interface OutputMssqlArgs {
     database: pulumi.Input<string>;
+    /**
+     * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+     */
+    maxBatchCount?: pulumi.Input<number>;
+    /**
+     * The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+     */
+    maxWriterCount?: pulumi.Input<number>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */

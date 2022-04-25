@@ -20,9 +20,23 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     skuName: "Enterprise_E20-4",
  * });
+ * const example1 = new azure.redis.EnterpriseCluster("example1", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     skuName: "Enterprise_E20-4",
+ * });
  * const exampleEnterpriseDatabase = new azure.redis.EnterpriseDatabase("exampleEnterpriseDatabase", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     clusterId: exampleEnterpriseCluster.id,
+ *     clientProtocol: "Encrypted",
+ *     clusteringPolicy: "EnterpriseCluster",
+ *     evictionPolicy: "NoEviction",
+ *     port: 10000,
+ *     linkedDatabaseIds: [
+ *         pulumi.interpolate`${exampleEnterpriseCluster.id}/databases/default`,
+ *         pulumi.interpolate`${example1.id}/databases/default`,
+ *     ],
+ *     linkedDatabaseGroupNickname: "tftestGeoGroup",
  * });
  * ```
  *
@@ -79,6 +93,14 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
+     * Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+     */
+    public readonly linkedDatabaseGroupNickname!: pulumi.Output<string | undefined>;
+    /**
+     * A list of database resources to link with this database with a maximum of 5.
+     */
+    public readonly linkedDatabaseIds!: pulumi.Output<string[] | undefined>;
+    /**
      * A `module` block as defined below.
      */
     public readonly modules!: pulumi.Output<outputs.redis.EnterpriseDatabaseModule[] | undefined>;
@@ -122,6 +144,8 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
             resourceInputs["clusterId"] = state ? state.clusterId : undefined;
             resourceInputs["clusteringPolicy"] = state ? state.clusteringPolicy : undefined;
             resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
+            resourceInputs["linkedDatabaseGroupNickname"] = state ? state.linkedDatabaseGroupNickname : undefined;
+            resourceInputs["linkedDatabaseIds"] = state ? state.linkedDatabaseIds : undefined;
             resourceInputs["modules"] = state ? state.modules : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
@@ -137,6 +161,8 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
             resourceInputs["clusterId"] = args ? args.clusterId : undefined;
             resourceInputs["clusteringPolicy"] = args ? args.clusteringPolicy : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            resourceInputs["linkedDatabaseGroupNickname"] = args ? args.linkedDatabaseGroupNickname : undefined;
+            resourceInputs["linkedDatabaseIds"] = args ? args.linkedDatabaseIds : undefined;
             resourceInputs["modules"] = args ? args.modules : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
@@ -169,6 +195,14 @@ export interface EnterpriseDatabaseState {
      * Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
      */
     evictionPolicy?: pulumi.Input<string>;
+    /**
+     * Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+     */
+    linkedDatabaseGroupNickname?: pulumi.Input<string>;
+    /**
+     * A list of database resources to link with this database with a maximum of 5.
+     */
+    linkedDatabaseIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `module` block as defined below.
      */
@@ -217,6 +251,14 @@ export interface EnterpriseDatabaseArgs {
      * Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
      */
     evictionPolicy?: pulumi.Input<string>;
+    /**
+     * Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+     */
+    linkedDatabaseGroupNickname?: pulumi.Input<string>;
+    /**
+     * A list of database resources to link with this database with a maximum of 5.
+     */
+    linkedDatabaseIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `module` block as defined below.
      */

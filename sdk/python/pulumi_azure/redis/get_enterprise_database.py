@@ -20,13 +20,19 @@ class GetEnterpriseDatabaseResult:
     """
     A collection of values returned by getEnterpriseDatabase.
     """
-    def __init__(__self__, cluster_id=None, id=None, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None):
+    def __init__(__self__, cluster_id=None, id=None, linked_database_group_nickname=None, linked_database_ids=None, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None):
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if linked_database_group_nickname and not isinstance(linked_database_group_nickname, str):
+            raise TypeError("Expected argument 'linked_database_group_nickname' to be a str")
+        pulumi.set(__self__, "linked_database_group_nickname", linked_database_group_nickname)
+        if linked_database_ids and not isinstance(linked_database_ids, list):
+            raise TypeError("Expected argument 'linked_database_ids' to be a list")
+        pulumi.set(__self__, "linked_database_ids", linked_database_ids)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -59,6 +65,22 @@ class GetEnterpriseDatabaseResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="linkedDatabaseGroupNickname")
+    def linked_database_group_nickname(self) -> str:
+        """
+        The Linked Database Group Nickname for the Redis Enterprise Database instance.
+        """
+        return pulumi.get(self, "linked_database_group_nickname")
+
+    @property
+    @pulumi.getter(name="linkedDatabaseIds")
+    def linked_database_ids(self) -> Sequence[str]:
+        """
+        The Linked Database list for the Redis Enterprise Database instance.
+        """
+        return pulumi.get(self, "linked_database_ids")
 
     @property
     @pulumi.getter
@@ -98,6 +120,8 @@ class AwaitableGetEnterpriseDatabaseResult(GetEnterpriseDatabaseResult):
         return GetEnterpriseDatabaseResult(
             cluster_id=self.cluster_id,
             id=self.id,
+            linked_database_group_nickname=self.linked_database_group_nickname,
+            linked_database_ids=self.linked_database_ids,
             name=self.name,
             primary_access_key=self.primary_access_key,
             resource_group_name=self.resource_group_name,
@@ -142,6 +166,8 @@ def get_enterprise_database(cluster_id: Optional[str] = None,
     return AwaitableGetEnterpriseDatabaseResult(
         cluster_id=__ret__.cluster_id,
         id=__ret__.id,
+        linked_database_group_nickname=__ret__.linked_database_group_nickname,
+        linked_database_ids=__ret__.linked_database_ids,
         name=__ret__.name,
         primary_access_key=__ret__.primary_access_key,
         resource_group_name=__ret__.resource_group_name,

@@ -73,7 +73,7 @@ export class VirtualHubConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+     * Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
      */
     public readonly internetSecurityEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -135,7 +135,7 @@ export class VirtualHubConnection extends pulumi.CustomResource {
  */
 export interface VirtualHubConnectionState {
     /**
-     * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+     * Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
      */
     internetSecurityEnabled?: pulumi.Input<boolean>;
     /**
@@ -161,7 +161,7 @@ export interface VirtualHubConnectionState {
  */
 export interface VirtualHubConnectionArgs {
     /**
-     * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+     * Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
      */
     internetSecurityEnabled?: pulumi.Input<boolean>;
     /**

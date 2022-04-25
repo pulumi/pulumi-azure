@@ -60,8 +60,8 @@ class FlexibleServerMaintenanceWindowArgs:
                  start_hour: Optional[pulumi.Input[int]] = None,
                  start_minute: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] day_of_week: The day of week for maintenance window. Defaults to `0`.
-        :param pulumi.Input[int] start_hour: The day of week for maintenance window. Defaults to `0`.
+        :param pulumi.Input[int] day_of_week: The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+        :param pulumi.Input[int] start_hour: The start hour for maintenance window. Defaults to `0`.
         :param pulumi.Input[int] start_minute: The start minute for maintenance window. Defaults to `0`.
         """
         if day_of_week is not None:
@@ -75,7 +75,7 @@ class FlexibleServerMaintenanceWindowArgs:
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> Optional[pulumi.Input[int]]:
         """
-        The day of week for maintenance window. Defaults to `0`.
+        The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
         """
         return pulumi.get(self, "day_of_week")
 
@@ -87,7 +87,7 @@ class FlexibleServerMaintenanceWindowArgs:
     @pulumi.getter(name="startHour")
     def start_hour(self) -> Optional[pulumi.Input[int]]:
         """
-        The day of week for maintenance window. Defaults to `0`.
+        The start hour for maintenance window. Defaults to `0`.
         """
         return pulumi.get(self, "start_hour")
 

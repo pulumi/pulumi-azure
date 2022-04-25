@@ -95,7 +95,7 @@ type Service struct {
 	PublicIpAddressId pulumi.StringPtrOutput `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayOutput `pulumi:"publicIpAddresses"`
-	// Is public access to the service allowed?.
+	// Is public access to the service allowed?. Defaults to `true`
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The email of publisher/company.
 	PublisherEmail pulumi.StringOutput `pulumi:"publisherEmail"`
@@ -207,7 +207,7 @@ type serviceState struct {
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
-	// Is public access to the service allowed?.
+	// Is public access to the service allowed?. Defaults to `true`
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The email of publisher/company.
 	PublisherEmail *string `pulumi:"publisherEmail"`
@@ -279,7 +279,7 @@ type ServiceState struct {
 	PublicIpAddressId pulumi.StringPtrInput
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayInput
-	// Is public access to the service allowed?.
+	// Is public access to the service allowed?. Defaults to `true`
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The email of publisher/company.
 	PublisherEmail pulumi.StringPtrInput
@@ -341,7 +341,7 @@ type serviceArgs struct {
 	Protocols *ServiceProtocols `pulumi:"protocols"`
 	// ID of a standard SKU IPv4 Public IP.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
-	// Is public access to the service allowed?.
+	// Is public access to the service allowed?. Defaults to `true`
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The email of publisher/company.
 	PublisherEmail string `pulumi:"publisherEmail"`
@@ -398,7 +398,7 @@ type ServiceArgs struct {
 	Protocols ServiceProtocolsPtrInput
 	// ID of a standard SKU IPv4 Public IP.
 	PublicIpAddressId pulumi.StringPtrInput
-	// Is public access to the service allowed?.
+	// Is public access to the service allowed?. Defaults to `true`
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The email of publisher/company.
 	PublisherEmail pulumi.StringInput

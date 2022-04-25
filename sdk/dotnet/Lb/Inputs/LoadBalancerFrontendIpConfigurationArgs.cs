@@ -104,6 +104,10 @@ namespace Pulumi.Azure.Lb.Inputs
 
         [Input("zones")]
         private InputList<string>? _zones;
+
+        /// <summary>
+        /// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+        /// </summary>
         public InputList<string> Zones
         {
             get => _zones ?? (_zones = new InputList<string>());

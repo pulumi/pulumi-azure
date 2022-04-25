@@ -37,19 +37,19 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
+        /// A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
         /// </summary>
         [Input("loadBalancerProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileLoadBalancerProfileGetArgs>? LoadBalancerProfile { get; set; }
 
         /// <summary>
-        /// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+        /// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
         /// </summary>
         [Input("loadBalancerSku")]
         public Input<string>? LoadBalancerSku { get; set; }
 
         /// <summary>
-        /// A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        /// A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
         /// </summary>
         [Input("natGatewayProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileNatGatewayProfileGetArgs>? NatGatewayProfile { get; set; }

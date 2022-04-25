@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Network
 
     public sealed class SubnetArgs : Pulumi.ResourceArgs
     {
-        [Input("addressPrefixes")]
+        [Input("addressPrefixes", required: true)]
         private InputList<string>? _addressPrefixes;
 
         /// <summary>

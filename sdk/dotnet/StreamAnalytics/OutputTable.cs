@@ -76,6 +76,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<int> BatchSize { get; private set; } = null!;
 
         /// <summary>
+        /// A list of the column names to be removed from output event entities.
+        /// </summary>
+        [Output("columnsToRemoves")]
+        public Output<ImmutableArray<string>> ColumnsToRemoves { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -175,6 +181,18 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("batchSize", required: true)]
         public Input<int> BatchSize { get; set; } = null!;
 
+        [Input("columnsToRemoves")]
+        private InputList<string>? _columnsToRemoves;
+
+        /// <summary>
+        /// A list of the column names to be removed from output event entities.
+        /// </summary>
+        public InputList<string> ColumnsToRemoves
+        {
+            get => _columnsToRemoves ?? (_columnsToRemoves = new InputList<string>());
+            set => _columnsToRemoves = value;
+        }
+
         /// <summary>
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         /// </summary>
@@ -235,6 +253,18 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("batchSize")]
         public Input<int>? BatchSize { get; set; }
+
+        [Input("columnsToRemoves")]
+        private InputList<string>? _columnsToRemoves;
+
+        /// <summary>
+        /// A list of the column names to be removed from output event entities.
+        /// </summary>
+        public InputList<string> ColumnsToRemoves
+        {
+            get => _columnsToRemoves ?? (_columnsToRemoves = new InputList<string>());
+            set => _columnsToRemoves = value;
+        }
 
         /// <summary>
         /// The name of the Stream Output. Changing this forces a new resource to be created.

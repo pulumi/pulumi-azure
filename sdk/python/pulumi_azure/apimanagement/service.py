@@ -60,7 +60,7 @@ class ServiceArgs:
         :param pulumi.Input['ServicePolicyArgs'] policy: A `policy` block as defined below.
         :param pulumi.Input['ServiceProtocolsArgs'] protocols: A `protocols` block as defined below.
         :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
-        :param pulumi.Input[bool] public_network_access_enabled: Is public access to the service allowed?.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public access to the service allowed?. Defaults to `true`
         :param pulumi.Input['ServiceSecurityArgs'] security: A `security` block as defined below.
         :param pulumi.Input['ServiceSignInArgs'] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input['ServiceSignUpArgs'] sign_up: A `sign_up` block as defined below.
@@ -328,7 +328,7 @@ class ServiceArgs:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is public access to the service allowed?.
+        Is public access to the service allowed?. Defaults to `true`
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -493,7 +493,7 @@ class _ServiceState:
         :param pulumi.Input['ServiceProtocolsArgs'] protocols: A `protocols` block as defined below.
         :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-        :param pulumi.Input[bool] public_network_access_enabled: Is public access to the service allowed?.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public access to the service allowed?. Defaults to `true`
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
@@ -822,7 +822,7 @@ class _ServiceState:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is public access to the service allowed?.
+        Is public access to the service allowed?. Defaults to `true`
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -1059,7 +1059,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServicePolicyArgs']] policy: A `policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']] protocols: A `protocols` block as defined below.
         :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
-        :param pulumi.Input[bool] public_network_access_enabled: Is public access to the service allowed?.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public access to the service allowed?. Defaults to `true`
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
@@ -1270,7 +1270,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']] protocols: A `protocols` block as defined below.
         :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-        :param pulumi.Input[bool] public_network_access_enabled: Is public access to the service allowed?.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public access to the service allowed?. Defaults to `true`
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
@@ -1490,7 +1490,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is public access to the service allowed?.
+        Is public access to the service allowed?. Defaults to `true`
         """
         return pulumi.get(self, "public_network_access_enabled")
 

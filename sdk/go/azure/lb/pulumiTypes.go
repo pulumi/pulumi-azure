@@ -158,8 +158,9 @@ type LoadBalancerFrontendIpConfiguration struct {
 	// The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
 	// The ID of the Subnet which should be associated with the IP Configuration.
-	SubnetId *string  `pulumi:"subnetId"`
-	Zones    []string `pulumi:"zones"`
+	SubnetId *string `pulumi:"subnetId"`
+	// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+	Zones []string `pulumi:"zones"`
 }
 
 // LoadBalancerFrontendIpConfigurationInput is an input type that accepts LoadBalancerFrontendIpConfigurationArgs and LoadBalancerFrontendIpConfigurationOutput values.
@@ -197,8 +198,9 @@ type LoadBalancerFrontendIpConfigurationArgs struct {
 	// The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
 	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
 	// The ID of the Subnet which should be associated with the IP Configuration.
-	SubnetId pulumi.StringPtrInput   `pulumi:"subnetId"`
-	Zones    pulumi.StringArrayInput `pulumi:"zones"`
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 func (LoadBalancerFrontendIpConfigurationArgs) ElementType() reflect.Type {
@@ -314,6 +316,7 @@ func (o LoadBalancerFrontendIpConfigurationOutput) SubnetId() pulumi.StringPtrOu
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
 func (o LoadBalancerFrontendIpConfigurationOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }

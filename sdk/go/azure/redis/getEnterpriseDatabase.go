@@ -65,6 +65,10 @@ type LookupEnterpriseDatabaseResult struct {
 	ClusterId string `pulumi:"clusterId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The Linked Database Group Nickname for the Redis Enterprise Database instance.
+	LinkedDatabaseGroupNickname string `pulumi:"linkedDatabaseGroupNickname"`
+	// The Linked Database list for the Redis Enterprise Database instance.
+	LinkedDatabaseIds []string `pulumi:"linkedDatabaseIds"`
 	// The Redis Enterprise Database name.
 	Name string `pulumi:"name"`
 	// The Primary Access Key for the Redis Enterprise Database instance.
@@ -123,6 +127,16 @@ func (o LookupEnterpriseDatabaseResultOutput) ClusterId() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupEnterpriseDatabaseResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Linked Database Group Nickname for the Redis Enterprise Database instance.
+func (o LookupEnterpriseDatabaseResultOutput) LinkedDatabaseGroupNickname() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) string { return v.LinkedDatabaseGroupNickname }).(pulumi.StringOutput)
+}
+
+// The Linked Database list for the Redis Enterprise Database instance.
+func (o LookupEnterpriseDatabaseResultOutput) LinkedDatabaseIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) []string { return v.LinkedDatabaseIds }).(pulumi.StringArrayOutput)
 }
 
 // The Redis Enterprise Database name.

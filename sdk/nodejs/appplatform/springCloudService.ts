@@ -107,6 +107,10 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Whether enable the default Service Registry.
+     */
+    public readonly serviceRegistryEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
@@ -139,6 +143,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             resourceInputs["outboundPublicIpAddresses"] = state ? state.outboundPublicIpAddresses : undefined;
             resourceInputs["requiredNetworkTrafficRules"] = state ? state.requiredNetworkTrafficRules : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serviceRegistryEnabled"] = state ? state.serviceRegistryEnabled : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["trace"] = state ? state.trace : undefined;
@@ -152,6 +157,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["network"] = args ? args.network : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceRegistryEnabled"] = args ? args.serviceRegistryEnabled : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trace"] = args ? args.trace : undefined;
@@ -196,6 +202,10 @@ export interface SpringCloudServiceState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * Whether enable the default Service Registry.
+     */
+    serviceRegistryEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
      */
     skuName?: pulumi.Input<string>;
@@ -233,6 +243,10 @@ export interface SpringCloudServiceArgs {
      * Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Whether enable the default Service Registry.
+     */
+    serviceRegistryEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
      */

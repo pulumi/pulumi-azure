@@ -24,7 +24,8 @@ class LinkedServiceSqlServerArgs:
                  key_vault_connection_string: Optional[pulumi.Input['LinkedServiceSqlServerKeyVaultConnectionStringArgs']] = None,
                  key_vault_password: Optional[pulumi.Input['LinkedServiceSqlServerKeyVaultPasswordArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LinkedServiceSqlServer resource.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -38,6 +39,7 @@ class LinkedServiceSqlServerArgs:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service SQL Server.
+        :param pulumi.Input[str] user_name: The on-premises Windows authentication user name.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
         if additional_properties is not None:
@@ -58,6 +60,8 @@ class LinkedServiceSqlServerArgs:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -180,6 +184,18 @@ class LinkedServiceSqlServerArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The on-premises Windows authentication user name.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
+
 
 @pulumi.input_type
 class _LinkedServiceSqlServerState:
@@ -193,7 +209,8 @@ class _LinkedServiceSqlServerState:
                  key_vault_connection_string: Optional[pulumi.Input['LinkedServiceSqlServerKeyVaultConnectionStringArgs']] = None,
                  key_vault_password: Optional[pulumi.Input['LinkedServiceSqlServerKeyVaultPasswordArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceSqlServer resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service SQL Server.
@@ -207,6 +224,7 @@ class _LinkedServiceSqlServerState:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service SQL Server.
+        :param pulumi.Input[str] user_name: The on-premises Windows authentication user name.
         """
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
@@ -228,6 +246,8 @@ class _LinkedServiceSqlServerState:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -350,6 +370,18 @@ class _LinkedServiceSqlServerState:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The on-premises Windows authentication user name.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
+
 
 class LinkedServiceSqlServer(pulumi.CustomResource):
     @overload
@@ -366,6 +398,7 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
                  key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceSqlServerKeyVaultPasswordArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Linked Service (connection) between a SQL Server and Azure Data Factory.
@@ -433,6 +466,7 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service SQL Server.
+        :param pulumi.Input[str] user_name: The on-premises Windows authentication user name.
         """
         ...
     @overload
@@ -518,6 +552,7 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
                  key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceSqlServerKeyVaultPasswordArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -542,6 +577,7 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
             __props__.__dict__["key_vault_password"] = key_vault_password
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["user_name"] = user_name
         super(LinkedServiceSqlServer, __self__).__init__(
             'azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer',
             resource_name,
@@ -561,7 +597,8 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
             key_vault_connection_string: Optional[pulumi.Input[pulumi.InputType['LinkedServiceSqlServerKeyVaultConnectionStringArgs']]] = None,
             key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceSqlServerKeyVaultPasswordArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LinkedServiceSqlServer':
+            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            user_name: Optional[pulumi.Input[str]] = None) -> 'LinkedServiceSqlServer':
         """
         Get an existing LinkedServiceSqlServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -580,6 +617,7 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service SQL Server.
+        :param pulumi.Input[str] user_name: The on-premises Windows authentication user name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -595,6 +633,7 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
         __props__.__dict__["key_vault_password"] = key_vault_password
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["user_name"] = user_name
         return LinkedServiceSqlServer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -677,4 +716,12 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
         A map of parameters to associate with the Data Factory Linked Service SQL Server.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The on-premises Windows authentication user name.
+        """
+        return pulumi.get(self, "user_name")
 

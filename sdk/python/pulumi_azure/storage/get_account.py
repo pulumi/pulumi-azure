@@ -21,7 +21,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, custom_domains=None, enable_https_traffic_only=None, id=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, table_encryption_key_type=None, tags=None):
+    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, custom_domains=None, enable_https_traffic_only=None, id=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, table_encryption_key_type=None, tags=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -61,6 +61,9 @@ class GetAccountResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if nfsv3_enabled and not isinstance(nfsv3_enabled, bool):
+            raise TypeError("Expected argument 'nfsv3_enabled' to be a bool")
+        pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
         if primary_access_key and not isinstance(primary_access_key, str):
             raise TypeError("Expected argument 'primary_access_key' to be a str")
         pulumi.set(__self__, "primary_access_key", primary_access_key)
@@ -276,6 +279,14 @@ class GetAccountResult:
         The Custom Domain Name used for the Storage Account.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nfsv3Enabled")
+    def nfsv3_enabled(self) -> bool:
+        """
+        Is NFSv3 protocol enabled?
+        """
+        return pulumi.get(self, "nfsv3_enabled")
 
     @property
     @pulumi.getter(name="primaryAccessKey")
@@ -582,6 +593,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             location=self.location,
             min_tls_version=self.min_tls_version,
             name=self.name,
+            nfsv3_enabled=self.nfsv3_enabled,
             primary_access_key=self.primary_access_key,
             primary_blob_connection_string=self.primary_blob_connection_string,
             primary_blob_endpoint=self.primary_blob_endpoint,
@@ -667,6 +679,7 @@ def get_account(min_tls_version: Optional[str] = None,
         location=__ret__.location,
         min_tls_version=__ret__.min_tls_version,
         name=__ret__.name,
+        nfsv3_enabled=__ret__.nfsv3_enabled,
         primary_access_key=__ret__.primary_access_key,
         primary_blob_connection_string=__ret__.primary_blob_connection_string,
         primary_blob_endpoint=__ret__.primary_blob_endpoint,

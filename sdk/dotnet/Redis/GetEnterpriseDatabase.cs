@@ -150,6 +150,14 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The Linked Database Group Nickname for the Redis Enterprise Database instance.
+        /// </summary>
+        public readonly string LinkedDatabaseGroupNickname;
+        /// <summary>
+        /// The Linked Database list for the Redis Enterprise Database instance.
+        /// </summary>
+        public readonly ImmutableArray<string> LinkedDatabaseIds;
+        /// <summary>
         /// The Redis Enterprise Database name.
         /// </summary>
         public readonly string Name;
@@ -169,6 +177,10 @@ namespace Pulumi.Azure.Redis
 
             string id,
 
+            string linkedDatabaseGroupNickname,
+
+            ImmutableArray<string> linkedDatabaseIds,
+
             string name,
 
             string primaryAccessKey,
@@ -179,6 +191,8 @@ namespace Pulumi.Azure.Redis
         {
             ClusterId = clusterId;
             Id = id;
+            LinkedDatabaseGroupNickname = linkedDatabaseGroupNickname;
+            LinkedDatabaseIds = linkedDatabaseIds;
             Name = name;
             PrimaryAccessKey = primaryAccessKey;
             ResourceGroupName = resourceGroupName;

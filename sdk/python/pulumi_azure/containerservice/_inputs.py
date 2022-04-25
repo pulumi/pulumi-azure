@@ -50,6 +50,7 @@ __all__ = [
     'KubernetesClusterMaintenanceWindowArgs',
     'KubernetesClusterMaintenanceWindowAllowedArgs',
     'KubernetesClusterMaintenanceWindowNotAllowedArgs',
+    'KubernetesClusterMicrosoftDefenderArgs',
     'KubernetesClusterNetworkProfileArgs',
     'KubernetesClusterNetworkProfileLoadBalancerProfileArgs',
     'KubernetesClusterNetworkProfileNatGatewayProfileArgs',
@@ -4042,6 +4043,28 @@ class KubernetesClusterMaintenanceWindowNotAllowedArgs:
 
 
 @pulumi.input_type
+class KubernetesClusterMicrosoftDefenderArgs:
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+
+@pulumi.input_type
 class KubernetesClusterNetworkProfileArgs:
     def __init__(__self__, *,
                  network_plugin: pulumi.Input[str],
@@ -4061,9 +4084,9 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[str] dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param pulumi.Input[str] docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
-        :param pulumi.Input[str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
-        :param pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs'] nat_gateway_profile: A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
+        :param pulumi.Input[str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+        :param pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs'] nat_gateway_profile: A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
         :param pulumi.Input[str] network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
@@ -4146,7 +4169,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="loadBalancerProfile")
     def load_balancer_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']]:
         """
-        A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
+        A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
         """
         return pulumi.get(self, "load_balancer_profile")
 
@@ -4158,7 +4181,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="loadBalancerSku")
     def load_balancer_sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+        Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
         """
         return pulumi.get(self, "load_balancer_sku")
 
@@ -4170,7 +4193,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="natGatewayProfile")
     def nat_gateway_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs']]:
         """
-        A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
         """
         return pulumi.get(self, "nat_gateway_profile")
 

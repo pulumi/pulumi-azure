@@ -144,6 +144,8 @@ type LinkedServiceSqlServer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service SQL Server.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// The on-premises Windows authentication user name.
+	UserName pulumi.StringPtrOutput `pulumi:"userName"`
 }
 
 // NewLinkedServiceSqlServer registers a new resource with the given unique name, arguments, and options.
@@ -199,6 +201,8 @@ type linkedServiceSqlServerState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service SQL Server.
 	Parameters map[string]string `pulumi:"parameters"`
+	// The on-premises Windows authentication user name.
+	UserName *string `pulumi:"userName"`
 }
 
 type LinkedServiceSqlServerState struct {
@@ -223,6 +227,8 @@ type LinkedServiceSqlServerState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service SQL Server.
 	Parameters pulumi.StringMapInput
+	// The on-premises Windows authentication user name.
+	UserName pulumi.StringPtrInput
 }
 
 func (LinkedServiceSqlServerState) ElementType() reflect.Type {
@@ -251,6 +257,8 @@ type linkedServiceSqlServerArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service SQL Server.
 	Parameters map[string]string `pulumi:"parameters"`
+	// The on-premises Windows authentication user name.
+	UserName *string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a LinkedServiceSqlServer resource.
@@ -276,6 +284,8 @@ type LinkedServiceSqlServerArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service SQL Server.
 	Parameters pulumi.StringMapInput
+	// The on-premises Windows authentication user name.
+	UserName pulumi.StringPtrInput
 }
 
 func (LinkedServiceSqlServerArgs) ElementType() reflect.Type {

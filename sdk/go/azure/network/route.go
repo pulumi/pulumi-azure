@@ -67,13 +67,13 @@ import (
 type Route struct {
 	pulumi.CustomResourceState
 
-	// The destination CIDR to which the route applies, such as `10.1.0.0/16`
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix pulumi.StringOutput `pulumi:"addressPrefix"`
 	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress pulumi.StringPtrOutput `pulumi:"nextHopInIpAddress"`
-	// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
+	// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
 	NextHopType pulumi.StringOutput `pulumi:"nextHopType"`
 	// The name of the resource group in which to create the route. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -122,13 +122,13 @@ func GetRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Route resources.
 type routeState struct {
-	// The destination CIDR to which the route applies, such as `10.1.0.0/16`
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// The name of the route. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress *string `pulumi:"nextHopInIpAddress"`
-	// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
+	// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
 	NextHopType *string `pulumi:"nextHopType"`
 	// The name of the resource group in which to create the route. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -137,13 +137,13 @@ type routeState struct {
 }
 
 type RouteState struct {
-	// The destination CIDR to which the route applies, such as `10.1.0.0/16`
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix pulumi.StringPtrInput
 	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress pulumi.StringPtrInput
-	// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
+	// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
 	NextHopType pulumi.StringPtrInput
 	// The name of the resource group in which to create the route. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -156,13 +156,13 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
-	// The destination CIDR to which the route applies, such as `10.1.0.0/16`
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix string `pulumi:"addressPrefix"`
 	// The name of the route. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress *string `pulumi:"nextHopInIpAddress"`
-	// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
+	// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
 	NextHopType string `pulumi:"nextHopType"`
 	// The name of the resource group in which to create the route. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -172,13 +172,13 @@ type routeArgs struct {
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
-	// The destination CIDR to which the route applies, such as `10.1.0.0/16`
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix pulumi.StringInput
 	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress pulumi.StringPtrInput
-	// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
+	// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
 	NextHopType pulumi.StringInput
 	// The name of the resource group in which to create the route. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
