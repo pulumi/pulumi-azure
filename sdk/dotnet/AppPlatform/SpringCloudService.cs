@@ -116,6 +116,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Whether enable the default Service Registry.
+        /// </summary>
+        [Output("serviceRegistryEnabled")]
+        public Output<bool?> ServiceRegistryEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
         /// </summary>
         [Output("skuName")]
@@ -210,6 +216,12 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Whether enable the default Service Registry.
+        /// </summary>
+        [Input("serviceRegistryEnabled")]
+        public Input<bool>? ServiceRegistryEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
         /// </summary>
         [Input("skuName")]
@@ -293,6 +305,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Whether enable the default Service Registry.
+        /// </summary>
+        [Input("serviceRegistryEnabled")]
+        public Input<bool>? ServiceRegistryEnabled { get; set; }
 
         /// <summary>
         /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.

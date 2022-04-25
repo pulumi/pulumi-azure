@@ -79,6 +79,18 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
+        /// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+        /// </summary>
+        [Output("maxBatchCount")]
+        public Output<double?> MaxBatchCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+        /// </summary>
+        [Output("maxWriterCount")]
+        public Output<double?> MaxWriterCount { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -170,6 +182,18 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
+        /// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+        /// </summary>
+        [Input("maxBatchCount")]
+        public Input<double>? MaxBatchCount { get; set; }
+
+        /// <summary>
+        /// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+        /// </summary>
+        [Input("maxWriterCount")]
+        public Input<double>? MaxWriterCount { get; set; }
+
+        /// <summary>
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -220,6 +244,18 @@ namespace Pulumi.Azure.StreamAnalytics
     {
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        /// <summary>
+        /// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+        /// </summary>
+        [Input("maxBatchCount")]
+        public Input<double>? MaxBatchCount { get; set; }
+
+        /// <summary>
+        /// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+        /// </summary>
+        [Input("maxWriterCount")]
+        public Input<double>? MaxWriterCount { get; set; }
 
         /// <summary>
         /// The name of the Stream Output. Changing this forces a new resource to be created.

@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Network
     public partial class VirtualHubConnection : Pulumi.CustomResource
     {
         /// <summary>
-        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         /// </summary>
         [Output("internetSecurityEnabled")]
         public Output<bool?> InternetSecurityEnabled { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualHubConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         /// </summary>
         [Input("internetSecurityEnabled")]
         public Input<bool>? InternetSecurityEnabled { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualHubConnectionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         /// </summary>
         [Input("internetSecurityEnabled")]
         public Input<bool>? InternetSecurityEnabled { get; set; }

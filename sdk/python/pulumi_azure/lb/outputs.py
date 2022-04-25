@@ -132,6 +132,7 @@ class LoadBalancerFrontendIpConfiguration(dict):
         :param str public_ip_address_id: The ID of a Public IP Address which should be associated with the Load Balancer.
         :param str public_ip_prefix_id: The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
         :param str subnet_id: The ID of the Subnet which should be associated with the IP Configuration.
+        :param Sequence[str] zones: Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
         """
         pulumi.set(__self__, "name", name)
         if gateway_load_balancer_frontend_ip_configuration_id is not None:
@@ -258,6 +259,9 @@ class LoadBalancerFrontendIpConfiguration(dict):
     @property
     @pulumi.getter
     def zones(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+        """
         return pulumi.get(self, "zones")
 
 

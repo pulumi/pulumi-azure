@@ -21,7 +21,7 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, oidc_issuer_enabled=None, oidc_issuer_url=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_principals=None, tags=None, windows_profiles=None):
+    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, microsoft_defenders=None, name=None, network_profiles=None, node_resource_group=None, oidc_issuer_enabled=None, oidc_issuer_url=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_principals=None, tags=None, windows_profiles=None):
         if aci_connector_linuxes and not isinstance(aci_connector_linuxes, list):
             raise TypeError("Expected argument 'aci_connector_linuxes' to be a list")
         pulumi.set(__self__, "aci_connector_linuxes", aci_connector_linuxes)
@@ -88,6 +88,9 @@ class GetKubernetesClusterResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if microsoft_defenders and not isinstance(microsoft_defenders, list):
+            raise TypeError("Expected argument 'microsoft_defenders' to be a list")
+        pulumi.set(__self__, "microsoft_defenders", microsoft_defenders)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -308,6 +311,14 @@ class GetKubernetesClusterResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="microsoftDefenders")
+    def microsoft_defenders(self) -> Sequence['outputs.GetKubernetesClusterMicrosoftDefenderResult']:
+        """
+        A `microsoft_defender` block as defined below.
+        """
+        return pulumi.get(self, "microsoft_defenders")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -445,6 +456,7 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             kubernetes_version=self.kubernetes_version,
             linux_profiles=self.linux_profiles,
             location=self.location,
+            microsoft_defenders=self.microsoft_defenders,
             name=self.name,
             network_profiles=self.network_profiles,
             node_resource_group=self.node_resource_group,
@@ -513,6 +525,7 @@ def get_kubernetes_cluster(name: Optional[str] = None,
         kubernetes_version=__ret__.kubernetes_version,
         linux_profiles=__ret__.linux_profiles,
         location=__ret__.location,
+        microsoft_defenders=__ret__.microsoft_defenders,
         name=__ret__.name,
         network_profiles=__ret__.network_profiles,
         node_resource_group=__ret__.node_resource_group,

@@ -20,6 +20,8 @@ class OutputMssqlArgs:
                  stream_analytics_job_name: pulumi.Input[str],
                  table: pulumi.Input[str],
                  user: pulumi.Input[str],
+                 max_batch_count: Optional[pulumi.Input[float]] = None,
+                 max_writer_count: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OutputMssql resource.
@@ -29,6 +31,8 @@ class OutputMssqlArgs:
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: Table in the database that the output points to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] max_batch_count: The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+        :param pulumi.Input[float] max_writer_count: The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "database", database)
@@ -38,6 +42,10 @@ class OutputMssqlArgs:
         pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
         pulumi.set(__self__, "table", table)
         pulumi.set(__self__, "user", user)
+        if max_batch_count is not None:
+            pulumi.set(__self__, "max_batch_count", max_batch_count)
+        if max_writer_count is not None:
+            pulumi.set(__self__, "max_writer_count", max_writer_count)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -123,6 +131,30 @@ class OutputMssqlArgs:
         pulumi.set(self, "user", value)
 
     @property
+    @pulumi.getter(name="maxBatchCount")
+    def max_batch_count(self) -> Optional[pulumi.Input[float]]:
+        """
+        The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+        """
+        return pulumi.get(self, "max_batch_count")
+
+    @max_batch_count.setter
+    def max_batch_count(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_batch_count", value)
+
+    @property
+    @pulumi.getter(name="maxWriterCount")
+    def max_writer_count(self) -> Optional[pulumi.Input[float]]:
+        """
+        The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+        """
+        return pulumi.get(self, "max_writer_count")
+
+    @max_writer_count.setter
+    def max_writer_count(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_writer_count", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -139,6 +171,8 @@ class OutputMssqlArgs:
 class _OutputMssqlState:
     def __init__(__self__, *,
                  database: Optional[pulumi.Input[str]] = None,
+                 max_batch_count: Optional[pulumi.Input[float]] = None,
+                 max_writer_count: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -148,6 +182,8 @@ class _OutputMssqlState:
                  user: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OutputMssql resources.
+        :param pulumi.Input[float] max_batch_count: The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+        :param pulumi.Input[float] max_writer_count: The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -158,6 +194,10 @@ class _OutputMssqlState:
         """
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if max_batch_count is not None:
+            pulumi.set(__self__, "max_batch_count", max_batch_count)
+        if max_writer_count is not None:
+            pulumi.set(__self__, "max_writer_count", max_writer_count)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if password is not None:
@@ -181,6 +221,30 @@ class _OutputMssqlState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="maxBatchCount")
+    def max_batch_count(self) -> Optional[pulumi.Input[float]]:
+        """
+        The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+        """
+        return pulumi.get(self, "max_batch_count")
+
+    @max_batch_count.setter
+    def max_batch_count(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_batch_count", value)
+
+    @property
+    @pulumi.getter(name="maxWriterCount")
+    def max_writer_count(self) -> Optional[pulumi.Input[float]]:
+        """
+        The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+        """
+        return pulumi.get(self, "max_writer_count")
+
+    @max_writer_count.setter
+    def max_writer_count(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_writer_count", value)
 
     @property
     @pulumi.getter
@@ -273,6 +337,8 @@ class OutputMssql(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 max_batch_count: Optional[pulumi.Input[float]] = None,
+                 max_writer_count: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -327,6 +393,8 @@ class OutputMssql(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] max_batch_count: The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+        :param pulumi.Input[float] max_writer_count: The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -401,6 +469,8 @@ class OutputMssql(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database: Optional[pulumi.Input[str]] = None,
+                 max_batch_count: Optional[pulumi.Input[float]] = None,
+                 max_writer_count: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -423,6 +493,8 @@ class OutputMssql(pulumi.CustomResource):
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
+            __props__.__dict__["max_batch_count"] = max_batch_count
+            __props__.__dict__["max_writer_count"] = max_writer_count
             __props__.__dict__["name"] = name
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
@@ -453,6 +525,8 @@ class OutputMssql(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             database: Optional[pulumi.Input[str]] = None,
+            max_batch_count: Optional[pulumi.Input[float]] = None,
+            max_writer_count: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -467,6 +541,8 @@ class OutputMssql(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] max_batch_count: The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+        :param pulumi.Input[float] max_writer_count: The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -480,6 +556,8 @@ class OutputMssql(pulumi.CustomResource):
         __props__ = _OutputMssqlState.__new__(_OutputMssqlState)
 
         __props__.__dict__["database"] = database
+        __props__.__dict__["max_batch_count"] = max_batch_count
+        __props__.__dict__["max_writer_count"] = max_writer_count
         __props__.__dict__["name"] = name
         __props__.__dict__["password"] = password
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -493,6 +571,22 @@ class OutputMssql(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="maxBatchCount")
+    def max_batch_count(self) -> pulumi.Output[Optional[float]]:
+        """
+        The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+        """
+        return pulumi.get(self, "max_batch_count")
+
+    @property
+    @pulumi.getter(name="maxWriterCount")
+    def max_writer_count(self) -> pulumi.Output[Optional[float]]:
+        """
+        The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+        """
+        return pulumi.get(self, "max_writer_count")
 
     @property
     @pulumi.getter

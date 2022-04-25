@@ -104,6 +104,8 @@ type OutputServicebusTopic struct {
 	SharedAccessPolicyName pulumi.StringOutput `pulumi:"sharedAccessPolicyName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringOutput `pulumi:"streamAnalyticsJobName"`
+	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+	SystemPropertyColumns pulumi.StringMapOutput `pulumi:"systemPropertyColumns"`
 	// The name of the Service Bus Topic.
 	TopicName pulumi.StringOutput `pulumi:"topicName"`
 }
@@ -174,6 +176,8 @@ type outputServicebusTopicState struct {
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName *string `pulumi:"streamAnalyticsJobName"`
+	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+	SystemPropertyColumns map[string]string `pulumi:"systemPropertyColumns"`
 	// The name of the Service Bus Topic.
 	TopicName *string `pulumi:"topicName"`
 }
@@ -195,6 +199,8 @@ type OutputServicebusTopicState struct {
 	SharedAccessPolicyName pulumi.StringPtrInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringPtrInput
+	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+	SystemPropertyColumns pulumi.StringMapInput
 	// The name of the Service Bus Topic.
 	TopicName pulumi.StringPtrInput
 }
@@ -220,6 +226,8 @@ type outputServicebusTopicArgs struct {
 	SharedAccessPolicyName string `pulumi:"sharedAccessPolicyName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName string `pulumi:"streamAnalyticsJobName"`
+	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+	SystemPropertyColumns map[string]string `pulumi:"systemPropertyColumns"`
 	// The name of the Service Bus Topic.
 	TopicName string `pulumi:"topicName"`
 }
@@ -242,6 +250,8 @@ type OutputServicebusTopicArgs struct {
 	SharedAccessPolicyName pulumi.StringInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringInput
+	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+	SystemPropertyColumns pulumi.StringMapInput
 	// The name of the Service Bus Topic.
 	TopicName pulumi.StringInput
 }

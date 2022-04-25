@@ -61,6 +61,7 @@ __all__ = [
     'IntegrationRuntimeSsisVnetIntegration',
     'LinkedCustomServiceIntegrationRuntime',
     'LinkedServiceAzureBlobStorageKeyVaultSasToken',
+    'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey',
     'LinkedServiceAzureDatabricksInstancePool',
     'LinkedServiceAzureDatabricksKeyVaultPassword',
     'LinkedServiceAzureDatabricksNewClusterConfig',
@@ -3028,6 +3029,54 @@ class LinkedServiceAzureBlobStorageKeyVaultSasToken(dict):
     def secret_name(self) -> str:
         """
         Specifies the secret name in Azure Key Vault that stores the sas token.
+        """
+        return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
+class LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: str,
+                 secret_name: str):
+        """
+        :param str linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param str secret_name: Specifies the secret name in Azure Key Vault that stores the Service Principal key.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> str:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Specifies the secret name in Azure Key Vault that stores the Service Principal key.
         """
         return pulumi.get(self, "secret_name")
 

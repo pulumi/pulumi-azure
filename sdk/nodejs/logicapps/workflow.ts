@@ -73,6 +73,9 @@ export class Workflow extends pulumi.CustomResource {
      * The list of outgoing ip addresses of connector.
      */
     public /*out*/ readonly connectorOutboundIpAddresses!: pulumi.Output<string[]>;
+    /**
+     * Is the Logic App Workflow enabled? Defaults to `true`.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
@@ -207,6 +210,9 @@ export interface WorkflowState {
      * The list of outgoing ip addresses of connector.
      */
     connectorOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Is the Logic App Workflow enabled? Defaults to `true`.
+     */
     enabled?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
@@ -270,6 +276,9 @@ export interface WorkflowArgs {
      * A `accessControl` block as defined below.
      */
     accessControl?: pulumi.Input<inputs.logicapps.WorkflowAccessControl>;
+    /**
+     * Is the Logic App Workflow enabled? Defaults to `true`.
+     */
     enabled?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.

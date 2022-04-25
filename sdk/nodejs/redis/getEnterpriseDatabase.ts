@@ -68,6 +68,14 @@ export interface GetEnterpriseDatabaseResult {
      */
     readonly id: string;
     /**
+     * The Linked Database Group Nickname for the Redis Enterprise Database instance.
+     */
+    readonly linkedDatabaseGroupNickname: string;
+    /**
+     * The Linked Database list for the Redis Enterprise Database instance.
+     */
+    readonly linkedDatabaseIds: string[];
+    /**
      * The Redis Enterprise Database name.
      */
     readonly name: string;

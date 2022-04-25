@@ -14,11 +14,11 @@ namespace Pulumi.Azure.PostgreSql.Outputs
     public sealed class FlexibleServerMaintenanceWindow
     {
         /// <summary>
-        /// The day of week for maintenance window. Defaults to `0`.
+        /// The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
         /// </summary>
         public readonly int? DayOfWeek;
         /// <summary>
-        /// The day of week for maintenance window. Defaults to `0`.
+        /// The start hour for maintenance window. Defaults to `0`.
         /// </summary>
         public readonly int? StartHour;
         /// <summary>

@@ -24,7 +24,7 @@ class VirtualHubConnectionArgs:
         The set of arguments for constructing a VirtualHubConnection resource.
         :param pulumi.Input[str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         :param pulumi.Input[str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualHubConnectionRoutingArgs'] routing: A `routing` block as defined below.
         """
@@ -65,7 +65,7 @@ class VirtualHubConnectionArgs:
     @pulumi.getter(name="internetSecurityEnabled")
     def internet_security_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         """
         return pulumi.get(self, "internet_security_enabled")
 
@@ -108,7 +108,7 @@ class _VirtualHubConnectionState:
                  virtual_hub_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VirtualHubConnection resources.
-        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         :param pulumi.Input[str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualHubConnectionRoutingArgs'] routing: A `routing` block as defined below.
@@ -129,7 +129,7 @@ class _VirtualHubConnectionState:
     @pulumi.getter(name="internetSecurityEnabled")
     def internet_security_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         """
         return pulumi.get(self, "internet_security_enabled")
 
@@ -234,7 +234,7 @@ class VirtualHubConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         :param pulumi.Input[str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualHubConnectionRoutingArgs']] routing: A `routing` block as defined below.
@@ -344,7 +344,7 @@ class VirtualHubConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         :param pulumi.Input[str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VirtualHubConnectionRoutingArgs']] routing: A `routing` block as defined below.
@@ -365,7 +365,7 @@ class VirtualHubConnection(pulumi.CustomResource):
     @pulumi.getter(name="internetSecurityEnabled")
     def internet_security_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         """
         return pulumi.get(self, "internet_security_enabled")
 

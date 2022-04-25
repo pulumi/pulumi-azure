@@ -32,10 +32,26 @@ namespace Pulumi.Azure.Redis
     ///             Location = exampleResourceGroup.Location,
     ///             SkuName = "Enterprise_E20-4",
     ///         });
+    ///         var example1 = new Azure.Redis.EnterpriseCluster("example1", new Azure.Redis.EnterpriseClusterArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             SkuName = "Enterprise_E20-4",
+    ///         });
     ///         var exampleEnterpriseDatabase = new Azure.Redis.EnterpriseDatabase("exampleEnterpriseDatabase", new Azure.Redis.EnterpriseDatabaseArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ClusterId = exampleEnterpriseCluster.Id,
+    ///             ClientProtocol = "Encrypted",
+    ///             ClusteringPolicy = "EnterpriseCluster",
+    ///             EvictionPolicy = "NoEviction",
+    ///             Port = 10000,
+    ///             LinkedDatabaseIds = 
+    ///             {
+    ///                 exampleEnterpriseCluster.Id.Apply(id =&gt; $"{id}/databases/default"),
+    ///                 example1.Id.Apply(id =&gt; $"{id}/databases/default"),
+    ///             },
+    ///             LinkedDatabaseGroupNickname = "tftestGeoGroup",
     ///         });
     ///     }
     /// 
@@ -76,6 +92,18 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+        /// </summary>
+        [Output("linkedDatabaseGroupNickname")]
+        public Output<string?> LinkedDatabaseGroupNickname { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of database resources to link with this database with a maximum of 5.
+        /// </summary>
+        [Output("linkedDatabaseIds")]
+        public Output<ImmutableArray<string>> LinkedDatabaseIds { get; private set; } = null!;
 
         /// <summary>
         /// A `module` block as defined below.
@@ -183,6 +211,24 @@ namespace Pulumi.Azure.Redis
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
 
+        /// <summary>
+        /// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+        /// </summary>
+        [Input("linkedDatabaseGroupNickname")]
+        public Input<string>? LinkedDatabaseGroupNickname { get; set; }
+
+        [Input("linkedDatabaseIds")]
+        private InputList<string>? _linkedDatabaseIds;
+
+        /// <summary>
+        /// A list of database resources to link with this database with a maximum of 5.
+        /// </summary>
+        public InputList<string> LinkedDatabaseIds
+        {
+            get => _linkedDatabaseIds ?? (_linkedDatabaseIds = new InputList<string>());
+            set => _linkedDatabaseIds = value;
+        }
+
         [Input("modules")]
         private InputList<Inputs.EnterpriseDatabaseModuleArgs>? _modules;
 
@@ -243,6 +289,24 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
+
+        /// <summary>
+        /// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+        /// </summary>
+        [Input("linkedDatabaseGroupNickname")]
+        public Input<string>? LinkedDatabaseGroupNickname { get; set; }
+
+        [Input("linkedDatabaseIds")]
+        private InputList<string>? _linkedDatabaseIds;
+
+        /// <summary>
+        /// A list of database resources to link with this database with a maximum of 5.
+        /// </summary>
+        public InputList<string> LinkedDatabaseIds
+        {
+            get => _linkedDatabaseIds ?? (_linkedDatabaseIds = new InputList<string>());
+            set => _linkedDatabaseIds = value;
+        }
 
         [Input("modules")]
         private InputList<Inputs.EnterpriseDatabaseModuleGetArgs>? _modules;

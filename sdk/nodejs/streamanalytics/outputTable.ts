@@ -80,6 +80,10 @@ export class OutputTable extends pulumi.CustomResource {
      */
     public readonly batchSize!: pulumi.Output<number>;
     /**
+     * A list of the column names to be removed from output event entities.
+     */
+    public readonly columnsToRemoves!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -126,6 +130,7 @@ export class OutputTable extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as OutputTableState | undefined;
             resourceInputs["batchSize"] = state ? state.batchSize : undefined;
+            resourceInputs["columnsToRemoves"] = state ? state.columnsToRemoves : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["partitionKey"] = state ? state.partitionKey : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -161,6 +166,7 @@ export class OutputTable extends pulumi.CustomResource {
                 throw new Error("Missing required property 'table'");
             }
             resourceInputs["batchSize"] = args ? args.batchSize : undefined;
+            resourceInputs["columnsToRemoves"] = args ? args.columnsToRemoves : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["partitionKey"] = args ? args.partitionKey : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -183,6 +189,10 @@ export interface OutputTableState {
      * The number of records for a batch operation. Must be between `1` and `100`.
      */
     batchSize?: pulumi.Input<number>;
+    /**
+     * A list of the column names to be removed from output event entities.
+     */
+    columnsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
@@ -225,6 +235,10 @@ export interface OutputTableArgs {
      * The number of records for a batch operation. Must be between `1` and `100`.
      */
     batchSize: pulumi.Input<number>;
+    /**
+     * A list of the column names to be removed from output event entities.
+     */
+    columnsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */

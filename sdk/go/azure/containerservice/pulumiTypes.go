@@ -8072,6 +8072,143 @@ func (o KubernetesClusterMaintenanceWindowNotAllowedArrayOutput) Index(i pulumi.
 	}).(KubernetesClusterMaintenanceWindowNotAllowedOutput)
 }
 
+type KubernetesClusterMicrosoftDefender struct {
+	// Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
+	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+}
+
+// KubernetesClusterMicrosoftDefenderInput is an input type that accepts KubernetesClusterMicrosoftDefenderArgs and KubernetesClusterMicrosoftDefenderOutput values.
+// You can construct a concrete instance of `KubernetesClusterMicrosoftDefenderInput` via:
+//
+//          KubernetesClusterMicrosoftDefenderArgs{...}
+type KubernetesClusterMicrosoftDefenderInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMicrosoftDefenderOutput() KubernetesClusterMicrosoftDefenderOutput
+	ToKubernetesClusterMicrosoftDefenderOutputWithContext(context.Context) KubernetesClusterMicrosoftDefenderOutput
+}
+
+type KubernetesClusterMicrosoftDefenderArgs struct {
+	// Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
+	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+}
+
+func (KubernetesClusterMicrosoftDefenderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMicrosoftDefender)(nil)).Elem()
+}
+
+func (i KubernetesClusterMicrosoftDefenderArgs) ToKubernetesClusterMicrosoftDefenderOutput() KubernetesClusterMicrosoftDefenderOutput {
+	return i.ToKubernetesClusterMicrosoftDefenderOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMicrosoftDefenderArgs) ToKubernetesClusterMicrosoftDefenderOutputWithContext(ctx context.Context) KubernetesClusterMicrosoftDefenderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMicrosoftDefenderOutput)
+}
+
+func (i KubernetesClusterMicrosoftDefenderArgs) ToKubernetesClusterMicrosoftDefenderPtrOutput() KubernetesClusterMicrosoftDefenderPtrOutput {
+	return i.ToKubernetesClusterMicrosoftDefenderPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMicrosoftDefenderArgs) ToKubernetesClusterMicrosoftDefenderPtrOutputWithContext(ctx context.Context) KubernetesClusterMicrosoftDefenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMicrosoftDefenderOutput).ToKubernetesClusterMicrosoftDefenderPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterMicrosoftDefenderPtrInput is an input type that accepts KubernetesClusterMicrosoftDefenderArgs, KubernetesClusterMicrosoftDefenderPtr and KubernetesClusterMicrosoftDefenderPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterMicrosoftDefenderPtrInput` via:
+//
+//          KubernetesClusterMicrosoftDefenderArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterMicrosoftDefenderPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMicrosoftDefenderPtrOutput() KubernetesClusterMicrosoftDefenderPtrOutput
+	ToKubernetesClusterMicrosoftDefenderPtrOutputWithContext(context.Context) KubernetesClusterMicrosoftDefenderPtrOutput
+}
+
+type kubernetesClusterMicrosoftDefenderPtrType KubernetesClusterMicrosoftDefenderArgs
+
+func KubernetesClusterMicrosoftDefenderPtr(v *KubernetesClusterMicrosoftDefenderArgs) KubernetesClusterMicrosoftDefenderPtrInput {
+	return (*kubernetesClusterMicrosoftDefenderPtrType)(v)
+}
+
+func (*kubernetesClusterMicrosoftDefenderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterMicrosoftDefender)(nil)).Elem()
+}
+
+func (i *kubernetesClusterMicrosoftDefenderPtrType) ToKubernetesClusterMicrosoftDefenderPtrOutput() KubernetesClusterMicrosoftDefenderPtrOutput {
+	return i.ToKubernetesClusterMicrosoftDefenderPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterMicrosoftDefenderPtrType) ToKubernetesClusterMicrosoftDefenderPtrOutputWithContext(ctx context.Context) KubernetesClusterMicrosoftDefenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMicrosoftDefenderPtrOutput)
+}
+
+type KubernetesClusterMicrosoftDefenderOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMicrosoftDefenderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMicrosoftDefender)(nil)).Elem()
+}
+
+func (o KubernetesClusterMicrosoftDefenderOutput) ToKubernetesClusterMicrosoftDefenderOutput() KubernetesClusterMicrosoftDefenderOutput {
+	return o
+}
+
+func (o KubernetesClusterMicrosoftDefenderOutput) ToKubernetesClusterMicrosoftDefenderOutputWithContext(ctx context.Context) KubernetesClusterMicrosoftDefenderOutput {
+	return o
+}
+
+func (o KubernetesClusterMicrosoftDefenderOutput) ToKubernetesClusterMicrosoftDefenderPtrOutput() KubernetesClusterMicrosoftDefenderPtrOutput {
+	return o.ToKubernetesClusterMicrosoftDefenderPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterMicrosoftDefenderOutput) ToKubernetesClusterMicrosoftDefenderPtrOutputWithContext(ctx context.Context) KubernetesClusterMicrosoftDefenderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterMicrosoftDefender) *KubernetesClusterMicrosoftDefender {
+		return &v
+	}).(KubernetesClusterMicrosoftDefenderPtrOutput)
+}
+
+// Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
+func (o KubernetesClusterMicrosoftDefenderOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterMicrosoftDefender) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+}
+
+type KubernetesClusterMicrosoftDefenderPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMicrosoftDefenderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterMicrosoftDefender)(nil)).Elem()
+}
+
+func (o KubernetesClusterMicrosoftDefenderPtrOutput) ToKubernetesClusterMicrosoftDefenderPtrOutput() KubernetesClusterMicrosoftDefenderPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterMicrosoftDefenderPtrOutput) ToKubernetesClusterMicrosoftDefenderPtrOutputWithContext(ctx context.Context) KubernetesClusterMicrosoftDefenderPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterMicrosoftDefenderPtrOutput) Elem() KubernetesClusterMicrosoftDefenderOutput {
+	return o.ApplyT(func(v *KubernetesClusterMicrosoftDefender) KubernetesClusterMicrosoftDefender {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterMicrosoftDefender
+		return ret
+	}).(KubernetesClusterMicrosoftDefenderOutput)
+}
+
+// Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
+func (o KubernetesClusterMicrosoftDefenderPtrOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMicrosoftDefender) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogAnalyticsWorkspaceId
+	}).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterNetworkProfile struct {
 	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
@@ -8079,11 +8216,11 @@ type KubernetesClusterNetworkProfile struct {
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	IpVersions []string `pulumi:"ipVersions"`
-	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
+	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `standard`.
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
-	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
 	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
-	// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+	// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
 	NatGatewayProfile *KubernetesClusterNetworkProfileNatGatewayProfile `pulumi:"natGatewayProfile"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	NetworkMode *string `pulumi:"networkMode"`
@@ -8117,11 +8254,11 @@ type KubernetesClusterNetworkProfileArgs struct {
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	IpVersions pulumi.StringArrayInput `pulumi:"ipVersions"`
-	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
+	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `standard`.
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
-	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
 	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
-	// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+	// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
 	NatGatewayProfile KubernetesClusterNetworkProfileNatGatewayProfilePtrInput `pulumi:"natGatewayProfile"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
@@ -8229,19 +8366,19 @@ func (o KubernetesClusterNetworkProfileOutput) IpVersions() pulumi.StringArrayOu
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.IpVersions }).(pulumi.StringArrayOutput)
 }
 
-// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
+// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `standard`.
 func (o KubernetesClusterNetworkProfileOutput) LoadBalancerProfile() KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
 		return v.LoadBalancerProfile
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
-// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
 func (o KubernetesClusterNetworkProfileOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
-// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
 func (o KubernetesClusterNetworkProfileOutput) NatGatewayProfile() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileNatGatewayProfile {
 		return v.NatGatewayProfile
@@ -8332,7 +8469,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) IpVersions() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
+// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `standard`.
 func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerProfile() KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
 		if v == nil {
@@ -8342,7 +8479,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerProfile() Kubernet
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
-// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
 func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -8352,7 +8489,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerSku() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
 func (o KubernetesClusterNetworkProfilePtrOutput) NatGatewayProfile() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileNatGatewayProfile {
 		if v == nil {
@@ -16198,6 +16335,103 @@ func (o GetKubernetesClusterLinuxProfileSshKeyArrayOutput) Index(i pulumi.IntInp
 	}).(GetKubernetesClusterLinuxProfileSshKeyOutput)
 }
 
+type GetKubernetesClusterMicrosoftDefender struct {
+	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+}
+
+// GetKubernetesClusterMicrosoftDefenderInput is an input type that accepts GetKubernetesClusterMicrosoftDefenderArgs and GetKubernetesClusterMicrosoftDefenderOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterMicrosoftDefenderInput` via:
+//
+//          GetKubernetesClusterMicrosoftDefenderArgs{...}
+type GetKubernetesClusterMicrosoftDefenderInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterMicrosoftDefenderOutput() GetKubernetesClusterMicrosoftDefenderOutput
+	ToGetKubernetesClusterMicrosoftDefenderOutputWithContext(context.Context) GetKubernetesClusterMicrosoftDefenderOutput
+}
+
+type GetKubernetesClusterMicrosoftDefenderArgs struct {
+	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+}
+
+func (GetKubernetesClusterMicrosoftDefenderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterMicrosoftDefender)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterMicrosoftDefenderArgs) ToGetKubernetesClusterMicrosoftDefenderOutput() GetKubernetesClusterMicrosoftDefenderOutput {
+	return i.ToGetKubernetesClusterMicrosoftDefenderOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterMicrosoftDefenderArgs) ToGetKubernetesClusterMicrosoftDefenderOutputWithContext(ctx context.Context) GetKubernetesClusterMicrosoftDefenderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterMicrosoftDefenderOutput)
+}
+
+// GetKubernetesClusterMicrosoftDefenderArrayInput is an input type that accepts GetKubernetesClusterMicrosoftDefenderArray and GetKubernetesClusterMicrosoftDefenderArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterMicrosoftDefenderArrayInput` via:
+//
+//          GetKubernetesClusterMicrosoftDefenderArray{ GetKubernetesClusterMicrosoftDefenderArgs{...} }
+type GetKubernetesClusterMicrosoftDefenderArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterMicrosoftDefenderArrayOutput() GetKubernetesClusterMicrosoftDefenderArrayOutput
+	ToGetKubernetesClusterMicrosoftDefenderArrayOutputWithContext(context.Context) GetKubernetesClusterMicrosoftDefenderArrayOutput
+}
+
+type GetKubernetesClusterMicrosoftDefenderArray []GetKubernetesClusterMicrosoftDefenderInput
+
+func (GetKubernetesClusterMicrosoftDefenderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterMicrosoftDefender)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterMicrosoftDefenderArray) ToGetKubernetesClusterMicrosoftDefenderArrayOutput() GetKubernetesClusterMicrosoftDefenderArrayOutput {
+	return i.ToGetKubernetesClusterMicrosoftDefenderArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterMicrosoftDefenderArray) ToGetKubernetesClusterMicrosoftDefenderArrayOutputWithContext(ctx context.Context) GetKubernetesClusterMicrosoftDefenderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterMicrosoftDefenderArrayOutput)
+}
+
+type GetKubernetesClusterMicrosoftDefenderOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterMicrosoftDefenderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterMicrosoftDefender)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterMicrosoftDefenderOutput) ToGetKubernetesClusterMicrosoftDefenderOutput() GetKubernetesClusterMicrosoftDefenderOutput {
+	return o
+}
+
+func (o GetKubernetesClusterMicrosoftDefenderOutput) ToGetKubernetesClusterMicrosoftDefenderOutputWithContext(ctx context.Context) GetKubernetesClusterMicrosoftDefenderOutput {
+	return o
+}
+
+// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+func (o GetKubernetesClusterMicrosoftDefenderOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterMicrosoftDefender) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterMicrosoftDefenderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterMicrosoftDefenderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterMicrosoftDefender)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterMicrosoftDefenderArrayOutput) ToGetKubernetesClusterMicrosoftDefenderArrayOutput() GetKubernetesClusterMicrosoftDefenderArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterMicrosoftDefenderArrayOutput) ToGetKubernetesClusterMicrosoftDefenderArrayOutputWithContext(ctx context.Context) GetKubernetesClusterMicrosoftDefenderArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterMicrosoftDefenderArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterMicrosoftDefenderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterMicrosoftDefender {
+		return vs[0].([]GetKubernetesClusterMicrosoftDefender)[vs[1].(int)]
+	}).(GetKubernetesClusterMicrosoftDefenderOutput)
+}
+
 type GetKubernetesClusterNetworkProfile struct {
 	// IP address within the Kubernetes service address range used by cluster service discovery (kube-dns).
 	DnsServiceIp string `pulumi:"dnsServiceIp"`
@@ -16846,6 +17080,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowAllowedArrayInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowAllowedArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowNotAllowedInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowNotAllowedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowNotAllowedArrayInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowNotAllowedArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMicrosoftDefenderInput)(nil)).Elem(), KubernetesClusterMicrosoftDefenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMicrosoftDefenderPtrInput)(nil)).Elem(), KubernetesClusterMicrosoftDefenderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileInput)(nil)).Elem(), KubernetesClusterNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfilePtrInput)(nil)).Elem(), KubernetesClusterNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileLoadBalancerProfileInput)(nil)).Elem(), KubernetesClusterNetworkProfileLoadBalancerProfileArgs{})
@@ -16940,6 +17176,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterLinuxProfileArrayInput)(nil)).Elem(), GetKubernetesClusterLinuxProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterLinuxProfileSshKeyInput)(nil)).Elem(), GetKubernetesClusterLinuxProfileSshKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterLinuxProfileSshKeyArrayInput)(nil)).Elem(), GetKubernetesClusterLinuxProfileSshKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterMicrosoftDefenderInput)(nil)).Elem(), GetKubernetesClusterMicrosoftDefenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterMicrosoftDefenderArrayInput)(nil)).Elem(), GetKubernetesClusterMicrosoftDefenderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterNetworkProfileInput)(nil)).Elem(), GetKubernetesClusterNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterNetworkProfileArrayInput)(nil)).Elem(), GetKubernetesClusterNetworkProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterOmsAgentInput)(nil)).Elem(), GetKubernetesClusterOmsAgentArgs{})
@@ -17032,6 +17270,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowAllowedArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowNotAllowedOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowNotAllowedArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMicrosoftDefenderOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMicrosoftDefenderPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileLoadBalancerProfileOutput{})
@@ -17126,6 +17366,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKubernetesClusterLinuxProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterLinuxProfileSshKeyOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterLinuxProfileSshKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterMicrosoftDefenderOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterMicrosoftDefenderArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterNetworkProfileOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterNetworkProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterOmsAgentOutput{})

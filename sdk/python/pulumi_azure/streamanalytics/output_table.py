@@ -21,6 +21,7 @@ class OutputTableArgs:
                  storage_account_name: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
                  table: pulumi.Input[str],
+                 columns_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OutputTable resource.
@@ -32,6 +33,7 @@ class OutputTableArgs:
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: The name of the table where the stream should be output to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns_to_removes: A list of the column names to be removed from output event entities.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "batch_size", batch_size)
@@ -42,6 +44,8 @@ class OutputTableArgs:
         pulumi.set(__self__, "storage_account_name", storage_account_name)
         pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
         pulumi.set(__self__, "table", table)
+        if columns_to_removes is not None:
+            pulumi.set(__self__, "columns_to_removes", columns_to_removes)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -142,6 +146,18 @@ class OutputTableArgs:
         pulumi.set(self, "table", value)
 
     @property
+    @pulumi.getter(name="columnsToRemoves")
+    def columns_to_removes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the column names to be removed from output event entities.
+        """
+        return pulumi.get(self, "columns_to_removes")
+
+    @columns_to_removes.setter
+    def columns_to_removes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "columns_to_removes", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -158,6 +174,7 @@ class OutputTableArgs:
 class _OutputTableState:
     def __init__(__self__, *,
                  batch_size: Optional[pulumi.Input[int]] = None,
+                 columns_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -169,6 +186,7 @@ class _OutputTableState:
         """
         Input properties used for looking up and filtering OutputTable resources.
         :param pulumi.Input[int] batch_size: The number of records for a batch operation. Must be between `1` and `100`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns_to_removes: A list of the column names to be removed from output event entities.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key: The name of the output column that contains the partition key.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -180,6 +198,8 @@ class _OutputTableState:
         """
         if batch_size is not None:
             pulumi.set(__self__, "batch_size", batch_size)
+        if columns_to_removes is not None:
+            pulumi.set(__self__, "columns_to_removes", columns_to_removes)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if partition_key is not None:
@@ -208,6 +228,18 @@ class _OutputTableState:
     @batch_size.setter
     def batch_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="columnsToRemoves")
+    def columns_to_removes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the column names to be removed from output event entities.
+        """
+        return pulumi.get(self, "columns_to_removes")
+
+    @columns_to_removes.setter
+    def columns_to_removes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "columns_to_removes", value)
 
     @property
     @pulumi.getter
@@ -312,6 +344,7 @@ class OutputTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  batch_size: Optional[pulumi.Input[int]] = None,
+                 columns_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -361,6 +394,7 @@ class OutputTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] batch_size: The number of records for a batch operation. Must be between `1` and `100`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns_to_removes: A list of the column names to be removed from output event entities.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key: The name of the output column that contains the partition key.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -429,6 +463,7 @@ class OutputTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  batch_size: Optional[pulumi.Input[int]] = None,
+                 columns_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -452,6 +487,7 @@ class OutputTable(pulumi.CustomResource):
             if batch_size is None and not opts.urn:
                 raise TypeError("Missing required property 'batch_size'")
             __props__.__dict__["batch_size"] = batch_size
+            __props__.__dict__["columns_to_removes"] = columns_to_removes
             __props__.__dict__["name"] = name
             if partition_key is None and not opts.urn:
                 raise TypeError("Missing required property 'partition_key'")
@@ -485,6 +521,7 @@ class OutputTable(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             batch_size: Optional[pulumi.Input[int]] = None,
+            columns_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             partition_key: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -501,6 +538,7 @@ class OutputTable(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] batch_size: The number of records for a batch operation. Must be between `1` and `100`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns_to_removes: A list of the column names to be removed from output event entities.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key: The name of the output column that contains the partition key.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -515,6 +553,7 @@ class OutputTable(pulumi.CustomResource):
         __props__ = _OutputTableState.__new__(_OutputTableState)
 
         __props__.__dict__["batch_size"] = batch_size
+        __props__.__dict__["columns_to_removes"] = columns_to_removes
         __props__.__dict__["name"] = name
         __props__.__dict__["partition_key"] = partition_key
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -532,6 +571,14 @@ class OutputTable(pulumi.CustomResource):
         The number of records for a batch operation. Must be between `1` and `100`.
         """
         return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="columnsToRemoves")
+    def columns_to_removes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of the column names to be removed from output event entities.
+        """
+        return pulumi.get(self, "columns_to_removes")
 
     @property
     @pulumi.getter

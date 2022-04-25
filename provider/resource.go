@@ -530,6 +530,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_spring_cloud_app_mysql_association":    {Tok: azureResource(azureAppPlatform, "SpringCloudAppMysqlAssociation")},
 			"azurerm_spring_cloud_app_cosmosdb_association": {Tok: azureResource(azureAppPlatform, "SpringCloudAppCosmosDBAssociation")},
 			"azurerm_spring_cloud_storage":                  {Tok: azureResource(azureAppPlatform, "SpringCloudStorage")},
+			"azurerm_spring_cloud_container_deployment":     {Tok: azureResource(azureAppPlatform, "SpringCloudContainerDeployment")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},

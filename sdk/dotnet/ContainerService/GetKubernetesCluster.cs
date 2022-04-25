@@ -204,6 +204,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// A `microsoft_defender` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterMicrosoftDefenderResult> MicrosoftDefenders;
+        /// <summary>
         /// The name assigned to this pool of agents.
         /// </summary>
         public readonly string Name;
@@ -303,6 +307,8 @@ namespace Pulumi.Azure.ContainerService
 
             string location,
 
+            ImmutableArray<Outputs.GetKubernetesClusterMicrosoftDefenderResult> microsoftDefenders,
+
             string name,
 
             ImmutableArray<Outputs.GetKubernetesClusterNetworkProfileResult> networkProfiles,
@@ -353,6 +359,7 @@ namespace Pulumi.Azure.ContainerService
             KubernetesVersion = kubernetesVersion;
             LinuxProfiles = linuxProfiles;
             Location = location;
+            MicrosoftDefenders = microsoftDefenders;
             Name = name;
             NetworkProfiles = networkProfiles;
             NodeResourceGroup = nodeResourceGroup;

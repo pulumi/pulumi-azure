@@ -7788,8 +7788,8 @@ class RouteTableRouteArgs:
                  next_hop_type: pulumi.Input[str],
                  next_hop_in_ip_address: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] address_prefix: The destination CIDR to which the route applies, such as 10.1.0.0/16. Tags such as `VirtualNetwork`, `AzureLoadBalancer` or `Internet` can also be used.
-        :param pulumi.Input[str] name: The name of the route.
+        :param pulumi.Input[str] address_prefix: The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+        :param pulumi.Input[str] name: The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
         :param pulumi.Input[str] next_hop_type: The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
         :param pulumi.Input[str] next_hop_in_ip_address: Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         """
@@ -7803,7 +7803,7 @@ class RouteTableRouteArgs:
     @pulumi.getter(name="addressPrefix")
     def address_prefix(self) -> pulumi.Input[str]:
         """
-        The destination CIDR to which the route applies, such as 10.1.0.0/16. Tags such as `VirtualNetwork`, `AzureLoadBalancer` or `Internet` can also be used.
+        The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
         """
         return pulumi.get(self, "address_prefix")
 
@@ -7815,7 +7815,7 @@ class RouteTableRouteArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the route.
+        The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
         """
         return pulumi.get(self, "name")
 

@@ -2029,6 +2029,17 @@ export namespace appplatform {
         sizeInGb: number;
     }
 
+    export interface SpringCloudContainerDeploymentQuota {
+        /**
+         * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+         */
+        cpu: string;
+        /**
+         * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+         */
+        memory: string;
+    }
+
     export interface SpringCloudJavaDeploymentQuota {
         /**
          * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -2211,7 +2222,6 @@ export namespace appplatform {
          */
         sampleRate?: number;
     }
-
 }
 
 export namespace appservice {
@@ -17524,6 +17534,13 @@ export namespace containerservice {
         keyData: string;
     }
 
+    export interface GetKubernetesClusterMicrosoftDefender {
+        /**
+         * The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+         */
+        logAnalyticsWorkspaceId: string;
+    }
+
     export interface GetKubernetesClusterNetworkProfile {
         /**
          * IP address within the Kubernetes service address range used by cluster service discovery (kube-dns).
@@ -18618,6 +18635,13 @@ export namespace containerservice {
         start: string;
     }
 
+    export interface KubernetesClusterMicrosoftDefender {
+        /**
+         * Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
+         */
+        logAnalyticsWorkspaceId: string;
+    }
+
     export interface KubernetesClusterNetworkProfile {
         /**
          * IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
@@ -18632,15 +18656,15 @@ export namespace containerservice {
          */
         ipVersions: string[];
         /**
-         * A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
+         * A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `standard`.
          */
         loadBalancerProfile: outputs.containerservice.KubernetesClusterNetworkProfileLoadBalancerProfile;
         /**
-         * Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+         * Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
          */
         loadBalancerSku?: string;
         /**
-         * A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+         * A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
          */
         natGatewayProfile: outputs.containerservice.KubernetesClusterNetworkProfileNatGatewayProfile;
         /**
@@ -19321,7 +19345,6 @@ export namespace containerservice {
          */
         enabled?: boolean;
     }
-
 }
 
 export namespace core {
@@ -21264,6 +21287,17 @@ export namespace datafactory {
         linkedServiceName: string;
         /**
          * Specifies the secret name in Azure Key Vault that stores the sas token.
+         */
+        secretName: string;
+    }
+
+    export interface LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores the Service Principal key.
          */
         secretName: string;
     }
@@ -27840,6 +27874,9 @@ export namespace lb {
          * The ID of the Subnet which should be associated with the IP Configuration.
          */
         subnetId: string;
+        /**
+         * Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+         */
         zones?: string[];
     }
 
@@ -34459,11 +34496,11 @@ export namespace network {
 
     export interface RouteTableRoute {
         /**
-         * The destination CIDR to which the route applies, such as 10.1.0.0/16. Tags such as `VirtualNetwork`, `AzureLoadBalancer` or `Internet` can also be used.
+         * The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
          */
         addressPrefix: string;
         /**
-         * The name of the route.
+         * The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
          */
         name: string;
         /**
@@ -35533,11 +35570,11 @@ export namespace postgresql {
 
     export interface FlexibleServerMaintenanceWindow {
         /**
-         * The day of week for maintenance window. Defaults to `0`.
+         * The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
          */
         dayOfWeek?: number;
         /**
-         * The day of week for maintenance window. Defaults to `0`.
+         * The start hour for maintenance window. Defaults to `0`.
          */
         startHour?: number;
         /**

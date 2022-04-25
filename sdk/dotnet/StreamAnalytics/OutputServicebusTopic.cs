@@ -125,6 +125,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> StreamAnalyticsJobName { get; private set; } = null!;
 
         /// <summary>
+        /// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+        /// </summary>
+        [Output("systemPropertyColumns")]
+        public Output<ImmutableDictionary<string, string>?> SystemPropertyColumns { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Service Bus Topic.
         /// </summary>
         [Output("topicName")]
@@ -230,6 +236,18 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("streamAnalyticsJobName", required: true)]
         public Input<string> StreamAnalyticsJobName { get; set; } = null!;
 
+        [Input("systemPropertyColumns")]
+        private InputMap<string>? _systemPropertyColumns;
+
+        /// <summary>
+        /// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+        /// </summary>
+        public InputMap<string> SystemPropertyColumns
+        {
+            get => _systemPropertyColumns ?? (_systemPropertyColumns = new InputMap<string>());
+            set => _systemPropertyColumns = value;
+        }
+
         /// <summary>
         /// The name of the Service Bus Topic.
         /// </summary>
@@ -296,6 +314,18 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("streamAnalyticsJobName")]
         public Input<string>? StreamAnalyticsJobName { get; set; }
+
+        [Input("systemPropertyColumns")]
+        private InputMap<string>? _systemPropertyColumns;
+
+        /// <summary>
+        /// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+        /// </summary>
+        public InputMap<string> SystemPropertyColumns
+        {
+            get => _systemPropertyColumns ?? (_systemPropertyColumns = new InputMap<string>());
+            set => _systemPropertyColumns = value;
+        }
 
         /// <summary>
         /// The name of the Service Bus Topic.

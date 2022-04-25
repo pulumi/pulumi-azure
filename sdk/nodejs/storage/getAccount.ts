@@ -112,6 +112,10 @@ export interface GetAccountResult {
      */
     readonly name: string;
     /**
+     * Is NFSv3 protocol enabled?
+     */
+    readonly nfsv3Enabled: boolean;
+    /**
      * The primary access key for the Storage Account.
      */
     readonly primaryAccessKey: string;

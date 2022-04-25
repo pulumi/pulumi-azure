@@ -71,6 +71,9 @@ namespace Pulumi.Azure.LogicApps
         [Output("connectorOutboundIpAddresses")]
         public Output<ImmutableArray<string>> ConnectorOutboundIpAddresses { get; private set; } = null!;
 
+        /// <summary>
+        /// Is the Logic App Workflow enabled? Defaults to `true`.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
@@ -204,6 +207,9 @@ namespace Pulumi.Azure.LogicApps
         [Input("accessControl")]
         public Input<Inputs.WorkflowAccessControlArgs>? AccessControl { get; set; }
 
+        /// <summary>
+        /// Is the Logic App Workflow enabled? Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -334,6 +340,9 @@ namespace Pulumi.Azure.LogicApps
             set => _connectorOutboundIpAddresses = value;
         }
 
+        /// <summary>
+        /// Is the Logic App Workflow enabled? Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

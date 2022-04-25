@@ -139,7 +139,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicIpAddresses!: pulumi.Output<string[]>;
     /**
-     * Is public access to the service allowed?.
+     * Is public access to the service allowed?. Defaults to `true`
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -382,7 +382,7 @@ export interface ServiceState {
      */
     publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Is public access to the service allowed?.
+     * Is public access to the service allowed?. Defaults to `true`
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -497,7 +497,7 @@ export interface ServiceArgs {
      */
     publicIpAddressId?: pulumi.Input<string>;
     /**
-     * Is public access to the service allowed?.
+     * Is public access to the service allowed?. Defaults to `true`
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

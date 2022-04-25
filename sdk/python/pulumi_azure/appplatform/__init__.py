@@ -13,6 +13,7 @@ from .spring_cloud_app_cosmos_dbassociation import *
 from .spring_cloud_app_mysql_association import *
 from .spring_cloud_app_redis_association import *
 from .spring_cloud_certificate import *
+from .spring_cloud_container_deployment import *
 from .spring_cloud_custom_domain import *
 from .spring_cloud_java_deployment import *
 from .spring_cloud_service import *

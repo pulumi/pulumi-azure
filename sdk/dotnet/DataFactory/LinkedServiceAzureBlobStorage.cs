@@ -87,6 +87,18 @@ namespace Pulumi.Azure.DataFactory
     ///                 SecretName = "secret",
     ///             },
     ///         });
+    ///         var testDatafactory_linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage", new Azure.DataFactory.LinkedServiceAzureBlobStorageArgs
+    ///         {
+    ///             DataFactoryId = testFactory.Id,
+    ///             ServiceEndpoint = "https://storageaccountname.blob.core.windows.net",
+    ///             ServicePrincipalId = "00000000-0000-0000-0000-000000000000",
+    ///             TenantId = "00000000-0000-0000-0000-000000000000",
+    ///             ServicePrincipalLinkedKeyVaultKey = new Azure.DataFactory.Inputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs
+    ///             {
+    ///                 LinkedServiceName = testLinkedServiceKeyVault.Name,
+    ///                 SecretName = "secret",
+    ///             },
+    ///         });
     ///     }
     /// 
     /// }
@@ -164,22 +176,34 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> SasUri { get; private set; } = null!;
 
         /// <summary>
-        /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`. Required with `use_managed_identity`.
+        /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
         /// </summary>
         [Output("serviceEndpoint")]
         public Output<string?> ServiceEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `service_principal_key` is set.
+        /// The service principal id in which to authenticate against the Azure Blob Storage account.
         /// </summary>
         [Output("servicePrincipalId")]
         public Output<string?> ServicePrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `service_principal_id` is set.
+        /// The service principal key in which to authenticate against the AAzure Blob Storage account.
         /// </summary>
         [Output("servicePrincipalKey")]
         public Output<string?> ServicePrincipalKey { get; private set; } = null!;
+
+        /// <summary>
+        /// A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// </summary>
+        [Output("servicePrincipalLinkedKeyVaultKey")]
+        public Output<Outputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey?> ServicePrincipalLinkedKeyVaultKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
+        /// </summary>
+        [Output("storageKind")]
+        public Output<string?> StorageKind { get; private set; } = null!;
 
         /// <summary>
         /// The tenant id or name in which to authenticate against the Azure Blob Storage account.
@@ -318,22 +342,34 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? SasUri { get; set; }
 
         /// <summary>
-        /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`. Required with `use_managed_identity`.
+        /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
         /// </summary>
         [Input("serviceEndpoint")]
         public Input<string>? ServiceEndpoint { get; set; }
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `service_principal_key` is set.
+        /// The service principal id in which to authenticate against the Azure Blob Storage account.
         /// </summary>
         [Input("servicePrincipalId")]
         public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `service_principal_id` is set.
+        /// The service principal key in which to authenticate against the AAzure Blob Storage account.
         /// </summary>
         [Input("servicePrincipalKey")]
         public Input<string>? ServicePrincipalKey { get; set; }
+
+        /// <summary>
+        /// A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// </summary>
+        [Input("servicePrincipalLinkedKeyVaultKey")]
+        public Input<Inputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs>? ServicePrincipalLinkedKeyVaultKey { get; set; }
+
+        /// <summary>
+        /// Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
+        /// </summary>
+        [Input("storageKind")]
+        public Input<string>? StorageKind { get; set; }
 
         /// <summary>
         /// The tenant id or name in which to authenticate against the Azure Blob Storage account.
@@ -433,22 +469,34 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? SasUri { get; set; }
 
         /// <summary>
-        /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`. Required with `use_managed_identity`.
+        /// The Service Endpoint. Conflicts with `connection_string` and `sas_uri`.
         /// </summary>
         [Input("serviceEndpoint")]
         public Input<string>? ServiceEndpoint { get; set; }
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure Blob Storage account. Required if `service_principal_key` is set.
+        /// The service principal id in which to authenticate against the Azure Blob Storage account.
         /// </summary>
         [Input("servicePrincipalId")]
         public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `service_principal_id` is set.
+        /// The service principal key in which to authenticate against the AAzure Blob Storage account.
         /// </summary>
         [Input("servicePrincipalKey")]
         public Input<string>? ServicePrincipalKey { get; set; }
+
+        /// <summary>
+        /// A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// </summary>
+        [Input("servicePrincipalLinkedKeyVaultKey")]
+        public Input<Inputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyGetArgs>? ServicePrincipalLinkedKeyVaultKey { get; set; }
+
+        /// <summary>
+        /// Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
+        /// </summary>
+        [Input("storageKind")]
+        public Input<string>? StorageKind { get; set; }
 
         /// <summary>
         /// The tenant id or name in which to authenticate against the Azure Blob Storage account.

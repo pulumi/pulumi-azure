@@ -91,6 +91,7 @@
         "appplatform/springCloudAppMysqlAssociation.ts",
         "appplatform/springCloudAppRedisAssociation.ts",
         "appplatform/springCloudCertificate.ts",
+        "appplatform/springCloudContainerDeployment.ts",
         "appplatform/springCloudCustomDomain.ts",
         "appplatform/springCloudJavaDeployment.ts",
         "appplatform/springCloudService.ts",

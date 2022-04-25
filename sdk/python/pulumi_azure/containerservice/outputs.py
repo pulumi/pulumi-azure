@@ -51,6 +51,7 @@ __all__ = [
     'KubernetesClusterMaintenanceWindow',
     'KubernetesClusterMaintenanceWindowAllowed',
     'KubernetesClusterMaintenanceWindowNotAllowed',
+    'KubernetesClusterMicrosoftDefender',
     'KubernetesClusterNetworkProfile',
     'KubernetesClusterNetworkProfileLoadBalancerProfile',
     'KubernetesClusterNetworkProfileNatGatewayProfile',
@@ -98,6 +99,7 @@ __all__ = [
     'GetKubernetesClusterKubeletIdentityResult',
     'GetKubernetesClusterLinuxProfileResult',
     'GetKubernetesClusterLinuxProfileSshKeyResult',
+    'GetKubernetesClusterMicrosoftDefenderResult',
     'GetKubernetesClusterNetworkProfileResult',
     'GetKubernetesClusterOmsAgentResult',
     'GetKubernetesClusterOmsAgentOmsAgentIdentityResult',
@@ -3919,6 +3921,41 @@ class KubernetesClusterMaintenanceWindowNotAllowed(dict):
 
 
 @pulumi.output_type
+class KubernetesClusterMicrosoftDefender(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterMicrosoftDefender. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterMicrosoftDefender.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterMicrosoftDefender.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: str):
+        """
+        :param str log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> str:
+        """
+        Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+
+@pulumi.output_type
 class KubernetesClusterNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3977,9 +4014,9 @@ class KubernetesClusterNetworkProfile(dict):
         :param str dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param str docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
         :param Sequence[str] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
-        :param 'KubernetesClusterNetworkProfileLoadBalancerProfileArgs' load_balancer_profile: A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
-        :param str load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
-        :param 'KubernetesClusterNetworkProfileNatGatewayProfileArgs' nat_gateway_profile: A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        :param 'KubernetesClusterNetworkProfileLoadBalancerProfileArgs' load_balancer_profile: A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
+        :param str load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+        :param 'KubernetesClusterNetworkProfileNatGatewayProfileArgs' nat_gateway_profile: A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
         :param str network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         :param str network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         :param str outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
@@ -4046,7 +4083,7 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="loadBalancerProfile")
     def load_balancer_profile(self) -> Optional['outputs.KubernetesClusterNetworkProfileLoadBalancerProfile']:
         """
-        A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
+        A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
         """
         return pulumi.get(self, "load_balancer_profile")
 
@@ -4054,7 +4091,7 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="loadBalancerSku")
     def load_balancer_sku(self) -> Optional[str]:
         """
-        Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+        Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
         """
         return pulumi.get(self, "load_balancer_sku")
 
@@ -4062,7 +4099,7 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="natGatewayProfile")
     def nat_gateway_profile(self) -> Optional['outputs.KubernetesClusterNetworkProfileNatGatewayProfile']:
         """
-        A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
         """
         return pulumi.get(self, "nat_gateway_profile")
 
@@ -7358,6 +7395,24 @@ class GetKubernetesClusterLinuxProfileSshKeyResult(dict):
         The Public SSH Key used to access the cluster.
         """
         return pulumi.get(self, "key_data")
+
+
+@pulumi.output_type
+class GetKubernetesClusterMicrosoftDefenderResult(dict):
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: str):
+        """
+        :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> str:
+        """
+        The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
 
 
 @pulumi.output_type

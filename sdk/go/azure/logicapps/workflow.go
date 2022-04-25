@@ -62,7 +62,8 @@ type Workflow struct {
 	ConnectorEndpointIpAddresses pulumi.StringArrayOutput `pulumi:"connectorEndpointIpAddresses"`
 	// The list of outgoing ip addresses of connector.
 	ConnectorOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"connectorOutboundIpAddresses"`
-	Enabled                      pulumi.BoolPtrOutput     `pulumi:"enabled"`
+	// Is the Logic App Workflow enabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// An `identity` block as defined below.
 	Identity WorkflowIdentityPtrOutput `pulumi:"identity"`
 	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
@@ -131,7 +132,8 @@ type workflowState struct {
 	ConnectorEndpointIpAddresses []string `pulumi:"connectorEndpointIpAddresses"`
 	// The list of outgoing ip addresses of connector.
 	ConnectorOutboundIpAddresses []string `pulumi:"connectorOutboundIpAddresses"`
-	Enabled                      *bool    `pulumi:"enabled"`
+	// Is the Logic App Workflow enabled? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
 	// An `identity` block as defined below.
 	Identity *WorkflowIdentity `pulumi:"identity"`
 	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
@@ -169,7 +171,8 @@ type WorkflowState struct {
 	ConnectorEndpointIpAddresses pulumi.StringArrayInput
 	// The list of outgoing ip addresses of connector.
 	ConnectorOutboundIpAddresses pulumi.StringArrayInput
-	Enabled                      pulumi.BoolPtrInput
+	// Is the Logic App Workflow enabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WorkflowIdentityPtrInput
 	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
@@ -205,7 +208,8 @@ func (WorkflowState) ElementType() reflect.Type {
 type workflowArgs struct {
 	// A `accessControl` block as defined below.
 	AccessControl *WorkflowAccessControl `pulumi:"accessControl"`
-	Enabled       *bool                  `pulumi:"enabled"`
+	// Is the Logic App Workflow enabled? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
 	// An `identity` block as defined below.
 	Identity *WorkflowIdentity `pulumi:"identity"`
 	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
@@ -234,7 +238,8 @@ type workflowArgs struct {
 type WorkflowArgs struct {
 	// A `accessControl` block as defined below.
 	AccessControl WorkflowAccessControlPtrInput
-	Enabled       pulumi.BoolPtrInput
+	// Is the Logic App Workflow enabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WorkflowIdentityPtrInput
 	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.

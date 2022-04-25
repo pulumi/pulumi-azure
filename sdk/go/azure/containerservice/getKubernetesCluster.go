@@ -98,6 +98,8 @@ type LookupKubernetesClusterResult struct {
 	LinuxProfiles []GetKubernetesClusterLinuxProfile `pulumi:"linuxProfiles"`
 	// The Azure Region in which the managed Kubernetes Cluster exists.
 	Location string `pulumi:"location"`
+	// A `microsoftDefender` block as defined below.
+	MicrosoftDefenders []GetKubernetesClusterMicrosoftDefender `pulumi:"microsoftDefenders"`
 	// The name assigned to this pool of agents.
 	Name string `pulumi:"name"`
 	// A `networkProfile` block as documented below.
@@ -283,6 +285,13 @@ func (o LookupKubernetesClusterResultOutput) LinuxProfiles() GetKubernetesCluste
 // The Azure Region in which the managed Kubernetes Cluster exists.
 func (o LookupKubernetesClusterResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// A `microsoftDefender` block as defined below.
+func (o LookupKubernetesClusterResultOutput) MicrosoftDefenders() GetKubernetesClusterMicrosoftDefenderArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterMicrosoftDefender {
+		return v.MicrosoftDefenders
+	}).(GetKubernetesClusterMicrosoftDefenderArrayOutput)
 }
 
 // The name assigned to this pool of agents.

@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Network
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>
-        /// The destination CIDR to which the route applies, such as `10.1.0.0/16`
+        /// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
         /// </summary>
         [Output("addressPrefix")]
         public Output<string> AddressPrefix { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> NextHopInIpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
+        /// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
         /// </summary>
         [Output("nextHopType")]
         public Output<string> NextHopType { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.Network
     public sealed class RouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The destination CIDR to which the route applies, such as `10.1.0.0/16`
+        /// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
         /// </summary>
         [Input("addressPrefix", required: true)]
         public Input<string> AddressPrefix { get; set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? NextHopInIpAddress { get; set; }
 
         /// <summary>
-        /// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
+        /// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
         /// </summary>
         [Input("nextHopType", required: true)]
         public Input<string> NextHopType { get; set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Network
     public sealed class RouteState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The destination CIDR to which the route applies, such as `10.1.0.0/16`
+        /// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
         /// </summary>
         [Input("addressPrefix")]
         public Input<string>? AddressPrefix { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? NextHopInIpAddress { get; set; }
 
         /// <summary>
-        /// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
+        /// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
         /// </summary>
         [Input("nextHopType")]
         public Input<string>? NextHopType { get; set; }

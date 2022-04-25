@@ -93,6 +93,8 @@ type SpringCloudService struct {
 	RequiredNetworkTrafficRules SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput `pulumi:"requiredNetworkTrafficRules"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Whether enable the default Service Registry.
+	ServiceRegistryEnabled pulumi.BoolPtrOutput `pulumi:"serviceRegistryEnabled"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -147,6 +149,8 @@ type springCloudServiceState struct {
 	RequiredNetworkTrafficRules []SpringCloudServiceRequiredNetworkTrafficRule `pulumi:"requiredNetworkTrafficRules"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Whether enable the default Service Registry.
+	ServiceRegistryEnabled *bool `pulumi:"serviceRegistryEnabled"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -170,6 +174,8 @@ type SpringCloudServiceState struct {
 	RequiredNetworkTrafficRules SpringCloudServiceRequiredNetworkTrafficRuleArrayInput
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// Whether enable the default Service Registry.
+	ServiceRegistryEnabled pulumi.BoolPtrInput
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -193,6 +199,8 @@ type springCloudServiceArgs struct {
 	Network *SpringCloudServiceNetwork `pulumi:"network"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Whether enable the default Service Registry.
+	ServiceRegistryEnabled *bool `pulumi:"serviceRegistryEnabled"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -213,6 +221,8 @@ type SpringCloudServiceArgs struct {
 	Network SpringCloudServiceNetworkPtrInput
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Whether enable the default Service Registry.
+	ServiceRegistryEnabled pulumi.BoolPtrInput
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.

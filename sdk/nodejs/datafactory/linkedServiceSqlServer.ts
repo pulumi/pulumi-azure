@@ -133,6 +133,10 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
      * A map of parameters to associate with the Data Factory Linked Service SQL Server.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The on-premises Windows authentication user name.
+     */
+    public readonly userName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LinkedServiceSqlServer resource with the given unique name, arguments, and options.
@@ -157,6 +161,7 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
             resourceInputs["keyVaultPassword"] = state ? state.keyVaultPassword : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as LinkedServiceSqlServerArgs | undefined;
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
@@ -172,6 +177,7 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
             resourceInputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkedServiceSqlServer.__pulumiType, name, resourceInputs, opts);
@@ -223,6 +229,10 @@ export interface LinkedServiceSqlServerState {
      * A map of parameters to associate with the Data Factory Linked Service SQL Server.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The on-premises Windows authentication user name.
+     */
+    userName?: pulumi.Input<string>;
 }
 
 /**
@@ -270,4 +280,8 @@ export interface LinkedServiceSqlServerArgs {
      * A map of parameters to associate with the Data Factory Linked Service SQL Server.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The on-premises Windows authentication user name.
+     */
+    userName?: pulumi.Input<string>;
 }

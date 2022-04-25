@@ -80,7 +80,7 @@ import (
 type VirtualHubConnection struct {
 	pulumi.CustomResourceState
 
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+	// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
 	InternetSecurityEnabled pulumi.BoolPtrOutput `pulumi:"internetSecurityEnabled"`
 	// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -127,7 +127,7 @@ func GetVirtualHubConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualHubConnection resources.
 type virtualHubConnectionState struct {
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+	// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
 	InternetSecurityEnabled *bool `pulumi:"internetSecurityEnabled"`
 	// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -140,7 +140,7 @@ type virtualHubConnectionState struct {
 }
 
 type VirtualHubConnectionState struct {
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+	// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
 	InternetSecurityEnabled pulumi.BoolPtrInput
 	// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -157,7 +157,7 @@ func (VirtualHubConnectionState) ElementType() reflect.Type {
 }
 
 type virtualHubConnectionArgs struct {
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+	// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
 	InternetSecurityEnabled *bool `pulumi:"internetSecurityEnabled"`
 	// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -171,7 +171,7 @@ type virtualHubConnectionArgs struct {
 
 // The set of arguments for constructing a VirtualHubConnection resource.
 type VirtualHubConnectionArgs struct {
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+	// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
 	InternetSecurityEnabled pulumi.BoolPtrInput
 	// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

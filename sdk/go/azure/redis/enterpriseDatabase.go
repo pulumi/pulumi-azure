@@ -19,6 +19,8 @@ import (
 // package main
 //
 // import (
+// 	"fmt"
+//
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -40,9 +42,30 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		example1, err := redis.NewEnterpriseCluster(ctx, "example1", &redis.EnterpriseClusterArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			SkuName:           pulumi.String("Enterprise_E20-4"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = redis.NewEnterpriseDatabase(ctx, "exampleEnterpriseDatabase", &redis.EnterpriseDatabaseArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ClusterId:         exampleEnterpriseCluster.ID(),
+// 			ClientProtocol:    pulumi.String("Encrypted"),
+// 			ClusteringPolicy:  pulumi.String("EnterpriseCluster"),
+// 			EvictionPolicy:    pulumi.String("NoEviction"),
+// 			Port:              pulumi.Int(10000),
+// 			LinkedDatabaseIds: pulumi.StringArray{
+// 				exampleEnterpriseCluster.ID().ApplyT(func(id string) (string, error) {
+// 					return fmt.Sprintf("%v%v", id, "/databases/default"), nil
+// 				}).(pulumi.StringOutput),
+// 				example1.ID().ApplyT(func(id string) (string, error) {
+// 					return fmt.Sprintf("%v%v", id, "/databases/default"), nil
+// 				}).(pulumi.StringOutput),
+// 			},
+// 			LinkedDatabaseGroupNickname: pulumi.String("tftestGeoGroup"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -70,6 +93,10 @@ type EnterpriseDatabase struct {
 	ClusteringPolicy pulumi.StringPtrOutput `pulumi:"clusteringPolicy"`
 	// Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
+	// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+	LinkedDatabaseGroupNickname pulumi.StringPtrOutput `pulumi:"linkedDatabaseGroupNickname"`
+	// A list of database resources to link with this database with a maximum of 5.
+	LinkedDatabaseIds pulumi.StringArrayOutput `pulumi:"linkedDatabaseIds"`
 	// A `module` block as defined below.
 	Modules EnterpriseDatabaseModuleArrayOutput `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
@@ -126,6 +153,10 @@ type enterpriseDatabaseState struct {
 	ClusteringPolicy *string `pulumi:"clusteringPolicy"`
 	// Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+	LinkedDatabaseGroupNickname *string `pulumi:"linkedDatabaseGroupNickname"`
+	// A list of database resources to link with this database with a maximum of 5.
+	LinkedDatabaseIds []string `pulumi:"linkedDatabaseIds"`
 	// A `module` block as defined below.
 	Modules []EnterpriseDatabaseModule `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
@@ -151,6 +182,10 @@ type EnterpriseDatabaseState struct {
 	ClusteringPolicy pulumi.StringPtrInput
 	// Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+	LinkedDatabaseGroupNickname pulumi.StringPtrInput
+	// A list of database resources to link with this database with a maximum of 5.
+	LinkedDatabaseIds pulumi.StringArrayInput
 	// A `module` block as defined below.
 	Modules EnterpriseDatabaseModuleArrayInput
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
@@ -180,6 +215,10 @@ type enterpriseDatabaseArgs struct {
 	ClusteringPolicy *string `pulumi:"clusteringPolicy"`
 	// Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+	LinkedDatabaseGroupNickname *string `pulumi:"linkedDatabaseGroupNickname"`
+	// A list of database resources to link with this database with a maximum of 5.
+	LinkedDatabaseIds []string `pulumi:"linkedDatabaseIds"`
 	// A `module` block as defined below.
 	Modules []EnterpriseDatabaseModule `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
@@ -202,6 +241,10 @@ type EnterpriseDatabaseArgs struct {
 	ClusteringPolicy pulumi.StringPtrInput
 	// Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+	LinkedDatabaseGroupNickname pulumi.StringPtrInput
+	// A list of database resources to link with this database with a maximum of 5.
+	LinkedDatabaseIds pulumi.StringArrayInput
 	// A `module` block as defined below.
 	Modules EnterpriseDatabaseModuleArrayInput
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.

@@ -236,6 +236,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterMaintenanceWindow?> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
+        /// A `microsoft_defender` block as defined below.
+        /// </summary>
+        [Output("microsoftDefender")]
+        public Output<Outputs.KubernetesClusterMicrosoftDefender?> MicrosoftDefender { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -528,6 +534,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterMaintenanceWindowArgs>? MaintenanceWindow { get; set; }
 
         /// <summary>
+        /// A `microsoft_defender` block as defined below.
+        /// </summary>
+        [Input("microsoftDefender")]
+        public Input<Inputs.KubernetesClusterMicrosoftDefenderArgs>? MicrosoftDefender { get; set; }
+
+        /// <summary>
         /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -815,6 +827,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<Inputs.KubernetesClusterMaintenanceWindowGetArgs>? MaintenanceWindow { get; set; }
+
+        /// <summary>
+        /// A `microsoft_defender` block as defined below.
+        /// </summary>
+        [Input("microsoftDefender")]
+        public Input<Inputs.KubernetesClusterMicrosoftDefenderGetArgs>? MicrosoftDefender { get; set; }
 
         /// <summary>
         /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.

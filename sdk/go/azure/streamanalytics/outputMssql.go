@@ -90,6 +90,10 @@ type OutputMssql struct {
 	pulumi.CustomResourceState
 
 	Database pulumi.StringOutput `pulumi:"database"`
+	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+	MaxBatchCount pulumi.Float64PtrOutput `pulumi:"maxBatchCount"`
+	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+	MaxWriterCount pulumi.Float64PtrOutput `pulumi:"maxWriterCount"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
@@ -157,6 +161,10 @@ func GetOutputMssql(ctx *pulumi.Context,
 // Input properties used for looking up and filtering OutputMssql resources.
 type outputMssqlState struct {
 	Database *string `pulumi:"database"`
+	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+	MaxBatchCount *float64 `pulumi:"maxBatchCount"`
+	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+	MaxWriterCount *float64 `pulumi:"maxWriterCount"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
@@ -175,6 +183,10 @@ type outputMssqlState struct {
 
 type OutputMssqlState struct {
 	Database pulumi.StringPtrInput
+	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+	MaxBatchCount pulumi.Float64PtrInput
+	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+	MaxWriterCount pulumi.Float64PtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
@@ -197,6 +209,10 @@ func (OutputMssqlState) ElementType() reflect.Type {
 
 type outputMssqlArgs struct {
 	Database string `pulumi:"database"`
+	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+	MaxBatchCount *float64 `pulumi:"maxBatchCount"`
+	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+	MaxWriterCount *float64 `pulumi:"maxWriterCount"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
@@ -216,6 +232,10 @@ type outputMssqlArgs struct {
 // The set of arguments for constructing a OutputMssql resource.
 type OutputMssqlArgs struct {
 	Database pulumi.StringInput
+	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
+	MaxBatchCount pulumi.Float64PtrInput
+	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
+	MaxWriterCount pulumi.Float64PtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.

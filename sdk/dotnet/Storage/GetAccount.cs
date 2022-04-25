@@ -189,6 +189,10 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Is NFSv3 protocol enabled?
+        /// </summary>
+        public readonly bool Nfsv3Enabled;
+        /// <summary>
         /// The primary access key for the Storage Account.
         /// </summary>
         public readonly string PrimaryAccessKey;
@@ -358,6 +362,8 @@ namespace Pulumi.Azure.Storage
 
             string name,
 
+            bool nfsv3Enabled,
+
             string primaryAccessKey,
 
             string primaryBlobConnectionString,
@@ -443,6 +449,7 @@ namespace Pulumi.Azure.Storage
             Location = location;
             MinTlsVersion = minTlsVersion;
             Name = name;
+            Nfsv3Enabled = nfsv3Enabled;
             PrimaryAccessKey = primaryAccessKey;
             PrimaryBlobConnectionString = primaryBlobConnectionString;
             PrimaryBlobEndpoint = primaryBlobEndpoint;

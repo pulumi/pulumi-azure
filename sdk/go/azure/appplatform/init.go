@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpringCloudAppRedisAssociation{}
 	case "azure:appplatform/springCloudCertificate:SpringCloudCertificate":
 		r = &SpringCloudCertificate{}
+	case "azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment":
+		r = &SpringCloudContainerDeployment{}
 	case "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain":
 		r = &SpringCloudCustomDomain{}
 	case "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment":
@@ -82,6 +84,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appplatform/springCloudCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudContainerDeployment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

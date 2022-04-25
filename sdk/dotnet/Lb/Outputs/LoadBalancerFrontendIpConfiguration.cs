@@ -61,6 +61,9 @@ namespace Pulumi.Azure.Lb.Outputs
         /// The ID of the Subnet which should be associated with the IP Configuration.
         /// </summary>
         public readonly string? SubnetId;
+        /// <summary>
+        /// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
+        /// </summary>
         public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]

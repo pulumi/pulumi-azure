@@ -138,6 +138,9 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
         } else {
             const args = argsOrState as SubnetArgs | undefined;
+            if ((!args || args.addressPrefixes === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'addressPrefixes'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -208,7 +211,7 @@ export interface SubnetArgs {
     /**
      * The address prefixes to use for the subnet.
      */
-    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    addressPrefixes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more `delegation` blocks as defined below.
      */

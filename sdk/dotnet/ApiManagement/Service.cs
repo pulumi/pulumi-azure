@@ -169,7 +169,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<ImmutableArray<string>> PublicIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Is public access to the service allowed?.
+        /// Is public access to the service allowed?. Defaults to `true`
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? PublicIpAddressId { get; set; }
 
         /// <summary>
-        /// Is public access to the service allowed?.
+        /// Is public access to the service allowed?. Defaults to `true`
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -632,7 +632,7 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// Is public access to the service allowed?.
+        /// Is public access to the service allowed?. Defaults to `true`
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

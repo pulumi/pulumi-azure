@@ -23,7 +23,8 @@ class OutputServicebusTopicArgs:
                  stream_analytics_job_name: pulumi.Input[str],
                  topic_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OutputServicebusTopic resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -35,6 +36,7 @@ class OutputServicebusTopicArgs:
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Topic output.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "serialization", serialization)
@@ -47,6 +49,8 @@ class OutputServicebusTopicArgs:
             pulumi.set(__self__, "name", name)
         if property_columns is not None:
             pulumi.set(__self__, "property_columns", property_columns)
+        if system_property_columns is not None:
+            pulumi.set(__self__, "system_property_columns", system_property_columns)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -156,6 +160,18 @@ class OutputServicebusTopicArgs:
     def property_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "property_columns", value)
 
+    @property
+    @pulumi.getter(name="systemPropertyColumns")
+    def system_property_columns(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+        """
+        return pulumi.get(self, "system_property_columns")
+
+    @system_property_columns.setter
+    def system_property_columns(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "system_property_columns", value)
+
 
 @pulumi.input_type
 class _OutputServicebusTopicState:
@@ -168,6 +184,7 @@ class _OutputServicebusTopicState:
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OutputServicebusTopic resources.
@@ -179,6 +196,7 @@ class _OutputServicebusTopicState:
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
         """
         if name is not None:
@@ -197,6 +215,8 @@ class _OutputServicebusTopicState:
             pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
         if stream_analytics_job_name is not None:
             pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+        if system_property_columns is not None:
+            pulumi.set(__self__, "system_property_columns", system_property_columns)
         if topic_name is not None:
             pulumi.set(__self__, "topic_name", topic_name)
 
@@ -297,6 +317,18 @@ class _OutputServicebusTopicState:
         pulumi.set(self, "stream_analytics_job_name", value)
 
     @property
+    @pulumi.getter(name="systemPropertyColumns")
+    def system_property_columns(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+        """
+        return pulumi.get(self, "system_property_columns")
+
+    @system_property_columns.setter
+    def system_property_columns(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "system_property_columns", value)
+
+    @property
     @pulumi.getter(name="topicName")
     def topic_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -322,6 +354,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -377,6 +410,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
         """
         ...
@@ -451,6 +485,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -484,6 +519,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
             if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
             __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
+            __props__.__dict__["system_property_columns"] = system_property_columns
             if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
             __props__.__dict__["topic_name"] = topic_name
@@ -505,6 +541,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+            system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             topic_name: Optional[pulumi.Input[str]] = None) -> 'OutputServicebusTopic':
         """
         Get an existing OutputServicebusTopic resource's state with the given name, id, and optional extra
@@ -521,6 +558,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
         :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -535,6 +573,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
         __props__.__dict__["shared_access_policy_key"] = shared_access_policy_key
         __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
         __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
+        __props__.__dict__["system_property_columns"] = system_property_columns
         __props__.__dict__["topic_name"] = topic_name
         return OutputServicebusTopic(resource_name, opts=opts, __props__=__props__)
 
@@ -601,6 +640,14 @@ class OutputServicebusTopic(pulumi.CustomResource):
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_name")
+
+    @property
+    @pulumi.getter(name="systemPropertyColumns")
+    def system_property_columns(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
+        """
+        return pulumi.get(self, "system_property_columns")
 
     @property
     @pulumi.getter(name="topicName")

@@ -159,6 +159,12 @@ namespace Pulumi.Azure.DataFactory
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// The on-premises Windows authentication user name.
+        /// </summary>
+        [Output("userName")]
+        public Output<string?> UserName { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LinkedServiceSqlServer resource with the given unique name, arguments, and options.
@@ -284,6 +290,12 @@ namespace Pulumi.Azure.DataFactory
             set => _parameters = value;
         }
 
+        /// <summary>
+        /// The on-premises Windows authentication user name.
+        /// </summary>
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
+
         public LinkedServiceSqlServerArgs()
         {
         }
@@ -369,6 +381,12 @@ namespace Pulumi.Azure.DataFactory
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// The on-premises Windows authentication user name.
+        /// </summary>
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public LinkedServiceSqlServerState()
         {

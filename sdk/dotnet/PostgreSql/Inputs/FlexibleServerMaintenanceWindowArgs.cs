@@ -13,13 +13,13 @@ namespace Pulumi.Azure.PostgreSql.Inputs
     public sealed class FlexibleServerMaintenanceWindowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The day of week for maintenance window. Defaults to `0`.
+        /// The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
         /// </summary>
         [Input("dayOfWeek")]
         public Input<int>? DayOfWeek { get; set; }
 
         /// <summary>
-        /// The day of week for maintenance window. Defaults to `0`.
+        /// The start hour for maintenance window. Defaults to `0`.
         /// </summary>
         [Input("startHour")]
         public Input<int>? StartHour { get; set; }

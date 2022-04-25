@@ -19,6 +19,8 @@ class EnterpriseDatabaseArgs:
                  client_protocol: Optional[pulumi.Input[str]] = None,
                  clustering_policy: Optional[pulumi.Input[str]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 linked_database_group_nickname: Optional[pulumi.Input[str]] = None,
+                 linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -29,6 +31,8 @@ class EnterpriseDatabaseArgs:
         :param pulumi.Input[str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] eviction_policy: Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] linked_database_group_nickname: Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
         :param pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]] modules: A `module` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
@@ -41,6 +45,10 @@ class EnterpriseDatabaseArgs:
             pulumi.set(__self__, "clustering_policy", clustering_policy)
         if eviction_policy is not None:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if linked_database_group_nickname is not None:
+            pulumi.set(__self__, "linked_database_group_nickname", linked_database_group_nickname)
+        if linked_database_ids is not None:
+            pulumi.set(__self__, "linked_database_ids", linked_database_ids)
         if modules is not None:
             pulumi.set(__self__, "modules", modules)
         if name is not None:
@@ -102,6 +110,30 @@ class EnterpriseDatabaseArgs:
         pulumi.set(self, "eviction_policy", value)
 
     @property
+    @pulumi.getter(name="linkedDatabaseGroupNickname")
+    def linked_database_group_nickname(self) -> Optional[pulumi.Input[str]]:
+        """
+        Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+        """
+        return pulumi.get(self, "linked_database_group_nickname")
+
+    @linked_database_group_nickname.setter
+    def linked_database_group_nickname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linked_database_group_nickname", value)
+
+    @property
+    @pulumi.getter(name="linkedDatabaseIds")
+    def linked_database_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of database resources to link with this database with a maximum of 5.
+        """
+        return pulumi.get(self, "linked_database_ids")
+
+    @linked_database_ids.setter
+    def linked_database_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "linked_database_ids", value)
+
+    @property
     @pulumi.getter
     def modules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]]:
         """
@@ -157,6 +189,8 @@ class _EnterpriseDatabaseState:
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  clustering_policy: Optional[pulumi.Input[str]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 linked_database_group_nickname: Optional[pulumi.Input[str]] = None,
+                 linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -169,6 +203,8 @@ class _EnterpriseDatabaseState:
         :param pulumi.Input[str] cluster_id: The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] eviction_policy: Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] linked_database_group_nickname: Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
         :param pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]] modules: A `module` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
@@ -184,6 +220,10 @@ class _EnterpriseDatabaseState:
             pulumi.set(__self__, "clustering_policy", clustering_policy)
         if eviction_policy is not None:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if linked_database_group_nickname is not None:
+            pulumi.set(__self__, "linked_database_group_nickname", linked_database_group_nickname)
+        if linked_database_ids is not None:
+            pulumi.set(__self__, "linked_database_ids", linked_database_ids)
         if modules is not None:
             pulumi.set(__self__, "modules", modules)
         if name is not None:
@@ -247,6 +287,30 @@ class _EnterpriseDatabaseState:
     @eviction_policy.setter
     def eviction_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "eviction_policy", value)
+
+    @property
+    @pulumi.getter(name="linkedDatabaseGroupNickname")
+    def linked_database_group_nickname(self) -> Optional[pulumi.Input[str]]:
+        """
+        Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+        """
+        return pulumi.get(self, "linked_database_group_nickname")
+
+    @linked_database_group_nickname.setter
+    def linked_database_group_nickname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linked_database_group_nickname", value)
+
+    @property
+    @pulumi.getter(name="linkedDatabaseIds")
+    def linked_database_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of database resources to link with this database with a maximum of 5.
+        """
+        return pulumi.get(self, "linked_database_ids")
+
+    @linked_database_ids.setter
+    def linked_database_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "linked_database_ids", value)
 
     @property
     @pulumi.getter
@@ -330,6 +394,8 @@ class EnterpriseDatabase(pulumi.CustomResource):
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  clustering_policy: Optional[pulumi.Input[str]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 linked_database_group_nickname: Optional[pulumi.Input[str]] = None,
+                 linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnterpriseDatabaseModuleArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -349,9 +415,22 @@ class EnterpriseDatabase(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             sku_name="Enterprise_E20-4")
+        example1 = azure.redis.EnterpriseCluster("example1",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="Enterprise_E20-4")
         example_enterprise_database = azure.redis.EnterpriseDatabase("exampleEnterpriseDatabase",
             resource_group_name=example_resource_group.name,
-            cluster_id=example_enterprise_cluster.id)
+            cluster_id=example_enterprise_cluster.id,
+            client_protocol="Encrypted",
+            clustering_policy="EnterpriseCluster",
+            eviction_policy="NoEviction",
+            port=10000,
+            linked_database_ids=[
+                example_enterprise_cluster.id.apply(lambda id: f"{id}/databases/default"),
+                example1.id.apply(lambda id: f"{id}/databases/default"),
+            ],
+            linked_database_group_nickname="tftestGeoGroup")
         ```
 
         ## Import
@@ -368,6 +447,8 @@ class EnterpriseDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_id: The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] eviction_policy: Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] linked_database_group_nickname: Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnterpriseDatabaseModuleArgs']]]] modules: A `module` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
@@ -393,9 +474,22 @@ class EnterpriseDatabase(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             sku_name="Enterprise_E20-4")
+        example1 = azure.redis.EnterpriseCluster("example1",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="Enterprise_E20-4")
         example_enterprise_database = azure.redis.EnterpriseDatabase("exampleEnterpriseDatabase",
             resource_group_name=example_resource_group.name,
-            cluster_id=example_enterprise_cluster.id)
+            cluster_id=example_enterprise_cluster.id,
+            client_protocol="Encrypted",
+            clustering_policy="EnterpriseCluster",
+            eviction_policy="NoEviction",
+            port=10000,
+            linked_database_ids=[
+                example_enterprise_cluster.id.apply(lambda id: f"{id}/databases/default"),
+                example1.id.apply(lambda id: f"{id}/databases/default"),
+            ],
+            linked_database_group_nickname="tftestGeoGroup")
         ```
 
         ## Import
@@ -425,6 +519,8 @@ class EnterpriseDatabase(pulumi.CustomResource):
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  clustering_policy: Optional[pulumi.Input[str]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 linked_database_group_nickname: Optional[pulumi.Input[str]] = None,
+                 linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnterpriseDatabaseModuleArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -447,6 +543,8 @@ class EnterpriseDatabase(pulumi.CustomResource):
             __props__.__dict__["cluster_id"] = cluster_id
             __props__.__dict__["clustering_policy"] = clustering_policy
             __props__.__dict__["eviction_policy"] = eviction_policy
+            __props__.__dict__["linked_database_group_nickname"] = linked_database_group_nickname
+            __props__.__dict__["linked_database_ids"] = linked_database_ids
             __props__.__dict__["modules"] = modules
             __props__.__dict__["name"] = name
             __props__.__dict__["port"] = port
@@ -470,6 +568,8 @@ class EnterpriseDatabase(pulumi.CustomResource):
             cluster_id: Optional[pulumi.Input[str]] = None,
             clustering_policy: Optional[pulumi.Input[str]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
+            linked_database_group_nickname: Optional[pulumi.Input[str]] = None,
+            linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             modules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnterpriseDatabaseModuleArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
@@ -487,6 +587,8 @@ class EnterpriseDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_id: The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] eviction_policy: Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] linked_database_group_nickname: Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnterpriseDatabaseModuleArgs']]]] modules: A `module` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
@@ -502,6 +604,8 @@ class EnterpriseDatabase(pulumi.CustomResource):
         __props__.__dict__["cluster_id"] = cluster_id
         __props__.__dict__["clustering_policy"] = clustering_policy
         __props__.__dict__["eviction_policy"] = eviction_policy
+        __props__.__dict__["linked_database_group_nickname"] = linked_database_group_nickname
+        __props__.__dict__["linked_database_ids"] = linked_database_ids
         __props__.__dict__["modules"] = modules
         __props__.__dict__["name"] = name
         __props__.__dict__["port"] = port
@@ -541,6 +645,22 @@ class EnterpriseDatabase(pulumi.CustomResource):
         Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter(name="linkedDatabaseGroupNickname")
+    def linked_database_group_nickname(self) -> pulumi.Output[Optional[str]]:
+        """
+        Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
+        """
+        return pulumi.get(self, "linked_database_group_nickname")
+
+    @property
+    @pulumi.getter(name="linkedDatabaseIds")
+    def linked_database_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of database resources to link with this database with a maximum of 5.
+        """
+        return pulumi.get(self, "linked_database_ids")
 
     @property
     @pulumi.getter
