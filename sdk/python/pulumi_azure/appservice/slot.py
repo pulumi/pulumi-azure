@@ -626,7 +626,7 @@ class Slot(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
-        ### Net 4.X)
+        ### NET 4.X)
 
         ```python
         import pulumi
@@ -755,7 +755,7 @@ class Slot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-        ### Net 4.X)
+        ### NET 4.X)
 
         ```python
         import pulumi

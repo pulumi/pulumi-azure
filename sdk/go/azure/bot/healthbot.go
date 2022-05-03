@@ -29,10 +29,10 @@ type Healthbot struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
 	// forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+	// The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -79,10 +79,10 @@ type healthbotState struct {
 	Location *string `pulumi:"location"`
 	// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
 	// forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+	// The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the service.
 	Tags map[string]string `pulumi:"tags"`
@@ -95,10 +95,10 @@ type HealthbotState struct {
 	Location pulumi.StringPtrInput
 	// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
 	// forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+	// The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the service.
 	Tags pulumi.StringMapInput
@@ -113,10 +113,10 @@ type healthbotArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
 	// forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+	// The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the service.
 	Tags map[string]string `pulumi:"tags"`
@@ -128,10 +128,10 @@ type HealthbotArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies The name of the Resource Group in which to create the Healtbot Service. CHaning this
+	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
 	// forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The name which should be used for the sku of the service. Possible values are "F0" and "S1".
+	// The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
 	SkuName pulumi.StringInput
 	// A mapping of tags which should be assigned to the service.
 	Tags pulumi.StringMapInput

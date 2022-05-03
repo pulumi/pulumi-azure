@@ -227,6 +227,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsFunctionAppSiteCredentialResult> SiteCredentials;
         /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWindowsFunctionAppStickySettingResult> StickySettings;
+        /// <summary>
         /// The access key which is used to access the backend storage account for the Function App.
         /// </summary>
         public readonly string StorageAccountAccessKey;
@@ -303,6 +307,8 @@ namespace Pulumi.Azure.AppService
 
             ImmutableArray<Outputs.GetWindowsFunctionAppSiteCredentialResult> siteCredentials,
 
+            ImmutableArray<Outputs.GetWindowsFunctionAppStickySettingResult> stickySettings,
+
             string storageAccountAccessKey,
 
             string storageAccountName,
@@ -340,6 +346,7 @@ namespace Pulumi.Azure.AppService
             ServicePlanId = servicePlanId;
             SiteConfigs = siteConfigs;
             SiteCredentials = siteCredentials;
+            StickySettings = stickySettings;
             StorageAccountAccessKey = storageAccountAccessKey;
             StorageAccountName = storageAccountName;
             StorageKeyVaultSecretId = storageKeyVaultSecretId;

@@ -13,6 +13,12 @@ namespace Pulumi.Azure.MSSql.Inputs
     public sealed class DatabaseShortTermRetentionPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
+        /// </summary>
+        [Input("backupIntervalInHours")]
+        public Input<int>? BackupIntervalInHours { get; set; }
+
+        /// <summary>
         /// Point In Time Restore configuration. Value has to be between `7` and `35`.
         /// </summary>
         [Input("retentionDays", required: true)]

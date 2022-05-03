@@ -67,7 +67,7 @@ namespace Pulumi.Azure.ManagedApplication
         public Output<ImmutableArray<Outputs.DefinitionAuthorization>> Authorizations { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+        /// Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         /// </summary>
         [Output("createUiDefinition")]
         public Output<string?> CreateUiDefinition { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.ManagedApplication
         public Output<string> LockLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the inline main template json which has resources to be provisioned.
+        /// Specifies the inline main template JSON which has resources to be provisioned.
         /// </summary>
         [Output("mainTemplate")]
         public Output<string?> MainTemplate { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.ManagedApplication
         }
 
         /// <summary>
-        /// Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+        /// Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         /// </summary>
         [Input("createUiDefinition")]
         public Input<string>? CreateUiDefinition { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.ManagedApplication
         public Input<string> LockLevel { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the inline main template json which has resources to be provisioned.
+        /// Specifies the inline main template JSON which has resources to be provisioned.
         /// </summary>
         [Input("mainTemplate")]
         public Input<string>? MainTemplate { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.ManagedApplication
         }
 
         /// <summary>
-        /// Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+        /// Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         /// </summary>
         [Input("createUiDefinition")]
         public Input<string>? CreateUiDefinition { get; set; }
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.ManagedApplication
         public Input<string>? LockLevel { get; set; }
 
         /// <summary>
-        /// Specifies the inline main template json which has resources to be provisioned.
+        /// Specifies the inline main template JSON which has resources to be provisioned.
         /// </summary>
         [Input("mainTemplate")]
         public Input<string>? MainTemplate { get; set; }

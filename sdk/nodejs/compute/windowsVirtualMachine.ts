@@ -201,7 +201,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.WindowsVirtualMachineOsDisk>;
     /**
-     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      */
     public readonly patchMode!: pulumi.Output<string | undefined>;
     /**
@@ -289,7 +289,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly virtualMachineScaleSetId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     * Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
     public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -539,7 +539,7 @@ export interface WindowsVirtualMachineState {
      */
     osDisk?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
     /**
-     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      */
     patchMode?: pulumi.Input<string>;
     /**
@@ -627,7 +627,7 @@ export interface WindowsVirtualMachineState {
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
     /**
-     * Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     * Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
     vtpmEnabled?: pulumi.Input<boolean>;
     /**
@@ -741,7 +741,7 @@ export interface WindowsVirtualMachineArgs {
      */
     osDisk: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
     /**
-     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      */
     patchMode?: pulumi.Input<string>;
     /**
@@ -809,7 +809,7 @@ export interface WindowsVirtualMachineArgs {
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
     /**
-     * Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     * Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
     vtpmEnabled?: pulumi.Input<boolean>;
     /**

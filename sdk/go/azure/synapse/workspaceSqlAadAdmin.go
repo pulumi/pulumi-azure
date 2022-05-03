@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Azure Active Directory Sql Administrator setting for a Synapse Workspace
+// Manages an Azure Active Directory SQL Administrator setting for a Synapse Workspace
 //
 // ## Example Usage
 //

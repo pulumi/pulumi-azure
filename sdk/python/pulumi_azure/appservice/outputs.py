@@ -113,6 +113,7 @@ __all__ = [
     'LinuxFunctionAppSlotSiteConfigScmIpRestriction',
     'LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders',
     'LinuxFunctionAppSlotSiteCredential',
+    'LinuxFunctionAppStickySettings',
     'LinuxWebAppAuthSettings',
     'LinuxWebAppAuthSettingsActiveDirectory',
     'LinuxWebAppAuthSettingsFacebook',
@@ -176,6 +177,7 @@ __all__ = [
     'LinuxWebAppSlotSiteConfigScmIpRestrictionHeaders',
     'LinuxWebAppSlotSiteCredential',
     'LinuxWebAppSlotStorageAccount',
+    'LinuxWebAppStickySettings',
     'LinuxWebAppStorageAccount',
     'PlanSku',
     'SlotAuthSettings',
@@ -247,6 +249,7 @@ __all__ = [
     'WindowsFunctionAppSlotSiteConfigScmIpRestriction',
     'WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeaders',
     'WindowsFunctionAppSlotSiteCredential',
+    'WindowsFunctionAppStickySettings',
     'WindowsWebAppAuthSettings',
     'WindowsWebAppAuthSettingsActiveDirectory',
     'WindowsWebAppAuthSettingsFacebook',
@@ -316,6 +319,7 @@ __all__ = [
     'WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory',
     'WindowsWebAppSlotSiteCredential',
     'WindowsWebAppSlotStorageAccount',
+    'WindowsWebAppStickySettings',
     'WindowsWebAppStorageAccount',
     'GetAppServiceConnectionStringResult',
     'GetAppServiceEnvironmentClusterSettingResult',
@@ -362,6 +366,7 @@ __all__ = [
     'GetLinuxFunctionAppSiteConfigScmIpRestrictionResult',
     'GetLinuxFunctionAppSiteConfigScmIpRestrictionHeaderResult',
     'GetLinuxFunctionAppSiteCredentialResult',
+    'GetLinuxFunctionAppStickySettingResult',
     'GetLinuxWebAppAuthSettingResult',
     'GetLinuxWebAppAuthSettingActiveDirectoryResult',
     'GetLinuxWebAppAuthSettingFacebookResult',
@@ -393,6 +398,7 @@ __all__ = [
     'GetLinuxWebAppSiteConfigScmIpRestrictionResult',
     'GetLinuxWebAppSiteConfigScmIpRestrictionHeaderResult',
     'GetLinuxWebAppSiteCredentialResult',
+    'GetLinuxWebAppStickySettingResult',
     'GetLinuxWebAppStorageAccountResult',
     'GetWindowsFunctionAppAuthSettingResult',
     'GetWindowsFunctionAppAuthSettingActiveDirectoryResult',
@@ -414,6 +420,7 @@ __all__ = [
     'GetWindowsFunctionAppSiteConfigScmIpRestrictionResult',
     'GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderResult',
     'GetWindowsFunctionAppSiteCredentialResult',
+    'GetWindowsFunctionAppStickySettingResult',
     'GetWindowsWebAppAuthSettingResult',
     'GetWindowsWebAppAuthSettingActiveDirectoryResult',
     'GetWindowsWebAppAuthSettingFacebookResult',
@@ -448,6 +455,7 @@ __all__ = [
     'GetWindowsWebAppSiteConfigVirtualApplicationResult',
     'GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryResult',
     'GetWindowsWebAppSiteCredentialResult',
+    'GetWindowsWebAppStickySettingResult',
     'GetWindowsWebAppStorageAccountResult',
 ]
 
@@ -1528,7 +1536,7 @@ class AppServiceLogsHttpLogsFileSystem(dict):
                  retention_in_mb: int):
         """
         :param int retention_in_days: The number of days to retain logs for.
-        :param int retention_in_mb: The maximum size in megabytes that http log files can use before being removed.
+        :param int retention_in_mb: The maximum size in megabytes that HTTP log files can use before being removed.
         """
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         pulumi.set(__self__, "retention_in_mb", retention_in_mb)
@@ -1545,7 +1553,7 @@ class AppServiceLogsHttpLogsFileSystem(dict):
     @pulumi.getter(name="retentionInMb")
     def retention_in_mb(self) -> int:
         """
-        The maximum size in megabytes that http log files can use before being removed.
+        The maximum size in megabytes that HTTP log files can use before being removed.
         """
         return pulumi.get(self, "retention_in_mb")
 
@@ -1666,7 +1674,7 @@ class AppServiceSiteConfig(dict):
         :param str app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
         :param 'AppServiceSiteConfigCorsArgs' cors: A `cors` block as defined below.
         :param Sequence[str] default_documents: The ordering of default documents to load, if an address isn't specified.
-        :param str dotnet_framework_version: The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        :param str dotnet_framework_version: The version of the .NET framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param str ftps_state: State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param str health_check_path: The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
@@ -1683,7 +1691,7 @@ class AppServiceSiteConfig(dict):
         :param str python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
-        :param Sequence['AppServiceSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param Sequence['AppServiceSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param str scm_type: The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
         :param bool use32_bit_worker_process: Should the App Service run in 32 bit mode, rather than 64 bit mode?
@@ -1811,7 +1819,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[str]:
         """
-        The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        The version of the .NET framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -1947,7 +1955,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Optional[Sequence['outputs.AppServiceSiteConfigScmIpRestriction']]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
@@ -3572,18 +3580,18 @@ class FunctionAppSiteConfig(dict):
         :param bool always_on: Should the Function App be loaded at all times? Defaults to `false`.
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param 'FunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined below.
-        :param str dotnet_framework_version: The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        :param str dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param int elastic_instance_minimum: The number of minimum instances for this function app. Only affects apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param str health_check_path: Path which will be checked for this function app health.
-        :param bool http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-        :param Sequence['FunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param bool http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+        :param Sequence['FunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param str java_version: Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
         :param str linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param str min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         :param bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-        :param Sequence['FunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param Sequence['FunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param str scm_type: The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
         :param bool use32_bit_worker_process: Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -3666,7 +3674,7 @@ class FunctionAppSiteConfig(dict):
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[str]:
         """
-        The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -3698,7 +3706,7 @@ class FunctionAppSiteConfig(dict):
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[bool]:
         """
-        Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+        Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -3706,7 +3714,7 @@ class FunctionAppSiteConfig(dict):
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[Sequence['outputs.FunctionAppSiteConfigIpRestriction']]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         """
         return pulumi.get(self, "ip_restrictions")
 
@@ -3754,7 +3762,7 @@ class FunctionAppSiteConfig(dict):
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Optional[Sequence['outputs.FunctionAppSiteConfigScmIpRestriction']]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
@@ -4960,11 +4968,11 @@ class FunctionAppSlotSiteConfig(dict):
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param str auto_swap_slot_name: The name of the slot to automatically swap to during deployment
         :param 'FunctionAppSlotSiteConfigCorsArgs' cors: A `cors` block as defined below.
-        :param str dotnet_framework_version: The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        :param str dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param int elastic_instance_minimum: The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
-        :param bool http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-        :param Sequence['FunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param bool http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+        :param Sequence['FunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param str linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param str min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
@@ -5051,7 +5059,7 @@ class FunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[str]:
         """
-        The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -5080,7 +5088,7 @@ class FunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[bool]:
         """
-        Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+        Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -5088,7 +5096,7 @@ class FunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[Sequence['outputs.FunctionAppSlotSiteConfigIpRestriction']]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         """
         return pulumi.get(self, "ip_restrictions")
 
@@ -5768,6 +5776,7 @@ class LinuxFunctionAppAuthSettings(dict):
         """
         :param bool enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
         :param 'LinuxFunctionAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
+        :param Mapping[str, str] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
         :param 'LinuxFunctionAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
@@ -5830,6 +5839,9 @@ class LinuxFunctionAppAuthSettings(dict):
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @property
@@ -6803,7 +6815,7 @@ class LinuxFunctionAppSiteConfig(dict):
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to be checked for this function app health.
-        :param bool http2_enabled: Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        :param bool http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param Sequence['LinuxFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
@@ -7038,7 +7050,7 @@ class LinuxFunctionAppSiteConfig(dict):
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[bool]:
         """
-        Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -7265,7 +7277,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
         :param Sequence['LinuxFunctionAppSiteConfigApplicationStackDockerArgs'] dockers: One or more `docker` blocks as defined below.
-        :param str dotnet_version: The version of .Net to use. Possible values include `3.1` and `6.0`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `3.1` and `6.0`.
         :param str java_version: The Version of Java to use. Supported versions include `8`, and `11`.
         :param str node_version: The version of Node to run. Possible values include `12`, `14`, and `16`.
         :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`.
@@ -7302,7 +7314,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .Net to use. Possible values include `3.1` and `6.0`.
+        The version of .NET to use. Possible values include `3.1` and `6.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -9004,7 +9016,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
         :param str health_check_path: The path to be checked for this function app health.
-        :param bool http2_enabled: Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        :param bool http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param Sequence['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: an `ip_restriction` block as detailed below.
         :param str linux_fx_version: The Linux FX Version
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
@@ -9254,7 +9266,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[bool]:
         """
-        Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -10127,6 +10139,56 @@ class LinuxFunctionAppSlotSiteCredential(dict):
 
 
 @pulumi.output_type
+class LinuxFunctionAppStickySettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appSettingNames":
+            suggest = "app_setting_names"
+        elif key == "connectionStringNames":
+            suggest = "connection_string_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxFunctionAppStickySettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxFunctionAppStickySettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxFunctionAppStickySettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_setting_names: Optional[Sequence[str]] = None,
+                 connection_string_names: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] app_setting_names: A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        :param Sequence[str] connection_string_names: A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        if app_setting_names is not None:
+            pulumi.set(__self__, "app_setting_names", app_setting_names)
+        if connection_string_names is not None:
+            pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
+
+
+@pulumi.output_type
 class LinuxWebAppAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -10178,6 +10240,7 @@ class LinuxWebAppAuthSettings(dict):
         """
         :param bool enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
         :param 'LinuxWebAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
+        :param Mapping[str, str] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
         :param 'LinuxWebAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
@@ -10240,6 +10303,9 @@ class LinuxWebAppAuthSettings(dict):
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @property
@@ -11224,6 +11290,7 @@ class LinuxWebAppLogsApplicationLogsAzureBlobStorage(dict):
                  retention_in_days: int,
                  sas_url: str):
         """
+        :param str level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param int retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         :param str sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
         """
@@ -11234,6 +11301,9 @@ class LinuxWebAppLogsApplicationLogsAzureBlobStorage(dict):
     @property
     @pulumi.getter
     def level(self) -> str:
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
         return pulumi.get(self, "level")
 
     @property
@@ -11536,6 +11606,7 @@ class LinuxWebAppSiteConfig(dict):
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        :param bool vnet_route_all_enabled: Should all outbound traffic have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param int worker_count: The number of Workers for this Linux App Service.
         """
@@ -11821,6 +11892,9 @@ class LinuxWebAppSiteConfig(dict):
     @property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[bool]:
+        """
+        Should all outbound traffic have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @property
@@ -11891,8 +11965,8 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         """
         :param str docker_image: The Docker image reference, including repository host as needed.
         :param str docker_image_tag: The image Tag to use. e.g. `latest`.
-        :param str dotnet_version: The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
-        :param str java_server: The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        :param str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         :param str java_server_version: The Version of the `java_server` to use.
         :param str java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
@@ -11941,7 +12015,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -11949,7 +12023,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="javaServer")
     def java_server(self) -> Optional[str]:
         """
-        The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         """
         return pulumi.get(self, "java_server")
 
@@ -12851,6 +12925,7 @@ class LinuxWebAppSlotAuthSettings(dict):
         """
         :param bool enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
         :param 'LinuxWebAppSlotAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
+        :param Mapping[str, str] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
         :param 'LinuxWebAppSlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
@@ -12913,6 +12988,9 @@ class LinuxWebAppSlotAuthSettings(dict):
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @property
@@ -13897,6 +13975,7 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
                  retention_in_days: int,
                  sas_url: str):
         """
+        :param str level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param int retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         :param str sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
         """
@@ -13907,6 +13986,9 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
     @property
     @pulumi.getter
     def level(self) -> str:
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
         return pulumi.get(self, "level")
 
     @property
@@ -14582,8 +14664,8 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         """
         :param str docker_image: The Docker image reference, including repository host as needed.
         :param str docker_image_tag: The image Tag to use. e.g. `latest`.
-        :param str dotnet_version: The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
-        :param str java_server: The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        :param str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         :param str java_server_version: The Version of the `java_server` to use.
         :param str java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
@@ -14632,7 +14714,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -14640,7 +14722,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="javaServer")
     def java_server(self) -> Optional[str]:
         """
-        The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         """
         return pulumi.get(self, "java_server")
 
@@ -15585,6 +15667,56 @@ class LinuxWebAppSlotStorageAccount(dict):
         The path at which to mount the storage share.
         """
         return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
+class LinuxWebAppStickySettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appSettingNames":
+            suggest = "app_setting_names"
+        elif key == "connectionStringNames":
+            suggest = "connection_string_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxWebAppStickySettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxWebAppStickySettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxWebAppStickySettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_setting_names: Optional[Sequence[str]] = None,
+                 connection_string_names: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] app_setting_names: A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        :param Sequence[str] connection_string_names: A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        if app_setting_names is not None:
+            pulumi.set(__self__, "app_setting_names", app_setting_names)
+        if connection_string_names is not None:
+            pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
 
 
 @pulumi.output_type
@@ -16643,7 +16775,7 @@ class SlotLogsHttpLogsFileSystem(dict):
                  retention_in_mb: int):
         """
         :param int retention_in_days: The number of days to retain logs for.
-        :param int retention_in_mb: The maximum size in megabytes that http log files can use before being removed.
+        :param int retention_in_mb: The maximum size in megabytes that HTTP log files can use before being removed.
         """
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         pulumi.set(__self__, "retention_in_mb", retention_in_mb)
@@ -16660,7 +16792,7 @@ class SlotLogsHttpLogsFileSystem(dict):
     @pulumi.getter(name="retentionInMb")
     def retention_in_mb(self) -> int:
         """
-        The maximum size in megabytes that http log files can use before being removed.
+        The maximum size in megabytes that HTTP log files can use before being removed.
         """
         return pulumi.get(self, "retention_in_mb")
 
@@ -16782,7 +16914,7 @@ class SlotSiteConfig(dict):
         :param str auto_swap_slot_name: The name of the slot to automatically swap to during deployment
         :param 'SlotSiteConfigCorsArgs' cors: A `cors` block as defined below.
         :param Sequence[str] default_documents: The ordering of default documents to load, if an address isn't specified.
-        :param str dotnet_framework_version: The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        :param str dotnet_framework_version: The version of the .NET framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param str ftps_state: State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param str health_check_path: The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
@@ -16799,7 +16931,7 @@ class SlotSiteConfig(dict):
         :param str python_version: The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
-        :param Sequence['SlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param Sequence['SlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param str scm_type: The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
         :param bool use32_bit_worker_process: Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
@@ -16930,7 +17062,7 @@ class SlotSiteConfig(dict):
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[str]:
         """
-        The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        The version of the .NET framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -17066,7 +17198,7 @@ class SlotSiteConfig(dict):
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Optional[Sequence['outputs.SlotSiteConfigScmIpRestriction']]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
@@ -17201,7 +17333,7 @@ class SlotSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param 'SlotSiteConfigIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        :param 'SlotSiteConfigIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -17235,7 +17367,7 @@ class SlotSiteConfigIpRestriction(dict):
     @pulumi.getter
     def headers(self) -> Optional['outputs.SlotSiteConfigIpRestrictionHeaders']:
         """
-        The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         """
         return pulumi.get(self, "headers")
 
@@ -17391,7 +17523,7 @@ class SlotSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param 'SlotSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        :param 'SlotSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -17425,7 +17557,7 @@ class SlotSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def headers(self) -> Optional['outputs.SlotSiteConfigScmIpRestrictionHeaders']:
         """
-        The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         """
         return pulumi.get(self, "headers")
 
@@ -18191,6 +18323,7 @@ class WindowsFunctionAppAuthSettings(dict):
         """
         :param bool enabled: Should the Authentication / Authorization feature be enabled for the Windows Function App?
         :param 'WindowsFunctionAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
+        :param Mapping[str, str] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
         :param 'WindowsFunctionAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
@@ -18253,6 +18386,9 @@ class WindowsFunctionAppAuthSettings(dict):
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @property
@@ -19218,7 +19354,7 @@ class WindowsFunctionAppSiteConfig(dict):
         :param str ftps_state: State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to be checked for this Windows Function App health.
-        :param bool http2_enabled: Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        :param bool http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param Sequence['WindowsFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
@@ -19433,7 +19569,7 @@ class WindowsFunctionAppSiteConfig(dict):
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[bool]:
         """
-        Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -19655,7 +19791,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
                  use_custom_runtime: Optional[bool] = None,
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
-        :param str dotnet_version: The version of .Net to use. Possible values include `3.1` and `6`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `3.1` and `6`.
         :param str java_version: The Version of Java to use. Supported versions include `8`, and `11`.
         :param str node_version: The version of Node to run. Possible values include `~12`, `~14`, and `~16`.
         :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`.
@@ -19679,7 +19815,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .Net to use. Possible values include `3.1` and `6`.
+        The version of .NET to use. Possible values include `3.1` and `6`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -21276,7 +21412,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
         :param str health_check_path: The path to be checked for this function app health.
-        :param bool http2_enabled: Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        :param bool http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param Sequence['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: an `ip_restriction` block as detailed below.
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
@@ -21506,7 +21642,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[bool]:
         """
-        Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -22264,6 +22400,56 @@ class WindowsFunctionAppSlotSiteCredential(dict):
 
 
 @pulumi.output_type
+class WindowsFunctionAppStickySettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appSettingNames":
+            suggest = "app_setting_names"
+        elif key == "connectionStringNames":
+            suggest = "connection_string_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsFunctionAppStickySettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsFunctionAppStickySettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsFunctionAppStickySettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_setting_names: Optional[Sequence[str]] = None,
+                 connection_string_names: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] app_setting_names: A list of `app_setting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        :param Sequence[str] connection_string_names: A list of `connection_string` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        """
+        if app_setting_names is not None:
+            pulumi.set(__self__, "app_setting_names", app_setting_names)
+        if connection_string_names is not None:
+            pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of `app_setting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of `connection_string` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
+
+
+@pulumi.output_type
 class WindowsWebAppAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -22315,6 +22501,7 @@ class WindowsWebAppAuthSettings(dict):
         """
         :param bool enabled: Should the Authentication / Authorization feature is enabled for the Windows Web App be enabled?
         :param 'WindowsWebAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
+        :param Mapping[str, str] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
         :param 'WindowsWebAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
@@ -22377,6 +22564,9 @@ class WindowsWebAppAuthSettings(dict):
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @property
@@ -23361,6 +23551,7 @@ class WindowsWebAppLogsApplicationLogsAzureBlobStorage(dict):
                  retention_in_days: int,
                  sas_url: str):
         """
+        :param str level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param int retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         :param str sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
         """
@@ -23371,6 +23562,9 @@ class WindowsWebAppLogsApplicationLogsAzureBlobStorage(dict):
     @property
     @pulumi.getter
     def level(self) -> str:
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
         return pulumi.get(self, "level")
 
     @property
@@ -24061,7 +24255,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         :param str docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
         :param str docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param str docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
-        :param str dotnet_version: The version of .Net to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
         :param str java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
         :param str java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
         :param str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
@@ -24128,7 +24322,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .Net to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -25209,6 +25403,7 @@ class WindowsWebAppSlotAuthSettings(dict):
         """
         :param bool enabled: Should the Authentication / Authorization feature be enabled for the Windows Web App?
         :param 'WindowsWebAppSlotAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
+        :param Mapping[str, str] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
         :param str default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
         :param 'WindowsWebAppSlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
@@ -25271,6 +25466,9 @@ class WindowsWebAppSlotAuthSettings(dict):
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @property
@@ -26255,6 +26453,7 @@ class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
                  retention_in_days: int,
                  sas_url: str):
         """
+        :param str level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param int retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         :param str sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
         """
@@ -26265,6 +26464,9 @@ class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
     @property
     @pulumi.getter
     def level(self) -> str:
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
         return pulumi.get(self, "level")
 
     @property
@@ -26959,7 +27161,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         :param str docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
         :param str docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param str docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
-        :param str dotnet_version: The version of .Net to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
         :param str java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
         :param str java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
         :param str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
@@ -27026,7 +27228,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .Net to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -28153,6 +28355,56 @@ class WindowsWebAppSlotStorageAccount(dict):
 
 
 @pulumi.output_type
+class WindowsWebAppStickySettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appSettingNames":
+            suggest = "app_setting_names"
+        elif key == "connectionStringNames":
+            suggest = "connection_string_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsWebAppStickySettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsWebAppStickySettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsWebAppStickySettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_setting_names: Optional[Sequence[str]] = None,
+                 connection_string_names: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] app_setting_names: A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        :param Sequence[str] connection_string_names: A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        if app_setting_names is not None:
+            pulumi.set(__self__, "app_setting_names", app_setting_names)
+        if connection_string_names is not None:
+            pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
+
+
+@pulumi.output_type
 class WindowsWebAppStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -28398,7 +28650,7 @@ class GetAppServiceSiteConfigResult(dict):
         :param str app_command_line: App command line to launch.
         :param Sequence['GetAppServiceSiteConfigCorArgs'] cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: The ordering of default documents to load, if an address isn't specified.
-        :param str dotnet_framework_version: The version of the .net framework's CLR used in this App Service.
+        :param str dotnet_framework_version: The version of the .NET framework's CLR used in this App Service.
         :param str ftps_state: State of FTP / FTPS service for this AppService.
         :param str health_check_path: The health check path to be pinged by App Service.
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service?
@@ -28506,7 +28758,7 @@ class GetAppServiceSiteConfigResult(dict):
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> str:
         """
-        The version of the .net framework's CLR used in this App Service.
+        The version of the .NET framework's CLR used in this App Service.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -29270,7 +29522,7 @@ class GetFunctionAppSiteConfigResult(dict):
         :param bool always_on: Is the app loaded at all times?
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param 'GetFunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
-        :param str dotnet_framework_version: The version of the .net framework's CLR used in this App Service.
+        :param str dotnet_framework_version: The version of the .NET framework's CLR used in this App Service.
         :param int elastic_instance_minimum: The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this AppService.
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service?
@@ -29342,7 +29594,7 @@ class GetFunctionAppSiteConfigResult(dict):
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> str:
         """
-        The version of the .net framework's CLR used in this App Service.
+        The version of the .NET framework's CLR used in this App Service.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -29829,6 +30081,7 @@ class GetLinuxFunctionAppAuthSettingResult(dict):
                  unauthenticated_client_action: str):
         """
         :param Sequence['GetLinuxFunctionAppAuthSettingActiveDirectoryArgs'] active_directories: An `active_directory` block as defined above.
+        :param Mapping[str, str] additional_login_parameters: A map of Login Parameters sent to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: A list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param str default_provider: The default authentication provider used when multiple providers are configured.
         :param bool enabled: Is this backup job enabled?
@@ -29870,6 +30123,9 @@ class GetLinuxFunctionAppAuthSettingResult(dict):
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Mapping[str, str]:
+        """
+        A map of Login Parameters sent to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @property
@@ -30281,7 +30537,7 @@ class GetLinuxFunctionAppBackupResult(dict):
                  storage_account_url: str):
         """
         :param bool enabled: Is this backup job enabled?
-        :param str name: The Site Credentials Username used for publishing.
+        :param str name: The name which should be used for this Linux Function App.
         :param Sequence['GetLinuxFunctionAppBackupScheduleArgs'] schedules: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
         """
@@ -30302,7 +30558,7 @@ class GetLinuxFunctionAppBackupResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The Site Credentials Username used for publishing.
+        The name which should be used for this Linux Function App.
         """
         return pulumi.get(self, "name")
 
@@ -30399,7 +30655,7 @@ class GetLinuxFunctionAppConnectionStringResult(dict):
                  type: str,
                  value: str):
         """
-        :param str name: The Site Credentials Username used for publishing.
+        :param str name: The name which should be used for this Linux Function App.
         :param str type: The type of Managed Service Identity that is configured on this Linux Function App.
         :param str value: The connection string value.
         """
@@ -30411,7 +30667,7 @@ class GetLinuxFunctionAppConnectionStringResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The Site Credentials Username used for publishing.
+        The name which should be used for this Linux Function App.
         """
         return pulumi.get(self, "name")
 
@@ -30540,7 +30796,7 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
         :param str ftps_state: State of FTP / FTPS service for this function app.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
         :param str health_check_path: The path that is checked for this function app health.
-        :param bool http2_enabled: Is the http2 protocol enabled?
+        :param bool http2_enabled: Is the HTTP2 protocol enabled?
         :param Sequence['GetLinuxFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing mode.
         :param str managed_pipeline_mode: Managed pipeline mode.
@@ -30739,7 +30995,7 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> bool:
         """
-        Is the http2 protocol enabled?
+        Is the HTTP2 protocol enabled?
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -30916,7 +31172,7 @@ class GetLinuxFunctionAppSiteConfigApplicationStackResult(dict):
                  use_dotnet_isolated_runtime: bool):
         """
         :param Sequence['GetLinuxFunctionAppSiteConfigApplicationStackDockerArgs'] dockers: One or more `docker` blocks as defined below.
-        :param str dotnet_version: The version of .Net used.
+        :param str dotnet_version: The version of .NET used.
         :param str java_version: The Version of Java used.
         :param str node_version: The version of Node used.
         :param str powershell_core_version: The version of PowerShell Core used.
@@ -30944,7 +31200,7 @@ class GetLinuxFunctionAppSiteConfigApplicationStackResult(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> str:
         """
-        The version of .Net used.
+        The version of .NET used.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -31099,7 +31355,7 @@ class GetLinuxFunctionAppSiteConfigIpRestrictionResult(dict):
         :param str action: The action taken.
         :param Sequence['GetLinuxFunctionAppSiteConfigIpRestrictionHeaderArgs'] headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range matched.
-        :param str name: The Site Credentials Username used for publishing.
+        :param str name: The name which should be used for this Linux Function App.
         :param int priority: The priority value of this `ip_restriction`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
@@ -31140,7 +31396,7 @@ class GetLinuxFunctionAppSiteConfigIpRestrictionResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The Site Credentials Username used for publishing.
+        The name which should be used for this Linux Function App.
         """
         return pulumi.get(self, "name")
 
@@ -31234,7 +31490,7 @@ class GetLinuxFunctionAppSiteConfigScmIpRestrictionResult(dict):
         :param str action: The action taken.
         :param Sequence['GetLinuxFunctionAppSiteConfigScmIpRestrictionHeaderArgs'] headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range matched.
-        :param str name: The Site Credentials Username used for publishing.
+        :param str name: The name which should be used for this Linux Function App.
         :param int priority: The priority value of this `ip_restriction`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
@@ -31275,7 +31531,7 @@ class GetLinuxFunctionAppSiteConfigScmIpRestrictionResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The Site Credentials Username used for publishing.
+        The name which should be used for this Linux Function App.
         """
         return pulumi.get(self, "name")
 
@@ -31361,7 +31617,7 @@ class GetLinuxFunctionAppSiteCredentialResult(dict):
                  name: str,
                  password: str):
         """
-        :param str name: The Site Credentials Username used for publishing.
+        :param str name: The name which should be used for this Linux Function App.
         :param str password: The Site Credentials Password used for publishing.
         """
         pulumi.set(__self__, "name", name)
@@ -31371,7 +31627,7 @@ class GetLinuxFunctionAppSiteCredentialResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The Site Credentials Username used for publishing.
+        The name which should be used for this Linux Function App.
         """
         return pulumi.get(self, "name")
 
@@ -31382,6 +31638,35 @@ class GetLinuxFunctionAppSiteCredentialResult(dict):
         The Site Credentials Password used for publishing.
         """
         return pulumi.get(self, "password")
+
+
+@pulumi.output_type
+class GetLinuxFunctionAppStickySettingResult(dict):
+    def __init__(__self__, *,
+                 app_setting_names: Sequence[str],
+                 connection_string_names: Sequence[str]):
+        """
+        :param Sequence[str] app_setting_names: A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        :param Sequence[str] connection_string_names: A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        pulumi.set(__self__, "app_setting_names", app_setting_names)
+        pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Sequence[str]:
+        """
+        A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Sequence[str]:
+        """
+        A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
 
 
 @pulumi.output_type
@@ -32153,6 +32438,7 @@ class GetLinuxWebAppLogApplicationLogAzureBlobStorageResult(dict):
                  retention_in_days: int,
                  sas_url: str):
         """
+        :param str level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param int retention_in_days: The retention period in days.
         :param str sas_url: The SAS url to an Azure blob container.
         """
@@ -32163,6 +32449,9 @@ class GetLinuxWebAppLogApplicationLogAzureBlobStorageResult(dict):
     @property
     @pulumi.getter
     def level(self) -> str:
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
         return pulumi.get(self, "level")
 
     @property
@@ -32636,8 +32925,8 @@ class GetLinuxWebAppSiteConfigApplicationStackResult(dict):
         """
         :param str docker_image: The Docker image reference, including repository.
         :param str docker_image_tag: The image Tag.
-        :param str dotnet_version: The version of .Net in use.
-        :param str java_server: The java server type.
+        :param str dotnet_version: The version of .NET in use.
+        :param str java_server: The Java server type.
         :param str java_server_version: The Version of the `java_server` in use.
         :param str java_version: The Version of Java in use.
         :param str node_version: The version of Node in use.
@@ -32676,7 +32965,7 @@ class GetLinuxWebAppSiteConfigApplicationStackResult(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> str:
         """
-        The version of .Net in use.
+        The version of .NET in use.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -32684,7 +32973,7 @@ class GetLinuxWebAppSiteConfigApplicationStackResult(dict):
     @pulumi.getter(name="javaServer")
     def java_server(self) -> str:
         """
-        The java server type.
+        The Java server type.
         """
         return pulumi.get(self, "java_server")
 
@@ -33239,6 +33528,35 @@ class GetLinuxWebAppSiteCredentialResult(dict):
         The Site Credentials Password used for publishing.
         """
         return pulumi.get(self, "password")
+
+
+@pulumi.output_type
+class GetLinuxWebAppStickySettingResult(dict):
+    def __init__(__self__, *,
+                 app_setting_names: Sequence[str],
+                 connection_string_names: Sequence[str]):
+        """
+        :param Sequence[str] app_setting_names: A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        :param Sequence[str] connection_string_names: A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        pulumi.set(__self__, "app_setting_names", app_setting_names)
+        pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Sequence[str]:
+        """
+        A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Sequence[str]:
+        """
+        A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
 
 
 @pulumi.output_type
@@ -34046,7 +34364,7 @@ class GetWindowsFunctionAppSiteConfigResult(dict):
         :param str ftps_state: State of FTP / FTPS service for this Windows Function App.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
         :param str health_check_path: The path to be checked for this Windows Function App health.
-        :param bool http2_enabled: Is the http2 protocol enabled?
+        :param bool http2_enabled: Is the HTTP2 protocol enabled?
         :param Sequence['GetWindowsFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing mode.
         :param str managed_pipeline_mode: The Managed pipeline mode.
@@ -34232,7 +34550,7 @@ class GetWindowsFunctionAppSiteConfigResult(dict):
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> bool:
         """
-        Is the http2 protocol enabled?
+        Is the HTTP2 protocol enabled?
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -34713,6 +35031,35 @@ class GetWindowsFunctionAppSiteCredentialResult(dict):
         The Site Credentials Password used for publishing.
         """
         return pulumi.get(self, "password")
+
+
+@pulumi.output_type
+class GetWindowsFunctionAppStickySettingResult(dict):
+    def __init__(__self__, *,
+                 app_setting_names: Sequence[str],
+                 connection_string_names: Sequence[str]):
+        """
+        :param Sequence[str] app_setting_names: A list of `app_setting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        :param Sequence[str] connection_string_names: A list of `connection_string` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        """
+        pulumi.set(__self__, "app_setting_names", app_setting_names)
+        pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Sequence[str]:
+        """
+        A list of `app_setting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Sequence[str]:
+        """
+        A list of `connection_string` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
 
 
 @pulumi.output_type
@@ -35484,6 +35831,7 @@ class GetWindowsWebAppLogApplicationLogAzureBlobStorageResult(dict):
                  retention_in_days: int,
                  sas_url: str):
         """
+        :param str level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param int retention_in_days: The retention period in days.
         :param str sas_url: The SAS url to the Azure Blob container.
         """
@@ -35494,6 +35842,9 @@ class GetWindowsWebAppLogApplicationLogAzureBlobStorageResult(dict):
     @property
     @pulumi.getter
     def level(self) -> str:
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
         return pulumi.get(self, "level")
 
     @property
@@ -35981,7 +36332,7 @@ class GetWindowsWebAppSiteConfigApplicationStackResult(dict):
         :param str docker_container_name: The name of the Docker Container in used.
         :param str docker_container_registry: The Container Registry where the Docker Container is pulled from.
         :param str docker_container_tag: The Docker Container Tag of the Container in use.
-        :param str dotnet_version: The version of .Net in use.
+        :param str dotnet_version: The version of .NET in use.
         :param str java_container: The Java Container in use.
         :param str java_container_version: The Version of the Java Container in use.
         :param str java_version: The Version of Java in use.
@@ -36037,7 +36388,7 @@ class GetWindowsWebAppSiteConfigApplicationStackResult(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> str:
         """
-        The version of .Net in use.
+        The version of .NET in use.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -36722,6 +37073,35 @@ class GetWindowsWebAppSiteCredentialResult(dict):
         The Site Credentials Password used for publishing.
         """
         return pulumi.get(self, "password")
+
+
+@pulumi.output_type
+class GetWindowsWebAppStickySettingResult(dict):
+    def __init__(__self__, *,
+                 app_setting_names: Sequence[str],
+                 connection_string_names: Sequence[str]):
+        """
+        :param Sequence[str] app_setting_names: A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        :param Sequence[str] connection_string_names: A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        pulumi.set(__self__, "app_setting_names", app_setting_names)
+        pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Sequence[str]:
+        """
+        A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Sequence[str]:
+        """
+        A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
 
 
 @pulumi.output_type

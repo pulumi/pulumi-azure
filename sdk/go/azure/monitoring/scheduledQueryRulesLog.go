@@ -26,7 +26,7 @@ type ScheduledQueryRulesLog struct {
 	AuthorizedResourceIds pulumi.StringArrayOutput `pulumi:"authorizedResourceIds"`
 	// A `criteria` block as defined below.
 	Criteria ScheduledQueryRulesLogCriteriaOutput `pulumi:"criteria"`
-	// The resource uri over which log search query is to be run.
+	// The resource URI over which log search query is to be run.
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -81,7 +81,7 @@ type scheduledQueryRulesLogState struct {
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`
 	// A `criteria` block as defined below.
 	Criteria *ScheduledQueryRulesLogCriteria `pulumi:"criteria"`
-	// The resource uri over which log search query is to be run.
+	// The resource URI over which log search query is to be run.
 	DataSourceId *string `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
@@ -99,7 +99,7 @@ type ScheduledQueryRulesLogState struct {
 	AuthorizedResourceIds pulumi.StringArrayInput
 	// A `criteria` block as defined below.
 	Criteria ScheduledQueryRulesLogCriteriaPtrInput
-	// The resource uri over which log search query is to be run.
+	// The resource URI over which log search query is to be run.
 	DataSourceId pulumi.StringPtrInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
@@ -121,7 +121,7 @@ type scheduledQueryRulesLogArgs struct {
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`
 	// A `criteria` block as defined below.
 	Criteria ScheduledQueryRulesLogCriteria `pulumi:"criteria"`
-	// The resource uri over which log search query is to be run.
+	// The resource URI over which log search query is to be run.
 	DataSourceId string `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
@@ -140,7 +140,7 @@ type ScheduledQueryRulesLogArgs struct {
 	AuthorizedResourceIds pulumi.StringArrayInput
 	// A `criteria` block as defined below.
 	Criteria ScheduledQueryRulesLogCriteriaInput
-	// The resource uri over which log search query is to be run.
+	// The resource URI over which log search query is to be run.
 	DataSourceId pulumi.StringInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput

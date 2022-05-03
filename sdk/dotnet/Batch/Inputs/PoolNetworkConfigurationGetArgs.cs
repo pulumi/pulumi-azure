@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<string>? _publicIps;
 
         /// <summary>
-        /// A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
+        /// A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> PublicIps
         {

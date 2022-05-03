@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Lb
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+        /// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Lb
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+        /// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.Lb
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+        /// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

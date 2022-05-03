@@ -107,11 +107,15 @@ class DatabaseLongTermRetentionPolicyArgs:
 @pulumi.input_type
 class DatabaseShortTermRetentionPolicyArgs:
     def __init__(__self__, *,
-                 retention_days: pulumi.Input[int]):
+                 retention_days: pulumi.Input[int],
+                 backup_interval_in_hours: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] retention_days: Point In Time Restore configuration. Value has to be between `7` and `35`.
+        :param pulumi.Input[int] backup_interval_in_hours: The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
         """
         pulumi.set(__self__, "retention_days", retention_days)
+        if backup_interval_in_hours is not None:
+            pulumi.set(__self__, "backup_interval_in_hours", backup_interval_in_hours)
 
     @property
     @pulumi.getter(name="retentionDays")
@@ -124,6 +128,18 @@ class DatabaseShortTermRetentionPolicyArgs:
     @retention_days.setter
     def retention_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_days", value)
+
+    @property
+    @pulumi.getter(name="backupIntervalInHours")
+    def backup_interval_in_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
+        """
+        return pulumi.get(self, "backup_interval_in_hours")
+
+    @backup_interval_in_hours.setter
+    def backup_interval_in_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backup_interval_in_hours", value)
 
 
 @pulumi.input_type
@@ -1032,7 +1048,7 @@ class VirtualMachineKeyVaultCredentialArgs:
                  service_principal_name: pulumi.Input[str],
                  service_principal_secret: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key_vault_url: The azure Key Vault url. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_url: The Azure Key Vault url. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The credential name.
         :param pulumi.Input[str] service_principal_name: The service principal name to access key vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_principal_secret: The service principal name secret to access key vault. Changing this forces a new resource to be created.
@@ -1046,7 +1062,7 @@ class VirtualMachineKeyVaultCredentialArgs:
     @pulumi.getter(name="keyVaultUrl")
     def key_vault_url(self) -> pulumi.Input[str]:
         """
-        The azure Key Vault url. Changing this forces a new resource to be created.
+        The Azure Key Vault url. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_url")
 

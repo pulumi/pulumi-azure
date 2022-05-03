@@ -131,7 +131,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly minCapacity!: pulumi.Output<number>;
     /**
-     * The name of the Ms SQL Database. Changing this forces a new resource to be created.
+     * The name of the MS SQL Database. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly sampleName!: pulumi.Output<string>;
     /**
-     * The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+     * The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
      */
     public readonly serverId!: pulumi.Output<string>;
     /**
@@ -313,7 +313,7 @@ export interface DatabaseState {
      */
     minCapacity?: pulumi.Input<number>;
     /**
-     * The name of the Ms SQL Database. Changing this forces a new resource to be created.
+     * The name of the MS SQL Database. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -341,7 +341,7 @@ export interface DatabaseState {
      */
     sampleName?: pulumi.Input<string>;
     /**
-     * The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+     * The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
      */
     serverId?: pulumi.Input<string>;
     /**
@@ -420,7 +420,7 @@ export interface DatabaseArgs {
      */
     minCapacity?: pulumi.Input<number>;
     /**
-     * The name of the Ms SQL Database. Changing this forces a new resource to be created.
+     * The name of the MS SQL Database. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -448,7 +448,7 @@ export interface DatabaseArgs {
      */
     sampleName?: pulumi.Input<string>;
     /**
-     * The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+     * The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
      */
     serverId: pulumi.Input<string>;
     /**

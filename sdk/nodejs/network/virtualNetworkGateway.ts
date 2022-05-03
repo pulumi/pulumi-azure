@@ -119,7 +119,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
      * If `true`, an active-active Virtual Network Gateway
      * will be created. An active-active gateway requires a `HighPerformance` or an
-     * `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+     * `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
      * Defaults to `false`.
      */
     public readonly activeActive!: pulumi.Output<boolean>;
@@ -182,8 +182,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
      * `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
      * `generation` arguments.
-     * A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-     * sku is only supported by an `ExpressRoute` gateway.
+     * A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+     * SKU is only supported by an `ExpressRoute` gateway.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -281,7 +281,7 @@ export interface VirtualNetworkGatewayState {
     /**
      * If `true`, an active-active Virtual Network Gateway
      * will be created. An active-active gateway requires a `HighPerformance` or an
-     * `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+     * `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
      * Defaults to `false`.
      */
     activeActive?: pulumi.Input<boolean>;
@@ -344,8 +344,8 @@ export interface VirtualNetworkGatewayState {
      * `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
      * `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
      * `generation` arguments.
-     * A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-     * sku is only supported by an `ExpressRoute` gateway.
+     * A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+     * SKU is only supported by an `ExpressRoute` gateway.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -377,7 +377,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * If `true`, an active-active Virtual Network Gateway
      * will be created. An active-active gateway requires a `HighPerformance` or an
-     * `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+     * `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
      * Defaults to `false`.
      */
     activeActive?: pulumi.Input<boolean>;
@@ -440,8 +440,8 @@ export interface VirtualNetworkGatewayArgs {
      * `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
      * `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
      * `generation` arguments.
-     * A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-     * sku is only supported by an `ExpressRoute` gateway.
+     * A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+     * SKU is only supported by an `ExpressRoute` gateway.
      */
     sku: pulumi.Input<string>;
     /**

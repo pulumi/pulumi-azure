@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The domain name label for the dns settings.
+        /// The domain name label for the DNS settings.
         /// </summary>
         [Input("domainNameLabel", required: true)]
         public Input<string> DomainNameLabel { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<int> IdleTimeout { get; set; } = null!;
 
         /// <summary>
-        /// The name of the public ip address configuration
+        /// The name of the public IP address configuration
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

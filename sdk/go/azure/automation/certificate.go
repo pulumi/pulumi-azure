@@ -78,7 +78,7 @@ type Certificate struct {
 
 	// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
-	// Base64 encoded value of the certificate.
+	// Base64 encoded value of the certificate. Changing this forces a new resource to be created.
 	Base64 pulumi.StringOutput `pulumi:"base64"`
 	// The description of this Automation Certificate.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -132,7 +132,7 @@ func GetCertificate(ctx *pulumi.Context,
 type certificateState struct {
 	// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
 	AutomationAccountName *string `pulumi:"automationAccountName"`
-	// Base64 encoded value of the certificate.
+	// Base64 encoded value of the certificate. Changing this forces a new resource to be created.
 	Base64 *string `pulumi:"base64"`
 	// The description of this Automation Certificate.
 	Description *string `pulumi:"description"`
@@ -149,7 +149,7 @@ type certificateState struct {
 type CertificateState struct {
 	// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringPtrInput
-	// Base64 encoded value of the certificate.
+	// Base64 encoded value of the certificate. Changing this forces a new resource to be created.
 	Base64 pulumi.StringPtrInput
 	// The description of this Automation Certificate.
 	Description pulumi.StringPtrInput
@@ -170,7 +170,7 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Base64 encoded value of the certificate.
+	// Base64 encoded value of the certificate. Changing this forces a new resource to be created.
 	Base64 string `pulumi:"base64"`
 	// The description of this Automation Certificate.
 	Description *string `pulumi:"description"`
@@ -186,7 +186,7 @@ type certificateArgs struct {
 type CertificateArgs struct {
 	// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringInput
-	// Base64 encoded value of the certificate.
+	// Base64 encoded value of the certificate. Changing this forces a new resource to be created.
 	Base64 pulumi.StringInput
 	// The description of this Automation Certificate.
 	Description pulumi.StringPtrInput

@@ -18,51 +18,6 @@ import * as utilities from "../utilities";
  * });
  * export const sqlInstanceId = example.then(example => example.id);
  * ```
- * ## Attribues Reference
- *
- * * `id` - The SQL Managed Instance ID.
- *
- * * `fqdn` - The fully qualified domain name of the Azure Managed SQL Instance.
- *
- * * `location` - Location where the resource exists.
- *
- * * `skuName` - SKU Name for the SQL Managed Instance.
- *
- * * `vcores` - Number of cores assigned to your instance.
- *
- * * `storageSizeInGb` - Maximum storage space for your instance.
- *
- * * `licenseType` - Type of license the Managed Instance uses.
- *
- * * `administratorLogin` - The administrator login name for the new server.
- *
- * * `subnetId` - The subnet resource id that the SQL Managed Instance is associated with.
- *
- * * `collation` - Specifies how the SQL Managed Instance is collated.
- *
- * * `publicDataEndpointEnabled` - Is the public data endpoint enabled?
- *
- * * `minimumTlsVersion` - The Minimum TLS Version.
- *
- * * `proxyOverride` - How the SQL Managed Instance is accessed.
- *
- * * `timezoneId` - The TimeZone ID that the SQL Managed Instance is operating in.
- *
- * * `dnsZonePartnerId` - The ID of the Managed Instance which is sharing the DNS zone.
- *
- * * `identity` - An `identity` block as defined below.
- *
- * * `storageAccountType` - Storage account type used to store backups for this SQL Managed Instance.
- *
- * * `tags` - A mapping of tags assigned to the resource.
- *
- * ***
- *
- * The `identity` block exports the following:
- *
- * * `principalId` - The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
- *
- * * `tenantId` - The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
  */
 export function getSqlManagedInstance(args: GetSqlManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlManagedInstanceResult> {
     if (!opts) {
@@ -89,6 +44,9 @@ export interface GetSqlManagedInstanceArgs {
      * The name of the Resource Group in which the SQL Managed Instance exists.
      */
     resourceGroupName: string;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -96,28 +54,79 @@ export interface GetSqlManagedInstanceArgs {
  * A collection of values returned by getSqlManagedInstance.
  */
 export interface GetSqlManagedInstanceResult {
+    /**
+     * The administrator login name for the new server.
+     */
     readonly administratorLogin: string;
+    /**
+     * Specifies how the SQL Managed Instance is collated.
+     */
     readonly collation: string;
+    /**
+     * The ID of the Managed Instance which is sharing the DNS zone.
+     */
     readonly dnsZonePartnerId: string;
+    /**
+     * The fully qualified domain name of the Azure Managed SQL Instance.
+     */
     readonly fqdn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * An `identity` block as defined below.
+     */
     readonly identities: outputs.sql.GetSqlManagedInstanceIdentity[];
+    /**
+     * Type of license the Managed Instance uses.
+     */
     readonly licenseType: string;
+    /**
+     * Location where the resource exists.
+     */
     readonly location: string;
+    /**
+     * The Minimum TLS Version.
+     */
     readonly minimumTlsVersion: string;
     readonly name: string;
+    /**
+     * How the SQL Managed Instance is accessed.
+     */
     readonly proxyOverride: string;
+    /**
+     * Is the public data endpoint enabled?
+     */
     readonly publicDataEndpointEnabled: boolean;
     readonly resourceGroupName: string;
+    /**
+     * SKU Name for the SQL Managed Instance.
+     */
     readonly skuName: string;
+    /**
+     * Storage account type used to store backups for this SQL Managed Instance.
+     */
     readonly storageAccountType: string;
+    /**
+     * Maximum storage space for your instance.
+     */
     readonly storageSizeInGb: number;
+    /**
+     * The subnet resource id that the SQL Managed Instance is associated with.
+     */
     readonly subnetId: string;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * The TimeZone ID that the SQL Managed Instance is operating in.
+     */
     readonly timezoneId: string;
+    /**
+     * Number of cores assigned to your instance.
+     */
     readonly vcores: number;
 }
 
@@ -137,5 +146,8 @@ export interface GetSqlManagedInstanceOutputArgs {
      * The name of the Resource Group in which the SQL Managed Instance exists.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

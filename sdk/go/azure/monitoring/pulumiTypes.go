@@ -11,7 +11,7 @@ import (
 )
 
 type AadDiagnosticSettingLog struct {
-	// The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
+	// The log category for the Azure Active Directory Diagnostic.
 	Category string `pulumi:"category"`
 	// Is this Diagnostic Log enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -31,7 +31,7 @@ type AadDiagnosticSettingLogInput interface {
 }
 
 type AadDiagnosticSettingLogArgs struct {
-	// The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
+	// The log category for the Azure Active Directory Diagnostic.
 	Category pulumi.StringInput `pulumi:"category"`
 	// Is this Diagnostic Log enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -90,7 +90,7 @@ func (o AadDiagnosticSettingLogOutput) ToAadDiagnosticSettingLogOutputWithContex
 	return o
 }
 
-// The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
+// The log category for the Azure Active Directory Diagnostic.
 func (o AadDiagnosticSettingLogOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v AadDiagnosticSettingLog) string { return v.Category }).(pulumi.StringOutput)
 }
@@ -563,7 +563,7 @@ type ActionGroupAzureFunctionReceiver struct {
 	FunctionAppResourceId string `pulumi:"functionAppResourceId"`
 	// The function name in the function app.
 	FunctionName string `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
+	// The HTTP trigger url where HTTP request sent to.
 	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
 	// The name of the Azure Function receiver.
 	Name string `pulumi:"name"`
@@ -587,7 +587,7 @@ type ActionGroupAzureFunctionReceiverArgs struct {
 	FunctionAppResourceId pulumi.StringInput `pulumi:"functionAppResourceId"`
 	// The function name in the function app.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
+	// The HTTP trigger url where HTTP request sent to.
 	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
 	// The name of the Azure Function receiver.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -656,7 +656,7 @@ func (o ActionGroupAzureFunctionReceiverOutput) FunctionName() pulumi.StringOutp
 	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// The http trigger url where http request sent to.
+// The HTTP trigger url where HTTP request sent to.
 func (o ActionGroupAzureFunctionReceiverOutput) HttpTriggerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
@@ -1064,7 +1064,7 @@ func (o ActionGroupItsmReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroup
 }
 
 type ActionGroupLogicAppReceiver struct {
-	// The callback url where http request sent to.
+	// The callback url where HTTP request sent to.
 	CallbackUrl string `pulumi:"callbackUrl"`
 	// The name of the logic app receiver.
 	Name string `pulumi:"name"`
@@ -1086,7 +1086,7 @@ type ActionGroupLogicAppReceiverInput interface {
 }
 
 type ActionGroupLogicAppReceiverArgs struct {
-	// The callback url where http request sent to.
+	// The callback url where HTTP request sent to.
 	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
 	// The name of the logic app receiver.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1147,7 +1147,7 @@ func (o ActionGroupLogicAppReceiverOutput) ToActionGroupLogicAppReceiverOutputWi
 	return o
 }
 
-// The callback url where http request sent to.
+// The callback url where HTTP request sent to.
 func (o ActionGroupLogicAppReceiverOutput) CallbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupLogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }
@@ -1542,11 +1542,11 @@ func (o ActionGroupWebhookReceiverArrayOutput) Index(i pulumi.IntInput) ActionGr
 }
 
 type ActionGroupWebhookReceiverAadAuth struct {
-	// The identifier uri for aad auth.
+	// The identifier URI for AAD auth.
 	IdentifierUri *string `pulumi:"identifierUri"`
-	// The webhook application object Id for aad auth.
+	// The webhook application object Id for AAD auth.
 	ObjectId string `pulumi:"objectId"`
-	// The tenant id for aad auth.
+	// The tenant id for AAD auth.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -1562,11 +1562,11 @@ type ActionGroupWebhookReceiverAadAuthInput interface {
 }
 
 type ActionGroupWebhookReceiverAadAuthArgs struct {
-	// The identifier uri for aad auth.
+	// The identifier URI for AAD auth.
 	IdentifierUri pulumi.StringPtrInput `pulumi:"identifierUri"`
-	// The webhook application object Id for aad auth.
+	// The webhook application object Id for AAD auth.
 	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// The tenant id for aad auth.
+	// The tenant id for AAD auth.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
@@ -1647,17 +1647,17 @@ func (o ActionGroupWebhookReceiverAadAuthOutput) ToActionGroupWebhookReceiverAad
 	}).(ActionGroupWebhookReceiverAadAuthPtrOutput)
 }
 
-// The identifier uri for aad auth.
+// The identifier URI for AAD auth.
 func (o ActionGroupWebhookReceiverAadAuthOutput) IdentifierUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionGroupWebhookReceiverAadAuth) *string { return v.IdentifierUri }).(pulumi.StringPtrOutput)
 }
 
-// The webhook application object Id for aad auth.
+// The webhook application object Id for AAD auth.
 func (o ActionGroupWebhookReceiverAadAuthOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupWebhookReceiverAadAuth) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-// The tenant id for aad auth.
+// The tenant id for AAD auth.
 func (o ActionGroupWebhookReceiverAadAuthOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionGroupWebhookReceiverAadAuth) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -1686,7 +1686,7 @@ func (o ActionGroupWebhookReceiverAadAuthPtrOutput) Elem() ActionGroupWebhookRec
 	}).(ActionGroupWebhookReceiverAadAuthOutput)
 }
 
-// The identifier uri for aad auth.
+// The identifier URI for AAD auth.
 func (o ActionGroupWebhookReceiverAadAuthPtrOutput) IdentifierUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionGroupWebhookReceiverAadAuth) *string {
 		if v == nil {
@@ -1696,7 +1696,7 @@ func (o ActionGroupWebhookReceiverAadAuthPtrOutput) IdentifierUri() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The webhook application object Id for aad auth.
+// The webhook application object Id for AAD auth.
 func (o ActionGroupWebhookReceiverAadAuthPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionGroupWebhookReceiverAadAuth) *string {
 		if v == nil {
@@ -1706,7 +1706,7 @@ func (o ActionGroupWebhookReceiverAadAuthPtrOutput) ObjectId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id for aad auth.
+// The tenant id for AAD auth.
 func (o ActionGroupWebhookReceiverAadAuthPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionGroupWebhookReceiverAadAuth) *string {
 		if v == nil {
@@ -10818,7 +10818,7 @@ type GetActionGroupAzureFunctionReceiver struct {
 	FunctionAppResourceId string `pulumi:"functionAppResourceId"`
 	// The function name in the function app.
 	FunctionName string `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
+	// The HTTP trigger url where HTTP request sent to.
 	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
 	// Specifies the name of the Action Group.
 	Name string `pulumi:"name"`
@@ -10842,7 +10842,7 @@ type GetActionGroupAzureFunctionReceiverArgs struct {
 	FunctionAppResourceId pulumi.StringInput `pulumi:"functionAppResourceId"`
 	// The function name in the function app.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
+	// The HTTP trigger url where HTTP request sent to.
 	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
 	// Specifies the name of the Action Group.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10911,7 +10911,7 @@ func (o GetActionGroupAzureFunctionReceiverOutput) FunctionName() pulumi.StringO
 	return o.ApplyT(func(v GetActionGroupAzureFunctionReceiver) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// The http trigger url where http request sent to.
+// The HTTP trigger url where HTTP request sent to.
 func (o GetActionGroupAzureFunctionReceiverOutput) HttpTriggerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionGroupAzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
@@ -11319,7 +11319,7 @@ func (o GetActionGroupItsmReceiverArrayOutput) Index(i pulumi.IntInput) GetActio
 }
 
 type GetActionGroupLogicAppReceiver struct {
-	// The callback url where http request sent to.
+	// The callback url where HTTP request sent to.
 	CallbackUrl string `pulumi:"callbackUrl"`
 	// Specifies the name of the Action Group.
 	Name string `pulumi:"name"`
@@ -11341,7 +11341,7 @@ type GetActionGroupLogicAppReceiverInput interface {
 }
 
 type GetActionGroupLogicAppReceiverArgs struct {
-	// The callback url where http request sent to.
+	// The callback url where HTTP request sent to.
 	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
 	// Specifies the name of the Action Group.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -11402,7 +11402,7 @@ func (o GetActionGroupLogicAppReceiverOutput) ToGetActionGroupLogicAppReceiverOu
 	return o
 }
 
-// The callback url where http request sent to.
+// The callback url where HTTP request sent to.
 func (o GetActionGroupLogicAppReceiverOutput) CallbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionGroupLogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }

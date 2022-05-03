@@ -46,13 +46,13 @@ class VirtualNetworkGatewayArgs:
                `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
                `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
                `generation` arguments.
-               A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-               sku is only supported by an `ExpressRoute` gateway.
+               A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+               SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are
                `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway
                will be created. An active-active gateway requires a `HighPerformance` or an
-               `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+               `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
         :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A block of `bgp_settings`.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
@@ -145,8 +145,8 @@ class VirtualNetworkGatewayArgs:
         `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
         `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
         `generation` arguments.
-        A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-        sku is only supported by an `ExpressRoute` gateway.
+        A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+        SKU is only supported by an `ExpressRoute` gateway.
         """
         return pulumi.get(self, "sku")
 
@@ -173,7 +173,7 @@ class VirtualNetworkGatewayArgs:
         """
         If `true`, an active-active Virtual Network Gateway
         will be created. An active-active gateway requires a `HighPerformance` or an
-        `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+        `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
         Defaults to `false`.
         """
         return pulumi.get(self, "active_active")
@@ -358,7 +358,7 @@ class _VirtualNetworkGatewayState:
         Input properties used for looking up and filtering VirtualNetworkGateway resources.
         :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway
                will be created. An active-active gateway requires a `HighPerformance` or an
-               `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+               `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
         :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A block of `bgp_settings`.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
@@ -387,8 +387,8 @@ class _VirtualNetworkGatewayState:
                `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
                `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
                `generation` arguments.
-               A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-               sku is only supported by an `ExpressRoute` gateway.
+               A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+               SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are
                `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
@@ -439,7 +439,7 @@ class _VirtualNetworkGatewayState:
         """
         If `true`, an active-active Virtual Network Gateway
         will be created. An active-active gateway requires a `HighPerformance` or an
-        `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+        `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
         Defaults to `false`.
         """
         return pulumi.get(self, "active_active")
@@ -598,8 +598,8 @@ class _VirtualNetworkGatewayState:
         `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
         `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
         `generation` arguments.
-        A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-        sku is only supported by an `ExpressRoute` gateway.
+        A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+        SKU is only supported by an `ExpressRoute` gateway.
         """
         return pulumi.get(self, "sku")
 
@@ -766,7 +766,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway
                will be created. An active-active gateway requires a `HighPerformance` or an
-               `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+               `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']] bgp_settings: A block of `bgp_settings`.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
@@ -795,8 +795,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
                `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
                `generation` arguments.
-               A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-               sku is only supported by an `ExpressRoute` gateway.
+               A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+               SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are
                `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
@@ -996,7 +996,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway
                will be created. An active-active gateway requires a `HighPerformance` or an
-               `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+               `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']] bgp_settings: A block of `bgp_settings`.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
@@ -1025,8 +1025,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
                `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
                `generation` arguments.
-               A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-               sku is only supported by an `ExpressRoute` gateway.
+               A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+               SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are
                `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
@@ -1065,7 +1065,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         """
         If `true`, an active-active Virtual Network Gateway
         will be created. An active-active gateway requires a `HighPerformance` or an
-        `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+        `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
         Defaults to `false`.
         """
         return pulumi.get(self, "active_active")
@@ -1176,8 +1176,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
         `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
         `generation` arguments.
-        A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-        sku is only supported by an `ExpressRoute` gateway.
+        A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+        SKU is only supported by an `ExpressRoute` gateway.
         """
         return pulumi.get(self, "sku")
 

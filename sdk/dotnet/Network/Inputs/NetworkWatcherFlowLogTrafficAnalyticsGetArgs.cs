@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int>? IntervalInMinutes { get; set; }
 
         /// <summary>
-        /// The resource guid of the attached workspace.
+        /// The resource GUID of the attached workspace.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;

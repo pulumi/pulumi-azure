@@ -5437,7 +5437,7 @@ class ServiceTenantAccessArgs:
                  secondary_key: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Should the access to the management api be enabled?
+        :param pulumi.Input[bool] enabled: Should the access to the management API be enabled?
         :param pulumi.Input[str] primary_key: Primary access key for the tenant access information contract.
         :param pulumi.Input[str] secondary_key: Secondary access key for the tenant access information contract.
         :param pulumi.Input[str] tenant_id: The identifier for the tenant access information contract.
@@ -5454,7 +5454,7 @@ class ServiceTenantAccessArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Should the access to the management api be enabled?
+        Should the access to the management API be enabled?
         """
         return pulumi.get(self, "enabled")
 

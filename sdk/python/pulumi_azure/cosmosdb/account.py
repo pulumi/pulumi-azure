@@ -73,7 +73,7 @@ class AccountArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
+        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
         :param pulumi.Input['AccountRestoreArgs'] restore: A `restore` block as defined below.
@@ -443,7 +443,7 @@ class AccountArgs:
     @pulumi.getter(name="networkAclBypassForAzureServices")
     def network_acl_bypass_for_azure_services(self) -> Optional[pulumi.Input[bool]]:
         """
-        If azure services can bypass ACLs. Defaults to `false`.
+        If Azure services can bypass ACLs. Defaults to `false`.
         """
         return pulumi.get(self, "network_acl_bypass_for_azure_services")
 
@@ -581,7 +581,7 @@ class _AccountState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
+        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[str] primary_key: The Primary key for the CosmosDB Account.
@@ -979,7 +979,7 @@ class _AccountState:
     @pulumi.getter(name="networkAclBypassForAzureServices")
     def network_acl_bypass_for_azure_services(self) -> Optional[pulumi.Input[bool]]:
         """
-        If azure services can bypass ACLs. Defaults to `false`.
+        If Azure services can bypass ACLs. Defaults to `false`.
         """
         return pulumi.get(self, "network_acl_bypass_for_azure_services")
 
@@ -1265,7 +1265,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
+        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
@@ -1525,7 +1525,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
+        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[str] primary_key: The Primary key for the CosmosDB Account.
@@ -1789,7 +1789,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="networkAclBypassForAzureServices")
     def network_acl_bypass_for_azure_services(self) -> pulumi.Output[Optional[bool]]:
         """
-        If azure services can bypass ACLs. Defaults to `false`.
+        If Azure services can bypass ACLs. Defaults to `false`.
         """
         return pulumi.get(self, "network_acl_bypass_for_azure_services")
 

@@ -61,7 +61,7 @@ export interface GetServiceResult {
     readonly name: string;
     readonly resourceGroupName: string;
     /**
-     * The sku name of database migration service.
+     * The SKU name of database migration service.
      */
     readonly skuName: string;
     /**

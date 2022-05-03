@@ -82,13 +82,13 @@ namespace Pulumi.Azure.MSSql
     public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Ms SQL Database.
+        /// The name of the MS SQL Database.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The id of the Ms SQL Server on which to create the database.
+        /// The id of the MS SQL Server on which to create the database.
         /// </summary>
         [Input("serverId", required: true)]
         public string ServerId { get; set; } = null!;
@@ -101,13 +101,13 @@ namespace Pulumi.Azure.MSSql
     public sealed class GetDatabaseInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Ms SQL Database.
+        /// The name of the MS SQL Database.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The id of the Ms SQL Server on which to create the database.
+        /// The id of the MS SQL Server on which to create the database.
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.MSSql
         public readonly bool ReadScale;
         public readonly string ServerId;
         /// <summary>
-        /// The name of the sku of the database.
+        /// The name of the SKU of the database.
         /// </summary>
         public readonly string SkuName;
         /// <summary>

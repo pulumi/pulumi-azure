@@ -136,7 +136,7 @@ type FlexibleServer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrOutput `pulumi:"pointInTimeRestoreTimeInUtc"`
-	// The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+	// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	PrivateDnsZoneId pulumi.StringPtrOutput `pulumi:"privateDnsZoneId"`
 	// Is the public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -216,7 +216,7 @@ type flexibleServerState struct {
 	Name *string `pulumi:"name"`
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
-	// The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+	// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// Is the public network access enabled?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -265,7 +265,7 @@ type FlexibleServerState struct {
 	Name pulumi.StringPtrInput
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
-	// The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+	// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// Is the public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -316,7 +316,7 @@ type flexibleServerArgs struct {
 	Name *string `pulumi:"name"`
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
-	// The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+	// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// The replication role. Possible value is `None`.
 	ReplicationRole *string `pulumi:"replicationRole"`
@@ -360,7 +360,7 @@ type FlexibleServerArgs struct {
 	Name pulumi.StringPtrInput
 	// The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
-	// The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+	// The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// The replication role. Possible value is `None`.
 	ReplicationRole pulumi.StringPtrInput

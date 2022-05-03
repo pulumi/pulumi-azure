@@ -94,7 +94,7 @@ class ModuleModuleLinkArgs:
                  uri: pulumi.Input[str],
                  hash: Optional[pulumi.Input['ModuleModuleLinkHashArgs']] = None):
         """
-        :param pulumi.Input[str] uri: The uri of the module content (zip or nupkg).
+        :param pulumi.Input[str] uri: The URI of the module content (zip or nupkg).
         """
         pulumi.set(__self__, "uri", uri)
         if hash is not None:
@@ -104,7 +104,7 @@ class ModuleModuleLinkArgs:
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
         """
-        The uri of the module content (zip or nupkg).
+        The URI of the module content (zip or nupkg).
         """
         return pulumi.get(self, "uri")
 
@@ -208,7 +208,7 @@ class RunBookPublishContentLinkArgs:
                  hash: Optional[pulumi.Input['RunBookPublishContentLinkHashArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] uri: The uri of the runbook content.
+        :param pulumi.Input[str] uri: The URI of the runbook content.
         """
         pulumi.set(__self__, "uri", uri)
         if hash is not None:
@@ -220,7 +220,7 @@ class RunBookPublishContentLinkArgs:
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
         """
-        The uri of the runbook content.
+        The URI of the runbook content.
         """
         return pulumi.get(self, "uri")
 

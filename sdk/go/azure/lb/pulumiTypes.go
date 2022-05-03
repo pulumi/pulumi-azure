@@ -135,7 +135,7 @@ func (o BackendAddressPoolTunnelInterfaceArrayOutput) Index(i pulumi.IntInput) B
 }
 
 type LoadBalancerFrontendIpConfiguration struct {
-	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+	// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
 	GatewayLoadBalancerFrontendIpConfigurationId *string `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
 	// The id of the Frontend IP Configuration.
 	Id *string `pulumi:"id"`
@@ -143,7 +143,7 @@ type LoadBalancerFrontendIpConfiguration struct {
 	InboundNatRules []string `pulumi:"inboundNatRules"`
 	// The list of IDs of load balancing rules that use this frontend IP.
 	LoadBalancerRules []string `pulumi:"loadBalancerRules"`
-	// Specifies the name of the frontend ip configuration.
+	// Specifies the name of the frontend IP configuration.
 	Name string `pulumi:"name"`
 	// The list of IDs outbound rules that use this frontend IP.
 	OutboundRules []string `pulumi:"outboundRules"`
@@ -175,7 +175,7 @@ type LoadBalancerFrontendIpConfigurationInput interface {
 }
 
 type LoadBalancerFrontendIpConfigurationArgs struct {
-	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+	// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
 	GatewayLoadBalancerFrontendIpConfigurationId pulumi.StringPtrInput `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
 	// The id of the Frontend IP Configuration.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -183,7 +183,7 @@ type LoadBalancerFrontendIpConfigurationArgs struct {
 	InboundNatRules pulumi.StringArrayInput `pulumi:"inboundNatRules"`
 	// The list of IDs of load balancing rules that use this frontend IP.
 	LoadBalancerRules pulumi.StringArrayInput `pulumi:"loadBalancerRules"`
-	// Specifies the name of the frontend ip configuration.
+	// Specifies the name of the frontend IP configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The list of IDs outbound rules that use this frontend IP.
 	OutboundRules pulumi.StringArrayInput `pulumi:"outboundRules"`
@@ -254,7 +254,7 @@ func (o LoadBalancerFrontendIpConfigurationOutput) ToLoadBalancerFrontendIpConfi
 	return o
 }
 
-// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
 func (o LoadBalancerFrontendIpConfigurationOutput) GatewayLoadBalancerFrontendIpConfigurationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string {
 		return v.GatewayLoadBalancerFrontendIpConfigurationId
@@ -276,7 +276,7 @@ func (o LoadBalancerFrontendIpConfigurationOutput) LoadBalancerRules() pulumi.St
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.LoadBalancerRules }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the name of the frontend ip configuration.
+// Specifies the name of the frontend IP configuration.
 func (o LoadBalancerFrontendIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -131,7 +131,7 @@ class GetDatabaseResult:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> str:
         """
-        The name of the sku of the database.
+        The name of the SKU of the database.
         """
         return pulumi.get(self, "sku_name")
 
@@ -199,8 +199,8 @@ def get_database(name: Optional[str] = None,
     ```
 
 
-    :param str name: The name of the Ms SQL Database.
-    :param str server_id: The id of the Ms SQL Server on which to create the database.
+    :param str name: The name of the MS SQL Database.
+    :param str server_id: The id of the MS SQL Server on which to create the database.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -246,7 +246,7 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: The name of the Ms SQL Database.
-    :param str server_id: The id of the Ms SQL Server on which to create the database.
+    :param str name: The name of the MS SQL Database.
+    :param str server_id: The id of the MS SQL Server on which to create the database.
     """
     ...

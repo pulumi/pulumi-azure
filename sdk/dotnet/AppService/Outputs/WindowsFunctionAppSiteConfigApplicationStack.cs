@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsFunctionAppSiteConfigApplicationStack
     {
         /// <summary>
-        /// The version of .Net to use. Possible values include `3.1` and `6`.
+        /// The version of .NET to use. Possible values include `3.1` and `6`.
         /// </summary>
         public readonly string? DotnetVersion;
         /// <summary>

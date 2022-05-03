@@ -753,7 +753,7 @@ func (o AccountConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.IntPtrOut
 type AccountCorsRule struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+	// A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
@@ -777,7 +777,7 @@ type AccountCorsRuleInput interface {
 type AccountCorsRuleArgs struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+	// A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
@@ -869,7 +869,7 @@ func (o AccountCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+// A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
@@ -923,7 +923,7 @@ func (o AccountCorsRulePtrOutput) AllowedHeaders() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+// A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountCorsRulePtrOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountCorsRule) []string {
 		if v == nil {

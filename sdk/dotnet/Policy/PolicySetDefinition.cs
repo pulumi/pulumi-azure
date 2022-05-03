@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Policy
         public Output<string?> ManagementGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        /// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         /// </summary>
         [Output("metadata")]
         public Output<string> Metadata { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Policy
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        /// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         /// </summary>
         [Output("parameters")]
         public Output<string?> Parameters { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? ManagementGroupId { get; set; }
 
         /// <summary>
-        /// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        /// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         /// </summary>
         [Input("metadata")]
         public Input<string>? Metadata { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        /// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? ManagementGroupId { get; set; }
 
         /// <summary>
-        /// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        /// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         /// </summary>
         [Input("metadata")]
         public Input<string>? Metadata { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        /// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }

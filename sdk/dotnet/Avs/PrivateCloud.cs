@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Avs
     /// <summary>
     /// ## Import
     /// 
-    /// Vmware Private Clouds can be imported using the `resource id`, e.g.
+    /// VMware Private Clouds can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/PrivateClouds/privateCloud1
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Avs
         public Output<bool?> InternetConnectionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        /// The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -60,13 +60,13 @@ namespace Pulumi.Azure.Avs
         public Output<string> ManagementSubnetCidr { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
+        /// The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
+        /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Output("networkSubnetCidr")]
         public Output<string> NetworkSubnetCidr { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Avs
         public Output<string> NsxtManagerEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
+        /// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Output("nsxtPassword")]
         public Output<string?> NsxtPassword { get; private set; } = null!;
@@ -96,19 +96,19 @@ namespace Pulumi.Azure.Avs
         public Output<string> ProvisioningSubnetCidr { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        /// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
+        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Vmware Private Cloud.
+        /// A mapping of tags which should be assigned to the VMware Private Cloud.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Avs
         public Output<string> VcenterCertificateThumbprint { get; private set; } = null!;
 
         /// <summary>
-        /// The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
+        /// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Output("vcenterPassword")]
         public Output<string?> VcenterPassword { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Avs
         public Input<bool>? InternetConnectionEnabled { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        /// The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -204,31 +204,31 @@ namespace Pulumi.Azure.Avs
         public Input<Inputs.PrivateCloudManagementClusterArgs> ManagementCluster { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
+        /// The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
+        /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("networkSubnetCidr", required: true)]
         public Input<string> NetworkSubnetCidr { get; set; } = null!;
 
         /// <summary>
-        /// The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
+        /// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("nsxtPassword")]
         public Input<string>? NsxtPassword { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        /// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
+        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.Avs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Vmware Private Cloud.
+        /// A mapping of tags which should be assigned to the VMware Private Cloud.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Avs
         }
 
         /// <summary>
-        /// The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
+        /// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("vcenterPassword")]
         public Input<string>? VcenterPassword { get; set; }
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.Avs
         public Input<bool>? InternetConnectionEnabled { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        /// The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -303,13 +303,13 @@ namespace Pulumi.Azure.Avs
         public Input<string>? ManagementSubnetCidr { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
+        /// The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
+        /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("networkSubnetCidr")]
         public Input<string>? NetworkSubnetCidr { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.Avs
         public Input<string>? NsxtManagerEndpoint { get; set; }
 
         /// <summary>
-        /// The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
+        /// The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("nsxtPassword")]
         public Input<string>? NsxtPassword { get; set; }
@@ -339,13 +339,13 @@ namespace Pulumi.Azure.Avs
         public Input<string>? ProvisioningSubnetCidr { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        /// The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
+        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.Azure.Avs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Vmware Private Cloud.
+        /// A mapping of tags which should be assigned to the VMware Private Cloud.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -369,7 +369,7 @@ namespace Pulumi.Azure.Avs
         public Input<string>? VcenterCertificateThumbprint { get; set; }
 
         /// <summary>
-        /// The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
+        /// The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("vcenterPassword")]
         public Input<string>? VcenterPassword { get; set; }

@@ -211,7 +211,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             ))
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             scope=example_account.id,
-            role_definition_name="Storage Account Backup Contributor Role",
+            role_definition_name="Storage Account Backup Contributor",
             principal_id=example_backup_vault.identity.principal_id)
         example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage",
             vault_id=example_backup_vault.id,
@@ -270,7 +270,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             ))
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             scope=example_account.id,
-            role_definition_name="Storage Account Backup Contributor Role",
+            role_definition_name="Storage Account Backup Contributor",
             principal_id=example_backup_vault.identity.principal_id)
         example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage",
             vault_id=example_backup_vault.id,

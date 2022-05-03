@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _sourceIpGroups;
 
         /// <summary>
-        /// Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+        /// Specifies a list of source IP groups that shall be bypassed by intrusion detection.
         /// </summary>
         public InputList<string> SourceIpGroups
         {

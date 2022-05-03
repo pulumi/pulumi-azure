@@ -195,7 +195,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * If azure services can bypass ACLs. Defaults to `false`.
+     * If Azure services can bypass ACLs. Defaults to `false`.
      */
     public readonly networkAclBypassForAzureServices!: pulumi.Output<boolean | undefined>;
     /**
@@ -467,7 +467,7 @@ export interface AccountState {
      */
     name?: pulumi.Input<string>;
     /**
-     * If azure services can bypass ACLs. Defaults to `false`.
+     * If Azure services can bypass ACLs. Defaults to `false`.
      */
     networkAclBypassForAzureServices?: pulumi.Input<boolean>;
     /**
@@ -621,7 +621,7 @@ export interface AccountArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * If azure services can bypass ACLs. Defaults to `false`.
+     * If Azure services can bypass ACLs. Defaults to `false`.
      */
     networkAclBypassForAzureServices?: pulumi.Input<boolean>;
     /**

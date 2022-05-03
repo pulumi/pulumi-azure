@@ -61,7 +61,7 @@ export interface GetVirtualMachineScaleSetResult {
     readonly identities: outputs.compute.GetVirtualMachineScaleSetIdentity[];
     readonly location: string;
     /**
-     * The name of the public ip address configuration
+     * The name of the public IP address configuration
      */
     readonly name: string;
     /**

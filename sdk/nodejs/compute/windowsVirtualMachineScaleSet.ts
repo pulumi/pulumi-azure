@@ -272,8 +272,14 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `terminateNotification` block as defined below.
+     *
+     * @deprecated `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
      */
     public readonly terminateNotification!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
+    /**
+     * A `terminationNotification` block as defined below.
+     */
+    public readonly terminationNotification!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetTerminationNotification>;
     /**
      * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
@@ -291,7 +297,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly userData!: pulumi.Output<string | undefined>;
     /**
-     * Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     * Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
     public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -363,6 +369,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["terminateNotification"] = state ? state.terminateNotification : undefined;
+            resourceInputs["terminationNotification"] = state ? state.terminationNotification : undefined;
             resourceInputs["timezone"] = state ? state.timezone : undefined;
             resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
             resourceInputs["upgradeMode"] = state ? state.upgradeMode : undefined;
@@ -437,6 +444,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminateNotification"] = args ? args.terminateNotification : undefined;
+            resourceInputs["terminationNotification"] = args ? args.terminationNotification : undefined;
             resourceInputs["timezone"] = args ? args.timezone : undefined;
             resourceInputs["upgradeMode"] = args ? args.upgradeMode : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
@@ -625,8 +633,14 @@ export interface WindowsVirtualMachineScaleSetState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `terminateNotification` block as defined below.
+     *
+     * @deprecated `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
      */
     terminateNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
+    /**
+     * A `terminationNotification` block as defined below.
+     */
+    terminationNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetTerminationNotification>;
     /**
      * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
@@ -644,7 +658,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     userData?: pulumi.Input<string>;
     /**
-     * Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     * Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
     vtpmEnabled?: pulumi.Input<boolean>;
     /**
@@ -835,8 +849,14 @@ export interface WindowsVirtualMachineScaleSetArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `terminateNotification` block as defined below.
+     *
+     * @deprecated `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
      */
     terminateNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
+    /**
+     * A `terminationNotification` block as defined below.
+     */
+    terminationNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetTerminationNotification>;
     /**
      * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
@@ -850,7 +870,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     userData?: pulumi.Input<string>;
     /**
-     * Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     * Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
     vtpmEnabled?: pulumi.Input<boolean>;
     /**

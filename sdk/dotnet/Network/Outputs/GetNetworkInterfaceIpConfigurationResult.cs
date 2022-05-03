@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly ImmutableArray<string> ApplicationGatewayBackendAddressPoolsIds;
         public readonly ImmutableArray<string> ApplicationSecurityGroupIds;
         /// <summary>
-        /// The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
+        /// The Frontend IP Configuration ID of a Gateway SKU Load Balancer the Network Interface is consuming.
         /// </summary>
         public readonly string GatewayLoadBalancerFrontendIpConfigurationId;
         /// <summary>

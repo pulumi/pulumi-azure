@@ -267,7 +267,7 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Synapse Workspace Extended Auditing Policys can be imported using the `resource id`, e.g.
+        Synapse Workspace Extended Auditing Policies can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/extendedAuditingSettings/default
@@ -326,7 +326,7 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Synapse Workspace Extended Auditing Policys can be imported using the `resource id`, e.g.
+        Synapse Workspace Extended Auditing Policies can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/extendedAuditingSettings/default

@@ -31,7 +31,7 @@ class ServiceAzureBotArgs:
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights Api Key to associate with this Azure Bot Service.
+        :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] developer_app_insights_application_id: The resource ID of the Application Insights instance to associate with this Azure Bot Service.
         :param pulumi.Input[str] developer_app_insights_key: The Application Insight Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] display_name: The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
@@ -106,7 +106,7 @@ class ServiceAzureBotArgs:
     @pulumi.getter(name="developerAppInsightsApiKey")
     def developer_app_insights_api_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Application Insights Api Key to associate with this Azure Bot Service.
+        The Application Insights API Key to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "developer_app_insights_api_key")
 
@@ -241,7 +241,7 @@ class _ServiceAzureBotState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ServiceAzureBot resources.
-        :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights Api Key to associate with this Azure Bot Service.
+        :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] developer_app_insights_application_id: The resource ID of the Application Insights instance to associate with this Azure Bot Service.
         :param pulumi.Input[str] developer_app_insights_key: The Application Insight Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] display_name: The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
@@ -286,7 +286,7 @@ class _ServiceAzureBotState:
     @pulumi.getter(name="developerAppInsightsApiKey")
     def developer_app_insights_api_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Application Insights Api Key to associate with this Azure Bot Service.
+        The Application Insights API Key to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "developer_app_insights_api_key")
 
@@ -504,7 +504,7 @@ class ServiceAzureBot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights Api Key to associate with this Azure Bot Service.
+        :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] developer_app_insights_application_id: The resource ID of the Application Insights instance to associate with this Azure Bot Service.
         :param pulumi.Input[str] developer_app_insights_key: The Application Insight Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] display_name: The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
@@ -657,7 +657,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights Api Key to associate with this Azure Bot Service.
+        :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] developer_app_insights_application_id: The resource ID of the Application Insights instance to associate with this Azure Bot Service.
         :param pulumi.Input[str] developer_app_insights_key: The Application Insight Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] display_name: The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
@@ -694,7 +694,7 @@ class ServiceAzureBot(pulumi.CustomResource):
     @pulumi.getter(name="developerAppInsightsApiKey")
     def developer_app_insights_api_key(self) -> pulumi.Output[Optional[str]]:
         """
-        The Application Insights Api Key to associate with this Azure Bot Service.
+        The Application Insights API Key to associate with this Azure Bot Service.
         """
         return pulumi.get(self, "developer_app_insights_api_key")
 

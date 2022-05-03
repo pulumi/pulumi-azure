@@ -114,6 +114,8 @@ type WindowsWebApp struct {
 	SiteConfig WindowsWebAppSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below.
 	SiteCredentials WindowsWebAppSiteCredentialArrayOutput `pulumi:"siteCredentials"`
+	// A `stickySettings` block as defined below.
+	StickySettings WindowsWebAppStickySettingsPtrOutput `pulumi:"stickySettings"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts WindowsWebAppStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App.
@@ -208,6 +210,8 @@ type windowsWebAppState struct {
 	SiteConfig *WindowsWebAppSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below.
 	SiteCredentials []WindowsWebAppSiteCredential `pulumi:"siteCredentials"`
+	// A `stickySettings` block as defined below.
+	StickySettings *WindowsWebAppStickySettings `pulumi:"stickySettings"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []WindowsWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App.
@@ -265,6 +269,8 @@ type WindowsWebAppState struct {
 	SiteConfig WindowsWebAppSiteConfigPtrInput
 	// A `siteCredential` block as defined below.
 	SiteCredentials WindowsWebAppSiteCredentialArrayInput
+	// A `stickySettings` block as defined below.
+	StickySettings WindowsWebAppStickySettingsPtrInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts WindowsWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Windows Web App.
@@ -310,6 +316,8 @@ type windowsWebAppArgs struct {
 	ServicePlanId string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig WindowsWebAppSiteConfig `pulumi:"siteConfig"`
+	// A `stickySettings` block as defined below.
+	StickySettings *WindowsWebAppStickySettings `pulumi:"stickySettings"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []WindowsWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App.
@@ -352,6 +360,8 @@ type WindowsWebAppArgs struct {
 	ServicePlanId pulumi.StringInput
 	// A `siteConfig` block as defined below.
 	SiteConfig WindowsWebAppSiteConfigInput
+	// A `stickySettings` block as defined below.
+	StickySettings WindowsWebAppStickySettingsPtrInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts WindowsWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Windows Web App.

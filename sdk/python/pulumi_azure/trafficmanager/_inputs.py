@@ -191,7 +191,7 @@ class ProfileMonitorConfigCustomHeaderArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: The name of the custom header.
-        :param pulumi.Input[str] value: The value of custom header. Applicable for Http and Https protocol.
+        :param pulumi.Input[str] value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -212,7 +212,7 @@ class ProfileMonitorConfigCustomHeaderArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value of custom header. Applicable for Http and Https protocol.
+        The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         return pulumi.get(self, "value")
 

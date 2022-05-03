@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppPlatform.Outputs
     public sealed class GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult
     {
         /// <summary>
-        /// The password used to access the Http Basic Authentication Git repository server.
+        /// The password used to access the HTTP Basic Authentication Git repository server.
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// The username used to access the Http Basic Authentication Git repository server.
+        /// The username used to access the HTTP Basic Authentication Git repository server.
         /// </summary>
         public readonly string Username;
 

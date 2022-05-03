@@ -60,7 +60,7 @@ type LookupSpringCloudAppArgs struct {
 type LookupSpringCloudAppResult struct {
 	// The Fully Qualified DNS Name.
 	Fqdn string `pulumi:"fqdn"`
-	// Is only https allowed?
+	// Is only HTTPS allowed?
 	HttpsOnly bool `pulumi:"httpsOnly"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -122,7 +122,7 @@ func (o LookupSpringCloudAppResultOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSpringCloudAppResult) string { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// Is only https allowed?
+// Is only HTTPS allowed?
 func (o LookupSpringCloudAppResultOutput) HttpsOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSpringCloudAppResult) bool { return v.HttpsOnly }).(pulumi.BoolOutput)
 }

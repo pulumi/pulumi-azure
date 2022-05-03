@@ -29,7 +29,7 @@ class SpringCloudAppArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
-        :param pulumi.Input[bool] https_only: Is only https allowed? Defaults to `false`.
+        :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
         :param pulumi.Input['SpringCloudAppIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -93,7 +93,7 @@ class SpringCloudAppArgs:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is only https allowed? Defaults to `false`.
+        Is only HTTPS allowed? Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
@@ -180,7 +180,7 @@ class _SpringCloudAppState:
         Input properties used for looking up and filtering SpringCloudApp resources.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[str] fqdn: The Fully Qualified DNS Name of the Spring Application in the service.
-        :param pulumi.Input[bool] https_only: Is only https allowed? Defaults to `false`.
+        :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
         :param pulumi.Input['SpringCloudAppIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -241,7 +241,7 @@ class _SpringCloudAppState:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is only https allowed? Defaults to `false`.
+        Is only HTTPS allowed? Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
@@ -393,7 +393,7 @@ class SpringCloudApp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
-        :param pulumi.Input[bool] https_only: Is only https allowed? Defaults to `false`.
+        :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -518,7 +518,7 @@ class SpringCloudApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[str] fqdn: The Fully Qualified DNS Name of the Spring Application in the service.
-        :param pulumi.Input[bool] https_only: Is only https allowed? Defaults to `false`.
+        :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -565,7 +565,7 @@ class SpringCloudApp(pulumi.CustomResource):
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is only https allowed? Defaults to `false`.
+        Is only HTTPS allowed? Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 

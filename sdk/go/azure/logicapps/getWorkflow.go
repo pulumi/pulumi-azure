@@ -57,9 +57,9 @@ type LookupWorkflowArgs struct {
 type LookupWorkflowResult struct {
 	// The Access Endpoint for the Logic App Workflow
 	AccessEndpoint string `pulumi:"accessEndpoint"`
-	// The list of access endpoint ip addresses of connector.
+	// The list of access endpoint IP addresses of connector.
 	ConnectorEndpointIpAddresses []string `pulumi:"connectorEndpointIpAddresses"`
-	// The list of outgoing ip addresses of connector.
+	// The list of outgoing IP addresses of connector.
 	ConnectorOutboundIpAddresses []string `pulumi:"connectorOutboundIpAddresses"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -75,9 +75,9 @@ type LookupWorkflowResult struct {
 	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The list of access endpoint ip addresses of workflow.
+	// The list of access endpoint IP addresses of workflow.
 	WorkflowEndpointIpAddresses []string `pulumi:"workflowEndpointIpAddresses"`
-	// The list of outgoing ip addresses of workflow.
+	// The list of outgoing IP addresses of workflow.
 	WorkflowOutboundIpAddresses []string `pulumi:"workflowOutboundIpAddresses"`
 	// The Schema used for this Logic App Workflow.
 	WorkflowSchema string `pulumi:"workflowSchema"`
@@ -126,12 +126,12 @@ func (o LookupWorkflowResultOutput) AccessEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) string { return v.AccessEndpoint }).(pulumi.StringOutput)
 }
 
-// The list of access endpoint ip addresses of connector.
+// The list of access endpoint IP addresses of connector.
 func (o LookupWorkflowResultOutput) ConnectorEndpointIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) []string { return v.ConnectorEndpointIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The list of outgoing ip addresses of connector.
+// The list of outgoing IP addresses of connector.
 func (o LookupWorkflowResultOutput) ConnectorOutboundIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) []string { return v.ConnectorOutboundIpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -174,12 +174,12 @@ func (o LookupWorkflowResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The list of access endpoint ip addresses of workflow.
+// The list of access endpoint IP addresses of workflow.
 func (o LookupWorkflowResultOutput) WorkflowEndpointIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) []string { return v.WorkflowEndpointIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The list of outgoing ip addresses of workflow.
+// The list of outgoing IP addresses of workflow.
 func (o LookupWorkflowResultOutput) WorkflowOutboundIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) []string { return v.WorkflowOutboundIpAddresses }).(pulumi.StringArrayOutput)
 }

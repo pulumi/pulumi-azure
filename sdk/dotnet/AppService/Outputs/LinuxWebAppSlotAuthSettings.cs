@@ -17,6 +17,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// An `active_directory` block as defined above.
         /// </summary>
         public readonly Outputs.LinuxWebAppSlotAuthSettingsActiveDirectory? ActiveDirectory;
+        /// <summary>
+        /// Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? AdditionalLoginParameters;
         /// <summary>
         /// Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.

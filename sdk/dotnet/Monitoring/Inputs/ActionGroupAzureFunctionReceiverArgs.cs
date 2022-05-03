@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// The http trigger url where http request sent to.
+        /// The HTTP trigger url where HTTP request sent to.
         /// </summary>
         [Input("httpTriggerUrl", required: true)]
         public Input<string> HttpTriggerUrl { get; set; } = null!;

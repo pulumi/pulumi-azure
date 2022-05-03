@@ -65,7 +65,7 @@ type Account struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The secondary key used to authenticate and authorize access to the Maps REST APIs.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
-	// The sku of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+	// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the Azure Maps Account.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -116,7 +116,7 @@ type accountState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The secondary key used to authenticate and authorize access to the Maps REST APIs.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
-	// The sku of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+	// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the Azure Maps Account.
 	Tags map[string]string `pulumi:"tags"`
@@ -133,7 +133,7 @@ type AccountState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The secondary key used to authenticate and authorize access to the Maps REST APIs.
 	SecondaryAccessKey pulumi.StringPtrInput
-	// The sku of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+	// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the Azure Maps Account.
 	Tags pulumi.StringMapInput
@@ -150,7 +150,7 @@ type accountArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+	// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the Azure Maps Account.
 	Tags map[string]string `pulumi:"tags"`
@@ -162,7 +162,7 @@ type AccountArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The sku of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+	// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
 	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the Azure Maps Account.
 	Tags pulumi.StringMapInput

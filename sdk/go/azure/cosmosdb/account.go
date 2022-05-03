@@ -144,7 +144,7 @@ type Account struct {
 	MongoServerVersion pulumi.StringOutput `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// If azure services can bypass ACLs. Defaults to `false`.
+	// If Azure services can bypass ACLs. Defaults to `false`.
 	NetworkAclBypassForAzureServices pulumi.BoolPtrOutput `pulumi:"networkAclBypassForAzureServices"`
 	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
 	NetworkAclBypassIds pulumi.StringArrayOutput `pulumi:"networkAclBypassIds"`
@@ -265,7 +265,7 @@ type accountState struct {
 	MongoServerVersion *string `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// If azure services can bypass ACLs. Defaults to `false`.
+	// If Azure services can bypass ACLs. Defaults to `false`.
 	NetworkAclBypassForAzureServices *bool `pulumi:"networkAclBypassForAzureServices"`
 	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
 	NetworkAclBypassIds []string `pulumi:"networkAclBypassIds"`
@@ -346,7 +346,7 @@ type AccountState struct {
 	MongoServerVersion pulumi.StringPtrInput
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// If azure services can bypass ACLs. Defaults to `false`.
+	// If Azure services can bypass ACLs. Defaults to `false`.
 	NetworkAclBypassForAzureServices pulumi.BoolPtrInput
 	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
 	NetworkAclBypassIds pulumi.StringArrayInput
@@ -427,7 +427,7 @@ type accountArgs struct {
 	MongoServerVersion *string `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// If azure services can bypass ACLs. Defaults to `false`.
+	// If Azure services can bypass ACLs. Defaults to `false`.
 	NetworkAclBypassForAzureServices *bool `pulumi:"networkAclBypassForAzureServices"`
 	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
 	NetworkAclBypassIds []string `pulumi:"networkAclBypassIds"`
@@ -493,7 +493,7 @@ type AccountArgs struct {
 	MongoServerVersion pulumi.StringPtrInput
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// If azure services can bypass ACLs. Defaults to `false`.
+	// If Azure services can bypass ACLs. Defaults to `false`.
 	NetworkAclBypassForAzureServices pulumi.BoolPtrInput
 	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
 	NetworkAclBypassIds pulumi.StringArrayInput

@@ -4969,6 +4969,162 @@ func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Timeout() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+type LinuxVirtualMachineScaleSetTerminationNotification struct {
+	// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+	Enabled bool `pulumi:"enabled"`
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	Timeout *string `pulumi:"timeout"`
+}
+
+// LinuxVirtualMachineScaleSetTerminationNotificationInput is an input type that accepts LinuxVirtualMachineScaleSetTerminationNotificationArgs and LinuxVirtualMachineScaleSetTerminationNotificationOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetTerminationNotificationInput` via:
+//
+//          LinuxVirtualMachineScaleSetTerminationNotificationArgs{...}
+type LinuxVirtualMachineScaleSetTerminationNotificationInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetTerminationNotificationOutput() LinuxVirtualMachineScaleSetTerminationNotificationOutput
+	ToLinuxVirtualMachineScaleSetTerminationNotificationOutputWithContext(context.Context) LinuxVirtualMachineScaleSetTerminationNotificationOutput
+}
+
+type LinuxVirtualMachineScaleSetTerminationNotificationArgs struct {
+	// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (LinuxVirtualMachineScaleSetTerminationNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminationNotification)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetTerminationNotificationArgs) ToLinuxVirtualMachineScaleSetTerminationNotificationOutput() LinuxVirtualMachineScaleSetTerminationNotificationOutput {
+	return i.ToLinuxVirtualMachineScaleSetTerminationNotificationOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetTerminationNotificationArgs) ToLinuxVirtualMachineScaleSetTerminationNotificationOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminationNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetTerminationNotificationOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetTerminationNotificationArgs) ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetTerminationNotificationArgs) ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetTerminationNotificationOutput).ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx)
+}
+
+// LinuxVirtualMachineScaleSetTerminationNotificationPtrInput is an input type that accepts LinuxVirtualMachineScaleSetTerminationNotificationArgs, LinuxVirtualMachineScaleSetTerminationNotificationPtr and LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetTerminationNotificationPtrInput` via:
+//
+//          LinuxVirtualMachineScaleSetTerminationNotificationArgs{...}
+//
+//  or:
+//
+//          nil
+type LinuxVirtualMachineScaleSetTerminationNotificationPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput
+	ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput
+}
+
+type linuxVirtualMachineScaleSetTerminationNotificationPtrType LinuxVirtualMachineScaleSetTerminationNotificationArgs
+
+func LinuxVirtualMachineScaleSetTerminationNotificationPtr(v *LinuxVirtualMachineScaleSetTerminationNotificationArgs) LinuxVirtualMachineScaleSetTerminationNotificationPtrInput {
+	return (*linuxVirtualMachineScaleSetTerminationNotificationPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetTerminationNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetTerminationNotification)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetTerminationNotificationPtrType) ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetTerminationNotificationPtrType) ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetTerminationNotificationOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetTerminationNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminationNotification)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetTerminationNotificationOutput) ToLinuxVirtualMachineScaleSetTerminationNotificationOutput() LinuxVirtualMachineScaleSetTerminationNotificationOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetTerminationNotificationOutput) ToLinuxVirtualMachineScaleSetTerminationNotificationOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminationNotificationOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetTerminationNotificationOutput) ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetTerminationNotificationOutput) ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetTerminationNotification) *LinuxVirtualMachineScaleSetTerminationNotification {
+		return &v
+	}).(LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput)
+}
+
+// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+func (o LinuxVirtualMachineScaleSetTerminationNotificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+func (o LinuxVirtualMachineScaleSetTerminationNotificationOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminationNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetTerminationNotification)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput) ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput) ToLinuxVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput) Elem() LinuxVirtualMachineScaleSetTerminationNotificationOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetTerminationNotification) LinuxVirtualMachineScaleSetTerminationNotification {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetTerminationNotification
+		return ret
+	}).(LinuxVirtualMachineScaleSetTerminationNotificationOutput)
+}
+
+// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+func (o LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetTerminationNotification) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+func (o LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetTerminationNotification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinuxVirtualMachineSecret struct {
 	// One or more `certificate` blocks as defined above.
 	Certificates []LinuxVirtualMachineSecretCertificate `pulumi:"certificates"`
@@ -7772,7 +7928,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration struct {
 	ComputerNamePrefix *string                                                                    `pulumi:"computerNamePrefix"`
 	// When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
-	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode        *string                                                               `pulumi:"patchMode"`
 	ProvisionVmAgent *bool                                                                 `pulumi:"provisionVmAgent"`
 	Secrets          []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret `pulumi:"secrets"`
@@ -7796,7 +7952,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs struct {
 	ComputerNamePrefix pulumi.StringPtrInput                                                              `pulumi:"computerNamePrefix"`
 	// When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
 	DisablePasswordAuthentication pulumi.BoolPtrInput `pulumi:"disablePasswordAuthentication"`
-	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode        pulumi.StringPtrInput                                                         `pulumi:"patchMode"`
 	ProvisionVmAgent pulumi.BoolPtrInput                                                           `pulumi:"provisionVmAgent"`
 	Secrets          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayInput `pulumi:"secrets"`
@@ -7906,7 +8062,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) Dis
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
 }
@@ -7991,7 +8147,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string {
 		if v == nil {
@@ -8339,7 +8495,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration struct {
 	EnableAutomaticUpdates *bool   `pulumi:"enableAutomaticUpdates"`
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	HotpatchingEnabled *bool `pulumi:"hotpatchingEnabled"`
-	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode        *string                                                                        `pulumi:"patchMode"`
 	ProvisionVmAgent *bool                                                                          `pulumi:"provisionVmAgent"`
 	Secrets          []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret        `pulumi:"secrets"`
@@ -8365,7 +8521,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs struct 
 	EnableAutomaticUpdates pulumi.BoolPtrInput   `pulumi:"enableAutomaticUpdates"`
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	HotpatchingEnabled pulumi.BoolPtrInput `pulumi:"hotpatchingEnabled"`
-	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode        pulumi.StringPtrInput                                                                  `pulumi:"patchMode"`
 	ProvisionVmAgent pulumi.BoolPtrInput                                                                    `pulumi:"provisionVmAgent"`
 	Secrets          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput        `pulumi:"secrets"`
@@ -8477,7 +8633,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) H
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
 }
@@ -8574,7 +8730,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
 		if v == nil {
@@ -10059,7 +10215,7 @@ func (o ScaleSetNetworkProfileArrayOutput) Index(i pulumi.IntInput) ScaleSetNetw
 }
 
 type ScaleSetNetworkProfileDnsSettings struct {
-	// Specifies an array of dns servers.
+	// Specifies an array of DNS servers.
 	DnsServers []string `pulumi:"dnsServers"`
 }
 
@@ -10075,7 +10231,7 @@ type ScaleSetNetworkProfileDnsSettingsInput interface {
 }
 
 type ScaleSetNetworkProfileDnsSettingsArgs struct {
-	// Specifies an array of dns servers.
+	// Specifies an array of DNS servers.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 }
 
@@ -10156,7 +10312,7 @@ func (o ScaleSetNetworkProfileDnsSettingsOutput) ToScaleSetNetworkProfileDnsSett
 	}).(ScaleSetNetworkProfileDnsSettingsPtrOutput)
 }
 
-// Specifies an array of dns servers.
+// Specifies an array of DNS servers.
 func (o ScaleSetNetworkProfileDnsSettingsOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfileDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
@@ -10185,7 +10341,7 @@ func (o ScaleSetNetworkProfileDnsSettingsPtrOutput) Elem() ScaleSetNetworkProfil
 	}).(ScaleSetNetworkProfileDnsSettingsOutput)
 }
 
-// Specifies an array of dns servers.
+// Specifies an array of DNS servers.
 func (o ScaleSetNetworkProfileDnsSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScaleSetNetworkProfileDnsSettings) []string {
 		if v == nil {
@@ -10202,7 +10358,7 @@ type ScaleSetNetworkProfileIpConfiguration struct {
 	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
 	// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 	LoadBalancerBackendAddressPoolIds []string `pulumi:"loadBalancerBackendAddressPoolIds"`
-	// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+	// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 	LoadBalancerInboundNatRulesIds []string `pulumi:"loadBalancerInboundNatRulesIds"`
 	// Specifies name of the IP configuration.
 	Name string `pulumi:"name"`
@@ -10232,7 +10388,7 @@ type ScaleSetNetworkProfileIpConfigurationArgs struct {
 	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
 	// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 	LoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
-	// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+	// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 	LoadBalancerInboundNatRulesIds pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
 	// Specifies name of the IP configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10312,7 +10468,7 @@ func (o ScaleSetNetworkProfileIpConfigurationOutput) LoadBalancerBackendAddressP
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) []string { return v.LoadBalancerBackendAddressPoolIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) []string { return v.LoadBalancerInboundNatRulesIds }).(pulumi.StringArrayOutput)
 }
@@ -10360,11 +10516,11 @@ func (o ScaleSetNetworkProfileIpConfigurationArrayOutput) Index(i pulumi.IntInpu
 }
 
 type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration struct {
-	// The domain name label for the dns settings.
+	// The domain name label for the DNS settings.
 	DomainNameLabel string `pulumi:"domainNameLabel"`
 	// The idle timeout in minutes. This value must be between 4 and 30.
 	IdleTimeout int `pulumi:"idleTimeout"`
-	// The name of the public ip address configuration
+	// The name of the public IP address configuration
 	Name string `pulumi:"name"`
 }
 
@@ -10380,11 +10536,11 @@ type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationInput inte
 }
 
 type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs struct {
-	// The domain name label for the dns settings.
+	// The domain name label for the DNS settings.
 	DomainNameLabel pulumi.StringInput `pulumi:"domainNameLabel"`
 	// The idle timeout in minutes. This value must be between 4 and 30.
 	IdleTimeout pulumi.IntInput `pulumi:"idleTimeout"`
-	// The name of the public ip address configuration
+	// The name of the public IP address configuration
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -10465,7 +10621,7 @@ func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput)
 	}).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput)
 }
 
-// The domain name label for the dns settings.
+// The domain name label for the DNS settings.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput) DomainNameLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string {
 		return v.DomainNameLabel
@@ -10477,7 +10633,7 @@ func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput)
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) int { return v.IdleTimeout }).(pulumi.IntOutput)
 }
 
-// The name of the public ip address configuration
+// The name of the public IP address configuration
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -10506,7 +10662,7 @@ func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutp
 	}).(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput)
 }
 
-// The domain name label for the dns settings.
+// The domain name label for the DNS settings.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) DomainNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) *string {
 		if v == nil {
@@ -10526,7 +10682,7 @@ func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the public ip address configuration
+// The name of the public IP address configuration
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) *string {
 		if v == nil {
@@ -10541,9 +10697,9 @@ type ScaleSetOsProfile struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
 	AdminUsername string `pulumi:"adminUsername"`
-	// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+	// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for Linux. Changing this forces a new resource to be created.
 	ComputerNamePrefix string `pulumi:"computerNamePrefix"`
-	// Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+	// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 	CustomData *string `pulumi:"customData"`
 }
 
@@ -10563,9 +10719,9 @@ type ScaleSetOsProfileArgs struct {
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
 	// Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+	// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for Linux. Changing this forces a new resource to be created.
 	ComputerNamePrefix pulumi.StringInput `pulumi:"computerNamePrefix"`
-	// Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+	// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 	CustomData pulumi.StringPtrInput `pulumi:"customData"`
 }
 
@@ -10656,12 +10812,12 @@ func (o ScaleSetOsProfileOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for Linux. Changing this forces a new resource to be created.
 func (o ScaleSetOsProfileOutput) ComputerNamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetOsProfile) string { return v.ComputerNamePrefix }).(pulumi.StringOutput)
 }
 
-// Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 func (o ScaleSetOsProfileOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
@@ -10710,7 +10866,7 @@ func (o ScaleSetOsProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for Linux. Changing this forces a new resource to be created.
 func (o ScaleSetOsProfilePtrOutput) ComputerNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetOsProfile) *string {
 		if v == nil {
@@ -10720,7 +10876,7 @@ func (o ScaleSetOsProfilePtrOutput) ComputerNamePrefix() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 func (o ScaleSetOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetOsProfile) *string {
 		if v == nil {
@@ -12523,7 +12679,7 @@ type ScaleSetStorageProfileOsDisk struct {
 	Caching *string `pulumi:"caching"`
 	// Specifies how the virtual machine should be created. The only possible option is `FromImage`.
 	CreateOption string `pulumi:"createOption"`
-	// Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
+	// Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
 	// Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
 	// When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
 	Image *string `pulumi:"image"`
@@ -12531,9 +12687,9 @@ type ScaleSetStorageProfileOsDisk struct {
 	ManagedDiskType *string `pulumi:"managedDiskType"`
 	// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
 	Name *string `pulumi:"name"`
-	// Specifies the operating system Type, valid values are windows, linux.
+	// Specifies the operating system Type, valid values are windows, Linux.
 	OsType *string `pulumi:"osType"`
-	// Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
+	// Specifies the VHD URI. Cannot be used when `image` or `managedDiskType` is specified.
 	VhdContainers []string `pulumi:"vhdContainers"`
 }
 
@@ -12553,7 +12709,7 @@ type ScaleSetStorageProfileOsDiskArgs struct {
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
 	// Specifies how the virtual machine should be created. The only possible option is `FromImage`.
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
-	// Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
+	// Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
 	// Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
 	// When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
 	Image pulumi.StringPtrInput `pulumi:"image"`
@@ -12561,9 +12717,9 @@ type ScaleSetStorageProfileOsDiskArgs struct {
 	ManagedDiskType pulumi.StringPtrInput `pulumi:"managedDiskType"`
 	// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Specifies the operating system Type, valid values are windows, linux.
+	// Specifies the operating system Type, valid values are windows, Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
+	// Specifies the VHD URI. Cannot be used when `image` or `managedDiskType` is specified.
 	VhdContainers pulumi.StringArrayInput `pulumi:"vhdContainers"`
 }
 
@@ -12654,7 +12810,7 @@ func (o ScaleSetStorageProfileOsDiskOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
-// Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
+// Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
 // Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
 // When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
 func (o ScaleSetStorageProfileOsDiskOutput) Image() pulumi.StringPtrOutput {
@@ -12671,12 +12827,12 @@ func (o ScaleSetStorageProfileOsDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the operating system Type, valid values are windows, linux.
+// Specifies the operating system Type, valid values are windows, Linux.
 func (o ScaleSetStorageProfileOsDiskOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
+// Specifies the VHD URI. Cannot be used when `image` or `managedDiskType` is specified.
 func (o ScaleSetStorageProfileOsDiskOutput) VhdContainers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) []string { return v.VhdContainers }).(pulumi.StringArrayOutput)
 }
@@ -12725,7 +12881,7 @@ func (o ScaleSetStorageProfileOsDiskPtrOutput) CreateOption() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
+// Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
 // Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
 // When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) Image() pulumi.StringPtrOutput {
@@ -12757,7 +12913,7 @@ func (o ScaleSetStorageProfileOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the operating system Type, valid values are windows, linux.
+// Specifies the operating system Type, valid values are windows, Linux.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) *string {
 		if v == nil {
@@ -12767,7 +12923,7 @@ func (o ScaleSetStorageProfileOsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
+// Specifies the VHD URI. Cannot be used when `image` or `managedDiskType` is specified.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) VhdContainers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) []string {
 		if v == nil {
@@ -15856,7 +16012,7 @@ type VirtualMachineStorageOsDisk struct {
 	CreateOption string `pulumi:"createOption"`
 	// Specifies the size of the OS Disk in gigabytes.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
-	// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+	// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 	ImageUri *string `pulumi:"imageUri"`
 	// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
 	ManagedDiskId *string `pulumi:"managedDiskId"`
@@ -15890,7 +16046,7 @@ type VirtualMachineStorageOsDiskArgs struct {
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
 	// Specifies the size of the OS Disk in gigabytes.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
-	// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+	// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 	ImageUri pulumi.StringPtrInput `pulumi:"imageUri"`
 	// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
@@ -15998,7 +16154,7 @@ func (o VirtualMachineStorageOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 func (o VirtualMachineStorageOsDiskOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
 }
@@ -16087,7 +16243,7 @@ func (o VirtualMachineStorageOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 func (o VirtualMachineStorageOsDiskPtrOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *string {
 		if v == nil {
@@ -20410,6 +20566,162 @@ func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Timeout() p
 	}).(pulumi.StringPtrOutput)
 }
 
+type WindowsVirtualMachineScaleSetTerminationNotification struct {
+	// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+	Enabled bool `pulumi:"enabled"`
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	Timeout *string `pulumi:"timeout"`
+}
+
+// WindowsVirtualMachineScaleSetTerminationNotificationInput is an input type that accepts WindowsVirtualMachineScaleSetTerminationNotificationArgs and WindowsVirtualMachineScaleSetTerminationNotificationOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetTerminationNotificationInput` via:
+//
+//          WindowsVirtualMachineScaleSetTerminationNotificationArgs{...}
+type WindowsVirtualMachineScaleSetTerminationNotificationInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetTerminationNotificationOutput() WindowsVirtualMachineScaleSetTerminationNotificationOutput
+	ToWindowsVirtualMachineScaleSetTerminationNotificationOutputWithContext(context.Context) WindowsVirtualMachineScaleSetTerminationNotificationOutput
+}
+
+type WindowsVirtualMachineScaleSetTerminationNotificationArgs struct {
+	// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (WindowsVirtualMachineScaleSetTerminationNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminationNotification)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetTerminationNotificationArgs) ToWindowsVirtualMachineScaleSetTerminationNotificationOutput() WindowsVirtualMachineScaleSetTerminationNotificationOutput {
+	return i.ToWindowsVirtualMachineScaleSetTerminationNotificationOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetTerminationNotificationArgs) ToWindowsVirtualMachineScaleSetTerminationNotificationOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminationNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetTerminationNotificationOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetTerminationNotificationArgs) ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetTerminationNotificationArgs) ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetTerminationNotificationOutput).ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx)
+}
+
+// WindowsVirtualMachineScaleSetTerminationNotificationPtrInput is an input type that accepts WindowsVirtualMachineScaleSetTerminationNotificationArgs, WindowsVirtualMachineScaleSetTerminationNotificationPtr and WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetTerminationNotificationPtrInput` via:
+//
+//          WindowsVirtualMachineScaleSetTerminationNotificationArgs{...}
+//
+//  or:
+//
+//          nil
+type WindowsVirtualMachineScaleSetTerminationNotificationPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput
+	ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput
+}
+
+type windowsVirtualMachineScaleSetTerminationNotificationPtrType WindowsVirtualMachineScaleSetTerminationNotificationArgs
+
+func WindowsVirtualMachineScaleSetTerminationNotificationPtr(v *WindowsVirtualMachineScaleSetTerminationNotificationArgs) WindowsVirtualMachineScaleSetTerminationNotificationPtrInput {
+	return (*windowsVirtualMachineScaleSetTerminationNotificationPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetTerminationNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetTerminationNotification)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetTerminationNotificationPtrType) ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetTerminationNotificationPtrType) ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetTerminationNotificationOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetTerminationNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminationNotification)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetTerminationNotificationOutput) ToWindowsVirtualMachineScaleSetTerminationNotificationOutput() WindowsVirtualMachineScaleSetTerminationNotificationOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetTerminationNotificationOutput) ToWindowsVirtualMachineScaleSetTerminationNotificationOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminationNotificationOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetTerminationNotificationOutput) ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetTerminationNotificationOutput) ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetTerminationNotification) *WindowsVirtualMachineScaleSetTerminationNotification {
+		return &v
+	}).(WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput)
+}
+
+// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+func (o WindowsVirtualMachineScaleSetTerminationNotificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+func (o WindowsVirtualMachineScaleSetTerminationNotificationOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminationNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetTerminationNotification)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput) ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput) ToWindowsVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput) Elem() WindowsVirtualMachineScaleSetTerminationNotificationOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetTerminationNotification) WindowsVirtualMachineScaleSetTerminationNotification {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetTerminationNotification
+		return ret
+	}).(WindowsVirtualMachineScaleSetTerminationNotificationOutput)
+}
+
+// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+func (o WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetTerminationNotification) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+func (o WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetTerminationNotification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.StringPtrOutput)
+}
+
 type WindowsVirtualMachineScaleSetWinrmListener struct {
 	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
 	CertificateUrl *string `pulumi:"certificateUrl"`
@@ -22801,7 +23113,7 @@ type GetVirtualMachineScaleSetIdentity struct {
 	PrincipalId string `pulumi:"principalId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Virtual Machine Scale Set.
 	TenantId string `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
+	// The Type of IP Tag.
 	Type string `pulumi:"type"`
 }
 
@@ -22823,7 +23135,7 @@ type GetVirtualMachineScaleSetIdentityArgs struct {
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Virtual Machine Scale Set.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
+	// The Type of IP Tag.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -22893,7 +23205,7 @@ func (o GetVirtualMachineScaleSetIdentityOutput) TenantId() pulumi.StringOutput 
 	return o.ApplyT(func(v GetVirtualMachineScaleSetIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
+// The Type of IP Tag.
 func (o GetVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -22919,11 +23231,13 @@ func (o GetVirtualMachineScaleSetIdentityArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetVirtualMachineScaleSetNetworkInterface struct {
-	// The dns servers in use.
-	DnsServers                  []string `pulumi:"dnsServers"`
-	EnableAcceleratedNetworking bool     `pulumi:"enableAcceleratedNetworking"`
-	EnableIpForwarding          bool     `pulumi:"enableIpForwarding"`
-	// An ipConfiguration block as documented below.
+	// An array of the DNS servers in use.
+	DnsServers []string `pulumi:"dnsServers"`
+	// Whether to enable accelerated networking or not.
+	EnableAcceleratedNetworking bool `pulumi:"enableAcceleratedNetworking"`
+	// Whether IP forwarding is enabled on this NIC.
+	EnableIpForwarding bool `pulumi:"enableIpForwarding"`
+	// An `ipConfiguration` block as documented below.
 	IpConfigurations []GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
 	// The name of this Virtual Machine Scale Set.
 	Name string `pulumi:"name"`
@@ -22945,11 +23259,13 @@ type GetVirtualMachineScaleSetNetworkInterfaceInput interface {
 }
 
 type GetVirtualMachineScaleSetNetworkInterfaceArgs struct {
-	// The dns servers in use.
-	DnsServers                  pulumi.StringArrayInput `pulumi:"dnsServers"`
-	EnableAcceleratedNetworking pulumi.BoolInput        `pulumi:"enableAcceleratedNetworking"`
-	EnableIpForwarding          pulumi.BoolInput        `pulumi:"enableIpForwarding"`
-	// An ipConfiguration block as documented below.
+	// An array of the DNS servers in use.
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// Whether to enable accelerated networking or not.
+	EnableAcceleratedNetworking pulumi.BoolInput `pulumi:"enableAcceleratedNetworking"`
+	// Whether IP forwarding is enabled on this NIC.
+	EnableIpForwarding pulumi.BoolInput `pulumi:"enableIpForwarding"`
+	// An `ipConfiguration` block as documented below.
 	IpConfigurations GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
 	// The name of this Virtual Machine Scale Set.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -23010,20 +23326,22 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) ToGetVirtualMachineScal
 	return o
 }
 
-// The dns servers in use.
+// An array of the DNS servers in use.
 func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
+// Whether to enable accelerated networking or not.
 func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolOutput)
 }
 
+// Whether IP forwarding is enabled on this NIC.
 func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) bool { return v.EnableIpForwarding }).(pulumi.BoolOutput)
 }
 
-// An ipConfiguration block as documented below.
+// An `ipConfiguration` block as documented below.
 func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) []GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
 		return v.IpConfigurations
@@ -23077,7 +23395,8 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 	// The name of this Virtual Machine Scale Set.
 	Name string `pulumi:"name"`
 	// If this ipConfiguration is the primary one.
-	Primary           bool                                                                      `pulumi:"primary"`
+	Primary bool `pulumi:"primary"`
+	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
 	PublicIpAddresses []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
 	// The the identifier of the subnet.
 	SubnetId string `pulumi:"subnetId"`
@@ -23107,7 +23426,8 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
 	// The name of this Virtual Machine Scale Set.
 	Name pulumi.StringInput `pulumi:"name"`
 	// If this ipConfiguration is the primary one.
-	Primary           pulumi.BoolInput                                                                  `pulumi:"primary"`
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
 	PublicIpAddresses GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
 	// The the identifier of the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -23203,6 +23523,7 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Primary(
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
+// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
 func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) PublicIpAddresses() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
 		return v.PublicIpAddresses
@@ -23239,12 +23560,15 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) Ind
 }
 
 type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress struct {
-	// The domain name label for the dns settings.
-	DomainNameLabel      string                                                                         `pulumi:"domainNameLabel"`
-	IdleTimeoutInMinutes int                                                                            `pulumi:"idleTimeoutInMinutes"`
-	IpTags               []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag `pulumi:"ipTags"`
+	// The domain name label for the DNS settings.
+	DomainNameLabel string `pulumi:"domainNameLabel"`
+	// The idle timeout in minutes.
+	IdleTimeoutInMinutes int `pulumi:"idleTimeoutInMinutes"`
+	// A list of `ipTag` blocks as defined below.
+	IpTags []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag `pulumi:"ipTags"`
 	// The name of this Virtual Machine Scale Set.
-	Name             string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The ID of the public IP prefix.
 	PublicIpPrefixId string `pulumi:"publicIpPrefixId"`
 }
 
@@ -23260,12 +23584,15 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInpu
 }
 
 type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs struct {
-	// The domain name label for the dns settings.
-	DomainNameLabel      pulumi.StringInput                                                                     `pulumi:"domainNameLabel"`
-	IdleTimeoutInMinutes pulumi.IntInput                                                                        `pulumi:"idleTimeoutInMinutes"`
-	IpTags               GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput `pulumi:"ipTags"`
+	// The domain name label for the DNS settings.
+	DomainNameLabel pulumi.StringInput `pulumi:"domainNameLabel"`
+	// The idle timeout in minutes.
+	IdleTimeoutInMinutes pulumi.IntInput `pulumi:"idleTimeoutInMinutes"`
+	// A list of `ipTag` blocks as defined below.
+	IpTags GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput `pulumi:"ipTags"`
 	// The name of this Virtual Machine Scale Set.
-	Name             pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the public IP prefix.
 	PublicIpPrefixId pulumi.StringInput `pulumi:"publicIpPrefixId"`
 }
 
@@ -23320,19 +23647,21 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressO
 	return o
 }
 
-// The domain name label for the dns settings.
+// The domain name label for the DNS settings.
 func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) DomainNameLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
 		return v.DomainNameLabel
 	}).(pulumi.StringOutput)
 }
 
+// The idle timeout in minutes.
 func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IdleTimeoutInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) int {
 		return v.IdleTimeoutInMinutes
 	}).(pulumi.IntOutput)
 }
 
+// A list of `ipTag` blocks as defined below.
 func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IpTags() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
 		return v.IpTags
@@ -23344,6 +23673,7 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressO
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ID of the public IP prefix.
 func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) PublicIpPrefixId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
 		return v.PublicIpPrefixId
@@ -23371,8 +23701,9 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressA
 }
 
 type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag struct {
+	// The IP Tag associated with the Public IP.
 	Tag string `pulumi:"tag"`
-	// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
+	// The Type of IP Tag.
 	Type string `pulumi:"type"`
 }
 
@@ -23388,8 +23719,9 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTa
 }
 
 type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs struct {
+	// The IP Tag associated with the Public IP.
 	Tag pulumi.StringInput `pulumi:"tag"`
-	// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
+	// The Type of IP Tag.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23444,13 +23776,14 @@ func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
 	return o
 }
 
+// The IP Tag associated with the Public IP.
 func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Tag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
 		return v.Tag
 	}).(pulumi.StringOutput)
 }
 
-// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
+// The Type of IP Tag.
 func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
 		return v.Type
@@ -23540,6 +23873,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetSourceImageReferencePtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminateNotificationInput)(nil)).Elem(), LinuxVirtualMachineScaleSetTerminateNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminateNotificationPtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetTerminateNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminationNotificationInput)(nil)).Elem(), LinuxVirtualMachineScaleSetTerminationNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminationNotificationPtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetTerminationNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineSecretInput)(nil)).Elem(), LinuxVirtualMachineSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineSecretArrayInput)(nil)).Elem(), LinuxVirtualMachineSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineSecretCertificateInput)(nil)).Elem(), LinuxVirtualMachineSecretCertificateArgs{})
@@ -23738,6 +24073,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetSourceImageReferencePtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminateNotificationInput)(nil)).Elem(), WindowsVirtualMachineScaleSetTerminateNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminateNotificationPtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetTerminateNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminationNotificationInput)(nil)).Elem(), WindowsVirtualMachineScaleSetTerminationNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminationNotificationPtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetTerminationNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetWinrmListenerInput)(nil)).Elem(), WindowsVirtualMachineScaleSetWinrmListenerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetWinrmListenerArrayInput)(nil)).Elem(), WindowsVirtualMachineScaleSetWinrmListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineSecretInput)(nil)).Elem(), WindowsVirtualMachineSecretArgs{})
@@ -23848,6 +24185,8 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminateNotificationOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminationNotificationOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineSecretOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineSecretArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineSecretCertificateOutput{})
@@ -24046,6 +24385,8 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminateNotificationOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminationNotificationOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetWinrmListenerOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetWinrmListenerArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineSecretOutput{})

@@ -27,7 +27,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.GetFunctionAppSiteConfigCorsResult Cors;
         /// <summary>
-        /// The version of the .net framework's CLR used in this App Service.
+        /// The version of the .NET framework's CLR used in this App Service.
         /// </summary>
         public readonly string DotnetFrameworkVersion;
         /// <summary>

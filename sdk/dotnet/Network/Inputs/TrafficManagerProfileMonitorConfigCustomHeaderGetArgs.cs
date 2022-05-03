@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The value of custom header. Applicable for Http and Https protocol.
+        /// The value of custom header. Applicable for HTTP and HTTPS protocol.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

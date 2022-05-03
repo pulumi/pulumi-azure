@@ -388,7 +388,7 @@ class AccountBlobPropertiesCorsRule(dict):
                  max_age_in_seconds: int):
         """
         :param Sequence[str] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
-        :param Sequence[str] allowed_methods: A list of http methods that are allowed to be executed by the origin. Valid options are
+        :param Sequence[str] allowed_methods: A list of HTTP methods that are allowed to be executed by the origin. Valid options are
                `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         :param Sequence[str] allowed_origins: A list of origin domains that will be allowed by CORS.
         :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
@@ -412,7 +412,7 @@ class AccountBlobPropertiesCorsRule(dict):
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Sequence[str]:
         """
-        A list of http methods that are allowed to be executed by the origin. Valid options are
+        A list of HTTP methods that are allowed to be executed by the origin. Valid options are
         `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         """
         return pulumi.get(self, "allowed_methods")
@@ -666,7 +666,7 @@ class AccountNetworkRules(dict):
         :param str default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         :param Sequence[str] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
                any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
-        :param Sequence[str] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        :param Sequence[str] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         :param Sequence['AccountNetworkRulesPrivateLinkAccessArgs'] private_link_accesses: One or More `private_link_access` block as defined below.
         :param Sequence[str] virtual_network_subnet_ids: A list of resource ids for subnets.
         """
@@ -701,7 +701,7 @@ class AccountNetworkRules(dict):
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> Optional[Sequence[str]]:
         """
-        List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         """
         return pulumi.get(self, "ip_rules")
 
@@ -931,7 +931,7 @@ class AccountQueuePropertiesCorsRule(dict):
                  max_age_in_seconds: int):
         """
         :param Sequence[str] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
-        :param Sequence[str] allowed_methods: A list of http methods that are allowed to be executed by the origin. Valid options are
+        :param Sequence[str] allowed_methods: A list of HTTP methods that are allowed to be executed by the origin. Valid options are
                `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         :param Sequence[str] allowed_origins: A list of origin domains that will be allowed by CORS.
         :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
@@ -955,7 +955,7 @@ class AccountQueuePropertiesCorsRule(dict):
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Sequence[str]:
         """
-        A list of http methods that are allowed to be executed by the origin. Valid options are
+        A list of HTTP methods that are allowed to be executed by the origin. Valid options are
         `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         """
         return pulumi.get(self, "allowed_methods")
@@ -1237,7 +1237,7 @@ class AccountRouting(dict):
         """
         :param str choice: Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
         :param bool publish_internet_endpoints: Should internet routing storage endpoints be published? Defaults to `false`.
-        :param bool publish_microsoft_endpoints: Should microsoft routing storage endpoints be published? Defaults to `false`.
+        :param bool publish_microsoft_endpoints: Should Microsoft routing storage endpoints be published? Defaults to `false`.
         """
         if choice is not None:
             pulumi.set(__self__, "choice", choice)
@@ -1266,7 +1266,7 @@ class AccountRouting(dict):
     @pulumi.getter(name="publishMicrosoftEndpoints")
     def publish_microsoft_endpoints(self) -> Optional[bool]:
         """
-        Should microsoft routing storage endpoints be published? Defaults to `false`.
+        Should Microsoft routing storage endpoints be published? Defaults to `false`.
         """
         return pulumi.get(self, "publish_microsoft_endpoints")
 
@@ -1368,7 +1368,7 @@ class AccountSharePropertiesCorsRule(dict):
                  max_age_in_seconds: int):
         """
         :param Sequence[str] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
-        :param Sequence[str] allowed_methods: A list of http methods that are allowed to be executed by the origin. Valid options are
+        :param Sequence[str] allowed_methods: A list of HTTP methods that are allowed to be executed by the origin. Valid options are
                `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         :param Sequence[str] allowed_origins: A list of origin domains that will be allowed by CORS.
         :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
@@ -1392,7 +1392,7 @@ class AccountSharePropertiesCorsRule(dict):
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Sequence[str]:
         """
-        A list of http methods that are allowed to be executed by the origin. Valid options are
+        A list of HTTP methods that are allowed to be executed by the origin. Valid options are
         `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         """
         return pulumi.get(self, "allowed_methods")

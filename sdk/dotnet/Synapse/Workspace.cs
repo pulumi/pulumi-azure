@@ -255,7 +255,7 @@ namespace Pulumi.Azure.Synapse
         public Output<Outputs.WorkspaceIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Allowed Aad Tenant Ids For Linking.
+        /// Allowed AAD Tenant Ids For Linking.
         /// </summary>
         [Output("linkingAllowedForAadTenantIds")]
         public Output<ImmutableArray<string>> LinkingAllowedForAadTenantIds { get; private set; } = null!;
@@ -430,7 +430,7 @@ namespace Pulumi.Azure.Synapse
         private InputList<string>? _linkingAllowedForAadTenantIds;
 
         /// <summary>
-        /// Allowed Aad Tenant Ids For Linking.
+        /// Allowed AAD Tenant Ids For Linking.
         /// </summary>
         public InputList<string> LinkingAllowedForAadTenantIds
         {
@@ -587,7 +587,7 @@ namespace Pulumi.Azure.Synapse
         private InputList<string>? _linkingAllowedForAadTenantIds;
 
         /// <summary>
-        /// Allowed Aad Tenant Ids For Linking.
+        /// Allowed AAD Tenant Ids For Linking.
         /// </summary>
         public InputList<string> LinkingAllowedForAadTenantIds
         {

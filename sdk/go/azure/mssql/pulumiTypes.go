@@ -205,6 +205,8 @@ func (o DatabaseLongTermRetentionPolicyPtrOutput) YearlyRetention() pulumi.Strin
 }
 
 type DatabaseShortTermRetentionPolicy struct {
+	// The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
+	BackupIntervalInHours *int `pulumi:"backupIntervalInHours"`
 	// Point In Time Restore configuration. Value has to be between `7` and `35`.
 	RetentionDays int `pulumi:"retentionDays"`
 }
@@ -221,6 +223,8 @@ type DatabaseShortTermRetentionPolicyInput interface {
 }
 
 type DatabaseShortTermRetentionPolicyArgs struct {
+	// The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
+	BackupIntervalInHours pulumi.IntPtrInput `pulumi:"backupIntervalInHours"`
 	// Point In Time Restore configuration. Value has to be between `7` and `35`.
 	RetentionDays pulumi.IntInput `pulumi:"retentionDays"`
 }
@@ -302,6 +306,11 @@ func (o DatabaseShortTermRetentionPolicyOutput) ToDatabaseShortTermRetentionPoli
 	}).(DatabaseShortTermRetentionPolicyPtrOutput)
 }
 
+// The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
+func (o DatabaseShortTermRetentionPolicyOutput) BackupIntervalInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatabaseShortTermRetentionPolicy) *int { return v.BackupIntervalInHours }).(pulumi.IntPtrOutput)
+}
+
 // Point In Time Restore configuration. Value has to be between `7` and `35`.
 func (o DatabaseShortTermRetentionPolicyOutput) RetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v DatabaseShortTermRetentionPolicy) int { return v.RetentionDays }).(pulumi.IntOutput)
@@ -329,6 +338,16 @@ func (o DatabaseShortTermRetentionPolicyPtrOutput) Elem() DatabaseShortTermReten
 		var ret DatabaseShortTermRetentionPolicy
 		return ret
 	}).(DatabaseShortTermRetentionPolicyOutput)
+}
+
+// The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
+func (o DatabaseShortTermRetentionPolicyPtrOutput) BackupIntervalInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatabaseShortTermRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupIntervalInHours
+	}).(pulumi.IntPtrOutput)
 }
 
 // Point In Time Restore configuration. Value has to be between `7` and `35`.
@@ -2931,7 +2950,7 @@ func (o VirtualMachineAutoPatchingPtrOutput) MaintenanceWindowStartingHour() pul
 }
 
 type VirtualMachineKeyVaultCredential struct {
-	// The azure Key Vault url. Changing this forces a new resource to be created.
+	// The Azure Key Vault url. Changing this forces a new resource to be created.
 	KeyVaultUrl string `pulumi:"keyVaultUrl"`
 	// The credential name.
 	Name string `pulumi:"name"`
@@ -2953,7 +2972,7 @@ type VirtualMachineKeyVaultCredentialInput interface {
 }
 
 type VirtualMachineKeyVaultCredentialArgs struct {
-	// The azure Key Vault url. Changing this forces a new resource to be created.
+	// The Azure Key Vault url. Changing this forces a new resource to be created.
 	KeyVaultUrl pulumi.StringInput `pulumi:"keyVaultUrl"`
 	// The credential name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -3040,7 +3059,7 @@ func (o VirtualMachineKeyVaultCredentialOutput) ToVirtualMachineKeyVaultCredenti
 	}).(VirtualMachineKeyVaultCredentialPtrOutput)
 }
 
-// The azure Key Vault url. Changing this forces a new resource to be created.
+// The Azure Key Vault url. Changing this forces a new resource to be created.
 func (o VirtualMachineKeyVaultCredentialOutput) KeyVaultUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.KeyVaultUrl }).(pulumi.StringOutput)
 }
@@ -3084,7 +3103,7 @@ func (o VirtualMachineKeyVaultCredentialPtrOutput) Elem() VirtualMachineKeyVault
 	}).(VirtualMachineKeyVaultCredentialOutput)
 }
 
-// The azure Key Vault url. Changing this forces a new resource to be created.
+// The Azure Key Vault url. Changing this forces a new resource to be created.
 func (o VirtualMachineKeyVaultCredentialPtrOutput) KeyVaultUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineKeyVaultCredential) *string {
 		if v == nil {

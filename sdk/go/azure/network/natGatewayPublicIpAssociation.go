@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages the association between a Nat Gateway and a Public IP.
+// Manages the association between a NAT Gateway and a Public IP.
 //
 // ## Example Usage
 //
@@ -63,7 +63,7 @@ import (
 //
 // ## Import
 //
-// Associations between Nat Gateway and Public IP Addresses can be imported using the `resource id`, e.g.
+// Associations between NAT Gateway and Public IP Addresses can be imported using the `resource id`, e.g.
 //
 // ```sh
 //  $ pulumi import azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1"
@@ -71,9 +71,9 @@ import (
 type NatGatewayPublicIpAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ID of the Nat Gateway. Changing this forces a new resource to be created.
+	// The ID of the NAT Gateway. Changing this forces a new resource to be created.
 	NatGatewayId pulumi.StringOutput `pulumi:"natGatewayId"`
-	// The ID of the Public IP which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
 	PublicIpAddressId pulumi.StringOutput `pulumi:"publicIpAddressId"`
 }
 
@@ -112,16 +112,16 @@ func GetNatGatewayPublicIpAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NatGatewayPublicIpAssociation resources.
 type natGatewayPublicIpAssociationState struct {
-	// The ID of the Nat Gateway. Changing this forces a new resource to be created.
+	// The ID of the NAT Gateway. Changing this forces a new resource to be created.
 	NatGatewayId *string `pulumi:"natGatewayId"`
-	// The ID of the Public IP which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 }
 
 type NatGatewayPublicIpAssociationState struct {
-	// The ID of the Nat Gateway. Changing this forces a new resource to be created.
+	// The ID of the NAT Gateway. Changing this forces a new resource to be created.
 	NatGatewayId pulumi.StringPtrInput
-	// The ID of the Public IP which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
 	PublicIpAddressId pulumi.StringPtrInput
 }
 
@@ -130,17 +130,17 @@ func (NatGatewayPublicIpAssociationState) ElementType() reflect.Type {
 }
 
 type natGatewayPublicIpAssociationArgs struct {
-	// The ID of the Nat Gateway. Changing this forces a new resource to be created.
+	// The ID of the NAT Gateway. Changing this forces a new resource to be created.
 	NatGatewayId string `pulumi:"natGatewayId"`
-	// The ID of the Public IP which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 }
 
 // The set of arguments for constructing a NatGatewayPublicIpAssociation resource.
 type NatGatewayPublicIpAssociationArgs struct {
-	// The ID of the Nat Gateway. Changing this forces a new resource to be created.
+	// The ID of the NAT Gateway. Changing this forces a new resource to be created.
 	NatGatewayId pulumi.StringInput
-	// The ID of the Public IP which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
 	PublicIpAddressId pulumi.StringInput
 }
 

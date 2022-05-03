@@ -102,7 +102,7 @@ export class Insights extends pulumi.CustomResource {
      */
     public readonly dailyDataCapNotificationsDisabled!: pulumi.Output<boolean>;
     /**
-     * By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+     * By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
      */
     public readonly disableIpMasking!: pulumi.Output<boolean | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface InsightsState {
      */
     dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
     /**
-     * By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+     * By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
      */
     disableIpMasking?: pulumi.Input<boolean>;
     /**
@@ -310,7 +310,7 @@ export interface InsightsArgs {
      */
     dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
     /**
-     * By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+     * By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
      */
     disableIpMasking?: pulumi.Input<boolean>;
     /**

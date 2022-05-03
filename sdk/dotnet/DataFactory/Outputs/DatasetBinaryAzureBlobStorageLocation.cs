@@ -18,6 +18,10 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string Container;
         /// <summary>
+        /// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        public readonly bool? DynamicContainerEnabled;
+        /// <summary>
         /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         /// </summary>
         public readonly bool? DynamicFilenameEnabled;
@@ -38,6 +42,8 @@ namespace Pulumi.Azure.DataFactory.Outputs
         private DatasetBinaryAzureBlobStorageLocation(
             string container,
 
+            bool? dynamicContainerEnabled,
+
             bool? dynamicFilenameEnabled,
 
             bool? dynamicPathEnabled,
@@ -47,6 +53,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
             string? path)
         {
             Container = container;
+            DynamicContainerEnabled = dynamicContainerEnabled;
             DynamicFilenameEnabled = dynamicFilenameEnabled;
             DynamicPathEnabled = dynamicPathEnabled;
             Filename = filename;

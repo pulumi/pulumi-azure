@@ -258,7 +258,7 @@ class NetworkMapping(pulumi.CustomResource):
                  target_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected netwroks when a VM is migrated from one region to another.
+        Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected networks when a VM is migrated from one region to another.
 
         ## Example Usage
 
@@ -324,7 +324,7 @@ class NetworkMapping(pulumi.CustomResource):
                  args: NetworkMappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected netwroks when a VM is migrated from one region to another.
+        Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected networks when a VM is migrated from one region to another.
 
         ## Example Usage
 

@@ -16,7 +16,6 @@ __all__ = ['JobArgs', 'Job']
 class JobArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 streaming_units: pulumi.Input[int],
                  transformation_query: pulumi.Input[str],
                  compatibility_level: Optional[pulumi.Input[str]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
@@ -28,11 +27,12 @@ class JobArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  output_error_policy: Optional[pulumi.Input[str]] = None,
                  stream_analytics_cluster_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 streaming_units: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Job resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
         :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
@@ -44,10 +44,11 @@ class JobArgs:
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
+        :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "streaming_units", streaming_units)
         pulumi.set(__self__, "transformation_query", transformation_query)
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
@@ -69,8 +70,12 @@ class JobArgs:
             pulumi.set(__self__, "output_error_policy", output_error_policy)
         if stream_analytics_cluster_id is not None:
             pulumi.set(__self__, "stream_analytics_cluster_id", stream_analytics_cluster_id)
+        if streaming_units is not None:
+            pulumi.set(__self__, "streaming_units", streaming_units)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -83,18 +88,6 @@ class JobArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="streamingUnits")
-    def streaming_units(self) -> pulumi.Input[int]:
-        """
-        Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
-        """
-        return pulumi.get(self, "streaming_units")
-
-    @streaming_units.setter
-    def streaming_units(self, value: pulumi.Input[int]):
-        pulumi.set(self, "streaming_units", value)
 
     @property
     @pulumi.getter(name="transformationQuery")
@@ -229,6 +222,18 @@ class JobArgs:
         pulumi.set(self, "stream_analytics_cluster_id", value)
 
     @property
+    @pulumi.getter(name="streamingUnits")
+    def streaming_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        """
+        return pulumi.get(self, "streaming_units")
+
+    @streaming_units.setter
+    def streaming_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "streaming_units", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -239,6 +244,18 @@ class JobArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -258,7 +275,8 @@ class _JobState:
                  stream_analytics_cluster_id: Optional[pulumi.Input[str]] = None,
                  streaming_units: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 transformation_query: Optional[pulumi.Input[str]] = None):
+                 transformation_query: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Job resources.
         :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
@@ -276,6 +294,7 @@ class _JobState:
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+        :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
         """
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
@@ -307,6 +326,8 @@ class _JobState:
             pulumi.set(__self__, "tags", tags)
         if transformation_query is not None:
             pulumi.set(__self__, "transformation_query", transformation_query)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -488,6 +509,18 @@ class _JobState:
     def transformation_query(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transformation_query", value)
 
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
 
 class Job(pulumi.CustomResource):
     @overload
@@ -508,6 +541,7 @@ class Job(pulumi.CustomResource):
                  streaming_units: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transformation_query: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Stream Analytics Job.
@@ -562,6 +596,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+        :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -635,6 +670,7 @@ class Job(pulumi.CustomResource):
                  streaming_units: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transformation_query: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -660,13 +696,12 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["stream_analytics_cluster_id"] = stream_analytics_cluster_id
-            if streaming_units is None and not opts.urn:
-                raise TypeError("Missing required property 'streaming_units'")
             __props__.__dict__["streaming_units"] = streaming_units
             __props__.__dict__["tags"] = tags
             if transformation_query is None and not opts.urn:
                 raise TypeError("Missing required property 'transformation_query'")
             __props__.__dict__["transformation_query"] = transformation_query
+            __props__.__dict__["type"] = type
             __props__.__dict__["job_id"] = None
         super(Job, __self__).__init__(
             'azure:streamanalytics/job:Job',
@@ -692,7 +727,8 @@ class Job(pulumi.CustomResource):
             stream_analytics_cluster_id: Optional[pulumi.Input[str]] = None,
             streaming_units: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            transformation_query: Optional[pulumi.Input[str]] = None) -> 'Job':
+            transformation_query: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'Job':
         """
         Get an existing Job resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -715,6 +751,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+        :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -735,6 +772,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["streaming_units"] = streaming_units
         __props__.__dict__["tags"] = tags
         __props__.__dict__["transformation_query"] = transformation_query
+        __props__.__dict__["type"] = type
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -835,7 +873,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamingUnits")
-    def streaming_units(self) -> pulumi.Output[int]:
+    def streaming_units(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         """
@@ -856,4 +894,12 @@ class Job(pulumi.CustomResource):
         Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         """
         return pulumi.get(self, "transformation_query")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
 

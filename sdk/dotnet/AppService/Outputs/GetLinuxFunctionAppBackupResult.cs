@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// The Site Credentials Username used for publishing.
+        /// The name which should be used for this Linux Function App.
         /// </summary>
         public readonly string Name;
         /// <summary>

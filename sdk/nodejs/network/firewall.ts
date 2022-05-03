@@ -111,11 +111,11 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+     * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
      */
     public readonly skuTier!: pulumi.Output<string>;
     /**
@@ -230,11 +230,11 @@ export interface FirewallState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+     * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
-     * Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -292,11 +292,11 @@ export interface FirewallArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+     * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
      */
     skuName: pulumi.Input<string>;
     /**
-     * Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
      */
     skuTier: pulumi.Input<string>;
     /**

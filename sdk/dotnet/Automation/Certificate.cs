@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> AutomationAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// Base64 encoded value of the certificate.
+        /// Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         /// </summary>
         [Output("base64")]
         public Output<string> Base64 { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Base64 encoded value of the certificate.
+        /// Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         /// </summary>
         [Input("base64", required: true)]
         public Input<string> Base64 { get; set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? AutomationAccountName { get; set; }
 
         /// <summary>
-        /// Base64 encoded value of the certificate.
+        /// Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         /// </summary>
         [Input("base64")]
         public Input<string>? Base64 { get; set; }

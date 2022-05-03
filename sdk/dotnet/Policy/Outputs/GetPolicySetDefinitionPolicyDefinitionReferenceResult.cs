@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Policy.Outputs
     public sealed class GetPolicySetDefinitionPolicyDefinitionReferenceResult
     {
         /// <summary>
-        /// The parameter values for the referenced policy rule. This field is a json object.
+        /// The parameter values for the referenced policy rule. This field is a JSON object.
         /// </summary>
         public readonly string ParameterValues;
         /// <summary>

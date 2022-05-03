@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class ServiceTenantAccess
     {
         /// <summary>
-        /// Should the access to the management api be enabled?
+        /// Should the access to the management API be enabled?
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

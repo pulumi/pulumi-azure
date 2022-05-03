@@ -37,11 +37,11 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetDatabaseArgs {
     /**
-     * The name of the Ms SQL Database.
+     * The name of the MS SQL Database.
      */
     name: string;
     /**
-     * The id of the Ms SQL Server on which to create the database.
+     * The id of the MS SQL Server on which to create the database.
      */
     serverId: string;
 }
@@ -81,7 +81,7 @@ export interface GetDatabaseResult {
     readonly readScale: boolean;
     readonly serverId: string;
     /**
-     * The name of the sku of the database.
+     * The name of the SKU of the database.
      */
     readonly skuName: string;
     /**
@@ -107,11 +107,11 @@ export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.Inv
  */
 export interface GetDatabaseOutputArgs {
     /**
-     * The name of the Ms SQL Database.
+     * The name of the MS SQL Database.
      */
     name: pulumi.Input<string>;
     /**
-     * The id of the Ms SQL Server on which to create the database.
+     * The id of the MS SQL Server on which to create the database.
      */
     serverId: pulumi.Input<string>;
 }

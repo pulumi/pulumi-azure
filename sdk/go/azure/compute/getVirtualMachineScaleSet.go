@@ -60,7 +60,7 @@ type GetVirtualMachineScaleSetResult struct {
 	// A `identity` block as defined below.
 	Identities []GetVirtualMachineScaleSetIdentity `pulumi:"identities"`
 	Location   string                              `pulumi:"location"`
-	// The name of the public ip address configuration
+	// The name of the public IP address configuration
 	Name string `pulumi:"name"`
 	// A list of `networkInterface` blocks as defined below.
 	NetworkInterfaces []GetVirtualMachineScaleSetNetworkInterface `pulumi:"networkInterfaces"`
@@ -117,7 +117,7 @@ func (o GetVirtualMachineScaleSetResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the public ip address configuration
+// The name of the public IP address configuration
 func (o GetVirtualMachineScaleSetResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetResult) string { return v.Name }).(pulumi.StringOutput)
 }

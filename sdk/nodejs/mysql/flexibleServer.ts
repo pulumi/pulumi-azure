@@ -138,7 +138,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly pointInTimeRestoreTimeInUtc!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+     * The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
      */
     public readonly privateDnsZoneId!: pulumi.Output<string | undefined>;
     /**
@@ -305,7 +305,7 @@ export interface FlexibleServerState {
      */
     pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
     /**
-     * The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+     * The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
      */
     privateDnsZoneId?: pulumi.Input<string>;
     /**
@@ -399,7 +399,7 @@ export interface FlexibleServerArgs {
      */
     pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
     /**
-     * The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+     * The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
      */
     privateDnsZoneId?: pulumi.Input<string>;
     /**

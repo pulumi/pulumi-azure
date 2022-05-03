@@ -95,7 +95,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     public readonly managementGroupId!: pulumi.Output<string | undefined>;
     /**
-     * The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+     * The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
      */
     public readonly metadata!: pulumi.Output<string>;
     /**
@@ -103,7 +103,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+     * Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
      */
     public readonly parameters!: pulumi.Output<string | undefined>;
     /**
@@ -184,7 +184,7 @@ export interface PolicySetDefinitionState {
      */
     managementGroupId?: pulumi.Input<string>;
     /**
-     * The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+     * The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
      */
     metadata?: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface PolicySetDefinitionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+     * Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
      */
     parameters?: pulumi.Input<string>;
     /**
@@ -226,7 +226,7 @@ export interface PolicySetDefinitionArgs {
      */
     managementGroupId?: pulumi.Input<string>;
     /**
-     * The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+     * The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
      */
     metadata?: pulumi.Input<string>;
     /**
@@ -234,7 +234,7 @@ export interface PolicySetDefinitionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+     * Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
      */
     parameters?: pulumi.Input<string>;
     /**

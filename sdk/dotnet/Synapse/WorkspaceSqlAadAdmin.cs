@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse
 {
     /// <summary>
-    /// Manages an Azure Active Directory Sql Administrator setting for a Synapse Workspace
+    /// Manages an Azure Active Directory SQL Administrator setting for a Synapse Workspace
     /// 
     /// ## Example Usage
     /// 

@@ -89,7 +89,7 @@ export class DiskPool extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+     * The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -169,7 +169,7 @@ export interface DiskPoolState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+     * The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -203,7 +203,7 @@ export interface DiskPoolArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+     * The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
      */
     skuName: pulumi.Input<string>;
     /**

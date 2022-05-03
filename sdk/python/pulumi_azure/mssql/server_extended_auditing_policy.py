@@ -23,7 +23,7 @@ class ServerExtendedAuditingPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerExtendedAuditingPolicy resource.
-        :param pulumi.Input[str] server_id: The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
@@ -52,7 +52,7 @@ class ServerExtendedAuditingPolicyArgs:
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Input[str]:
         """
-        The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+        The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_id")
 
@@ -161,7 +161,7 @@ class _ServerExtendedAuditingPolicyState:
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
-        :param pulumi.Input[str] server_id: The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
@@ -224,7 +224,7 @@ class _ServerExtendedAuditingPolicyState:
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+        The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_id")
 
@@ -296,7 +296,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                  storage_endpoint: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Ms Sql Server Extended Auditing Policy.
+        Manages a MS SQL Server Extended Auditing Policy.
 
         ## Example Usage
 
@@ -397,7 +397,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Ms Sql Server Extended Auditing Policys can be imported using the `resource id`, e.g.
+        MS SQL Server Extended Auditing Policies can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/extendedAuditingSettings/default
@@ -408,7 +408,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
-        :param pulumi.Input[str] server_id: The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
@@ -421,7 +421,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                  args: ServerExtendedAuditingPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Ms Sql Server Extended Auditing Policy.
+        Manages a MS SQL Server Extended Auditing Policy.
 
         ## Example Usage
 
@@ -522,7 +522,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Ms Sql Server Extended Auditing Policys can be imported using the `resource id`, e.g.
+        MS SQL Server Extended Auditing Policies can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/extendedAuditingSettings/default
@@ -601,7 +601,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
-        :param pulumi.Input[str] server_id: The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
@@ -649,7 +649,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[str]:
         """
-        The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+        The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_id")
 

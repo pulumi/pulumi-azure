@@ -112,6 +112,7 @@ __all__ = [
     'LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs',
     'LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
     'LinuxFunctionAppSlotSiteCredentialArgs',
+    'LinuxFunctionAppStickySettingsArgs',
     'LinuxWebAppAuthSettingsArgs',
     'LinuxWebAppAuthSettingsActiveDirectoryArgs',
     'LinuxWebAppAuthSettingsFacebookArgs',
@@ -175,6 +176,7 @@ __all__ = [
     'LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs',
     'LinuxWebAppSlotSiteCredentialArgs',
     'LinuxWebAppSlotStorageAccountArgs',
+    'LinuxWebAppStickySettingsArgs',
     'LinuxWebAppStorageAccountArgs',
     'PlanSkuArgs',
     'SlotAuthSettingsArgs',
@@ -246,6 +248,7 @@ __all__ = [
     'WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs',
     'WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
     'WindowsFunctionAppSlotSiteCredentialArgs',
+    'WindowsFunctionAppStickySettingsArgs',
     'WindowsWebAppAuthSettingsArgs',
     'WindowsWebAppAuthSettingsActiveDirectoryArgs',
     'WindowsWebAppAuthSettingsFacebookArgs',
@@ -315,6 +318,7 @@ __all__ = [
     'WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs',
     'WindowsWebAppSlotSiteCredentialArgs',
     'WindowsWebAppSlotStorageAccountArgs',
+    'WindowsWebAppStickySettingsArgs',
     'WindowsWebAppStorageAccountArgs',
 ]
 
@@ -1308,7 +1312,7 @@ class AppServiceLogsHttpLogsFileSystemArgs:
                  retention_in_mb: pulumi.Input[int]):
         """
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for.
-        :param pulumi.Input[int] retention_in_mb: The maximum size in megabytes that http log files can use before being removed.
+        :param pulumi.Input[int] retention_in_mb: The maximum size in megabytes that HTTP log files can use before being removed.
         """
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         pulumi.set(__self__, "retention_in_mb", retention_in_mb)
@@ -1329,7 +1333,7 @@ class AppServiceLogsHttpLogsFileSystemArgs:
     @pulumi.getter(name="retentionInMb")
     def retention_in_mb(self) -> pulumi.Input[int]:
         """
-        The maximum size in megabytes that http log files can use before being removed.
+        The maximum size in megabytes that HTTP log files can use before being removed.
         """
         return pulumi.get(self, "retention_in_mb")
 
@@ -1379,7 +1383,7 @@ class AppServiceSiteConfigArgs:
         :param pulumi.Input[str] app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
         :param pulumi.Input['AppServiceSiteConfigCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: The ordering of default documents to load, if an address isn't specified.
-        :param pulumi.Input[str] dotnet_framework_version: The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        :param pulumi.Input[str] dotnet_framework_version: The version of the .NET framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param pulumi.Input[str] health_check_path: The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         :param pulumi.Input[bool] http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
@@ -1396,7 +1400,7 @@ class AppServiceSiteConfigArgs:
         :param pulumi.Input[str] python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param pulumi.Input[bool] remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
-        :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param pulumi.Input[str] scm_type: The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param pulumi.Input[bool] scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
         :param pulumi.Input[bool] use32_bit_worker_process: Should the App Service run in 32 bit mode, rather than 64 bit mode?
@@ -1552,7 +1556,7 @@ class AppServiceSiteConfigArgs:
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        The version of the .NET framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -1756,7 +1760,7 @@ class AppServiceSiteConfigArgs:
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]]]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
@@ -3346,18 +3350,18 @@ class FunctionAppSiteConfigArgs:
         :param pulumi.Input[bool] always_on: Should the Function App be loaded at all times? Defaults to `false`.
         :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param pulumi.Input['FunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined below.
-        :param pulumi.Input[str] dotnet_framework_version: The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        :param pulumi.Input[str] dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this function app. Only affects apps on the Premium plan.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param pulumi.Input[str] health_check_path: Path which will be checked for this function app health.
-        :param pulumi.Input[bool] http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param pulumi.Input[bool] http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param pulumi.Input[str] java_version: Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
         :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param pulumi.Input[str] scm_type: The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param pulumi.Input[bool] scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
         :param pulumi.Input[bool] use32_bit_worker_process: Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -3456,7 +3460,7 @@ class FunctionAppSiteConfigArgs:
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -3504,7 +3508,7 @@ class FunctionAppSiteConfigArgs:
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+        Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -3516,7 +3520,7 @@ class FunctionAppSiteConfigArgs:
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         """
         return pulumi.get(self, "ip_restrictions")
 
@@ -3588,7 +3592,7 @@ class FunctionAppSiteConfigArgs:
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]]]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
@@ -4745,11 +4749,11 @@ class FunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap to during deployment
         :param pulumi.Input['FunctionAppSlotSiteConfigCorsArgs'] cors: A `cors` block as defined below.
-        :param pulumi.Input[str] dotnet_framework_version: The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        :param pulumi.Input[str] dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
-        :param pulumi.Input[bool] http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param pulumi.Input[bool] http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
@@ -4852,7 +4856,7 @@ class FunctionAppSlotSiteConfigArgs:
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -4897,7 +4901,7 @@ class FunctionAppSlotSiteConfigArgs:
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+        Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -4909,7 +4913,7 @@ class FunctionAppSlotSiteConfigArgs:
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         """
         return pulumi.get(self, "ip_restrictions")
 
@@ -5600,6 +5604,7 @@ class LinuxFunctionAppAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
         :param pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
         :param pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -5670,6 +5675,9 @@ class LinuxFunctionAppAuthSettingsArgs:
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @additional_login_parameters.setter
@@ -6569,7 +6577,7 @@ class LinuxFunctionAppSiteConfigArgs:
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
-        :param pulumi.Input[bool] http2_enabled: Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
@@ -6876,7 +6884,7 @@ class LinuxFunctionAppSiteConfigArgs:
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -7135,7 +7143,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
                  use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]] dockers: One or more `docker` blocks as defined below.
-        :param pulumi.Input[str] dotnet_version: The version of .Net to use. Possible values include `3.1` and `6.0`.
+        :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1` and `6.0`.
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, and `11`.
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12`, `14`, and `16`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`.
@@ -7176,7 +7184,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of .Net to use. Possible values include `3.1` and `6.0`.
+        The version of .NET to use. Possible values include `3.1` and `6.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -8799,7 +8807,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
         :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
-        :param pulumi.Input[bool] http2_enabled: Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: an `ip_restriction` block as detailed below.
         :param pulumi.Input[str] linux_fx_version: The Linux FX Version
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
@@ -9125,7 +9133,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -10054,6 +10062,45 @@ class LinuxFunctionAppSlotSiteCredentialArgs:
 
 
 @pulumi.input_type
+class LinuxFunctionAppStickySettingsArgs:
+    def __init__(__self__, *,
+                 app_setting_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] app_setting_names: A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_string_names: A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        if app_setting_names is not None:
+            pulumi.set(__self__, "app_setting_names", app_setting_names)
+        if connection_string_names is not None:
+            pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @app_setting_names.setter
+    def app_setting_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "app_setting_names", value)
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
+
+    @connection_string_names.setter
+    def connection_string_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connection_string_names", value)
+
+
+@pulumi.input_type
 class LinuxWebAppAuthSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
@@ -10074,6 +10121,7 @@ class LinuxWebAppAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
         :param pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
         :param pulumi.Input['LinuxWebAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -10144,6 +10192,9 @@ class LinuxWebAppAuthSettingsArgs:
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @additional_login_parameters.setter
@@ -11102,6 +11153,7 @@ class LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs:
                  retention_in_days: pulumi.Input[int],
                  sas_url: pulumi.Input[str]):
         """
+        :param pulumi.Input[str] level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param pulumi.Input[int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         :param pulumi.Input[str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
         """
@@ -11112,6 +11164,9 @@ class LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs:
     @property
     @pulumi.getter
     def level(self) -> pulumi.Input[str]:
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
         return pulumi.get(self, "level")
 
     @level.setter
@@ -11316,6 +11371,7 @@ class LinuxWebAppSiteConfigArgs:
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
         :param pulumi.Input[bool] use32_bit_worker: Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param pulumi.Input[bool] websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param pulumi.Input[int] worker_count: The number of Workers for this Linux App Service.
         """
@@ -11717,6 +11773,9 @@ class LinuxWebAppSiteConfigArgs:
     @property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should all outbound traffic have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @vnet_route_all_enabled.setter
@@ -11764,8 +11823,8 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
         """
         :param pulumi.Input[str] docker_image: The Docker image reference, including repository host as needed.
         :param pulumi.Input[str] docker_image_tag: The image Tag to use. e.g. `latest`.
-        :param pulumi.Input[str] dotnet_version: The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
-        :param pulumi.Input[str] java_server: The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        :param pulumi.Input[str] java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         :param pulumi.Input[str] java_server_version: The Version of the `java_server` to use.
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
@@ -11822,7 +11881,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -11834,7 +11893,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaServer")
     def java_server(self) -> Optional[pulumi.Input[str]]:
         """
-        The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         """
         return pulumi.get(self, "java_server")
 
@@ -12730,6 +12789,7 @@ class LinuxWebAppSlotAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
         :param pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
         :param pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -12800,6 +12860,9 @@ class LinuxWebAppSlotAuthSettingsArgs:
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @additional_login_parameters.setter
@@ -13758,6 +13821,7 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
                  retention_in_days: pulumi.Input[int],
                  sas_url: pulumi.Input[str]):
         """
+        :param pulumi.Input[str] level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param pulumi.Input[int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         :param pulumi.Input[str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
         """
@@ -13768,6 +13832,9 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
     @property
     @pulumi.getter
     def level(self) -> pulumi.Input[str]:
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
         return pulumi.get(self, "level")
 
     @level.setter
@@ -14440,8 +14507,8 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         """
         :param pulumi.Input[str] docker_image: The Docker image reference, including repository host as needed.
         :param pulumi.Input[str] docker_image_tag: The image Tag to use. e.g. `latest`.
-        :param pulumi.Input[str] dotnet_version: The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
-        :param pulumi.Input[str] java_server: The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        :param pulumi.Input[str] java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         :param pulumi.Input[str] java_server_version: The Version of the `java_server` to use.
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
@@ -14498,7 +14565,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -14510,7 +14577,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaServer")
     def java_server(self) -> Optional[pulumi.Input[str]]:
         """
-        The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         """
         return pulumi.get(self, "java_server")
 
@@ -15481,6 +15548,45 @@ class LinuxWebAppSlotStorageAccountArgs:
     @mount_path.setter
     def mount_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mount_path", value)
+
+
+@pulumi.input_type
+class LinuxWebAppStickySettingsArgs:
+    def __init__(__self__, *,
+                 app_setting_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] app_setting_names: A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_string_names: A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        if app_setting_names is not None:
+            pulumi.set(__self__, "app_setting_names", app_setting_names)
+        if connection_string_names is not None:
+            pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @app_setting_names.setter
+    def app_setting_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "app_setting_names", value)
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
+
+    @connection_string_names.setter
+    def connection_string_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connection_string_names", value)
 
 
 @pulumi.input_type
@@ -16471,7 +16577,7 @@ class SlotLogsHttpLogsFileSystemArgs:
                  retention_in_mb: pulumi.Input[int]):
         """
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for.
-        :param pulumi.Input[int] retention_in_mb: The maximum size in megabytes that http log files can use before being removed.
+        :param pulumi.Input[int] retention_in_mb: The maximum size in megabytes that HTTP log files can use before being removed.
         """
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         pulumi.set(__self__, "retention_in_mb", retention_in_mb)
@@ -16492,7 +16598,7 @@ class SlotLogsHttpLogsFileSystemArgs:
     @pulumi.getter(name="retentionInMb")
     def retention_in_mb(self) -> pulumi.Input[int]:
         """
-        The maximum size in megabytes that http log files can use before being removed.
+        The maximum size in megabytes that HTTP log files can use before being removed.
         """
         return pulumi.get(self, "retention_in_mb")
 
@@ -16543,7 +16649,7 @@ class SlotSiteConfigArgs:
         :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap to during deployment
         :param pulumi.Input['SlotSiteConfigCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: The ordering of default documents to load, if an address isn't specified.
-        :param pulumi.Input[str] dotnet_framework_version: The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        :param pulumi.Input[str] dotnet_framework_version: The version of the .NET framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param pulumi.Input[str] health_check_path: The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         :param pulumi.Input[bool] http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
@@ -16560,7 +16666,7 @@ class SlotSiteConfigArgs:
         :param pulumi.Input[str] python_version: The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
         :param pulumi.Input[bool] remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
-        :param pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param pulumi.Input[str] scm_type: The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param pulumi.Input[bool] scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
         :param pulumi.Input[bool] use32_bit_worker_process: Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
@@ -16719,7 +16825,7 @@ class SlotSiteConfigArgs:
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        The version of the .NET framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -16923,7 +17029,7 @@ class SlotSiteConfigArgs:
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]]]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
@@ -17054,7 +17160,7 @@ class SlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        :param pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -17092,7 +17198,7 @@ class SlotSiteConfigIpRestrictionArgs:
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgs']]:
         """
-        The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         """
         return pulumi.get(self, "headers")
 
@@ -17244,7 +17350,7 @@ class SlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        :param pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -17282,7 +17388,7 @@ class SlotSiteConfigScmIpRestrictionArgs:
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArgs']]:
         """
-        The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         """
         return pulumi.get(self, "headers")
 
@@ -17988,6 +18094,7 @@ class WindowsFunctionAppAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Windows Function App?
         :param pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
         :param pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -18058,6 +18165,9 @@ class WindowsFunctionAppAuthSettingsArgs:
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @additional_login_parameters.setter
@@ -18953,7 +19063,7 @@ class WindowsFunctionAppSiteConfigArgs:
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to be checked for this Windows Function App health.
-        :param pulumi.Input[bool] http2_enabled: Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
@@ -19232,7 +19342,7 @@ class WindowsFunctionAppSiteConfigArgs:
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -19488,7 +19598,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
                  use_custom_runtime: Optional[pulumi.Input[bool]] = None,
                  use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] dotnet_version: The version of .Net to use. Possible values include `3.1` and `6`.
+        :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1` and `6`.
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, and `11`.
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `~12`, `~14`, and `~16`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`.
@@ -19512,7 +19622,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of .Net to use. Possible values include `3.1` and `6`.
+        The version of .NET to use. Possible values include `3.1` and `6`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -21035,7 +21145,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
         :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
-        :param pulumi.Input[bool] http2_enabled: Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: an `ip_restriction` block as detailed below.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[str] managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
@@ -21333,7 +21443,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -22146,6 +22256,45 @@ class WindowsFunctionAppSlotSiteCredentialArgs:
 
 
 @pulumi.input_type
+class WindowsFunctionAppStickySettingsArgs:
+    def __init__(__self__, *,
+                 app_setting_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] app_setting_names: A list of `app_setting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_string_names: A list of `connection_string` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        """
+        if app_setting_names is not None:
+            pulumi.set(__self__, "app_setting_names", app_setting_names)
+        if connection_string_names is not None:
+            pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of `app_setting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @app_setting_names.setter
+    def app_setting_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "app_setting_names", value)
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of `connection_string` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
+
+    @connection_string_names.setter
+    def connection_string_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connection_string_names", value)
+
+
+@pulumi.input_type
 class WindowsWebAppAuthSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
@@ -22166,6 +22315,7 @@ class WindowsWebAppAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature is enabled for the Windows Web App be enabled?
         :param pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
         :param pulumi.Input['WindowsWebAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -22236,6 +22386,9 @@ class WindowsWebAppAuthSettingsArgs:
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @additional_login_parameters.setter
@@ -23194,6 +23347,7 @@ class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs:
                  retention_in_days: pulumi.Input[int],
                  sas_url: pulumi.Input[str]):
         """
+        :param pulumi.Input[str] level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param pulumi.Input[int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         :param pulumi.Input[str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
         """
@@ -23204,6 +23358,9 @@ class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs:
     @property
     @pulumi.getter
     def level(self) -> pulumi.Input[str]:
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
         return pulumi.get(self, "level")
 
     @level.setter
@@ -23891,7 +24048,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
         :param pulumi.Input[str] docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param pulumi.Input[str] docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
-        :param pulumi.Input[str] dotnet_version: The version of .Net to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        :param pulumi.Input[str] dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
         :param pulumi.Input[str] java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
         :param pulumi.Input[str] java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
         :param pulumi.Input[str] java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
@@ -23974,7 +24131,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of .Net to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -25045,6 +25202,7 @@ class WindowsWebAppSlotAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Windows Web App?
         :param pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
         :param pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -25115,6 +25273,9 @@ class WindowsWebAppSlotAuthSettingsArgs:
     @property
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
         return pulumi.get(self, "additional_login_parameters")
 
     @additional_login_parameters.setter
@@ -26073,6 +26234,7 @@ class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
                  retention_in_days: pulumi.Input[int],
                  sas_url: pulumi.Input[str]):
         """
+        :param pulumi.Input[str] level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param pulumi.Input[int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         :param pulumi.Input[str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
         """
@@ -26083,6 +26245,9 @@ class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
     @property
     @pulumi.getter
     def level(self) -> pulumi.Input[str]:
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
         return pulumi.get(self, "level")
 
     @level.setter
@@ -26774,7 +26939,7 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
         :param pulumi.Input[str] docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param pulumi.Input[str] docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
-        :param pulumi.Input[str] dotnet_version: The version of .Net to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        :param pulumi.Input[str] dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
         :param pulumi.Input[str] java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
         :param pulumi.Input[str] java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
         :param pulumi.Input[str] java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
@@ -26857,7 +27022,7 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of .Net to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -28003,6 +28168,45 @@ class WindowsWebAppSlotStorageAccountArgs:
     @mount_path.setter
     def mount_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mount_path", value)
+
+
+@pulumi.input_type
+class WindowsWebAppStickySettingsArgs:
+    def __init__(__self__, *,
+                 app_setting_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] app_setting_names: A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_string_names: A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        if app_setting_names is not None:
+            pulumi.set(__self__, "app_setting_names", app_setting_names)
+        if connection_string_names is not None:
+            pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @app_setting_names.setter
+    def app_setting_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "app_setting_names", value)
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
+
+    @connection_string_names.setter
+    def connection_string_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connection_string_names", value)
 
 
 @pulumi.input_type

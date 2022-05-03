@@ -17,8 +17,8 @@ class NatGatewayPublicIpPrefixAssociationArgs:
                  public_ip_prefix_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a NatGatewayPublicIpPrefixAssociation resource.
-        :param pulumi.Input[str] nat_gateway_id: The ID of the Nat Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] public_ip_prefix_id: The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
@@ -27,7 +27,7 @@ class NatGatewayPublicIpPrefixAssociationArgs:
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Nat Gateway. Changing this forces a new resource to be created.
+        The ID of the NAT Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "nat_gateway_id")
 
@@ -39,7 +39,7 @@ class NatGatewayPublicIpPrefixAssociationArgs:
     @pulumi.getter(name="publicIpPrefixId")
     def public_ip_prefix_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+        The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
@@ -55,8 +55,8 @@ class _NatGatewayPublicIpPrefixAssociationState:
                  public_ip_prefix_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NatGatewayPublicIpPrefixAssociation resources.
-        :param pulumi.Input[str] nat_gateway_id: The ID of the Nat Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] public_ip_prefix_id: The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
         if nat_gateway_id is not None:
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
@@ -67,7 +67,7 @@ class _NatGatewayPublicIpPrefixAssociationState:
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Nat Gateway. Changing this forces a new resource to be created.
+        The ID of the NAT Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "nat_gateway_id")
 
@@ -79,7 +79,7 @@ class _NatGatewayPublicIpPrefixAssociationState:
     @pulumi.getter(name="publicIpPrefixId")
     def public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+        The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
@@ -97,7 +97,7 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
                  public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages the association between a Nat Gateway and a Public IP Prefix.
+        Manages the association between a NAT Gateway and a Public IP Prefix.
 
         ## Example Usage
 
@@ -122,7 +122,7 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Associations between Nat Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
+        Associations between NAT Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1"
@@ -130,8 +130,8 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] nat_gateway_id: The ID of the Nat Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] public_ip_prefix_id: The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -140,7 +140,7 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
                  args: NatGatewayPublicIpPrefixAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages the association between a Nat Gateway and a Public IP Prefix.
+        Manages the association between a NAT Gateway and a Public IP Prefix.
 
         ## Example Usage
 
@@ -165,7 +165,7 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Associations between Nat Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
+        Associations between NAT Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1"
@@ -225,8 +225,8 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] nat_gateway_id: The ID of the Nat Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] public_ip_prefix_id: The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -240,7 +240,7 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Nat Gateway. Changing this forces a new resource to be created.
+        The ID of the NAT Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "nat_gateway_id")
 
@@ -248,7 +248,7 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
     @pulumi.getter(name="publicIpPrefixId")
     def public_ip_prefix_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+        The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 

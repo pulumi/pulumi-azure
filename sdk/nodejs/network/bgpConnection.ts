@@ -96,7 +96,7 @@ export class BgpConnection extends pulumi.CustomResource {
      */
     public readonly peerAsn!: pulumi.Output<number>;
     /**
-     * The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+     * The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      */
     public readonly peerIp!: pulumi.Output<string>;
     /**
@@ -155,7 +155,7 @@ export interface BgpConnectionState {
      */
     peerAsn?: pulumi.Input<number>;
     /**
-     * The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+     * The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      */
     peerIp?: pulumi.Input<string>;
     /**
@@ -177,7 +177,7 @@ export interface BgpConnectionArgs {
      */
     peerAsn: pulumi.Input<number>;
     /**
-     * The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+     * The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      */
     peerIp: pulumi.Input<string>;
     /**

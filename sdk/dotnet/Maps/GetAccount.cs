@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Maps
         /// </summary>
         public readonly string SecondaryAccessKey;
         /// <summary>
-        /// The sku of the Azure Maps Account.
+        /// The SKU of the Azure Maps Account.
         /// </summary>
         public readonly string SkuName;
         public readonly ImmutableDictionary<string, string>? Tags;

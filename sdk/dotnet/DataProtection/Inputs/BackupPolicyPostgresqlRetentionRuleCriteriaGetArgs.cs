@@ -46,7 +46,7 @@ namespace Pulumi.Azure.DataProtection.Inputs
         private InputList<string>? _scheduledBackupTimes;
 
         /// <summary>
-        /// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Postgre Sql to be created.
+        /// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy PostgreSQL to be created.
         /// </summary>
         public InputList<string> ScheduledBackupTimes
         {

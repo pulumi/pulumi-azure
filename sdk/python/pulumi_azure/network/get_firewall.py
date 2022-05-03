@@ -127,7 +127,7 @@ class GetFirewallResult:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> str:
         """
-        The sku name of the Azure Firewall.
+        The SKU name of the Azure Firewall.
         """
         return pulumi.get(self, "sku_name")
 
@@ -135,7 +135,7 @@ class GetFirewallResult:
     @pulumi.getter(name="skuTier")
     def sku_tier(self) -> str:
         """
-        The sku tier of the Azure Firewall.
+        The SKU tier of the Azure Firewall.
         """
         return pulumi.get(self, "sku_tier")
 

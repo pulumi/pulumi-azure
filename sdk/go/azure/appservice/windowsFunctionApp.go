@@ -130,6 +130,8 @@ type WindowsFunctionApp struct {
 	SiteConfig WindowsFunctionAppSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below.
 	SiteCredentials WindowsFunctionAppSiteCredentialArrayOutput `pulumi:"siteCredentials"`
+	// A `stickySettings` block as defined below.
+	StickySettings WindowsFunctionAppStickySettingsPtrOutput `pulumi:"stickySettings"`
 	// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App.
@@ -234,6 +236,8 @@ type windowsFunctionAppState struct {
 	SiteConfig *WindowsFunctionAppSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below.
 	SiteCredentials []WindowsFunctionAppSiteCredential `pulumi:"siteCredentials"`
+	// A `stickySettings` block as defined below.
+	StickySettings *WindowsFunctionAppStickySettings `pulumi:"stickySettings"`
 	// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App.
@@ -301,6 +305,8 @@ type WindowsFunctionAppState struct {
 	SiteConfig WindowsFunctionAppSiteConfigPtrInput
 	// A `siteCredential` block as defined below.
 	SiteCredentials WindowsFunctionAppSiteCredentialArrayInput
+	// A `stickySettings` block as defined below.
+	StickySettings WindowsFunctionAppStickySettingsPtrInput
 	// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App.
@@ -356,6 +362,8 @@ type windowsFunctionAppArgs struct {
 	ServicePlanId string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig WindowsFunctionAppSiteConfig `pulumi:"siteConfig"`
+	// A `stickySettings` block as defined below.
+	StickySettings *WindowsFunctionAppStickySettings `pulumi:"stickySettings"`
 	// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App.
@@ -408,6 +416,8 @@ type WindowsFunctionAppArgs struct {
 	ServicePlanId pulumi.StringInput
 	// A `siteConfig` block as defined below.
 	SiteConfig WindowsFunctionAppSiteConfigInput
+	// A `stickySettings` block as defined below.
+	StickySettings WindowsFunctionAppStickySettingsPtrInput
 	// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App.

@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.VirtualHubRoute>> Routes { get; private set; } = null!;
 
         /// <summary>
-        /// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+        /// The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+        /// The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+        /// The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

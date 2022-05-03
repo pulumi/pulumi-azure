@@ -56,11 +56,11 @@ export interface GetWorkflowResult {
      */
     readonly accessEndpoint: string;
     /**
-     * The list of access endpoint ip addresses of connector.
+     * The list of access endpoint IP addresses of connector.
      */
     readonly connectorEndpointIpAddresses: string[];
     /**
-     * The list of outgoing ip addresses of connector.
+     * The list of outgoing IP addresses of connector.
      */
     readonly connectorOutboundIpAddresses: string[];
     /**
@@ -90,11 +90,11 @@ export interface GetWorkflowResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The list of access endpoint ip addresses of workflow.
+     * The list of access endpoint IP addresses of workflow.
      */
     readonly workflowEndpointIpAddresses: string[];
     /**
-     * The list of outgoing ip addresses of workflow.
+     * The list of outgoing IP addresses of workflow.
      */
     readonly workflowOutboundIpAddresses: string[];
     /**

@@ -118,7 +118,7 @@ type VirtualNetworkGateway struct {
 
 	// If `true`, an active-active Virtual Network Gateway
 	// will be created. An active-active gateway requires a `HighPerformance` or an
-	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+	// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolOutput `pulumi:"activeActive"`
 	// A block of `bgpSettings`.
@@ -159,8 +159,8 @@ type VirtualNetworkGateway struct {
 	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
 	// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
 	// `generation` arguments.
-	// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-	// sku is only supported by an `ExpressRoute` gateway.
+	// A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+	// SKU is only supported by an `ExpressRoute` gateway.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -219,7 +219,7 @@ func GetVirtualNetworkGateway(ctx *pulumi.Context,
 type virtualNetworkGatewayState struct {
 	// If `true`, an active-active Virtual Network Gateway
 	// will be created. An active-active gateway requires a `HighPerformance` or an
-	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+	// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive *bool `pulumi:"activeActive"`
 	// A block of `bgpSettings`.
@@ -260,8 +260,8 @@ type virtualNetworkGatewayState struct {
 	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
 	// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
 	// `generation` arguments.
-	// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-	// sku is only supported by an `ExpressRoute` gateway.
+	// A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+	// SKU is only supported by an `ExpressRoute` gateway.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -280,7 +280,7 @@ type virtualNetworkGatewayState struct {
 type VirtualNetworkGatewayState struct {
 	// If `true`, an active-active Virtual Network Gateway
 	// will be created. An active-active gateway requires a `HighPerformance` or an
-	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+	// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolPtrInput
 	// A block of `bgpSettings`.
@@ -321,8 +321,8 @@ type VirtualNetworkGatewayState struct {
 	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
 	// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
 	// `generation` arguments.
-	// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-	// sku is only supported by an `ExpressRoute` gateway.
+	// A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+	// SKU is only supported by an `ExpressRoute` gateway.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -345,7 +345,7 @@ func (VirtualNetworkGatewayState) ElementType() reflect.Type {
 type virtualNetworkGatewayArgs struct {
 	// If `true`, an active-active Virtual Network Gateway
 	// will be created. An active-active gateway requires a `HighPerformance` or an
-	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+	// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive *bool `pulumi:"activeActive"`
 	// A block of `bgpSettings`.
@@ -386,8 +386,8 @@ type virtualNetworkGatewayArgs struct {
 	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
 	// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
 	// `generation` arguments.
-	// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-	// sku is only supported by an `ExpressRoute` gateway.
+	// A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+	// SKU is only supported by an `ExpressRoute` gateway.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -407,7 +407,7 @@ type virtualNetworkGatewayArgs struct {
 type VirtualNetworkGatewayArgs struct {
 	// If `true`, an active-active Virtual Network Gateway
 	// will be created. An active-active gateway requires a `HighPerformance` or an
-	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+	// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolPtrInput
 	// A block of `bgpSettings`.
@@ -448,8 +448,8 @@ type VirtualNetworkGatewayArgs struct {
 	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
 	// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
 	// `generation` arguments.
-	// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-	// sku is only supported by an `ExpressRoute` gateway.
+	// A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance`
+	// SKU is only supported by an `ExpressRoute` gateway.
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

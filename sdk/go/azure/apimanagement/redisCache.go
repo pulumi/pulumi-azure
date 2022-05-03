@@ -81,7 +81,7 @@ import (
 type RedisCache struct {
 	pulumi.CustomResourceState
 
-	// The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+	// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
 	ApiManagementId pulumi.StringOutput `pulumi:"apiManagementId"`
 	// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
 	CacheLocation pulumi.StringPtrOutput `pulumi:"cacheLocation"`
@@ -130,7 +130,7 @@ func GetRedisCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RedisCache resources.
 type redisCacheState struct {
-	// The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+	// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
 	ApiManagementId *string `pulumi:"apiManagementId"`
 	// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
 	CacheLocation *string `pulumi:"cacheLocation"`
@@ -145,7 +145,7 @@ type redisCacheState struct {
 }
 
 type RedisCacheState struct {
-	// The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+	// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
 	ApiManagementId pulumi.StringPtrInput
 	// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
 	CacheLocation pulumi.StringPtrInput
@@ -164,7 +164,7 @@ func (RedisCacheState) ElementType() reflect.Type {
 }
 
 type redisCacheArgs struct {
-	// The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+	// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
 	ApiManagementId string `pulumi:"apiManagementId"`
 	// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
 	CacheLocation *string `pulumi:"cacheLocation"`
@@ -180,7 +180,7 @@ type redisCacheArgs struct {
 
 // The set of arguments for constructing a RedisCache resource.
 type RedisCacheArgs struct {
-	// The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+	// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
 	ApiManagementId pulumi.StringInput
 	// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
 	CacheLocation pulumi.StringPtrInput

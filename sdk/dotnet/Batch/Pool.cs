@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Batch
         public Output<Outputs.PoolNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Sku of the node agents that will be created in the Batch pool.
+        /// Specifies the SKU of the node agents that will be created in the Batch pool.
         /// </summary>
         [Output("nodeAgentSkuId")]
         public Output<string> NodeAgentSkuId { get; private set; } = null!;
@@ -366,7 +366,7 @@ namespace Pulumi.Azure.Batch
         public Input<Inputs.PoolNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies the Sku of the node agents that will be created in the Batch pool.
+        /// Specifies the SKU of the node agents that will be created in the Batch pool.
         /// </summary>
         [Input("nodeAgentSkuId", required: true)]
         public Input<string> NodeAgentSkuId { get; set; } = null!;
@@ -484,7 +484,7 @@ namespace Pulumi.Azure.Batch
         public Input<Inputs.PoolNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies the Sku of the node agents that will be created in the Batch pool.
+        /// Specifies the SKU of the node agents that will be created in the Batch pool.
         /// </summary>
         [Input("nodeAgentSkuId")]
         public Input<string>? NodeAgentSkuId { get; set; }

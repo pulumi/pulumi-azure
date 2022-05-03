@@ -19,7 +19,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string> LinkedServiceName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the secret name in Azure Key Vault that stores the sas token.
+        /// Specifies the secret name in Azure Key Vault that stores the SAS token.
         /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;

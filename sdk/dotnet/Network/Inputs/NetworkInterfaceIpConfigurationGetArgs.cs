@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class NetworkInterfaceIpConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        /// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         /// </summary>
         [Input("gatewayLoadBalancerFrontendIpConfigurationId")]
         public Input<string>? GatewayLoadBalancerFrontendIpConfigurationId { get; set; }

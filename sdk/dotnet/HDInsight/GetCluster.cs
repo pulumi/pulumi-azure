@@ -172,7 +172,7 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         public readonly string Tier;
         /// <summary>
-        /// The minimal supported tls version.
+        /// The minimal supported TLS version.
         /// </summary>
         public readonly string TlsMinVersion;
 

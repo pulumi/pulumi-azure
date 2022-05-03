@@ -13,7 +13,7 @@ namespace Pulumi.Azure.MSSql.Inputs
     public sealed class VirtualMachineKeyVaultCredentialGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The azure Key Vault url. Changing this forces a new resource to be created.
+        /// The Azure Key Vault url. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultUrl", required: true)]
         public Input<string> KeyVaultUrl { get; set; } = null!;

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string? PublicAddressProvisioningType;
         /// <summary>
-        /// A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
+        /// A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> PublicIps;
         /// <summary>

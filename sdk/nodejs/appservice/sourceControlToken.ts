@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * App Service Source Github Tokens can be imported using the `resource id`, e.g.
+ * App Service Source GitHub Tokens can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:appservice/sourceControlToken:SourceControlToken example /providers/Microsoft.Web/sourcecontrols/GitHub

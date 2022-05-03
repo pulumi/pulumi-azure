@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<string>? _ipRules;
 
         /// <summary>
-        /// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        /// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         /// </summary>
         public InputList<string> IpRules
         {

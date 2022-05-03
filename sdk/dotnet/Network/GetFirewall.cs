@@ -148,11 +148,11 @@ namespace Pulumi.Azure.Network
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The sku name of the Azure Firewall.
+        /// The SKU name of the Azure Firewall.
         /// </summary>
         public readonly string SkuName;
         /// <summary>
-        /// The sku tier of the Azure Firewall.
+        /// The SKU tier of the Azure Firewall.
         /// </summary>
         public readonly string SkuTier;
         /// <summary>

@@ -22,11 +22,11 @@ export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeO
  */
 export interface GetPrivateCloudArgs {
     /**
-     * The name of this Vmware Private Cloud.
+     * The name of this VMware Private Cloud.
      */
     name: string;
     /**
-     * The name of the Resource Group where the Vmware Private Cloud exists.
+     * The name of the Resource Group where the VMware Private Cloud exists.
      */
     resourceGroupName: string;
 }
@@ -48,11 +48,11 @@ export interface GetPrivateCloudResult {
      */
     readonly id: string;
     /**
-     * Is the Vmware Private Cluster connected to the internet?
+     * Is the VMware Private Cluster connected to the internet?
      */
     readonly internetConnectionEnabled: boolean;
     /**
-     * The Azure Region where the Vmware Private Cloud exists.
+     * The Azure Region where the VMware Private Cloud exists.
      */
     readonly location: string;
     /**
@@ -65,7 +65,7 @@ export interface GetPrivateCloudResult {
     readonly managementSubnetCidr: string;
     readonly name: string;
     /**
-     * The subnet cidr of the Vmware Private Cloud.
+     * The subnet CIDR of the VMware Private Cloud.
      */
     readonly networkSubnetCidr: string;
     /**
@@ -86,7 +86,7 @@ export interface GetPrivateCloudResult {
      */
     readonly skuName: string;
     /**
-     * A mapping of tags assigned to the Vmware Private Cloud.
+     * A mapping of tags assigned to the VMware Private Cloud.
      */
     readonly tags: {[key: string]: string};
     /**
@@ -112,11 +112,11 @@ export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pu
  */
 export interface GetPrivateCloudOutputArgs {
     /**
-     * The name of this Vmware Private Cloud.
+     * The name of this VMware Private Cloud.
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Vmware Private Cloud exists.
+     * The name of the Resource Group where the VMware Private Cloud exists.
      */
     resourceGroupName: pulumi.Input<string>;
 }

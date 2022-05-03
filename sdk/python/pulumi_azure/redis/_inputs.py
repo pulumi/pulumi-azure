@@ -82,10 +82,10 @@ class CacheRedisConfigurationArgs:
         :param pulumi.Input[str] maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
         :param pulumi.Input[int] maxmemory_reserved: Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
         :param pulumi.Input[str] notify_keyspace_events: Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-        :param pulumi.Input[bool] rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKU's.
-        :param pulumi.Input[int] rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
-        :param pulumi.Input[int] rdb_backup_max_snapshot_count: The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
-        :param pulumi.Input[str] rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+        :param pulumi.Input[bool] rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKUs.
+        :param pulumi.Input[int] rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+        :param pulumi.Input[int] rdb_backup_max_snapshot_count: The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
+        :param pulumi.Input[str] rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
         """
         if aof_backup_enabled is not None:
             pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
@@ -240,7 +240,7 @@ class CacheRedisConfigurationArgs:
     @pulumi.getter(name="rdbBackupEnabled")
     def rdb_backup_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Backup Enabled? Only supported on Premium SKU's.
+        Is Backup Enabled? Only supported on Premium SKUs.
         """
         return pulumi.get(self, "rdb_backup_enabled")
 
@@ -252,7 +252,7 @@ class CacheRedisConfigurationArgs:
     @pulumi.getter(name="rdbBackupFrequency")
     def rdb_backup_frequency(self) -> Optional[pulumi.Input[int]]:
         """
-        The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+        The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
         """
         return pulumi.get(self, "rdb_backup_frequency")
 
@@ -264,7 +264,7 @@ class CacheRedisConfigurationArgs:
     @pulumi.getter(name="rdbBackupMaxSnapshotCount")
     def rdb_backup_max_snapshot_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+        The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
         """
         return pulumi.get(self, "rdb_backup_max_snapshot_count")
 
@@ -276,7 +276,7 @@ class CacheRedisConfigurationArgs:
     @pulumi.getter(name="rdbStorageConnectionString")
     def rdb_storage_connection_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+        The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
         """
         return pulumi.get(self, "rdb_storage_connection_string")
 

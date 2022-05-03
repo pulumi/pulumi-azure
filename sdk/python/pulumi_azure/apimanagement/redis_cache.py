@@ -21,7 +21,7 @@ class RedisCacheArgs:
                  redis_cache_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RedisCache resource.
-        :param pulumi.Input[str] api_management_id: The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+        :param pulumi.Input[str] api_management_id: The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         :param pulumi.Input[str] connection_string: The connection string to the Cache for Redis.
         :param pulumi.Input[str] cache_location: The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
         :param pulumi.Input[str] description: The description of the API Management Redis Cache.
@@ -43,7 +43,7 @@ class RedisCacheArgs:
     @pulumi.getter(name="apiManagementId")
     def api_management_id(self) -> pulumi.Input[str]:
         """
-        The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+        The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         """
         return pulumi.get(self, "api_management_id")
 
@@ -123,7 +123,7 @@ class _RedisCacheState:
                  redis_cache_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RedisCache resources.
-        :param pulumi.Input[str] api_management_id: The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+        :param pulumi.Input[str] api_management_id: The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         :param pulumi.Input[str] cache_location: The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
         :param pulumi.Input[str] connection_string: The connection string to the Cache for Redis.
         :param pulumi.Input[str] description: The description of the API Management Redis Cache.
@@ -147,7 +147,7 @@ class _RedisCacheState:
     @pulumi.getter(name="apiManagementId")
     def api_management_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+        The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         """
         return pulumi.get(self, "api_management_id")
 
@@ -271,7 +271,7 @@ class RedisCache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_management_id: The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+        :param pulumi.Input[str] api_management_id: The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         :param pulumi.Input[str] cache_location: The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
         :param pulumi.Input[str] connection_string: The connection string to the Cache for Redis.
         :param pulumi.Input[str] description: The description of the API Management Redis Cache.
@@ -391,7 +391,7 @@ class RedisCache(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_management_id: The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+        :param pulumi.Input[str] api_management_id: The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         :param pulumi.Input[str] cache_location: The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
         :param pulumi.Input[str] connection_string: The connection string to the Cache for Redis.
         :param pulumi.Input[str] description: The description of the API Management Redis Cache.
@@ -414,7 +414,7 @@ class RedisCache(pulumi.CustomResource):
     @pulumi.getter(name="apiManagementId")
     def api_management_id(self) -> pulumi.Output[str]:
         """
-        The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+        The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         """
         return pulumi.get(self, "api_management_id")
 

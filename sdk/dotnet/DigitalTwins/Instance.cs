@@ -52,7 +52,7 @@ namespace Pulumi.Azure.DigitalTwins
     public partial class Instance : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Api endpoint to work with this Digital Twins instance.
+        /// The API endpoint to work with this Digital Twins instance.
         /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.DigitalTwins
     public sealed class InstanceState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Api endpoint to work with this Digital Twins instance.
+        /// The API endpoint to work with this Digital Twins instance.
         /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }

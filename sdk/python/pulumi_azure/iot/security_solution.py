@@ -41,7 +41,7 @@ class SecuritySolutionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events_to_exports: A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the Log Analytics Workspace ID to which the security data will be sent.
-        :param pulumi.Input[bool] log_unmasked_ips_enabled: Should ip addressed be unmasked in the log? Defaults to `false`.
+        :param pulumi.Input[bool] log_unmasked_ips_enabled: Should IP addressed be unmasked in the log? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_for_resources: An Azure Resource Graph query used to set the resources monitored.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] query_subscription_ids: A list of subscription Ids on which the user defined resources query should be executed.
@@ -188,7 +188,7 @@ class SecuritySolutionArgs:
     @pulumi.getter(name="logUnmaskedIpsEnabled")
     def log_unmasked_ips_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should ip addressed be unmasked in the log? Defaults to `false`.
+        Should IP addressed be unmasked in the log? Defaults to `false`.
         """
         return pulumi.get(self, "log_unmasked_ips_enabled")
 
@@ -285,7 +285,7 @@ class _SecuritySolutionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iothub_ids: Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the Log Analytics Workspace ID to which the security data will be sent.
-        :param pulumi.Input[bool] log_unmasked_ips_enabled: Should ip addressed be unmasked in the log? Defaults to `false`.
+        :param pulumi.Input[bool] log_unmasked_ips_enabled: Should IP addressed be unmasked in the log? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_for_resources: An Azure Resource Graph query used to set the resources monitored.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] query_subscription_ids: A list of subscription Ids on which the user defined resources query should be executed.
@@ -424,7 +424,7 @@ class _SecuritySolutionState:
     @pulumi.getter(name="logUnmaskedIpsEnabled")
     def log_unmasked_ips_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should ip addressed be unmasked in the log? Defaults to `false`.
+        Should IP addressed be unmasked in the log? Defaults to `false`.
         """
         return pulumi.get(self, "log_unmasked_ips_enabled")
 
@@ -568,7 +568,7 @@ class SecuritySolution(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iothub_ids: Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the Log Analytics Workspace ID to which the security data will be sent.
-        :param pulumi.Input[bool] log_unmasked_ips_enabled: Should ip addressed be unmasked in the log? Defaults to `false`.
+        :param pulumi.Input[bool] log_unmasked_ips_enabled: Should IP addressed be unmasked in the log? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_for_resources: An Azure Resource Graph query used to set the resources monitored.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] query_subscription_ids: A list of subscription Ids on which the user defined resources query should be executed.
@@ -717,7 +717,7 @@ class SecuritySolution(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iothub_ids: Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the Log Analytics Workspace ID to which the security data will be sent.
-        :param pulumi.Input[bool] log_unmasked_ips_enabled: Should ip addressed be unmasked in the log? Defaults to `false`.
+        :param pulumi.Input[bool] log_unmasked_ips_enabled: Should IP addressed be unmasked in the log? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query_for_resources: An Azure Resource Graph query used to set the resources monitored.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] query_subscription_ids: A list of subscription Ids on which the user defined resources query should be executed.
@@ -814,7 +814,7 @@ class SecuritySolution(pulumi.CustomResource):
     @pulumi.getter(name="logUnmaskedIpsEnabled")
     def log_unmasked_ips_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should ip addressed be unmasked in the log? Defaults to `false`.
+        Should IP addressed be unmasked in the log? Defaults to `false`.
         """
         return pulumi.get(self, "log_unmasked_ips_enabled")
 

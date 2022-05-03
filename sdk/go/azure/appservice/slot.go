@@ -12,7 +12,7 @@ import (
 )
 
 // ## Example Usage
-// ### Net 4.X)
+// ### NET 4.X)
 //
 // ```go
 // package main

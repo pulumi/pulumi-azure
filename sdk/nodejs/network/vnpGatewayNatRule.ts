@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a VPN Gateway Nat Rule.
+ * Manages a VPN Gateway NAT Rule.
  *
  * ## Example Usage
  *
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPN Gateway Nat Rules can be imported using the `resource id`, e.g.
+ * VPN Gateway NAT Rules can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:network/vnpGatewayNatRule:VnpGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/vpnGateways/vpnGateway1/natRules/natRule1
@@ -74,35 +74,35 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
     }
 
     /**
-     * A list of CIDR Ranges which are used for external mapping of the VPN Gateway Nat Rule.
+     * A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
      */
     public readonly externalAddressSpaceMappings!: pulumi.Output<string[]>;
     /**
-     * A list of CIDR Ranges which are used for internal mapping of the VPN Gateway Nat Rule.
+     * A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
      */
     public readonly internalAddressSpaceMappings!: pulumi.Output<string[]>;
     /**
-     * The ID of the IP Configuration this VPN Gateway Nat Rule applies to. Possible values are `Instance0` and `Instance1`.
+     * The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
      */
     public readonly ipConfigurationId!: pulumi.Output<string | undefined>;
     /**
-     * The source Nat direction of the VPN Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
+     * The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
      */
     public readonly mode!: pulumi.Output<string | undefined>;
     /**
-     * The name which should be used for this VPN Gateway Nat Rule. Changing this forces a new resource to be created.
+     * The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Name of the Resource Group in which this VPN Gateway Nat Rule should be created. Changing this forces a new resource to be created.
+     * The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The type of the VPN Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
+     * The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the VPN Gateway that this VPN Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
+     * The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
      */
     public readonly vpnGatewayId!: pulumi.Output<string>;
 
@@ -160,35 +160,35 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
  */
 export interface VnpGatewayNatRuleState {
     /**
-     * A list of CIDR Ranges which are used for external mapping of the VPN Gateway Nat Rule.
+     * A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
      */
     externalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of CIDR Ranges which are used for internal mapping of the VPN Gateway Nat Rule.
+     * A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
      */
     internalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ID of the IP Configuration this VPN Gateway Nat Rule applies to. Possible values are `Instance0` and `Instance1`.
+     * The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
      */
     ipConfigurationId?: pulumi.Input<string>;
     /**
-     * The source Nat direction of the VPN Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
+     * The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
      */
     mode?: pulumi.Input<string>;
     /**
-     * The name which should be used for this VPN Gateway Nat Rule. Changing this forces a new resource to be created.
+     * The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The Name of the Resource Group in which this VPN Gateway Nat Rule should be created. Changing this forces a new resource to be created.
+     * The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The type of the VPN Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
+     * The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      */
     type?: pulumi.Input<string>;
     /**
-     * The ID of the VPN Gateway that this VPN Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
+     * The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
      */
     vpnGatewayId?: pulumi.Input<string>;
 }
@@ -198,35 +198,35 @@ export interface VnpGatewayNatRuleState {
  */
 export interface VnpGatewayNatRuleArgs {
     /**
-     * A list of CIDR Ranges which are used for external mapping of the VPN Gateway Nat Rule.
+     * A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
      */
     externalAddressSpaceMappings: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of CIDR Ranges which are used for internal mapping of the VPN Gateway Nat Rule.
+     * A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
      */
     internalAddressSpaceMappings: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ID of the IP Configuration this VPN Gateway Nat Rule applies to. Possible values are `Instance0` and `Instance1`.
+     * The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
      */
     ipConfigurationId?: pulumi.Input<string>;
     /**
-     * The source Nat direction of the VPN Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
+     * The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
      */
     mode?: pulumi.Input<string>;
     /**
-     * The name which should be used for this VPN Gateway Nat Rule. Changing this forces a new resource to be created.
+     * The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The Name of the Resource Group in which this VPN Gateway Nat Rule should be created. Changing this forces a new resource to be created.
+     * The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The type of the VPN Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
+     * The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      */
     type?: pulumi.Input<string>;
     /**
-     * The ID of the VPN Gateway that this VPN Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
+     * The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
      */
     vpnGatewayId: pulumi.Input<string>;
 }

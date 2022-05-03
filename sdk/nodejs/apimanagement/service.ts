@@ -67,7 +67,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly certificates!: pulumi.Output<outputs.apimanagement.ServiceCertificate[] | undefined>;
     /**
-     * Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+     * Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
      */
     public readonly clientCertificateEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -310,7 +310,7 @@ export interface ServiceState {
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
     /**
-     * Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+     * Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
      */
     clientCertificateEnabled?: pulumi.Input<boolean>;
     /**
@@ -453,7 +453,7 @@ export interface ServiceArgs {
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
     /**
-     * Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+     * Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
      */
     clientCertificateEnabled?: pulumi.Input<boolean>;
     /**

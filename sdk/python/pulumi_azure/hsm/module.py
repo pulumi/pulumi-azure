@@ -27,7 +27,7 @@ class ModuleArgs:
         The set of arguments for constructing a Module resource.
         :param pulumi.Input['ModuleNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+        :param pulumi.Input[str] sku_name: The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] location: The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -76,7 +76,7 @@ class ModuleArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+        The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -162,7 +162,7 @@ class _ModuleState:
         :param pulumi.Input[str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input['ModuleNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+        :param pulumi.Input[str] sku_name: The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -236,7 +236,7 @@ class _ModuleState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+        The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -379,7 +379,7 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[pulumi.InputType['ModuleNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+        :param pulumi.Input[str] sku_name: The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -546,7 +546,7 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[pulumi.InputType['ModuleNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+        :param pulumi.Input[str] sku_name: The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -601,7 +601,7 @@ class Module(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+        The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "sku_name")
 

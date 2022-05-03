@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Storage
         public bool? HttpsOnly { get; set; }
 
         /// <summary>
-        /// Single ipv4 address or range (connected with a dash) of ipv4 addresses.
+        /// Single IPv4 address or range (connected with a dash) of IPv4 addresses.
         /// </summary>
         [Input("ipAddress")]
         public string? IpAddress { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// Single ipv4 address or range (connected with a dash) of ipv4 addresses.
+        /// Single IPv4 address or range (connected with a dash) of IPv4 addresses.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }

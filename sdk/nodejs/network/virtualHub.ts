@@ -88,7 +88,7 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public readonly routes!: pulumi.Output<outputs.network.VirtualHubRoute[] | undefined>;
     /**
-     * The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+     * The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
@@ -183,7 +183,7 @@ export interface VirtualHubState {
      */
     routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
     /**
-     * The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+     * The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -229,7 +229,7 @@ export interface VirtualHubArgs {
      */
     routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
     /**
-     * The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+     * The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**

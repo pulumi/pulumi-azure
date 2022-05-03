@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Lb.Outputs
     public sealed class LoadBalancerFrontendIpConfiguration
     {
         /// <summary>
-        /// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        /// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         /// </summary>
         public readonly string? GatewayLoadBalancerFrontendIpConfigurationId;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Lb.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerRules;
         /// <summary>
-        /// Specifies the name of the frontend ip configuration.
+        /// Specifies the name of the frontend IP configuration.
         /// </summary>
         public readonly string Name;
         /// <summary>

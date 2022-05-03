@@ -80,7 +80,7 @@ class GetWorkflowResult:
     @pulumi.getter(name="connectorEndpointIpAddresses")
     def connector_endpoint_ip_addresses(self) -> Sequence[str]:
         """
-        The list of access endpoint ip addresses of connector.
+        The list of access endpoint IP addresses of connector.
         """
         return pulumi.get(self, "connector_endpoint_ip_addresses")
 
@@ -88,7 +88,7 @@ class GetWorkflowResult:
     @pulumi.getter(name="connectorOutboundIpAddresses")
     def connector_outbound_ip_addresses(self) -> Sequence[str]:
         """
-        The list of outgoing ip addresses of connector.
+        The list of outgoing IP addresses of connector.
         """
         return pulumi.get(self, "connector_outbound_ip_addresses")
 
@@ -154,7 +154,7 @@ class GetWorkflowResult:
     @pulumi.getter(name="workflowEndpointIpAddresses")
     def workflow_endpoint_ip_addresses(self) -> Sequence[str]:
         """
-        The list of access endpoint ip addresses of workflow.
+        The list of access endpoint IP addresses of workflow.
         """
         return pulumi.get(self, "workflow_endpoint_ip_addresses")
 
@@ -162,7 +162,7 @@ class GetWorkflowResult:
     @pulumi.getter(name="workflowOutboundIpAddresses")
     def workflow_outbound_ip_addresses(self) -> Sequence[str]:
         """
-        The list of outgoing ip addresses of workflow.
+        The list of outgoing IP addresses of workflow.
         """
         return pulumi.get(self, "workflow_outbound_ip_addresses")
 

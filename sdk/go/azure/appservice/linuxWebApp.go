@@ -115,6 +115,8 @@ type LinuxWebApp struct {
 	SiteConfig LinuxWebAppSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below.
 	SiteCredentials LinuxWebAppSiteCredentialArrayOutput `pulumi:"siteCredentials"`
+	// A `stickySettings` block as defined below.
+	StickySettings LinuxWebAppStickySettingsPtrOutput `pulumi:"stickySettings"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
@@ -209,6 +211,8 @@ type linuxWebAppState struct {
 	SiteConfig *LinuxWebAppSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below.
 	SiteCredentials []LinuxWebAppSiteCredential `pulumi:"siteCredentials"`
+	// A `stickySettings` block as defined below.
+	StickySettings *LinuxWebAppStickySettings `pulumi:"stickySettings"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
@@ -266,6 +270,8 @@ type LinuxWebAppState struct {
 	SiteConfig LinuxWebAppSiteConfigPtrInput
 	// A `siteCredential` block as defined below.
 	SiteCredentials LinuxWebAppSiteCredentialArrayInput
+	// A `stickySettings` block as defined below.
+	StickySettings LinuxWebAppStickySettingsPtrInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Linux Web App.
@@ -311,6 +317,8 @@ type linuxWebAppArgs struct {
 	ServicePlanId string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSiteConfig `pulumi:"siteConfig"`
+	// A `stickySettings` block as defined below.
+	StickySettings *LinuxWebAppStickySettings `pulumi:"stickySettings"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
@@ -353,6 +361,8 @@ type LinuxWebAppArgs struct {
 	ServicePlanId pulumi.StringInput
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSiteConfigInput
+	// A `stickySettings` block as defined below.
+	StickySettings LinuxWebAppStickySettingsPtrInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Linux Web App.

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql
 {
     /// <summary>
-    /// Manages a Ms Sql Server Extended Auditing Policy.
+    /// Manages a MS SQL Server Extended Auditing Policy.
     /// 
     /// ## Example Usage
     /// 
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// ## Import
     /// 
-    /// Ms Sql Server Extended Auditing Policys can be imported using the `resource id`, e.g.
+    /// MS SQL Server Extended Auditing Policies can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/extendedAuditingSettings/default
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.MSSql
         public Output<int?> RetentionInDays { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+        /// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? RetentionInDays { get; set; }
 
         /// <summary>
-        /// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+        /// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? RetentionInDays { get; set; }
 
         /// <summary>
-        /// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+        /// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }

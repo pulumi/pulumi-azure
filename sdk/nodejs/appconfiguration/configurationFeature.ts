@@ -91,7 +91,7 @@ export class ConfigurationFeature extends pulumi.CustomResource {
      */
     public readonly locked!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+     * The name of the App Configuration Feature. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export interface ConfigurationFeatureState {
      */
     locked?: pulumi.Input<boolean>;
     /**
-     * The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+     * The name of the App Configuration Feature. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface ConfigurationFeatureArgs {
      */
     locked?: pulumi.Input<boolean>;
     /**
-     * The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+     * The name of the App Configuration Feature. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

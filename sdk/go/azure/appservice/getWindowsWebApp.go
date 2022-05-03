@@ -104,6 +104,8 @@ type LookupWindowsWebAppResult struct {
 	SiteConfigs []GetWindowsWebAppSiteConfig `pulumi:"siteConfigs"`
 	// A `siteCredential` block as defined below.
 	SiteCredentials []GetWindowsWebAppSiteCredential `pulumi:"siteCredentials"`
+	// A `stickySettings` block as defined below.
+	StickySettings []GetWindowsWebAppStickySetting `pulumi:"stickySettings"`
 	// A `storageAccount` block as defined below.
 	StorageAccounts []GetWindowsWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags assigned to the Windows Web App.
@@ -268,6 +270,11 @@ func (o LookupWindowsWebAppResultOutput) SiteConfigs() GetWindowsWebAppSiteConfi
 // A `siteCredential` block as defined below.
 func (o LookupWindowsWebAppResultOutput) SiteCredentials() GetWindowsWebAppSiteCredentialArrayOutput {
 	return o.ApplyT(func(v LookupWindowsWebAppResult) []GetWindowsWebAppSiteCredential { return v.SiteCredentials }).(GetWindowsWebAppSiteCredentialArrayOutput)
+}
+
+// A `stickySettings` block as defined below.
+func (o LookupWindowsWebAppResultOutput) StickySettings() GetWindowsWebAppStickySettingArrayOutput {
+	return o.ApplyT(func(v LookupWindowsWebAppResult) []GetWindowsWebAppStickySetting { return v.StickySettings }).(GetWindowsWebAppStickySettingArrayOutput)
 }
 
 // A `storageAccount` block as defined below.

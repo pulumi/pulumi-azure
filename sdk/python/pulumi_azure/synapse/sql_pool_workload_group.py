@@ -25,11 +25,11 @@ class SqlPoolWorkloadGroupArgs:
         The set of arguments for constructing a SqlPoolWorkloadGroup resource.
         :param pulumi.Input[int] max_resource_percent: The workload group cap percentage resource.
         :param pulumi.Input[int] min_resource_percent: The workload group minimum percentage resource.
-        :param pulumi.Input[str] sql_pool_id: The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        :param pulumi.Input[str] sql_pool_id: The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         :param pulumi.Input[str] importance: The workload group importance level.
         :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage.
         :param pulumi.Input[float] min_resource_percent_per_request: The workload group request minimum grant percentage.
-        :param pulumi.Input[str] name: The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         :param pulumi.Input[int] query_execution_timeout_in_seconds: The workload group query execution timeout.
         """
         pulumi.set(__self__, "max_resource_percent", max_resource_percent)
@@ -74,7 +74,7 @@ class SqlPoolWorkloadGroupArgs:
     @pulumi.getter(name="sqlPoolId")
     def sql_pool_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
         return pulumi.get(self, "sql_pool_id")
 
@@ -122,7 +122,7 @@ class SqlPoolWorkloadGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
         return pulumi.get(self, "name")
 
@@ -161,9 +161,9 @@ class _SqlPoolWorkloadGroupState:
         :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage.
         :param pulumi.Input[int] min_resource_percent: The workload group minimum percentage resource.
         :param pulumi.Input[float] min_resource_percent_per_request: The workload group request minimum grant percentage.
-        :param pulumi.Input[str] name: The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         :param pulumi.Input[int] query_execution_timeout_in_seconds: The workload group query execution timeout.
-        :param pulumi.Input[str] sql_pool_id: The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        :param pulumi.Input[str] sql_pool_id: The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
         if importance is not None:
             pulumi.set(__self__, "importance", importance)
@@ -246,7 +246,7 @@ class _SqlPoolWorkloadGroupState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
         return pulumi.get(self, "name")
 
@@ -270,7 +270,7 @@ class _SqlPoolWorkloadGroupState:
     @pulumi.getter(name="sqlPoolId")
     def sql_pool_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
         return pulumi.get(self, "sql_pool_id")
 
@@ -294,7 +294,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
                  sql_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Synapse Sql Pool Workload Group.
+        Manages a Synapse SQL Pool Workload Group.
 
         ## Example Usage
 
@@ -332,7 +332,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
 
         ## Import
 
-        Synapse Sql Pool Workload Groups can be imported using the `resource id`, e.g.
+        Synapse SQL Pool Workload Groups can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/workloadGroups/workloadGroup1
@@ -345,9 +345,9 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage.
         :param pulumi.Input[int] min_resource_percent: The workload group minimum percentage resource.
         :param pulumi.Input[float] min_resource_percent_per_request: The workload group request minimum grant percentage.
-        :param pulumi.Input[str] name: The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         :param pulumi.Input[int] query_execution_timeout_in_seconds: The workload group query execution timeout.
-        :param pulumi.Input[str] sql_pool_id: The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        :param pulumi.Input[str] sql_pool_id: The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
         ...
     @overload
@@ -356,7 +356,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
                  args: SqlPoolWorkloadGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Synapse Sql Pool Workload Group.
+        Manages a Synapse SQL Pool Workload Group.
 
         ## Example Usage
 
@@ -394,7 +394,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
 
         ## Import
 
-        Synapse Sql Pool Workload Groups can be imported using the `resource id`, e.g.
+        Synapse SQL Pool Workload Groups can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/workloadGroups/workloadGroup1
@@ -479,9 +479,9 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage.
         :param pulumi.Input[int] min_resource_percent: The workload group minimum percentage resource.
         :param pulumi.Input[float] min_resource_percent_per_request: The workload group request minimum grant percentage.
-        :param pulumi.Input[str] name: The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         :param pulumi.Input[int] query_execution_timeout_in_seconds: The workload group query execution timeout.
-        :param pulumi.Input[str] sql_pool_id: The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        :param pulumi.Input[str] sql_pool_id: The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -541,7 +541,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
         return pulumi.get(self, "name")
 
@@ -557,7 +557,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
     @pulumi.getter(name="sqlPoolId")
     def sql_pool_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+        The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         """
         return pulumi.get(self, "sql_pool_id")
 

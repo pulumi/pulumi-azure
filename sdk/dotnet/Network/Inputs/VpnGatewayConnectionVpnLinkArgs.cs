@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _egressNatRuleIds;
 
         /// <summary>
-        /// A list of the egress Nat Rule Ids.
+        /// A list of the egress NAT Rule Ids.
         /// </summary>
         public InputList<string> EgressNatRuleIds
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _ingressNatRuleIds;
 
         /// <summary>
-        /// A list of the ingress Nat Rule Ids.
+        /// A list of the ingress NAT Rule Ids.
         /// </summary>
         public InputList<string> IngressNatRuleIds
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// Whether to use local azure ip to initiate connection? Defaults to `false`.
+        /// Whether to use local Azure IP to initiate connection? Defaults to `false`.
         /// </summary>
         [Input("localAzureIpAddressEnabled")]
         public Input<bool>? LocalAzureIpAddressEnabled { get; set; }

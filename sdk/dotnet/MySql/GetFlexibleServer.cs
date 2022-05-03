@@ -159,7 +159,7 @@ namespace Pulumi.Azure.MySql
         public readonly ImmutableArray<Outputs.GetFlexibleServerMaintenanceWindowResult> MaintenanceWindows;
         public readonly string Name;
         /// <summary>
-        /// The ID of the private dns zone of the MySQL Flexible Server.
+        /// The ID of the Private DNS zone of the MySQL Flexible Server.
         /// </summary>
         public readonly string PrivateDnsZoneId;
         /// <summary>

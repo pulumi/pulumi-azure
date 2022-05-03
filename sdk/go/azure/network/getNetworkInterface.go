@@ -65,7 +65,7 @@ type LookupNetworkInterfaceResult struct {
 	EnableIpForwarding bool `pulumi:"enableIpForwarding"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The internal dns name label of the specified Network Interface.
+	// The internal DNS name label of the specified Network Interface.
 	InternalDnsNameLabel string `pulumi:"internalDnsNameLabel"`
 	// One or more `ipConfiguration` blocks as defined below.
 	IpConfigurations []GetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
@@ -79,7 +79,7 @@ type LookupNetworkInterfaceResult struct {
 	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`
 	// The Private IP Address assigned to this Network Interface.
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
-	// The list of private ip addresses associates to the specified Network Interface.
+	// The list of private IP addresses associates to the specified Network Interface.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
 	ResourceGroupName  string   `pulumi:"resourceGroupName"`
 	// List the tags associated to the specified Network Interface.
@@ -149,7 +149,7 @@ func (o LookupNetworkInterfaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The internal dns name label of the specified Network Interface.
+// The internal DNS name label of the specified Network Interface.
 func (o LookupNetworkInterfaceResultOutput) InternalDnsNameLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.InternalDnsNameLabel }).(pulumi.StringOutput)
 }
@@ -184,7 +184,7 @@ func (o LookupNetworkInterfaceResultOutput) PrivateIpAddress() pulumi.StringOutp
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
-// The list of private ip addresses associates to the specified Network Interface.
+// The list of private IP addresses associates to the specified Network Interface.
 func (o LookupNetworkInterfaceResultOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
 }

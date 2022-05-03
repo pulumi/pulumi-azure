@@ -1122,6 +1122,7 @@
         "streamanalytics/jobSchedule.ts",
         "streamanalytics/managedPrivateEndpoint.ts",
         "streamanalytics/outputBlob.ts",
+        "streamanalytics/outputCosmosdb.ts",
         "streamanalytics/outputEventHub.ts",
         "streamanalytics/outputFunction.ts",
         "streamanalytics/outputMssql.ts",

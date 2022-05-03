@@ -22,11 +22,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? DockerImageTag;
         /// <summary>
-        /// The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+        /// The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
         /// </summary>
         public readonly string? DotnetVersion;
         /// <summary>
-        /// The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        /// The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         /// </summary>
         public readonly string? JavaServer;
         /// <summary>

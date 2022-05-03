@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Bot
     public partial class ServiceAzureBot : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Application Insights Api Key to associate with this Azure Bot Service.
+        /// The Application Insights API Key to associate with this Azure Bot Service.
         /// </summary>
         [Output("developerAppInsightsApiKey")]
         public Output<string?> DeveloperAppInsightsApiKey { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Bot
     public sealed class ServiceAzureBotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Application Insights Api Key to associate with this Azure Bot Service.
+        /// The Application Insights API Key to associate with this Azure Bot Service.
         /// </summary>
         [Input("developerAppInsightsApiKey")]
         public Input<string>? DeveloperAppInsightsApiKey { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.Bot
     public sealed class ServiceAzureBotState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Application Insights Api Key to associate with this Azure Bot Service.
+        /// The Application Insights API Key to associate with this Azure Bot Service.
         /// </summary>
         [Input("developerAppInsightsApiKey")]
         public Input<string>? DeveloperAppInsightsApiKey { get; set; }

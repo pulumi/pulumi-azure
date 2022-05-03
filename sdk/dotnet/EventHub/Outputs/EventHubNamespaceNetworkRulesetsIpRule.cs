@@ -18,7 +18,7 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// </summary>
         public readonly string? Action;
         /// <summary>
-        /// The ip mask to match on.
+        /// The IP mask to match on.
         /// </summary>
         public readonly string IpMask;
 

@@ -34,51 +34,6 @@ import (
 // 	})
 // }
 // ```
-// ## Attribues Reference
-//
-// * `id` - The SQL Managed Instance ID.
-//
-// * `fqdn` - The fully qualified domain name of the Azure Managed SQL Instance.
-//
-// * `location` - Location where the resource exists.
-//
-// * `skuName` - SKU Name for the SQL Managed Instance.
-//
-// * `vcores` - Number of cores assigned to your instance.
-//
-// * `storageSizeInGb` - Maximum storage space for your instance.
-//
-// * `licenseType` - Type of license the Managed Instance uses.
-//
-// * `administratorLogin` - The administrator login name for the new server.
-//
-// * `subnetId` - The subnet resource id that the SQL Managed Instance is associated with.
-//
-// * `collation` - Specifies how the SQL Managed Instance is collated.
-//
-// * `publicDataEndpointEnabled` - Is the public data endpoint enabled?
-//
-// * `minimumTlsVersion` - The Minimum TLS Version.
-//
-// * `proxyOverride` - How the SQL Managed Instance is accessed.
-//
-// * `timezoneId` - The TimeZone ID that the SQL Managed Instance is operating in.
-//
-// * `dnsZonePartnerId` - The ID of the Managed Instance which is sharing the DNS zone.
-//
-// * `identity` - An `identity` block as defined below.
-//
-// * `storageAccountType` - Storage account type used to store backups for this SQL Managed Instance.
-//
-// * `tags` - A mapping of tags assigned to the resource.
-//
-// ***
-//
-// The `identity` block exports the following:
-//
-// * `principalId` - The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
-//
-// * `tenantId` - The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 func GetSqlManagedInstance(ctx *pulumi.Context, args *GetSqlManagedInstanceArgs, opts ...pulumi.InvokeOption) (*GetSqlManagedInstanceResult, error) {
 	var rv GetSqlManagedInstanceResult
 	err := ctx.Invoke("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args, &rv, opts...)
@@ -93,33 +48,51 @@ type GetSqlManagedInstanceArgs struct {
 	// The name of the SQL Managed Instance.
 	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the SQL Managed Instance exists.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSqlManagedInstance.
 type GetSqlManagedInstanceResult struct {
+	// The administrator login name for the new server.
 	AdministratorLogin string `pulumi:"administratorLogin"`
-	Collation          string `pulumi:"collation"`
-	DnsZonePartnerId   string `pulumi:"dnsZonePartnerId"`
-	Fqdn               string `pulumi:"fqdn"`
+	// Specifies how the SQL Managed Instance is collated.
+	Collation string `pulumi:"collation"`
+	// The ID of the Managed Instance which is sharing the DNS zone.
+	DnsZonePartnerId string `pulumi:"dnsZonePartnerId"`
+	// The fully qualified domain name of the Azure Managed SQL Instance.
+	Fqdn string `pulumi:"fqdn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                        string                          `pulumi:"id"`
-	Identities                []GetSqlManagedInstanceIdentity `pulumi:"identities"`
-	LicenseType               string                          `pulumi:"licenseType"`
-	Location                  string                          `pulumi:"location"`
-	MinimumTlsVersion         string                          `pulumi:"minimumTlsVersion"`
-	Name                      string                          `pulumi:"name"`
-	ProxyOverride             string                          `pulumi:"proxyOverride"`
-	PublicDataEndpointEnabled bool                            `pulumi:"publicDataEndpointEnabled"`
-	ResourceGroupName         string                          `pulumi:"resourceGroupName"`
-	SkuName                   string                          `pulumi:"skuName"`
-	StorageAccountType        string                          `pulumi:"storageAccountType"`
-	StorageSizeInGb           int                             `pulumi:"storageSizeInGb"`
-	SubnetId                  string                          `pulumi:"subnetId"`
-	Tags                      map[string]string               `pulumi:"tags"`
-	TimezoneId                string                          `pulumi:"timezoneId"`
-	Vcores                    int                             `pulumi:"vcores"`
+	Id string `pulumi:"id"`
+	// An `identity` block as defined below.
+	Identities []GetSqlManagedInstanceIdentity `pulumi:"identities"`
+	// Type of license the Managed Instance uses.
+	LicenseType string `pulumi:"licenseType"`
+	// Location where the resource exists.
+	Location string `pulumi:"location"`
+	// The Minimum TLS Version.
+	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
+	Name              string `pulumi:"name"`
+	// How the SQL Managed Instance is accessed.
+	ProxyOverride string `pulumi:"proxyOverride"`
+	// Is the public data endpoint enabled?
+	PublicDataEndpointEnabled bool   `pulumi:"publicDataEndpointEnabled"`
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
+	// SKU Name for the SQL Managed Instance.
+	SkuName string `pulumi:"skuName"`
+	// Storage account type used to store backups for this SQL Managed Instance.
+	StorageAccountType string `pulumi:"storageAccountType"`
+	// Maximum storage space for your instance.
+	StorageSizeInGb int `pulumi:"storageSizeInGb"`
+	// The subnet resource id that the SQL Managed Instance is associated with.
+	SubnetId string `pulumi:"subnetId"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The TimeZone ID that the SQL Managed Instance is operating in.
+	TimezoneId string `pulumi:"timezoneId"`
+	// Number of cores assigned to your instance.
+	Vcores int `pulumi:"vcores"`
 }
 
 func GetSqlManagedInstanceOutput(ctx *pulumi.Context, args GetSqlManagedInstanceOutputArgs, opts ...pulumi.InvokeOption) GetSqlManagedInstanceResultOutput {
@@ -136,8 +109,9 @@ type GetSqlManagedInstanceOutputArgs struct {
 	// The name of the SQL Managed Instance.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the SQL Managed Instance exists.
-	ResourceGroupName pulumi.StringInput    `pulumi:"resourceGroupName"`
-	Tags              pulumi.StringMapInput `pulumi:"tags"`
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetSqlManagedInstanceOutputArgs) ElementType() reflect.Type {
@@ -159,18 +133,22 @@ func (o GetSqlManagedInstanceResultOutput) ToGetSqlManagedInstanceResultOutputWi
 	return o
 }
 
+// The administrator login name for the new server.
 func (o GetSqlManagedInstanceResultOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
 
+// Specifies how the SQL Managed Instance is collated.
 func (o GetSqlManagedInstanceResultOutput) Collation() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.Collation }).(pulumi.StringOutput)
 }
 
+// The ID of the Managed Instance which is sharing the DNS zone.
 func (o GetSqlManagedInstanceResultOutput) DnsZonePartnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.DnsZonePartnerId }).(pulumi.StringOutput)
 }
 
+// The fully qualified domain name of the Azure Managed SQL Instance.
 func (o GetSqlManagedInstanceResultOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.Fqdn }).(pulumi.StringOutput)
 }
@@ -180,18 +158,22 @@ func (o GetSqlManagedInstanceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// An `identity` block as defined below.
 func (o GetSqlManagedInstanceResultOutput) Identities() GetSqlManagedInstanceIdentityArrayOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) []GetSqlManagedInstanceIdentity { return v.Identities }).(GetSqlManagedInstanceIdentityArrayOutput)
 }
 
+// Type of license the Managed Instance uses.
 func (o GetSqlManagedInstanceResultOutput) LicenseType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.LicenseType }).(pulumi.StringOutput)
 }
 
+// Location where the resource exists.
 func (o GetSqlManagedInstanceResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
+// The Minimum TLS Version.
 func (o GetSqlManagedInstanceResultOutput) MinimumTlsVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.MinimumTlsVersion }).(pulumi.StringOutput)
 }
@@ -200,10 +182,12 @@ func (o GetSqlManagedInstanceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// How the SQL Managed Instance is accessed.
 func (o GetSqlManagedInstanceResultOutput) ProxyOverride() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.ProxyOverride }).(pulumi.StringOutput)
 }
 
+// Is the public data endpoint enabled?
 func (o GetSqlManagedInstanceResultOutput) PublicDataEndpointEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) bool { return v.PublicDataEndpointEnabled }).(pulumi.BoolOutput)
 }
@@ -212,30 +196,37 @@ func (o GetSqlManagedInstanceResultOutput) ResourceGroupName() pulumi.StringOutp
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// SKU Name for the SQL Managed Instance.
 func (o GetSqlManagedInstanceResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.SkuName }).(pulumi.StringOutput)
 }
 
+// Storage account type used to store backups for this SQL Managed Instance.
 func (o GetSqlManagedInstanceResultOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Maximum storage space for your instance.
 func (o GetSqlManagedInstanceResultOutput) StorageSizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) int { return v.StorageSizeInGb }).(pulumi.IntOutput)
 }
 
+// The subnet resource id that the SQL Managed Instance is associated with.
 func (o GetSqlManagedInstanceResultOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
+// A mapping of tags assigned to the resource.
 func (o GetSqlManagedInstanceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The TimeZone ID that the SQL Managed Instance is operating in.
 func (o GetSqlManagedInstanceResultOutput) TimezoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) string { return v.TimezoneId }).(pulumi.StringOutput)
 }
 
+// Number of cores assigned to your instance.
 func (o GetSqlManagedInstanceResultOutput) Vcores() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceResult) int { return v.Vcores }).(pulumi.IntOutput)
 }

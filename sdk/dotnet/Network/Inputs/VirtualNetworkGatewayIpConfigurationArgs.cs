@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? PrivateIpAddressAllocation { get; set; }
 
         /// <summary>
-        /// The ID of the public ip address to associate
+        /// The ID of the public IP address to associate
         /// with the Virtual Network Gateway.
         /// </summary>
         [Input("publicIpAddressId", required: true)]

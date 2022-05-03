@@ -69,9 +69,9 @@ type LookupFirewallResult struct {
 	ManagementIpConfigurations []GetFirewallManagementIpConfiguration `pulumi:"managementIpConfigurations"`
 	Name                       string                                 `pulumi:"name"`
 	ResourceGroupName          string                                 `pulumi:"resourceGroupName"`
-	// The sku name of the Azure Firewall.
+	// The SKU name of the Azure Firewall.
 	SkuName string `pulumi:"skuName"`
-	// The sku tier of the Azure Firewall.
+	// The SKU tier of the Azure Firewall.
 	SkuTier string `pulumi:"skuTier"`
 	// A mapping of tags assigned to the Azure Firewall.
 	Tags map[string]string `pulumi:"tags"`
@@ -159,12 +159,12 @@ func (o LookupFirewallResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The sku name of the Azure Firewall.
+// The SKU name of the Azure Firewall.
 func (o LookupFirewallResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// The sku tier of the Azure Firewall.
+// The SKU tier of the Azure Firewall.
 func (o LookupFirewallResultOutput) SkuTier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirewallResult) string { return v.SkuTier }).(pulumi.StringOutput)
 }

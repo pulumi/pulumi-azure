@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DefaultIps;
         /// <summary>
-        /// The pre-defined id of VPN Gateway Ip Configuration.
+        /// The pre-defined id of VPN Gateway IP Configuration.
         /// </summary>
         public readonly string IpConfigurationId;
         /// <summary>

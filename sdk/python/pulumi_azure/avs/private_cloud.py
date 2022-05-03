@@ -29,16 +29,16 @@ class PrivateCloudArgs:
         The set of arguments for constructing a PrivateCloud resource.
         :param pulumi.Input['PrivateCloudManagementClusterArgs'] management_cluster: A `management_cluster` block as defined below.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
-        :param pulumi.Input[str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[str] sku_name: The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[str] sku_name: The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
         :param pulumi.Input[bool] internet_connection_enabled: Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
-        :param pulumi.Input[str] location: The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[str] nsxt_password: The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Vmware Private Cloud.
-        :param pulumi.Input[str] vcenter_password: The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] location: The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[str] name: The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[str] nsxt_password: The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the VMware Private Cloud.
+        :param pulumi.Input[str] vcenter_password: The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         """
         pulumi.set(__self__, "management_cluster", management_cluster)
         pulumi.set(__self__, "network_subnet_cidr", network_subnet_cidr)
@@ -74,7 +74,7 @@ class PrivateCloudArgs:
     @pulumi.getter(name="networkSubnetCidr")
     def network_subnet_cidr(self) -> pulumi.Input[str]:
         """
-        The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
+        The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "network_subnet_cidr")
 
@@ -86,7 +86,7 @@ class PrivateCloudArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -98,7 +98,7 @@ class PrivateCloudArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
+        The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -123,7 +123,7 @@ class PrivateCloudArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "location")
 
@@ -135,7 +135,7 @@ class PrivateCloudArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
+        The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "name")
 
@@ -147,7 +147,7 @@ class PrivateCloudArgs:
     @pulumi.getter(name="nsxtPassword")
     def nsxt_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
+        The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "nsxt_password")
 
@@ -159,7 +159,7 @@ class PrivateCloudArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Vmware Private Cloud.
+        A mapping of tags which should be assigned to the VMware Private Cloud.
         """
         return pulumi.get(self, "tags")
 
@@ -171,7 +171,7 @@ class PrivateCloudArgs:
     @pulumi.getter(name="vcenterPassword")
     def vcenter_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
+        The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "vcenter_password")
 
@@ -208,21 +208,21 @@ class _PrivateCloudState:
         :param pulumi.Input[str] hcx_cloud_manager_endpoint: The endpoint for the HCX Cloud Manager.
         :param pulumi.Input[bool] internet_connection_enabled: Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
-        :param pulumi.Input[str] location: The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] location: The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         :param pulumi.Input['PrivateCloudManagementClusterArgs'] management_cluster: A `management_cluster` block as defined below.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
         :param pulumi.Input[str] management_subnet_cidr: The network used to access vCenter Server and NSX-T Manager.
-        :param pulumi.Input[str] name: The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] name: The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
         :param pulumi.Input[str] nsxt_certificate_thumbprint: The thumbprint of the NSX-T Manager SSL certificate.
         :param pulumi.Input[str] nsxt_manager_endpoint: The endpoint for the NSX-T Data Center manager.
-        :param pulumi.Input[str] nsxt_password: The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] nsxt_password: The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
         :param pulumi.Input[str] provisioning_subnet_cidr: The network which is used for virtual machine cold migration, cloning, and snapshot migration.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[str] sku_name: The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Vmware Private Cloud.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[str] sku_name: The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the VMware Private Cloud.
         :param pulumi.Input[str] vcenter_certificate_thumbprint: The thumbprint of the vCenter Server SSL certificate.
-        :param pulumi.Input[str] vcenter_password: The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] vcenter_password: The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         :param pulumi.Input[str] vcsa_endpoint: The endpoint for Virtual Center Server Appliance.
         :param pulumi.Input[str] vmotion_subnet_cidr: The network which is used for live migration of virtual machines.
         """
@@ -306,7 +306,7 @@ class _PrivateCloudState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "location")
 
@@ -343,7 +343,7 @@ class _PrivateCloudState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
+        The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "name")
 
@@ -355,7 +355,7 @@ class _PrivateCloudState:
     @pulumi.getter(name="networkSubnetCidr")
     def network_subnet_cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
+        The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "network_subnet_cidr")
 
@@ -391,7 +391,7 @@ class _PrivateCloudState:
     @pulumi.getter(name="nsxtPassword")
     def nsxt_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
+        The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "nsxt_password")
 
@@ -415,7 +415,7 @@ class _PrivateCloudState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -427,7 +427,7 @@ class _PrivateCloudState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
+        The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -439,7 +439,7 @@ class _PrivateCloudState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Vmware Private Cloud.
+        A mapping of tags which should be assigned to the VMware Private Cloud.
         """
         return pulumi.get(self, "tags")
 
@@ -463,7 +463,7 @@ class _PrivateCloudState:
     @pulumi.getter(name="vcenterPassword")
     def vcenter_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
+        The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "vcenter_password")
 
@@ -515,7 +515,7 @@ class PrivateCloud(pulumi.CustomResource):
         """
         ## Import
 
-        Vmware Private Clouds can be imported using the `resource id`, e.g.
+        VMware Private Clouds can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/PrivateClouds/privateCloud1
@@ -525,16 +525,16 @@ class PrivateCloud(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] internet_connection_enabled: Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
-        :param pulumi.Input[str] location: The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] location: The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         :param pulumi.Input[pulumi.InputType['PrivateCloudManagementClusterArgs']] management_cluster: A `management_cluster` block as defined below.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
-        :param pulumi.Input[str] name: The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[str] nsxt_password: The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[str] sku_name: The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Vmware Private Cloud.
-        :param pulumi.Input[str] vcenter_password: The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] name: The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[str] nsxt_password: The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[str] sku_name: The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the VMware Private Cloud.
+        :param pulumi.Input[str] vcenter_password: The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         """
         ...
     @overload
@@ -545,7 +545,7 @@ class PrivateCloud(pulumi.CustomResource):
         """
         ## Import
 
-        Vmware Private Clouds can be imported using the `resource id`, e.g.
+        VMware Private Clouds can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/PrivateClouds/privateCloud1
@@ -655,21 +655,21 @@ class PrivateCloud(pulumi.CustomResource):
         :param pulumi.Input[str] hcx_cloud_manager_endpoint: The endpoint for the HCX Cloud Manager.
         :param pulumi.Input[bool] internet_connection_enabled: Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
-        :param pulumi.Input[str] location: The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] location: The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         :param pulumi.Input[pulumi.InputType['PrivateCloudManagementClusterArgs']] management_cluster: A `management_cluster` block as defined below.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
         :param pulumi.Input[str] management_subnet_cidr: The network used to access vCenter Server and NSX-T Manager.
-        :param pulumi.Input[str] name: The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] name: The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
         :param pulumi.Input[str] nsxt_certificate_thumbprint: The thumbprint of the NSX-T Manager SSL certificate.
         :param pulumi.Input[str] nsxt_manager_endpoint: The endpoint for the NSX-T Data Center manager.
-        :param pulumi.Input[str] nsxt_password: The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] nsxt_password: The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
         :param pulumi.Input[str] provisioning_subnet_cidr: The network which is used for virtual machine cold migration, cloning, and snapshot migration.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[str] sku_name: The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Vmware Private Cloud.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[str] sku_name: The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the VMware Private Cloud.
         :param pulumi.Input[str] vcenter_certificate_thumbprint: The thumbprint of the vCenter Server SSL certificate.
-        :param pulumi.Input[str] vcenter_password: The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] vcenter_password: The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         :param pulumi.Input[str] vcsa_endpoint: The endpoint for Virtual Center Server Appliance.
         :param pulumi.Input[str] vmotion_subnet_cidr: The network which is used for live migration of virtual machines.
         """
@@ -727,7 +727,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "location")
 
@@ -752,7 +752,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
+        The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "name")
 
@@ -760,7 +760,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter(name="networkSubnetCidr")
     def network_subnet_cidr(self) -> pulumi.Output[str]:
         """
-        The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
+        The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "network_subnet_cidr")
 
@@ -784,7 +784,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter(name="nsxtPassword")
     def nsxt_password(self) -> pulumi.Output[Optional[str]]:
         """
-        The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
+        The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "nsxt_password")
 
@@ -800,7 +800,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -808,7 +808,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
+        The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -816,7 +816,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags which should be assigned to the Vmware Private Cloud.
+        A mapping of tags which should be assigned to the VMware Private Cloud.
         """
         return pulumi.get(self, "tags")
 
@@ -832,7 +832,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter(name="vcenterPassword")
     def vcenter_password(self) -> pulumi.Output[Optional[str]]:
         """
-        The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
+        The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
         """
         return pulumi.get(self, "vcenter_password")
 

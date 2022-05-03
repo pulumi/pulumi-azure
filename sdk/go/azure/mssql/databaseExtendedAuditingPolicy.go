@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Ms Sql Database Extended Auditing Policy.
+// Manages a MS SQL Database Extended Auditing Policy.
 //
 // > **NOTE:** The Database Extended Auditing Policy can also be set in the `extendedAuditingPolicy` block in the mssql.Database resource. You can only use one or the other and using both will cause a conflict.
 //
@@ -77,7 +77,7 @@ import (
 //
 // ## Import
 //
-// Ms Sql Database Extended Auditing Policys can be imported using the `resource id`, e.g.
+// MS SQL Database Extended Auditing Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
 //  $ pulumi import azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/databases/db1/extendedAuditingSettings/default
@@ -85,7 +85,7 @@ import (
 type DatabaseExtendedAuditingPolicy struct {
 	pulumi.CustomResourceState
 
-	// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+	// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
 	DatabaseId pulumi.StringOutput `pulumi:"databaseId"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -133,7 +133,7 @@ func GetDatabaseExtendedAuditingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DatabaseExtendedAuditingPolicy resources.
 type databaseExtendedAuditingPolicyState struct {
-	// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+	// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
 	DatabaseId *string `pulumi:"databaseId"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -150,7 +150,7 @@ type databaseExtendedAuditingPolicyState struct {
 }
 
 type DatabaseExtendedAuditingPolicyState struct {
-	// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+	// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
 	DatabaseId pulumi.StringPtrInput
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
@@ -171,7 +171,7 @@ func (DatabaseExtendedAuditingPolicyState) ElementType() reflect.Type {
 }
 
 type databaseExtendedAuditingPolicyArgs struct {
-	// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+	// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
 	DatabaseId string `pulumi:"databaseId"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -189,7 +189,7 @@ type databaseExtendedAuditingPolicyArgs struct {
 
 // The set of arguments for constructing a DatabaseExtendedAuditingPolicy resource.
 type DatabaseExtendedAuditingPolicyArgs struct {
-	// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+	// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
 	DatabaseId pulumi.StringInput
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput

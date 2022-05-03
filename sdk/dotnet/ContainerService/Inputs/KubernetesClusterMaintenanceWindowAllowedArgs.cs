@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<int>? _hours;
 
         /// <summary>
-        /// An array of hour slots in a day. Possible values are between `0` and `23`.
+        /// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
         /// </summary>
         public InputList<int> Hours
         {

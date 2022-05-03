@@ -47,7 +47,7 @@ type Database struct {
 	MaxSizeGb pulumi.IntOutput `pulumi:"maxSizeGb"`
 	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
 	MinCapacity pulumi.Float64Output `pulumi:"minCapacity"`
-	// The name of the Ms SQL Database. Changing this forces a new resource to be created.
+	// The name of the MS SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
 	ReadReplicaCount pulumi.IntOutput `pulumi:"readReplicaCount"`
@@ -61,7 +61,7 @@ type Database struct {
 	RestorePointInTime pulumi.StringOutput `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName pulumi.StringOutput `pulumi:"sampleName"`
-	// The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+	// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyOutput `pulumi:"shortTermRetentionPolicy"`
@@ -132,7 +132,7 @@ type databaseState struct {
 	MaxSizeGb *int `pulumi:"maxSizeGb"`
 	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
 	MinCapacity *float64 `pulumi:"minCapacity"`
-	// The name of the Ms SQL Database. Changing this forces a new resource to be created.
+	// The name of the MS SQL Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
 	ReadReplicaCount *int `pulumi:"readReplicaCount"`
@@ -146,7 +146,7 @@ type databaseState struct {
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName *string `pulumi:"sampleName"`
-	// The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+	// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
 	ServerId *string `pulumi:"serverId"`
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy *DatabaseShortTermRetentionPolicy `pulumi:"shortTermRetentionPolicy"`
@@ -186,7 +186,7 @@ type DatabaseState struct {
 	MaxSizeGb pulumi.IntPtrInput
 	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
 	MinCapacity pulumi.Float64PtrInput
-	// The name of the Ms SQL Database. Changing this forces a new resource to be created.
+	// The name of the MS SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
 	ReadReplicaCount pulumi.IntPtrInput
@@ -200,7 +200,7 @@ type DatabaseState struct {
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName pulumi.StringPtrInput
-	// The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+	// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
 	ServerId pulumi.StringPtrInput
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyPtrInput
@@ -244,7 +244,7 @@ type databaseArgs struct {
 	MaxSizeGb *int `pulumi:"maxSizeGb"`
 	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
 	MinCapacity *float64 `pulumi:"minCapacity"`
-	// The name of the Ms SQL Database. Changing this forces a new resource to be created.
+	// The name of the MS SQL Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
 	ReadReplicaCount *int `pulumi:"readReplicaCount"`
@@ -258,7 +258,7 @@ type databaseArgs struct {
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName *string `pulumi:"sampleName"`
-	// The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+	// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
 	ServerId string `pulumi:"serverId"`
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy *DatabaseShortTermRetentionPolicy `pulumi:"shortTermRetentionPolicy"`
@@ -299,7 +299,7 @@ type DatabaseArgs struct {
 	MaxSizeGb pulumi.IntPtrInput
 	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
 	MinCapacity pulumi.Float64PtrInput
-	// The name of the Ms SQL Database. Changing this forces a new resource to be created.
+	// The name of the MS SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
 	ReadReplicaCount pulumi.IntPtrInput
@@ -313,7 +313,7 @@ type DatabaseArgs struct {
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
 	SampleName pulumi.StringPtrInput
-	// The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+	// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
 	ServerId pulumi.StringInput
 	// A `shortTermRetentionPolicy` block as defined below.
 	ShortTermRetentionPolicy DatabaseShortTermRetentionPolicyPtrInput

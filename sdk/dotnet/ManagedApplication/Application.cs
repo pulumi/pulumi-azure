@@ -120,7 +120,7 @@ namespace Pulumi.Azure.ManagedApplication
         public Output<ImmutableDictionary<string, string>> Outputs { get; private set; } = null!;
 
         /// <summary>
-        /// The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        /// The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         /// </summary>
         [Output("parameterValues")]
         public Output<string> ParameterValues { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.ManagedApplication
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        /// The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         /// </summary>
         [Input("parameterValues")]
         public Input<string>? ParameterValues { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.ManagedApplication
         }
 
         /// <summary>
-        /// The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        /// The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         /// </summary>
         [Input("parameterValues")]
         public Input<string>? ParameterValues { get; set; }

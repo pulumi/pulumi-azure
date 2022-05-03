@@ -219,6 +219,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppSiteCredentialResult> SiteCredentials;
         /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWindowsWebAppStickySettingResult> StickySettings;
+        /// <summary>
         /// A `storage_account` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsWebAppStorageAccountResult> StorageAccounts;
@@ -279,6 +283,8 @@ namespace Pulumi.Azure.AppService
 
             ImmutableArray<Outputs.GetWindowsWebAppSiteCredentialResult> siteCredentials,
 
+            ImmutableArray<Outputs.GetWindowsWebAppStickySettingResult> stickySettings,
+
             ImmutableArray<Outputs.GetWindowsWebAppStorageAccountResult> storageAccounts,
 
             ImmutableDictionary<string, string> tags)
@@ -308,6 +314,7 @@ namespace Pulumi.Azure.AppService
             ServicePlanId = servicePlanId;
             SiteConfigs = siteConfigs;
             SiteCredentials = siteCredentials;
+            StickySettings = stickySettings;
             StorageAccounts = storageAccounts;
             Tags = tags;
         }

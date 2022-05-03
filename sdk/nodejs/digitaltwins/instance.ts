@@ -60,7 +60,7 @@ export class Instance extends pulumi.CustomResource {
     }
 
     /**
-     * The Api endpoint to work with this Digital Twins instance.
+     * The API endpoint to work with this Digital Twins instance.
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
@@ -119,7 +119,7 @@ export class Instance extends pulumi.CustomResource {
  */
 export interface InstanceState {
     /**
-     * The Api endpoint to work with this Digital Twins instance.
+     * The API endpoint to work with this Digital Twins instance.
      */
     hostName?: pulumi.Input<string>;
     /**

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int> Asn { get; set; } = null!;
 
         /// <summary>
-        /// The BGP peering ip address.
+        /// The BGP peering IP address.
         /// </summary>
         [Input("peeringAddress", required: true)]
         public Input<string> PeeringAddress { get; set; } = null!;

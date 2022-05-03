@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         public readonly string SecondaryAccessKey;
         /// <summary>
-        /// The sku name of the Cognitive Services Account
+        /// The SKU name of the Cognitive Services Account
         /// </summary>
         public readonly string SkuName;
         /// <summary>

@@ -138,7 +138,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         /// </summary>
         [Output("streamingUnits")]
-        public Output<int> StreamingUnits { get; private set; } = null!;
+        public Output<int?> StreamingUnits { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags assigned to the resource.
@@ -151,6 +151,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Output("transformationQuery")]
         public Output<string> TransformationQuery { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -267,8 +273,8 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         /// </summary>
-        [Input("streamingUnits", required: true)]
-        public Input<int> StreamingUnits { get; set; } = null!;
+        [Input("streamingUnits")]
+        public Input<int>? StreamingUnits { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -287,6 +293,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("transformationQuery", required: true)]
         public Input<string> TransformationQuery { get; set; } = null!;
+
+        /// <summary>
+        /// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public JobArgs()
         {
@@ -390,6 +402,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("transformationQuery")]
         public Input<string>? TransformationQuery { get; set; }
+
+        /// <summary>
+        /// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public JobState()
         {

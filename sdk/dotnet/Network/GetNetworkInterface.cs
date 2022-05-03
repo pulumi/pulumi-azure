@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The internal dns name label of the specified Network Interface.
+        /// The internal DNS name label of the specified Network Interface.
         /// </summary>
         public readonly string InternalDnsNameLabel;
         /// <summary>
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string PrivateIpAddress;
         /// <summary>
-        /// The list of private ip addresses associates to the specified Network Interface.
+        /// The list of private IP addresses associates to the specified Network Interface.
         /// </summary>
         public readonly ImmutableArray<string> PrivateIpAddresses;
         public readonly string ResourceGroupName;

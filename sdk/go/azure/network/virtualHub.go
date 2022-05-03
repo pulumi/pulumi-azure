@@ -75,7 +75,7 @@ type VirtualHub struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `route` blocks as defined below.
 	Routes VirtualHubRouteArrayOutput `pulumi:"routes"`
-	// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+	// The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -131,7 +131,7 @@ type virtualHubState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `route` blocks as defined below.
 	Routes []VirtualHubRoute `pulumi:"routes"`
-	// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+	// The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags map[string]string `pulumi:"tags"`
@@ -156,7 +156,7 @@ type VirtualHubState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `route` blocks as defined below.
 	Routes VirtualHubRouteArrayInput
-	// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+	// The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags pulumi.StringMapInput
@@ -183,7 +183,7 @@ type virtualHubArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `route` blocks as defined below.
 	Routes []VirtualHubRoute `pulumi:"routes"`
-	// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+	// The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags map[string]string `pulumi:"tags"`
@@ -203,7 +203,7 @@ type VirtualHubArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// One or more `route` blocks as defined below.
 	Routes VirtualHubRouteArrayInput
-	// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+	// The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags pulumi.StringMapInput

@@ -66,7 +66,7 @@ type IntegrationAccount struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+	// The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Logic App Integration Account.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -115,7 +115,7 @@ type integrationAccountState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+	// The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Logic App Integration Account.
 	Tags map[string]string `pulumi:"tags"`
@@ -130,7 +130,7 @@ type IntegrationAccountState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+	// The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Logic App Integration Account.
 	Tags pulumi.StringMapInput
@@ -149,7 +149,7 @@ type integrationAccountArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+	// The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Logic App Integration Account.
 	Tags map[string]string `pulumi:"tags"`
@@ -165,7 +165,7 @@ type IntegrationAccountArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
 	ResourceGroupName pulumi.StringInput
-	// The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+	// The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
 	SkuName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Logic App Integration Account.
 	Tags pulumi.StringMapInput

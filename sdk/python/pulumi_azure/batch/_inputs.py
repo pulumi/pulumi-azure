@@ -475,7 +475,7 @@ class PoolNetworkConfigurationArgs:
         :param pulumi.Input[str] subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArgs']]] endpoint_configurations: A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_address_provisioning_type: Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips: A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips: A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if endpoint_configurations is not None:
@@ -525,7 +525,7 @@ class PoolNetworkConfigurationArgs:
     @pulumi.getter(name="publicIps")
     def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
+        A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_ips")
 

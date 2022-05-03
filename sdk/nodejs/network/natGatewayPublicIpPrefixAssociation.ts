@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages the association between a Nat Gateway and a Public IP Prefix.
+ * Manages the association between a NAT Gateway and a Public IP Prefix.
  *
  * ## Example Usage
  *
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Associations between Nat Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
+ * Associations between NAT Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1"
@@ -68,11 +68,11 @@ export class NatGatewayPublicIpPrefixAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the Nat Gateway. Changing this forces a new resource to be created.
+     * The ID of the NAT Gateway. Changing this forces a new resource to be created.
      */
     public readonly natGatewayId!: pulumi.Output<string>;
     /**
-     * The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+     * The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
      */
     public readonly publicIpPrefixId!: pulumi.Output<string>;
 
@@ -112,11 +112,11 @@ export class NatGatewayPublicIpPrefixAssociation extends pulumi.CustomResource {
  */
 export interface NatGatewayPublicIpPrefixAssociationState {
     /**
-     * The ID of the Nat Gateway. Changing this forces a new resource to be created.
+     * The ID of the NAT Gateway. Changing this forces a new resource to be created.
      */
     natGatewayId?: pulumi.Input<string>;
     /**
-     * The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+     * The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
      */
     publicIpPrefixId?: pulumi.Input<string>;
 }
@@ -126,11 +126,11 @@ export interface NatGatewayPublicIpPrefixAssociationState {
  */
 export interface NatGatewayPublicIpPrefixAssociationArgs {
     /**
-     * The ID of the Nat Gateway. Changing this forces a new resource to be created.
+     * The ID of the NAT Gateway. Changing this forces a new resource to be created.
      */
     natGatewayId: pulumi.Input<string>;
     /**
-     * The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+     * The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
      */
     publicIpPrefixId: pulumi.Input<string>;
 }

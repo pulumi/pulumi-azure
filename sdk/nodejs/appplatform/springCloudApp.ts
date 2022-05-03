@@ -73,7 +73,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * Is only https allowed? Defaults to `false`.
+     * Is only HTTPS allowed? Defaults to `false`.
      */
     public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
     /**
@@ -171,7 +171,7 @@ export interface SpringCloudAppState {
      */
     fqdn?: pulumi.Input<string>;
     /**
-     * Is only https allowed? Defaults to `false`.
+     * Is only HTTPS allowed? Defaults to `false`.
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**
@@ -217,7 +217,7 @@ export interface SpringCloudAppArgs {
      */
     customPersistentDisks?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudAppCustomPersistentDisk>[]>;
     /**
-     * Is only https allowed? Defaults to `false`.
+     * Is only HTTPS allowed? Defaults to `false`.
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**

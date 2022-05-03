@@ -14,13 +14,19 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class GetVirtualMachineScaleSetNetworkInterfaceResult
     {
         /// <summary>
-        /// The dns servers in use.
+        /// An array of the DNS servers in use.
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
+        /// <summary>
+        /// Whether to enable accelerated networking or not.
+        /// </summary>
         public readonly bool EnableAcceleratedNetworking;
+        /// <summary>
+        /// Whether IP forwarding is enabled on this NIC.
+        /// </summary>
         public readonly bool EnableIpForwarding;
         /// <summary>
-        /// An ip_configuration block as documented below.
+        /// An `ip_configuration` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult> IpConfigurations;
         /// <summary>

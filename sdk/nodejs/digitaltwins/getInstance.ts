@@ -51,7 +51,7 @@ export interface GetInstanceArgs {
  */
 export interface GetInstanceResult {
     /**
-     * The Api endpoint to work with this Digital Twins instance.
+     * The API endpoint to work with this Digital Twins instance.
      */
     readonly hostName: string;
     /**

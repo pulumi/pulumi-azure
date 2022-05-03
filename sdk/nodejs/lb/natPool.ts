@@ -92,11 +92,11 @@ export class NatPool extends pulumi.CustomResource {
      */
     public readonly frontendIpConfigurationName!: pulumi.Output<string>;
     /**
-     * The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+     * The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
     public readonly frontendPortEnd!: pulumi.Output<number>;
     /**
-     * The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+     * The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
     public readonly frontendPortStart!: pulumi.Output<number>;
     /**
@@ -208,11 +208,11 @@ export interface NatPoolState {
      */
     frontendIpConfigurationName?: pulumi.Input<string>;
     /**
-     * The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+     * The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
     frontendPortEnd?: pulumi.Input<number>;
     /**
-     * The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+     * The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
     frontendPortStart?: pulumi.Input<number>;
     /**
@@ -258,11 +258,11 @@ export interface NatPoolArgs {
      */
     frontendIpConfigurationName: pulumi.Input<string>;
     /**
-     * The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+     * The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
     frontendPortEnd: pulumi.Input<number>;
     /**
-     * The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+     * The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
     frontendPortStart: pulumi.Input<number>;
     /**

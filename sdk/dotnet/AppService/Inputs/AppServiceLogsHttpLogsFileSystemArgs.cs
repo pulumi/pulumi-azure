@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<int> RetentionInDays { get; set; } = null!;
 
         /// <summary>
-        /// The maximum size in megabytes that http log files can use before being removed.
+        /// The maximum size in megabytes that HTTP log files can use before being removed.
         /// </summary>
         [Input("retentionInMb", required: true)]
         public Input<int> RetentionInMb { get; set; } = null!;

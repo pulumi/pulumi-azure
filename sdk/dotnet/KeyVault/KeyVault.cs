@@ -120,7 +120,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unqiue. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
+        /// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unqiue. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
+        /// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -389,7 +389,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unqiue. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
+        /// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -82,7 +82,7 @@ type ConfigurationFeature struct {
 	Label pulumi.StringPtrOutput `pulumi:"label"`
 	// Should this App Configuration Feature be Locked to prevent changes?
 	Locked pulumi.BoolPtrOutput `pulumi:"locked"`
-	// The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+	// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of one or more numbers representing the value of the percentage required to enable this feature.
 	PercentageFilterValue pulumi.IntPtrOutput `pulumi:"percentageFilterValue"`
@@ -137,7 +137,7 @@ type configurationFeatureState struct {
 	Label *string `pulumi:"label"`
 	// Should this App Configuration Feature be Locked to prevent changes?
 	Locked *bool `pulumi:"locked"`
-	// The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+	// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of one or more numbers representing the value of the percentage required to enable this feature.
 	PercentageFilterValue *int `pulumi:"percentageFilterValue"`
@@ -161,7 +161,7 @@ type ConfigurationFeatureState struct {
 	Label pulumi.StringPtrInput
 	// Should this App Configuration Feature be Locked to prevent changes?
 	Locked pulumi.BoolPtrInput
-	// The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+	// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of one or more numbers representing the value of the percentage required to enable this feature.
 	PercentageFilterValue pulumi.IntPtrInput
@@ -189,7 +189,7 @@ type configurationFeatureArgs struct {
 	Label *string `pulumi:"label"`
 	// Should this App Configuration Feature be Locked to prevent changes?
 	Locked *bool `pulumi:"locked"`
-	// The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+	// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of one or more numbers representing the value of the percentage required to enable this feature.
 	PercentageFilterValue *int `pulumi:"percentageFilterValue"`
@@ -214,7 +214,7 @@ type ConfigurationFeatureArgs struct {
 	Label pulumi.StringPtrInput
 	// Should this App Configuration Feature be Locked to prevent changes?
 	Locked pulumi.BoolPtrInput
-	// The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+	// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of one or more numbers representing the value of the percentage required to enable this feature.
 	PercentageFilterValue pulumi.IntPtrInput

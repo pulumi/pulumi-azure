@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> CreateOption { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
+        /// Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
         /// Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
         /// When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the operating system Type, valid values are windows, linux.
+        /// Specifies the operating system Type, valid values are windows, Linux.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<string>? _vhdContainers;
 
         /// <summary>
-        /// Specifies the vhd uri. Cannot be used when `image` or `managed_disk_type` is specified.
+        /// Specifies the VHD URI. Cannot be used when `image` or `managed_disk_type` is specified.
         /// </summary>
         public InputList<string> VhdContainers
         {

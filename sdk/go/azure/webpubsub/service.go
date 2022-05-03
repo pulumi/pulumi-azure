@@ -101,7 +101,7 @@ type Service struct {
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
 	// The publicly accessible port of the Web PubSub service which is designed for customer server side use.
 	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
-	// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+	// Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -182,7 +182,7 @@ type serviceState struct {
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// The publicly accessible port of the Web PubSub service which is designed for customer server side use.
 	ServerPort *int `pulumi:"serverPort"`
-	// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+	// Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -229,7 +229,7 @@ type ServiceState struct {
 	SecondaryConnectionString pulumi.StringPtrInput
 	// The publicly accessible port of the Web PubSub service which is designed for customer server side use.
 	ServerPort pulumi.IntPtrInput
-	// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+	// Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -265,7 +265,7 @@ type serviceArgs struct {
 	// The name of the resource group in which to create the Web PubSub service. Changing
 	// this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+	// Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -297,7 +297,7 @@ type ServiceArgs struct {
 	// The name of the resource group in which to create the Web PubSub service. Changing
 	// this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+	// Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

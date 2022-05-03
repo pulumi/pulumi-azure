@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Hsm
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+        /// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.Hsm
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+        /// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.Hsm
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+        /// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

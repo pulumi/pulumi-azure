@@ -23,7 +23,7 @@ class DiskPoolArgs:
         """
         The set of arguments for constructing a DiskPool resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
-        :param pulumi.Input[str] sku_name: The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] sku_name: The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] location: The Azure Region where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
@@ -57,7 +57,7 @@ class DiskPoolArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+        The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -141,7 +141,7 @@ class _DiskPoolState:
         :param pulumi.Input[str] location: The Azure Region where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] name: The name of the Disk Pool. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
-        :param pulumi.Input[str] sku_name: The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] sku_name: The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Disk Pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
@@ -201,7 +201,7 @@ class _DiskPoolState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+        The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -305,7 +305,7 @@ class DiskPool(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] name: The name of the Disk Pool. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
-        :param pulumi.Input[str] sku_name: The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] sku_name: The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Disk Pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
@@ -433,7 +433,7 @@ class DiskPool(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] name: The name of the Disk Pool. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
-        :param pulumi.Input[str] sku_name: The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] sku_name: The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Disk Pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created.
@@ -479,7 +479,7 @@ class DiskPool(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+        The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "sku_name")
 

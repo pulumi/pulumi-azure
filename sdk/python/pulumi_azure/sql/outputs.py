@@ -726,6 +726,10 @@ class GetSqlManagedInstanceIdentityResult(dict):
                  principal_id: str,
                  tenant_id: str,
                  type: str):
+        """
+        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
@@ -733,11 +737,17 @@ class GetSqlManagedInstanceIdentityResult(dict):
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
+        """
+        The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
         return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
         return pulumi.get(self, "tenant_id")
 
     @property

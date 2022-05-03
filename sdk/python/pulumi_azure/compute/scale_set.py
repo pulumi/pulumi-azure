@@ -48,7 +48,7 @@ class ScaleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]] network_profiles: A collection of network profile block as documented below.
         :param pulumi.Input['ScaleSetOsProfileArgs'] os_profile: A Virtual Machine OS Profile block as documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-        :param pulumi.Input['ScaleSetSkuArgs'] sku: A sku block as documented below.
+        :param pulumi.Input['ScaleSetSkuArgs'] sku: A SKU block as documented below.
         :param pulumi.Input['ScaleSetStorageProfileOsDiskArgs'] storage_profile_os_disk: A storage profile os disk block as documented below
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
@@ -164,7 +164,7 @@ class ScaleSetArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input['ScaleSetSkuArgs']:
         """
-        A sku block as documented below.
+        A SKU block as documented below.
         """
         return pulumi.get(self, "sku")
 
@@ -511,7 +511,7 @@ class _ScaleSetState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
         :param pulumi.Input['ScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         :param pulumi.Input[bool] single_placement_group: Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-        :param pulumi.Input['ScaleSetSkuArgs'] sku: A sku block as documented below.
+        :param pulumi.Input['ScaleSetSkuArgs'] sku: A SKU block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArgs']]] storage_profile_data_disks: A storage profile data disk block as documented below
         :param pulumi.Input['ScaleSetStorageProfileImageReferenceArgs'] storage_profile_image_reference: A storage profile image reference block as documented below.
         :param pulumi.Input['ScaleSetStorageProfileOsDiskArgs'] storage_profile_os_disk: A storage profile os disk block as documented below
@@ -829,7 +829,7 @@ class _ScaleSetState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['ScaleSetSkuArgs']]:
         """
-        A sku block as documented below.
+        A SKU block as documented below.
         """
         return pulumi.get(self, "sku")
 
@@ -1060,7 +1060,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         :param pulumi.Input[bool] single_placement_group: Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-        :param pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']] sku: A sku block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']] sku: A SKU block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArgs']]]] storage_profile_data_disks: A storage profile data disk block as documented below
         :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArgs']] storage_profile_image_reference: A storage profile image reference block as documented below.
         :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']] storage_profile_os_disk: A storage profile os disk block as documented below
@@ -1328,7 +1328,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         :param pulumi.Input[bool] single_placement_group: Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-        :param pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']] sku: A sku block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']] sku: A SKU block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArgs']]]] storage_profile_data_disks: A storage profile data disk block as documented below
         :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArgs']] storage_profile_image_reference: A storage profile image reference block as documented below.
         :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']] storage_profile_os_disk: A storage profile os disk block as documented below
@@ -1539,7 +1539,7 @@ class ScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output['outputs.ScaleSetSku']:
         """
-        A sku block as documented below.
+        A SKU block as documented below.
         """
         return pulumi.get(self, "sku")
 

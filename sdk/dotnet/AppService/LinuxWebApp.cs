@@ -207,6 +207,12 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.LinuxWebAppSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        [Output("stickySettings")]
+        public Output<Outputs.LinuxWebAppStickySettings?> StickySettings { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `storage_account` blocks as defined below.
         /// </summary>
         [Output("storageAccounts")]
@@ -377,6 +383,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("siteConfig", required: true)]
         public Input<Inputs.LinuxWebAppSiteConfigArgs> SiteConfig { get; set; } = null!;
+
+        /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        [Input("stickySettings")]
+        public Input<Inputs.LinuxWebAppStickySettingsArgs>? StickySettings { get; set; }
 
         [Input("storageAccounts")]
         private InputList<Inputs.LinuxWebAppStorageAccountArgs>? _storageAccounts;
@@ -588,6 +600,12 @@ namespace Pulumi.Azure.AppService
             get => _siteCredentials ?? (_siteCredentials = new InputList<Inputs.LinuxWebAppSiteCredentialGetArgs>());
             set => _siteCredentials = value;
         }
+
+        /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        [Input("stickySettings")]
+        public Input<Inputs.LinuxWebAppStickySettingsGetArgs>? StickySettings { get; set; }
 
         [Input("storageAccounts")]
         private InputList<Inputs.LinuxWebAppStorageAccountGetArgs>? _storageAccounts;

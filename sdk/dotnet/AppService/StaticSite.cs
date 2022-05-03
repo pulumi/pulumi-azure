@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppService
     public partial class StaticSite : Pulumi.CustomResource
     {
         /// <summary>
-        /// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. Github Action.
+        /// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
         /// </summary>
         [Output("apiKey")]
         public Output<string> ApiKey { get; private set; } = null!;
@@ -79,13 +79,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the sku size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
         /// </summary>
         [Output("skuSize")]
         public Output<string?> SkuSize { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
         /// </summary>
         [Output("skuTier")]
         public Output<string?> SkuTier { get; private set; } = null!;
@@ -164,13 +164,13 @@ namespace Pulumi.Azure.AppService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the sku size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
         /// </summary>
         [Input("skuSize")]
         public Input<string>? SkuSize { get; set; }
 
         /// <summary>
-        /// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.AppService
     public sealed class StaticSiteState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. Github Action.
+        /// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
         /// </summary>
         [Input("apiKey")]
         public Input<string>? ApiKey { get; set; }
@@ -228,13 +228,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the sku size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
         /// </summary>
         [Input("skuSize")]
         public Input<string>? SkuSize { get; set; }
 
         /// <summary>
-        /// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }

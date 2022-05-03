@@ -80,7 +80,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
     }
 
     /**
-     * The Application Insights Api Key to associate with this Azure Bot Service.
+     * The Application Insights API Key to associate with this Azure Bot Service.
      */
     public readonly developerAppInsightsApiKey!: pulumi.Output<string | undefined>;
     /**
@@ -193,7 +193,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
  */
 export interface ServiceAzureBotState {
     /**
-     * The Application Insights Api Key to associate with this Azure Bot Service.
+     * The Application Insights API Key to associate with this Azure Bot Service.
      */
     developerAppInsightsApiKey?: pulumi.Input<string>;
     /**
@@ -251,7 +251,7 @@ export interface ServiceAzureBotState {
  */
 export interface ServiceAzureBotArgs {
     /**
-     * The Application Insights Api Key to associate with this Azure Bot Service.
+     * The Application Insights API Key to associate with this Azure Bot Service.
      */
     developerAppInsightsApiKey?: pulumi.Input<string>;
     /**

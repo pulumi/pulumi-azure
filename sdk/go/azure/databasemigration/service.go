@@ -85,7 +85,7 @@ type Service struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The sku name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
+	// The SKU name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The ID of the virtual subnet resource to which the database migration service should be joined. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -137,7 +137,7 @@ type serviceState struct {
 	Name *string `pulumi:"name"`
 	// Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The sku name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
+	// The SKU name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the virtual subnet resource to which the database migration service should be joined. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -152,7 +152,7 @@ type ServiceState struct {
 	Name pulumi.StringPtrInput
 	// Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The sku name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
+	// The SKU name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// The ID of the virtual subnet resource to which the database migration service should be joined. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
@@ -171,7 +171,7 @@ type serviceArgs struct {
 	Name *string `pulumi:"name"`
 	// Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
+	// The SKU name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// The ID of the virtual subnet resource to which the database migration service should be joined. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
@@ -187,7 +187,7 @@ type ServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The sku name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
+	// The SKU name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
 	// The ID of the virtual subnet resource to which the database migration service should be joined. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput

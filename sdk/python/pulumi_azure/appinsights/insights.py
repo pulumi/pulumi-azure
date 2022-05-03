@@ -35,7 +35,7 @@ class InsightsArgs:
                create the Application Insights component.
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
-        :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
@@ -129,7 +129,7 @@ class InsightsArgs:
     @pulumi.getter(name="disableIpMasking")
     def disable_ip_masking(self) -> Optional[pulumi.Input[bool]]:
         """
-        By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         """
         return pulumi.get(self, "disable_ip_masking")
 
@@ -284,7 +284,7 @@ class _InsightsState:
         :param pulumi.Input[str] connection_string: The Connection String for this Application Insights component. (Sensitive)
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
-        :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
@@ -400,7 +400,7 @@ class _InsightsState:
     @pulumi.getter(name="disableIpMasking")
     def disable_ip_masking(self) -> Optional[pulumi.Input[bool]]:
         """
-        By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         """
         return pulumi.get(self, "disable_ip_masking")
 
@@ -624,7 +624,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
-        :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
@@ -794,7 +794,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[str] connection_string: The Connection String for this Application Insights component. (Sensitive)
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
-        :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
         :param pulumi.Input[bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
@@ -877,7 +877,7 @@ class Insights(pulumi.CustomResource):
     @pulumi.getter(name="disableIpMasking")
     def disable_ip_masking(self) -> pulumi.Output[Optional[bool]]:
         """
-        By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         """
         return pulumi.get(self, "disable_ip_masking")
 

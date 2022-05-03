@@ -34,6 +34,7 @@ class WindowsFunctionAppArgs:
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sticky_settings: Optional[pulumi.Input['WindowsFunctionAppStickySettingsArgs']] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -60,6 +61,7 @@ class WindowsFunctionAppArgs:
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+        :param pulumi.Input['WindowsFunctionAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
@@ -101,6 +103,8 @@ class WindowsFunctionAppArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sticky_settings is not None:
+            pulumi.set(__self__, "sticky_settings", sticky_settings)
         if storage_account_access_key is not None:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_name is not None:
@@ -341,6 +345,18 @@ class WindowsFunctionAppArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="stickySettings")
+    def sticky_settings(self) -> Optional[pulumi.Input['WindowsFunctionAppStickySettingsArgs']]:
+        """
+        A `sticky_settings` block as defined below.
+        """
+        return pulumi.get(self, "sticky_settings")
+
+    @sticky_settings.setter
+    def sticky_settings(self, value: Optional[pulumi.Input['WindowsFunctionAppStickySettingsArgs']]):
+        pulumi.set(self, "sticky_settings", value)
+
+    @property
     @pulumi.getter(name="storageAccountAccessKey")
     def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -431,6 +447,7 @@ class _WindowsFunctionAppState:
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input['WindowsFunctionAppSiteConfigArgs']] = None,
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteCredentialArgs']]]] = None,
+                 sticky_settings: Optional[pulumi.Input['WindowsFunctionAppStickySettingsArgs']] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -465,6 +482,7 @@ class _WindowsFunctionAppState:
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input['WindowsFunctionAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
@@ -525,6 +543,8 @@ class _WindowsFunctionAppState:
             pulumi.set(__self__, "site_config", site_config)
         if site_credentials is not None:
             pulumi.set(__self__, "site_credentials", site_credentials)
+        if sticky_settings is not None:
+            pulumi.set(__self__, "sticky_settings", sticky_settings)
         if storage_account_access_key is not None:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_name is not None:
@@ -861,6 +881,18 @@ class _WindowsFunctionAppState:
         pulumi.set(self, "site_credentials", value)
 
     @property
+    @pulumi.getter(name="stickySettings")
+    def sticky_settings(self) -> Optional[pulumi.Input['WindowsFunctionAppStickySettingsArgs']]:
+        """
+        A `sticky_settings` block as defined below.
+        """
+        return pulumi.get(self, "sticky_settings")
+
+    @sticky_settings.setter
+    def sticky_settings(self, value: Optional[pulumi.Input['WindowsFunctionAppStickySettingsArgs']]):
+        pulumi.set(self, "sticky_settings", value)
+
+    @property
     @pulumi.getter(name="storageAccountAccessKey")
     def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -945,6 +977,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSiteConfigArgs']]] = None,
+                 sticky_settings: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppStickySettingsArgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -1008,6 +1041,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
@@ -1090,6 +1124,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSiteConfigArgs']]] = None,
+                 sticky_settings: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppStickySettingsArgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -1132,6 +1167,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
             if site_config is None and not opts.urn:
                 raise TypeError("Missing required property 'site_config'")
             __props__.__dict__["site_config"] = site_config
+            __props__.__dict__["sticky_settings"] = sticky_settings
             __props__.__dict__["storage_account_access_key"] = storage_account_access_key
             __props__.__dict__["storage_account_name"] = storage_account_name
             __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
@@ -1182,6 +1218,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
             service_plan_id: Optional[pulumi.Input[str]] = None,
             site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSiteConfigArgs']]] = None,
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSiteCredentialArgs']]]]] = None,
+            sticky_settings: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppStickySettingsArgs']]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None,
             storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -1221,6 +1258,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
@@ -1258,6 +1296,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         __props__.__dict__["service_plan_id"] = service_plan_id
         __props__.__dict__["site_config"] = site_config
         __props__.__dict__["site_credentials"] = site_credentials
+        __props__.__dict__["sticky_settings"] = sticky_settings
         __props__.__dict__["storage_account_access_key"] = storage_account_access_key
         __props__.__dict__["storage_account_name"] = storage_account_name
         __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
@@ -1480,6 +1519,14 @@ class WindowsFunctionApp(pulumi.CustomResource):
         A `site_credential` block as defined below.
         """
         return pulumi.get(self, "site_credentials")
+
+    @property
+    @pulumi.getter(name="stickySettings")
+    def sticky_settings(self) -> pulumi.Output[Optional['outputs.WindowsFunctionAppStickySettings']]:
+        """
+        A `sticky_settings` block as defined below.
+        """
+        return pulumi.get(self, "sticky_settings")
 
     @property
     @pulumi.getter(name="storageAccountAccessKey")

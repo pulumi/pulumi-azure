@@ -78,11 +78,11 @@ export interface GetFirewallResult {
     readonly name: string;
     readonly resourceGroupName: string;
     /**
-     * The sku name of the Azure Firewall.
+     * The SKU name of the Azure Firewall.
      */
     readonly skuName: string;
     /**
-     * The sku tier of the Azure Firewall.
+     * The SKU tier of the Azure Firewall.
      */
     readonly skuTier: string;
     /**

@@ -125,7 +125,7 @@ class GetAccountResult:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> str:
         """
-        The sku name of the Cognitive Services Account
+        The SKU name of the Cognitive Services Account
         """
         return pulumi.get(self, "sku_name")
 

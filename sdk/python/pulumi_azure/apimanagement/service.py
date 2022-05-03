@@ -49,7 +49,7 @@ class ServiceArgs:
         :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.
-        :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input['ServiceHostnameConfigurationArgs'] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
@@ -196,7 +196,7 @@ class ServiceArgs:
     @pulumi.getter(name="clientCertificateEnabled")
     def client_certificate_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         """
         return pulumi.get(self, "client_certificate_enabled")
 
@@ -475,7 +475,7 @@ class _ServiceState:
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.
-        :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
         :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
@@ -606,7 +606,7 @@ class _ServiceState:
     @pulumi.getter(name="clientCertificateEnabled")
     def client_certificate_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         """
         return pulumi.get(self, "client_certificate_enabled")
 
@@ -1048,7 +1048,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
-        :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
@@ -1252,7 +1252,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
-        :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
         :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
@@ -1346,7 +1346,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="clientCertificateEnabled")
     def client_certificate_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         """
         return pulumi.get(self, "client_certificate_enabled")
 

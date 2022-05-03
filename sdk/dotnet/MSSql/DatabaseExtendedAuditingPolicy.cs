@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql
 {
     /// <summary>
-    /// Manages a Ms Sql Database Extended Auditing Policy.
+    /// Manages a MS SQL Database Extended Auditing Policy.
     /// 
     /// &gt; **NOTE:** The Database Extended Auditing Policy can also be set in the `extended_auditing_policy` block in the azure.mssql.Database resource. You can only use one or the other and using both will cause a conflict.
     /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// ## Import
     /// 
-    /// Ms Sql Database Extended Auditing Policys can be imported using the `resource id`, e.g.
+    /// MS SQL Database Extended Auditing Policies can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/databases/db1/extendedAuditingSettings/default
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.MSSql
     public partial class DatabaseExtendedAuditingPolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        /// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         /// </summary>
         [Output("databaseId")]
         public Output<string> DatabaseId { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class DatabaseExtendedAuditingPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        /// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseId", required: true)]
         public Input<string> DatabaseId { get; set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class DatabaseExtendedAuditingPolicyState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        /// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseId")]
         public Input<string>? DatabaseId { get; set; }

@@ -6350,6 +6350,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "streamanalytics/outputCosmosdb",
+  "fqn": "pulumi_azure.streamanalytics",
+  "classes": {
+   "azure:streamanalytics/outputCosmosdb:OutputCosmosdb": "OutputCosmosdb"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "streamanalytics/outputEventHub",
   "fqn": "pulumi_azure.streamanalytics",
   "classes": {

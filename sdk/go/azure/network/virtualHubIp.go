@@ -106,7 +106,7 @@ type VirtualHubIp struct {
 	PublicIpAddressId pulumi.StringOutput `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+	// The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringOutput `pulumi:"virtualHubId"`
 }
 
@@ -158,7 +158,7 @@ type virtualHubIpState struct {
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
-	// The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+	// The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
 	VirtualHubId *string `pulumi:"virtualHubId"`
 }
 
@@ -173,7 +173,7 @@ type VirtualHubIpState struct {
 	PublicIpAddressId pulumi.StringPtrInput
 	// The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
-	// The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+	// The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringPtrInput
 }
 
@@ -192,7 +192,7 @@ type virtualHubIpArgs struct {
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
-	// The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+	// The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
 	VirtualHubId string `pulumi:"virtualHubId"`
 }
 
@@ -208,7 +208,7 @@ type VirtualHubIpArgs struct {
 	PublicIpAddressId pulumi.StringInput
 	// The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
-	// The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+	// The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringInput
 }
 

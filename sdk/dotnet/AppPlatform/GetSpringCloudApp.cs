@@ -140,7 +140,7 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
-        /// Is only https allowed?
+        /// Is only HTTPS allowed?
         /// </summary>
         public readonly bool HttpsOnly;
         /// <summary>

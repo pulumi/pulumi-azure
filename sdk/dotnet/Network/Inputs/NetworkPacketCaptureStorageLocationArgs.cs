@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class NetworkPacketCaptureStorageLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+        /// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
         /// </summary>
         [Input("filePath")]
         public Input<string>? FilePath { get; set; }

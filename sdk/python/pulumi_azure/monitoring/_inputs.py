@@ -88,7 +88,7 @@ class AadDiagnosticSettingLogArgs:
                  retention_policy: pulumi.Input['AadDiagnosticSettingLogRetentionPolicyArgs'],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] category: The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
+        :param pulumi.Input[str] category: The log category for the Azure Active Directory Diagnostic.
         :param pulumi.Input['AadDiagnosticSettingLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
         :param pulumi.Input[bool] enabled: Is this Diagnostic Log enabled? Defaults to `true`.
         """
@@ -101,7 +101,7 @@ class AadDiagnosticSettingLogArgs:
     @pulumi.getter
     def category(self) -> pulumi.Input[str]:
         """
-        The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
+        The log category for the Azure Active Directory Diagnostic.
         """
         return pulumi.get(self, "category")
 
@@ -387,7 +387,7 @@ class ActionGroupAzureFunctionReceiverArgs:
         """
         :param pulumi.Input[str] function_app_resource_id: The Azure resource ID of the function app.
         :param pulumi.Input[str] function_name: The function name in the function app.
-        :param pulumi.Input[str] http_trigger_url: The http trigger url where http request sent to.
+        :param pulumi.Input[str] http_trigger_url: The HTTP trigger url where HTTP request sent to.
         :param pulumi.Input[str] name: The name of the Azure Function receiver.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
@@ -426,7 +426,7 @@ class ActionGroupAzureFunctionReceiverArgs:
     @pulumi.getter(name="httpTriggerUrl")
     def http_trigger_url(self) -> pulumi.Input[str]:
         """
-        The http trigger url where http request sent to.
+        The HTTP trigger url where HTTP request sent to.
         """
         return pulumi.get(self, "http_trigger_url")
 
@@ -671,7 +671,7 @@ class ActionGroupLogicAppReceiverArgs:
                  resource_id: pulumi.Input[str],
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] callback_url: The callback url where http request sent to.
+        :param pulumi.Input[str] callback_url: The callback url where HTTP request sent to.
         :param pulumi.Input[str] name: The name of the logic app receiver.
         :param pulumi.Input[str] resource_id: The Azure resource ID of the logic app.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
@@ -686,7 +686,7 @@ class ActionGroupLogicAppReceiverArgs:
     @pulumi.getter(name="callbackUrl")
     def callback_url(self) -> pulumi.Input[str]:
         """
-        The callback url where http request sent to.
+        The callback url where HTTP request sent to.
         """
         return pulumi.get(self, "callback_url")
 
@@ -911,9 +911,9 @@ class ActionGroupWebhookReceiverAadAuthArgs:
                  identifier_uri: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object_id: The webhook application object Id for aad auth.
-        :param pulumi.Input[str] identifier_uri: The identifier uri for aad auth.
-        :param pulumi.Input[str] tenant_id: The tenant id for aad auth.
+        :param pulumi.Input[str] object_id: The webhook application object Id for AAD auth.
+        :param pulumi.Input[str] identifier_uri: The identifier URI for AAD auth.
+        :param pulumi.Input[str] tenant_id: The tenant id for AAD auth.
         """
         pulumi.set(__self__, "object_id", object_id)
         if identifier_uri is not None:
@@ -925,7 +925,7 @@ class ActionGroupWebhookReceiverAadAuthArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Input[str]:
         """
-        The webhook application object Id for aad auth.
+        The webhook application object Id for AAD auth.
         """
         return pulumi.get(self, "object_id")
 
@@ -937,7 +937,7 @@ class ActionGroupWebhookReceiverAadAuthArgs:
     @pulumi.getter(name="identifierUri")
     def identifier_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier uri for aad auth.
+        The identifier URI for AAD auth.
         """
         return pulumi.get(self, "identifier_uri")
 
@@ -949,7 +949,7 @@ class ActionGroupWebhookReceiverAadAuthArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The tenant id for aad auth.
+        The tenant id for AAD auth.
         """
         return pulumi.get(self, "tenant_id")
 

@@ -20,13 +20,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = data.linux_function_app.example.id;
  * ```
- * ## Arguments Referencez
- *
- * The following arguments are supported:
- *
- * * `name` - (Required) The name which should be used for this Linux Function App.
- *
- * * `resourceGroupName` - (Required) The name of the Resource Group where the Linux Function App should exist.
  */
 export function getLinuxFunctionApp(args: GetLinuxFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetLinuxFunctionAppResult> {
     if (!opts) {
@@ -45,9 +38,12 @@ export function getLinuxFunctionApp(args: GetLinuxFunctionAppArgs, opts?: pulumi
  */
 export interface GetLinuxFunctionAppArgs {
     /**
-     * The Site Credentials Username used for publishing.
+     * The name which should be used for this Linux Function App.
      */
     name: string;
+    /**
+     * The name of the Resource Group where the Linux Function App should exist.
+     */
     resourceGroupName: string;
 }
 
@@ -158,6 +154,10 @@ export interface GetLinuxFunctionAppResult {
      */
     readonly siteCredentials: outputs.appservice.GetLinuxFunctionAppSiteCredential[];
     /**
+     * A `stickySettings` block as defined below.
+     */
+    readonly stickySettings: outputs.appservice.GetLinuxFunctionAppStickySetting[];
+    /**
      * The access key used to access the backend storage account for the Function App.
      */
     readonly storageAccountAccessKey: string;
@@ -188,8 +188,11 @@ export function getLinuxFunctionAppOutput(args: GetLinuxFunctionAppOutputArgs, o
  */
 export interface GetLinuxFunctionAppOutputArgs {
     /**
-     * The Site Credentials Username used for publishing.
+     * The name which should be used for this Linux Function App.
      */
     name: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group where the Linux Function App should exist.
+     */
     resourceGroupName: pulumi.Input<string>;
 }

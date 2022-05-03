@@ -1417,7 +1417,7 @@ class LiveEventPreviewArgs:
         """
         :param pulumi.Input[str] alternative_media_id: An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArgs']]] ip_access_control_allows: One or more `ip_access_control_allow` blocks as defined above.
-        :param pulumi.Input[str] preview_locator: The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] preview_locator: The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
         :param pulumi.Input[str] streaming_policy_name: The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
         """
         if alternative_media_id is not None:
@@ -1468,7 +1468,7 @@ class LiveEventPreviewArgs:
     @pulumi.getter(name="previewLocator")
     def preview_locator(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+        The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "preview_locator")
 

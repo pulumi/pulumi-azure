@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Automation.Inputs
         public Input<Inputs.ModuleModuleLinkHashGetArgs>? Hash { get; set; }
 
         /// <summary>
-        /// The uri of the module content (zip or nupkg).
+        /// The URI of the module content (zip or nupkg).
         /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;

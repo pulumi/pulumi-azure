@@ -103,11 +103,11 @@ export class InterationServiceEnvironment extends pulumi.CustomResource {
      */
     public readonly accessEndpointType!: pulumi.Output<string>;
     /**
-     * The list of access endpoint ip addresses of connector.
+     * The list of access endpoint IP addresses of connector.
      */
     public /*out*/ readonly connectorEndpointIpAddresses!: pulumi.Output<string[]>;
     /**
-     * The list of outgoing ip addresses of connector.
+     * The list of outgoing IP addresses of connector.
      */
     public /*out*/ readonly connectorOutboundIpAddresses!: pulumi.Output<string[]>;
     /**
@@ -123,7 +123,7 @@ export class InterationServiceEnvironment extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+     * The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
     /**
@@ -135,11 +135,11 @@ export class InterationServiceEnvironment extends pulumi.CustomResource {
      */
     public readonly virtualNetworkSubnetIds!: pulumi.Output<string[]>;
     /**
-     * The list of access endpoint ip addresses of workflow.
+     * The list of access endpoint IP addresses of workflow.
      */
     public /*out*/ readonly workflowEndpointIpAddresses!: pulumi.Output<string[]>;
     /**
-     * The list of outgoing ip addresses of workflow.
+     * The list of outgoing IP addresses of workflow.
      */
     public /*out*/ readonly workflowOutboundIpAddresses!: pulumi.Output<string[]>;
 
@@ -204,11 +204,11 @@ export interface InterationServiceEnvironmentState {
      */
     accessEndpointType?: pulumi.Input<string>;
     /**
-     * The list of access endpoint ip addresses of connector.
+     * The list of access endpoint IP addresses of connector.
      */
     connectorEndpointIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The list of outgoing ip addresses of connector.
+     * The list of outgoing IP addresses of connector.
      */
     connectorOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -224,7 +224,7 @@ export interface InterationServiceEnvironmentState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+     * The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -236,11 +236,11 @@ export interface InterationServiceEnvironmentState {
      */
     virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The list of access endpoint ip addresses of workflow.
+     * The list of access endpoint IP addresses of workflow.
      */
     workflowEndpointIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The list of outgoing ip addresses of workflow.
+     * The list of outgoing IP addresses of workflow.
      */
     workflowOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -266,7 +266,7 @@ export interface InterationServiceEnvironmentArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+     * The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
      */
     skuName?: pulumi.Input<string>;
     /**

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
     public sealed class ServiceTenantAccessArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the access to the management api be enabled?
+        /// Should the access to the management API be enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

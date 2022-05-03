@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Automation.Outputs
     {
         public readonly Outputs.RunBookPublishContentLinkHash? Hash;
         /// <summary>
-        /// The uri of the runbook content.
+        /// The URI of the runbook content.
         /// </summary>
         public readonly string Uri;
         public readonly string? Version;

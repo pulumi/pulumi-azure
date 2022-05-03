@@ -245,7 +245,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// If azure services can bypass ACLs. Defaults to `false`.
+        /// If Azure services can bypass ACLs. Defaults to `false`.
         /// </summary>
         [Output("networkAclBypassForAzureServices")]
         public Output<bool?> NetworkAclBypassForAzureServices { get; private set; } = null!;
@@ -525,7 +525,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// If azure services can bypass ACLs. Defaults to `false`.
+        /// If Azure services can bypass ACLs. Defaults to `false`.
         /// </summary>
         [Input("networkAclBypassForAzureServices")]
         public Input<bool>? NetworkAclBypassForAzureServices { get; set; }
@@ -766,7 +766,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// If azure services can bypass ACLs. Defaults to `false`.
+        /// If Azure services can bypass ACLs. Defaults to `false`.
         /// </summary>
         [Input("networkAclBypassForAzureServices")]
         public Input<bool>? NetworkAclBypassForAzureServices { get; set; }

@@ -110,7 +110,7 @@ namespace Pulumi.Azure.Lb
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        /// `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         /// *
         /// </summary>
         [Output("skuTier")]
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        /// `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         /// *
         /// </summary>
         [Input("skuTier")]
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// `sku_tier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        /// `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         /// *
         /// </summary>
         [Input("skuTier")]

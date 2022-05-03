@@ -154,6 +154,10 @@ export interface GetLinuxWebAppResult {
      */
     readonly siteCredentials: outputs.appservice.GetLinuxWebAppSiteCredential[];
     /**
+     * A `stickySettings` block as defined below.
+     */
+    readonly stickySettings: outputs.appservice.GetLinuxWebAppStickySetting[];
+    /**
      * A `storageAccount` block as defined below.
      */
     readonly storageAccounts: outputs.appservice.GetLinuxWebAppStorageAccount[];

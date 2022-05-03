@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class NetworkPacketCaptureStorageLocation
     {
         /// <summary>
-        /// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+        /// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
         /// </summary>
         public readonly string? FilePath;
         /// <summary>

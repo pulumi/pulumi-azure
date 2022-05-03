@@ -61,7 +61,7 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the EventHub Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The sku name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+	// The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -108,7 +108,7 @@ type clusterState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the EventHub Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The sku name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+	// The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -121,7 +121,7 @@ type ClusterState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the EventHub Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The sku name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+	// The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -138,7 +138,7 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the EventHub Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+	// The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -152,7 +152,7 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the EventHub Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The sku name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+	// The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
 	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

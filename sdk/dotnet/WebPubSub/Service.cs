@@ -163,7 +163,7 @@ namespace Pulumi.Azure.WebPubSub
         public Output<int> ServerPort { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+        /// Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+        /// Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -422,7 +422,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<int>? ServerPort { get; set; }
 
         /// <summary>
-        /// Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+        /// Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

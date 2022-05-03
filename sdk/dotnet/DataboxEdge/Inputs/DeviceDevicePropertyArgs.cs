@@ -37,7 +37,7 @@ namespace Pulumi.Azure.DataboxEdge.Inputs
         public Input<string>? Culture { get; set; }
 
         /// <summary>
-        /// The device software version number of the device (eg: 1.2.18105.6).
+        /// The device software version number of the device (e.g. 1.2.18105.6).
         /// </summary>
         [Input("hcsVersion")]
         public Input<string>? HcsVersion { get; set; }

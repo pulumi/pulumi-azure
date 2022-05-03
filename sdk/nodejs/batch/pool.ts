@@ -170,7 +170,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly networkConfiguration!: pulumi.Output<outputs.batch.PoolNetworkConfiguration | undefined>;
     /**
-     * Specifies the Sku of the node agents that will be created in the Batch pool.
+     * Specifies the SKU of the node agents that will be created in the Batch pool.
      */
     public readonly nodeAgentSkuId!: pulumi.Output<string>;
     /**
@@ -310,7 +310,7 @@ export interface PoolState {
      */
     networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
     /**
-     * Specifies the Sku of the node agents that will be created in the Batch pool.
+     * Specifies the SKU of the node agents that will be created in the Batch pool.
      */
     nodeAgentSkuId?: pulumi.Input<string>;
     /**
@@ -381,7 +381,7 @@ export interface PoolArgs {
      */
     networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
     /**
-     * Specifies the Sku of the node agents that will be created in the Batch pool.
+     * Specifies the SKU of the node agents that will be created in the Batch pool.
      */
     nodeAgentSkuId: pulumi.Input<string>;
     /**

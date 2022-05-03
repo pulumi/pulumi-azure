@@ -60,13 +60,13 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> AccessEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The list of access endpoint ip addresses of connector.
+        /// The list of access endpoint IP addresses of connector.
         /// </summary>
         [Output("connectorEndpointIpAddresses")]
         public Output<ImmutableArray<string>> ConnectorEndpointIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// The list of outgoing ip addresses of connector.
+        /// The list of outgoing IP addresses of connector.
         /// </summary>
         [Output("connectorOutboundIpAddresses")]
         public Output<ImmutableArray<string>> ConnectorOutboundIpAddresses { get; private set; } = null!;
@@ -126,19 +126,19 @@ namespace Pulumi.Azure.LogicApps
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The list of access endpoint ip addresses of workflow.
+        /// The list of access endpoint IP addresses of workflow.
         /// </summary>
         [Output("workflowEndpointIpAddresses")]
         public Output<ImmutableArray<string>> WorkflowEndpointIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// The list of outgoing ip addresses of workflow.
+        /// The list of outgoing IP addresses of workflow.
         /// </summary>
         [Output("workflowOutboundIpAddresses")]
         public Output<ImmutableArray<string>> WorkflowOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
         /// </summary>
         [Output("workflowParameters")]
         public Output<ImmutableDictionary<string, string>?> WorkflowParameters { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.LogicApps
         private InputMap<string>? _workflowParameters;
 
         /// <summary>
-        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
         /// </summary>
         public InputMap<string> WorkflowParameters
         {
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<string>? _connectorEndpointIpAddresses;
 
         /// <summary>
-        /// The list of access endpoint ip addresses of connector.
+        /// The list of access endpoint IP addresses of connector.
         /// </summary>
         public InputList<string> ConnectorEndpointIpAddresses
         {
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<string>? _connectorOutboundIpAddresses;
 
         /// <summary>
-        /// The list of outgoing ip addresses of connector.
+        /// The list of outgoing IP addresses of connector.
         /// </summary>
         public InputList<string> ConnectorOutboundIpAddresses
         {
@@ -410,7 +410,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<string>? _workflowEndpointIpAddresses;
 
         /// <summary>
-        /// The list of access endpoint ip addresses of workflow.
+        /// The list of access endpoint IP addresses of workflow.
         /// </summary>
         public InputList<string> WorkflowEndpointIpAddresses
         {
@@ -422,7 +422,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<string>? _workflowOutboundIpAddresses;
 
         /// <summary>
-        /// The list of outgoing ip addresses of workflow.
+        /// The list of outgoing IP addresses of workflow.
         /// </summary>
         public InputList<string> WorkflowOutboundIpAddresses
         {
@@ -434,7 +434,7 @@ namespace Pulumi.Azure.LogicApps
         private InputMap<string>? _workflowParameters;
 
         /// <summary>
-        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
         /// </summary>
         public InputMap<string> WorkflowParameters
         {

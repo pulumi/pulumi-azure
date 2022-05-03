@@ -63,7 +63,7 @@ class DeviceDeviceProperty(dict):
         :param int capacity: The Data Box Edge/Gateway device local capacity in MB.
         :param Sequence[str] configured_role_types: Type of compute roles configured.
         :param str culture: The Data Box Edge/Gateway device culture.
-        :param str hcs_version: The device software version number of the device (eg: 1.2.18105.6).
+        :param str hcs_version: The device software version number of the device (e.g. 1.2.18105.6).
         :param str model: The Data Box Edge/Gateway device model.
         :param int node_count: The number of nodes in the cluster.
         :param str serial_number: The Serial Number of Data Box Edge/Gateway device.
@@ -123,7 +123,7 @@ class DeviceDeviceProperty(dict):
     @pulumi.getter(name="hcsVersion")
     def hcs_version(self) -> Optional[str]:
         """
-        The device software version number of the device (eg: 1.2.18105.6).
+        The device software version number of the device (e.g. 1.2.18105.6).
         """
         return pulumi.get(self, "hcs_version")
 

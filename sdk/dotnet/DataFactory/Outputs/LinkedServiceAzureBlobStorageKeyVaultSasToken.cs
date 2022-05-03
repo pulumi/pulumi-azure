@@ -18,7 +18,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string LinkedServiceName;
         /// <summary>
-        /// Specifies the secret name in Azure Key Vault that stores the sas token.
+        /// Specifies the secret name in Azure Key Vault that stores the SAS token.
         /// </summary>
         public readonly string SecretName;
 

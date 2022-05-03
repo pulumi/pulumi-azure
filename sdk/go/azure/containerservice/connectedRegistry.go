@@ -81,7 +81,7 @@ import (
 //
 // ## Import
 //
-// Container Connected Registrys can be imported using the `resource id`, e.g.
+// Container Connected Registries can be imported using the `resource id`, e.g.
 //
 // ```sh
 //  $ pulumi import azure:containerservice/connectedRegistry:ConnectedRegistry example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/connectedRegistries/registry1
@@ -89,7 +89,7 @@ import (
 type ConnectedRegistry struct {
 	pulumi.CustomResourceState
 
-	// Should the log auditting be enabled?
+	// Should the log auditing be enabled?
 	AuditLogEnabled pulumi.BoolPtrOutput `pulumi:"auditLogEnabled"`
 	// Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
 	ClientTokenIds pulumi.StringArrayOutput `pulumi:"clientTokenIds"`
@@ -150,7 +150,7 @@ func GetConnectedRegistry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectedRegistry resources.
 type connectedRegistryState struct {
-	// Should the log auditting be enabled?
+	// Should the log auditing be enabled?
 	AuditLogEnabled *bool `pulumi:"auditLogEnabled"`
 	// Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
 	ClientTokenIds []string `pulumi:"clientTokenIds"`
@@ -177,7 +177,7 @@ type connectedRegistryState struct {
 }
 
 type ConnectedRegistryState struct {
-	// Should the log auditting be enabled?
+	// Should the log auditing be enabled?
 	AuditLogEnabled pulumi.BoolPtrInput
 	// Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
 	ClientTokenIds pulumi.StringArrayInput
@@ -208,7 +208,7 @@ func (ConnectedRegistryState) ElementType() reflect.Type {
 }
 
 type connectedRegistryArgs struct {
-	// Should the log auditting be enabled?
+	// Should the log auditing be enabled?
 	AuditLogEnabled *bool `pulumi:"auditLogEnabled"`
 	// Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
 	ClientTokenIds []string `pulumi:"clientTokenIds"`
@@ -236,7 +236,7 @@ type connectedRegistryArgs struct {
 
 // The set of arguments for constructing a ConnectedRegistry resource.
 type ConnectedRegistryArgs struct {
-	// Should the log auditting be enabled?
+	// Should the log auditing be enabled?
 	AuditLogEnabled pulumi.BoolPtrInput
 	// Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
 	ClientTokenIds pulumi.StringArrayInput

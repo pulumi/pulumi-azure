@@ -329,6 +329,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> RoleBasedAccessControlEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to enable run command for the cluster or not. Defaults to `true`.
+        /// </summary>
+        [Output("runCommandEnabled")]
+        public Output<bool?> RunCommandEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         /// </summary>
         [Output("servicePrincipal")]
@@ -607,6 +613,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("roleBasedAccessControlEnabled")]
         public Input<bool>? RoleBasedAccessControlEnabled { get; set; }
+
+        /// <summary>
+        /// Whether to enable run command for the cluster or not. Defaults to `true`.
+        /// </summary>
+        [Input("runCommandEnabled")]
+        public Input<bool>? RunCommandEnabled { get; set; }
 
         /// <summary>
         /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
@@ -920,6 +932,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("roleBasedAccessControlEnabled")]
         public Input<bool>? RoleBasedAccessControlEnabled { get; set; }
+
+        /// <summary>
+        /// Whether to enable run command for the cluster or not. Defaults to `true`.
+        /// </summary>
+        [Input("runCommandEnabled")]
+        public Input<bool>? RunCommandEnabled { get; set; }
 
         /// <summary>
         /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.

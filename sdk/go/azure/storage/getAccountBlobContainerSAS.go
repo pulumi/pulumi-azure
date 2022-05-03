@@ -106,7 +106,7 @@ type GetAccountBlobContainerSASArgs struct {
 	Expiry string `pulumi:"expiry"`
 	// Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
-	// Single ipv4 address or range (connected with a dash) of ipv4 addresses.
+	// Single IPv4 address or range (connected with a dash) of IPv4 addresses.
 	IpAddress *string `pulumi:"ipAddress"`
 	// A `permissions` block as defined below.
 	Permissions GetAccountBlobContainerSASPermissions `pulumi:"permissions"`
@@ -163,7 +163,7 @@ type GetAccountBlobContainerSASOutputArgs struct {
 	Expiry pulumi.StringInput `pulumi:"expiry"`
 	// Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
 	HttpsOnly pulumi.BoolPtrInput `pulumi:"httpsOnly"`
-	// Single ipv4 address or range (connected with a dash) of ipv4 addresses.
+	// Single IPv4 address or range (connected with a dash) of IPv4 addresses.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// A `permissions` block as defined below.
 	Permissions GetAccountBlobContainerSASPermissionsInput `pulumi:"permissions"`

@@ -21,7 +21,7 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Cluster exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+        :param pulumi.Input[str] sku_name: The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Cluster resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -51,7 +51,7 @@ class ClusterArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The sku name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+        The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -109,7 +109,7 @@ class _ClusterState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Cluster resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Cluster exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+        :param pulumi.Input[str] sku_name: The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if location is not None:
@@ -163,7 +163,7 @@ class _ClusterState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The sku name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+        The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -224,7 +224,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Cluster resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Cluster exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+        :param pulumi.Input[str] sku_name: The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -323,7 +323,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Cluster resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Cluster exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+        :param pulumi.Input[str] sku_name: The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -365,7 +365,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The sku name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+        The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
         """
         return pulumi.get(self, "sku_name")
 

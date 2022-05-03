@@ -64,7 +64,7 @@ type LookupAccountResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The primary key used to authenticate and authorize access to the Maps REST APIs. The second key is given to provide seamless key regeneration.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
-	// The sku of the Azure Maps Account.
+	// The SKU of the Azure Maps Account.
 	SkuName string            `pulumi:"skuName"`
 	Tags    map[string]string `pulumi:"tags"`
 	// A unique identifier for the Maps Account.
@@ -131,7 +131,7 @@ func (o LookupAccountResultOutput) SecondaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryAccessKey }).(pulumi.StringOutput)
 }
 
-// The sku of the Azure Maps Account.
+// The SKU of the Azure Maps Account.
 func (o LookupAccountResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SkuName }).(pulumi.StringOutput)
 }

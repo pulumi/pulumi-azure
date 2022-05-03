@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Lb.Inputs
     public sealed class LoadBalancerFrontendIpConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        /// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         /// </summary>
         [Input("gatewayLoadBalancerFrontendIpConfigurationId")]
         public Input<string>? GatewayLoadBalancerFrontendIpConfigurationId { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Lb.Inputs
         }
 
         /// <summary>
-        /// Specifies the name of the frontend ip configuration.
+        /// Specifies the name of the frontend IP configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

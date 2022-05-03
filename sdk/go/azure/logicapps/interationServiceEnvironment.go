@@ -126,9 +126,9 @@ type InterationServiceEnvironment struct {
 
 	// The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
 	AccessEndpointType pulumi.StringOutput `pulumi:"accessEndpointType"`
-	// The list of access endpoint ip addresses of connector.
+	// The list of access endpoint IP addresses of connector.
 	ConnectorEndpointIpAddresses pulumi.StringArrayOutput `pulumi:"connectorEndpointIpAddresses"`
-	// The list of outgoing ip addresses of connector.
+	// The list of outgoing IP addresses of connector.
 	ConnectorOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"connectorOutboundIpAddresses"`
 	// The Azure Region where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -136,15 +136,15 @@ type InterationServiceEnvironment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+	// The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
 	VirtualNetworkSubnetIds pulumi.StringArrayOutput `pulumi:"virtualNetworkSubnetIds"`
-	// The list of access endpoint ip addresses of workflow.
+	// The list of access endpoint IP addresses of workflow.
 	WorkflowEndpointIpAddresses pulumi.StringArrayOutput `pulumi:"workflowEndpointIpAddresses"`
-	// The list of outgoing ip addresses of workflow.
+	// The list of outgoing IP addresses of workflow.
 	WorkflowOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"workflowOutboundIpAddresses"`
 }
 
@@ -188,9 +188,9 @@ func GetInterationServiceEnvironment(ctx *pulumi.Context,
 type interationServiceEnvironmentState struct {
 	// The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
 	AccessEndpointType *string `pulumi:"accessEndpointType"`
-	// The list of access endpoint ip addresses of connector.
+	// The list of access endpoint IP addresses of connector.
 	ConnectorEndpointIpAddresses []string `pulumi:"connectorEndpointIpAddresses"`
-	// The list of outgoing ip addresses of connector.
+	// The list of outgoing IP addresses of connector.
 	ConnectorOutboundIpAddresses []string `pulumi:"connectorOutboundIpAddresses"`
 	// The Azure Region where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	Location *string `pulumi:"location"`
@@ -198,24 +198,24 @@ type interationServiceEnvironmentState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+	// The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
-	// The list of access endpoint ip addresses of workflow.
+	// The list of access endpoint IP addresses of workflow.
 	WorkflowEndpointIpAddresses []string `pulumi:"workflowEndpointIpAddresses"`
-	// The list of outgoing ip addresses of workflow.
+	// The list of outgoing IP addresses of workflow.
 	WorkflowOutboundIpAddresses []string `pulumi:"workflowOutboundIpAddresses"`
 }
 
 type InterationServiceEnvironmentState struct {
 	// The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
 	AccessEndpointType pulumi.StringPtrInput
-	// The list of access endpoint ip addresses of connector.
+	// The list of access endpoint IP addresses of connector.
 	ConnectorEndpointIpAddresses pulumi.StringArrayInput
-	// The list of outgoing ip addresses of connector.
+	// The list of outgoing IP addresses of connector.
 	ConnectorOutboundIpAddresses pulumi.StringArrayInput
 	// The Azure Region where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	Location pulumi.StringPtrInput
@@ -223,15 +223,15 @@ type InterationServiceEnvironmentState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+	// The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags pulumi.StringMapInput
 	// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput
-	// The list of access endpoint ip addresses of workflow.
+	// The list of access endpoint IP addresses of workflow.
 	WorkflowEndpointIpAddresses pulumi.StringArrayInput
-	// The list of outgoing ip addresses of workflow.
+	// The list of outgoing IP addresses of workflow.
 	WorkflowOutboundIpAddresses pulumi.StringArrayInput
 }
 
@@ -248,7 +248,7 @@ type interationServiceEnvironmentArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+	// The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags map[string]string `pulumi:"tags"`
@@ -266,7 +266,7 @@ type InterationServiceEnvironmentArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName pulumi.StringInput
-	// The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+	// The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Integration Service Environment.
 	Tags pulumi.StringMapInput

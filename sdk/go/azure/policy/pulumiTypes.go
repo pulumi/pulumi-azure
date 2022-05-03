@@ -722,7 +722,7 @@ func (o GetPolicySetDefinitionPolicyDefinitionGroupArrayOutput) Index(i pulumi.I
 }
 
 type GetPolicySetDefinitionPolicyDefinitionReference struct {
-	// The parameter values for the referenced policy rule. This field is a json object.
+	// The parameter values for the referenced policy rule. This field is a JSON object.
 	ParameterValues string `pulumi:"parameterValues"`
 	// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -746,7 +746,7 @@ type GetPolicySetDefinitionPolicyDefinitionReferenceInput interface {
 }
 
 type GetPolicySetDefinitionPolicyDefinitionReferenceArgs struct {
-	// The parameter values for the referenced policy rule. This field is a json object.
+	// The parameter values for the referenced policy rule. This field is a JSON object.
 	ParameterValues pulumi.StringInput `pulumi:"parameterValues"`
 	// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
@@ -809,7 +809,7 @@ func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ToGetPolicySetDef
 	return o
 }
 
-// The parameter values for the referenced policy rule. This field is a json object.
+// The parameter values for the referenced policy rule. This field is a JSON object.
 func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ParameterValues() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicySetDefinitionPolicyDefinitionReference) string { return v.ParameterValues }).(pulumi.StringOutput)
 }

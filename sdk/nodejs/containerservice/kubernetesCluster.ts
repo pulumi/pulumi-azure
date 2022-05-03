@@ -244,6 +244,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly roleBasedAccessControlEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Whether to enable run command for the cluster or not. Defaults to `true`.
+     */
+    public readonly runCommandEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */
     public readonly servicePrincipal!: pulumi.Output<outputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
@@ -317,6 +321,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["roleBasedAccessControlEnabled"] = state ? state.roleBasedAccessControlEnabled : undefined;
+            resourceInputs["runCommandEnabled"] = state ? state.runCommandEnabled : undefined;
             resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
             resourceInputs["skuTier"] = state ? state.skuTier : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -364,6 +369,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roleBasedAccessControlEnabled"] = args ? args.roleBasedAccessControlEnabled : undefined;
+            resourceInputs["runCommandEnabled"] = args ? args.runCommandEnabled : undefined;
             resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
             resourceInputs["skuTier"] = args ? args.skuTier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -558,6 +564,10 @@ export interface KubernetesClusterState {
      */
     roleBasedAccessControlEnabled?: pulumi.Input<boolean>;
     /**
+     * Whether to enable run command for the cluster or not. Defaults to `true`.
+     */
+    runCommandEnabled?: pulumi.Input<boolean>;
+    /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */
     servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
@@ -713,6 +723,10 @@ export interface KubernetesClusterArgs {
      * Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
      */
     roleBasedAccessControlEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether to enable run command for the cluster or not. Defaults to `true`.
+     */
+    runCommandEnabled?: pulumi.Input<boolean>;
     /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */

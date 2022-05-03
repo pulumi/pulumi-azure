@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration
     {
         /// <summary>
-        /// The domain name label for the dns settings.
+        /// The domain name label for the DNS settings.
         /// </summary>
         public readonly string DomainNameLabel;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int IdleTimeout;
         /// <summary>
-        /// The name of the public ip address configuration
+        /// The name of the public IP address configuration
         /// </summary>
         public readonly string Name;
 

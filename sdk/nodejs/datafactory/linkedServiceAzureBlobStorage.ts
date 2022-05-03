@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     connectionString: exampleAccount.apply(exampleAccount => exampleAccount.primaryConnectionString),
  * });
  * ```
- * ### With SAS Uri And SAS Token.
+ * ### With SAS URI And SAS Token.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

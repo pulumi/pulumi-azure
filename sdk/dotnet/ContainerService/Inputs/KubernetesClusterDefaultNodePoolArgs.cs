@@ -117,7 +117,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? OnlyCriticalAddonsEnabled { get; set; }
 
         /// <summary>
-        /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        /// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         /// </summary>
         [Input("orchestratorVersion")]
         public Input<string>? OrchestratorVersion { get; set; }

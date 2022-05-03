@@ -1025,9 +1025,9 @@ func (o SpringCloudServiceConfigServerGitSettingPtrOutput) Uri() pulumi.StringPt
 }
 
 type SpringCloudServiceConfigServerGitSettingHttpBasicAuth struct {
-	// The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+	// The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 	Password string `pulumi:"password"`
-	// The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+	// The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 	Username string `pulumi:"username"`
 }
 
@@ -1043,9 +1043,9 @@ type SpringCloudServiceConfigServerGitSettingHttpBasicAuthInput interface {
 }
 
 type SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs struct {
-	// The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+	// The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+	// The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1126,12 +1126,12 @@ func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ToSpringClo
 	}).(SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput)
 }
 
-// The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+// The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingHttpBasicAuth) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+// The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingHttpBasicAuth) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -1160,7 +1160,7 @@ func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) Elem() S
 	}).(SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput)
 }
 
-// The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+// The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingHttpBasicAuth) *string {
 		if v == nil {
@@ -1170,7 +1170,7 @@ func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) Password
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+// The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingHttpBasicAuth) *string {
 		if v == nil {
@@ -1336,9 +1336,9 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryArrayOutput) Index(i p
 }
 
 type SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth struct {
-	// The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+	// The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 	Password string `pulumi:"password"`
-	// The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+	// The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 	Username string `pulumi:"username"`
 }
 
@@ -1354,9 +1354,9 @@ type SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthInput interf
 }
 
 type SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs struct {
-	// The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+	// The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+	// The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1437,12 +1437,12 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) T
 	}).(SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput)
 }
 
-// The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+// The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+// The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -1471,7 +1471,7 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput
 	}).(SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput)
 }
 
-// The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+// The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) *string {
 		if v == nil {
@@ -1481,7 +1481,7 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+// The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) *string {
 		if v == nil {
@@ -2750,9 +2750,9 @@ func (o GetSpringCloudServiceConfigServerGitSettingArrayOutput) Index(i pulumi.I
 }
 
 type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth struct {
-	// The password used to access the Http Basic Authentication Git repository server.
+	// The password used to access the HTTP Basic Authentication Git repository server.
 	Password string `pulumi:"password"`
-	// The username used to access the Http Basic Authentication Git repository server.
+	// The username used to access the HTTP Basic Authentication Git repository server.
 	Username string `pulumi:"username"`
 }
 
@@ -2768,9 +2768,9 @@ type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthInput interface {
 }
 
 type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs struct {
-	// The password used to access the Http Basic Authentication Git repository server.
+	// The password used to access the HTTP Basic Authentication Git repository server.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The username used to access the Http Basic Authentication Git repository server.
+	// The username used to access the HTTP Basic Authentication Git repository server.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -2825,12 +2825,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ToGetSpr
 	return o
 }
 
-// The password used to access the Http Basic Authentication Git repository server.
+// The password used to access the HTTP Basic Authentication Git repository server.
 func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The username used to access the Http Basic Authentication Git repository server.
+// The username used to access the HTTP Basic Authentication Git repository server.
 func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -3011,9 +3011,9 @@ func (o GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput) Index(
 }
 
 type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth struct {
-	// The password used to access the Http Basic Authentication Git repository server.
+	// The password used to access the HTTP Basic Authentication Git repository server.
 	Password string `pulumi:"password"`
-	// The username used to access the Http Basic Authentication Git repository server.
+	// The username used to access the HTTP Basic Authentication Git repository server.
 	Username string `pulumi:"username"`
 }
 
@@ -3029,9 +3029,9 @@ type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthInput int
 }
 
 type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs struct {
-	// The password used to access the Http Basic Authentication Git repository server.
+	// The password used to access the HTTP Basic Authentication Git repository server.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The username used to access the Http Basic Authentication Git repository server.
+	// The username used to access the HTTP Basic Authentication Git repository server.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -3086,12 +3086,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput
 	return o
 }
 
-// The password used to access the Http Basic Authentication Git repository server.
+// The password used to access the HTTP Basic Authentication Git repository server.
 func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The username used to access the Http Basic Authentication Git repository server.
+// The username used to access the HTTP Basic Authentication Git repository server.
 func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) string { return v.Username }).(pulumi.StringOutput)
 }

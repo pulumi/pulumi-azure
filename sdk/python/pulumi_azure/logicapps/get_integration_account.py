@@ -70,7 +70,7 @@ class GetIntegrationAccountResult:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> str:
         """
-        The sku name of the Logic App Integration Account.
+        The SKU name of the Logic App Integration Account.
         """
         return pulumi.get(self, "sku_name")
 

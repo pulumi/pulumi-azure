@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class GetActionGroupLogicAppReceiverResult
     {
         /// <summary>
-        /// The callback url where http request sent to.
+        /// The callback url where HTTP request sent to.
         /// </summary>
         public readonly string CallbackUrl;
         /// <summary>

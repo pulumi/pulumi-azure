@@ -68,7 +68,7 @@ class GetSpringCloudAppResult:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> bool:
         """
-        Is only https allowed?
+        Is only HTTPS allowed?
         """
         return pulumi.get(self, "https_only")
 

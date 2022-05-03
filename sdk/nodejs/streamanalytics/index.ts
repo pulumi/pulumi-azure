@@ -13,6 +13,7 @@ export * from "./job";
 export * from "./jobSchedule";
 export * from "./managedPrivateEndpoint";
 export * from "./outputBlob";
+export * from "./outputCosmosdb";
 export * from "./outputEventHub";
 export * from "./outputFunction";
 export * from "./outputMssql";
@@ -34,6 +35,7 @@ import { Job } from "./job";
 import { JobSchedule } from "./jobSchedule";
 import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
 import { OutputBlob } from "./outputBlob";
+import { OutputCosmosdb } from "./outputCosmosdb";
 import { OutputEventHub } from "./outputEventHub";
 import { OutputFunction } from "./outputFunction";
 import { OutputMssql } from "./outputMssql";
@@ -65,6 +67,8 @@ const _module = {
                 return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputBlob:OutputBlob":
                 return new OutputBlob(name, <any>undefined, { urn })
+            case "azure:streamanalytics/outputCosmosdb:OutputCosmosdb":
+                return new OutputCosmosdb(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputEventHub:OutputEventHub":
                 return new OutputEventHub(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputFunction:OutputFunction":
@@ -101,6 +105,7 @@ pulumi.runtime.registerResourceModule("azure", "streamanalytics/job", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/jobSchedule", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/managedPrivateEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputBlob", _module)
+pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputCosmosdb", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputEventHub", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputFunction", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputMssql", _module)

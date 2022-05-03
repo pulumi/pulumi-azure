@@ -122,7 +122,7 @@ namespace Pulumi.Azure.DigitalTwins
     public sealed class GetInstanceResult
     {
         /// <summary>
-        /// The Api endpoint to work with this Digital Twins instance.
+        /// The API endpoint to work with this Digital Twins instance.
         /// </summary>
         public readonly string HostName;
         /// <summary>

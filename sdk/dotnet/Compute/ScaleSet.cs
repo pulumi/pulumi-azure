@@ -296,7 +296,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> SinglePlacementGroup { get; private set; } = null!;
 
         /// <summary>
-        /// A sku block as documented below.
+        /// A SKU block as documented below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ScaleSetSku> Sku { get; private set; } = null!;
@@ -525,7 +525,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// A sku block as documented below.
+        /// A SKU block as documented below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.ScaleSetSkuArgs> Sku { get; set; } = null!;
@@ -733,7 +733,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// A sku block as documented below.
+        /// A SKU block as documented below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ScaleSetSkuGetArgs>? Sku { get; set; }

@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string?> StartTime { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+        /// The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         /// </summary>
         [Output("workloadGroupId")]
         public Output<string> WorkloadGroupId { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? StartTime { get; set; }
 
         /// <summary>
-        /// The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+        /// The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         /// </summary>
         [Input("workloadGroupId", required: true)]
         public Input<string> WorkloadGroupId { get; set; } = null!;
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? StartTime { get; set; }
 
         /// <summary>
-        /// The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+        /// The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         /// </summary>
         [Input("workloadGroupId")]
         public Input<string>? WorkloadGroupId { get; set; }

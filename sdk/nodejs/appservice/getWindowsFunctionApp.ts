@@ -157,6 +157,10 @@ export interface GetWindowsFunctionAppResult {
      */
     readonly siteCredentials: outputs.appservice.GetWindowsFunctionAppSiteCredential[];
     /**
+     * A `stickySettings` block as defined below.
+     */
+    readonly stickySettings: outputs.appservice.GetWindowsFunctionAppStickySetting[];
+    /**
      * The access key which is used to access the backend storage account for the Function App.
      */
     readonly storageAccountAccessKey: string;

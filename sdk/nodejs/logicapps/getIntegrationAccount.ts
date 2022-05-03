@@ -61,7 +61,7 @@ export interface GetIntegrationAccountResult {
     readonly name: string;
     readonly resourceGroupName: string;
     /**
-     * The sku name of the Logic App Integration Account.
+     * The SKU name of the Logic App Integration Account.
      */
     readonly skuName: string;
     /**

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? PrivateIpAddressAllocation;
         /// <summary>
-        /// The ID of the public ip address to associate
+        /// The ID of the public IP address to associate
         /// with the Virtual Network Gateway.
         /// </summary>
         public readonly string PublicIpAddressId;

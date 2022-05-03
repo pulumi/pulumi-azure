@@ -20,7 +20,7 @@ class BgpConnectionArgs:
         """
         The set of arguments for constructing a BgpConnection resource.
         :param pulumi.Input[int] peer_asn: The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] peer_ip: The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] peer_ip: The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         """
@@ -46,7 +46,7 @@ class BgpConnectionArgs:
     @pulumi.getter(name="peerIp")
     def peer_ip(self) -> pulumi.Input[str]:
         """
-        The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+        The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "peer_ip")
 
@@ -90,7 +90,7 @@ class _BgpConnectionState:
         Input properties used for looking up and filtering BgpConnection resources.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[int] peer_asn: The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] peer_ip: The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] peer_ip: The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
         """
         if name is not None:
@@ -130,7 +130,7 @@ class _BgpConnectionState:
     @pulumi.getter(name="peerIp")
     def peer_ip(self) -> Optional[pulumi.Input[str]]:
         """
-        The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+        The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "peer_ip")
 
@@ -213,7 +213,7 @@ class BgpConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[int] peer_asn: The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] peer_ip: The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] peer_ip: The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
         """
         ...
@@ -334,7 +334,7 @@ class BgpConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[int] peer_asn: The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] peer_ip: The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] peer_ip: The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -367,7 +367,7 @@ class BgpConnection(pulumi.CustomResource):
     @pulumi.getter(name="peerIp")
     def peer_ip(self) -> pulumi.Output[str]:
         """
-        The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+        The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "peer_ip")
 

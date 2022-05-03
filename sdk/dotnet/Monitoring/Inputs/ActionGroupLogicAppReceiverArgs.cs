@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class ActionGroupLogicAppReceiverArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The callback url where http request sent to.
+        /// The callback url where HTTP request sent to.
         /// </summary>
         [Input("callbackUrl", required: true)]
         public Input<string> CallbackUrl { get; set; } = null!;

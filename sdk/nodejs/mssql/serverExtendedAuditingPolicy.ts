@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Ms Sql Server Extended Auditing Policy.
+ * Manages a MS SQL Server Extended Auditing Policy.
  *
  * ## Example Usage
  *
@@ -118,7 +118,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Ms Sql Server Extended Auditing Policys can be imported using the `resource id`, e.g.
+ * MS SQL Server Extended Auditing Policies can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/extendedAuditingSettings/default
@@ -165,7 +165,7 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
     /**
-     * The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+     * The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     public readonly serverId!: pulumi.Output<string>;
     /**
@@ -242,7 +242,7 @@ export interface ServerExtendedAuditingPolicyState {
      */
     retentionInDays?: pulumi.Input<number>;
     /**
-     * The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+     * The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     serverId?: pulumi.Input<string>;
     /**
@@ -280,7 +280,7 @@ export interface ServerExtendedAuditingPolicyArgs {
      */
     retentionInDays?: pulumi.Input<number>;
     /**
-     * The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+     * The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     serverId: pulumi.Input<string>;
     /**

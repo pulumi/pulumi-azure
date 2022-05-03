@@ -166,7 +166,7 @@ type Pool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
 	NetworkConfiguration PoolNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
-	// Specifies the Sku of the node agents that will be created in the Batch pool.
+	// Specifies the SKU of the node agents that will be created in the Batch pool.
 	NodeAgentSkuId pulumi.StringOutput `pulumi:"nodeAgentSkuId"`
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -245,7 +245,7 @@ type poolState struct {
 	Name *string `pulumi:"name"`
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
 	NetworkConfiguration *PoolNetworkConfiguration `pulumi:"networkConfiguration"`
-	// Specifies the Sku of the node agents that will be created in the Batch pool.
+	// Specifies the SKU of the node agents that will be created in the Batch pool.
 	NodeAgentSkuId *string `pulumi:"nodeAgentSkuId"`
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -281,7 +281,7 @@ type PoolState struct {
 	Name pulumi.StringPtrInput
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
 	NetworkConfiguration PoolNetworkConfigurationPtrInput
-	// Specifies the Sku of the node agents that will be created in the Batch pool.
+	// Specifies the SKU of the node agents that will be created in the Batch pool.
 	NodeAgentSkuId pulumi.StringPtrInput
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -321,7 +321,7 @@ type poolArgs struct {
 	Name *string `pulumi:"name"`
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
 	NetworkConfiguration *PoolNetworkConfiguration `pulumi:"networkConfiguration"`
-	// Specifies the Sku of the node agents that will be created in the Batch pool.
+	// Specifies the SKU of the node agents that will be created in the Batch pool.
 	NodeAgentSkuId string `pulumi:"nodeAgentSkuId"`
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -358,7 +358,7 @@ type PoolArgs struct {
 	Name pulumi.StringPtrInput
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
 	NetworkConfiguration PoolNetworkConfigurationPtrInput
-	// Specifies the Sku of the node agents that will be created in the Batch pool.
+	// Specifies the SKU of the node agents that will be created in the Batch pool.
 	NodeAgentSkuId pulumi.StringInput
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

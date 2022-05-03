@@ -114,7 +114,7 @@ export interface GetAccountBlobContainerSASArgs {
      */
     httpsOnly?: boolean;
     /**
-     * Single ipv4 address or range (connected with a dash) of ipv4 addresses.
+     * Single IPv4 address or range (connected with a dash) of IPv4 addresses.
      */
     ipAddress?: string;
     /**
@@ -198,7 +198,7 @@ export interface GetAccountBlobContainerSASOutputArgs {
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**
-     * Single ipv4 address or range (connected with a dash) of ipv4 addresses.
+     * Single IPv4 address or range (connected with a dash) of IPv4 addresses.
      */
     ipAddress?: pulumi.Input<string>;
     /**

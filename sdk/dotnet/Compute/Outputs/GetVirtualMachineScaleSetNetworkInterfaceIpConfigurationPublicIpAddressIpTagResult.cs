@@ -13,9 +13,12 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult
     {
+        /// <summary>
+        /// The IP Tag associated with the Public IP.
+        /// </summary>
         public readonly string Tag;
         /// <summary>
-        /// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
+        /// The Type of IP Tag.
         /// </summary>
         public readonly string Type;
 

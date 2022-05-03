@@ -57,7 +57,7 @@ import (
 type Instance struct {
 	pulumi.CustomResourceState
 
-	// The Api endpoint to work with this Digital Twins instance.
+	// The API endpoint to work with this Digital Twins instance.
 	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -101,7 +101,7 @@ func GetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Instance resources.
 type instanceState struct {
-	// The Api endpoint to work with this Digital Twins instance.
+	// The API endpoint to work with this Digital Twins instance.
 	HostName *string `pulumi:"hostName"`
 	// The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
 	Location *string `pulumi:"location"`
@@ -114,7 +114,7 @@ type instanceState struct {
 }
 
 type InstanceState struct {
-	// The Api endpoint to work with this Digital Twins instance.
+	// The API endpoint to work with this Digital Twins instance.
 	HostName pulumi.StringPtrInput
 	// The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
 	Location pulumi.StringPtrInput

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Automation.Inputs
         public Input<Inputs.RunBookPublishContentLinkHashArgs>? Hash { get; set; }
 
         /// <summary>
-        /// The uri of the runbook content.
+        /// The URI of the runbook content.
         /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;

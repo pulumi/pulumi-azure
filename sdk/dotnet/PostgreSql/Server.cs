@@ -161,7 +161,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         /// </summary>
         [Output("sslMinimalTlsVersionEnforced")]
         public Output<string?> SslMinimalTlsVersionEnforced { get; private set; } = null!;
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<bool> SslEnforcementEnabled { get; set; } = null!;
 
         /// <summary>
-        /// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         /// </summary>
         [Input("sslMinimalTlsVersionEnforced")]
         public Input<string>? SslMinimalTlsVersionEnforced { get; set; }
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<bool>? SslEnforcementEnabled { get; set; }
 
         /// <summary>
-        /// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         /// </summary>
         [Input("sslMinimalTlsVersionEnforced")]
         public Input<string>? SslMinimalTlsVersionEnforced { get; set; }

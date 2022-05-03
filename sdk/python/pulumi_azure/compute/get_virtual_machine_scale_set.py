@@ -66,7 +66,7 @@ class GetVirtualMachineScaleSetResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the public ip address configuration
+        The name of the public IP address configuration
         """
         return pulumi.get(self, "name")
 

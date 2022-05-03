@@ -107,6 +107,8 @@ type LookupLinuxWebAppResult struct {
 	SiteConfigs []GetLinuxWebAppSiteConfig `pulumi:"siteConfigs"`
 	// A `siteCredential` block as defined below.
 	SiteCredentials []GetLinuxWebAppSiteCredential `pulumi:"siteCredentials"`
+	// A `stickySettings` block as defined below.
+	StickySettings []GetLinuxWebAppStickySetting `pulumi:"stickySettings"`
 	// A `storageAccount` block as defined below.
 	StorageAccounts []GetLinuxWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags assigned to the Linux Web App.
@@ -280,6 +282,11 @@ func (o LookupLinuxWebAppResultOutput) SiteConfigs() GetLinuxWebAppSiteConfigArr
 // A `siteCredential` block as defined below.
 func (o LookupLinuxWebAppResultOutput) SiteCredentials() GetLinuxWebAppSiteCredentialArrayOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) []GetLinuxWebAppSiteCredential { return v.SiteCredentials }).(GetLinuxWebAppSiteCredentialArrayOutput)
+}
+
+// A `stickySettings` block as defined below.
+func (o LookupLinuxWebAppResultOutput) StickySettings() GetLinuxWebAppStickySettingArrayOutput {
+	return o.ApplyT(func(v LookupLinuxWebAppResult) []GetLinuxWebAppStickySetting { return v.StickySettings }).(GetLinuxWebAppStickySettingArrayOutput)
 }
 
 // A `storageAccount` block as defined below.
