@@ -936,7 +936,7 @@ class FrontdoorBackendPoolHealthProbeArgs:
                  protocol: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Specifies the name of the Health Probe.
-        :param pulumi.Input[bool] enabled: Is this health probe enabled? Dafaults to `true`.
+        :param pulumi.Input[bool] enabled: Is this health probe enabled? Defaults to `true`.
         :param pulumi.Input[str] id: The ID of the FrontDoor.
         :param pulumi.Input[int] interval_in_seconds: The number of seconds between each Health Probe. Defaults to `120`.
         :param pulumi.Input[str] path: The path to use for the Health Probe. Default is `/`.
@@ -973,7 +973,7 @@ class FrontdoorBackendPoolHealthProbeArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is this health probe enabled? Dafaults to `true`.
+        Is this health probe enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

@@ -12243,7 +12243,7 @@ func (o ServiceSignUpTermsOfServicePtrOutput) Text() pulumi.StringPtrOutput {
 }
 
 type ServiceTenantAccess struct {
-	// Should the access to the management api be enabled?
+	// Should the access to the management API be enabled?
 	Enabled bool `pulumi:"enabled"`
 	// Primary access key for the tenant access information contract.
 	PrimaryKey *string `pulumi:"primaryKey"`
@@ -12265,7 +12265,7 @@ type ServiceTenantAccessInput interface {
 }
 
 type ServiceTenantAccessArgs struct {
-	// Should the access to the management api be enabled?
+	// Should the access to the management API be enabled?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Primary access key for the tenant access information contract.
 	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
@@ -12352,7 +12352,7 @@ func (o ServiceTenantAccessOutput) ToServiceTenantAccessPtrOutputWithContext(ctx
 	}).(ServiceTenantAccessPtrOutput)
 }
 
-// Should the access to the management api be enabled?
+// Should the access to the management API be enabled?
 func (o ServiceTenantAccessOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceTenantAccess) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -12396,7 +12396,7 @@ func (o ServiceTenantAccessPtrOutput) Elem() ServiceTenantAccessOutput {
 	}).(ServiceTenantAccessOutput)
 }
 
-// Should the access to the management api be enabled?
+// Should the access to the management API be enabled?
 func (o ServiceTenantAccessPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceTenantAccess) *bool {
 		if v == nil {

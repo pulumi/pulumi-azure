@@ -108,7 +108,7 @@ type BgpConnection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
 	PeerAsn pulumi.IntOutput `pulumi:"peerAsn"`
-	// The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+	// The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
 	PeerIp pulumi.StringOutput `pulumi:"peerIp"`
 	// The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringOutput `pulumi:"virtualHubId"`
@@ -156,7 +156,7 @@ type bgpConnectionState struct {
 	Name *string `pulumi:"name"`
 	// The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
 	PeerAsn *int `pulumi:"peerAsn"`
-	// The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+	// The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
 	PeerIp *string `pulumi:"peerIp"`
 	// The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId *string `pulumi:"virtualHubId"`
@@ -167,7 +167,7 @@ type BgpConnectionState struct {
 	Name pulumi.StringPtrInput
 	// The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
 	PeerAsn pulumi.IntPtrInput
-	// The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+	// The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
 	PeerIp pulumi.StringPtrInput
 	// The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringPtrInput
@@ -182,7 +182,7 @@ type bgpConnectionArgs struct {
 	Name *string `pulumi:"name"`
 	// The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
 	PeerAsn int `pulumi:"peerAsn"`
-	// The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+	// The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
 	PeerIp string `pulumi:"peerIp"`
 	// The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId string `pulumi:"virtualHubId"`
@@ -194,7 +194,7 @@ type BgpConnectionArgs struct {
 	Name pulumi.StringPtrInput
 	// The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
 	PeerAsn pulumi.IntInput
-	// The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+	// The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
 	PeerIp pulumi.StringInput
 	// The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringInput

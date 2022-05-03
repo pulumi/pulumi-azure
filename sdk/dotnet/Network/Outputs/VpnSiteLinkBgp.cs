@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int Asn;
         /// <summary>
-        /// The BGP peering ip address.
+        /// The BGP peering IP address.
         /// </summary>
         public readonly string PeeringAddress;
 

@@ -70,11 +70,11 @@ type PolicySetDefinition struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrOutput `pulumi:"managementGroupId"`
-	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// The name of the policy set definition. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+	// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
 	// One or more `policyDefinitionGroup` blocks as defined below.
 	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayOutput `pulumi:"policyDefinitionGroups"`
@@ -128,11 +128,11 @@ type policySetDefinitionState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId *string `pulumi:"managementGroupId"`
-	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
 	Metadata *string `pulumi:"metadata"`
 	// The name of the policy set definition. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+	// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
 	Parameters *string `pulumi:"parameters"`
 	// One or more `policyDefinitionGroup` blocks as defined below.
 	PolicyDefinitionGroups []PolicySetDefinitionPolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
@@ -149,11 +149,11 @@ type PolicySetDefinitionState struct {
 	DisplayName pulumi.StringPtrInput
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrInput
-	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
 	Metadata pulumi.StringPtrInput
 	// The name of the policy set definition. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+	// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrInput
 	// One or more `policyDefinitionGroup` blocks as defined below.
 	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayInput
@@ -174,11 +174,11 @@ type policySetDefinitionArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId *string `pulumi:"managementGroupId"`
-	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
 	Metadata *string `pulumi:"metadata"`
 	// The name of the policy set definition. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+	// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
 	Parameters *string `pulumi:"parameters"`
 	// One or more `policyDefinitionGroup` blocks as defined below.
 	PolicyDefinitionGroups []PolicySetDefinitionPolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
@@ -196,11 +196,11 @@ type PolicySetDefinitionArgs struct {
 	DisplayName pulumi.StringInput
 	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrInput
-	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
 	Metadata pulumi.StringPtrInput
 	// The name of the policy set definition. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+	// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrInput
 	// One or more `policyDefinitionGroup` blocks as defined below.
 	PolicyDefinitionGroups PolicySetDefinitionPolicyDefinitionGroupArrayInput

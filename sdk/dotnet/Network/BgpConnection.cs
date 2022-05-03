@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Network
         public Output<int> PeerAsn { get; private set; } = null!;
 
         /// <summary>
-        /// The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+        /// The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         /// </summary>
         [Output("peerIp")]
         public Output<string> PeerIp { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.Network
         public Input<int> PeerAsn { get; set; } = null!;
 
         /// <summary>
-        /// The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+        /// The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         /// </summary>
         [Input("peerIp", required: true)]
         public Input<string> PeerIp { get; set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? PeerAsn { get; set; }
 
         /// <summary>
-        /// The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+        /// The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         /// </summary>
         [Input("peerIp")]
         public Input<string>? PeerIp { get; set; }

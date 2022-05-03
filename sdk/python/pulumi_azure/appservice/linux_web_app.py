@@ -32,6 +32,7 @@ class LinuxWebAppArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input['LinuxWebAppLogsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sticky_settings: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -53,6 +54,7 @@ class LinuxWebAppArgs:
         :param pulumi.Input[str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input['LinuxWebAppLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input['LinuxWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         """
@@ -87,6 +89,8 @@ class LinuxWebAppArgs:
             pulumi.set(__self__, "logs", logs)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sticky_settings is not None:
+            pulumi.set(__self__, "sticky_settings", sticky_settings)
         if storage_accounts is not None:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
@@ -297,6 +301,18 @@ class LinuxWebAppArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="stickySettings")
+    def sticky_settings(self) -> Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']]:
+        """
+        A `sticky_settings` block as defined below.
+        """
+        return pulumi.get(self, "sticky_settings")
+
+    @sticky_settings.setter
+    def sticky_settings(self, value: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']]):
+        pulumi.set(self, "sticky_settings", value)
+
+    @property
     @pulumi.getter(name="storageAccounts")
     def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]]:
         """
@@ -349,6 +365,7 @@ class _LinuxWebAppState:
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input['LinuxWebAppSiteConfigArgs']] = None,
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteCredentialArgs']]]] = None,
+                 sticky_settings: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -378,6 +395,7 @@ class _LinuxWebAppState:
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Linux App Service will be created in.
         :param pulumi.Input['LinuxWebAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input['LinuxWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         """
@@ -431,6 +449,8 @@ class _LinuxWebAppState:
             pulumi.set(__self__, "site_config", site_config)
         if site_credentials is not None:
             pulumi.set(__self__, "site_credentials", site_credentials)
+        if sticky_settings is not None:
+            pulumi.set(__self__, "sticky_settings", sticky_settings)
         if storage_accounts is not None:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
@@ -737,6 +757,18 @@ class _LinuxWebAppState:
         pulumi.set(self, "site_credentials", value)
 
     @property
+    @pulumi.getter(name="stickySettings")
+    def sticky_settings(self) -> Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']]:
+        """
+        A `sticky_settings` block as defined below.
+        """
+        return pulumi.get(self, "sticky_settings")
+
+    @sticky_settings.setter
+    def sticky_settings(self, value: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']]):
+        pulumi.set(self, "sticky_settings", value)
+
+    @property
     @pulumi.getter(name="storageAccounts")
     def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]]:
         """
@@ -783,6 +815,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSiteConfigArgs']]] = None,
+                 sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -835,6 +868,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Linux App Service will be created in.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         """
@@ -906,6 +940,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSiteConfigArgs']]] = None,
+                 sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -943,6 +978,7 @@ class LinuxWebApp(pulumi.CustomResource):
             if site_config is None and not opts.urn:
                 raise TypeError("Missing required property 'site_config'")
             __props__.__dict__["site_config"] = site_config
+            __props__.__dict__["sticky_settings"] = sticky_settings
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
             __props__.__dict__["custom_domain_verification_id"] = None
@@ -988,6 +1024,7 @@ class LinuxWebApp(pulumi.CustomResource):
             service_plan_id: Optional[pulumi.Input[str]] = None,
             site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSiteConfigArgs']]] = None,
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSiteCredentialArgs']]]]] = None,
+            sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LinuxWebApp':
         """
@@ -1022,6 +1059,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Linux App Service will be created in.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         """
@@ -1054,6 +1092,7 @@ class LinuxWebApp(pulumi.CustomResource):
         __props__.__dict__["service_plan_id"] = service_plan_id
         __props__.__dict__["site_config"] = site_config
         __props__.__dict__["site_credentials"] = site_credentials
+        __props__.__dict__["sticky_settings"] = sticky_settings
         __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["tags"] = tags
         return LinuxWebApp(resource_name, opts=opts, __props__=__props__)
@@ -1257,6 +1296,14 @@ class LinuxWebApp(pulumi.CustomResource):
         A `site_credential` block as defined below.
         """
         return pulumi.get(self, "site_credentials")
+
+    @property
+    @pulumi.getter(name="stickySettings")
+    def sticky_settings(self) -> pulumi.Output[Optional['outputs.LinuxWebAppStickySettings']]:
+        """
+        A `sticky_settings` block as defined below.
+        """
+        return pulumi.get(self, "sticky_settings")
 
     @property
     @pulumi.getter(name="storageAccounts")

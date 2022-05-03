@@ -42,11 +42,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// Whether the host header should be picked from the backend http settings. Defaults to `false`.
+        /// Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
         /// </summary>
         public readonly bool? PickHostNameFromBackendHttpSettings;
         /// <summary>
-        /// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        /// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
         /// </summary>
         public readonly int? Port;
         /// <summary>

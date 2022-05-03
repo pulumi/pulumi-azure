@@ -31,7 +31,7 @@ class ConnectedRegistryArgs:
         The set of arguments for constructing a ConnectedRegistry resource.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] sync_token_id: The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
-        :param pulumi.Input[bool] audit_log_enabled: Should the log auditting be enabled?
+        :param pulumi.Input[bool] audit_log_enabled: Should the log auditing be enabled?
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
         :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
         :param pulumi.Input[str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
@@ -93,7 +93,7 @@ class ConnectedRegistryArgs:
     @pulumi.getter(name="auditLogEnabled")
     def audit_log_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the log auditting be enabled?
+        Should the log auditing be enabled?
         """
         return pulumi.get(self, "audit_log_enabled")
 
@@ -227,7 +227,7 @@ class _ConnectedRegistryState:
                  sync_window: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ConnectedRegistry resources.
-        :param pulumi.Input[bool] audit_log_enabled: Should the log auditting be enabled?
+        :param pulumi.Input[bool] audit_log_enabled: Should the log auditing be enabled?
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
@@ -269,7 +269,7 @@ class _ConnectedRegistryState:
     @pulumi.getter(name="auditLogEnabled")
     def audit_log_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the log auditting be enabled?
+        Should the log auditing be enabled?
         """
         return pulumi.get(self, "audit_log_enabled")
 
@@ -468,7 +468,7 @@ class ConnectedRegistry(pulumi.CustomResource):
 
         ## Import
 
-        Container Connected Registrys can be imported using the `resource id`, e.g.
+        Container Connected Registries can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:containerservice/connectedRegistry:ConnectedRegistry example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/connectedRegistries/registry1
@@ -476,7 +476,7 @@ class ConnectedRegistry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] audit_log_enabled: Should the log auditting be enabled?
+        :param pulumi.Input[bool] audit_log_enabled: Should the log auditing be enabled?
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
@@ -535,7 +535,7 @@ class ConnectedRegistry(pulumi.CustomResource):
 
         ## Import
 
-        Container Connected Registrys can be imported using the `resource id`, e.g.
+        Container Connected Registries can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:containerservice/connectedRegistry:ConnectedRegistry example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/connectedRegistries/registry1
@@ -625,7 +625,7 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] audit_log_enabled: Should the log auditting be enabled?
+        :param pulumi.Input[bool] audit_log_enabled: Should the log auditing be enabled?
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
@@ -660,7 +660,7 @@ class ConnectedRegistry(pulumi.CustomResource):
     @pulumi.getter(name="auditLogEnabled")
     def audit_log_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the log auditting be enabled?
+        Should the log auditing be enabled?
         """
         return pulumi.get(self, "audit_log_enabled")
 

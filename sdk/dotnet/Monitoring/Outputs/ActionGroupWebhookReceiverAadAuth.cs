@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class ActionGroupWebhookReceiverAadAuth
     {
         /// <summary>
-        /// The identifier uri for aad auth.
+        /// The identifier URI for AAD auth.
         /// </summary>
         public readonly string? IdentifierUri;
         /// <summary>
-        /// The webhook application object Id for aad auth.
+        /// The webhook application object Id for AAD auth.
         /// </summary>
         public readonly string ObjectId;
         /// <summary>
-        /// The tenant id for aad auth.
+        /// The tenant id for AAD auth.
         /// </summary>
         public readonly string? TenantId;
 

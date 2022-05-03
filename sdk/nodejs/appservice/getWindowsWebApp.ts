@@ -149,6 +149,10 @@ export interface GetWindowsWebAppResult {
      */
     readonly siteCredentials: outputs.appservice.GetWindowsWebAppSiteCredential[];
     /**
+     * A `stickySettings` block as defined below.
+     */
+    readonly stickySettings: outputs.appservice.GetWindowsWebAppStickySetting[];
+    /**
      * A `storageAccount` block as defined below.
      */
     readonly storageAccounts: outputs.appservice.GetWindowsWebAppStorageAccount[];

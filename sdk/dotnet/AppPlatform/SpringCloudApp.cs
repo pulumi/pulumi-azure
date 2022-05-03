@@ -69,7 +69,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// Is only https allowed? Defaults to `false`.
+        /// Is only HTTPS allowed? Defaults to `false`.
         /// </summary>
         [Output("httpsOnly")]
         public Output<bool?> HttpsOnly { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// Is only https allowed? Defaults to `false`.
+        /// Is only HTTPS allowed? Defaults to `false`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// Is only https allowed? Defaults to `false`.
+        /// Is only HTTPS allowed? Defaults to `false`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }

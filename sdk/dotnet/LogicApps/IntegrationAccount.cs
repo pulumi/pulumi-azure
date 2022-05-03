@@ -77,7 +77,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+        /// The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+        /// The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+        /// The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

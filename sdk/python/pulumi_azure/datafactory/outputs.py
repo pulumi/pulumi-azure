@@ -544,7 +544,9 @@ class DatasetBinaryAzureBlobStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dynamicFilenameEnabled":
+        if key == "dynamicContainerEnabled":
+            suggest = "dynamic_container_enabled"
+        elif key == "dynamicFilenameEnabled":
             suggest = "dynamic_filename_enabled"
         elif key == "dynamicPathEnabled":
             suggest = "dynamic_path_enabled"
@@ -562,18 +564,22 @@ class DatasetBinaryAzureBlobStorageLocation(dict):
 
     def __init__(__self__, *,
                  container: str,
+                 dynamic_container_enabled: Optional[bool] = None,
                  dynamic_filename_enabled: Optional[bool] = None,
                  dynamic_path_enabled: Optional[bool] = None,
                  filename: Optional[str] = None,
                  path: Optional[str] = None):
         """
         :param str container: The container on the Azure Blob Storage Account hosting the file.
+        :param bool dynamic_container_enabled: Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
         :param bool dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param bool dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param str filename: The filename of the file in the blob container.
         :param str path: The folder path to the file in the blob container.
         """
         pulumi.set(__self__, "container", container)
+        if dynamic_container_enabled is not None:
+            pulumi.set(__self__, "dynamic_container_enabled", dynamic_container_enabled)
         if dynamic_filename_enabled is not None:
             pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
@@ -590,6 +596,14 @@ class DatasetBinaryAzureBlobStorageLocation(dict):
         The container on the Azure Blob Storage Account hosting the file.
         """
         return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter(name="dynamicContainerEnabled")
+    def dynamic_container_enabled(self) -> Optional[bool]:
+        """
+        Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_container_enabled")
 
     @property
     @pulumi.getter(name="dynamicFilenameEnabled")
@@ -917,7 +931,9 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dynamicFilenameEnabled":
+        if key == "dynamicContainerEnabled":
+            suggest = "dynamic_container_enabled"
+        elif key == "dynamicFilenameEnabled":
             suggest = "dynamic_filename_enabled"
         elif key == "dynamicPathEnabled":
             suggest = "dynamic_path_enabled"
@@ -935,18 +951,22 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
 
     def __init__(__self__, *,
                  container: str,
+                 dynamic_container_enabled: Optional[bool] = None,
                  dynamic_filename_enabled: Optional[bool] = None,
                  dynamic_path_enabled: Optional[bool] = None,
                  filename: Optional[str] = None,
                  path: Optional[str] = None):
         """
         :param str container: The container on the Azure Blob Storage Account hosting the file.
+        :param bool dynamic_container_enabled: Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
         :param bool dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param bool dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param str filename: The filename of the file.
         :param str path: The folder path to the file. This can be an empty string.
         """
         pulumi.set(__self__, "container", container)
+        if dynamic_container_enabled is not None:
+            pulumi.set(__self__, "dynamic_container_enabled", dynamic_container_enabled)
         if dynamic_filename_enabled is not None:
             pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
@@ -963,6 +983,14 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
         The container on the Azure Blob Storage Account hosting the file.
         """
         return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter(name="dynamicContainerEnabled")
+    def dynamic_container_enabled(self) -> Optional[bool]:
+        """
+        Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_container_enabled")
 
     @property
     @pulumi.getter(name="dynamicFilenameEnabled")
@@ -1171,7 +1199,9 @@ class DatasetJsonAzureBlobStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dynamicFilenameEnabled":
+        if key == "dynamicContainerEnabled":
+            suggest = "dynamic_container_enabled"
+        elif key == "dynamicFilenameEnabled":
             suggest = "dynamic_filename_enabled"
         elif key == "dynamicPathEnabled":
             suggest = "dynamic_path_enabled"
@@ -1191,18 +1221,22 @@ class DatasetJsonAzureBlobStorageLocation(dict):
                  container: str,
                  filename: str,
                  path: str,
+                 dynamic_container_enabled: Optional[bool] = None,
                  dynamic_filename_enabled: Optional[bool] = None,
                  dynamic_path_enabled: Optional[bool] = None):
         """
         :param str container: The container on the Azure Blob Storage Account hosting the file.
         :param str filename: The filename of the file on the web server.
         :param str path: The folder path to the file on the web server.
+        :param bool dynamic_container_enabled: Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
         :param bool dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param bool dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
         pulumi.set(__self__, "container", container)
         pulumi.set(__self__, "filename", filename)
         pulumi.set(__self__, "path", path)
+        if dynamic_container_enabled is not None:
+            pulumi.set(__self__, "dynamic_container_enabled", dynamic_container_enabled)
         if dynamic_filename_enabled is not None:
             pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
@@ -1231,6 +1265,14 @@ class DatasetJsonAzureBlobStorageLocation(dict):
         The folder path to the file on the web server.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="dynamicContainerEnabled")
+    def dynamic_container_enabled(self) -> Optional[bool]:
+        """
+        Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_container_enabled")
 
     @property
     @pulumi.getter(name="dynamicFilenameEnabled")
@@ -1423,7 +1465,9 @@ class DatasetParquetAzureBlobStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dynamicFilenameEnabled":
+        if key == "dynamicContainerEnabled":
+            suggest = "dynamic_container_enabled"
+        elif key == "dynamicFilenameEnabled":
             suggest = "dynamic_filename_enabled"
         elif key == "dynamicPathEnabled":
             suggest = "dynamic_path_enabled"
@@ -1442,18 +1486,22 @@ class DatasetParquetAzureBlobStorageLocation(dict):
     def __init__(__self__, *,
                  container: str,
                  path: str,
+                 dynamic_container_enabled: Optional[bool] = None,
                  dynamic_filename_enabled: Optional[bool] = None,
                  dynamic_path_enabled: Optional[bool] = None,
                  filename: Optional[str] = None):
         """
         :param str container: The container on the Azure Blob Storage Account hosting the file.
         :param str path: The folder path to the file on the web server.
+        :param bool dynamic_container_enabled: Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
         :param bool dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param bool dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param str filename: The filename of the file on the web server.
         """
         pulumi.set(__self__, "container", container)
         pulumi.set(__self__, "path", path)
+        if dynamic_container_enabled is not None:
+            pulumi.set(__self__, "dynamic_container_enabled", dynamic_container_enabled)
         if dynamic_filename_enabled is not None:
             pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
@@ -1476,6 +1524,14 @@ class DatasetParquetAzureBlobStorageLocation(dict):
         The folder path to the file on the web server.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="dynamicContainerEnabled")
+    def dynamic_container_enabled(self) -> Optional[bool]:
+        """
+        Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_container_enabled")
 
     @property
     @pulumi.getter(name="dynamicFilenameEnabled")
@@ -3011,7 +3067,7 @@ class LinkedServiceAzureBlobStorageKeyVaultSasToken(dict):
                  secret_name: str):
         """
         :param str linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
-        :param str secret_name: Specifies the secret name in Azure Key Vault that stores the sas token.
+        :param str secret_name: Specifies the secret name in Azure Key Vault that stores the SAS token.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "secret_name", secret_name)
@@ -3028,7 +3084,7 @@ class LinkedServiceAzureBlobStorageKeyVaultSasToken(dict):
     @pulumi.getter(name="secretName")
     def secret_name(self) -> str:
         """
-        Specifies the secret name in Azure Key Vault that stores the sas token.
+        Specifies the secret name in Azure Key Vault that stores the SAS token.
         """
         return pulumi.get(self, "secret_name")
 

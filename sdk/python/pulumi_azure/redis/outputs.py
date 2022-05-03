@@ -134,10 +134,10 @@ class CacheRedisConfiguration(dict):
         :param str maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
         :param int maxmemory_reserved: Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
         :param str notify_keyspace_events: Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-        :param bool rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKU's.
-        :param int rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
-        :param int rdb_backup_max_snapshot_count: The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
-        :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+        :param bool rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKUs.
+        :param int rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+        :param int rdb_backup_max_snapshot_count: The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
+        :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
         """
         if aof_backup_enabled is not None:
             pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
@@ -252,7 +252,7 @@ class CacheRedisConfiguration(dict):
     @pulumi.getter(name="rdbBackupEnabled")
     def rdb_backup_enabled(self) -> Optional[bool]:
         """
-        Is Backup Enabled? Only supported on Premium SKU's.
+        Is Backup Enabled? Only supported on Premium SKUs.
         """
         return pulumi.get(self, "rdb_backup_enabled")
 
@@ -260,7 +260,7 @@ class CacheRedisConfiguration(dict):
     @pulumi.getter(name="rdbBackupFrequency")
     def rdb_backup_frequency(self) -> Optional[int]:
         """
-        The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+        The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
         """
         return pulumi.get(self, "rdb_backup_frequency")
 
@@ -268,7 +268,7 @@ class CacheRedisConfiguration(dict):
     @pulumi.getter(name="rdbBackupMaxSnapshotCount")
     def rdb_backup_max_snapshot_count(self) -> Optional[int]:
         """
-        The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+        The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
         """
         return pulumi.get(self, "rdb_backup_max_snapshot_count")
 
@@ -276,7 +276,7 @@ class CacheRedisConfiguration(dict):
     @pulumi.getter(name="rdbStorageConnectionString")
     def rdb_storage_connection_string(self) -> Optional[str]:
         """
-        The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+        The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
         """
         return pulumi.get(self, "rdb_storage_connection_string")
 
@@ -382,10 +382,10 @@ class GetCacheRedisConfigurationResult(dict):
         :param int maxmemory_delta: The max-memory delta for this Redis instance.
         :param str maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached.
         :param int maxmemory_reserved: The value in megabytes reserved for non-cache usage e.g. failover
-        :param bool rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKU's.
-        :param int rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKU's.
+        :param bool rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKUs.
+        :param int rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKUs.
         :param int rdb_backup_max_snapshot_count: The maximum number of snapshots that can be created as a backup.
-        :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKU's.
+        :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs.
         """
         pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
         pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
@@ -471,7 +471,7 @@ class GetCacheRedisConfigurationResult(dict):
     @pulumi.getter(name="rdbBackupEnabled")
     def rdb_backup_enabled(self) -> bool:
         """
-        Is Backup Enabled? Only supported on Premium SKU's.
+        Is Backup Enabled? Only supported on Premium SKUs.
         """
         return pulumi.get(self, "rdb_backup_enabled")
 
@@ -479,7 +479,7 @@ class GetCacheRedisConfigurationResult(dict):
     @pulumi.getter(name="rdbBackupFrequency")
     def rdb_backup_frequency(self) -> int:
         """
-        The Backup Frequency in Minutes. Only supported on Premium SKU's.
+        The Backup Frequency in Minutes. Only supported on Premium SKUs.
         """
         return pulumi.get(self, "rdb_backup_frequency")
 
@@ -495,7 +495,7 @@ class GetCacheRedisConfigurationResult(dict):
     @pulumi.getter(name="rdbStorageConnectionString")
     def rdb_storage_connection_string(self) -> str:
         """
-        The Connection String to the Storage Account. Only supported for Premium SKU's.
+        The Connection String to the Storage Account. Only supported for Premium SKUs.
         """
         return pulumi.get(self, "rdb_storage_connection_string")
 

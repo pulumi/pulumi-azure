@@ -48,14 +48,14 @@ class ApiArgs:
         :param pulumi.Input['ApiOpenidAuthenticationArgs'] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
-        :param pulumi.Input[str] revision_description: The description of the Api Revision of the API Management API.
+        :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[bool] subscription_required: Should this API require a subscription key?
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
-        :param pulumi.Input[str] version_description: The description of the Api Version of the API Management API.
+        :param pulumi.Input[str] version_description: The description of the API Version of the API Management API.
         :param pulumi.Input[str] version_set_id: The ID of the Version Set which this API is associated with.
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
@@ -232,7 +232,7 @@ class ApiArgs:
     @pulumi.getter(name="revisionDescription")
     def revision_description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the Api Revision of the API Management API.
+        The description of the API Revision of the API Management API.
         """
         return pulumi.get(self, "revision_description")
 
@@ -316,7 +316,7 @@ class ApiArgs:
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the Api Version of the API Management API.
+        The description of the API Version of the API Management API.
         """
         return pulumi.get(self, "version_description")
 
@@ -377,14 +377,14 @@ class _ApiState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.
-        :param pulumi.Input[str] revision_description: The description of the Api Revision of the API Management API.
+        :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[bool] subscription_required: Should this API require a subscription key?
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
-        :param pulumi.Input[str] version_description: The description of the Api Version of the API Management API.
+        :param pulumi.Input[str] version_description: The description of the API Version of the API Management API.
         :param pulumi.Input[str] version_set_id: The ID of the Version Set which this API is associated with.
         """
         if api_management_name is not None:
@@ -592,7 +592,7 @@ class _ApiState:
     @pulumi.getter(name="revisionDescription")
     def revision_description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the Api Revision of the API Management API.
+        The description of the API Revision of the API Management API.
         """
         return pulumi.get(self, "revision_description")
 
@@ -676,7 +676,7 @@ class _ApiState:
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the Api Version of the API Management API.
+        The description of the API Version of the API Management API.
         """
         return pulumi.get(self, "version_description")
 
@@ -773,14 +773,14 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.
-        :param pulumi.Input[str] revision_description: The description of the Api Revision of the API Management API.
+        :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[bool] subscription_required: Should this API require a subscription key?
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
-        :param pulumi.Input[str] version_description: The description of the Api Version of the API Management API.
+        :param pulumi.Input[str] version_description: The description of the API Version of the API Management API.
         :param pulumi.Input[str] version_set_id: The ID of the Version Set which this API is associated with.
         """
         ...
@@ -953,14 +953,14 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.
-        :param pulumi.Input[str] revision_description: The description of the Api Revision of the API Management API.
+        :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[bool] subscription_required: Should this API require a subscription key?
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
-        :param pulumi.Input[str] version_description: The description of the Api Version of the API Management API.
+        :param pulumi.Input[str] version_description: The description of the API Version of the API Management API.
         :param pulumi.Input[str] version_set_id: The ID of the Version Set which this API is associated with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1099,7 +1099,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="revisionDescription")
     def revision_description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the Api Revision of the API Management API.
+        The description of the API Revision of the API Management API.
         """
         return pulumi.get(self, "revision_description")
 
@@ -1155,7 +1155,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the Api Version of the API Management API.
+        The description of the API Version of the API Management API.
         """
         return pulumi.get(self, "version_description")
 

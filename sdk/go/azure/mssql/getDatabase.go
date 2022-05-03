@@ -47,9 +47,9 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseArgs struct {
-	// The name of the Ms SQL Database.
+	// The name of the MS SQL Database.
 	Name string `pulumi:"name"`
-	// The id of the Ms SQL Server on which to create the database.
+	// The id of the MS SQL Server on which to create the database.
 	ServerId string `pulumi:"serverId"`
 }
 
@@ -71,7 +71,7 @@ type LookupDatabaseResult struct {
 	// If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica.
 	ReadScale bool   `pulumi:"readScale"`
 	ServerId  string `pulumi:"serverId"`
-	// The name of the sku of the database.
+	// The name of the SKU of the database.
 	SkuName string `pulumi:"skuName"`
 	// The storage account type used to store backups for this database.
 	StorageAccountType string `pulumi:"storageAccountType"`
@@ -92,9 +92,9 @@ func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, op
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseOutputArgs struct {
-	// The name of the Ms SQL Database.
+	// The name of the MS SQL Database.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The id of the Ms SQL Server on which to create the database.
+	// The id of the MS SQL Server on which to create the database.
 	ServerId pulumi.StringInput `pulumi:"serverId"`
 }
 
@@ -160,7 +160,7 @@ func (o LookupDatabaseResultOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.ServerId }).(pulumi.StringOutput)
 }
 
-// The name of the sku of the database.
+// The name of the SKU of the database.
 func (o LookupDatabaseResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.SkuName }).(pulumi.StringOutput)
 }

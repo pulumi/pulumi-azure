@@ -109,7 +109,7 @@ type AccountNetworkRules struct {
 	Bypasses pulumi.StringArrayOutput `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringOutput `pulumi:"defaultAction"`
-	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules pulumi.StringArrayOutput `pulumi:"ipRules"`
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayOutput `pulumi:"privateLinkAccessRules"`
@@ -158,7 +158,7 @@ type accountNetworkRulesState struct {
 	Bypasses []string `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction *string `pulumi:"defaultAction"`
-	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules []string `pulumi:"ipRules"`
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules []AccountNetworkRulesPrivateLinkAccessRule `pulumi:"privateLinkAccessRules"`
@@ -173,7 +173,7 @@ type AccountNetworkRulesState struct {
 	Bypasses pulumi.StringArrayInput
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringPtrInput
-	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules pulumi.StringArrayInput
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayInput
@@ -192,7 +192,7 @@ type accountNetworkRulesArgs struct {
 	Bypasses []string `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction string `pulumi:"defaultAction"`
-	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules []string `pulumi:"ipRules"`
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules []AccountNetworkRulesPrivateLinkAccessRule `pulumi:"privateLinkAccessRules"`
@@ -208,7 +208,7 @@ type AccountNetworkRulesArgs struct {
 	Bypasses pulumi.StringArrayInput
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringInput
-	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules pulumi.StringArrayInput
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayInput

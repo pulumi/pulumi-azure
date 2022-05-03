@@ -27,7 +27,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string NetworkPlugin;
         /// <summary>
-        /// Network policy to be used with Azure CNI. Eg: `calico` or `azure`
+        /// Network policy to be used with Azure CNI. e.g. `calico` or `azure`
         /// </summary>
         public readonly string NetworkPolicy;
         /// <summary>

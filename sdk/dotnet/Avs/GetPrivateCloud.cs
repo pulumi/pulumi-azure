@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Avs
     public sealed class GetPrivateCloudArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of this Vmware Private Cloud.
+        /// The name of this VMware Private Cloud.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Vmware Private Cloud exists.
+        /// The name of the Resource Group where the VMware Private Cloud exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -41,13 +41,13 @@ namespace Pulumi.Azure.Avs
     public sealed class GetPrivateCloudInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of this Vmware Private Cloud.
+        /// The name of this VMware Private Cloud.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Vmware Private Cloud exists.
+        /// The name of the Resource Group where the VMware Private Cloud exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -74,11 +74,11 @@ namespace Pulumi.Azure.Avs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Is the Vmware Private Cluster connected to the internet?
+        /// Is the VMware Private Cluster connected to the internet?
         /// </summary>
         public readonly bool InternetConnectionEnabled;
         /// <summary>
-        /// The Azure Region where the Vmware Private Cloud exists.
+        /// The Azure Region where the VMware Private Cloud exists.
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Avs
         public readonly string ManagementSubnetCidr;
         public readonly string Name;
         /// <summary>
-        /// The subnet cidr of the Vmware Private Cloud.
+        /// The subnet CIDR of the VMware Private Cloud.
         /// </summary>
         public readonly string NetworkSubnetCidr;
         /// <summary>
@@ -112,7 +112,7 @@ namespace Pulumi.Azure.Avs
         /// </summary>
         public readonly string SkuName;
         /// <summary>
-        /// A mapping of tags assigned to the Vmware Private Cloud.
+        /// A mapping of tags assigned to the VMware Private Cloud.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

@@ -145,7 +145,7 @@ namespace Pulumi.Azure.OperationalInsights
         /// </summary>
         public readonly string SecondarySharedKey;
         /// <summary>
-        /// The Sku of the Log Analytics Workspace.
+        /// The SKU of the Log Analytics Workspace.
         /// </summary>
         public readonly string Sku;
         /// <summary>

@@ -167,7 +167,7 @@ class GetFlexibleServerResult:
     @pulumi.getter(name="privateDnsZoneId")
     def private_dns_zone_id(self) -> str:
         """
-        The ID of the private dns zone of the MySQL Flexible Server.
+        The ID of the Private DNS zone of the MySQL Flexible Server.
         """
         return pulumi.get(self, "private_dns_zone_id")
 

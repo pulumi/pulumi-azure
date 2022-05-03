@@ -22,7 +22,7 @@ class DatabaseExtendedAuditingPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DatabaseExtendedAuditingPolicy resource.
-        :param pulumi.Input[str] database_id: The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_id: The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor?
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
@@ -48,7 +48,7 @@ class DatabaseExtendedAuditingPolicyArgs:
     @pulumi.getter(name="databaseId")
     def database_id(self) -> pulumi.Input[str]:
         """
-        The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_id")
 
@@ -141,7 +141,7 @@ class _DatabaseExtendedAuditingPolicyState:
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DatabaseExtendedAuditingPolicy resources.
-        :param pulumi.Input[str] database_id: The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_id: The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor?
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
@@ -168,7 +168,7 @@ class _DatabaseExtendedAuditingPolicyState:
     @pulumi.getter(name="databaseId")
     def database_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_id")
 
@@ -263,7 +263,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
                  storage_endpoint: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Ms Sql Database Extended Auditing Policy.
+        Manages a MS SQL Database Extended Auditing Policy.
 
         > **NOTE:** The Database Extended Auditing Policy can also be set in the `extended_auditing_policy` block in the mssql.Database resource. You can only use one or the other and using both will cause a conflict.
 
@@ -296,7 +296,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Ms Sql Database Extended Auditing Policys can be imported using the `resource id`, e.g.
+        MS SQL Database Extended Auditing Policies can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/databases/db1/extendedAuditingSettings/default
@@ -304,7 +304,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] database_id: The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_id: The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor?
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
@@ -319,7 +319,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
                  args: DatabaseExtendedAuditingPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Ms Sql Database Extended Auditing Policy.
+        Manages a MS SQL Database Extended Auditing Policy.
 
         > **NOTE:** The Database Extended Auditing Policy can also be set in the `extended_auditing_policy` block in the mssql.Database resource. You can only use one or the other and using both will cause a conflict.
 
@@ -352,7 +352,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Ms Sql Database Extended Auditing Policys can be imported using the `resource id`, e.g.
+        MS SQL Database Extended Auditing Policies can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/databases/db1/extendedAuditingSettings/default
@@ -425,7 +425,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] database_id: The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_id: The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor?
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
@@ -450,7 +450,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="databaseId")
     def database_id(self) -> pulumi.Output[str]:
         """
-        The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "database_id")
 

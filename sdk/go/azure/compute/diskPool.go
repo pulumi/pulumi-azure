@@ -97,7 +97,7 @@ type DiskPool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+	// The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -154,7 +154,7 @@ type diskPoolState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+	// The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -171,7 +171,7 @@ type DiskPoolState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+	// The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
 	SkuName pulumi.StringPtrInput
 	// The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
 	SubnetId pulumi.StringPtrInput
@@ -192,7 +192,7 @@ type diskPoolArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+	// The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
 	SkuName string `pulumi:"skuName"`
 	// The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
 	SubnetId string `pulumi:"subnetId"`
@@ -210,7 +210,7 @@ type DiskPoolArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
 	ResourceGroupName pulumi.StringInput
-	// The Sku of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
+	// The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created.
 	SkuName pulumi.StringInput
 	// The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created.
 	SubnetId pulumi.StringInput

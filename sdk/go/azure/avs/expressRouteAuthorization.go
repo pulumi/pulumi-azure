@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Express Route Vmware Authorization.
+// Manages an Express Route VMware Authorization.
 //
 // ## Example Usage
 //
@@ -62,7 +62,7 @@ import (
 //
 // ## Import
 //
-// Vmware Authorizations can be imported using the `resource id`, e.g.
+// VMware Authorizations can be imported using the `resource id`, e.g.
 //
 // ```sh
 //  $ pulumi import azure:avs/expressRouteAuthorization:ExpressRouteAuthorization example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/authorizations/authorization1
@@ -74,9 +74,9 @@ type ExpressRouteAuthorization struct {
 	ExpressRouteAuthorizationId pulumi.StringOutput `pulumi:"expressRouteAuthorizationId"`
 	// The key of the Express Route Circuit Authorization.
 	ExpressRouteAuthorizationKey pulumi.StringOutput `pulumi:"expressRouteAuthorizationKey"`
-	// The name which should be used for this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+	// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the Vmware Private Cloud in which to create this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+	// The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
 	PrivateCloudId pulumi.StringOutput `pulumi:"privateCloudId"`
 }
 
@@ -116,9 +116,9 @@ type expressRouteAuthorizationState struct {
 	ExpressRouteAuthorizationId *string `pulumi:"expressRouteAuthorizationId"`
 	// The key of the Express Route Circuit Authorization.
 	ExpressRouteAuthorizationKey *string `pulumi:"expressRouteAuthorizationKey"`
-	// The name which should be used for this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+	// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Vmware Private Cloud in which to create this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+	// The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
 	PrivateCloudId *string `pulumi:"privateCloudId"`
 }
 
@@ -127,9 +127,9 @@ type ExpressRouteAuthorizationState struct {
 	ExpressRouteAuthorizationId pulumi.StringPtrInput
 	// The key of the Express Route Circuit Authorization.
 	ExpressRouteAuthorizationKey pulumi.StringPtrInput
-	// The name which should be used for this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+	// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Vmware Private Cloud in which to create this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+	// The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
 	PrivateCloudId pulumi.StringPtrInput
 }
 
@@ -138,17 +138,17 @@ func (ExpressRouteAuthorizationState) ElementType() reflect.Type {
 }
 
 type expressRouteAuthorizationArgs struct {
-	// The name which should be used for this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+	// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Vmware Private Cloud in which to create this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+	// The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
 	PrivateCloudId string `pulumi:"privateCloudId"`
 }
 
 // The set of arguments for constructing a ExpressRouteAuthorization resource.
 type ExpressRouteAuthorizationArgs struct {
-	// The name which should be used for this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+	// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Vmware Private Cloud in which to create this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+	// The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
 	PrivateCloudId pulumi.StringInput
 }
 

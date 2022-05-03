@@ -245,7 +245,7 @@ type Workspace struct {
 	GithubRepo WorkspaceGithubRepoPtrOutput `pulumi:"githubRepo"`
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentityOutput `pulumi:"identity"`
-	// Allowed Aad Tenant Ids For Linking.
+	// Allowed AAD Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds pulumi.StringArrayOutput `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -335,7 +335,7 @@ type workspaceState struct {
 	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
 	// An `identity` block as defined below.
 	Identity *WorkspaceIdentity `pulumi:"identity"`
-	// Allowed Aad Tenant Ids For Linking.
+	// Allowed AAD Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds []string `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -382,7 +382,7 @@ type WorkspaceState struct {
 	GithubRepo WorkspaceGithubRepoPtrInput
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentityPtrInput
-	// Allowed Aad Tenant Ids For Linking.
+	// Allowed AAD Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds pulumi.StringArrayInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -431,7 +431,7 @@ type workspaceArgs struct {
 	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentity `pulumi:"identity"`
-	// Allowed Aad Tenant Ids For Linking.
+	// Allowed AAD Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds []string `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -477,7 +477,7 @@ type WorkspaceArgs struct {
 	GithubRepo WorkspaceGithubRepoPtrInput
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentityInput
-	// Allowed Aad Tenant Ids For Linking.
+	// Allowed AAD Tenant Ids For Linking.
 	LinkingAllowedForAadTenantIds pulumi.StringArrayInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
         /// <summary>
-        /// Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+        /// Specifies a list of source IP groups that shall be bypassed by intrusion detection.
         /// </summary>
         public readonly ImmutableArray<string> SourceIpGroups;
 

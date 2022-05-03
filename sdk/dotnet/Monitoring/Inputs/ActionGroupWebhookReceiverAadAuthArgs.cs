@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class ActionGroupWebhookReceiverAadAuthArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier uri for aad auth.
+        /// The identifier URI for AAD auth.
         /// </summary>
         [Input("identifierUri")]
         public Input<string>? IdentifierUri { get; set; }
 
         /// <summary>
-        /// The webhook application object Id for aad auth.
+        /// The webhook application object Id for AAD auth.
         /// </summary>
         [Input("objectId", required: true)]
         public Input<string> ObjectId { get; set; } = null!;
 
         /// <summary>
-        /// The tenant id for aad auth.
+        /// The tenant id for AAD auth.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

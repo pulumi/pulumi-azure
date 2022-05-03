@@ -33,10 +33,10 @@ class DefinitionArgs:
         :param pulumi.Input[str] lock_level: Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]] authorizations: One or more `authorization` block defined below.
-        :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+        :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         :param pulumi.Input[str] description: Specifies the managed application definition description.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] main_template: Specifies the inline main template json which has resources to be provisioned.
+        :param pulumi.Input[str] main_template: Specifies the inline main template JSON which has resources to be provisioned.
         :param pulumi.Input[str] name: Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] package_enabled: Is the package enabled? Defaults to `true`.
         :param pulumi.Input[str] package_file_uri: Specifies the managed application definition package file Uri.
@@ -116,7 +116,7 @@ class DefinitionArgs:
     @pulumi.getter(name="createUiDefinition")
     def create_ui_definition(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+        Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         """
         return pulumi.get(self, "create_ui_definition")
 
@@ -152,7 +152,7 @@ class DefinitionArgs:
     @pulumi.getter(name="mainTemplate")
     def main_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the inline main template json which has resources to be provisioned.
+        Specifies the inline main template JSON which has resources to be provisioned.
         """
         return pulumi.get(self, "main_template")
 
@@ -227,12 +227,12 @@ class _DefinitionState:
         """
         Input properties used for looking up and filtering Definition resources.
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]] authorizations: One or more `authorization` block defined below.
-        :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+        :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         :param pulumi.Input[str] description: Specifies the managed application definition description.
         :param pulumi.Input[str] display_name: Specifies the managed application definition display name.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lock_level: Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] main_template: Specifies the inline main template json which has resources to be provisioned.
+        :param pulumi.Input[str] main_template: Specifies the inline main template JSON which has resources to be provisioned.
         :param pulumi.Input[str] name: Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] package_enabled: Is the package enabled? Defaults to `true`.
         :param pulumi.Input[str] package_file_uri: Specifies the managed application definition package file Uri.
@@ -280,7 +280,7 @@ class _DefinitionState:
     @pulumi.getter(name="createUiDefinition")
     def create_ui_definition(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+        Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         """
         return pulumi.get(self, "create_ui_definition")
 
@@ -340,7 +340,7 @@ class _DefinitionState:
     @pulumi.getter(name="mainTemplate")
     def main_template(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the inline main template json which has resources to be provisioned.
+        Specifies the inline main template JSON which has resources to be provisioned.
         """
         return pulumi.get(self, "main_template")
 
@@ -462,12 +462,12 @@ class Definition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]] authorizations: One or more `authorization` block defined below.
-        :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+        :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         :param pulumi.Input[str] description: Specifies the managed application definition description.
         :param pulumi.Input[str] display_name: Specifies the managed application definition display name.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lock_level: Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] main_template: Specifies the inline main template json which has resources to be provisioned.
+        :param pulumi.Input[str] main_template: Specifies the inline main template JSON which has resources to be provisioned.
         :param pulumi.Input[str] name: Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] package_enabled: Is the package enabled? Defaults to `true`.
         :param pulumi.Input[str] package_file_uri: Specifies the managed application definition package file Uri.
@@ -599,12 +599,12 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]] authorizations: One or more `authorization` block defined below.
-        :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+        :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         :param pulumi.Input[str] description: Specifies the managed application definition description.
         :param pulumi.Input[str] display_name: Specifies the managed application definition display name.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lock_level: Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] main_template: Specifies the inline main template json which has resources to be provisioned.
+        :param pulumi.Input[str] main_template: Specifies the inline main template JSON which has resources to be provisioned.
         :param pulumi.Input[str] name: Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] package_enabled: Is the package enabled? Defaults to `true`.
         :param pulumi.Input[str] package_file_uri: Specifies the managed application definition package file Uri.
@@ -641,7 +641,7 @@ class Definition(pulumi.CustomResource):
     @pulumi.getter(name="createUiDefinition")
     def create_ui_definition(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+        Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         """
         return pulumi.get(self, "create_ui_definition")
 
@@ -681,7 +681,7 @@ class Definition(pulumi.CustomResource):
     @pulumi.getter(name="mainTemplate")
     def main_template(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the inline main template json which has resources to be provisioned.
+        Specifies the inline main template JSON which has resources to be provisioned.
         """
         return pulumi.get(self, "main_template")
 

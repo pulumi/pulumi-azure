@@ -387,8 +387,8 @@ class SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
-        :param pulumi.Input[str] username: The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+        :param pulumi.Input[str] password: The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+        :param pulumi.Input[str] username: The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -397,7 +397,7 @@ class SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+        The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
         return pulumi.get(self, "password")
 
@@ -409,7 +409,7 @@ class SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+        The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
         return pulumi.get(self, "username")
 
@@ -541,8 +541,8 @@ class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
-        :param pulumi.Input[str] username: The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+        :param pulumi.Input[str] password: The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+        :param pulumi.Input[str] username: The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -551,7 +551,7 @@ class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+        The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
         return pulumi.get(self, "password")
 
@@ -563,7 +563,7 @@ class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+        The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
         return pulumi.get(self, "username")
 

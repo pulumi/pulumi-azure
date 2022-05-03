@@ -49,7 +49,7 @@ class FlexibleServerArgs:
         :param pulumi.Input['FlexibleServerMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[str] private_dns_zone_id: The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+        :param pulumi.Input[str] private_dns_zone_id: The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] replication_role: The replication role. Possible value is `None`.
         :param pulumi.Input[str] sku_name: The SKU Name for the MySQL Flexible Server.
         :param pulumi.Input[str] source_server_id: The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
@@ -246,7 +246,7 @@ class FlexibleServerArgs:
     @pulumi.getter(name="privateDnsZoneId")
     def private_dns_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+        The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "private_dns_zone_id")
 
@@ -379,7 +379,7 @@ class _FlexibleServerState:
         :param pulumi.Input['FlexibleServerMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[str] private_dns_zone_id: The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+        :param pulumi.Input[str] private_dns_zone_id: The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled?
         :param pulumi.Input[int] replica_capacity: The maximum number of replicas that a primary MySQL Flexible Server can have.
         :param pulumi.Input[str] replication_role: The replication role. Possible value is `None`.
@@ -586,7 +586,7 @@ class _FlexibleServerState:
     @pulumi.getter(name="privateDnsZoneId")
     def private_dns_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+        The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "private_dns_zone_id")
 
@@ -805,7 +805,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[str] private_dns_zone_id: The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+        :param pulumi.Input[str] private_dns_zone_id: The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] replication_role: The replication role. Possible value is `None`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] sku_name: The SKU Name for the MySQL Flexible Server.
@@ -996,7 +996,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[str] private_dns_zone_id: The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+        :param pulumi.Input[str] private_dns_zone_id: The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled?
         :param pulumi.Input[int] replica_capacity: The maximum number of replicas that a primary MySQL Flexible Server can have.
         :param pulumi.Input[str] replication_role: The replication role. Possible value is `None`.
@@ -1137,7 +1137,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter(name="privateDnsZoneId")
     def private_dns_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the private dns zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
+        The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "private_dns_zone_id")
 

@@ -21,7 +21,7 @@ class GetLinuxFunctionAppResult:
     """
     A collection of values returned by getLinuxFunctionApp.
     """
-    def __init__(__self__, app_settings=None, auth_settings=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, functions_extension_version=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None):
+    def __init__(__self__, app_settings=None, auth_settings=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, functions_extension_version=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None):
         if app_settings and not isinstance(app_settings, dict):
             raise TypeError("Expected argument 'app_settings' to be a dict")
         pulumi.set(__self__, "app_settings", app_settings)
@@ -103,6 +103,9 @@ class GetLinuxFunctionAppResult:
         if site_credentials and not isinstance(site_credentials, list):
             raise TypeError("Expected argument 'site_credentials' to be a list")
         pulumi.set(__self__, "site_credentials", site_credentials)
+        if sticky_settings and not isinstance(sticky_settings, list):
+            raise TypeError("Expected argument 'sticky_settings' to be a list")
+        pulumi.set(__self__, "sticky_settings", sticky_settings)
         if storage_account_access_key and not isinstance(storage_account_access_key, str):
             raise TypeError("Expected argument 'storage_account_access_key' to be a str")
         pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
@@ -330,6 +333,14 @@ class GetLinuxFunctionAppResult:
         return pulumi.get(self, "site_credentials")
 
     @property
+    @pulumi.getter(name="stickySettings")
+    def sticky_settings(self) -> Sequence['outputs.GetLinuxFunctionAppStickySettingResult']:
+        """
+        A `sticky_settings` block as defined below.
+        """
+        return pulumi.get(self, "sticky_settings")
+
+    @property
     @pulumi.getter(name="storageAccountAccessKey")
     def storage_account_access_key(self) -> str:
         """
@@ -403,6 +414,7 @@ class AwaitableGetLinuxFunctionAppResult(GetLinuxFunctionAppResult):
             service_plan_id=self.service_plan_id,
             site_configs=self.site_configs,
             site_credentials=self.site_credentials,
+            sticky_settings=self.sticky_settings,
             storage_account_access_key=self.storage_account_access_key,
             storage_account_name=self.storage_account_name,
             storage_key_vault_secret_id=self.storage_key_vault_secret_id,
@@ -426,16 +438,10 @@ def get_linux_function_app(name: Optional[str] = None,
         resource_group_name="existing")
     pulumi.export("id", data["linux_function_app"]["example"]["id"])
     ```
-    ## Arguments Referencez
-
-    The following arguments are supported:
-
-    * `name` - (Required) The name which should be used for this Linux Function App.
-
-    * `resource_group_name` - (Required) The name of the Resource Group where the Linux Function App should exist.
 
 
-    :param str name: The Site Credentials Username used for publishing.
+    :param str name: The name which should be used for this Linux Function App.
+    :param str resource_group_name: The name of the Resource Group where the Linux Function App should exist.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -474,6 +480,7 @@ def get_linux_function_app(name: Optional[str] = None,
         service_plan_id=__ret__.service_plan_id,
         site_configs=__ret__.site_configs,
         site_credentials=__ret__.site_credentials,
+        sticky_settings=__ret__.sticky_settings,
         storage_account_access_key=__ret__.storage_account_access_key,
         storage_account_name=__ret__.storage_account_name,
         storage_key_vault_secret_id=__ret__.storage_key_vault_secret_id,
@@ -498,15 +505,9 @@ def get_linux_function_app_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="existing")
     pulumi.export("id", data["linux_function_app"]["example"]["id"])
     ```
-    ## Arguments Referencez
-
-    The following arguments are supported:
-
-    * `name` - (Required) The name which should be used for this Linux Function App.
-
-    * `resource_group_name` - (Required) The name of the Resource Group where the Linux Function App should exist.
 
 
-    :param str name: The Site Credentials Username used for publishing.
+    :param str name: The name which should be used for this Linux Function App.
+    :param str resource_group_name: The name of the Resource Group where the Linux Function App should exist.
     """
     ...

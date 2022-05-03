@@ -31,7 +31,7 @@ class ServiceArgs:
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web PubSub service. Changing
                this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+        :param pulumi.Input[str] sku: Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are:
                Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
@@ -86,7 +86,7 @@ class ServiceArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
         """
-        Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+        Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         """
         return pulumi.get(self, "sku")
 
@@ -263,7 +263,7 @@ class _ServiceState:
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the Web PubSub service.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the Web PubSub service.
         :param pulumi.Input[int] server_port: The publicly accessible port of the Web PubSub service which is designed for customer server side use.
-        :param pulumi.Input[str] sku: Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+        :param pulumi.Input[str] sku: Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults
                to `false`.
@@ -519,7 +519,7 @@ class _ServiceState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+        Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         """
         return pulumi.get(self, "sku")
 
@@ -628,7 +628,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Web PubSub service. Changing
                this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+        :param pulumi.Input[str] sku: Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults
                to `false`.
@@ -794,7 +794,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the Web PubSub service.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the Web PubSub service.
         :param pulumi.Input[int] server_port: The publicly accessible port of the Web PubSub service which is designed for customer server side use.
-        :param pulumi.Input[str] sku: Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+        :param pulumi.Input[str] sku: Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults
                to `false`.
@@ -966,7 +966,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[str]:
         """
-        Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+        Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
         """
         return pulumi.get(self, "sku")
 

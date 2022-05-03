@@ -1752,6 +1752,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_output_function":          {Tok: azureResource(azureStreamAnalytics, "OutputFunction")},
 			"azurerm_stream_analytics_function_javascript_uda":  {Tok: azureResource(azureStreamAnalytics, "FunctionJavascriptUda")},
 			"azurerm_stream_analytics_job_schedule":             {Tok: azureResource(azureStreamAnalytics, "JobSchedule")},
+			"azurerm_stream_analytics_output_cosmosdb":          {Tok: azureResource(azureStreamAnalytics, "OutputCosmosdb")},
 
 			// Marketplace
 			"azurerm_marketplace_agreement": {Tok: azureResource(azureMarketPlace, "Agreement")},

@@ -332,7 +332,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly singlePlacementGroup!: pulumi.Output<boolean | undefined>;
     /**
-     * A sku block as documented below.
+     * A SKU block as documented below.
      */
     public readonly sku!: pulumi.Output<outputs.compute.ScaleSetSku>;
     /**
@@ -541,7 +541,7 @@ export interface ScaleSetState {
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
     /**
-     * A sku block as documented below.
+     * A SKU block as documented below.
      */
     sku?: pulumi.Input<inputs.compute.ScaleSetSku>;
     /**
@@ -656,7 +656,7 @@ export interface ScaleSetArgs {
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
     /**
-     * A sku block as documented below.
+     * A SKU block as documented below.
      */
     sku: pulumi.Input<inputs.compute.ScaleSetSku>;
     /**

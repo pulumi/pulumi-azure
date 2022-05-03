@@ -62,7 +62,7 @@ export interface GetSpringCloudAppResult {
      */
     readonly fqdn: string;
     /**
-     * Is only https allowed?
+     * Is only HTTPS allowed?
      */
     readonly httpsOnly: boolean;
     /**

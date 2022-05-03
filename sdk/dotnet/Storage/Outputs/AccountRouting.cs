@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly bool? PublishInternetEndpoints;
         /// <summary>
-        /// Should microsoft routing storage endpoints be published? Defaults to `false`.
+        /// Should Microsoft routing storage endpoints be published? Defaults to `false`.
         /// </summary>
         public readonly bool? PublishMicrosoftEndpoints;
 

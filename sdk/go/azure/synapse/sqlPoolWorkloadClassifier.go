@@ -120,7 +120,7 @@ type SqlPoolWorkloadClassifier struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
 	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
-	// The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+	// The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
 	WorkloadGroupId pulumi.StringOutput `pulumi:"workloadGroupId"`
 }
 
@@ -173,7 +173,7 @@ type sqlPoolWorkloadClassifierState struct {
 	Name *string `pulumi:"name"`
 	// The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
 	StartTime *string `pulumi:"startTime"`
-	// The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+	// The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
 	WorkloadGroupId *string `pulumi:"workloadGroupId"`
 }
 
@@ -192,7 +192,7 @@ type SqlPoolWorkloadClassifierState struct {
 	Name pulumi.StringPtrInput
 	// The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
 	StartTime pulumi.StringPtrInput
-	// The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+	// The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
 	WorkloadGroupId pulumi.StringPtrInput
 }
 
@@ -215,7 +215,7 @@ type sqlPoolWorkloadClassifierArgs struct {
 	Name *string `pulumi:"name"`
 	// The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
 	StartTime *string `pulumi:"startTime"`
-	// The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+	// The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
 	WorkloadGroupId string `pulumi:"workloadGroupId"`
 }
 
@@ -235,7 +235,7 @@ type SqlPoolWorkloadClassifierArgs struct {
 	Name pulumi.StringPtrInput
 	// The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
 	StartTime pulumi.StringPtrInput
-	// The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+	// The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
 	WorkloadGroupId pulumi.StringInput
 }
 

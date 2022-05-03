@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _addressSpaces;
 
         /// <summary>
-        /// The address space out of which ip addresses for
+        /// The address space out of which IP addresses for
         /// vpn clients will be taken. You can provide more than one address space, e.g.
         /// in CIDR notation.
         /// </summary>

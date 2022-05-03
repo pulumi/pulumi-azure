@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// The pre-defined id of VPN Gateway Ip Configuration.
+        /// The pre-defined id of VPN Gateway IP Configuration.
         /// </summary>
         [Input("ipConfigurationId")]
         public Input<string>? IpConfigurationId { get; set; }

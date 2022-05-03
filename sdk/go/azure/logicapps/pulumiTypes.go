@@ -1746,7 +1746,7 @@ type StandardSiteConfig struct {
 	AppScaleLimit *int `pulumi:"appScaleLimit"`
 	// A `cors` block as defined below.
 	Cors *StandardSiteConfigCors `pulumi:"cors"`
-	// The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+	// The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
 	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
 	// The number of minimum instances for this Logic App Only affects apps on the Premium plan.
 	ElasticInstanceMinimum *int `pulumi:"elasticInstanceMinimum"`
@@ -1754,9 +1754,9 @@ type StandardSiteConfig struct {
 	FtpsState *string `pulumi:"ftpsState"`
 	// Path which will be checked for this Logic App health.
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
-	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+	// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
 	IpRestrictions []StandardSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
@@ -1792,7 +1792,7 @@ type StandardSiteConfigArgs struct {
 	AppScaleLimit pulumi.IntPtrInput `pulumi:"appScaleLimit"`
 	// A `cors` block as defined below.
 	Cors StandardSiteConfigCorsPtrInput `pulumi:"cors"`
-	// The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+	// The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
 	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
 	// The number of minimum instances for this Logic App Only affects apps on the Premium plan.
 	ElasticInstanceMinimum pulumi.IntPtrInput `pulumi:"elasticInstanceMinimum"`
@@ -1800,9 +1800,9 @@ type StandardSiteConfigArgs struct {
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
 	// Path which will be checked for this Logic App health.
 	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
-	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+	// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
 	IpRestrictions StandardSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
@@ -1912,7 +1912,7 @@ func (o StandardSiteConfigOutput) Cors() StandardSiteConfigCorsPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *StandardSiteConfigCors { return v.Cors }).(StandardSiteConfigCorsPtrOutput)
 }
 
-// The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+// The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
 func (o StandardSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *string { return v.DotnetFrameworkVersion }).(pulumi.StringPtrOutput)
 }
@@ -1932,12 +1932,12 @@ func (o StandardSiteConfigOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
 func (o StandardSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
 func (o StandardSiteConfigOutput) IpRestrictions() StandardSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v StandardSiteConfig) []StandardSiteConfigIpRestriction { return v.IpRestrictions }).(StandardSiteConfigIpRestrictionArrayOutput)
 }
@@ -2031,7 +2031,7 @@ func (o StandardSiteConfigPtrOutput) Cors() StandardSiteConfigCorsPtrOutput {
 	}).(StandardSiteConfigCorsPtrOutput)
 }
 
-// The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+// The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
 func (o StandardSiteConfigPtrOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) *string {
 		if v == nil {
@@ -2071,7 +2071,7 @@ func (o StandardSiteConfigPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
 func (o StandardSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) *bool {
 		if v == nil {
@@ -2081,7 +2081,7 @@ func (o StandardSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
 func (o StandardSiteConfigPtrOutput) IpRestrictions() StandardSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) []StandardSiteConfigIpRestriction {
 		if v == nil {

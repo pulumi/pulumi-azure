@@ -26,11 +26,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? ConnectionMode;
         /// <summary>
-        /// A list of the egress Nat Rule Ids.
+        /// A list of the egress NAT Rule Ids.
         /// </summary>
         public readonly ImmutableArray<string> EgressNatRuleIds;
         /// <summary>
-        /// A list of the ingress Nat Rule Ids.
+        /// A list of the ingress NAT Rule Ids.
         /// </summary>
         public readonly ImmutableArray<string> IngressNatRuleIds;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.VpnGatewayConnectionVpnLinkIpsecPolicy> IpsecPolicies;
         /// <summary>
-        /// Whether to use local azure ip to initiate connection? Defaults to `false`.
+        /// Whether to use local Azure IP to initiate connection? Defaults to `false`.
         /// </summary>
         public readonly bool? LocalAzureIpAddressEnabled;
         /// <summary>

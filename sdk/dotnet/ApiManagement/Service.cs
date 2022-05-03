@@ -61,7 +61,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<ImmutableArray<Outputs.ServiceCertificate>> Certificates { get; private set; } = null!;
 
         /// <summary>
-        /// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        /// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         /// </summary>
         [Output("clientCertificateEnabled")]
         public Output<bool?> ClientCertificateEnabled { get; private set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        /// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         /// </summary>
         [Input("clientCertificateEnabled")]
         public Input<bool>? ClientCertificateEnabled { get; set; }
@@ -512,7 +512,7 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+        /// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         /// </summary>
         [Input("clientCertificateEnabled")]
         public Input<bool>? ClientCertificateEnabled { get; set; }

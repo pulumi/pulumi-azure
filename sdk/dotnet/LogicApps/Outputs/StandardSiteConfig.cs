@@ -26,7 +26,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly Outputs.StandardSiteConfigCors? Cors;
         /// <summary>
-        /// The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        /// The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         /// </summary>
         public readonly string? DotnetFrameworkVersion;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? HealthCheckPath;
         /// <summary>
-        /// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+        /// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
-        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.StandardSiteConfigIpRestriction> IpRestrictions;
         /// <summary>

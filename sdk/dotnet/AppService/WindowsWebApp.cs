@@ -206,6 +206,12 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.WindowsWebAppSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        [Output("stickySettings")]
+        public Output<Outputs.WindowsWebAppStickySettings?> StickySettings { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `storage_account` blocks as defined below.
         /// </summary>
         [Output("storageAccounts")]
@@ -376,6 +382,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("siteConfig", required: true)]
         public Input<Inputs.WindowsWebAppSiteConfigArgs> SiteConfig { get; set; } = null!;
+
+        /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        [Input("stickySettings")]
+        public Input<Inputs.WindowsWebAppStickySettingsArgs>? StickySettings { get; set; }
 
         [Input("storageAccounts")]
         private InputList<Inputs.WindowsWebAppStorageAccountArgs>? _storageAccounts;
@@ -587,6 +599,12 @@ namespace Pulumi.Azure.AppService
             get => _siteCredentials ?? (_siteCredentials = new InputList<Inputs.WindowsWebAppSiteCredentialGetArgs>());
             set => _siteCredentials = value;
         }
+
+        /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        [Input("stickySettings")]
+        public Input<Inputs.WindowsWebAppStickySettingsGetArgs>? StickySettings { get; set; }
 
         [Input("storageAccounts")]
         private InputList<Inputs.WindowsWebAppStorageAccountGetArgs>? _storageAccounts;

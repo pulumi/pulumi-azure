@@ -134,7 +134,7 @@ namespace Pulumi.Azure.DatabaseMigration
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The sku name of database migration service.
+        /// The SKU name of database migration service.
         /// </summary>
         public readonly string SkuName;
         /// <summary>

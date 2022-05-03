@@ -25,7 +25,7 @@ class SpringCloudAppCosmosDBAssociationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SpringCloudAppCosmosDBAssociation resource.
-        :param pulumi.Input[str] api_type: Specifies the api type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_type: Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cosmosdb_access_key: Specifies the CosmosDB Account access key.
         :param pulumi.Input[str] cosmosdb_account_id: Specifies the ID of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
@@ -33,7 +33,7 @@ class SpringCloudAppCosmosDBAssociationArgs:
         :param pulumi.Input[str] cosmosdb_gremlin_database_name: Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         :param pulumi.Input[str] cosmosdb_gremlin_graph_name: Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         :param pulumi.Input[str] cosmosdb_mongo_database_name: Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
-        :param pulumi.Input[str] cosmosdb_sql_database_name: Specifies the name of the Sql Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+        :param pulumi.Input[str] cosmosdb_sql_database_name: Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "api_type", api_type)
@@ -57,7 +57,7 @@ class SpringCloudAppCosmosDBAssociationArgs:
     @pulumi.getter(name="apiType")
     def api_type(self) -> pulumi.Input[str]:
         """
-        Specifies the api type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
+        Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_type")
 
@@ -153,7 +153,7 @@ class SpringCloudAppCosmosDBAssociationArgs:
     @pulumi.getter(name="cosmosdbSqlDatabaseName")
     def cosmosdb_sql_database_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Sql Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+        Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
         """
         return pulumi.get(self, "cosmosdb_sql_database_name")
 
@@ -189,14 +189,14 @@ class _SpringCloudAppCosmosDBAssociationState:
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudAppCosmosDBAssociation resources.
-        :param pulumi.Input[str] api_type: Specifies the api type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_type: Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cosmosdb_access_key: Specifies the CosmosDB Account access key.
         :param pulumi.Input[str] cosmosdb_account_id: Specifies the ID of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cosmosdb_cassandra_keyspace_name: Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
         :param pulumi.Input[str] cosmosdb_gremlin_database_name: Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         :param pulumi.Input[str] cosmosdb_gremlin_graph_name: Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         :param pulumi.Input[str] cosmosdb_mongo_database_name: Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
-        :param pulumi.Input[str] cosmosdb_sql_database_name: Specifies the name of the Sql Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+        :param pulumi.Input[str] cosmosdb_sql_database_name: Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
         """
@@ -225,7 +225,7 @@ class _SpringCloudAppCosmosDBAssociationState:
     @pulumi.getter(name="apiType")
     def api_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the api type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
+        Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_type")
 
@@ -309,7 +309,7 @@ class _SpringCloudAppCosmosDBAssociationState:
     @pulumi.getter(name="cosmosdbSqlDatabaseName")
     def cosmosdb_sql_database_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Sql Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+        Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
         """
         return pulumi.get(self, "cosmosdb_sql_database_name")
 
@@ -403,14 +403,14 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_type: Specifies the api type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_type: Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cosmosdb_access_key: Specifies the CosmosDB Account access key.
         :param pulumi.Input[str] cosmosdb_account_id: Specifies the ID of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cosmosdb_cassandra_keyspace_name: Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
         :param pulumi.Input[str] cosmosdb_gremlin_database_name: Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         :param pulumi.Input[str] cosmosdb_gremlin_graph_name: Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         :param pulumi.Input[str] cosmosdb_mongo_database_name: Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
-        :param pulumi.Input[str] cosmosdb_sql_database_name: Specifies the name of the Sql Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+        :param pulumi.Input[str] cosmosdb_sql_database_name: Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
         """
@@ -545,14 +545,14 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_type: Specifies the api type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_type: Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cosmosdb_access_key: Specifies the CosmosDB Account access key.
         :param pulumi.Input[str] cosmosdb_account_id: Specifies the ID of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cosmosdb_cassandra_keyspace_name: Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
         :param pulumi.Input[str] cosmosdb_gremlin_database_name: Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         :param pulumi.Input[str] cosmosdb_gremlin_graph_name: Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         :param pulumi.Input[str] cosmosdb_mongo_database_name: Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
-        :param pulumi.Input[str] cosmosdb_sql_database_name: Specifies the name of the Sql Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+        :param pulumi.Input[str] cosmosdb_sql_database_name: Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
         """
@@ -576,7 +576,7 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
     @pulumi.getter(name="apiType")
     def api_type(self) -> pulumi.Output[str]:
         """
-        Specifies the api type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
+        Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_type")
 
@@ -632,7 +632,7 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
     @pulumi.getter(name="cosmosdbSqlDatabaseName")
     def cosmosdb_sql_database_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the name of the Sql Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+        Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
         """
         return pulumi.get(self, "cosmosdb_sql_database_name")
 

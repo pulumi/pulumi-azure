@@ -137,7 +137,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly serverPort!: pulumi.Output<number>;
     /**
-     * Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+     * Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -293,7 +293,7 @@ export interface ServiceState {
      */
     serverPort?: pulumi.Input<number>;
     /**
-     * Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+     * Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -352,7 +352,7 @@ export interface ServiceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies which sku to use. Possible values are `Free_F1` and `Standard_S1`.
+     * Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
      */
     sku: pulumi.Input<string>;
     /**

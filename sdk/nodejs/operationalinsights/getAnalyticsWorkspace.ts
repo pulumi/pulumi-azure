@@ -74,7 +74,7 @@ export interface GetAnalyticsWorkspaceResult {
      */
     readonly secondarySharedKey: string;
     /**
-     * The Sku of the Log Analytics Workspace.
+     * The SKU of the Log Analytics Workspace.
      */
     readonly sku: string;
     /**

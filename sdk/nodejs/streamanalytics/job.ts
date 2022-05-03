@@ -122,7 +122,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      */
-    public readonly streamingUnits!: pulumi.Output<number>;
+    public readonly streamingUnits!: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags assigned to the resource.
      */
@@ -131,6 +131,10 @@ export class Job extends pulumi.CustomResource {
      * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      */
     public readonly transformationQuery!: pulumi.Output<string>;
+    /**
+     * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -160,13 +164,11 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["streamingUnits"] = state ? state.streamingUnits : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["transformationQuery"] = state ? state.transformationQuery : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.streamingUnits === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'streamingUnits'");
             }
             if ((!args || args.transformationQuery === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transformationQuery'");
@@ -185,6 +187,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["streamingUnits"] = args ? args.streamingUnits : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transformationQuery"] = args ? args.transformationQuery : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["jobId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -256,6 +259,10 @@ export interface JobState {
      * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      */
     transformationQuery?: pulumi.Input<string>;
+    /**
+     * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+     */
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -309,7 +316,7 @@ export interface JobArgs {
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      */
-    streamingUnits: pulumi.Input<number>;
+    streamingUnits?: pulumi.Input<number>;
     /**
      * A mapping of tags assigned to the resource.
      */
@@ -318,4 +325,8 @@ export interface JobArgs {
      * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      */
     transformationQuery: pulumi.Input<string>;
+    /**
+     * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+     */
+    type?: pulumi.Input<string>;
 }

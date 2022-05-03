@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<string>? _dnsServers;
 
         /// <summary>
-        /// Specifies an array of dns servers.
+        /// Specifies an array of DNS servers.
         /// </summary>
         public InputList<string> DnsServers
         {

@@ -40,6 +40,7 @@ __all__ = [
     'LinuxVirtualMachineScaleSetSecretCertificateArgs',
     'LinuxVirtualMachineScaleSetSourceImageReferenceArgs',
     'LinuxVirtualMachineScaleSetTerminateNotificationArgs',
+    'LinuxVirtualMachineScaleSetTerminationNotificationArgs',
     'LinuxVirtualMachineSecretArgs',
     'LinuxVirtualMachineSecretCertificateArgs',
     'LinuxVirtualMachineSourceImageReferenceArgs',
@@ -139,6 +140,7 @@ __all__ = [
     'WindowsVirtualMachineScaleSetSecretCertificateArgs',
     'WindowsVirtualMachineScaleSetSourceImageReferenceArgs',
     'WindowsVirtualMachineScaleSetTerminateNotificationArgs',
+    'WindowsVirtualMachineScaleSetTerminationNotificationArgs',
     'WindowsVirtualMachineScaleSetWinrmListenerArgs',
     'WindowsVirtualMachineSecretArgs',
     'WindowsVirtualMachineSecretCertificateArgs',
@@ -2108,6 +2110,44 @@ class LinuxVirtualMachineScaleSetTerminateNotificationArgs:
 
 
 @pulumi.input_type
+class LinuxVirtualMachineScaleSetTerminationNotificationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 timeout: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+        :param pulumi.Input[str] timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
 class LinuxVirtualMachineSecretArgs:
     def __init__(__self__, *,
                  certificates: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretCertificateArgs']]],
@@ -3146,7 +3186,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]]] = None):
         """
         :param pulumi.Input[bool] disable_password_authentication: When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
-        :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
@@ -3216,7 +3256,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @pulumi.getter(name="patchMode")
     def patch_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         """
         return pulumi.get(self, "patch_mode")
 
@@ -3344,7 +3384,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]]] = None):
         """
         :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-        :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         """
         pulumi.set(__self__, "admin_password", admin_password)
         pulumi.set(__self__, "admin_username", admin_username)
@@ -3417,7 +3457,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @pulumi.getter(name="patchMode")
     def patch_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         """
         return pulumi.get(self, "patch_mode")
 
@@ -4001,7 +4041,7 @@ class ScaleSetNetworkProfileDnsSettingsArgs:
     def __init__(__self__, *,
                  dns_servers: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Specifies an array of dns servers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Specifies an array of DNS servers.
         """
         pulumi.set(__self__, "dns_servers", dns_servers)
 
@@ -4009,7 +4049,7 @@ class ScaleSetNetworkProfileDnsSettingsArgs:
     @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies an array of dns servers.
+        Specifies an array of DNS servers.
         """
         return pulumi.get(self, "dns_servers")
 
@@ -4036,7 +4076,7 @@ class ScaleSetNetworkProfileIpConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_gateway_backend_address_pool_ids: Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_security_group_ids: Specifies up to `20` application security group IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_backend_address_pool_ids: Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_inbound_nat_rules_ids: Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_inbound_nat_rules_ids: Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
         :param pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs'] public_ip_address_configuration: Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
         """
         pulumi.set(__self__, "name", name)
@@ -4129,7 +4169,7 @@ class ScaleSetNetworkProfileIpConfigurationArgs:
     @pulumi.getter(name="loadBalancerInboundNatRulesIds")
     def load_balancer_inbound_nat_rules_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+        Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
         """
         return pulumi.get(self, "load_balancer_inbound_nat_rules_ids")
 
@@ -4157,9 +4197,9 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs:
                  idle_timeout: pulumi.Input[int],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] domain_name_label: The domain name label for the dns settings.
+        :param pulumi.Input[str] domain_name_label: The domain name label for the DNS settings.
         :param pulumi.Input[int] idle_timeout: The idle timeout in minutes. This value must be between 4 and 30.
-        :param pulumi.Input[str] name: The name of the public ip address configuration
+        :param pulumi.Input[str] name: The name of the public IP address configuration
         """
         pulumi.set(__self__, "domain_name_label", domain_name_label)
         pulumi.set(__self__, "idle_timeout", idle_timeout)
@@ -4169,7 +4209,7 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs:
     @pulumi.getter(name="domainNameLabel")
     def domain_name_label(self) -> pulumi.Input[str]:
         """
-        The domain name label for the dns settings.
+        The domain name label for the DNS settings.
         """
         return pulumi.get(self, "domain_name_label")
 
@@ -4193,7 +4233,7 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the public ip address configuration
+        The name of the public IP address configuration
         """
         return pulumi.get(self, "name")
 
@@ -4211,9 +4251,9 @@ class ScaleSetOsProfileArgs:
                  custom_data: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] admin_username: Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
-        :param pulumi.Input[str] computer_name_prefix: Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] computer_name_prefix: Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for Linux. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_password: Specifies the administrator password to use for all the instances of virtual machines in a scale set.
-        :param pulumi.Input[str] custom_data: Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+        :param pulumi.Input[str] custom_data: Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
@@ -4238,7 +4278,7 @@ class ScaleSetOsProfileArgs:
     @pulumi.getter(name="computerNamePrefix")
     def computer_name_prefix(self) -> pulumi.Input[str]:
         """
-        Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+        Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for Linux. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "computer_name_prefix")
 
@@ -4262,7 +4302,7 @@ class ScaleSetOsProfileArgs:
     @pulumi.getter(name="customData")
     def custom_data(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+        Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
         """
         return pulumi.get(self, "custom_data")
 
@@ -4953,13 +4993,13 @@ class ScaleSetStorageProfileOsDiskArgs:
         """
         :param pulumi.Input[str] create_option: Specifies how the virtual machine should be created. The only possible option is `FromImage`.
         :param pulumi.Input[str] caching: Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
-        :param pulumi.Input[str] image: Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
+        :param pulumi.Input[str] image: Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
                Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
                When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
         :param pulumi.Input[str] managed_disk_type: Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
         :param pulumi.Input[str] name: Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
-        :param pulumi.Input[str] os_type: Specifies the operating system Type, valid values are windows, linux.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vhd_containers: Specifies the vhd uri. Cannot be used when `image` or `managed_disk_type` is specified.
+        :param pulumi.Input[str] os_type: Specifies the operating system Type, valid values are windows, Linux.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vhd_containers: Specifies the VHD URI. Cannot be used when `image` or `managed_disk_type` is specified.
         """
         pulumi.set(__self__, "create_option", create_option)
         if caching is not None:
@@ -5003,7 +5043,7 @@ class ScaleSetStorageProfileOsDiskArgs:
     @pulumi.getter
     def image(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
+        Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
         Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
         When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
         """
@@ -5041,7 +5081,7 @@ class ScaleSetStorageProfileOsDiskArgs:
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the operating system Type, valid values are windows, linux.
+        Specifies the operating system Type, valid values are windows, Linux.
         """
         return pulumi.get(self, "os_type")
 
@@ -5053,7 +5093,7 @@ class ScaleSetStorageProfileOsDiskArgs:
     @pulumi.getter(name="vhdContainers")
     def vhd_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the vhd uri. Cannot be used when `image` or `managed_disk_type` is specified.
+        Specifies the VHD URI. Cannot be used when `image` or `managed_disk_type` is specified.
         """
         return pulumi.get(self, "vhd_containers")
 
@@ -6145,7 +6185,7 @@ class VirtualMachineStorageOsDiskArgs:
         :param pulumi.Input[str] name: Specifies the name of the OS Disk.
         :param pulumi.Input[str] caching: Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the OS Disk in gigabytes.
-        :param pulumi.Input[str] image_uri: Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+        :param pulumi.Input[str] image_uri: Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
         :param pulumi.Input[str] managed_disk_id: Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
         :param pulumi.Input[str] managed_disk_type: Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
         :param pulumi.Input[str] os_type: Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
@@ -6223,7 +6263,7 @@ class VirtualMachineStorageOsDiskArgs:
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+        Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
         """
         return pulumi.get(self, "image_uri")
 
@@ -7951,6 +7991,44 @@ class WindowsVirtualMachineScaleSetTerminateNotificationArgs:
     def enabled(self) -> pulumi.Input[bool]:
         """
         Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class WindowsVirtualMachineScaleSetTerminationNotificationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 timeout: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+        :param pulumi.Input[str] timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 

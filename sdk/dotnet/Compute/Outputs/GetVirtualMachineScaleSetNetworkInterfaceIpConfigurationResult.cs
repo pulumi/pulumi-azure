@@ -37,6 +37,9 @@ namespace Pulumi.Azure.Compute.Outputs
         /// If this ip_configuration is the primary one.
         /// </summary>
         public readonly bool Primary;
+        /// <summary>
+        /// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult> PublicIpAddresses;
         /// <summary>
         /// The the identifier of the subnet.

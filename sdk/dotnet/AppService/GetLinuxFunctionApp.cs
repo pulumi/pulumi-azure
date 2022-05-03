@@ -40,13 +40,6 @@ namespace Pulumi.Azure.AppService
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
-        /// ## Arguments Referencez
-        /// 
-        /// The following arguments are supported:
-        /// 
-        /// * `name` - (Required) The name which should be used for this Linux Function App.
-        /// 
-        /// * `resource_group_name` - (Required) The name of the Resource Group where the Linux Function App should exist.
         /// </summary>
         public static Task<GetLinuxFunctionAppResult> InvokeAsync(GetLinuxFunctionAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLinuxFunctionAppResult>("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args ?? new GetLinuxFunctionAppArgs(), options.WithDefaults());
@@ -80,13 +73,6 @@ namespace Pulumi.Azure.AppService
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
-        /// ## Arguments Referencez
-        /// 
-        /// The following arguments are supported:
-        /// 
-        /// * `name` - (Required) The name which should be used for this Linux Function App.
-        /// 
-        /// * `resource_group_name` - (Required) The name of the Resource Group where the Linux Function App should exist.
         /// </summary>
         public static Output<GetLinuxFunctionAppResult> Invoke(GetLinuxFunctionAppInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLinuxFunctionAppResult>("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args ?? new GetLinuxFunctionAppInvokeArgs(), options.WithDefaults());
@@ -96,11 +82,14 @@ namespace Pulumi.Azure.AppService
     public sealed class GetLinuxFunctionAppArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Site Credentials Username used for publishing.
+        /// The name which should be used for this Linux Function App.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Resource Group where the Linux Function App should exist.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
@@ -112,11 +101,14 @@ namespace Pulumi.Azure.AppService
     public sealed class GetLinuxFunctionAppInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Site Credentials Username used for publishing.
+        /// The name which should be used for this Linux Function App.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Resource Group where the Linux Function App should exist.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
@@ -232,6 +224,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppSiteCredentialResult> SiteCredentials;
         /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLinuxFunctionAppStickySettingResult> StickySettings;
+        /// <summary>
         /// The access key used to access the backend storage account for the Function App.
         /// </summary>
         public readonly string StorageAccountAccessKey;
@@ -308,6 +304,8 @@ namespace Pulumi.Azure.AppService
 
             ImmutableArray<Outputs.GetLinuxFunctionAppSiteCredentialResult> siteCredentials,
 
+            ImmutableArray<Outputs.GetLinuxFunctionAppStickySettingResult> stickySettings,
+
             string storageAccountAccessKey,
 
             string storageAccountName,
@@ -345,6 +343,7 @@ namespace Pulumi.Azure.AppService
             ServicePlanId = servicePlanId;
             SiteConfigs = siteConfigs;
             SiteCredentials = siteCredentials;
+            StickySettings = stickySettings;
             StorageAccountAccessKey = storageAccountAccessKey;
             StorageAccountName = storageAccountName;
             StorageKeyVaultSecretId = storageKeyVaultSecretId;

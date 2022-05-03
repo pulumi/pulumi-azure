@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Ms Sql Database Extended Auditing Policy.
+ * Manages a MS SQL Database Extended Auditing Policy.
  *
  * > **NOTE:** The Database Extended Auditing Policy can also be set in the `extendedAuditingPolicy` block in the azure.mssql.Database resource. You can only use one or the other and using both will cause a conflict.
  *
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Ms Sql Database Extended Auditing Policys can be imported using the `resource id`, e.g.
+ * MS SQL Database Extended Auditing Policies can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/databases/db1/extendedAuditingSettings/default
@@ -76,7 +76,7 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+     * The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     public readonly databaseId!: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
  */
 export interface DatabaseExtendedAuditingPolicyState {
     /**
-     * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+     * The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     databaseId?: pulumi.Input<string>;
     /**
@@ -181,7 +181,7 @@ export interface DatabaseExtendedAuditingPolicyState {
  */
 export interface DatabaseExtendedAuditingPolicyArgs {
     /**
-     * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+     * The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
     databaseId: pulumi.Input<string>;
     /**

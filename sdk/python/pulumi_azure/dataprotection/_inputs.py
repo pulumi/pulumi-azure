@@ -117,7 +117,7 @@ class BackupPolicyPostgresqlRetentionRuleArgs:
         :param pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArgs'] criteria: A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] duration: Duration after which the backup is deleted. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] name: The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.
-        :param pulumi.Input[int] priority: Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Postgre Sql to be created.
+        :param pulumi.Input[int] priority: Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
         pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "duration", duration)
@@ -164,7 +164,7 @@ class BackupPolicyPostgresqlRetentionRuleArgs:
     @pulumi.getter
     def priority(self) -> pulumi.Input[int]:
         """
-        Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Postgre Sql to be created.
+        Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
         return pulumi.get(self, "priority")
 
@@ -185,7 +185,7 @@ class BackupPolicyPostgresqlRetentionRuleCriteriaArgs:
         :param pulumi.Input[str] absolute_criteria: Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] months_of_years: Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy PostgreSQL to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scheduled_backup_times: Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Postgre Sql to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scheduled_backup_times: Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
         if absolute_criteria is not None:
@@ -239,7 +239,7 @@ class BackupPolicyPostgresqlRetentionRuleCriteriaArgs:
     @pulumi.getter(name="scheduledBackupTimes")
     def scheduled_backup_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Postgre Sql to be created.
+        Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
         return pulumi.get(self, "scheduled_backup_times")
 

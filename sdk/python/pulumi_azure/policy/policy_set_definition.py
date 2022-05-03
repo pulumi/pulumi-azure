@@ -31,9 +31,9 @@ class PolicySetDefinitionArgs:
         :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the policy set definition.
         :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         :param pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
         """
         pulumi.set(__self__, "display_name", display_name)
@@ -116,7 +116,7 @@ class PolicySetDefinitionArgs:
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[str]]:
         """
-        The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         """
         return pulumi.get(self, "metadata")
 
@@ -140,7 +140,7 @@ class PolicySetDefinitionArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[str]]:
         """
-        Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         """
         return pulumi.get(self, "parameters")
 
@@ -178,9 +178,9 @@ class _PolicySetDefinitionState:
         :param pulumi.Input[str] description: The description of the policy set definition.
         :param pulumi.Input[str] display_name: The display name of the policy set definition.
         :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         :param pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
         :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
@@ -244,7 +244,7 @@ class _PolicySetDefinitionState:
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input[str]]:
         """
-        The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         """
         return pulumi.get(self, "metadata")
 
@@ -268,7 +268,7 @@ class _PolicySetDefinitionState:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[str]]:
         """
-        Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         """
         return pulumi.get(self, "parameters")
 
@@ -383,9 +383,9 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the policy set definition.
         :param pulumi.Input[str] display_name: The display name of the policy set definition.
         :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
         :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
@@ -526,9 +526,9 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the policy set definition.
         :param pulumi.Input[str] display_name: The display name of the policy set definition.
         :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
         :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
@@ -576,7 +576,7 @@ class PolicySetDefinition(pulumi.CustomResource):
     @pulumi.getter
     def metadata(self) -> pulumi.Output[str]:
         """
-        The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         """
         return pulumi.get(self, "metadata")
 
@@ -592,7 +592,7 @@ class PolicySetDefinition(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[str]]:
         """
-        Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         """
         return pulumi.get(self, "parameters")
 

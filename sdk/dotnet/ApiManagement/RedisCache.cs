@@ -70,7 +70,7 @@ namespace Pulumi.Azure.ApiManagement
     public partial class RedisCache : Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+        /// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         /// </summary>
         [Output("apiManagementId")]
         public Output<string> ApiManagementId { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class RedisCacheArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+        /// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         /// </summary>
         [Input("apiManagementId", required: true)]
         public Input<string> ApiManagementId { get; set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class RedisCacheState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+        /// The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         /// </summary>
         [Input("apiManagementId")]
         public Input<string>? ApiManagementId { get; set; }

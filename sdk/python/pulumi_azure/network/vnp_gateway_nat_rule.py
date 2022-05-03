@@ -23,14 +23,14 @@ class VnpGatewayNatRuleArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VnpGatewayNatRule resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: A list of CIDR Ranges which are used for external mapping of the VPN Gateway Nat Rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: A list of CIDR Ranges which are used for internal mapping of the VPN Gateway Nat Rule.
-        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway Nat Rule should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway Nat Rule applies to. Possible values are `Instance0` and `Instance1`.
-        :param pulumi.Input[str] mode: The source Nat direction of the VPN Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name which should be used for this VPN Gateway Nat Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The type of the VPN Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
+        :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "external_address_space_mappings", external_address_space_mappings)
         pulumi.set(__self__, "internal_address_space_mappings", internal_address_space_mappings)
@@ -49,7 +49,7 @@ class VnpGatewayNatRuleArgs:
     @pulumi.getter(name="externalAddressSpaceMappings")
     def external_address_space_mappings(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of CIDR Ranges which are used for external mapping of the VPN Gateway Nat Rule.
+        A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
         """
         return pulumi.get(self, "external_address_space_mappings")
 
@@ -61,7 +61,7 @@ class VnpGatewayNatRuleArgs:
     @pulumi.getter(name="internalAddressSpaceMappings")
     def internal_address_space_mappings(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of CIDR Ranges which are used for internal mapping of the VPN Gateway Nat Rule.
+        A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
         """
         return pulumi.get(self, "internal_address_space_mappings")
 
@@ -73,7 +73,7 @@ class VnpGatewayNatRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The Name of the Resource Group in which this VPN Gateway Nat Rule should be created. Changing this forces a new resource to be created.
+        The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -85,7 +85,7 @@ class VnpGatewayNatRuleArgs:
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Input[str]:
         """
-        The ID of the VPN Gateway that this VPN Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
+        The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vpn_gateway_id")
 
@@ -97,7 +97,7 @@ class VnpGatewayNatRuleArgs:
     @pulumi.getter(name="ipConfigurationId")
     def ip_configuration_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the IP Configuration this VPN Gateway Nat Rule applies to. Possible values are `Instance0` and `Instance1`.
+        The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         """
         return pulumi.get(self, "ip_configuration_id")
 
@@ -109,7 +109,7 @@ class VnpGatewayNatRuleArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The source Nat direction of the VPN Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
+        The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mode")
 
@@ -121,7 +121,7 @@ class VnpGatewayNatRuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this VPN Gateway Nat Rule. Changing this forces a new resource to be created.
+        The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -133,7 +133,7 @@ class VnpGatewayNatRuleArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the VPN Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
+        The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -155,14 +155,14 @@ class _VnpGatewayNatRuleState:
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VnpGatewayNatRule resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: A list of CIDR Ranges which are used for external mapping of the VPN Gateway Nat Rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: A list of CIDR Ranges which are used for internal mapping of the VPN Gateway Nat Rule.
-        :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway Nat Rule applies to. Possible values are `Instance0` and `Instance1`.
-        :param pulumi.Input[str] mode: The source Nat direction of the VPN Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name which should be used for this VPN Gateway Nat Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway Nat Rule should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The type of the VPN Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+        :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
+        :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         """
         if external_address_space_mappings is not None:
             pulumi.set(__self__, "external_address_space_mappings", external_address_space_mappings)
@@ -185,7 +185,7 @@ class _VnpGatewayNatRuleState:
     @pulumi.getter(name="externalAddressSpaceMappings")
     def external_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of CIDR Ranges which are used for external mapping of the VPN Gateway Nat Rule.
+        A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
         """
         return pulumi.get(self, "external_address_space_mappings")
 
@@ -197,7 +197,7 @@ class _VnpGatewayNatRuleState:
     @pulumi.getter(name="internalAddressSpaceMappings")
     def internal_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of CIDR Ranges which are used for internal mapping of the VPN Gateway Nat Rule.
+        A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
         """
         return pulumi.get(self, "internal_address_space_mappings")
 
@@ -209,7 +209,7 @@ class _VnpGatewayNatRuleState:
     @pulumi.getter(name="ipConfigurationId")
     def ip_configuration_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the IP Configuration this VPN Gateway Nat Rule applies to. Possible values are `Instance0` and `Instance1`.
+        The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         """
         return pulumi.get(self, "ip_configuration_id")
 
@@ -221,7 +221,7 @@ class _VnpGatewayNatRuleState:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The source Nat direction of the VPN Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
+        The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mode")
 
@@ -233,7 +233,7 @@ class _VnpGatewayNatRuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this VPN Gateway Nat Rule. Changing this forces a new resource to be created.
+        The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -245,7 +245,7 @@ class _VnpGatewayNatRuleState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Name of the Resource Group in which this VPN Gateway Nat Rule should be created. Changing this forces a new resource to be created.
+        The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -257,7 +257,7 @@ class _VnpGatewayNatRuleState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the VPN Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
+        The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -269,7 +269,7 @@ class _VnpGatewayNatRuleState:
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the VPN Gateway that this VPN Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
+        The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vpn_gateway_id")
 
@@ -293,7 +293,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a VPN Gateway Nat Rule.
+        Manages a VPN Gateway NAT Rule.
 
         ## Example Usage
 
@@ -323,7 +323,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
 
         ## Import
 
-        VPN Gateway Nat Rules can be imported using the `resource id`, e.g.
+        VPN Gateway NAT Rules can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:network/vnpGatewayNatRule:VnpGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/vpnGateways/vpnGateway1/natRules/natRule1
@@ -331,14 +331,14 @@ class VnpGatewayNatRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: A list of CIDR Ranges which are used for external mapping of the VPN Gateway Nat Rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: A list of CIDR Ranges which are used for internal mapping of the VPN Gateway Nat Rule.
-        :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway Nat Rule applies to. Possible values are `Instance0` and `Instance1`.
-        :param pulumi.Input[str] mode: The source Nat direction of the VPN Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name which should be used for this VPN Gateway Nat Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway Nat Rule should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The type of the VPN Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+        :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
+        :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -347,7 +347,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
                  args: VnpGatewayNatRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a VPN Gateway Nat Rule.
+        Manages a VPN Gateway NAT Rule.
 
         ## Example Usage
 
@@ -377,7 +377,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
 
         ## Import
 
-        VPN Gateway Nat Rules can be imported using the `resource id`, e.g.
+        VPN Gateway NAT Rules can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:network/vnpGatewayNatRule:VnpGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/vpnGateways/vpnGateway1/natRules/natRule1
@@ -459,14 +459,14 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: A list of CIDR Ranges which are used for external mapping of the VPN Gateway Nat Rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: A list of CIDR Ranges which are used for internal mapping of the VPN Gateway Nat Rule.
-        :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway Nat Rule applies to. Possible values are `Instance0` and `Instance1`.
-        :param pulumi.Input[str] mode: The source Nat direction of the VPN Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name which should be used for this VPN Gateway Nat Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway Nat Rule should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The type of the VPN Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+        :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
+        :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -486,7 +486,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @pulumi.getter(name="externalAddressSpaceMappings")
     def external_address_space_mappings(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of CIDR Ranges which are used for external mapping of the VPN Gateway Nat Rule.
+        A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
         """
         return pulumi.get(self, "external_address_space_mappings")
 
@@ -494,7 +494,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @pulumi.getter(name="internalAddressSpaceMappings")
     def internal_address_space_mappings(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of CIDR Ranges which are used for internal mapping of the VPN Gateway Nat Rule.
+        A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
         """
         return pulumi.get(self, "internal_address_space_mappings")
 
@@ -502,7 +502,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @pulumi.getter(name="ipConfigurationId")
     def ip_configuration_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the IP Configuration this VPN Gateway Nat Rule applies to. Possible values are `Instance0` and `Instance1`.
+        The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         """
         return pulumi.get(self, "ip_configuration_id")
 
@@ -510,7 +510,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @pulumi.getter
     def mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The source Nat direction of the VPN Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
+        The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mode")
 
@@ -518,7 +518,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this VPN Gateway Nat Rule. Changing this forces a new resource to be created.
+        The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -526,7 +526,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The Name of the Resource Group in which this VPN Gateway Nat Rule should be created. Changing this forces a new resource to be created.
+        The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -534,7 +534,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of the VPN Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
+        The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -542,7 +542,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Output[str]:
         """
-        The ID of the VPN Gateway that this VPN Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
+        The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vpn_gateway_id")
 

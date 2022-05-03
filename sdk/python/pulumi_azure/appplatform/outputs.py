@@ -401,8 +401,8 @@ class SpringCloudServiceConfigServerGitSettingHttpBasicAuth(dict):
                  password: str,
                  username: str):
         """
-        :param str password: The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
-        :param str username: The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+        :param str password: The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+        :param str username: The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -411,7 +411,7 @@ class SpringCloudServiceConfigServerGitSettingHttpBasicAuth(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+        The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
         return pulumi.get(self, "password")
 
@@ -419,7 +419,7 @@ class SpringCloudServiceConfigServerGitSettingHttpBasicAuth(dict):
     @pulumi.getter
     def username(self) -> str:
         """
-        The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+        The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
         return pulumi.get(self, "username")
 
@@ -540,8 +540,8 @@ class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth(dict):
                  password: str,
                  username: str):
         """
-        :param str password: The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
-        :param str username: The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+        :param str password: The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+        :param str username: The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -550,7 +550,7 @@ class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+        The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
         return pulumi.get(self, "password")
 
@@ -558,7 +558,7 @@ class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth(dict):
     @pulumi.getter
     def username(self) -> str:
         """
-        The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+        The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
         return pulumi.get(self, "username")
 
@@ -1084,8 +1084,8 @@ class GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult(dict):
                  password: str,
                  username: str):
         """
-        :param str password: The password used to access the Http Basic Authentication Git repository server.
-        :param str username: The username used to access the Http Basic Authentication Git repository server.
+        :param str password: The password used to access the HTTP Basic Authentication Git repository server.
+        :param str username: The username used to access the HTTP Basic Authentication Git repository server.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -1094,7 +1094,7 @@ class GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        The password used to access the Http Basic Authentication Git repository server.
+        The password used to access the HTTP Basic Authentication Git repository server.
         """
         return pulumi.get(self, "password")
 
@@ -1102,7 +1102,7 @@ class GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult(dict):
     @pulumi.getter
     def username(self) -> str:
         """
-        The username used to access the Http Basic Authentication Git repository server.
+        The username used to access the HTTP Basic Authentication Git repository server.
         """
         return pulumi.get(self, "username")
 
@@ -1197,8 +1197,8 @@ class GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthResult(d
                  password: str,
                  username: str):
         """
-        :param str password: The password used to access the Http Basic Authentication Git repository server.
-        :param str username: The username used to access the Http Basic Authentication Git repository server.
+        :param str password: The password used to access the HTTP Basic Authentication Git repository server.
+        :param str username: The username used to access the HTTP Basic Authentication Git repository server.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -1207,7 +1207,7 @@ class GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthResult(d
     @pulumi.getter
     def password(self) -> str:
         """
-        The password used to access the Http Basic Authentication Git repository server.
+        The password used to access the HTTP Basic Authentication Git repository server.
         """
         return pulumi.get(self, "password")
 
@@ -1215,7 +1215,7 @@ class GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthResult(d
     @pulumi.getter
     def username(self) -> str:
         """
-        The username used to access the Http Basic Authentication Git repository server.
+        The username used to access the HTTP Basic Authentication Git repository server.
         """
         return pulumi.get(self, "username")
 

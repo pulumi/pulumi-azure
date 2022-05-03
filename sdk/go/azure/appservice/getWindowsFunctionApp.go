@@ -108,6 +108,8 @@ type LookupWindowsFunctionAppResult struct {
 	SiteConfigs []GetWindowsFunctionAppSiteConfig `pulumi:"siteConfigs"`
 	// A `siteCredential` block as defined below.
 	SiteCredentials []GetWindowsFunctionAppSiteCredential `pulumi:"siteCredentials"`
+	// A `stickySettings` block as defined below.
+	StickySettings []GetWindowsFunctionAppStickySetting `pulumi:"stickySettings"`
 	// The access key which is used to access the backend storage account for the Function App.
 	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which is used by this Function App.
@@ -290,6 +292,11 @@ func (o LookupWindowsFunctionAppResultOutput) SiteConfigs() GetWindowsFunctionAp
 // A `siteCredential` block as defined below.
 func (o LookupWindowsFunctionAppResultOutput) SiteCredentials() GetWindowsFunctionAppSiteCredentialArrayOutput {
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) []GetWindowsFunctionAppSiteCredential { return v.SiteCredentials }).(GetWindowsFunctionAppSiteCredentialArrayOutput)
+}
+
+// A `stickySettings` block as defined below.
+func (o LookupWindowsFunctionAppResultOutput) StickySettings() GetWindowsFunctionAppStickySettingArrayOutput {
+	return o.ApplyT(func(v LookupWindowsFunctionAppResult) []GetWindowsFunctionAppStickySetting { return v.StickySettings }).(GetWindowsFunctionAppStickySettingArrayOutput)
 }
 
 // The access key which is used to access the backend storage account for the Function App.

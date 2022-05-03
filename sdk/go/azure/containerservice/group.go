@@ -102,7 +102,7 @@ type Group struct {
 	InitContainers GroupInitContainerArrayOutput `pulumi:"initContainers"`
 	// The IP address allocated to the container group.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -178,7 +178,7 @@ type groupState struct {
 	InitContainers []GroupInitContainer `pulumi:"initContainers"`
 	// The IP address allocated to the container group.
 	IpAddress *string `pulumi:"ipAddress"`
-	// Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -217,7 +217,7 @@ type GroupState struct {
 	InitContainers GroupInitContainerArrayInput
 	// The IP address allocated to the container group.
 	IpAddress pulumi.StringPtrInput
-	// Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -256,7 +256,7 @@ type groupArgs struct {
 	ImageRegistryCredentials []GroupImageRegistryCredential `pulumi:"imageRegistryCredentials"`
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers []GroupInitContainer `pulumi:"initContainers"`
-	// Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -292,7 +292,7 @@ type GroupArgs struct {
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayInput
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers GroupInitContainerArrayInput
-	// Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

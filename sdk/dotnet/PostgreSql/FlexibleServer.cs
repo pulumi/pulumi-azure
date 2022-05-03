@@ -181,7 +181,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string?> PointInTimeRestoreTimeInUtc { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Output("privateDnsZoneId")]
         public Output<string> PrivateDnsZoneId { get; private set; } = null!;
@@ -348,7 +348,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? PointInTimeRestoreTimeInUtc { get; set; }
 
         /// <summary>
-        /// The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }
@@ -482,7 +482,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? PointInTimeRestoreTimeInUtc { get; set; }
 
         /// <summary>
-        /// The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }

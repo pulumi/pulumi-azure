@@ -103,7 +103,7 @@ export class VirtualHubIp extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+     * The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
      */
     public readonly virtualHubId!: pulumi.Output<string>;
 
@@ -174,7 +174,7 @@ export interface VirtualHubIpState {
      */
     subnetId?: pulumi.Input<string>;
     /**
-     * The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+     * The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
      */
     virtualHubId?: pulumi.Input<string>;
 }
@@ -204,7 +204,7 @@ export interface VirtualHubIpArgs {
      */
     subnetId: pulumi.Input<string>;
     /**
-     * The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+     * The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
      */
     virtualHubId: pulumi.Input<string>;
 }

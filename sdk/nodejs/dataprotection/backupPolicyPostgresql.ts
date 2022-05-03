@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Backup Policy PostgreSQLs can be imported using the `resource id`, e.g.
+ * Backup Policy PostgreSQL's can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupPolicies/backupPolicy1

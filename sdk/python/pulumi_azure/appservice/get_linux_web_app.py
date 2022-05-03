@@ -21,7 +21,7 @@ class GetLinuxWebAppResult:
     """
     A collection of values returned by getLinuxWebApp.
     """
-    def __init__(__self__, app_metadata=None, app_settings=None, auth_settings=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, key_vault_reference_identity_id=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, storage_accounts=None, tags=None):
+    def __init__(__self__, app_metadata=None, app_settings=None, auth_settings=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, key_vault_reference_identity_id=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None):
         if app_metadata and not isinstance(app_metadata, dict):
             raise TypeError("Expected argument 'app_metadata' to be a dict")
         pulumi.set(__self__, "app_metadata", app_metadata)
@@ -103,6 +103,9 @@ class GetLinuxWebAppResult:
         if site_credentials and not isinstance(site_credentials, list):
             raise TypeError("Expected argument 'site_credentials' to be a list")
         pulumi.set(__self__, "site_credentials", site_credentials)
+        if sticky_settings and not isinstance(sticky_settings, list):
+            raise TypeError("Expected argument 'sticky_settings' to be a list")
+        pulumi.set(__self__, "sticky_settings", sticky_settings)
         if storage_accounts and not isinstance(storage_accounts, list):
             raise TypeError("Expected argument 'storage_accounts' to be a list")
         pulumi.set(__self__, "storage_accounts", storage_accounts)
@@ -321,6 +324,14 @@ class GetLinuxWebAppResult:
         return pulumi.get(self, "site_credentials")
 
     @property
+    @pulumi.getter(name="stickySettings")
+    def sticky_settings(self) -> Sequence['outputs.GetLinuxWebAppStickySettingResult']:
+        """
+        A `sticky_settings` block as defined below.
+        """
+        return pulumi.get(self, "sticky_settings")
+
+    @property
     @pulumi.getter(name="storageAccounts")
     def storage_accounts(self) -> Sequence['outputs.GetLinuxWebAppStorageAccountResult']:
         """
@@ -370,6 +381,7 @@ class AwaitableGetLinuxWebAppResult(GetLinuxWebAppResult):
             service_plan_id=self.service_plan_id,
             site_configs=self.site_configs,
             site_credentials=self.site_credentials,
+            sticky_settings=self.sticky_settings,
             storage_accounts=self.storage_accounts,
             tags=self.tags)
 
@@ -432,6 +444,7 @@ def get_linux_web_app(name: Optional[str] = None,
         service_plan_id=__ret__.service_plan_id,
         site_configs=__ret__.site_configs,
         site_credentials=__ret__.site_credentials,
+        sticky_settings=__ret__.sticky_settings,
         storage_accounts=__ret__.storage_accounts,
         tags=__ret__.tags)
 

@@ -89,7 +89,7 @@ export interface GetFlexibleServerResult {
     readonly maintenanceWindows: outputs.mysql.GetFlexibleServerMaintenanceWindow[];
     readonly name: string;
     /**
-     * The ID of the private dns zone of the MySQL Flexible Server.
+     * The ID of the Private DNS zone of the MySQL Flexible Server.
      */
     readonly privateDnsZoneId: string;
     /**

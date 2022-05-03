@@ -77,7 +77,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+     * The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -145,7 +145,7 @@ export interface IntegrationAccountState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+     * The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -175,7 +175,7 @@ export interface IntegrationAccountArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+     * The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
      */
     skuName: pulumi.Input<string>;
     /**

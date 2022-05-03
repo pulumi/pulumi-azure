@@ -115,7 +115,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="internalDnsNameLabel")
     def internal_dns_name_label(self) -> str:
         """
-        The internal dns name label of the specified Network Interface.
+        The internal DNS name label of the specified Network Interface.
         """
         return pulumi.get(self, "internal_dns_name_label")
 
@@ -171,7 +171,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="privateIpAddresses")
     def private_ip_addresses(self) -> Sequence[str]:
         """
-        The list of private ip addresses associates to the specified Network Interface.
+        The list of private IP addresses associates to the specified Network Interface.
         """
         return pulumi.get(self, "private_ip_addresses")
 

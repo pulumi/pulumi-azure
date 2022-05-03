@@ -97,13 +97,13 @@ namespace Pulumi.Azure.Lb
         public Output<string> FrontendIpConfigurationName { get; private set; } = null!;
 
         /// <summary>
-        /// The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+        /// The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         /// </summary>
         [Output("frontendPortEnd")]
         public Output<int> FrontendPortEnd { get; private set; } = null!;
 
         /// <summary>
-        /// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+        /// The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         /// </summary>
         [Output("frontendPortStart")]
         public Output<int> FrontendPortStart { get; private set; } = null!;
@@ -209,13 +209,13 @@ namespace Pulumi.Azure.Lb
         public Input<string> FrontendIpConfigurationName { get; set; } = null!;
 
         /// <summary>
-        /// The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+        /// The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         /// </summary>
         [Input("frontendPortEnd", required: true)]
         public Input<int> FrontendPortEnd { get; set; } = null!;
 
         /// <summary>
-        /// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+        /// The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         /// </summary>
         [Input("frontendPortStart", required: true)]
         public Input<int> FrontendPortStart { get; set; } = null!;
@@ -285,13 +285,13 @@ namespace Pulumi.Azure.Lb
         public Input<string>? FrontendIpConfigurationName { get; set; }
 
         /// <summary>
-        /// The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+        /// The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         /// </summary>
         [Input("frontendPortEnd")]
         public Input<int>? FrontendPortEnd { get; set; }
 
         /// <summary>
-        /// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+        /// The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         /// </summary>
         [Input("frontendPortStart")]
         public Input<int>? FrontendPortStart { get; set; }

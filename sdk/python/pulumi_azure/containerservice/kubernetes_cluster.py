@@ -50,6 +50,7 @@ class KubernetesClusterArgs:
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
+                 run_command_enabled: Optional[pulumi.Input[bool]] = None,
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -89,6 +90,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -162,6 +164,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if role_based_access_control_enabled is not None:
             pulumi.set(__self__, "role_based_access_control_enabled", role_based_access_control_enabled)
+        if run_command_enabled is not None:
+            pulumi.set(__self__, "run_command_enabled", run_command_enabled)
         if service_principal is not None:
             pulumi.set(__self__, "service_principal", service_principal)
         if sku_tier is not None:
@@ -586,6 +590,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "role_based_access_control_enabled", value)
 
     @property
+    @pulumi.getter(name="runCommandEnabled")
+    def run_command_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable run command for the cluster or not. Defaults to `true`.
+        """
+        return pulumi.get(self, "run_command_enabled")
+
+    @run_command_enabled.setter
+    def run_command_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "run_command_enabled", value)
+
+    @property
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']]:
         """
@@ -681,6 +697,7 @@ class _KubernetesClusterState:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
+                 run_command_enabled: Optional[pulumi.Input[bool]] = None,
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -729,6 +746,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -822,6 +840,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if role_based_access_control_enabled is not None:
             pulumi.set(__self__, "role_based_access_control_enabled", role_based_access_control_enabled)
+        if run_command_enabled is not None:
+            pulumi.set(__self__, "run_command_enabled", run_command_enabled)
         if service_principal is not None:
             pulumi.set(__self__, "service_principal", service_principal)
         if sku_tier is not None:
@@ -1354,6 +1374,18 @@ class _KubernetesClusterState:
         pulumi.set(self, "role_based_access_control_enabled", value)
 
     @property
+    @pulumi.getter(name="runCommandEnabled")
+    def run_command_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable run command for the cluster or not. Defaults to `true`.
+        """
+        return pulumi.get(self, "run_command_enabled")
+
+    @run_command_enabled.setter
+    def run_command_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "run_command_enabled", value)
+
+    @property
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']]:
         """
@@ -1442,6 +1474,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
+                 run_command_enabled: Optional[pulumi.Input[bool]] = None,
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1521,6 +1554,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -1621,6 +1655,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
+                 run_command_enabled: Optional[pulumi.Input[bool]] = None,
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1676,6 +1711,7 @@ class KubernetesCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["role_based_access_control_enabled"] = role_based_access_control_enabled
+            __props__.__dict__["run_command_enabled"] = run_command_enabled
             __props__.__dict__["service_principal"] = service_principal
             __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["tags"] = tags
@@ -1743,6 +1779,7 @@ class KubernetesCluster(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
+            run_command_enabled: Optional[pulumi.Input[bool]] = None,
             service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
             sku_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1796,6 +1833,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -1849,6 +1887,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["role_based_access_control_enabled"] = role_based_access_control_enabled
+        __props__.__dict__["run_command_enabled"] = run_command_enabled
         __props__.__dict__["service_principal"] = service_principal
         __props__.__dict__["sku_tier"] = sku_tier
         __props__.__dict__["tags"] = tags
@@ -2200,6 +2239,14 @@ class KubernetesCluster(pulumi.CustomResource):
         Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role_based_access_control_enabled")
+
+    @property
+    @pulumi.getter(name="runCommandEnabled")
+    def run_command_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable run command for the cluster or not. Defaults to `true`.
+        """
+        return pulumi.get(self, "run_command_enabled")
 
     @property
     @pulumi.getter(name="servicePrincipal")

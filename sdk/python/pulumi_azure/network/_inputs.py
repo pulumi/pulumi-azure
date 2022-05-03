@@ -1474,8 +1474,8 @@ class ApplicationGatewayProbeArgs:
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input['ApplicationGatewayProbeMatchArgs'] match: A `match` block as defined above.
         :param pulumi.Input[int] minimum_servers: The minimum number of servers that are always marked as healthy. Defaults to `0`.
-        :param pulumi.Input[bool] pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend http settings. Defaults to `false`.
-        :param pulumi.Input[int] port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        :param pulumi.Input[bool] pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+        :param pulumi.Input[int] port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "name", name)
@@ -1620,7 +1620,7 @@ class ApplicationGatewayProbeArgs:
     @pulumi.getter(name="pickHostNameFromBackendHttpSettings")
     def pick_host_name_from_backend_http_settings(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the host header should be picked from the backend http settings. Defaults to `false`.
+        Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
         """
         return pulumi.get(self, "pick_host_name_from_backend_http_settings")
 
@@ -1632,7 +1632,7 @@ class ApplicationGatewayProbeArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
         """
         return pulumi.get(self, "port")
 
@@ -5119,7 +5119,7 @@ class FirewallPolicyIntrusionDetectionTrafficBypassArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ip_groups: Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ports: Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source addresses that shall be bypassed by intrusion detection.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups that shall be bypassed by intrusion detection.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocol", protocol)
@@ -5224,7 +5224,7 @@ class FirewallPolicyIntrusionDetectionTrafficBypassArgs:
     @pulumi.getter(name="sourceIpGroups")
     def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+        Specifies a list of source IP groups that shall be bypassed by intrusion detection.
         """
         return pulumi.get(self, "source_ip_groups")
 
@@ -5527,10 +5527,10 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs:
                  priority: pulumi.Input[int],
                  rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]]):
         """
-        :param pulumi.Input[str] action: The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
-        :param pulumi.Input[str] name: The name which should be used for this nat rule collection.
-        :param pulumi.Input[int] priority: The priority of the nat rule collection. The range is `100` - `65000`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]] rules: A `rule` (nat rule) block as defined above.
+        :param pulumi.Input[str] action: The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
+        :param pulumi.Input[str] name: The name which should be used for this NAT rule collection.
+        :param pulumi.Input[int] priority: The priority of the NAT rule collection. The range is `100` - `65000`.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]] rules: A `rule` (NAT rule) block as defined above.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -5541,7 +5541,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
         """
-        The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+        The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
         """
         return pulumi.get(self, "action")
 
@@ -5553,7 +5553,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name which should be used for this nat rule collection.
+        The name which should be used for this NAT rule collection.
         """
         return pulumi.get(self, "name")
 
@@ -5565,7 +5565,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs:
     @pulumi.getter
     def priority(self) -> pulumi.Input[int]:
         """
-        The priority of the nat rule collection. The range is `100` - `65000`.
+        The priority of the NAT rule collection. The range is `100` - `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -5577,7 +5577,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]]:
         """
-        A `rule` (nat rule) block as defined above.
+        A `rule` (NAT rule) block as defined above.
         """
         return pulumi.get(self, "rules")
 
@@ -6690,8 +6690,8 @@ class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs:
                  destination_port_behavior: Optional[pulumi.Input[str]] = None,
                  trace_route_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[int] port: The port for the Tcp connection.
-        :param pulumi.Input[str] destination_port_behavior: The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+        :param pulumi.Input[int] port: The port for the TCP connection.
+        :param pulumi.Input[str] destination_port_behavior: The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
         :param pulumi.Input[bool] trace_route_enabled: Should path evaluation with trace route be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "port", port)
@@ -6704,7 +6704,7 @@ class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
         """
-        The port for the Tcp connection.
+        The port for the TCP connection.
         """
         return pulumi.get(self, "port")
 
@@ -6716,7 +6716,7 @@ class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs:
     @pulumi.getter(name="destinationPortBehavior")
     def destination_port_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+        The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
         """
         return pulumi.get(self, "destination_port_behavior")
 
@@ -6834,7 +6834,7 @@ class NetworkInterfaceIpConfigurationArgs:
         """
         :param pulumi.Input[str] name: A name used for this IP Configuration.
         :param pulumi.Input[str] private_ip_address_allocation: The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
-        :param pulumi.Input[str] gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        :param pulumi.Input[str] gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         :param pulumi.Input[bool] primary: Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
         :param pulumi.Input[str] private_ip_address: The Static IP Address which should be used.
         :param pulumi.Input[str] private_ip_address_version: The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
@@ -6884,7 +6884,7 @@ class NetworkInterfaceIpConfigurationArgs:
     @pulumi.getter(name="gatewayLoadBalancerFrontendIpConfigurationId")
     def gateway_load_balancer_frontend_ip_configuration_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         """
         return pulumi.get(self, "gateway_load_balancer_frontend_ip_configuration_id")
 
@@ -7046,7 +7046,7 @@ class NetworkPacketCaptureStorageLocationArgs:
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  storage_path: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] file_path: A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+        :param pulumi.Input[str] file_path: A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
         :param pulumi.Input[str] storage_account_id: The ID of the storage account to save the packet capture session
         :param pulumi.Input[str] storage_path: The URI of the storage path to save the packet capture.
         """
@@ -7061,7 +7061,7 @@ class NetworkPacketCaptureStorageLocationArgs:
     @pulumi.getter(name="filePath")
     def file_path(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+        A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
         """
         return pulumi.get(self, "file_path")
 
@@ -7399,7 +7399,7 @@ class NetworkWatcherFlowLogTrafficAnalyticsArgs:
                  interval_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] enabled: Boolean flag to enable/disable traffic analytics.
-        :param pulumi.Input[str] workspace_id: The resource guid of the attached workspace.
+        :param pulumi.Input[str] workspace_id: The resource GUID of the attached workspace.
         :param pulumi.Input[str] workspace_region: The location of the attached workspace.
         :param pulumi.Input[str] workspace_resource_id: The resource ID of the attached workspace.
         :param pulumi.Input[int] interval_in_minutes: How frequently service should do flow analytics in minutes.
@@ -7427,7 +7427,7 @@ class NetworkWatcherFlowLogTrafficAnalyticsArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
         """
-        The resource guid of the attached workspace.
+        The resource GUID of the attached workspace.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -7983,7 +7983,7 @@ class TrafficManagerAzureEndpointCustomHeaderArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: The name of the custom header.
-        :param pulumi.Input[str] value: The value of custom header. Applicable for Http and Https protocol.
+        :param pulumi.Input[str] value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -8004,7 +8004,7 @@ class TrafficManagerAzureEndpointCustomHeaderArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value of custom header. Applicable for Http and Https protocol.
+        The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         return pulumi.get(self, "value")
 
@@ -8074,7 +8074,7 @@ class TrafficManagerExternalEndpointCustomHeaderArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: The name of the custom header.
-        :param pulumi.Input[str] value: The value of custom header. Applicable for Http and Https protocol.
+        :param pulumi.Input[str] value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -8095,7 +8095,7 @@ class TrafficManagerExternalEndpointCustomHeaderArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value of custom header. Applicable for Http and Https protocol.
+        The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         return pulumi.get(self, "value")
 
@@ -8165,7 +8165,7 @@ class TrafficManagerNestedEndpointCustomHeaderArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: The name of the custom header.
-        :param pulumi.Input[str] value: The value of custom header. Applicable for Http and Https protocol.
+        :param pulumi.Input[str] value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -8186,7 +8186,7 @@ class TrafficManagerNestedEndpointCustomHeaderArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value of custom header. Applicable for Http and Https protocol.
+        The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         return pulumi.get(self, "value")
 
@@ -8426,7 +8426,7 @@ class TrafficManagerProfileMonitorConfigCustomHeaderArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: The name of the custom header.
-        :param pulumi.Input[str] value: The value of custom header. Applicable for Http and Https protocol.
+        :param pulumi.Input[str] value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -8447,7 +8447,7 @@ class TrafficManagerProfileMonitorConfigCustomHeaderArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value of custom header. Applicable for Http and Https protocol.
+        The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         return pulumi.get(self, "value")
 
@@ -9097,7 +9097,7 @@ class VirtualNetworkGatewayIpConfigurationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  private_ip_address_allocation: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] public_ip_address_id: The ID of the public ip address to associate
+        :param pulumi.Input[str] public_ip_address_id: The ID of the public IP address to associate
                with the Virtual Network Gateway.
         :param pulumi.Input[str] subnet_id: The ID of the gateway subnet of a virtual network in
                which the virtual network gateway will be created. It is mandatory that
@@ -9120,7 +9120,7 @@ class VirtualNetworkGatewayIpConfigurationArgs:
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> pulumi.Input[str]:
         """
-        The ID of the public ip address to associate
+        The ID of the public IP address to associate
         with the Virtual Network Gateway.
         """
         return pulumi.get(self, "public_ip_address_id")
@@ -9186,7 +9186,7 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
                  vpn_auth_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_client_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space out of which ip addresses for
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space out of which IP addresses for
                vpn clients will be taken. You can provide more than one address space, e.g.
                in CIDR notation.
         :param pulumi.Input[str] aad_audience: The client id of the Azure VPN application.
@@ -9231,7 +9231,7 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
     @pulumi.getter(name="addressSpaces")
     def address_spaces(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The address space out of which ip addresses for
+        The address space out of which IP addresses for
         vpn clients will be taken. You can provide more than one address space, e.g.
         in CIDR notation.
         """
@@ -9604,7 +9604,7 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ips: A list of custom BGP peering addresses to assign to this instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
-        :param pulumi.Input[str] ip_configuration_id: The pre-defined id of VPN Gateway Ip Configuration.
+        :param pulumi.Input[str] ip_configuration_id: The pre-defined id of VPN Gateway IP Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel_ips: The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
         """
         pulumi.set(__self__, "custom_ips", custom_ips)
@@ -9643,7 +9643,7 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs:
     @pulumi.getter(name="ipConfigurationId")
     def ip_configuration_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The pre-defined id of VPN Gateway Ip Configuration.
+        The pre-defined id of VPN Gateway IP Configuration.
         """
         return pulumi.get(self, "ip_configuration_id")
 
@@ -9674,7 +9674,7 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ips: A list of custom BGP peering addresses to assign to this instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
-        :param pulumi.Input[str] ip_configuration_id: The pre-defined id of VPN Gateway Ip Configuration.
+        :param pulumi.Input[str] ip_configuration_id: The pre-defined id of VPN Gateway IP Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel_ips: The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
         """
         pulumi.set(__self__, "custom_ips", custom_ips)
@@ -9713,7 +9713,7 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
     @pulumi.getter(name="ipConfigurationId")
     def ip_configuration_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The pre-defined id of VPN Gateway Ip Configuration.
+        The pre-defined id of VPN Gateway IP Configuration.
         """
         return pulumi.get(self, "ip_configuration_id")
 
@@ -9870,10 +9870,10 @@ class VpnGatewayConnectionVpnLinkArgs:
         :param pulumi.Input[int] bandwidth_mbps: The expected connection bandwidth in MBPS. Defaults to `10`.
         :param pulumi.Input[bool] bgp_enabled: Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[str] connection_mode: The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress Nat Rule Ids.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress Nat Rule Ids.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]] ipsec_policies: One or more `ipsec_policy` blocks as defined above.
-        :param pulumi.Input[bool] local_azure_ip_address_enabled: Whether to use local azure ip to initiate connection? Defaults to `false`.
+        :param pulumi.Input[bool] local_azure_ip_address_enabled: Whether to use local Azure IP to initiate connection? Defaults to `false`.
         :param pulumi.Input[bool] policy_based_traffic_selector_enabled: Whether to enable policy-based traffic selectors? Defaults to `false`.
         :param pulumi.Input[str] protocol: The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
         :param pulumi.Input[bool] ratelimit_enabled: Should the rate limit be enabled? Defaults to `false`.
@@ -9971,7 +9971,7 @@ class VpnGatewayConnectionVpnLinkArgs:
     @pulumi.getter(name="egressNatRuleIds")
     def egress_nat_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of the egress Nat Rule Ids.
+        A list of the egress NAT Rule Ids.
         """
         return pulumi.get(self, "egress_nat_rule_ids")
 
@@ -9983,7 +9983,7 @@ class VpnGatewayConnectionVpnLinkArgs:
     @pulumi.getter(name="ingressNatRuleIds")
     def ingress_nat_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of the ingress Nat Rule Ids.
+        A list of the ingress NAT Rule Ids.
         """
         return pulumi.get(self, "ingress_nat_rule_ids")
 
@@ -10007,7 +10007,7 @@ class VpnGatewayConnectionVpnLinkArgs:
     @pulumi.getter(name="localAzureIpAddressEnabled")
     def local_azure_ip_address_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to use local azure ip to initiate connection? Defaults to `false`.
+        Whether to use local Azure IP to initiate connection? Defaults to `false`.
         """
         return pulumi.get(self, "local_azure_ip_address_enabled")
 
@@ -10762,7 +10762,7 @@ class VpnSiteLinkBgpArgs:
                  peering_address: pulumi.Input[str]):
         """
         :param pulumi.Input[int] asn: The BGP speaker's ASN.
-        :param pulumi.Input[str] peering_address: The BGP peering ip address.
+        :param pulumi.Input[str] peering_address: The BGP peering IP address.
         """
         pulumi.set(__self__, "asn", asn)
         pulumi.set(__self__, "peering_address", peering_address)
@@ -10783,7 +10783,7 @@ class VpnSiteLinkBgpArgs:
     @pulumi.getter(name="peeringAddress")
     def peering_address(self) -> pulumi.Input[str]:
         """
-        The BGP peering ip address.
+        The BGP peering IP address.
         """
         return pulumi.get(self, "peering_address")
 

@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class FirewallPolicyRuleCollectionGroupNatRuleCollection
     {
         /// <summary>
-        /// The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+        /// The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// The name which should be used for this nat rule collection.
+        /// The name which should be used for this NAT rule collection.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The priority of the nat rule collection. The range is `100` - `65000`.
+        /// The priority of the NAT rule collection. The range is `100` - `65000`.
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// A `rule` (nat rule) block as defined above.
+        /// A `rule` (NAT rule) block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionRule> Rules;
 

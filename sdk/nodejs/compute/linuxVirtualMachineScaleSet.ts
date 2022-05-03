@@ -268,8 +268,14 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `terminateNotification` block as defined below.
+     *
+     * @deprecated `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
      */
     public readonly terminateNotification!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetTerminateNotification>;
+    /**
+     * A `terminationNotification` block as defined below.
+     */
+    public readonly terminationNotification!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetTerminationNotification>;
     /**
      * The Unique ID for this Linux Virtual Machine Scale Set.
      */
@@ -350,6 +356,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["terminateNotification"] = state ? state.terminateNotification : undefined;
+            resourceInputs["terminationNotification"] = state ? state.terminationNotification : undefined;
             resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
             resourceInputs["upgradeMode"] = state ? state.upgradeMode : undefined;
             resourceInputs["userData"] = state ? state.userData : undefined;
@@ -418,6 +425,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminateNotification"] = args ? args.terminateNotification : undefined;
+            resourceInputs["terminationNotification"] = args ? args.terminationNotification : undefined;
             resourceInputs["upgradeMode"] = args ? args.upgradeMode : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
@@ -600,8 +608,14 @@ export interface LinuxVirtualMachineScaleSetState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `terminateNotification` block as defined below.
+     *
+     * @deprecated `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
      */
     terminateNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetTerminateNotification>;
+    /**
+     * A `terminationNotification` block as defined below.
+     */
+    terminationNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetTerminationNotification>;
     /**
      * The Unique ID for this Linux Virtual Machine Scale Set.
      */
@@ -798,8 +812,14 @@ export interface LinuxVirtualMachineScaleSetArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `terminateNotification` block as defined below.
+     *
+     * @deprecated `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
      */
     terminateNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetTerminateNotification>;
+    /**
+     * A `terminationNotification` block as defined below.
+     */
+    terminationNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetTerminationNotification>;
     /**
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
      */

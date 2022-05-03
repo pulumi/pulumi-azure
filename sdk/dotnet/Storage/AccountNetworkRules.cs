@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> DefaultAction { get; private set; } = null!;
 
         /// <summary>
-        /// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        /// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         /// </summary>
         [Output("ipRules")]
         public Output<ImmutableArray<string>> IpRules { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Storage
         private InputList<string>? _ipRules;
 
         /// <summary>
-        /// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        /// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         /// </summary>
         public InputList<string> IpRules
         {
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.Storage
         private InputList<string>? _ipRules;
 
         /// <summary>
-        /// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        /// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         /// </summary>
         public InputList<string> IpRules
         {

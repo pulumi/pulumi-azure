@@ -123,7 +123,7 @@ class AadDiagnosticSettingLog(dict):
                  retention_policy: 'outputs.AadDiagnosticSettingLogRetentionPolicy',
                  enabled: Optional[bool] = None):
         """
-        :param str category: The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
+        :param str category: The log category for the Azure Active Directory Diagnostic.
         :param 'AadDiagnosticSettingLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
         :param bool enabled: Is this Diagnostic Log enabled? Defaults to `true`.
         """
@@ -136,7 +136,7 @@ class AadDiagnosticSettingLog(dict):
     @pulumi.getter
     def category(self) -> str:
         """
-        The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
+        The log category for the Azure Active Directory Diagnostic.
         """
         return pulumi.get(self, "category")
 
@@ -440,7 +440,7 @@ class ActionGroupAzureFunctionReceiver(dict):
         """
         :param str function_app_resource_id: The Azure resource ID of the function app.
         :param str function_name: The function name in the function app.
-        :param str http_trigger_url: The http trigger url where http request sent to.
+        :param str http_trigger_url: The HTTP trigger url where HTTP request sent to.
         :param str name: The name of the Azure Function receiver.
         :param bool use_common_alert_schema: Enables or disables the common alert schema.
         """
@@ -471,7 +471,7 @@ class ActionGroupAzureFunctionReceiver(dict):
     @pulumi.getter(name="httpTriggerUrl")
     def http_trigger_url(self) -> str:
         """
-        The http trigger url where http request sent to.
+        The HTTP trigger url where HTTP request sent to.
         """
         return pulumi.get(self, "http_trigger_url")
 
@@ -738,7 +738,7 @@ class ActionGroupLogicAppReceiver(dict):
                  resource_id: str,
                  use_common_alert_schema: Optional[bool] = None):
         """
-        :param str callback_url: The callback url where http request sent to.
+        :param str callback_url: The callback url where HTTP request sent to.
         :param str name: The name of the logic app receiver.
         :param str resource_id: The Azure resource ID of the logic app.
         :param bool use_common_alert_schema: Enables or disables the common alert schema.
@@ -753,7 +753,7 @@ class ActionGroupLogicAppReceiver(dict):
     @pulumi.getter(name="callbackUrl")
     def callback_url(self) -> str:
         """
-        The callback url where http request sent to.
+        The callback url where HTTP request sent to.
         """
         return pulumi.get(self, "callback_url")
 
@@ -1002,9 +1002,9 @@ class ActionGroupWebhookReceiverAadAuth(dict):
                  identifier_uri: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str object_id: The webhook application object Id for aad auth.
-        :param str identifier_uri: The identifier uri for aad auth.
-        :param str tenant_id: The tenant id for aad auth.
+        :param str object_id: The webhook application object Id for AAD auth.
+        :param str identifier_uri: The identifier URI for AAD auth.
+        :param str tenant_id: The tenant id for AAD auth.
         """
         pulumi.set(__self__, "object_id", object_id)
         if identifier_uri is not None:
@@ -1016,7 +1016,7 @@ class ActionGroupWebhookReceiverAadAuth(dict):
     @pulumi.getter(name="objectId")
     def object_id(self) -> str:
         """
-        The webhook application object Id for aad auth.
+        The webhook application object Id for AAD auth.
         """
         return pulumi.get(self, "object_id")
 
@@ -1024,7 +1024,7 @@ class ActionGroupWebhookReceiverAadAuth(dict):
     @pulumi.getter(name="identifierUri")
     def identifier_uri(self) -> Optional[str]:
         """
-        The identifier uri for aad auth.
+        The identifier URI for AAD auth.
         """
         return pulumi.get(self, "identifier_uri")
 
@@ -1032,7 +1032,7 @@ class ActionGroupWebhookReceiverAadAuth(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        The tenant id for aad auth.
+        The tenant id for AAD auth.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -4246,7 +4246,7 @@ class GetActionGroupAzureFunctionReceiverResult(dict):
         """
         :param str function_app_resource_id: The Azure resource ID of the function app.
         :param str function_name: The function name in the function app.
-        :param str http_trigger_url: The http trigger url where http request sent to.
+        :param str http_trigger_url: The HTTP trigger url where HTTP request sent to.
         :param str name: Specifies the name of the Action Group.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
@@ -4276,7 +4276,7 @@ class GetActionGroupAzureFunctionReceiverResult(dict):
     @pulumi.getter(name="httpTriggerUrl")
     def http_trigger_url(self) -> str:
         """
-        The http trigger url where http request sent to.
+        The HTTP trigger url where HTTP request sent to.
         """
         return pulumi.get(self, "http_trigger_url")
 
@@ -4459,7 +4459,7 @@ class GetActionGroupLogicAppReceiverResult(dict):
                  resource_id: str,
                  use_common_alert_schema: bool):
         """
-        :param str callback_url: The callback url where http request sent to.
+        :param str callback_url: The callback url where HTTP request sent to.
         :param str name: Specifies the name of the Action Group.
         :param str resource_id: The Azure resource ID of the logic app.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
@@ -4473,7 +4473,7 @@ class GetActionGroupLogicAppReceiverResult(dict):
     @pulumi.getter(name="callbackUrl")
     def callback_url(self) -> str:
         """
-        The callback url where http request sent to.
+        The callback url where HTTP request sent to.
         """
         return pulumi.get(self, "callback_url")
 

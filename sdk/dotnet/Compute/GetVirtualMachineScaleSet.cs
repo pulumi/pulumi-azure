@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Compute
         public readonly ImmutableArray<Outputs.GetVirtualMachineScaleSetIdentityResult> Identities;
         public readonly string Location;
         /// <summary>
-        /// The name of the public ip address configuration
+        /// The name of the public IP address configuration
         /// </summary>
         public readonly string Name;
         /// <summary>

@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and less than `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than `102400` GB (`100` TB).
+        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
         /// </summary>
         [Output("quota")]
         public Output<int> Quota { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and less than `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than `102400` GB (`100` TB).
+        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
         /// </summary>
         [Input("quota", required: true)]
         public Input<int> Quota { get; set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and less than `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than `102400` GB (`100` TB).
+        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
         /// </summary>
         [Input("quota")]
         public Input<int>? Quota { get; set; }

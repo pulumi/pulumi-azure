@@ -70,7 +70,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly automationAccountName!: pulumi.Output<string>;
     /**
-     * Base64 encoded value of the certificate.
+     * Base64 encoded value of the certificate. Changing this forces a new resource to be created.
      */
     public readonly base64!: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export interface CertificateState {
      */
     automationAccountName?: pulumi.Input<string>;
     /**
-     * Base64 encoded value of the certificate.
+     * Base64 encoded value of the certificate. Changing this forces a new resource to be created.
      */
     base64?: pulumi.Input<string>;
     /**
@@ -181,7 +181,7 @@ export interface CertificateArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * Base64 encoded value of the certificate.
+     * Base64 encoded value of the certificate. Changing this forces a new resource to be created.
      */
     base64: pulumi.Input<string>;
     /**

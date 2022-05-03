@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Ms Sql Server Extended Auditing Policy.
+// Manages a MS SQL Server Extended Auditing Policy.
 //
 // ## Example Usage
 //
@@ -208,7 +208,7 @@ import (
 //
 // ## Import
 //
-// Ms Sql Server Extended Auditing Policys can be imported using the `resource id`, e.g.
+// MS SQL Server Extended Auditing Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
 //  $ pulumi import azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/extendedAuditingSettings/default
@@ -222,7 +222,7 @@ type ServerExtendedAuditingPolicy struct {
 	LogMonitoringEnabled pulumi.BoolPtrOutput `pulumi:"logMonitoringEnabled"`
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
-	// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
@@ -272,7 +272,7 @@ type serverExtendedAuditingPolicyState struct {
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
-	// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId *string `pulumi:"serverId"`
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -291,7 +291,7 @@ type ServerExtendedAuditingPolicyState struct {
 	LogMonitoringEnabled pulumi.BoolPtrInput
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput
-	// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId pulumi.StringPtrInput
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
@@ -314,7 +314,7 @@ type serverExtendedAuditingPolicyArgs struct {
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
-	// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId string `pulumi:"serverId"`
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -334,7 +334,7 @@ type ServerExtendedAuditingPolicyArgs struct {
 	LogMonitoringEnabled pulumi.BoolPtrInput
 	// The number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput
-	// The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
+	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId pulumi.StringInput
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput

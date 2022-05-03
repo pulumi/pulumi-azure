@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Network
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+        /// The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("virtualHubId")]
         public Output<string> VirtualHubId { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Network
         public Input<string> SubnetId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+        /// The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualHubId", required: true)]
         public Input<string> VirtualHubId { get; set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? SubnetId { get; set; }
 
         /// <summary>
-        /// The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+        /// The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualHubId")]
         public Input<string>? VirtualHubId { get; set; }

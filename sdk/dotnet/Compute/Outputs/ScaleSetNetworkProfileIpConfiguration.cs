@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerBackendAddressPoolIds;
         /// <summary>
-        /// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+        /// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerInboundNatRulesIds;
         /// <summary>

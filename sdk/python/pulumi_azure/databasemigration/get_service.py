@@ -73,7 +73,7 @@ class GetServiceResult:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> str:
         """
-        The sku name of database migration service.
+        The SKU name of database migration service.
         """
         return pulumi.get(self, "sku_name")
 

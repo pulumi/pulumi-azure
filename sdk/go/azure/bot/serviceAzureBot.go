@@ -84,7 +84,7 @@ import (
 type ServiceAzureBot struct {
 	pulumi.CustomResourceState
 
-	// The Application Insights Api Key to associate with this Azure Bot Service.
+	// The Application Insights API Key to associate with this Azure Bot Service.
 	DeveloperAppInsightsApiKey pulumi.StringPtrOutput `pulumi:"developerAppInsightsApiKey"`
 	// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
 	DeveloperAppInsightsApplicationId pulumi.StringPtrOutput `pulumi:"developerAppInsightsApplicationId"`
@@ -150,7 +150,7 @@ func GetServiceAzureBot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceAzureBot resources.
 type serviceAzureBotState struct {
-	// The Application Insights Api Key to associate with this Azure Bot Service.
+	// The Application Insights API Key to associate with this Azure Bot Service.
 	DeveloperAppInsightsApiKey *string `pulumi:"developerAppInsightsApiKey"`
 	// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
 	DeveloperAppInsightsApplicationId *string `pulumi:"developerAppInsightsApplicationId"`
@@ -179,7 +179,7 @@ type serviceAzureBotState struct {
 }
 
 type ServiceAzureBotState struct {
-	// The Application Insights Api Key to associate with this Azure Bot Service.
+	// The Application Insights API Key to associate with this Azure Bot Service.
 	DeveloperAppInsightsApiKey pulumi.StringPtrInput
 	// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
 	DeveloperAppInsightsApplicationId pulumi.StringPtrInput
@@ -212,7 +212,7 @@ func (ServiceAzureBotState) ElementType() reflect.Type {
 }
 
 type serviceAzureBotArgs struct {
-	// The Application Insights Api Key to associate with this Azure Bot Service.
+	// The Application Insights API Key to associate with this Azure Bot Service.
 	DeveloperAppInsightsApiKey *string `pulumi:"developerAppInsightsApiKey"`
 	// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
 	DeveloperAppInsightsApplicationId *string `pulumi:"developerAppInsightsApplicationId"`
@@ -242,7 +242,7 @@ type serviceAzureBotArgs struct {
 
 // The set of arguments for constructing a ServiceAzureBot resource.
 type ServiceAzureBotArgs struct {
-	// The Application Insights Api Key to associate with this Azure Bot Service.
+	// The Application Insights API Key to associate with this Azure Bot Service.
 	DeveloperAppInsightsApiKey pulumi.StringPtrInput
 	// The resource ID of the Application Insights instance to associate with this Azure Bot Service.
 	DeveloperAppInsightsApplicationId pulumi.StringPtrInput

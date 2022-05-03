@@ -795,7 +795,7 @@ func (o AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) Days() pul
 type AccountBlobPropertiesCorsRule struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// A list of http methods that are allowed to be executed by the origin. Valid options are
+	// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
 	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
@@ -820,7 +820,7 @@ type AccountBlobPropertiesCorsRuleInput interface {
 type AccountBlobPropertiesCorsRuleArgs struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// A list of http methods that are allowed to be executed by the origin. Valid options are
+	// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
 	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
@@ -887,7 +887,7 @@ func (o AccountBlobPropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArray
 	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// A list of http methods that are allowed to be executed by the origin. Valid options are
+// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
 // `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountBlobPropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
@@ -1577,7 +1577,7 @@ type AccountNetworkRulesType struct {
 	Bypasses []string `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction string `pulumi:"defaultAction"`
-	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules []string `pulumi:"ipRules"`
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccesses []AccountNetworkRulesPrivateLinkAccess `pulumi:"privateLinkAccesses"`
@@ -1602,7 +1602,7 @@ type AccountNetworkRulesTypeArgs struct {
 	Bypasses pulumi.StringArrayInput `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
-	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
 	// One or More `privateLinkAccess` block as defined below.
 	PrivateLinkAccesses AccountNetworkRulesPrivateLinkAccessArrayInput `pulumi:"privateLinkAccesses"`
@@ -1698,7 +1698,7 @@ func (o AccountNetworkRulesTypeOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
-// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 func (o AccountNetworkRulesTypeOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
@@ -1758,7 +1758,7 @@ func (o AccountNetworkRulesTypePtrOutput) DefaultAction() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 func (o AccountNetworkRulesTypePtrOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRulesType) []string {
 		if v == nil {
@@ -2197,7 +2197,7 @@ func (o AccountQueuePropertiesPtrOutput) MinuteMetrics() AccountQueuePropertiesM
 type AccountQueuePropertiesCorsRule struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// A list of http methods that are allowed to be executed by the origin. Valid options are
+	// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
 	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
@@ -2222,7 +2222,7 @@ type AccountQueuePropertiesCorsRuleInput interface {
 type AccountQueuePropertiesCorsRuleArgs struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// A list of http methods that are allowed to be executed by the origin. Valid options are
+	// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
 	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
@@ -2289,7 +2289,7 @@ func (o AccountQueuePropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArra
 	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// A list of http methods that are allowed to be executed by the origin. Valid options are
+// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
 // `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountQueuePropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
@@ -2936,7 +2936,7 @@ type AccountRouting struct {
 	Choice *string `pulumi:"choice"`
 	// Should internet routing storage endpoints be published? Defaults to `false`.
 	PublishInternetEndpoints *bool `pulumi:"publishInternetEndpoints"`
-	// Should microsoft routing storage endpoints be published? Defaults to `false`.
+	// Should Microsoft routing storage endpoints be published? Defaults to `false`.
 	PublishMicrosoftEndpoints *bool `pulumi:"publishMicrosoftEndpoints"`
 }
 
@@ -2956,7 +2956,7 @@ type AccountRoutingArgs struct {
 	Choice pulumi.StringPtrInput `pulumi:"choice"`
 	// Should internet routing storage endpoints be published? Defaults to `false`.
 	PublishInternetEndpoints pulumi.BoolPtrInput `pulumi:"publishInternetEndpoints"`
-	// Should microsoft routing storage endpoints be published? Defaults to `false`.
+	// Should Microsoft routing storage endpoints be published? Defaults to `false`.
 	PublishMicrosoftEndpoints pulumi.BoolPtrInput `pulumi:"publishMicrosoftEndpoints"`
 }
 
@@ -3047,7 +3047,7 @@ func (o AccountRoutingOutput) PublishInternetEndpoints() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountRouting) *bool { return v.PublishInternetEndpoints }).(pulumi.BoolPtrOutput)
 }
 
-// Should microsoft routing storage endpoints be published? Defaults to `false`.
+// Should Microsoft routing storage endpoints be published? Defaults to `false`.
 func (o AccountRoutingOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountRouting) *bool { return v.PublishMicrosoftEndpoints }).(pulumi.BoolPtrOutput)
 }
@@ -3096,7 +3096,7 @@ func (o AccountRoutingPtrOutput) PublishInternetEndpoints() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should microsoft routing storage endpoints be published? Defaults to `false`.
+// Should Microsoft routing storage endpoints be published? Defaults to `false`.
 func (o AccountRoutingPtrOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountRouting) *bool {
 		if v == nil {
@@ -3284,7 +3284,7 @@ func (o AccountSharePropertiesPtrOutput) Smb() AccountSharePropertiesSmbPtrOutpu
 type AccountSharePropertiesCorsRule struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// A list of http methods that are allowed to be executed by the origin. Valid options are
+	// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
 	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
@@ -3309,7 +3309,7 @@ type AccountSharePropertiesCorsRuleInput interface {
 type AccountSharePropertiesCorsRuleArgs struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// A list of http methods that are allowed to be executed by the origin. Valid options are
+	// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
 	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
@@ -3376,7 +3376,7 @@ func (o AccountSharePropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArra
 	return o.ApplyT(func(v AccountSharePropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// A list of http methods that are allowed to be executed by the origin. Valid options are
+// A list of HTTP methods that are allowed to be executed by the origin. Valid options are
 // `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountSharePropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountSharePropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)

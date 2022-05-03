@@ -32,6 +32,7 @@ class WindowsWebAppArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input['WindowsWebAppLogsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sticky_settings: Optional[pulumi.Input['WindowsWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -53,6 +54,7 @@ class WindowsWebAppArgs:
         :param pulumi.Input[str] location: The Azure Region where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input['WindowsWebAppLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        :param pulumi.Input['WindowsWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
         """
@@ -87,6 +89,8 @@ class WindowsWebAppArgs:
             pulumi.set(__self__, "logs", logs)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sticky_settings is not None:
+            pulumi.set(__self__, "sticky_settings", sticky_settings)
         if storage_accounts is not None:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
@@ -297,6 +301,18 @@ class WindowsWebAppArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="stickySettings")
+    def sticky_settings(self) -> Optional[pulumi.Input['WindowsWebAppStickySettingsArgs']]:
+        """
+        A `sticky_settings` block as defined below.
+        """
+        return pulumi.get(self, "sticky_settings")
+
+    @sticky_settings.setter
+    def sticky_settings(self, value: Optional[pulumi.Input['WindowsWebAppStickySettingsArgs']]):
+        pulumi.set(self, "sticky_settings", value)
+
+    @property
     @pulumi.getter(name="storageAccounts")
     def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]]]:
         """
@@ -349,6 +365,7 @@ class _WindowsWebAppState:
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input['WindowsWebAppSiteConfigArgs']] = None,
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteCredentialArgs']]]] = None,
+                 sticky_settings: Optional[pulumi.Input['WindowsWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -378,6 +395,7 @@ class _WindowsWebAppState:
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Windows App Service will be created in.
         :param pulumi.Input['WindowsWebAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input['WindowsWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
         """
@@ -431,6 +449,8 @@ class _WindowsWebAppState:
             pulumi.set(__self__, "site_config", site_config)
         if site_credentials is not None:
             pulumi.set(__self__, "site_credentials", site_credentials)
+        if sticky_settings is not None:
+            pulumi.set(__self__, "sticky_settings", sticky_settings)
         if storage_accounts is not None:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
@@ -737,6 +757,18 @@ class _WindowsWebAppState:
         pulumi.set(self, "site_credentials", value)
 
     @property
+    @pulumi.getter(name="stickySettings")
+    def sticky_settings(self) -> Optional[pulumi.Input['WindowsWebAppStickySettingsArgs']]:
+        """
+        A `sticky_settings` block as defined below.
+        """
+        return pulumi.get(self, "sticky_settings")
+
+    @sticky_settings.setter
+    def sticky_settings(self, value: Optional[pulumi.Input['WindowsWebAppStickySettingsArgs']]):
+        pulumi.set(self, "sticky_settings", value)
+
+    @property
     @pulumi.getter(name="storageAccounts")
     def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]]]:
         """
@@ -783,6 +815,7 @@ class WindowsWebApp(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']]] = None,
+                 sticky_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -834,6 +867,7 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Windows App Service will be created in.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
         """
@@ -904,6 +938,7 @@ class WindowsWebApp(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']]] = None,
+                 sticky_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -941,6 +976,7 @@ class WindowsWebApp(pulumi.CustomResource):
             if site_config is None and not opts.urn:
                 raise TypeError("Missing required property 'site_config'")
             __props__.__dict__["site_config"] = site_config
+            __props__.__dict__["sticky_settings"] = sticky_settings
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
             __props__.__dict__["custom_domain_verification_id"] = None
@@ -986,6 +1022,7 @@ class WindowsWebApp(pulumi.CustomResource):
             service_plan_id: Optional[pulumi.Input[str]] = None,
             site_config: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']]] = None,
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSiteCredentialArgs']]]]] = None,
+            sticky_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'WindowsWebApp':
         """
@@ -1020,6 +1057,7 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Windows App Service will be created in.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
         """
@@ -1052,6 +1090,7 @@ class WindowsWebApp(pulumi.CustomResource):
         __props__.__dict__["service_plan_id"] = service_plan_id
         __props__.__dict__["site_config"] = site_config
         __props__.__dict__["site_credentials"] = site_credentials
+        __props__.__dict__["sticky_settings"] = sticky_settings
         __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["tags"] = tags
         return WindowsWebApp(resource_name, opts=opts, __props__=__props__)
@@ -1255,6 +1294,14 @@ class WindowsWebApp(pulumi.CustomResource):
         A `site_credential` block as defined below.
         """
         return pulumi.get(self, "site_credentials")
+
+    @property
+    @pulumi.getter(name="stickySettings")
+    def sticky_settings(self) -> pulumi.Output[Optional['outputs.WindowsWebAppStickySettings']]:
+        """
+        A `sticky_settings` block as defined below.
+        """
+        return pulumi.get(self, "sticky_settings")
 
     @property
     @pulumi.getter(name="storageAccounts")

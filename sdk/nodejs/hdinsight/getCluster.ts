@@ -102,7 +102,7 @@ export interface GetClusterResult {
      */
     readonly tier: string;
     /**
-     * The minimal supported tls version.
+     * The minimal supported TLS version.
      */
     readonly tlsMinVersion: string;
 }

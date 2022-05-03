@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string FunctionName;
         /// <summary>
-        /// The http trigger url where http request sent to.
+        /// The HTTP trigger url where HTTP request sent to.
         /// </summary>
         public readonly string HttpTriggerUrl;
         /// <summary>

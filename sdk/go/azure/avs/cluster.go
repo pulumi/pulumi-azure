@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Vmware Cluster.
+// Manages a VMware Cluster.
 //
 // ## Example Usage
 //
@@ -64,7 +64,7 @@ import (
 //
 // ## Import
 //
-// Vmware Clusters can be imported using the `resource id`, e.g.
+// VMware Clusters can be imported using the `resource id`, e.g.
 //
 // ```sh
 //  $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
@@ -72,17 +72,17 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// The count of the Vmware Cluster nodes.
+	// The count of the VMware Cluster nodes.
 	ClusterNodeCount pulumi.IntOutput `pulumi:"clusterNodeCount"`
-	// A number that identifies this Vmware Cluster in its Vmware Private Cloud.
+	// A number that identifies this VMware Cluster in its VMware Private Cloud.
 	ClusterNumber pulumi.IntOutput `pulumi:"clusterNumber"`
-	// A list of host of the Vmware Cluster.
+	// A list of host of the VMware Cluster.
 	Hosts pulumi.StringArrayOutput `pulumi:"hosts"`
-	// The name which should be used for this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
+	// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The cluster sku to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new Vmware Cluster to be created.
+	// The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// The ID of the Vmware Private Cloud in which to create this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
+	// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
 	VmwareCloudId pulumi.StringOutput `pulumi:"vmwareCloudId"`
 }
 
@@ -124,32 +124,32 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// The count of the Vmware Cluster nodes.
+	// The count of the VMware Cluster nodes.
 	ClusterNodeCount *int `pulumi:"clusterNodeCount"`
-	// A number that identifies this Vmware Cluster in its Vmware Private Cloud.
+	// A number that identifies this VMware Cluster in its VMware Private Cloud.
 	ClusterNumber *int `pulumi:"clusterNumber"`
-	// A list of host of the Vmware Cluster.
+	// A list of host of the VMware Cluster.
 	Hosts []string `pulumi:"hosts"`
-	// The name which should be used for this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
+	// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
 	Name *string `pulumi:"name"`
-	// The cluster sku to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new Vmware Cluster to be created.
+	// The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
 	SkuName *string `pulumi:"skuName"`
-	// The ID of the Vmware Private Cloud in which to create this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
+	// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
 	VmwareCloudId *string `pulumi:"vmwareCloudId"`
 }
 
 type ClusterState struct {
-	// The count of the Vmware Cluster nodes.
+	// The count of the VMware Cluster nodes.
 	ClusterNodeCount pulumi.IntPtrInput
-	// A number that identifies this Vmware Cluster in its Vmware Private Cloud.
+	// A number that identifies this VMware Cluster in its VMware Private Cloud.
 	ClusterNumber pulumi.IntPtrInput
-	// A list of host of the Vmware Cluster.
+	// A list of host of the VMware Cluster.
 	Hosts pulumi.StringArrayInput
-	// The name which should be used for this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
+	// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
 	Name pulumi.StringPtrInput
-	// The cluster sku to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new Vmware Cluster to be created.
+	// The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
 	SkuName pulumi.StringPtrInput
-	// The ID of the Vmware Private Cloud in which to create this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
+	// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
 	VmwareCloudId pulumi.StringPtrInput
 }
 
@@ -158,25 +158,25 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// The count of the Vmware Cluster nodes.
+	// The count of the VMware Cluster nodes.
 	ClusterNodeCount int `pulumi:"clusterNodeCount"`
-	// The name which should be used for this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
+	// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
 	Name *string `pulumi:"name"`
-	// The cluster sku to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new Vmware Cluster to be created.
+	// The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
 	SkuName string `pulumi:"skuName"`
-	// The ID of the Vmware Private Cloud in which to create this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
+	// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
 	VmwareCloudId string `pulumi:"vmwareCloudId"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// The count of the Vmware Cluster nodes.
+	// The count of the VMware Cluster nodes.
 	ClusterNodeCount pulumi.IntInput
-	// The name which should be used for this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
+	// The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
 	Name pulumi.StringPtrInput
-	// The cluster sku to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new Vmware Cluster to be created.
+	// The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
 	SkuName pulumi.StringInput
-	// The ID of the Vmware Private Cloud in which to create this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
+	// The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
 	VmwareCloudId pulumi.StringInput
 }
 

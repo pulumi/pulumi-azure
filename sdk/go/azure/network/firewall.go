@@ -106,9 +106,9 @@ type Firewall struct {
 	PrivateIpRanges pulumi.StringArrayOutput `pulumi:"privateIpRanges"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
 	SkuTier pulumi.StringOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -174,9 +174,9 @@ type firewallState struct {
 	PrivateIpRanges []string `pulumi:"privateIpRanges"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
-	// Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -205,9 +205,9 @@ type FirewallState struct {
 	PrivateIpRanges pulumi.StringArrayInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
-	// Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -240,9 +240,9 @@ type firewallArgs struct {
 	PrivateIpRanges []string `pulumi:"privateIpRanges"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
-	// Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
 	SkuTier string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -272,9 +272,9 @@ type FirewallArgs struct {
 	PrivateIpRanges pulumi.StringArrayInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+	// SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
-	// Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+	// SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
 	SkuTier pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

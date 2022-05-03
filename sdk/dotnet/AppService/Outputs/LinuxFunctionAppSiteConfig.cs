@@ -83,7 +83,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? HealthCheckPath;
         /// <summary>
-        /// Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        /// Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>

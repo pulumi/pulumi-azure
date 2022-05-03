@@ -105,7 +105,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="internetConnectionEnabled")
     def internet_connection_enabled(self) -> bool:
         """
-        Is the Vmware Private Cluster connected to the internet?
+        Is the VMware Private Cluster connected to the internet?
         """
         return pulumi.get(self, "internet_connection_enabled")
 
@@ -113,7 +113,7 @@ class GetPrivateCloudResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The Azure Region where the Vmware Private Cloud exists.
+        The Azure Region where the VMware Private Cloud exists.
         """
         return pulumi.get(self, "location")
 
@@ -142,7 +142,7 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="networkSubnetCidr")
     def network_subnet_cidr(self) -> str:
         """
-        The subnet cidr of the Vmware Private Cloud.
+        The subnet CIDR of the VMware Private Cloud.
         """
         return pulumi.get(self, "network_subnet_cidr")
 
@@ -187,7 +187,7 @@ class GetPrivateCloudResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A mapping of tags assigned to the Vmware Private Cloud.
+        A mapping of tags assigned to the VMware Private Cloud.
         """
         return pulumi.get(self, "tags")
 
@@ -248,8 +248,8 @@ def get_private_cloud(name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of this Vmware Private Cloud.
-    :param str resource_group_name: The name of the Resource Group where the Vmware Private Cloud exists.
+    :param str name: The name of this VMware Private Cloud.
+    :param str resource_group_name: The name of the Resource Group where the VMware Private Cloud exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -288,7 +288,7 @@ def get_private_cloud_output(name: Optional[pulumi.Input[str]] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of this Vmware Private Cloud.
-    :param str resource_group_name: The name of the Resource Group where the Vmware Private Cloud exists.
+    :param str name: The name of this VMware Private Cloud.
+    :param str resource_group_name: The name of the Resource Group where the VMware Private Cloud exists.
     """
     ...

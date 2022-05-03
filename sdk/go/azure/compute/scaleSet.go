@@ -226,7 +226,7 @@ type ScaleSet struct {
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
-	// A sku block as documented below.
+	// A SKU block as documented below.
 	Sku ScaleSetSkuOutput `pulumi:"sku"`
 	// A storage profile data disk block as documented below
 	StorageProfileDataDisks ScaleSetStorageProfileDataDiskArrayOutput `pulumi:"storageProfileDataDisks"`
@@ -330,7 +330,7 @@ type scaleSetState struct {
 	RollingUpgradePolicy *ScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// A sku block as documented below.
+	// A SKU block as documented below.
 	Sku *ScaleSetSku `pulumi:"sku"`
 	// A storage profile data disk block as documented below
 	StorageProfileDataDisks []ScaleSetStorageProfileDataDisk `pulumi:"storageProfileDataDisks"`
@@ -388,7 +388,7 @@ type ScaleSetState struct {
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrInput
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// A sku block as documented below.
+	// A SKU block as documented below.
 	Sku ScaleSetSkuPtrInput
 	// A storage profile data disk block as documented below
 	StorageProfileDataDisks ScaleSetStorageProfileDataDiskArrayInput
@@ -450,7 +450,7 @@ type scaleSetArgs struct {
 	RollingUpgradePolicy *ScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// A sku block as documented below.
+	// A SKU block as documented below.
 	Sku ScaleSetSku `pulumi:"sku"`
 	// A storage profile data disk block as documented below
 	StorageProfileDataDisks []ScaleSetStorageProfileDataDisk `pulumi:"storageProfileDataDisks"`
@@ -509,7 +509,7 @@ type ScaleSetArgs struct {
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrInput
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// A sku block as documented below.
+	// A SKU block as documented below.
 	Sku ScaleSetSkuInput
 	// A storage profile data disk block as documented below
 	StorageProfileDataDisks ScaleSetStorageProfileDataDiskArrayInput

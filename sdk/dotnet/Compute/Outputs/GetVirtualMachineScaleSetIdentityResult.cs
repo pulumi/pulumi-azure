@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The type of Managed Service Identity that is configured on this Virtual Machine Scale Set.
+        /// The Type of IP Tag.
         /// </summary>
         public readonly string Type;
 

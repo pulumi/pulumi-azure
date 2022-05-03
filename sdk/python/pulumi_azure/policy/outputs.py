@@ -368,7 +368,7 @@ class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
                  policy_group_names: Sequence[str],
                  reference_id: str):
         """
-        :param str parameter_values: The parameter values for the referenced policy rule. This field is a json object.
+        :param str parameter_values: The parameter values for the referenced policy rule. This field is a JSON object.
         :param Mapping[str, str] parameters: The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
         :param str policy_definition_id: The ID of the policy definition or policy set definition that is included in this policy set definition.
         :param Sequence[str] policy_group_names: The list of names of the policy definition groups that this policy definition reference belongs to.
@@ -384,7 +384,7 @@ class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> str:
         """
-        The parameter values for the referenced policy rule. This field is a json object.
+        The parameter values for the referenced policy rule. This field is a JSON object.
         """
         return pulumi.get(self, "parameter_values")
 

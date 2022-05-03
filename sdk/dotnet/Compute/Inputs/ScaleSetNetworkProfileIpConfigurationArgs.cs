@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<string>? _loadBalancerInboundNatRulesIds;
 
         /// <summary>
-        /// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+        /// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
         /// </summary>
         public InputList<string> LoadBalancerInboundNatRulesIds
         {

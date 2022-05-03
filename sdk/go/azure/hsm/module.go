@@ -157,7 +157,7 @@ type Module struct {
 	NetworkProfile ModuleNetworkProfileOutput `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	StampId pulumi.StringPtrOutput `pulumi:"stampId"`
@@ -213,7 +213,7 @@ type moduleState struct {
 	NetworkProfile *ModuleNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	StampId *string `pulumi:"stampId"`
@@ -232,7 +232,7 @@ type ModuleState struct {
 	NetworkProfile ModuleNetworkProfilePtrInput
 	// The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName pulumi.StringPtrInput
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	StampId pulumi.StringPtrInput
@@ -255,7 +255,7 @@ type moduleArgs struct {
 	NetworkProfile ModuleNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName string `pulumi:"skuName"`
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	StampId *string `pulumi:"stampId"`
@@ -275,7 +275,7 @@ type ModuleArgs struct {
 	NetworkProfile ModuleNetworkProfileInput
 	// The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	ResourceGroupName pulumi.StringInput
-	// The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+	// The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName pulumi.StringInput
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
 	StampId pulumi.StringPtrInput

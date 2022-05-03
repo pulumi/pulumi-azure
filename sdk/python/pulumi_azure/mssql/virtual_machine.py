@@ -433,7 +433,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ## Example Usage
 
-        This example provisions a brief Managed MsSql Virtual Machine.
+        This example provisions a brief Managed Microsoft SQL Virtual Machine.
 
         ```python
         import pulumi
@@ -458,7 +458,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ## Import
 
-        Sql Virtual Machines can be imported using the `resource id`, e.g.
+        Microsoft SQL Virtual Machines can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:mssql/virtualMachine:VirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/example1
@@ -490,7 +490,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ## Example Usage
 
-        This example provisions a brief Managed MsSql Virtual Machine.
+        This example provisions a brief Managed Microsoft SQL Virtual Machine.
 
         ```python
         import pulumi
@@ -515,7 +515,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ## Import
 
-        Sql Virtual Machines can be imported using the `resource id`, e.g.
+        Microsoft SQL Virtual Machines can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:mssql/virtualMachine:VirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/example1

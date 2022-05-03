@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Automation.Outputs
     {
         public readonly Outputs.ModuleModuleLinkHash? Hash;
         /// <summary>
-        /// The uri of the module content (zip or nupkg).
+        /// The URI of the module content (zip or nupkg).
         /// </summary>
         public readonly string Uri;
 

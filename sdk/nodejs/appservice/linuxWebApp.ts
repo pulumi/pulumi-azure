@@ -166,6 +166,10 @@ export class LinuxWebApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.LinuxWebAppSiteCredential[]>;
     /**
+     * A `stickySettings` block as defined below.
+     */
+    public readonly stickySettings!: pulumi.Output<outputs.appservice.LinuxWebAppStickySettings | undefined>;
+    /**
      * One or more `storageAccount` blocks as defined below.
      */
     public readonly storageAccounts!: pulumi.Output<outputs.appservice.LinuxWebAppStorageAccount[] | undefined>;
@@ -212,6 +216,7 @@ export class LinuxWebApp extends pulumi.CustomResource {
             resourceInputs["servicePlanId"] = state ? state.servicePlanId : undefined;
             resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
             resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
+            resourceInputs["stickySettings"] = state ? state.stickySettings : undefined;
             resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -242,6 +247,7 @@ export class LinuxWebApp extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["servicePlanId"] = args ? args.servicePlanId : undefined;
             resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
+            resourceInputs["stickySettings"] = args ? args.stickySettings : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
@@ -363,6 +369,10 @@ export interface LinuxWebAppState {
      */
     siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSiteCredential>[]>;
     /**
+     * A `stickySettings` block as defined below.
+     */
+    stickySettings?: pulumi.Input<inputs.appservice.LinuxWebAppStickySettings>;
+    /**
      * One or more `storageAccount` blocks as defined below.
      */
     storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppStorageAccount>[]>;
@@ -444,6 +454,10 @@ export interface LinuxWebAppArgs {
      * A `siteConfig` block as defined below.
      */
     siteConfig: pulumi.Input<inputs.appservice.LinuxWebAppSiteConfig>;
+    /**
+     * A `stickySettings` block as defined below.
+     */
+    stickySettings?: pulumi.Input<inputs.appservice.LinuxWebAppStickySettings>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */

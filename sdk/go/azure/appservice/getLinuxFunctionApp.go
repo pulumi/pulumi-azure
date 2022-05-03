@@ -36,13 +36,6 @@ import (
 // 	})
 // }
 // ```
-// ## Arguments Referencez
-//
-// The following arguments are supported:
-//
-// * `name` - (Required) The name which should be used for this Linux Function App.
-//
-// * `resourceGroupName` - (Required) The name of the Resource Group where the Linux Function App should exist.
 func LookupLinuxFunctionApp(ctx *pulumi.Context, args *LookupLinuxFunctionAppArgs, opts ...pulumi.InvokeOption) (*LookupLinuxFunctionAppResult, error) {
 	var rv LookupLinuxFunctionAppResult
 	err := ctx.Invoke("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args, &rv, opts...)
@@ -54,8 +47,9 @@ func LookupLinuxFunctionApp(ctx *pulumi.Context, args *LookupLinuxFunctionAppArg
 
 // A collection of arguments for invoking getLinuxFunctionApp.
 type LookupLinuxFunctionAppArgs struct {
-	// The Site Credentials Username used for publishing.
-	Name              string `pulumi:"name"`
+	// The name which should be used for this Linux Function App.
+	Name string `pulumi:"name"`
+	// The name of the Resource Group where the Linux Function App should exist.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -113,6 +107,8 @@ type LookupLinuxFunctionAppResult struct {
 	SiteConfigs []GetLinuxFunctionAppSiteConfig `pulumi:"siteConfigs"`
 	// A `siteCredential` block as defined below.
 	SiteCredentials []GetLinuxFunctionAppSiteCredential `pulumi:"siteCredentials"`
+	// A `stickySettings` block as defined below.
+	StickySettings []GetLinuxFunctionAppStickySetting `pulumi:"stickySettings"`
 	// The access key used to access the backend storage account for the Function App.
 	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name used by this Function App.
@@ -136,8 +132,9 @@ func LookupLinuxFunctionAppOutput(ctx *pulumi.Context, args LookupLinuxFunctionA
 
 // A collection of arguments for invoking getLinuxFunctionApp.
 type LookupLinuxFunctionAppOutputArgs struct {
-	// The Site Credentials Username used for publishing.
-	Name              pulumi.StringInput `pulumi:"name"`
+	// The name which should be used for this Linux Function App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Linux Function App should exist.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -291,6 +288,11 @@ func (o LookupLinuxFunctionAppResultOutput) SiteConfigs() GetLinuxFunctionAppSit
 // A `siteCredential` block as defined below.
 func (o LookupLinuxFunctionAppResultOutput) SiteCredentials() GetLinuxFunctionAppSiteCredentialArrayOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) []GetLinuxFunctionAppSiteCredential { return v.SiteCredentials }).(GetLinuxFunctionAppSiteCredentialArrayOutput)
+}
+
+// A `stickySettings` block as defined below.
+func (o LookupLinuxFunctionAppResultOutput) StickySettings() GetLinuxFunctionAppStickySettingArrayOutput {
+	return o.ApplyT(func(v LookupLinuxFunctionAppResult) []GetLinuxFunctionAppStickySetting { return v.StickySettings }).(GetLinuxFunctionAppStickySettingArrayOutput)
 }
 
 // The access key used to access the backend storage account for the Function App.

@@ -57,7 +57,7 @@ import (
 // 		}
 // 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 // 			Scope:              exampleAccount.ID(),
-// 			RoleDefinitionName: pulumi.String("Storage Account Backup Contributor Role"),
+// 			RoleDefinitionName: pulumi.String("Storage Account Backup Contributor"),
 // 			PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (string, error) {
 // 				return identity.PrincipalId, nil
 // 			}).(pulumi.StringOutput),

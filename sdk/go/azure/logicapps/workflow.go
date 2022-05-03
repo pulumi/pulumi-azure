@@ -58,9 +58,9 @@ type Workflow struct {
 	AccessControl WorkflowAccessControlPtrOutput `pulumi:"accessControl"`
 	// The Access Endpoint for the Logic App Workflow.
 	AccessEndpoint pulumi.StringOutput `pulumi:"accessEndpoint"`
-	// The list of access endpoint ip addresses of connector.
+	// The list of access endpoint IP addresses of connector.
 	ConnectorEndpointIpAddresses pulumi.StringArrayOutput `pulumi:"connectorEndpointIpAddresses"`
-	// The list of outgoing ip addresses of connector.
+	// The list of outgoing IP addresses of connector.
 	ConnectorOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"connectorOutboundIpAddresses"`
 	// Is the Logic App Workflow enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -80,11 +80,11 @@ type Workflow struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The list of access endpoint ip addresses of workflow.
+	// The list of access endpoint IP addresses of workflow.
 	WorkflowEndpointIpAddresses pulumi.StringArrayOutput `pulumi:"workflowEndpointIpAddresses"`
-	// The list of outgoing ip addresses of workflow.
+	// The list of outgoing IP addresses of workflow.
 	WorkflowOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"workflowOutboundIpAddresses"`
-	// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+	// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
 	WorkflowParameters pulumi.StringMapOutput `pulumi:"workflowParameters"`
 	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
 	WorkflowSchema pulumi.StringPtrOutput `pulumi:"workflowSchema"`
@@ -128,9 +128,9 @@ type workflowState struct {
 	AccessControl *WorkflowAccessControl `pulumi:"accessControl"`
 	// The Access Endpoint for the Logic App Workflow.
 	AccessEndpoint *string `pulumi:"accessEndpoint"`
-	// The list of access endpoint ip addresses of connector.
+	// The list of access endpoint IP addresses of connector.
 	ConnectorEndpointIpAddresses []string `pulumi:"connectorEndpointIpAddresses"`
-	// The list of outgoing ip addresses of connector.
+	// The list of outgoing IP addresses of connector.
 	ConnectorOutboundIpAddresses []string `pulumi:"connectorOutboundIpAddresses"`
 	// Is the Logic App Workflow enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -150,11 +150,11 @@ type workflowState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The list of access endpoint ip addresses of workflow.
+	// The list of access endpoint IP addresses of workflow.
 	WorkflowEndpointIpAddresses []string `pulumi:"workflowEndpointIpAddresses"`
-	// The list of outgoing ip addresses of workflow.
+	// The list of outgoing IP addresses of workflow.
 	WorkflowOutboundIpAddresses []string `pulumi:"workflowOutboundIpAddresses"`
-	// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+	// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
 	WorkflowParameters map[string]string `pulumi:"workflowParameters"`
 	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
 	WorkflowSchema *string `pulumi:"workflowSchema"`
@@ -167,9 +167,9 @@ type WorkflowState struct {
 	AccessControl WorkflowAccessControlPtrInput
 	// The Access Endpoint for the Logic App Workflow.
 	AccessEndpoint pulumi.StringPtrInput
-	// The list of access endpoint ip addresses of connector.
+	// The list of access endpoint IP addresses of connector.
 	ConnectorEndpointIpAddresses pulumi.StringArrayInput
-	// The list of outgoing ip addresses of connector.
+	// The list of outgoing IP addresses of connector.
 	ConnectorOutboundIpAddresses pulumi.StringArrayInput
 	// Is the Logic App Workflow enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
@@ -189,11 +189,11 @@ type WorkflowState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The list of access endpoint ip addresses of workflow.
+	// The list of access endpoint IP addresses of workflow.
 	WorkflowEndpointIpAddresses pulumi.StringArrayInput
-	// The list of outgoing ip addresses of workflow.
+	// The list of outgoing IP addresses of workflow.
 	WorkflowOutboundIpAddresses pulumi.StringArrayInput
-	// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+	// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
 	WorkflowParameters pulumi.StringMapInput
 	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
 	WorkflowSchema pulumi.StringPtrInput
@@ -226,7 +226,7 @@ type workflowArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+	// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
 	WorkflowParameters map[string]string `pulumi:"workflowParameters"`
 	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
 	WorkflowSchema *string `pulumi:"workflowSchema"`
@@ -256,7 +256,7 @@ type WorkflowArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a json encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+	// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
 	WorkflowParameters pulumi.StringMapInput
 	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
 	WorkflowSchema pulumi.StringPtrInput

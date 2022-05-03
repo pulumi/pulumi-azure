@@ -227,6 +227,12 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.WindowsFunctionAppSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        [Output("stickySettings")]
+        public Output<Outputs.WindowsFunctionAppStickySettings?> StickySettings { get; private set; } = null!;
+
+        /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         /// </summary>
         [Output("storageAccountAccessKey")]
@@ -427,6 +433,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("siteConfig", required: true)]
         public Input<Inputs.WindowsFunctionAppSiteConfigArgs> SiteConfig { get; set; } = null!;
+
+        /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        [Input("stickySettings")]
+        public Input<Inputs.WindowsFunctionAppStickySettingsArgs>? StickySettings { get; set; }
 
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
@@ -662,6 +674,12 @@ namespace Pulumi.Azure.AppService
             get => _siteCredentials ?? (_siteCredentials = new InputList<Inputs.WindowsFunctionAppSiteCredentialGetArgs>());
             set => _siteCredentials = value;
         }
+
+        /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        [Input("stickySettings")]
+        public Input<Inputs.WindowsFunctionAppStickySettingsGetArgs>? StickySettings { get; set; }
 
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Avs
 {
     /// <summary>
-    /// Manages an Express Route Vmware Authorization.
+    /// Manages an Express Route VMware Authorization.
     /// 
     /// ## Example Usage
     /// 
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Avs
     /// 
     /// ## Import
     /// 
-    /// Vmware Authorizations can be imported using the `resource id`, e.g.
+    /// VMware Authorizations can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:avs/expressRouteAuthorization:ExpressRouteAuthorization example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/authorizations/authorization1
@@ -73,13 +73,13 @@ namespace Pulumi.Azure.Avs
         public Output<string> ExpressRouteAuthorizationKey { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+        /// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Vmware Private Cloud in which to create this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+        /// The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
         /// </summary>
         [Output("privateCloudId")]
         public Output<string> PrivateCloudId { get; private set; } = null!;
@@ -131,13 +131,13 @@ namespace Pulumi.Azure.Avs
     public sealed class ExpressRouteAuthorizationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name which should be used for this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+        /// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Vmware Private Cloud in which to create this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+        /// The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
         /// </summary>
         [Input("privateCloudId", required: true)]
         public Input<string> PrivateCloudId { get; set; } = null!;
@@ -162,13 +162,13 @@ namespace Pulumi.Azure.Avs
         public Input<string>? ExpressRouteAuthorizationKey { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+        /// The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Vmware Private Cloud in which to create this Express Route Vmware Authorization. Changing this forces a new Vmware Authorization to be created.
+        /// The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
         /// </summary>
         [Input("privateCloudId")]
         public Input<string>? PrivateCloudId { get; set; }

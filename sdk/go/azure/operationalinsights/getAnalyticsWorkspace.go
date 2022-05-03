@@ -68,7 +68,7 @@ type LookupAnalyticsWorkspaceResult struct {
 	RetentionInDays int `pulumi:"retentionInDays"`
 	// The Secondary shared key for the Log Analytics Workspace.
 	SecondarySharedKey string `pulumi:"secondarySharedKey"`
-	// The Sku of the Log Analytics Workspace.
+	// The SKU of the Log Analytics Workspace.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -149,7 +149,7 @@ func (o LookupAnalyticsWorkspaceResultOutput) SecondarySharedKey() pulumi.String
 	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.SecondarySharedKey }).(pulumi.StringOutput)
 }
 
-// The Sku of the Log Analytics Workspace.
+// The SKU of the Log Analytics Workspace.
 func (o LookupAnalyticsWorkspaceResultOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.Sku }).(pulumi.StringOutput)
 }

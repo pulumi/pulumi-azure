@@ -208,7 +208,11 @@ type LinuxVirtualMachineScaleSet struct {
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `terminateNotification` block as defined below.
+	//
+	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
 	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationOutput `pulumi:"terminateNotification"`
+	// A `terminationNotification` block as defined below.
+	TerminationNotification LinuxVirtualMachineScaleSetTerminationNotificationOutput `pulumi:"terminationNotification"`
 	// The Unique ID for this Linux Virtual Machine Scale Set.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
@@ -353,7 +357,11 @@ type linuxVirtualMachineScaleSetState struct {
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
 	// A `terminateNotification` block as defined below.
+	//
+	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
 	TerminateNotification *LinuxVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
+	// A `terminationNotification` block as defined below.
+	TerminationNotification *LinuxVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	// The Unique ID for this Linux Virtual Machine Scale Set.
 	UniqueId *string `pulumi:"uniqueId"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
@@ -452,7 +460,11 @@ type LinuxVirtualMachineScaleSetState struct {
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
 	// A `terminateNotification` block as defined below.
+	//
+	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
 	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationPtrInput
+	// A `terminationNotification` block as defined below.
+	TerminationNotification LinuxVirtualMachineScaleSetTerminationNotificationPtrInput
 	// The Unique ID for this Linux Virtual Machine Scale Set.
 	UniqueId pulumi.StringPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
@@ -555,7 +567,11 @@ type linuxVirtualMachineScaleSetArgs struct {
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
 	// A `terminateNotification` block as defined below.
+	//
+	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
 	TerminateNotification *LinuxVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
+	// A `terminationNotification` block as defined below.
+	TerminationNotification *LinuxVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
@@ -653,7 +669,11 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
 	// A `terminateNotification` block as defined below.
+	//
+	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
 	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationPtrInput
+	// A `terminationNotification` block as defined below.
+	TerminationNotification LinuxVirtualMachineScaleSetTerminationNotificationPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.

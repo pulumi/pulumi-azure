@@ -49,7 +49,7 @@ class WorkspaceArgs:
         :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed Aad Tenant Ids For Linking.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
@@ -234,7 +234,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="linkingAllowedForAadTenantIds")
     def linking_allowed_for_aad_tenant_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Allowed Aad Tenant Ids For Linking.
+        Allowed AAD Tenant Ids For Linking.
         """
         return pulumi.get(self, "linking_allowed_for_aad_tenant_ids")
 
@@ -386,7 +386,7 @@ class _WorkspaceState:
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed Aad Tenant Ids For Linking.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
@@ -546,7 +546,7 @@ class _WorkspaceState:
     @pulumi.getter(name="linkingAllowedForAadTenantIds")
     def linking_allowed_for_aad_tenant_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Allowed Aad Tenant Ids For Linking.
+        Allowed AAD Tenant Ids For Linking.
         """
         return pulumi.get(self, "linking_allowed_for_aad_tenant_ids")
 
@@ -871,7 +871,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed Aad Tenant Ids For Linking.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
@@ -1143,7 +1143,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed Aad Tenant Ids For Linking.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
@@ -1254,7 +1254,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="linkingAllowedForAadTenantIds")
     def linking_allowed_for_aad_tenant_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Allowed Aad Tenant Ids For Linking.
+        Allowed AAD Tenant Ids For Linking.
         """
         return pulumi.get(self, "linking_allowed_for_aad_tenant_ids")
 

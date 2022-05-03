@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Media.Inputs
         }
 
         /// <summary>
-        /// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+        /// The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
         /// </summary>
         [Input("previewLocator")]
         public Input<string>? PreviewLocator { get; set; }

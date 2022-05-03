@@ -196,7 +196,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         """
         Manages a Disaster Recovery Config for a Service Bus Namespace.
 
-        > **NOTE:** Disaster Recovery Config is a Premium Sku only capability.
+        > **NOTE:** Disaster Recovery Config is a Premium SKU only capability.
 
         ## Example Usage
 
@@ -243,7 +243,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         """
         Manages a Disaster Recovery Config for a Service Bus Namespace.
 
-        > **NOTE:** Disaster Recovery Config is a Premium Sku only capability.
+        > **NOTE:** Disaster Recovery Config is a Premium SKU only capability.
 
         ## Example Usage
 

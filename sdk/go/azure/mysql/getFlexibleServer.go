@@ -74,7 +74,7 @@ type LookupFlexibleServerResult struct {
 	// A `maintenanceWindow` block for this MySQL Flexible Server as defined below.
 	MaintenanceWindows []GetFlexibleServerMaintenanceWindow `pulumi:"maintenanceWindows"`
 	Name               string                               `pulumi:"name"`
-	// The ID of the private dns zone of the MySQL Flexible Server.
+	// The ID of the Private DNS zone of the MySQL Flexible Server.
 	PrivateDnsZoneId string `pulumi:"privateDnsZoneId"`
 	// Is the public network access enabled?
 	PublicNetworkAccessEnabled bool `pulumi:"publicNetworkAccessEnabled"`
@@ -181,7 +181,7 @@ func (o LookupFlexibleServerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the private dns zone of the MySQL Flexible Server.
+// The ID of the Private DNS zone of the MySQL Flexible Server.
 func (o LookupFlexibleServerResultOutput) PrivateDnsZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.PrivateDnsZoneId }).(pulumi.StringOutput)
 }

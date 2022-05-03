@@ -178,8 +178,7 @@ class Lock(pulumi.CustomResource):
             lock_level="CanNotDelete",
             notes="Items can't be deleted in this subscription!")
         ```
-
-        ## Example Usage (Resource Group Level Lock)
+        ### Resource Group Level Lock)
 
         ```python
         import pulumi
@@ -246,8 +245,7 @@ class Lock(pulumi.CustomResource):
             lock_level="CanNotDelete",
             notes="Items can't be deleted in this subscription!")
         ```
-
-        ## Example Usage (Resource Group Level Lock)
+        ### Resource Group Level Lock)
 
         ```python
         import pulumi

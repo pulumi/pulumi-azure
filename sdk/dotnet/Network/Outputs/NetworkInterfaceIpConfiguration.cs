@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class NetworkInterfaceIpConfiguration
     {
         /// <summary>
-        /// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        /// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         /// </summary>
         public readonly string? GatewayLoadBalancerFrontendIpConfigurationId;
         /// <summary>

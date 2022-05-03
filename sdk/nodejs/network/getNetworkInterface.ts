@@ -72,7 +72,7 @@ export interface GetNetworkInterfaceResult {
      */
     readonly id: string;
     /**
-     * The internal dns name label of the specified Network Interface.
+     * The internal DNS name label of the specified Network Interface.
      */
     readonly internalDnsNameLabel: string;
     /**
@@ -100,7 +100,7 @@ export interface GetNetworkInterfaceResult {
      */
     readonly privateIpAddress: string;
     /**
-     * The list of private ip addresses associates to the specified Network Interface.
+     * The list of private IP addresses associates to the specified Network Interface.
      */
     readonly privateIpAddresses: string[];
     readonly resourceGroupName: string;

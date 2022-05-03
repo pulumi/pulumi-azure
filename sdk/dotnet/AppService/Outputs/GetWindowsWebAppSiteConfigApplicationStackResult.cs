@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string DockerContainerTag;
         /// <summary>
-        /// The version of .Net in use.
+        /// The version of .NET in use.
         /// </summary>
         public readonly string DotnetVersion;
         /// <summary>

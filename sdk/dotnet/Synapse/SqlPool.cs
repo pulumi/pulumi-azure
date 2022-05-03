@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse
 {
     /// <summary>
-    /// Manages a Synapse Sql Pool.
+    /// Manages a Synapse SQL Pool.
     /// 
     /// ## Example Usage
     /// 
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Synapse
     /// 
     /// ## Import
     /// 
-    /// Synapse Sql Pool can be imported using the `resource id`, e.g.
+    /// Synapse SQL Pool can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:synapse/sqlPool:SqlPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
@@ -87,13 +87,13 @@ namespace Pulumi.Azure.Synapse
         public Output<bool?> DataEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
+        /// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Synapse Sql Pool or Sql Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse Sql Pool to be created.
+        /// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Output("recoveryDatabaseId")]
         public Output<string?> RecoveryDatabaseId { get; private set; } = null!;
@@ -105,19 +105,19 @@ namespace Pulumi.Azure.Synapse
         public Output<Outputs.SqlPoolRestore?> Restore { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for this Synapse Sql Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
+        /// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of Synapse Workspace within which this Sql Pool should be created. Changing this forces a new Synapse Sql Pool to be created.
+        /// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Output("synapseWorkspaceId")]
         public Output<string> SynapseWorkspaceId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Synapse Sql Pool.
+        /// A mapping of tags which should be assigned to the Synapse SQL Pool.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -187,13 +187,13 @@ namespace Pulumi.Azure.Synapse
         public Input<bool>? DataEncrypted { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
+        /// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Synapse Sql Pool or Sql Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse Sql Pool to be created.
+        /// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("recoveryDatabaseId")]
         public Input<string>? RecoveryDatabaseId { get; set; }
@@ -205,13 +205,13 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.SqlPoolRestoreArgs>? Restore { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this Synapse Sql Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
+        /// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of Synapse Workspace within which this Sql Pool should be created. Changing this forces a new Synapse Sql Pool to be created.
+        /// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("synapseWorkspaceId", required: true)]
         public Input<string> SynapseWorkspaceId { get; set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Synapse
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Synapse Sql Pool.
+        /// A mapping of tags which should be assigned to the Synapse SQL Pool.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -254,13 +254,13 @@ namespace Pulumi.Azure.Synapse
         public Input<bool>? DataEncrypted { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
+        /// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Synapse Sql Pool or Sql Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse Sql Pool to be created.
+        /// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("recoveryDatabaseId")]
         public Input<string>? RecoveryDatabaseId { get; set; }
@@ -272,13 +272,13 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.SqlPoolRestoreGetArgs>? Restore { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this Synapse Sql Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
+        /// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// The ID of Synapse Workspace within which this Sql Pool should be created. Changing this forces a new Synapse Sql Pool to be created.
+        /// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("synapseWorkspaceId")]
         public Input<string>? SynapseWorkspaceId { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.Synapse
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Synapse Sql Pool.
+        /// A mapping of tags which should be assigned to the Synapse SQL Pool.
         /// </summary>
         public InputMap<string> Tags
         {

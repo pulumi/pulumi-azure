@@ -121,7 +121,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? HealthCheckPath { get; set; }
 
         /// <summary>
-        /// Specifies if the http2 protocol should be enabled. Defaults to `false`.
+        /// Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         /// </summary>
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }

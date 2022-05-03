@@ -154,7 +154,7 @@ class GetPoolResult:
     @pulumi.getter(name="nodeAgentSkuId")
     def node_agent_sku_id(self) -> str:
         """
-        The Sku of the node agents in the Batch pool.
+        The SKU of the node agents in the Batch pool.
         """
         return pulumi.get(self, "node_agent_sku_id")
 

@@ -22,7 +22,7 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] base64: Base64 encoded value of the certificate.
+        :param pulumi.Input[str] base64: Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Automation Certificate.
         :param pulumi.Input[bool] exportable: The is exportable flag of the certificate.
@@ -54,7 +54,7 @@ class CertificateArgs:
     @pulumi.getter
     def base64(self) -> pulumi.Input[str]:
         """
-        Base64 encoded value of the certificate.
+        Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "base64")
 
@@ -124,7 +124,7 @@ class _CertificateState:
         """
         Input properties used for looking up and filtering Certificate resources.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] base64: Base64 encoded value of the certificate.
+        :param pulumi.Input[str] base64: Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Automation Certificate.
         :param pulumi.Input[bool] exportable: The is exportable flag of the certificate.
         :param pulumi.Input[str] name: Specifies the name of the Certificate. Changing this forces a new resource to be created.
@@ -162,7 +162,7 @@ class _CertificateState:
     @pulumi.getter
     def base64(self) -> Optional[pulumi.Input[str]]:
         """
-        Base64 encoded value of the certificate.
+        Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "base64")
 
@@ -277,7 +277,7 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] base64: Base64 encoded value of the certificate.
+        :param pulumi.Input[str] base64: Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Automation Certificate.
         :param pulumi.Input[bool] exportable: The is exportable flag of the certificate.
         :param pulumi.Input[str] name: Specifies the name of the Certificate. Changing this forces a new resource to be created.
@@ -391,7 +391,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] base64: Base64 encoded value of the certificate.
+        :param pulumi.Input[str] base64: Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Automation Certificate.
         :param pulumi.Input[bool] exportable: The is exportable flag of the certificate.
         :param pulumi.Input[str] name: Specifies the name of the Certificate. Changing this forces a new resource to be created.
@@ -423,7 +423,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def base64(self) -> pulumi.Output[str]:
         """
-        Base64 encoded value of the certificate.
+        Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "base64")
 

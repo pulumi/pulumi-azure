@@ -114,7 +114,7 @@ class GetAnalyticsWorkspaceResult:
     @pulumi.getter
     def sku(self) -> str:
         """
-        The Sku of the Log Analytics Workspace.
+        The SKU of the Log Analytics Workspace.
         """
         return pulumi.get(self, "sku")
 

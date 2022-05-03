@@ -111,7 +111,7 @@ type Insights struct {
 	DailyDataCapInGb pulumi.Float64Output `pulumi:"dailyDataCapInGb"`
 	// Specifies if a notification email will be send when the daily data volume cap is met.
 	DailyDataCapNotificationsDisabled pulumi.BoolOutput `pulumi:"dailyDataCapNotificationsDisabled"`
-	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+	// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
 	DisableIpMasking pulumi.BoolPtrOutput `pulumi:"disableIpMasking"`
 	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
 	ForceCustomerStorageForProfiler pulumi.BoolPtrOutput `pulumi:"forceCustomerStorageForProfiler"`
@@ -185,7 +185,7 @@ type insightsState struct {
 	DailyDataCapInGb *float64 `pulumi:"dailyDataCapInGb"`
 	// Specifies if a notification email will be send when the daily data volume cap is met.
 	DailyDataCapNotificationsDisabled *bool `pulumi:"dailyDataCapNotificationsDisabled"`
-	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+	// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
 	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
 	ForceCustomerStorageForProfiler *bool `pulumi:"forceCustomerStorageForProfiler"`
@@ -225,7 +225,7 @@ type InsightsState struct {
 	DailyDataCapInGb pulumi.Float64PtrInput
 	// Specifies if a notification email will be send when the daily data volume cap is met.
 	DailyDataCapNotificationsDisabled pulumi.BoolPtrInput
-	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+	// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
 	DisableIpMasking pulumi.BoolPtrInput
 	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
 	ForceCustomerStorageForProfiler pulumi.BoolPtrInput
@@ -265,7 +265,7 @@ type insightsArgs struct {
 	DailyDataCapInGb *float64 `pulumi:"dailyDataCapInGb"`
 	// Specifies if a notification email will be send when the daily data volume cap is met.
 	DailyDataCapNotificationsDisabled *bool `pulumi:"dailyDataCapNotificationsDisabled"`
-	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+	// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
 	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
 	ForceCustomerStorageForProfiler *bool `pulumi:"forceCustomerStorageForProfiler"`
@@ -300,7 +300,7 @@ type InsightsArgs struct {
 	DailyDataCapInGb pulumi.Float64PtrInput
 	// Specifies if a notification email will be send when the daily data volume cap is met.
 	DailyDataCapNotificationsDisabled pulumi.BoolPtrInput
-	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+	// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
 	DisableIpMasking pulumi.BoolPtrInput
 	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
 	ForceCustomerStorageForProfiler pulumi.BoolPtrInput

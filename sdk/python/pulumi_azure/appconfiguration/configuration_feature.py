@@ -33,7 +33,7 @@ class ConfigurationFeatureArgs:
         :param pulumi.Input[bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
         :param pulumi.Input[str] label: The label of the App Configuration Feature.  Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
-        :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+        :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[int] percentage_filter_value: A list of one or more numbers representing the value of the percentage required to enable this feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]] targeting_filters: A `targeting_filter` block as defined below.
@@ -134,7 +134,7 @@ class ConfigurationFeatureArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+        The name of the App Configuration Feature. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -212,7 +212,7 @@ class _ConfigurationFeatureState:
         :param pulumi.Input[bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
         :param pulumi.Input[str] label: The label of the App Configuration Feature.  Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
-        :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+        :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[int] percentage_filter_value: A list of one or more numbers representing the value of the percentage required to enable this feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]] targeting_filters: A `targeting_filter` block as defined below.
@@ -314,7 +314,7 @@ class _ConfigurationFeatureState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+        The name of the App Configuration Feature. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -429,7 +429,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
         :param pulumi.Input[str] label: The label of the App Configuration Feature.  Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
-        :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+        :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[int] percentage_filter_value: A list of one or more numbers representing the value of the percentage required to enable this feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]] targeting_filters: A `targeting_filter` block as defined below.
@@ -559,7 +559,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
         :param pulumi.Input[str] label: The label of the App Configuration Feature.  Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
-        :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+        :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[int] percentage_filter_value: A list of one or more numbers representing the value of the percentage required to enable this feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]] targeting_filters: A `targeting_filter` block as defined below.
@@ -631,7 +631,7 @@ class ConfigurationFeature(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+        The name of the App Configuration Feature. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

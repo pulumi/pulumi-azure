@@ -47,7 +47,7 @@ namespace Pulumi.Azure.DataProtection
     ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
     ///         {
     ///             Scope = exampleAccount.Id,
-    ///             RoleDefinitionName = "Storage Account Backup Contributor Role",
+    ///             RoleDefinitionName = "Storage Account Backup Contributor",
     ///             PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///         });
     ///         var exampleBackupPolicyBlobStorage = new Azure.DataProtection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", new Azure.DataProtection.BackupPolicyBlobStorageArgs

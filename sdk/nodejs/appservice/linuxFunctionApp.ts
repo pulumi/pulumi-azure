@@ -181,6 +181,10 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.LinuxFunctionAppSiteCredential[]>;
     /**
+     * A `stickySettings` block as defined below.
+     */
+    public readonly stickySettings!: pulumi.Output<outputs.appservice.LinuxFunctionAppStickySettings | undefined>;
+    /**
      * The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
      */
     public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
@@ -241,6 +245,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
             resourceInputs["servicePlanId"] = state ? state.servicePlanId : undefined;
             resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
             resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
+            resourceInputs["stickySettings"] = state ? state.stickySettings : undefined;
             resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
             resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
             resourceInputs["storageKeyVaultSecretId"] = state ? state.storageKeyVaultSecretId : undefined;
@@ -276,6 +281,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["servicePlanId"] = args ? args.servicePlanId : undefined;
             resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
+            resourceInputs["stickySettings"] = args ? args.stickySettings : undefined;
             resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["storageKeyVaultSecretId"] = args ? args.storageKeyVaultSecretId : undefined;
@@ -408,6 +414,10 @@ export interface LinuxFunctionAppState {
      */
     siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteCredential>[]>;
     /**
+     * A `stickySettings` block as defined below.
+     */
+    stickySettings?: pulumi.Input<inputs.appservice.LinuxFunctionAppStickySettings>;
+    /**
      * The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
      */
     storageAccountAccessKey?: pulumi.Input<string>;
@@ -509,6 +519,10 @@ export interface LinuxFunctionAppArgs {
      * A `siteConfig` block as defined below.
      */
     siteConfig: pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfig>;
+    /**
+     * A `stickySettings` block as defined below.
+     */
+    stickySettings?: pulumi.Input<inputs.appservice.LinuxFunctionAppStickySettings>;
     /**
      * The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
      */

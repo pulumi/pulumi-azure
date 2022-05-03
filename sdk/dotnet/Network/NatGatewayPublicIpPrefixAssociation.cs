@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
-    /// Manages the association between a Nat Gateway and a Public IP Prefix.
+    /// Manages the association between a NAT Gateway and a Public IP Prefix.
     /// 
     /// ## Example Usage
     /// 
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Network
     /// 
     /// ## Import
     /// 
-    /// Associations between Nat Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
+    /// Associations between NAT Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1"
@@ -64,13 +64,13 @@ namespace Pulumi.Azure.Network
     public partial class NatGatewayPublicIpPrefixAssociation : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the Nat Gateway. Changing this forces a new resource to be created.
+        /// The ID of the NAT Gateway. Changing this forces a new resource to be created.
         /// </summary>
         [Output("natGatewayId")]
         public Output<string> NatGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+        /// The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("publicIpPrefixId")]
         public Output<string> PublicIpPrefixId { get; private set; } = null!;
@@ -122,13 +122,13 @@ namespace Pulumi.Azure.Network
     public sealed class NatGatewayPublicIpPrefixAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Nat Gateway. Changing this forces a new resource to be created.
+        /// The ID of the NAT Gateway. Changing this forces a new resource to be created.
         /// </summary>
         [Input("natGatewayId", required: true)]
         public Input<string> NatGatewayId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+        /// The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicIpPrefixId", required: true)]
         public Input<string> PublicIpPrefixId { get; set; } = null!;
@@ -141,13 +141,13 @@ namespace Pulumi.Azure.Network
     public sealed class NatGatewayPublicIpPrefixAssociationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Nat Gateway. Changing this forces a new resource to be created.
+        /// The ID of the NAT Gateway. Changing this forces a new resource to be created.
         /// </summary>
         [Input("natGatewayId")]
         public Input<string>? NatGatewayId { get; set; }
 
         /// <summary>
-        /// The ID of the Public IP Prefix which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+        /// The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicIpPrefixId")]
         public Input<string>? PublicIpPrefixId { get; set; }

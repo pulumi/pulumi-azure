@@ -132,7 +132,7 @@ namespace Pulumi.Azure.LogicApps
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The sku name of the Logic App Integration Account.
+        /// The SKU name of the Logic App Integration Account.
         /// </summary>
         public readonly string SkuName;
         /// <summary>

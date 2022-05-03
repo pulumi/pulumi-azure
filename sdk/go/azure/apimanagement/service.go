@@ -59,7 +59,7 @@ type Service struct {
 	AdditionalLocations ServiceAdditionalLocationArrayOutput `pulumi:"additionalLocations"`
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates ServiceCertificateArrayOutput `pulumi:"certificates"`
-	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl pulumi.StringOutput `pulumi:"developerPortalUrl"`
@@ -171,7 +171,7 @@ type serviceState struct {
 	AdditionalLocations []ServiceAdditionalLocation `pulumi:"additionalLocations"`
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates []ServiceCertificate `pulumi:"certificates"`
-	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl *string `pulumi:"developerPortalUrl"`
@@ -243,7 +243,7 @@ type ServiceState struct {
 	AdditionalLocations ServiceAdditionalLocationArrayInput
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates ServiceCertificateArrayInput
-	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl pulumi.StringPtrInput
@@ -319,7 +319,7 @@ type serviceArgs struct {
 	AdditionalLocations []ServiceAdditionalLocation `pulumi:"additionalLocations"`
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates []ServiceCertificate `pulumi:"certificates"`
-	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
 	GatewayDisabled *bool `pulumi:"gatewayDisabled"`
@@ -376,7 +376,7 @@ type ServiceArgs struct {
 	AdditionalLocations ServiceAdditionalLocationArrayInput
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates ServiceCertificateArrayInput
-	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
 	GatewayDisabled pulumi.BoolPtrInput

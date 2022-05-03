@@ -54,19 +54,19 @@ namespace Pulumi.Azure.Redis.Outputs
         /// </summary>
         public readonly string? NotifyKeyspaceEvents;
         /// <summary>
-        /// Is Backup Enabled? Only supported on Premium SKU's.
+        /// Is Backup Enabled? Only supported on Premium SKUs.
         /// </summary>
         public readonly bool? RdbBackupEnabled;
         /// <summary>
-        /// The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+        /// The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
         /// </summary>
         public readonly int? RdbBackupFrequency;
         /// <summary>
-        /// The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+        /// The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
         /// </summary>
         public readonly int? RdbBackupMaxSnapshotCount;
         /// <summary>
-        /// The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+        /// The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
         /// </summary>
         public readonly string? RdbStorageConnectionString;
 

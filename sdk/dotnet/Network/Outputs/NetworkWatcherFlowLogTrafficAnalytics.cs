@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int? IntervalInMinutes;
         /// <summary>
-        /// The resource guid of the attached workspace.
+        /// The resource GUID of the attached workspace.
         /// </summary>
         public readonly string WorkspaceId;
         /// <summary>

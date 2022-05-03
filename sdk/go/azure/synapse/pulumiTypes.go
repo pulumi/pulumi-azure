@@ -772,9 +772,9 @@ func (o SparkPoolSparkConfigPtrOutput) Filename() pulumi.StringPtrOutput {
 }
 
 type SqlPoolRestore struct {
-	// Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+	// Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
 	PointInTime string `pulumi:"pointInTime"`
-	// The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+	// The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
 	SourceDatabaseId string `pulumi:"sourceDatabaseId"`
 }
 
@@ -790,9 +790,9 @@ type SqlPoolRestoreInput interface {
 }
 
 type SqlPoolRestoreArgs struct {
-	// Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+	// Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
 	PointInTime pulumi.StringInput `pulumi:"pointInTime"`
-	// The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+	// The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
 	SourceDatabaseId pulumi.StringInput `pulumi:"sourceDatabaseId"`
 }
 
@@ -873,12 +873,12 @@ func (o SqlPoolRestoreOutput) ToSqlPoolRestorePtrOutputWithContext(ctx context.C
 	}).(SqlPoolRestorePtrOutput)
 }
 
-// Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+// Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
 func (o SqlPoolRestoreOutput) PointInTime() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlPoolRestore) string { return v.PointInTime }).(pulumi.StringOutput)
 }
 
-// The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+// The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
 func (o SqlPoolRestoreOutput) SourceDatabaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlPoolRestore) string { return v.SourceDatabaseId }).(pulumi.StringOutput)
 }
@@ -907,7 +907,7 @@ func (o SqlPoolRestorePtrOutput) Elem() SqlPoolRestoreOutput {
 	}).(SqlPoolRestoreOutput)
 }
 
-// Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+// Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
 func (o SqlPoolRestorePtrOutput) PointInTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlPoolRestore) *string {
 		if v == nil {
@@ -917,7 +917,7 @@ func (o SqlPoolRestorePtrOutput) PointInTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+// The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
 func (o SqlPoolRestorePtrOutput) SourceDatabaseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlPoolRestore) *string {
 		if v == nil {

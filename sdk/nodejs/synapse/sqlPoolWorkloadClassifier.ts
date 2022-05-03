@@ -119,7 +119,7 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
      */
     public readonly startTime!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+     * The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
      */
     public readonly workloadGroupId!: pulumi.Output<string>;
 
@@ -199,7 +199,7 @@ export interface SqlPoolWorkloadClassifierState {
      */
     startTime?: pulumi.Input<string>;
     /**
-     * The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+     * The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
      */
     workloadGroupId?: pulumi.Input<string>;
 }
@@ -237,7 +237,7 @@ export interface SqlPoolWorkloadClassifierArgs {
      */
     startTime?: pulumi.Input<string>;
     /**
-     * The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+     * The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
      */
     workloadGroupId: pulumi.Input<string>;
 }

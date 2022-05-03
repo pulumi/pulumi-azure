@@ -11,7 +11,7 @@ namespace Pulumi.Azure.AppService
 {
     /// <summary>
     /// ## Example Usage
-    /// ### Net 4.X)
+    /// ### NET 4.X)
     /// 
     /// ```csharp
     /// using Pulumi;

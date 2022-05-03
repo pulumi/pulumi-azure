@@ -55,7 +55,7 @@ type LookupInstanceArgs struct {
 
 // A collection of values returned by getInstance.
 type LookupInstanceResult struct {
-	// The Api endpoint to work with this Digital Twins instance.
+	// The API endpoint to work with this Digital Twins instance.
 	HostName string `pulumi:"hostName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -103,7 +103,7 @@ func (o LookupInstanceResultOutput) ToLookupInstanceResultOutputWithContext(ctx 
 	return o
 }
 
-// The Api endpoint to work with this Digital Twins instance.
+// The API endpoint to work with this Digital Twins instance.
 func (o LookupInstanceResultOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.HostName }).(pulumi.StringOutput)
 }

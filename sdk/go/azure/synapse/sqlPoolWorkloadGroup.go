@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Synapse Sql Pool Workload Group.
+// Manages a Synapse SQL Pool Workload Group.
 //
 // ## Example Usage
 //
@@ -86,7 +86,7 @@ import (
 //
 // ## Import
 //
-// Synapse Sql Pool Workload Groups can be imported using the `resource id`, e.g.
+// Synapse SQL Pool Workload Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
 //  $ pulumi import azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/workloadGroups/workloadGroup1
@@ -104,11 +104,11 @@ type SqlPoolWorkloadGroup struct {
 	MinResourcePercent pulumi.IntOutput `pulumi:"minResourcePercent"`
 	// The workload group request minimum grant percentage.
 	MinResourcePercentPerRequest pulumi.Float64PtrOutput `pulumi:"minResourcePercentPerRequest"`
-	// The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+	// The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The workload group query execution timeout.
 	QueryExecutionTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"queryExecutionTimeoutInSeconds"`
-	// The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+	// The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
 	SqlPoolId pulumi.StringOutput `pulumi:"sqlPoolId"`
 }
 
@@ -160,11 +160,11 @@ type sqlPoolWorkloadGroupState struct {
 	MinResourcePercent *int `pulumi:"minResourcePercent"`
 	// The workload group request minimum grant percentage.
 	MinResourcePercentPerRequest *float64 `pulumi:"minResourcePercentPerRequest"`
-	// The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+	// The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
 	Name *string `pulumi:"name"`
 	// The workload group query execution timeout.
 	QueryExecutionTimeoutInSeconds *int `pulumi:"queryExecutionTimeoutInSeconds"`
-	// The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+	// The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
 	SqlPoolId *string `pulumi:"sqlPoolId"`
 }
 
@@ -179,11 +179,11 @@ type SqlPoolWorkloadGroupState struct {
 	MinResourcePercent pulumi.IntPtrInput
 	// The workload group request minimum grant percentage.
 	MinResourcePercentPerRequest pulumi.Float64PtrInput
-	// The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+	// The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
 	Name pulumi.StringPtrInput
 	// The workload group query execution timeout.
 	QueryExecutionTimeoutInSeconds pulumi.IntPtrInput
-	// The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+	// The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
 	SqlPoolId pulumi.StringPtrInput
 }
 
@@ -202,11 +202,11 @@ type sqlPoolWorkloadGroupArgs struct {
 	MinResourcePercent int `pulumi:"minResourcePercent"`
 	// The workload group request minimum grant percentage.
 	MinResourcePercentPerRequest *float64 `pulumi:"minResourcePercentPerRequest"`
-	// The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+	// The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
 	Name *string `pulumi:"name"`
 	// The workload group query execution timeout.
 	QueryExecutionTimeoutInSeconds *int `pulumi:"queryExecutionTimeoutInSeconds"`
-	// The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+	// The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
 	SqlPoolId string `pulumi:"sqlPoolId"`
 }
 
@@ -222,11 +222,11 @@ type SqlPoolWorkloadGroupArgs struct {
 	MinResourcePercent pulumi.IntInput
 	// The workload group request minimum grant percentage.
 	MinResourcePercentPerRequest pulumi.Float64PtrInput
-	// The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+	// The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
 	Name pulumi.StringPtrInput
 	// The workload group query execution timeout.
 	QueryExecutionTimeoutInSeconds pulumi.IntPtrInput
-	// The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+	// The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
 	SqlPoolId pulumi.StringInput
 }
 

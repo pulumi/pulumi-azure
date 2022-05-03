@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetLinuxFunctionAppSiteCredentialResult
     {
         /// <summary>
-        /// The Site Credentials Username used for publishing.
+        /// The name which should be used for this Linux Function App.
         /// </summary>
         public readonly string Name;
         /// <summary>

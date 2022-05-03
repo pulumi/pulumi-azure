@@ -2996,7 +2996,7 @@ type LiveEventPreview struct {
 	Endpoints          []LiveEventPreviewEndpoint `pulumi:"endpoints"`
 	// One or more `ipAccessControlAllow` blocks as defined above.
 	IpAccessControlAllows []LiveEventPreviewIpAccessControlAllow `pulumi:"ipAccessControlAllows"`
-	// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+	// The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
 	PreviewLocator *string `pulumi:"previewLocator"`
 	// The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
 	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
@@ -3019,7 +3019,7 @@ type LiveEventPreviewArgs struct {
 	Endpoints          LiveEventPreviewEndpointArrayInput `pulumi:"endpoints"`
 	// One or more `ipAccessControlAllow` blocks as defined above.
 	IpAccessControlAllows LiveEventPreviewIpAccessControlAllowArrayInput `pulumi:"ipAccessControlAllows"`
-	// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+	// The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
 	PreviewLocator pulumi.StringPtrInput `pulumi:"previewLocator"`
 	// The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
 	StreamingPolicyName pulumi.StringPtrInput `pulumi:"streamingPolicyName"`
@@ -3116,7 +3116,7 @@ func (o LiveEventPreviewOutput) IpAccessControlAllows() LiveEventPreviewIpAccess
 	return o.ApplyT(func(v LiveEventPreview) []LiveEventPreviewIpAccessControlAllow { return v.IpAccessControlAllows }).(LiveEventPreviewIpAccessControlAllowArrayOutput)
 }
 
-// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+// The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
 func (o LiveEventPreviewOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *string { return v.PreviewLocator }).(pulumi.StringPtrOutput)
 }
@@ -3179,7 +3179,7 @@ func (o LiveEventPreviewPtrOutput) IpAccessControlAllows() LiveEventPreviewIpAcc
 	}).(LiveEventPreviewIpAccessControlAllowArrayOutput)
 }
 
-// The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+// The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
 func (o LiveEventPreviewPtrOutput) PreviewLocator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *string {
 		if v == nil {

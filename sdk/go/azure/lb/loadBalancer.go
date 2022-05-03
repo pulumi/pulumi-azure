@@ -85,7 +85,7 @@ type LoadBalancer struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
-	// `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	// *
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
@@ -140,7 +140,7 @@ type loadBalancerState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
 	Sku *string `pulumi:"sku"`
-	// `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	// *
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
@@ -164,7 +164,7 @@ type LoadBalancerState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
 	Sku pulumi.StringPtrInput
-	// `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	// *
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -188,7 +188,7 @@ type loadBalancerArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
 	Sku *string `pulumi:"sku"`
-	// `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	// *
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
@@ -209,7 +209,7 @@ type LoadBalancerArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
 	Sku pulumi.StringPtrInput
-	// `skuTier` - (Optional) The Sku Tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	// *
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// </summary>
         public readonly string? Action;
         /// <summary>
-        /// The ip mask (CIDR) to match on.
+        /// The IP mask (CIDR) to match on.
         /// </summary>
         public readonly string IpMask;
 

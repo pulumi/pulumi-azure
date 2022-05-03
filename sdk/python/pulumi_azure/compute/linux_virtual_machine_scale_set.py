@@ -57,6 +57,7 @@ class LinuxVirtualMachineScaleSetArgs:
                  source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_notification: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs']] = None,
+                 termination_notification: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
@@ -106,6 +107,7 @@ class LinuxVirtualMachineScaleSetArgs:
         :param pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs'] terminate_notification: A `terminate_notification` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -189,7 +191,12 @@ class LinuxVirtualMachineScaleSetArgs:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if terminate_notification is not None:
+            warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
+            pulumi.log.warn("""terminate_notification is deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
+        if terminate_notification is not None:
             pulumi.set(__self__, "terminate_notification", terminate_notification)
+        if termination_notification is not None:
+            pulumi.set(__self__, "termination_notification", termination_notification)
         if upgrade_mode is not None:
             pulumi.set(__self__, "upgrade_mode", upgrade_mode)
         if user_data is not None:
@@ -706,6 +713,18 @@ class LinuxVirtualMachineScaleSetArgs:
         pulumi.set(self, "terminate_notification", value)
 
     @property
+    @pulumi.getter(name="terminationNotification")
+    def termination_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]:
+        """
+        A `termination_notification` block as defined below.
+        """
+        return pulumi.get(self, "termination_notification")
+
+    @termination_notification.setter
+    def termination_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]):
+        pulumi.set(self, "termination_notification", value)
+
+    @property
     @pulumi.getter(name="upgradeMode")
     def upgrade_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -811,6 +830,7 @@ class _LinuxVirtualMachineScaleSetState:
                  source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_notification: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs']] = None,
+                 termination_notification: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']] = None,
                  unique_id: Optional[pulumi.Input[str]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
@@ -861,6 +881,7 @@ class _LinuxVirtualMachineScaleSetState:
         :param pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs'] terminate_notification: A `terminate_notification` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] unique_id: The Unique ID for this Linux Virtual Machine Scale Set.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
@@ -951,7 +972,12 @@ class _LinuxVirtualMachineScaleSetState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if terminate_notification is not None:
+            warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
+            pulumi.log.warn("""terminate_notification is deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
+        if terminate_notification is not None:
             pulumi.set(__self__, "terminate_notification", terminate_notification)
+        if termination_notification is not None:
+            pulumi.set(__self__, "termination_notification", termination_notification)
         if unique_id is not None:
             pulumi.set(__self__, "unique_id", unique_id)
         if upgrade_mode is not None:
@@ -1470,6 +1496,18 @@ class _LinuxVirtualMachineScaleSetState:
         pulumi.set(self, "terminate_notification", value)
 
     @property
+    @pulumi.getter(name="terminationNotification")
+    def termination_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]:
+        """
+        A `termination_notification` block as defined below.
+        """
+        return pulumi.get(self, "termination_notification")
+
+    @termination_notification.setter
+    def termination_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]):
+        pulumi.set(self, "termination_notification", value)
+
+    @property
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1589,6 +1627,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]] = None,
+                 termination_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1704,6 +1743,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminateNotificationArgs']] terminate_notification: A `terminate_notification` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -1838,6 +1878,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]] = None,
+                 termination_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1908,7 +1949,11 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["source_image_id"] = source_image_id
             __props__.__dict__["source_image_reference"] = source_image_reference
             __props__.__dict__["tags"] = tags
+            if terminate_notification is not None and not opts.urn:
+                warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
+                pulumi.log.warn("""terminate_notification is deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
             __props__.__dict__["terminate_notification"] = terminate_notification
+            __props__.__dict__["termination_notification"] = termination_notification
             __props__.__dict__["upgrade_mode"] = upgrade_mode
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["vtpm_enabled"] = vtpm_enabled
@@ -1967,6 +2012,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             terminate_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]] = None,
+            termination_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
             unique_id: Optional[pulumi.Input[str]] = None,
             upgrade_mode: Optional[pulumi.Input[str]] = None,
             user_data: Optional[pulumi.Input[str]] = None,
@@ -2022,6 +2068,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminateNotificationArgs']] terminate_notification: A `terminate_notification` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] unique_id: The Unique ID for this Linux Virtual Machine Scale Set.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
@@ -2075,6 +2122,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["source_image_reference"] = source_image_reference
         __props__.__dict__["tags"] = tags
         __props__.__dict__["terminate_notification"] = terminate_notification
+        __props__.__dict__["termination_notification"] = termination_notification
         __props__.__dict__["unique_id"] = unique_id
         __props__.__dict__["upgrade_mode"] = upgrade_mode
         __props__.__dict__["user_data"] = user_data
@@ -2418,6 +2466,14 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         A `terminate_notification` block as defined below.
         """
         return pulumi.get(self, "terminate_notification")
+
+    @property
+    @pulumi.getter(name="terminationNotification")
+    def termination_notification(self) -> pulumi.Output['outputs.LinuxVirtualMachineScaleSetTerminationNotification']:
+        """
+        A `termination_notification` block as defined below.
+        """
+        return pulumi.get(self, "termination_notification")
 
     @property
     @pulumi.getter(name="uniqueId")

@@ -206,7 +206,7 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 
 type ModuleModuleLink struct {
 	Hash *ModuleModuleLinkHash `pulumi:"hash"`
-	// The uri of the module content (zip or nupkg).
+	// The URI of the module content (zip or nupkg).
 	Uri string `pulumi:"uri"`
 }
 
@@ -223,7 +223,7 @@ type ModuleModuleLinkInput interface {
 
 type ModuleModuleLinkArgs struct {
 	Hash ModuleModuleLinkHashPtrInput `pulumi:"hash"`
-	// The uri of the module content (zip or nupkg).
+	// The URI of the module content (zip or nupkg).
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
@@ -308,7 +308,7 @@ func (o ModuleModuleLinkOutput) Hash() ModuleModuleLinkHashPtrOutput {
 	return o.ApplyT(func(v ModuleModuleLink) *ModuleModuleLinkHash { return v.Hash }).(ModuleModuleLinkHashPtrOutput)
 }
 
-// The uri of the module content (zip or nupkg).
+// The URI of the module content (zip or nupkg).
 func (o ModuleModuleLinkOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModuleModuleLink) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -346,7 +346,7 @@ func (o ModuleModuleLinkPtrOutput) Hash() ModuleModuleLinkHashPtrOutput {
 	}).(ModuleModuleLinkHashPtrOutput)
 }
 
-// The uri of the module content (zip or nupkg).
+// The URI of the module content (zip or nupkg).
 func (o ModuleModuleLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModuleModuleLink) *string {
 		if v == nil {
@@ -618,7 +618,7 @@ func (o RunBookJobScheduleArrayOutput) Index(i pulumi.IntInput) RunBookJobSchedu
 
 type RunBookPublishContentLink struct {
 	Hash *RunBookPublishContentLinkHash `pulumi:"hash"`
-	// The uri of the runbook content.
+	// The URI of the runbook content.
 	Uri     string  `pulumi:"uri"`
 	Version *string `pulumi:"version"`
 }
@@ -636,7 +636,7 @@ type RunBookPublishContentLinkInput interface {
 
 type RunBookPublishContentLinkArgs struct {
 	Hash RunBookPublishContentLinkHashPtrInput `pulumi:"hash"`
-	// The uri of the runbook content.
+	// The URI of the runbook content.
 	Uri     pulumi.StringInput    `pulumi:"uri"`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -722,7 +722,7 @@ func (o RunBookPublishContentLinkOutput) Hash() RunBookPublishContentLinkHashPtr
 	return o.ApplyT(func(v RunBookPublishContentLink) *RunBookPublishContentLinkHash { return v.Hash }).(RunBookPublishContentLinkHashPtrOutput)
 }
 
-// The uri of the runbook content.
+// The URI of the runbook content.
 func (o RunBookPublishContentLinkOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v RunBookPublishContentLink) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -764,7 +764,7 @@ func (o RunBookPublishContentLinkPtrOutput) Hash() RunBookPublishContentLinkHash
 	}).(RunBookPublishContentLinkHashPtrOutput)
 }
 
-// The uri of the runbook content.
+// The URI of the runbook content.
 func (o RunBookPublishContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunBookPublishContentLink) *string {
 		if v == nil {

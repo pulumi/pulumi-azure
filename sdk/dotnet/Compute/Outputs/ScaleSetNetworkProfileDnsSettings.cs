@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class ScaleSetNetworkProfileDnsSettings
     {
         /// <summary>
-        /// Specifies an array of dns servers.
+        /// Specifies an array of DNS servers.
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
 

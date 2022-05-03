@@ -223,8 +223,8 @@ class SqlPoolRestore(dict):
                  point_in_time: str,
                  source_database_id: str):
         """
-        :param str point_in_time: Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
-        :param str source_database_id: The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+        :param str point_in_time: Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
+        :param str source_database_id: The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
         """
         pulumi.set(__self__, "point_in_time", point_in_time)
         pulumi.set(__self__, "source_database_id", source_database_id)
@@ -233,7 +233,7 @@ class SqlPoolRestore(dict):
     @pulumi.getter(name="pointInTime")
     def point_in_time(self) -> str:
         """
-        Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+        Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "point_in_time")
 
@@ -241,7 +241,7 @@ class SqlPoolRestore(dict):
     @pulumi.getter(name="sourceDatabaseId")
     def source_database_id(self) -> str:
         """
-        The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+        The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "source_database_id")
 

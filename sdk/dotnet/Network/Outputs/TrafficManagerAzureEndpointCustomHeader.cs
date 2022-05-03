@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The value of custom header. Applicable for Http and Https protocol.
+        /// The value of custom header. Applicable for HTTP and HTTPS protocol.
         /// </summary>
         public readonly string Value;
 

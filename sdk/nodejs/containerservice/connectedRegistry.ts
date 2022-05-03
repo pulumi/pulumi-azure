@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Container Connected Registrys can be imported using the `resource id`, e.g.
+ * Container Connected Registries can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:containerservice/connectedRegistry:ConnectedRegistry example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/connectedRegistries/registry1
@@ -84,7 +84,7 @@ export class ConnectedRegistry extends pulumi.CustomResource {
     }
 
     /**
-     * Should the log auditting be enabled?
+     * Should the log auditing be enabled?
      */
     public readonly auditLogEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -188,7 +188,7 @@ export class ConnectedRegistry extends pulumi.CustomResource {
  */
 export interface ConnectedRegistryState {
     /**
-     * Should the log auditting be enabled?
+     * Should the log auditing be enabled?
      */
     auditLogEnabled?: pulumi.Input<boolean>;
     /**
@@ -242,7 +242,7 @@ export interface ConnectedRegistryState {
  */
 export interface ConnectedRegistryArgs {
     /**
-     * Should the log auditting be enabled?
+     * Should the log auditing be enabled?
      */
     auditLogEnabled?: pulumi.Input<boolean>;
     /**

@@ -91,7 +91,7 @@ class _InstanceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
-        :param pulumi.Input[str] host_name: The Api endpoint to work with this Digital Twins instance.
+        :param pulumi.Input[str] host_name: The API endpoint to work with this Digital Twins instance.
         :param pulumi.Input[str] location: The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
@@ -112,7 +112,7 @@ class _InstanceState:
     @pulumi.getter(name="hostName")
     def host_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Api endpoint to work with this Digital Twins instance.
+        The API endpoint to work with this Digital Twins instance.
         """
         return pulumi.get(self, "host_name")
 
@@ -304,7 +304,7 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] host_name: The Api endpoint to work with this Digital Twins instance.
+        :param pulumi.Input[str] host_name: The API endpoint to work with this Digital Twins instance.
         :param pulumi.Input[str] location: The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
@@ -325,7 +325,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="hostName")
     def host_name(self) -> pulumi.Output[str]:
         """
-        The Api endpoint to work with this Digital Twins instance.
+        The API endpoint to work with this Digital Twins instance.
         """
         return pulumi.get(self, "host_name")
 

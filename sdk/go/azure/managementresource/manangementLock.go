@@ -43,8 +43,7 @@ import (
 // 	})
 // }
 // ```
-//
-// ## Example Usage (Resource Group Level Lock)
+// ### Resource Group Level Lock)
 //
 // ```go
 // package main

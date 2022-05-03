@@ -92,11 +92,13 @@ type Job struct {
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId pulumi.StringPtrOutput `pulumi:"streamAnalyticsClusterId"`
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
-	StreamingUnits pulumi.IntOutput `pulumi:"streamingUnits"`
+	StreamingUnits pulumi.IntPtrOutput `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery pulumi.StringOutput `pulumi:"transformationQuery"`
+	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewJob registers a new resource with the given unique name, arguments, and options.
@@ -108,9 +110,6 @@ func NewJob(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.StreamingUnits == nil {
-		return nil, errors.New("invalid value for required argument 'StreamingUnits'")
 	}
 	if args.TransformationQuery == nil {
 		return nil, errors.New("invalid value for required argument 'TransformationQuery'")
@@ -167,6 +166,8 @@ type jobState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery *string `pulumi:"transformationQuery"`
+	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+	Type *string `pulumi:"type"`
 }
 
 type JobState struct {
@@ -200,6 +201,8 @@ type JobState struct {
 	Tags pulumi.StringMapInput
 	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery pulumi.StringPtrInput
+	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+	Type pulumi.StringPtrInput
 }
 
 func (JobState) ElementType() reflect.Type {
@@ -230,11 +233,13 @@ type jobArgs struct {
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId *string `pulumi:"streamAnalyticsClusterId"`
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
-	StreamingUnits int `pulumi:"streamingUnits"`
+	StreamingUnits *int `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery string `pulumi:"transformationQuery"`
+	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Job resource.
@@ -262,11 +267,13 @@ type JobArgs struct {
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId pulumi.StringPtrInput
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
-	StreamingUnits pulumi.IntInput
+	StreamingUnits pulumi.IntPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery pulumi.StringInput
+	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+	Type pulumi.StringPtrInput
 }
 
 func (JobArgs) ElementType() reflect.Type {

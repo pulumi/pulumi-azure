@@ -75,7 +75,7 @@ type LookupPoolResult struct {
 	// The name of the endpoint.
 	Name                  string                        `pulumi:"name"`
 	NetworkConfigurations []GetPoolNetworkConfiguration `pulumi:"networkConfigurations"`
-	// The Sku of the node agents in the Batch pool.
+	// The SKU of the node agents in the Batch pool.
 	NodeAgentSkuId    string `pulumi:"nodeAgentSkuId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
@@ -175,7 +175,7 @@ func (o LookupPoolResultOutput) NetworkConfigurations() GetPoolNetworkConfigurat
 	return o.ApplyT(func(v LookupPoolResult) []GetPoolNetworkConfiguration { return v.NetworkConfigurations }).(GetPoolNetworkConfigurationArrayOutput)
 }
 
-// The Sku of the node agents in the Batch pool.
+// The SKU of the node agents in the Batch pool.
 func (o LookupPoolResultOutput) NodeAgentSkuId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.NodeAgentSkuId }).(pulumi.StringOutput)
 }

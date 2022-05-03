@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class VirtualMachineKeyVaultCredential
     {
         /// <summary>
-        /// The azure Key Vault url. Changing this forces a new resource to be created.
+        /// The Azure Key Vault url. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string KeyVaultUrl;
         /// <summary>

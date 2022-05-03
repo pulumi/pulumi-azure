@@ -81,7 +81,7 @@ type GetClusterResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The SKU / Tier of this HDInsight Cluster.
 	Tier string `pulumi:"tier"`
-	// The minimal supported tls version.
+	// The minimal supported TLS version.
 	TlsMinVersion string `pulumi:"tlsMinVersion"`
 }
 
@@ -189,7 +189,7 @@ func (o GetClusterResultOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterResult) string { return v.Tier }).(pulumi.StringOutput)
 }
 
-// The minimal supported tls version.
+// The minimal supported TLS version.
 func (o GetClusterResultOutput) TlsMinVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterResult) string { return v.TlsMinVersion }).(pulumi.StringOutput)
 }

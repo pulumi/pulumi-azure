@@ -14,15 +14,24 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult
     {
         /// <summary>
-        /// The domain name label for the dns settings.
+        /// The domain name label for the DNS settings.
         /// </summary>
         public readonly string DomainNameLabel;
+        /// <summary>
+        /// The idle timeout in minutes.
+        /// </summary>
         public readonly int IdleTimeoutInMinutes;
+        /// <summary>
+        /// A list of `ip_tag` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult> IpTags;
         /// <summary>
         /// The name of this Virtual Machine Scale Set.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ID of the public IP prefix.
+        /// </summary>
         public readonly string PublicIpPrefixId;
 
         [OutputConstructor]

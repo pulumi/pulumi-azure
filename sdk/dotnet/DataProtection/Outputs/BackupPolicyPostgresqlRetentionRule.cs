@@ -26,7 +26,7 @@ namespace Pulumi.Azure.DataProtection.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Postgre Sql to be created.
+        /// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created.
         /// </summary>
         public readonly int Priority;
 

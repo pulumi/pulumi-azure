@@ -67,7 +67,7 @@ export interface GetAccountResult {
      */
     readonly secondaryAccessKey: string;
     /**
-     * The sku of the Azure Maps Account.
+     * The SKU of the Azure Maps Account.
      */
     readonly skuName: string;
     readonly tags?: {[key: string]: string};

@@ -84,7 +84,7 @@ class GetAccountResult:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> str:
         """
-        The sku of the Azure Maps Account.
+        The SKU of the Azure Maps Account.
         """
         return pulumi.get(self, "sku_name")
 

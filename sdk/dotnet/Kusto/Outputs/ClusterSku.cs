@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Kusto.Outputs
     public sealed class ClusterSku
     {
         /// <summary>
-        /// Specifies the node count for the cluster. Boundaries depend on the sku name.
+        /// Specifies the node count for the cluster. Boundaries depend on the SKU name.
         /// </summary>
         public readonly int? Capacity;
         /// <summary>

@@ -22,11 +22,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string DockerImageTag;
         /// <summary>
-        /// The version of .Net in use.
+        /// The version of .NET in use.
         /// </summary>
         public readonly string DotnetVersion;
         /// <summary>
-        /// The java server type.
+        /// The Java server type.
         /// </summary>
         public readonly string JavaServer;
         /// <summary>

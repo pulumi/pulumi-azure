@@ -106,7 +106,7 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+     * The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
      */
     public readonly parameterValues!: pulumi.Output<string>;
     /**
@@ -207,7 +207,7 @@ export interface ApplicationState {
      */
     outputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+     * The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
      */
     parameterValues?: pulumi.Input<string>;
     /**
@@ -253,7 +253,7 @@ export interface ApplicationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+     * The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
      */
     parameterValues?: pulumi.Input<string>;
     /**

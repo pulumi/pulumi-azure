@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Sql.Outputs
     [OutputType]
     public sealed class GetSqlManagedInstanceIdentityResult
     {
+        /// <summary>
+        /// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        /// </summary>
         public readonly string PrincipalId;
+        /// <summary>
+        /// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        /// </summary>
         public readonly string TenantId;
         public readonly string Type;
 

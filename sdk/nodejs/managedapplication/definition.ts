@@ -71,7 +71,7 @@ export class Definition extends pulumi.CustomResource {
      */
     public readonly authorizations!: pulumi.Output<outputs.managedapplication.DefinitionAuthorization[] | undefined>;
     /**
-     * Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+     * Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
      */
     public readonly createUiDefinition!: pulumi.Output<string | undefined>;
     /**
@@ -91,7 +91,7 @@ export class Definition extends pulumi.CustomResource {
      */
     public readonly lockLevel!: pulumi.Output<string>;
     /**
-     * Specifies the inline main template json which has resources to be provisioned.
+     * Specifies the inline main template JSON which has resources to be provisioned.
      */
     public readonly mainTemplate!: pulumi.Output<string | undefined>;
     /**
@@ -178,7 +178,7 @@ export interface DefinitionState {
      */
     authorizations?: pulumi.Input<pulumi.Input<inputs.managedapplication.DefinitionAuthorization>[]>;
     /**
-     * Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+     * Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
      */
     createUiDefinition?: pulumi.Input<string>;
     /**
@@ -198,7 +198,7 @@ export interface DefinitionState {
      */
     lockLevel?: pulumi.Input<string>;
     /**
-     * Specifies the inline main template json which has resources to be provisioned.
+     * Specifies the inline main template JSON which has resources to be provisioned.
      */
     mainTemplate?: pulumi.Input<string>;
     /**
@@ -232,7 +232,7 @@ export interface DefinitionArgs {
      */
     authorizations?: pulumi.Input<pulumi.Input<inputs.managedapplication.DefinitionAuthorization>[]>;
     /**
-     * Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+     * Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
      */
     createUiDefinition?: pulumi.Input<string>;
     /**
@@ -252,7 +252,7 @@ export interface DefinitionArgs {
      */
     lockLevel: pulumi.Input<string>;
     /**
-     * Specifies the inline main template json which has resources to be provisioned.
+     * Specifies the inline main template JSON which has resources to be provisioned.
      */
     mainTemplate?: pulumi.Input<string>;
     /**

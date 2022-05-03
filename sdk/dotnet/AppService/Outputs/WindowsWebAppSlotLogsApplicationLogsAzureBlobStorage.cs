@@ -13,6 +13,9 @@ namespace Pulumi.Azure.AppService.Outputs
     [OutputType]
     public sealed class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage
     {
+        /// <summary>
+        /// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        /// </summary>
         public readonly string Level;
         /// <summary>
         /// The time in days after which to remove blobs. A value of `0` means no retention.

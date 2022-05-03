@@ -207,7 +207,7 @@ func (o DomainIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type DomainInboundIpRule struct {
 	// The action to take when the rule is matched. Possible values are `Allow`.
 	Action *string `pulumi:"action"`
-	// The ip mask (CIDR) to match on.
+	// The IP mask (CIDR) to match on.
 	IpMask string `pulumi:"ipMask"`
 }
 
@@ -225,7 +225,7 @@ type DomainInboundIpRuleInput interface {
 type DomainInboundIpRuleArgs struct {
 	// The action to take when the rule is matched. Possible values are `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The ip mask (CIDR) to match on.
+	// The IP mask (CIDR) to match on.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
 }
 
@@ -285,7 +285,7 @@ func (o DomainInboundIpRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainInboundIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// The ip mask (CIDR) to match on.
+// The IP mask (CIDR) to match on.
 func (o DomainInboundIpRuleOutput) IpMask() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainInboundIpRule) string { return v.IpMask }).(pulumi.StringOutput)
 }
@@ -914,7 +914,7 @@ func (o EventGridTopicIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type EventGridTopicInboundIpRule struct {
 	// The action to take when the rule is matched. Possible values are `Allow`.
 	Action *string `pulumi:"action"`
-	// The ip mask (CIDR) to match on.
+	// The IP mask (CIDR) to match on.
 	IpMask string `pulumi:"ipMask"`
 }
 
@@ -932,7 +932,7 @@ type EventGridTopicInboundIpRuleInput interface {
 type EventGridTopicInboundIpRuleArgs struct {
 	// The action to take when the rule is matched. Possible values are `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The ip mask (CIDR) to match on.
+	// The IP mask (CIDR) to match on.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
 }
 
@@ -992,7 +992,7 @@ func (o EventGridTopicInboundIpRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGridTopicInboundIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// The ip mask (CIDR) to match on.
+// The IP mask (CIDR) to match on.
 func (o EventGridTopicInboundIpRuleOutput) IpMask() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridTopicInboundIpRule) string { return v.IpMask }).(pulumi.StringOutput)
 }
@@ -2224,7 +2224,7 @@ func (o EventHubNamespaceNetworkRulesetsPtrOutput) VirtualNetworkRules() EventHu
 type EventHubNamespaceNetworkRulesetsIpRule struct {
 	// The action to take when the rule is matched. Possible values are `Allow`.
 	Action *string `pulumi:"action"`
-	// The ip mask to match on.
+	// The IP mask to match on.
 	IpMask string `pulumi:"ipMask"`
 }
 
@@ -2242,7 +2242,7 @@ type EventHubNamespaceNetworkRulesetsIpRuleInput interface {
 type EventHubNamespaceNetworkRulesetsIpRuleArgs struct {
 	// The action to take when the rule is matched. Possible values are `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The ip mask to match on.
+	// The IP mask to match on.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
 }
 
@@ -2302,7 +2302,7 @@ func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) Action() pulumi.StringPtrO
 	return o.ApplyT(func(v EventHubNamespaceNetworkRulesetsIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// The ip mask to match on.
+// The IP mask to match on.
 func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) IpMask() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubNamespaceNetworkRulesetsIpRule) string { return v.IpMask }).(pulumi.StringOutput)
 }

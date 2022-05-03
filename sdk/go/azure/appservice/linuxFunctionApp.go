@@ -130,6 +130,8 @@ type LinuxFunctionApp struct {
 	SiteConfig LinuxFunctionAppSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below.
 	SiteCredentials LinuxFunctionAppSiteCredentialArrayOutput `pulumi:"siteCredentials"`
+	// A `stickySettings` block as defined below.
+	StickySettings LinuxFunctionAppStickySettingsPtrOutput `pulumi:"stickySettings"`
 	// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App.
@@ -234,6 +236,8 @@ type linuxFunctionAppState struct {
 	SiteConfig *LinuxFunctionAppSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below.
 	SiteCredentials []LinuxFunctionAppSiteCredential `pulumi:"siteCredentials"`
+	// A `stickySettings` block as defined below.
+	StickySettings *LinuxFunctionAppStickySettings `pulumi:"stickySettings"`
 	// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App.
@@ -301,6 +305,8 @@ type LinuxFunctionAppState struct {
 	SiteConfig LinuxFunctionAppSiteConfigPtrInput
 	// A `siteCredential` block as defined below.
 	SiteCredentials LinuxFunctionAppSiteCredentialArrayInput
+	// A `stickySettings` block as defined below.
+	StickySettings LinuxFunctionAppStickySettingsPtrInput
 	// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App.
@@ -356,6 +362,8 @@ type linuxFunctionAppArgs struct {
 	ServicePlanId string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxFunctionAppSiteConfig `pulumi:"siteConfig"`
+	// A `stickySettings` block as defined below.
+	StickySettings *LinuxFunctionAppStickySettings `pulumi:"stickySettings"`
 	// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App.
@@ -408,6 +416,8 @@ type LinuxFunctionAppArgs struct {
 	ServicePlanId pulumi.StringInput
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxFunctionAppSiteConfigInput
+	// A `stickySettings` block as defined below.
+	StickySettings LinuxFunctionAppStickySettingsPtrInput
 	// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App.

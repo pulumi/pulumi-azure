@@ -1899,9 +1899,11 @@ func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentity
 }
 
 type GetSqlManagedInstanceIdentity struct {
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	PrincipalId string `pulumi:"principalId"`
-	TenantId    string `pulumi:"tenantId"`
-	Type        string `pulumi:"type"`
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	TenantId string `pulumi:"tenantId"`
+	Type     string `pulumi:"type"`
 }
 
 // GetSqlManagedInstanceIdentityInput is an input type that accepts GetSqlManagedInstanceIdentityArgs and GetSqlManagedInstanceIdentityOutput values.
@@ -1916,9 +1918,11 @@ type GetSqlManagedInstanceIdentityInput interface {
 }
 
 type GetSqlManagedInstanceIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	TenantId    pulumi.StringInput `pulumi:"tenantId"`
-	Type        pulumi.StringInput `pulumi:"type"`
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	Type     pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetSqlManagedInstanceIdentityArgs) ElementType() reflect.Type {
@@ -1972,10 +1976,12 @@ func (o GetSqlManagedInstanceIdentityOutput) ToGetSqlManagedInstanceIdentityOutp
 	return o
 }
 
+// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 func (o GetSqlManagedInstanceIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
+// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 func (o GetSqlManagedInstanceIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSqlManagedInstanceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }

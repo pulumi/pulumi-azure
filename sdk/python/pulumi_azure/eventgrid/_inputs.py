@@ -155,7 +155,7 @@ class DomainInboundIpRuleArgs:
                  ip_mask: pulumi.Input[str],
                  action: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] ip_mask: The ip mask (CIDR) to match on.
+        :param pulumi.Input[str] ip_mask: The IP mask (CIDR) to match on.
         :param pulumi.Input[str] action: The action to take when the rule is matched. Possible values are `Allow`.
         """
         pulumi.set(__self__, "ip_mask", ip_mask)
@@ -166,7 +166,7 @@ class DomainInboundIpRuleArgs:
     @pulumi.getter(name="ipMask")
     def ip_mask(self) -> pulumi.Input[str]:
         """
-        The ip mask (CIDR) to match on.
+        The IP mask (CIDR) to match on.
         """
         return pulumi.get(self, "ip_mask")
 
@@ -3449,7 +3449,7 @@ class TopicInboundIpRuleArgs:
                  ip_mask: pulumi.Input[str],
                  action: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] ip_mask: The ip mask (CIDR) to match on.
+        :param pulumi.Input[str] ip_mask: The IP mask (CIDR) to match on.
         :param pulumi.Input[str] action: The action to take when the rule is matched. Possible values are `Allow`.
         """
         pulumi.set(__self__, "ip_mask", ip_mask)
@@ -3460,7 +3460,7 @@ class TopicInboundIpRuleArgs:
     @pulumi.getter(name="ipMask")
     def ip_mask(self) -> pulumi.Input[str]:
         """
-        The ip mask (CIDR) to match on.
+        The IP mask (CIDR) to match on.
         """
         return pulumi.get(self, "ip_mask")
 
@@ -3645,7 +3645,7 @@ class GetDomainInboundIpRuleArgs:
                  ip_mask: str,
                  action: Optional[str] = None):
         """
-        :param str ip_mask: The ip mask (CIDR) to match on.
+        :param str ip_mask: The IP mask (CIDR) to match on.
         :param str action: The action to take when the rule is matched. Possible values are `Allow`.
         """
         pulumi.set(__self__, "ip_mask", ip_mask)
@@ -3656,7 +3656,7 @@ class GetDomainInboundIpRuleArgs:
     @pulumi.getter(name="ipMask")
     def ip_mask(self) -> str:
         """
-        The ip mask (CIDR) to match on.
+        The IP mask (CIDR) to match on.
         """
         return pulumi.get(self, "ip_mask")
 

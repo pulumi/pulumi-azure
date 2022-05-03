@@ -203,7 +203,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.synapse.WorkspaceIdentity>;
     /**
-     * Allowed Aad Tenant Ids For Linking.
+     * Allowed AAD Tenant Ids For Linking.
      */
     public readonly linkingAllowedForAadTenantIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -376,7 +376,7 @@ export interface WorkspaceState {
      */
     identity?: pulumi.Input<inputs.synapse.WorkspaceIdentity>;
     /**
-     * Allowed Aad Tenant Ids For Linking.
+     * Allowed AAD Tenant Ids For Linking.
      */
     linkingAllowedForAadTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -466,7 +466,7 @@ export interface WorkspaceArgs {
      */
     identity: pulumi.Input<inputs.synapse.WorkspaceIdentity>;
     /**
-     * Allowed Aad Tenant Ids For Linking.
+     * Allowed AAD Tenant Ids For Linking.
      */
     linkingAllowedForAadTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

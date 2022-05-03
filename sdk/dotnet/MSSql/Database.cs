@@ -92,7 +92,7 @@ namespace Pulumi.Azure.MSSql
         public Output<double> MinCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Ms SQL Database. Changing this forces a new resource to be created.
+        /// The name of the MS SQL Database. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> SampleName { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+        /// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.MSSql
         public Input<double>? MinCapacity { get; set; }
 
         /// <summary>
-        /// The name of the Ms SQL Database. Changing this forces a new resource to be created.
+        /// The name of the MS SQL Database. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SampleName { get; set; }
 
         /// <summary>
-        /// The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+        /// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
@@ -457,7 +457,7 @@ namespace Pulumi.Azure.MSSql
         public Input<double>? MinCapacity { get; set; }
 
         /// <summary>
-        /// The name of the Ms SQL Database. Changing this forces a new resource to be created.
+        /// The name of the MS SQL Database. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -499,7 +499,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SampleName { get; set; }
 
         /// <summary>
-        /// The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+        /// The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }

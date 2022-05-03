@@ -61,7 +61,7 @@ type LookupServiceResult struct {
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku name of database migration service.
+	// The SKU name of database migration service.
 	SkuName string `pulumi:"skuName"`
 	// The ID of the virtual subnet resource to which the database migration service exists.
 	SubnetId string `pulumi:"subnetId"`
@@ -123,7 +123,7 @@ func (o LookupServiceResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The sku name of database migration service.
+// The SKU name of database migration service.
 func (o LookupServiceResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.SkuName }).(pulumi.StringOutput)
 }

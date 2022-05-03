@@ -199,7 +199,11 @@ type WindowsVirtualMachineScaleSet struct {
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `terminateNotification` block as defined below.
+	//
+	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
 	TerminateNotification WindowsVirtualMachineScaleSetTerminateNotificationOutput `pulumi:"terminateNotification"`
+	// A `terminationNotification` block as defined below.
+	TerminationNotification WindowsVirtualMachineScaleSetTerminationNotificationOutput `pulumi:"terminationNotification"`
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 	// The Unique ID for this Windows Virtual Machine Scale Set.
@@ -208,7 +212,7 @@ type WindowsVirtualMachineScaleSet struct {
 	UpgradeMode pulumi.StringPtrOutput `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
-	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineScaleSetWinrmListenerArrayOutput `pulumi:"winrmListeners"`
@@ -353,7 +357,11 @@ type windowsVirtualMachineScaleSetState struct {
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
 	// A `terminateNotification` block as defined below.
+	//
+	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
 	TerminateNotification *WindowsVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
+	// A `terminationNotification` block as defined below.
+	TerminationNotification *WindowsVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
 	// The Unique ID for this Windows Virtual Machine Scale Set.
@@ -362,7 +370,7 @@ type windowsVirtualMachineScaleSetState struct {
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData *string `pulumi:"userData"`
-	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners []WindowsVirtualMachineScaleSetWinrmListener `pulumi:"winrmListeners"`
@@ -458,7 +466,11 @@ type WindowsVirtualMachineScaleSetState struct {
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
 	// A `terminateNotification` block as defined below.
+	//
+	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
 	TerminateNotification WindowsVirtualMachineScaleSetTerminateNotificationPtrInput
+	// A `terminationNotification` block as defined below.
+	TerminationNotification WindowsVirtualMachineScaleSetTerminationNotificationPtrInput
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput
 	// The Unique ID for this Windows Virtual Machine Scale Set.
@@ -467,7 +479,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	UpgradeMode pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrInput
-	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineScaleSetWinrmListenerArrayInput
@@ -567,14 +579,18 @@ type windowsVirtualMachineScaleSetArgs struct {
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
 	// A `terminateNotification` block as defined below.
+	//
+	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
 	TerminateNotification *WindowsVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
+	// A `terminationNotification` block as defined below.
+	TerminationNotification *WindowsVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData *string `pulumi:"userData"`
-	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners []WindowsVirtualMachineScaleSetWinrmListener `pulumi:"winrmListeners"`
@@ -671,14 +687,18 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
 	// A `terminateNotification` block as defined below.
+	//
+	// Deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
 	TerminateNotification WindowsVirtualMachineScaleSetTerminateNotificationPtrInput
+	// A `terminationNotification` block as defined below.
+	TerminationNotification WindowsVirtualMachineScaleSetTerminationNotificationPtrInput
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrInput
-	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineScaleSetWinrmListenerArrayInput

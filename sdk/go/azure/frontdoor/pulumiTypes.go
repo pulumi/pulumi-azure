@@ -1558,7 +1558,7 @@ func (o FrontdoorBackendPoolBackendArrayOutput) Index(i pulumi.IntInput) Frontdo
 }
 
 type FrontdoorBackendPoolHealthProbe struct {
-	// Is this health probe enabled? Dafaults to `true`.
+	// Is this health probe enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
@@ -1586,7 +1586,7 @@ type FrontdoorBackendPoolHealthProbeInput interface {
 }
 
 type FrontdoorBackendPoolHealthProbeArgs struct {
-	// Is this health probe enabled? Dafaults to `true`.
+	// Is this health probe enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1653,7 +1653,7 @@ func (o FrontdoorBackendPoolHealthProbeOutput) ToFrontdoorBackendPoolHealthProbe
 	return o
 }
 
-// Is this health probe enabled? Dafaults to `true`.
+// Is this health probe enabled? Defaults to `true`.
 func (o FrontdoorBackendPoolHealthProbeOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

@@ -86,21 +86,33 @@ class GetSqlManagedInstanceResult:
     @property
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> str:
+        """
+        The administrator login name for the new server.
+        """
         return pulumi.get(self, "administrator_login")
 
     @property
     @pulumi.getter
     def collation(self) -> str:
+        """
+        Specifies how the SQL Managed Instance is collated.
+        """
         return pulumi.get(self, "collation")
 
     @property
     @pulumi.getter(name="dnsZonePartnerId")
     def dns_zone_partner_id(self) -> str:
+        """
+        The ID of the Managed Instance which is sharing the DNS zone.
+        """
         return pulumi.get(self, "dns_zone_partner_id")
 
     @property
     @pulumi.getter
     def fqdn(self) -> str:
+        """
+        The fully qualified domain name of the Azure Managed SQL Instance.
+        """
         return pulumi.get(self, "fqdn")
 
     @property
@@ -114,21 +126,33 @@ class GetSqlManagedInstanceResult:
     @property
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetSqlManagedInstanceIdentityResult']:
+        """
+        An `identity` block as defined below.
+        """
         return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter(name="licenseType")
     def license_type(self) -> str:
+        """
+        Type of license the Managed Instance uses.
+        """
         return pulumi.get(self, "license_type")
 
     @property
     @pulumi.getter
     def location(self) -> str:
+        """
+        Location where the resource exists.
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> str:
+        """
+        The Minimum TLS Version.
+        """
         return pulumi.get(self, "minimum_tls_version")
 
     @property
@@ -139,11 +163,17 @@ class GetSqlManagedInstanceResult:
     @property
     @pulumi.getter(name="proxyOverride")
     def proxy_override(self) -> str:
+        """
+        How the SQL Managed Instance is accessed.
+        """
         return pulumi.get(self, "proxy_override")
 
     @property
     @pulumi.getter(name="publicDataEndpointEnabled")
     def public_data_endpoint_enabled(self) -> bool:
+        """
+        Is the public data endpoint enabled?
+        """
         return pulumi.get(self, "public_data_endpoint_enabled")
 
     @property
@@ -154,36 +184,57 @@ class GetSqlManagedInstanceResult:
     @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> str:
+        """
+        SKU Name for the SQL Managed Instance.
+        """
         return pulumi.get(self, "sku_name")
 
     @property
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> str:
+        """
+        Storage account type used to store backups for this SQL Managed Instance.
+        """
         return pulumi.get(self, "storage_account_type")
 
     @property
     @pulumi.getter(name="storageSizeInGb")
     def storage_size_in_gb(self) -> int:
+        """
+        Maximum storage space for your instance.
+        """
         return pulumi.get(self, "storage_size_in_gb")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
+        """
+        The subnet resource id that the SQL Managed Instance is associated with.
+        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="timezoneId")
     def timezone_id(self) -> str:
+        """
+        The TimeZone ID that the SQL Managed Instance is operating in.
+        """
         return pulumi.get(self, "timezone_id")
 
     @property
     @pulumi.getter
     def vcores(self) -> int:
+        """
+        Number of cores assigned to your instance.
+        """
         return pulumi.get(self, "vcores")
 
 
@@ -230,55 +281,11 @@ def get_sql_managed_instance(name: Optional[str] = None,
         resource_group_name="example-resources")
     pulumi.export("sqlInstanceId", example.id)
     ```
-    ## Attribues Reference
-
-    * `id` - The SQL Managed Instance ID.
-
-    * `fqdn` - The fully qualified domain name of the Azure Managed SQL Instance.
-
-    * `location` - Location where the resource exists.
-
-    * `sku_name` - SKU Name for the SQL Managed Instance.
-
-    * `vcores` - Number of cores assigned to your instance.
-
-    * `storage_size_in_gb` - Maximum storage space for your instance.
-
-    * `license_type` - Type of license the Managed Instance uses.
-
-    * `administrator_login` - The administrator login name for the new server.
-
-    * `subnet_id` - The subnet resource id that the SQL Managed Instance is associated with.
-
-    * `collation` - Specifies how the SQL Managed Instance is collated.
-
-    * `public_data_endpoint_enabled` - Is the public data endpoint enabled?
-
-    * `minimum_tls_version` - The Minimum TLS Version.
-
-    * `proxy_override` - How the SQL Managed Instance is accessed.
-
-    * `timezone_id` - The TimeZone ID that the SQL Managed Instance is operating in.
-
-    * `dns_zone_partner_id` - The ID of the Managed Instance which is sharing the DNS zone.
-
-    * `identity` - An `identity` block as defined below.
-
-    * `storage_account_type` - Storage account type used to store backups for this SQL Managed Instance.
-
-    * `tags` - A mapping of tags assigned to the resource.
-
-    ***
-
-    The `identity` block exports the following:
-
-    * `principal_id` - The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
-
-    * `tenant_id` - The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 
 
     :param str name: The name of the SQL Managed Instance.
     :param str resource_group_name: The name of the Resource Group in which the SQL Managed Instance exists.
+    :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -329,54 +336,10 @@ def get_sql_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
         resource_group_name="example-resources")
     pulumi.export("sqlInstanceId", example.id)
     ```
-    ## Attribues Reference
-
-    * `id` - The SQL Managed Instance ID.
-
-    * `fqdn` - The fully qualified domain name of the Azure Managed SQL Instance.
-
-    * `location` - Location where the resource exists.
-
-    * `sku_name` - SKU Name for the SQL Managed Instance.
-
-    * `vcores` - Number of cores assigned to your instance.
-
-    * `storage_size_in_gb` - Maximum storage space for your instance.
-
-    * `license_type` - Type of license the Managed Instance uses.
-
-    * `administrator_login` - The administrator login name for the new server.
-
-    * `subnet_id` - The subnet resource id that the SQL Managed Instance is associated with.
-
-    * `collation` - Specifies how the SQL Managed Instance is collated.
-
-    * `public_data_endpoint_enabled` - Is the public data endpoint enabled?
-
-    * `minimum_tls_version` - The Minimum TLS Version.
-
-    * `proxy_override` - How the SQL Managed Instance is accessed.
-
-    * `timezone_id` - The TimeZone ID that the SQL Managed Instance is operating in.
-
-    * `dns_zone_partner_id` - The ID of the Managed Instance which is sharing the DNS zone.
-
-    * `identity` - An `identity` block as defined below.
-
-    * `storage_account_type` - Storage account type used to store backups for this SQL Managed Instance.
-
-    * `tags` - A mapping of tags assigned to the resource.
-
-    ***
-
-    The `identity` block exports the following:
-
-    * `principal_id` - The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
-
-    * `tenant_id` - The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 
 
     :param str name: The name of the SQL Managed Instance.
     :param str resource_group_name: The name of the Resource Group in which the SQL Managed Instance exists.
+    :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
     """
     ...

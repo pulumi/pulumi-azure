@@ -89,7 +89,7 @@ export interface GetPoolResult {
     readonly name: string;
     readonly networkConfigurations: outputs.batch.GetPoolNetworkConfiguration[];
     /**
-     * The Sku of the node agents in the Batch pool.
+     * The SKU of the node agents in the Batch pool.
      */
     readonly nodeAgentSkuId: string;
     readonly resourceGroupName: string;

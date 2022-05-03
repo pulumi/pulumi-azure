@@ -81,7 +81,7 @@ export interface GetAccountResult {
      */
     readonly secondaryAccessKey: string;
     /**
-     * The sku name of the Cognitive Services Account
+     * The SKU name of the Cognitive Services Account
      */
     readonly skuName: string;
     /**

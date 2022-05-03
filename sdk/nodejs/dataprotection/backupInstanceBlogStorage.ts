@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
  *     scope: exampleAccount.id,
- *     roleDefinitionName: "Storage Account Backup Contributor Role",
+ *     roleDefinitionName: "Storage Account Backup Contributor",
  *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
  * });
  * const exampleBackupPolicyBlobStorage = new azure.dataprotection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", {

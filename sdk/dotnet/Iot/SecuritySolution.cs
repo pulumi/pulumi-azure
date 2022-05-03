@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Iot
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
 
         /// <summary>
-        /// Should ip addressed be unmasked in the log? Defaults to `false`.
+        /// Should IP addressed be unmasked in the log? Defaults to `false`.
         /// </summary>
         [Output("logUnmaskedIpsEnabled")]
         public Output<bool?> LogUnmaskedIpsEnabled { get; private set; } = null!;
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
         /// <summary>
-        /// Should ip addressed be unmasked in the log? Defaults to `false`.
+        /// Should IP addressed be unmasked in the log? Defaults to `false`.
         /// </summary>
         [Input("logUnmaskedIpsEnabled")]
         public Input<bool>? LogUnmaskedIpsEnabled { get; set; }
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
         /// <summary>
-        /// Should ip addressed be unmasked in the log? Defaults to `false`.
+        /// Should IP addressed be unmasked in the log? Defaults to `false`.
         /// </summary>
         [Input("logUnmaskedIpsEnabled")]
         public Input<bool>? LogUnmaskedIpsEnabled { get; set; }

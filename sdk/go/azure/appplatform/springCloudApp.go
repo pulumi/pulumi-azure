@@ -68,7 +68,7 @@ type SpringCloudApp struct {
 	CustomPersistentDisks SpringCloudAppCustomPersistentDiskArrayOutput `pulumi:"customPersistentDisks"`
 	// The Fully Qualified DNS Name of the Spring Application in the service.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// Is only https allowed? Defaults to `false`.
+	// Is only HTTPS allowed? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity SpringCloudAppIdentityPtrOutput `pulumi:"identity"`
@@ -127,7 +127,7 @@ type springCloudAppState struct {
 	CustomPersistentDisks []SpringCloudAppCustomPersistentDisk `pulumi:"customPersistentDisks"`
 	// The Fully Qualified DNS Name of the Spring Application in the service.
 	Fqdn *string `pulumi:"fqdn"`
-	// Is only https allowed? Defaults to `false`.
+	// Is only HTTPS allowed? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *SpringCloudAppIdentity `pulumi:"identity"`
@@ -152,7 +152,7 @@ type SpringCloudAppState struct {
 	CustomPersistentDisks SpringCloudAppCustomPersistentDiskArrayInput
 	// The Fully Qualified DNS Name of the Spring Application in the service.
 	Fqdn pulumi.StringPtrInput
-	// Is only https allowed? Defaults to `false`.
+	// Is only HTTPS allowed? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity SpringCloudAppIdentityPtrInput
@@ -179,7 +179,7 @@ func (SpringCloudAppState) ElementType() reflect.Type {
 type springCloudAppArgs struct {
 	// A `customPersistentDisk` block as defined below.
 	CustomPersistentDisks []SpringCloudAppCustomPersistentDisk `pulumi:"customPersistentDisks"`
-	// Is only https allowed? Defaults to `false`.
+	// Is only HTTPS allowed? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *SpringCloudAppIdentity `pulumi:"identity"`
@@ -201,7 +201,7 @@ type springCloudAppArgs struct {
 type SpringCloudAppArgs struct {
 	// A `customPersistentDisk` block as defined below.
 	CustomPersistentDisks SpringCloudAppCustomPersistentDiskArrayInput
-	// Is only https allowed? Defaults to `false`.
+	// Is only HTTPS allowed? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity SpringCloudAppIdentityPtrInput

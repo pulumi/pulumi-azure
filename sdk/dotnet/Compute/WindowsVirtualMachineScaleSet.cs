@@ -369,6 +369,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineScaleSetTerminateNotification> TerminateNotification { get; private set; } = null!;
 
         /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
+        [Output("terminationNotification")]
+        public Output<Outputs.WindowsVirtualMachineScaleSetTerminationNotification> TerminationNotification { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         /// </summary>
         [Output("timezone")]
@@ -393,7 +399,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> UserData { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        /// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         [Output("vtpmEnabled")]
         public Output<bool?> VtpmEnabled { get; private set; } = null!;
@@ -757,6 +763,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineScaleSetTerminateNotificationArgs>? TerminateNotification { get; set; }
 
         /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
+        [Input("terminationNotification")]
+        public Input<Inputs.WindowsVirtualMachineScaleSetTerminationNotificationArgs>? TerminationNotification { get; set; }
+
+        /// <summary>
         /// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         /// </summary>
         [Input("timezone")]
@@ -775,7 +787,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? UserData { get; set; }
 
         /// <summary>
-        /// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        /// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vtpmEnabled")]
         public Input<bool>? VtpmEnabled { get; set; }
@@ -1112,6 +1124,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineScaleSetTerminateNotificationGetArgs>? TerminateNotification { get; set; }
 
         /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
+        [Input("terminationNotification")]
+        public Input<Inputs.WindowsVirtualMachineScaleSetTerminationNotificationGetArgs>? TerminationNotification { get; set; }
+
+        /// <summary>
         /// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         /// </summary>
         [Input("timezone")]
@@ -1136,7 +1154,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? UserData { get; set; }
 
         /// <summary>
-        /// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        /// Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vtpmEnabled")]
         public Input<bool>? VtpmEnabled { get; set; }

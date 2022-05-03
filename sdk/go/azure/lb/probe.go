@@ -89,7 +89,7 @@ type Probe struct {
 	NumberOfProbes pulumi.IntPtrOutput `pulumi:"numberOfProbes"`
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port pulumi.IntOutput `pulumi:"port"`
-	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath pulumi.StringPtrOutput `pulumi:"requestPath"`
@@ -141,7 +141,7 @@ type probeState struct {
 	NumberOfProbes *int `pulumi:"numberOfProbes"`
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port *int `pulumi:"port"`
-	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol *string `pulumi:"protocol"`
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath *string `pulumi:"requestPath"`
@@ -159,7 +159,7 @@ type ProbeState struct {
 	NumberOfProbes pulumi.IntPtrInput
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port pulumi.IntPtrInput
-	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol pulumi.StringPtrInput
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath pulumi.StringPtrInput
@@ -180,7 +180,7 @@ type probeArgs struct {
 	NumberOfProbes *int `pulumi:"numberOfProbes"`
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port int `pulumi:"port"`
-	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol *string `pulumi:"protocol"`
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath *string `pulumi:"requestPath"`
@@ -198,7 +198,7 @@ type ProbeArgs struct {
 	NumberOfProbes pulumi.IntPtrInput
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port pulumi.IntInput
-	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol pulumi.StringPtrInput
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath pulumi.StringPtrInput

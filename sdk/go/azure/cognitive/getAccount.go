@@ -71,7 +71,7 @@ type LookupAccountResult struct {
 	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	// The secondary access key of the Cognitive Services Account
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
-	// The sku name of the Cognitive Services Account
+	// The SKU name of the Cognitive Services Account
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -156,7 +156,7 @@ func (o LookupAccountResultOutput) SecondaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryAccessKey }).(pulumi.StringOutput)
 }
 
-// The sku name of the Cognitive Services Account
+// The SKU name of the Cognitive Services Account
 func (o LookupAccountResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SkuName }).(pulumi.StringOutput)
 }

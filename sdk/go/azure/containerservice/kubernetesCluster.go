@@ -158,6 +158,8 @@ type KubernetesCluster struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
 	RoleBasedAccessControlEnabled pulumi.BoolPtrOutput `pulumi:"roleBasedAccessControlEnabled"`
+	// Whether to enable run command for the cluster or not. Defaults to `true`.
+	RunCommandEnabled pulumi.BoolPtrOutput `pulumi:"runCommandEnabled"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
@@ -289,6 +291,8 @@ type kubernetesClusterState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
 	RoleBasedAccessControlEnabled *bool `pulumi:"roleBasedAccessControlEnabled"`
+	// Whether to enable run command for the cluster or not. Defaults to `true`.
+	RunCommandEnabled *bool `pulumi:"runCommandEnabled"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
@@ -386,6 +390,8 @@ type KubernetesClusterState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
 	RoleBasedAccessControlEnabled pulumi.BoolPtrInput
+	// Whether to enable run command for the cluster or not. Defaults to `true`.
+	RunCommandEnabled pulumi.BoolPtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
@@ -469,6 +475,8 @@ type kubernetesClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
 	RoleBasedAccessControlEnabled *bool `pulumi:"roleBasedAccessControlEnabled"`
+	// Whether to enable run command for the cluster or not. Defaults to `true`.
+	RunCommandEnabled *bool `pulumi:"runCommandEnabled"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
@@ -549,6 +557,8 @@ type KubernetesClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
 	RoleBasedAccessControlEnabled pulumi.BoolPtrInput
+	// Whether to enable run command for the cluster or not. Defaults to `true`.
+	RunCommandEnabled pulumi.BoolPtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.

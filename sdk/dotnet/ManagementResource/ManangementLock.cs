@@ -34,8 +34,7 @@ namespace Pulumi.Azure.ManagementResource
     /// 
     /// }
     /// ```
-    /// 
-    /// ## Example Usage (Resource Group Level Lock)
+    /// ### Resource Group Level Lock)
     /// 
     /// ```csharp
     /// using Pulumi;

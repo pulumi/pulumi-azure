@@ -137,13 +137,13 @@ type CacheRedisConfiguration struct {
 	MaxmemoryReserved *int `pulumi:"maxmemoryReserved"`
 	// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
 	NotifyKeyspaceEvents *string `pulumi:"notifyKeyspaceEvents"`
-	// Is Backup Enabled? Only supported on Premium SKU's.
+	// Is Backup Enabled? Only supported on Premium SKUs.
 	RdbBackupEnabled *bool `pulumi:"rdbBackupEnabled"`
-	// The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+	// The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 	RdbBackupFrequency *int `pulumi:"rdbBackupFrequency"`
-	// The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+	// The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
 	RdbBackupMaxSnapshotCount *int `pulumi:"rdbBackupMaxSnapshotCount"`
-	// The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+	// The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 	RdbStorageConnectionString *string `pulumi:"rdbStorageConnectionString"`
 }
 
@@ -179,13 +179,13 @@ type CacheRedisConfigurationArgs struct {
 	MaxmemoryReserved pulumi.IntPtrInput `pulumi:"maxmemoryReserved"`
 	// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
 	NotifyKeyspaceEvents pulumi.StringPtrInput `pulumi:"notifyKeyspaceEvents"`
-	// Is Backup Enabled? Only supported on Premium SKU's.
+	// Is Backup Enabled? Only supported on Premium SKUs.
 	RdbBackupEnabled pulumi.BoolPtrInput `pulumi:"rdbBackupEnabled"`
-	// The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+	// The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 	RdbBackupFrequency pulumi.IntPtrInput `pulumi:"rdbBackupFrequency"`
-	// The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+	// The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
 	RdbBackupMaxSnapshotCount pulumi.IntPtrInput `pulumi:"rdbBackupMaxSnapshotCount"`
-	// The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+	// The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 	RdbStorageConnectionString pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
 }
 
@@ -316,22 +316,22 @@ func (o CacheRedisConfigurationOutput) NotifyKeyspaceEvents() pulumi.StringPtrOu
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.NotifyKeyspaceEvents }).(pulumi.StringPtrOutput)
 }
 
-// Is Backup Enabled? Only supported on Premium SKU's.
+// Is Backup Enabled? Only supported on Premium SKUs.
 func (o CacheRedisConfigurationOutput) RdbBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.RdbBackupEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+// The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 func (o CacheRedisConfigurationOutput) RdbBackupFrequency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.RdbBackupFrequency }).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+// The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
 func (o CacheRedisConfigurationOutput) RdbBackupMaxSnapshotCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.RdbBackupMaxSnapshotCount }).(pulumi.IntPtrOutput)
 }
 
-// The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+// The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 func (o CacheRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
 }
@@ -460,7 +460,7 @@ func (o CacheRedisConfigurationPtrOutput) NotifyKeyspaceEvents() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is Backup Enabled? Only supported on Premium SKU's.
+// Is Backup Enabled? Only supported on Premium SKUs.
 func (o CacheRedisConfigurationPtrOutput) RdbBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
 		if v == nil {
@@ -470,7 +470,7 @@ func (o CacheRedisConfigurationPtrOutput) RdbBackupEnabled() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+// The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 func (o CacheRedisConfigurationPtrOutput) RdbBackupFrequency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *int {
 		if v == nil {
@@ -480,7 +480,7 @@ func (o CacheRedisConfigurationPtrOutput) RdbBackupFrequency() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+// The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
 func (o CacheRedisConfigurationPtrOutput) RdbBackupMaxSnapshotCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *int {
 		if v == nil {
@@ -490,7 +490,7 @@ func (o CacheRedisConfigurationPtrOutput) RdbBackupMaxSnapshotCount() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+// The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 func (o CacheRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {
@@ -743,13 +743,13 @@ type GetCacheRedisConfiguration struct {
 	// The value in megabytes reserved for non-cache usage e.g. failover
 	MaxmemoryReserved    int    `pulumi:"maxmemoryReserved"`
 	NotifyKeyspaceEvents string `pulumi:"notifyKeyspaceEvents"`
-	// Is Backup Enabled? Only supported on Premium SKU's.
+	// Is Backup Enabled? Only supported on Premium SKUs.
 	RdbBackupEnabled bool `pulumi:"rdbBackupEnabled"`
-	// The Backup Frequency in Minutes. Only supported on Premium SKU's.
+	// The Backup Frequency in Minutes. Only supported on Premium SKUs.
 	RdbBackupFrequency int `pulumi:"rdbBackupFrequency"`
 	// The maximum number of snapshots that can be created as a backup.
 	RdbBackupMaxSnapshotCount int `pulumi:"rdbBackupMaxSnapshotCount"`
-	// The Connection String to the Storage Account. Only supported for Premium SKU's.
+	// The Connection String to the Storage Account. Only supported for Premium SKUs.
 	RdbStorageConnectionString string `pulumi:"rdbStorageConnectionString"`
 }
 
@@ -780,13 +780,13 @@ type GetCacheRedisConfigurationArgs struct {
 	// The value in megabytes reserved for non-cache usage e.g. failover
 	MaxmemoryReserved    pulumi.IntInput    `pulumi:"maxmemoryReserved"`
 	NotifyKeyspaceEvents pulumi.StringInput `pulumi:"notifyKeyspaceEvents"`
-	// Is Backup Enabled? Only supported on Premium SKU's.
+	// Is Backup Enabled? Only supported on Premium SKUs.
 	RdbBackupEnabled pulumi.BoolInput `pulumi:"rdbBackupEnabled"`
-	// The Backup Frequency in Minutes. Only supported on Premium SKU's.
+	// The Backup Frequency in Minutes. Only supported on Premium SKUs.
 	RdbBackupFrequency pulumi.IntInput `pulumi:"rdbBackupFrequency"`
 	// The maximum number of snapshots that can be created as a backup.
 	RdbBackupMaxSnapshotCount pulumi.IntInput `pulumi:"rdbBackupMaxSnapshotCount"`
-	// The Connection String to the Storage Account. Only supported for Premium SKU's.
+	// The Connection String to the Storage Account. Only supported for Premium SKUs.
 	RdbStorageConnectionString pulumi.StringInput `pulumi:"rdbStorageConnectionString"`
 }
 
@@ -886,12 +886,12 @@ func (o GetCacheRedisConfigurationOutput) NotifyKeyspaceEvents() pulumi.StringOu
 	return o.ApplyT(func(v GetCacheRedisConfiguration) string { return v.NotifyKeyspaceEvents }).(pulumi.StringOutput)
 }
 
-// Is Backup Enabled? Only supported on Premium SKU's.
+// Is Backup Enabled? Only supported on Premium SKUs.
 func (o GetCacheRedisConfigurationOutput) RdbBackupEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetCacheRedisConfiguration) bool { return v.RdbBackupEnabled }).(pulumi.BoolOutput)
 }
 
-// The Backup Frequency in Minutes. Only supported on Premium SKU's.
+// The Backup Frequency in Minutes. Only supported on Premium SKUs.
 func (o GetCacheRedisConfigurationOutput) RdbBackupFrequency() pulumi.IntOutput {
 	return o.ApplyT(func(v GetCacheRedisConfiguration) int { return v.RdbBackupFrequency }).(pulumi.IntOutput)
 }
@@ -901,7 +901,7 @@ func (o GetCacheRedisConfigurationOutput) RdbBackupMaxSnapshotCount() pulumi.Int
 	return o.ApplyT(func(v GetCacheRedisConfiguration) int { return v.RdbBackupMaxSnapshotCount }).(pulumi.IntOutput)
 }
 
-// The Connection String to the Storage Account. Only supported for Premium SKU's.
+// The Connection String to the Storage Account. Only supported for Premium SKUs.
 func (o GetCacheRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCacheRedisConfiguration) string { return v.RdbStorageConnectionString }).(pulumi.StringOutput)
 }

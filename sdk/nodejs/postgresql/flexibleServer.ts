@@ -140,7 +140,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly pointInTimeRestoreTimeInUtc!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly privateDnsZoneId!: pulumi.Output<string>;
     /**
@@ -296,7 +296,7 @@ export interface FlexibleServerState {
      */
     pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
     /**
-     * The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     privateDnsZoneId?: pulumi.Input<string>;
     /**
@@ -383,7 +383,7 @@ export interface FlexibleServerArgs {
      */
     pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
     /**
-     * The ID of the private dns zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     privateDnsZoneId?: pulumi.Input<string>;
     /**

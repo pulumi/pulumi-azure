@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Batch
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetPoolNetworkConfigurationResult> NetworkConfigurations;
         /// <summary>
-        /// The Sku of the node agents in the Batch pool.
+        /// The SKU of the node agents in the Batch pool.
         /// </summary>
         public readonly string NodeAgentSkuId;
         public readonly string ResourceGroupName;

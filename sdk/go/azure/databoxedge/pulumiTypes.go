@@ -17,7 +17,7 @@ type DeviceDeviceProperty struct {
 	ConfiguredRoleTypes []string `pulumi:"configuredRoleTypes"`
 	// The Data Box Edge/Gateway device culture.
 	Culture *string `pulumi:"culture"`
-	// The device software version number of the device (eg: 1.2.18105.6).
+	// The device software version number of the device (e.g. 1.2.18105.6).
 	HcsVersion *string `pulumi:"hcsVersion"`
 	// The Data Box Edge/Gateway device model.
 	Model *string `pulumi:"model"`
@@ -53,7 +53,7 @@ type DeviceDevicePropertyArgs struct {
 	ConfiguredRoleTypes pulumi.StringArrayInput `pulumi:"configuredRoleTypes"`
 	// The Data Box Edge/Gateway device culture.
 	Culture pulumi.StringPtrInput `pulumi:"culture"`
-	// The device software version number of the device (eg: 1.2.18105.6).
+	// The device software version number of the device (e.g. 1.2.18105.6).
 	HcsVersion pulumi.StringPtrInput `pulumi:"hcsVersion"`
 	// The Data Box Edge/Gateway device model.
 	Model pulumi.StringPtrInput `pulumi:"model"`
@@ -137,7 +137,7 @@ func (o DeviceDevicePropertyOutput) Culture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceDeviceProperty) *string { return v.Culture }).(pulumi.StringPtrOutput)
 }
 
-// The device software version number of the device (eg: 1.2.18105.6).
+// The device software version number of the device (e.g. 1.2.18105.6).
 func (o DeviceDevicePropertyOutput) HcsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceDeviceProperty) *string { return v.HcsVersion }).(pulumi.StringPtrOutput)
 }

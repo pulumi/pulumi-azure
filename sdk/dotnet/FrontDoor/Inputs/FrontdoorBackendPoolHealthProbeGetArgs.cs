@@ -13,7 +13,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
     public sealed class FrontdoorBackendPoolHealthProbeGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is this health probe enabled? Dafaults to `true`.
+        /// Is this health probe enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

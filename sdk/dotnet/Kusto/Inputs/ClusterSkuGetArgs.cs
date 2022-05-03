@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Kusto.Inputs
     public sealed class ClusterSkuGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the node count for the cluster. Boundaries depend on the sku name.
+        /// Specifies the node count for the cluster. Boundaries depend on the SKU name.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }

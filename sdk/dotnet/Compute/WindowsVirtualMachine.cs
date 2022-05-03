@@ -257,7 +257,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineOsDisk> OsDisk { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// </summary>
         [Output("patchMode")]
         public Output<string?> PatchMode { get; private set; } = null!;
@@ -389,7 +389,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> VirtualMachineScaleSetId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        /// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         [Output("vtpmEnabled")]
         public Output<bool?> VtpmEnabled { get; private set; } = null!;
@@ -609,7 +609,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineOsDiskArgs> OsDisk { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
@@ -723,7 +723,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? VirtualMachineScaleSetId { get; set; }
 
         /// <summary>
-        /// Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        /// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vtpmEnabled")]
         public Input<bool>? VtpmEnabled { get; set; }
@@ -910,7 +910,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineOsDiskGetArgs>? OsDisk { get; set; }
 
         /// <summary>
-        /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
@@ -1066,7 +1066,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? VirtualMachineScaleSetId { get; set; }
 
         /// <summary>
-        /// Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        /// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vtpmEnabled")]
         public Input<bool>? VtpmEnabled { get; set; }

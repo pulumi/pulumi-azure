@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<bool>? PublishInternetEndpoints { get; set; }
 
         /// <summary>
-        /// Should microsoft routing storage endpoints be published? Defaults to `false`.
+        /// Should Microsoft routing storage endpoints be published? Defaults to `false`.
         /// </summary>
         [Input("publishMicrosoftEndpoints")]
         public Input<bool>? PublishMicrosoftEndpoints { get; set; }

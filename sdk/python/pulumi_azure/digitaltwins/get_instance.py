@@ -44,7 +44,7 @@ class GetInstanceResult:
     @pulumi.getter(name="hostName")
     def host_name(self) -> str:
         """
-        The Api endpoint to work with this Digital Twins instance.
+        The API endpoint to work with this Digital Twins instance.
         """
         return pulumi.get(self, "host_name")
 

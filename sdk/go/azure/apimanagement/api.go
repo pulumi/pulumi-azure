@@ -100,7 +100,7 @@ type Api struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Revision which used for this API.
 	Revision pulumi.StringOutput `pulumi:"revision"`
-	// The description of the Api Revision of the API Management API.
+	// The description of the API Revision of the API Management API.
 	RevisionDescription pulumi.StringPtrOutput `pulumi:"revisionDescription"`
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
@@ -114,7 +114,7 @@ type Api struct {
 	SubscriptionRequired pulumi.BoolPtrOutput `pulumi:"subscriptionRequired"`
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringOutput `pulumi:"version"`
-	// The description of the Api Version of the API Management API.
+	// The description of the API Version of the API Management API.
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 	// The ID of the Version Set which this API is associated with.
 	VersionSetId pulumi.StringOutput `pulumi:"versionSetId"`
@@ -184,7 +184,7 @@ type apiState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Revision which used for this API.
 	Revision *string `pulumi:"revision"`
-	// The description of the Api Revision of the API Management API.
+	// The description of the API Revision of the API Management API.
 	RevisionDescription *string `pulumi:"revisionDescription"`
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl *string `pulumi:"serviceUrl"`
@@ -198,7 +198,7 @@ type apiState struct {
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// The Version number of this API, if this API is versioned.
 	Version *string `pulumi:"version"`
-	// The description of the Api Version of the API Management API.
+	// The description of the API Version of the API Management API.
 	VersionDescription *string `pulumi:"versionDescription"`
 	// The ID of the Version Set which this API is associated with.
 	VersionSetId *string `pulumi:"versionSetId"`
@@ -231,7 +231,7 @@ type ApiState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The Revision which used for this API.
 	Revision pulumi.StringPtrInput
-	// The description of the Api Revision of the API Management API.
+	// The description of the API Revision of the API Management API.
 	RevisionDescription pulumi.StringPtrInput
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringPtrInput
@@ -245,7 +245,7 @@ type ApiState struct {
 	SubscriptionRequired pulumi.BoolPtrInput
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringPtrInput
-	// The description of the Api Version of the API Management API.
+	// The description of the API Version of the API Management API.
 	VersionDescription pulumi.StringPtrInput
 	// The ID of the Version Set which this API is associated with.
 	VersionSetId pulumi.StringPtrInput
@@ -278,7 +278,7 @@ type apiArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Revision which used for this API.
 	Revision string `pulumi:"revision"`
-	// The description of the Api Revision of the API Management API.
+	// The description of the API Revision of the API Management API.
 	RevisionDescription *string `pulumi:"revisionDescription"`
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl *string `pulumi:"serviceUrl"`
@@ -292,7 +292,7 @@ type apiArgs struct {
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// The Version number of this API, if this API is versioned.
 	Version *string `pulumi:"version"`
-	// The description of the Api Version of the API Management API.
+	// The description of the API Version of the API Management API.
 	VersionDescription *string `pulumi:"versionDescription"`
 	// The ID of the Version Set which this API is associated with.
 	VersionSetId *string `pulumi:"versionSetId"`
@@ -322,7 +322,7 @@ type ApiArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The Revision which used for this API.
 	Revision pulumi.StringInput
-	// The description of the Api Revision of the API Management API.
+	// The description of the API Revision of the API Management API.
 	RevisionDescription pulumi.StringPtrInput
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringPtrInput
@@ -336,7 +336,7 @@ type ApiArgs struct {
 	SubscriptionRequired pulumi.BoolPtrInput
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringPtrInput
-	// The description of the Api Version of the API Management API.
+	// The description of the API Version of the API Management API.
 	VersionDescription pulumi.StringPtrInput
 	// The ID of the Version Set which this API is associated with.
 	VersionSetId pulumi.StringPtrInput

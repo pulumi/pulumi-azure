@@ -367,6 +367,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.LinuxVirtualMachineScaleSetTerminateNotification> TerminateNotification { get; private set; } = null!;
 
         /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
+        [Output("terminationNotification")]
+        public Output<Outputs.LinuxVirtualMachineScaleSetTerminationNotification> TerminationNotification { get; private set; } = null!;
+
+        /// <summary>
         /// The Unique ID for this Linux Virtual Machine Scale Set.
         /// </summary>
         [Output("uniqueId")]
@@ -737,6 +743,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineScaleSetTerminateNotificationArgs>? TerminateNotification { get; set; }
 
         /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
+        [Input("terminationNotification")]
+        public Input<Inputs.LinuxVirtualMachineScaleSetTerminationNotificationArgs>? TerminationNotification { get; set; }
+
+        /// <summary>
         /// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
         /// </summary>
         [Input("upgradeMode")]
@@ -1066,6 +1078,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("terminateNotification")]
         public Input<Inputs.LinuxVirtualMachineScaleSetTerminateNotificationGetArgs>? TerminateNotification { get; set; }
+
+        /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
+        [Input("terminationNotification")]
+        public Input<Inputs.LinuxVirtualMachineScaleSetTerminationNotificationGetArgs>? TerminationNotification { get; set; }
 
         /// <summary>
         /// The Unique ID for this Linux Virtual Machine Scale Set.

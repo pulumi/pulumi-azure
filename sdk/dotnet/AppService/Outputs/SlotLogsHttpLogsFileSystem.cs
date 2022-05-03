@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly int RetentionInDays;
         /// <summary>
-        /// The maximum size in megabytes that http log files can use before being removed.
+        /// The maximum size in megabytes that HTTP log files can use before being removed.
         /// </summary>
         public readonly int RetentionInMb;
 

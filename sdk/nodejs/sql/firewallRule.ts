@@ -73,7 +73,7 @@ export class FirewallRule extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
-     * create the sql server.
+     * create the SQL Server.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -142,7 +142,7 @@ export interface FirewallRuleState {
     name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
-     * create the sql server.
+     * create the SQL Server.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -169,7 +169,7 @@ export interface FirewallRuleArgs {
     name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
-     * create the sql server.
+     * create the SQL Server.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

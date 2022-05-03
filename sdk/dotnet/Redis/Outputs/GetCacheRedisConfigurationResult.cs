@@ -39,11 +39,11 @@ namespace Pulumi.Azure.Redis.Outputs
         public readonly int MaxmemoryReserved;
         public readonly string NotifyKeyspaceEvents;
         /// <summary>
-        /// Is Backup Enabled? Only supported on Premium SKU's.
+        /// Is Backup Enabled? Only supported on Premium SKUs.
         /// </summary>
         public readonly bool RdbBackupEnabled;
         /// <summary>
-        /// The Backup Frequency in Minutes. Only supported on Premium SKU's.
+        /// The Backup Frequency in Minutes. Only supported on Premium SKUs.
         /// </summary>
         public readonly int RdbBackupFrequency;
         /// <summary>
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Redis.Outputs
         /// </summary>
         public readonly int RdbBackupMaxSnapshotCount;
         /// <summary>
-        /// The Connection String to the Storage Account. Only supported for Premium SKU's.
+        /// The Connection String to the Storage Account. Only supported for Premium SKUs.
         /// </summary>
         public readonly string RdbStorageConnectionString;
 

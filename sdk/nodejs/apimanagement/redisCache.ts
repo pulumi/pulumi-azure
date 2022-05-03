@@ -77,7 +77,7 @@ export class RedisCache extends pulumi.CustomResource {
     }
 
     /**
-     * The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+     * The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
      */
     public readonly apiManagementId!: pulumi.Output<string>;
     /**
@@ -145,7 +145,7 @@ export class RedisCache extends pulumi.CustomResource {
  */
 export interface RedisCacheState {
     /**
-     * The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+     * The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
      */
     apiManagementId?: pulumi.Input<string>;
     /**
@@ -175,7 +175,7 @@ export interface RedisCacheState {
  */
 export interface RedisCacheArgs {
     /**
-     * The resource ID of the Api Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
+     * The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
      */
     apiManagementId: pulumi.Input<string>;
     /**

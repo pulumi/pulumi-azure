@@ -100,7 +100,7 @@ export class SecuritySolution extends pulumi.CustomResource {
      */
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
     /**
-     * Should ip addressed be unmasked in the log? Defaults to `false`.
+     * Should IP addressed be unmasked in the log? Defaults to `false`.
      */
     public readonly logUnmaskedIpsEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -225,7 +225,7 @@ export interface SecuritySolutionState {
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
-     * Should ip addressed be unmasked in the log? Defaults to `false`.
+     * Should IP addressed be unmasked in the log? Defaults to `false`.
      */
     logUnmaskedIpsEnabled?: pulumi.Input<boolean>;
     /**
@@ -291,7 +291,7 @@ export interface SecuritySolutionArgs {
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
-     * Should ip addressed be unmasked in the log? Defaults to `false`.
+     * Should IP addressed be unmasked in the log? Defaults to `false`.
      */
     logUnmaskedIpsEnabled?: pulumi.Input<boolean>;
     /**

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Synapse Sql Pool Workload Group.
+ * Manages a Synapse SQL Pool Workload Group.
  *
  * ## Example Usage
  *
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Synapse Sql Pool Workload Groups can be imported using the `resource id`, e.g.
+ * Synapse SQL Pool Workload Groups can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/workloadGroups/workloadGroup1
@@ -102,7 +102,7 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
      */
     public readonly minResourcePercentPerRequest!: pulumi.Output<number | undefined>;
     /**
-     * The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+     * The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -110,7 +110,7 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
      */
     public readonly queryExecutionTimeoutInSeconds!: pulumi.Output<number | undefined>;
     /**
-     * The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+     * The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
      */
     public readonly sqlPoolId!: pulumi.Output<string>;
 
@@ -185,7 +185,7 @@ export interface SqlPoolWorkloadGroupState {
      */
     minResourcePercentPerRequest?: pulumi.Input<number>;
     /**
-     * The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+     * The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -193,7 +193,7 @@ export interface SqlPoolWorkloadGroupState {
      */
     queryExecutionTimeoutInSeconds?: pulumi.Input<number>;
     /**
-     * The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+     * The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
      */
     sqlPoolId?: pulumi.Input<string>;
 }
@@ -223,7 +223,7 @@ export interface SqlPoolWorkloadGroupArgs {
      */
     minResourcePercentPerRequest?: pulumi.Input<number>;
     /**
-     * The name which should be used for this Synapse Sql Pool Workload Group. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+     * The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -231,7 +231,7 @@ export interface SqlPoolWorkloadGroupArgs {
      */
     queryExecutionTimeoutInSeconds?: pulumi.Input<number>;
     /**
-     * The ID of the Synapse Sql Pool. Changing this forces a new Synapse Sql Pool Workload Group to be created.
+     * The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
      */
     sqlPoolId: pulumi.Input<string>;
 }

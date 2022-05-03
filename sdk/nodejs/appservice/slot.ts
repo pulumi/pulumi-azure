@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * ### Net 4.X)
+ * ### NET 4.X)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

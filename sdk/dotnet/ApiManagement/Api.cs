@@ -146,7 +146,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Revision { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the Api Revision of the API Management API.
+        /// The description of the API Revision of the API Management API.
         /// </summary>
         [Output("revisionDescription")]
         public Output<string?> RevisionDescription { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the Api Version of the API Management API.
+        /// The description of the API Version of the API Management API.
         /// </summary>
         [Output("versionDescription")]
         public Output<string?> VersionDescription { get; private set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> Revision { get; set; } = null!;
 
         /// <summary>
-        /// The description of the Api Revision of the API Management API.
+        /// The description of the API Revision of the API Management API.
         /// </summary>
         [Input("revisionDescription")]
         public Input<string>? RevisionDescription { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// The description of the Api Version of the API Management API.
+        /// The description of the API Version of the API Management API.
         /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }
@@ -463,7 +463,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Revision { get; set; }
 
         /// <summary>
-        /// The description of the Api Revision of the API Management API.
+        /// The description of the API Revision of the API Management API.
         /// </summary>
         [Input("revisionDescription")]
         public Input<string>? RevisionDescription { get; set; }
@@ -505,7 +505,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// The description of the Api Version of the API Management API.
+        /// The description of the API Version of the API Management API.
         /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }

@@ -68,7 +68,7 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// ## Import
     /// 
-    /// Container Connected Registrys can be imported using the `resource id`, e.g.
+    /// Container Connected Registries can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:containerservice/connectedRegistry:ConnectedRegistry example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/connectedRegistries/registry1
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.ContainerService
     public partial class ConnectedRegistry : Pulumi.CustomResource
     {
         /// <summary>
-        /// Should the log auditting be enabled?
+        /// Should the log auditing be enabled?
         /// </summary>
         [Output("auditLogEnabled")]
         public Output<bool?> AuditLogEnabled { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class ConnectedRegistryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the log auditting be enabled?
+        /// Should the log auditing be enabled?
         /// </summary>
         [Input("auditLogEnabled")]
         public Input<bool>? AuditLogEnabled { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class ConnectedRegistryState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the log auditting be enabled?
+        /// Should the log auditing be enabled?
         /// </summary>
         [Input("auditLogEnabled")]
         public Input<bool>? AuditLogEnabled { get; set; }

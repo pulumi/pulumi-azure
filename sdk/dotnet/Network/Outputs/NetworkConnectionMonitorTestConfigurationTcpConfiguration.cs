@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class NetworkConnectionMonitorTestConfigurationTcpConfiguration
     {
         /// <summary>
-        /// The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+        /// The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
         /// </summary>
         public readonly string? DestinationPortBehavior;
         /// <summary>
-        /// The port for the Tcp connection.
+        /// The port for the TCP connection.
         /// </summary>
         public readonly int Port;
         /// <summary>

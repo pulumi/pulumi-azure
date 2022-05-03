@@ -1592,6 +1592,8 @@ func (o DatasetAzureBlobSchemaColumnArrayOutput) Index(i pulumi.IntInput) Datase
 type DatasetBinaryAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
+	// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicContainerEnabled *bool `pulumi:"dynamicContainerEnabled"`
 	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
@@ -1616,6 +1618,8 @@ type DatasetBinaryAzureBlobStorageLocationInput interface {
 type DatasetBinaryAzureBlobStorageLocationArgs struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
+	// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicContainerEnabled pulumi.BoolPtrInput `pulumi:"dynamicContainerEnabled"`
 	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
@@ -1708,6 +1712,11 @@ func (o DatasetBinaryAzureBlobStorageLocationOutput) Container() pulumi.StringOu
 	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
 }
 
+// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinaryAzureBlobStorageLocationOutput) DynamicContainerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) *bool { return v.DynamicContainerEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 func (o DatasetBinaryAzureBlobStorageLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatasetBinaryAzureBlobStorageLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
@@ -1760,6 +1769,16 @@ func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) Container() pulumi.Strin
 		}
 		return &v.Container
 	}).(pulumi.StringPtrOutput)
+}
+
+// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetBinaryAzureBlobStorageLocationPtrOutput) DynamicContainerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetBinaryAzureBlobStorageLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicContainerEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -2658,6 +2677,8 @@ func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) Path() pulumi.StringPt
 type DatasetDelimitedTextAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
+	// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicContainerEnabled *bool `pulumi:"dynamicContainerEnabled"`
 	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
@@ -2682,6 +2703,8 @@ type DatasetDelimitedTextAzureBlobStorageLocationInput interface {
 type DatasetDelimitedTextAzureBlobStorageLocationArgs struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
+	// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicContainerEnabled pulumi.BoolPtrInput `pulumi:"dynamicContainerEnabled"`
 	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
@@ -2774,6 +2797,11 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Container() pulumi.S
 	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
 }
 
+// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) DynamicContainerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) *bool { return v.DynamicContainerEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
@@ -2826,6 +2854,16 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Container() pulum
 		}
 		return &v.Container
 	}).(pulumi.StringPtrOutput)
+}
+
+// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) DynamicContainerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobStorageLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicContainerEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -3314,6 +3352,8 @@ func (o DatasetHttpSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetHttp
 type DatasetJsonAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
+	// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicContainerEnabled *bool `pulumi:"dynamicContainerEnabled"`
 	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
@@ -3338,6 +3378,8 @@ type DatasetJsonAzureBlobStorageLocationInput interface {
 type DatasetJsonAzureBlobStorageLocationArgs struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
+	// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicContainerEnabled pulumi.BoolPtrInput `pulumi:"dynamicContainerEnabled"`
 	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
@@ -3430,6 +3472,11 @@ func (o DatasetJsonAzureBlobStorageLocationOutput) Container() pulumi.StringOutp
 	return o.ApplyT(func(v DatasetJsonAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
 }
 
+// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetJsonAzureBlobStorageLocationOutput) DynamicContainerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetJsonAzureBlobStorageLocation) *bool { return v.DynamicContainerEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 func (o DatasetJsonAzureBlobStorageLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatasetJsonAzureBlobStorageLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
@@ -3482,6 +3529,16 @@ func (o DatasetJsonAzureBlobStorageLocationPtrOutput) Container() pulumi.StringP
 		}
 		return &v.Container
 	}).(pulumi.StringPtrOutput)
+}
+
+// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetJsonAzureBlobStorageLocationPtrOutput) DynamicContainerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetJsonAzureBlobStorageLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicContainerEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -3970,6 +4027,8 @@ func (o DatasetMysqlSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetMys
 type DatasetParquetAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
+	// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicContainerEnabled *bool `pulumi:"dynamicContainerEnabled"`
 	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
@@ -3994,6 +4053,8 @@ type DatasetParquetAzureBlobStorageLocationInput interface {
 type DatasetParquetAzureBlobStorageLocationArgs struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
+	// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicContainerEnabled pulumi.BoolPtrInput `pulumi:"dynamicContainerEnabled"`
 	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
@@ -4086,6 +4147,11 @@ func (o DatasetParquetAzureBlobStorageLocationOutput) Container() pulumi.StringO
 	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
 }
 
+// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetAzureBlobStorageLocationOutput) DynamicContainerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) *bool { return v.DynamicContainerEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
 func (o DatasetParquetAzureBlobStorageLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
@@ -4138,6 +4204,16 @@ func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Container() pulumi.Stri
 		}
 		return &v.Container
 	}).(pulumi.StringPtrOutput)
+}
+
+// Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetAzureBlobStorageLocationPtrOutput) DynamicContainerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobStorageLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicContainerEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -8063,7 +8139,7 @@ func (o LinkedCustomServiceIntegrationRuntimePtrOutput) Parameters() pulumi.Stri
 type LinkedServiceAzureBlobStorageKeyVaultSasToken struct {
 	// Specifies the name of an existing Key Vault Data Factory Linked Service.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
-	// Specifies the secret name in Azure Key Vault that stores the sas token.
+	// Specifies the secret name in Azure Key Vault that stores the SAS token.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -8081,7 +8157,7 @@ type LinkedServiceAzureBlobStorageKeyVaultSasTokenInput interface {
 type LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs struct {
 	// Specifies the name of an existing Key Vault Data Factory Linked Service.
 	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
-	// Specifies the secret name in Azure Key Vault that stores the sas token.
+	// Specifies the secret name in Azure Key Vault that stores the SAS token.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -8167,7 +8243,7 @@ func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) LinkedServiceName()
 	return o.ApplyT(func(v LinkedServiceAzureBlobStorageKeyVaultSasToken) string { return v.LinkedServiceName }).(pulumi.StringOutput)
 }
 
-// Specifies the secret name in Azure Key Vault that stores the sas token.
+// Specifies the secret name in Azure Key Vault that stores the SAS token.
 func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedServiceAzureBlobStorageKeyVaultSasToken) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -8206,7 +8282,7 @@ func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) LinkedServiceNam
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the secret name in Azure Key Vault that stores the sas token.
+// Specifies the secret name in Azure Key Vault that stores the SAS token.
 func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureBlobStorageKeyVaultSasToken) *string {
 		if v == nil {

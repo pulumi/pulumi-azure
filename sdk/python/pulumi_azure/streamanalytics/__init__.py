@@ -13,6 +13,7 @@ from .job import *
 from .job_schedule import *
 from .managed_private_endpoint import *
 from .output_blob import *
+from .output_cosmosdb import *
 from .output_event_hub import *
 from .output_function import *
 from .output_mssql import *

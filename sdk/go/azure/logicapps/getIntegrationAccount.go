@@ -61,7 +61,7 @@ type LookupIntegrationAccountResult struct {
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku name of the Logic App Integration Account.
+	// The SKU name of the Logic App Integration Account.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the Logic App Integration Account.
 	Tags map[string]string `pulumi:"tags"`
@@ -121,7 +121,7 @@ func (o LookupIntegrationAccountResultOutput) ResourceGroupName() pulumi.StringO
 	return o.ApplyT(func(v LookupIntegrationAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The sku name of the Logic App Integration Account.
+// The SKU name of the Logic App Integration Account.
 func (o LookupIntegrationAccountResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIntegrationAccountResult) string { return v.SkuName }).(pulumi.StringOutput)
 }

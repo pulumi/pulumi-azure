@@ -356,7 +356,7 @@ class GroupContainerGpuArgs:
                  sku: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] count: The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -379,7 +379,7 @@ class GroupContainerGpuArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -2057,7 +2057,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         :param pulumi.Input[int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_sku: OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
@@ -2331,7 +2331,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="orchestratorVersion")
     def orchestrator_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         """
         return pulumi.get(self, "orchestrator_version")
 
@@ -3975,7 +3975,7 @@ class KubernetesClusterMaintenanceWindowAllowedArgs:
                  hours: pulumi.Input[Sequence[pulumi.Input[int]]]):
         """
         :param pulumi.Input[str] day: A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] hours: An array of hour slots in a day. Possible values are between `0` and `23`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] hours: An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
         """
         pulumi.set(__self__, "day", day)
         pulumi.set(__self__, "hours", hours)
@@ -3996,7 +3996,7 @@ class KubernetesClusterMaintenanceWindowAllowedArgs:
     @pulumi.getter
     def hours(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
         """
-        An array of hour slots in a day. Possible values are between `0` and `23`.
+        An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
         """
         return pulumi.get(self, "hours")
 

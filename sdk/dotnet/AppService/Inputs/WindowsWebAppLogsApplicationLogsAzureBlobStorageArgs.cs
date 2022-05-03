@@ -12,6 +12,9 @@ namespace Pulumi.Azure.AppService.Inputs
 
     public sealed class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        /// </summary>
         [Input("level", required: true)]
         public Input<string> Level { get; set; } = null!;
 

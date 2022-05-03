@@ -24,7 +24,7 @@ class SqlPoolWorkloadClassifierArgs:
         """
         The set of arguments for constructing a SqlPoolWorkloadClassifier resource.
         :param pulumi.Input[str] member_name: The workload classifier member name used to classified against.
-        :param pulumi.Input[str] workload_group_id: The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+        :param pulumi.Input[str] workload_group_id: The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         :param pulumi.Input[str] context: Specifies the session context value that a request can be classified against.
         :param pulumi.Input[str] end_time: The workload classifier end time for classification. It's of the `HH:MM` format in UTC time zone.
         :param pulumi.Input[str] importance: The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
@@ -63,7 +63,7 @@ class SqlPoolWorkloadClassifierArgs:
     @pulumi.getter(name="workloadGroupId")
     def workload_group_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+        The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         """
         return pulumi.get(self, "workload_group_id")
 
@@ -164,7 +164,7 @@ class _SqlPoolWorkloadClassifierState:
         :param pulumi.Input[str] member_name: The workload classifier member name used to classified against.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool Workload Classifier. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         :param pulumi.Input[str] start_time: The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
-        :param pulumi.Input[str] workload_group_id: The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+        :param pulumi.Input[str] workload_group_id: The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         """
         if context is not None:
             pulumi.set(__self__, "context", context)
@@ -271,7 +271,7 @@ class _SqlPoolWorkloadClassifierState:
     @pulumi.getter(name="workloadGroupId")
     def workload_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+        The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         """
         return pulumi.get(self, "workload_group_id")
 
@@ -356,7 +356,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         :param pulumi.Input[str] member_name: The workload classifier member name used to classified against.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool Workload Classifier. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         :param pulumi.Input[str] start_time: The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
-        :param pulumi.Input[str] workload_group_id: The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+        :param pulumi.Input[str] workload_group_id: The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         """
         ...
     @overload
@@ -496,7 +496,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         :param pulumi.Input[str] member_name: The workload classifier member name used to classified against.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool Workload Classifier. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         :param pulumi.Input[str] start_time: The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
-        :param pulumi.Input[str] workload_group_id: The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+        :param pulumi.Input[str] workload_group_id: The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -572,7 +572,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
     @pulumi.getter(name="workloadGroupId")
     def workload_group_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Synapse Sql Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
+        The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         """
         return pulumi.get(self, "workload_group_id")
 

@@ -126,11 +126,11 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         public readonly string AccessEndpoint;
         /// <summary>
-        /// The list of access endpoint ip addresses of connector.
+        /// The list of access endpoint IP addresses of connector.
         /// </summary>
         public readonly ImmutableArray<string> ConnectorEndpointIpAddresses;
         /// <summary>
-        /// The list of outgoing ip addresses of connector.
+        /// The list of outgoing IP addresses of connector.
         /// </summary>
         public readonly ImmutableArray<string> ConnectorOutboundIpAddresses;
         /// <summary>
@@ -160,11 +160,11 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The list of access endpoint ip addresses of workflow.
+        /// The list of access endpoint IP addresses of workflow.
         /// </summary>
         public readonly ImmutableArray<string> WorkflowEndpointIpAddresses;
         /// <summary>
-        /// The list of outgoing ip addresses of workflow.
+        /// The list of outgoing IP addresses of workflow.
         /// </summary>
         public readonly ImmutableArray<string> WorkflowOutboundIpAddresses;
         /// <summary>

@@ -1487,8 +1487,8 @@ class ApplicationGatewayProbe(dict):
         :param str id: The ID of the Rewrite Rule Set
         :param 'ApplicationGatewayProbeMatchArgs' match: A `match` block as defined above.
         :param int minimum_servers: The minimum number of servers that are always marked as healthy. Defaults to `0`.
-        :param bool pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend http settings. Defaults to `false`.
-        :param int port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        :param bool pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+        :param int port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "name", name)
@@ -1593,7 +1593,7 @@ class ApplicationGatewayProbe(dict):
     @pulumi.getter(name="pickHostNameFromBackendHttpSettings")
     def pick_host_name_from_backend_http_settings(self) -> Optional[bool]:
         """
-        Whether the host header should be picked from the backend http settings. Defaults to `false`.
+        Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
         """
         return pulumi.get(self, "pick_host_name_from_backend_http_settings")
 
@@ -1601,7 +1601,7 @@ class ApplicationGatewayProbe(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
         """
         return pulumi.get(self, "port")
 
@@ -5128,7 +5128,7 @@ class FirewallPolicyIntrusionDetectionTrafficBypass(dict):
         :param Sequence[str] destination_ip_groups: Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
         :param Sequence[str] destination_ports: Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
         :param Sequence[str] source_addresses: Specifies a list of source addresses that shall be bypassed by intrusion detection.
-        :param Sequence[str] source_ip_groups: Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+        :param Sequence[str] source_ip_groups: Specifies a list of source IP groups that shall be bypassed by intrusion detection.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocol", protocol)
@@ -5205,7 +5205,7 @@ class FirewallPolicyIntrusionDetectionTrafficBypass(dict):
     @pulumi.getter(name="sourceIpGroups")
     def source_ip_groups(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+        Specifies a list of source IP groups that shall be bypassed by intrusion detection.
         """
         return pulumi.get(self, "source_ip_groups")
 
@@ -5467,10 +5467,10 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
                  priority: int,
                  rules: Sequence['outputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionRule']):
         """
-        :param str action: The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
-        :param str name: The name which should be used for this nat rule collection.
-        :param int priority: The priority of the nat rule collection. The range is `100` - `65000`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs'] rules: A `rule` (nat rule) block as defined above.
+        :param str action: The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
+        :param str name: The name which should be used for this NAT rule collection.
+        :param int priority: The priority of the NAT rule collection. The range is `100` - `65000`.
+        :param Sequence['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs'] rules: A `rule` (NAT rule) block as defined above.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -5481,7 +5481,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
     @pulumi.getter
     def action(self) -> str:
         """
-        The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+        The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
         """
         return pulumi.get(self, "action")
 
@@ -5489,7 +5489,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which should be used for this nat rule collection.
+        The name which should be used for this NAT rule collection.
         """
         return pulumi.get(self, "name")
 
@@ -5497,7 +5497,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
     @pulumi.getter
     def priority(self) -> int:
         """
-        The priority of the nat rule collection. The range is `100` - `65000`.
+        The priority of the NAT rule collection. The range is `100` - `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -5505,7 +5505,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionRule']:
         """
-        A `rule` (nat rule) block as defined above.
+        A `rule` (NAT rule) block as defined above.
         """
         return pulumi.get(self, "rules")
 
@@ -6622,8 +6622,8 @@ class NetworkConnectionMonitorTestConfigurationTcpConfiguration(dict):
                  destination_port_behavior: Optional[str] = None,
                  trace_route_enabled: Optional[bool] = None):
         """
-        :param int port: The port for the Tcp connection.
-        :param str destination_port_behavior: The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+        :param int port: The port for the TCP connection.
+        :param str destination_port_behavior: The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
         :param bool trace_route_enabled: Should path evaluation with trace route be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "port", port)
@@ -6636,7 +6636,7 @@ class NetworkConnectionMonitorTestConfigurationTcpConfiguration(dict):
     @pulumi.getter
     def port(self) -> int:
         """
-        The port for the Tcp connection.
+        The port for the TCP connection.
         """
         return pulumi.get(self, "port")
 
@@ -6644,7 +6644,7 @@ class NetworkConnectionMonitorTestConfigurationTcpConfiguration(dict):
     @pulumi.getter(name="destinationPortBehavior")
     def destination_port_behavior(self) -> Optional[str]:
         """
-        The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+        The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
         """
         return pulumi.get(self, "destination_port_behavior")
 
@@ -6782,7 +6782,7 @@ class NetworkInterfaceIpConfiguration(dict):
         """
         :param str name: A name used for this IP Configuration.
         :param str private_ip_address_allocation: The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
-        :param str gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        :param str gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         :param bool primary: Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
         :param str private_ip_address: The Static IP Address which should be used.
         :param str private_ip_address_version: The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
@@ -6824,7 +6824,7 @@ class NetworkInterfaceIpConfiguration(dict):
     @pulumi.getter(name="gatewayLoadBalancerFrontendIpConfigurationId")
     def gateway_load_balancer_frontend_ip_configuration_id(self) -> Optional[str]:
         """
-        The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         """
         return pulumi.get(self, "gateway_load_balancer_frontend_ip_configuration_id")
 
@@ -6986,7 +6986,7 @@ class NetworkPacketCaptureStorageLocation(dict):
                  storage_account_id: Optional[str] = None,
                  storage_path: Optional[str] = None):
         """
-        :param str file_path: A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+        :param str file_path: A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
         :param str storage_account_id: The ID of the storage account to save the packet capture session
         :param str storage_path: The URI of the storage path to save the packet capture.
         """
@@ -7001,7 +7001,7 @@ class NetworkPacketCaptureStorageLocation(dict):
     @pulumi.getter(name="filePath")
     def file_path(self) -> Optional[str]:
         """
-        A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+        A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
         """
         return pulumi.get(self, "file_path")
 
@@ -7313,7 +7313,7 @@ class NetworkWatcherFlowLogTrafficAnalytics(dict):
                  interval_in_minutes: Optional[int] = None):
         """
         :param bool enabled: Boolean flag to enable/disable traffic analytics.
-        :param str workspace_id: The resource guid of the attached workspace.
+        :param str workspace_id: The resource GUID of the attached workspace.
         :param str workspace_region: The location of the attached workspace.
         :param str workspace_resource_id: The resource ID of the attached workspace.
         :param int interval_in_minutes: How frequently service should do flow analytics in minutes.
@@ -7337,7 +7337,7 @@ class NetworkWatcherFlowLogTrafficAnalytics(dict):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> str:
         """
-        The resource guid of the attached workspace.
+        The resource GUID of the attached workspace.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -7926,7 +7926,7 @@ class TrafficManagerAzureEndpointCustomHeader(dict):
                  value: str):
         """
         :param str name: The name of the custom header.
-        :param str value: The value of custom header. Applicable for Http and Https protocol.
+        :param str value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -7943,7 +7943,7 @@ class TrafficManagerAzureEndpointCustomHeader(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of custom header. Applicable for Http and Https protocol.
+        The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         return pulumi.get(self, "value")
 
@@ -7997,7 +7997,7 @@ class TrafficManagerExternalEndpointCustomHeader(dict):
                  value: str):
         """
         :param str name: The name of the custom header.
-        :param str value: The value of custom header. Applicable for Http and Https protocol.
+        :param str value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -8014,7 +8014,7 @@ class TrafficManagerExternalEndpointCustomHeader(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of custom header. Applicable for Http and Https protocol.
+        The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         return pulumi.get(self, "value")
 
@@ -8068,7 +8068,7 @@ class TrafficManagerNestedEndpointCustomHeader(dict):
                  value: str):
         """
         :param str name: The name of the custom header.
-        :param str value: The value of custom header. Applicable for Http and Https protocol.
+        :param str value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -8085,7 +8085,7 @@ class TrafficManagerNestedEndpointCustomHeader(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of custom header. Applicable for Http and Https protocol.
+        The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         return pulumi.get(self, "value")
 
@@ -8311,7 +8311,7 @@ class TrafficManagerProfileMonitorConfigCustomHeader(dict):
                  value: str):
         """
         :param str name: The name of the custom header.
-        :param str value: The value of custom header. Applicable for Http and Https protocol.
+        :param str value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -8328,7 +8328,7 @@ class TrafficManagerProfileMonitorConfigCustomHeader(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of custom header. Applicable for Http and Https protocol.
+        The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         return pulumi.get(self, "value")
 
@@ -9061,7 +9061,7 @@ class VirtualNetworkGatewayIpConfiguration(dict):
                  name: Optional[str] = None,
                  private_ip_address_allocation: Optional[str] = None):
         """
-        :param str public_ip_address_id: The ID of the public ip address to associate
+        :param str public_ip_address_id: The ID of the public IP address to associate
                with the Virtual Network Gateway.
         :param str subnet_id: The ID of the gateway subnet of a virtual network in
                which the virtual network gateway will be created. It is mandatory that
@@ -9084,7 +9084,7 @@ class VirtualNetworkGatewayIpConfiguration(dict):
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> str:
         """
-        The ID of the public ip address to associate
+        The ID of the public IP address to associate
         with the Virtual Network Gateway.
         """
         return pulumi.get(self, "public_ip_address_id")
@@ -9169,7 +9169,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
                  vpn_auth_types: Optional[Sequence[str]] = None,
                  vpn_client_protocols: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] address_spaces: The address space out of which ip addresses for
+        :param Sequence[str] address_spaces: The address space out of which IP addresses for
                vpn clients will be taken. You can provide more than one address space, e.g.
                in CIDR notation.
         :param str aad_audience: The client id of the Azure VPN application.
@@ -9214,7 +9214,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
     @pulumi.getter(name="addressSpaces")
     def address_spaces(self) -> Sequence[str]:
         """
-        The address space out of which ip addresses for
+        The address space out of which IP addresses for
         vpn clients will be taken. You can provide more than one address space, e.g.
         in CIDR notation.
         """
@@ -9577,7 +9577,7 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddress(dict):
         """
         :param Sequence[str] custom_ips: A list of custom BGP peering addresses to assign to this instance.
         :param Sequence[str] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
-        :param str ip_configuration_id: The pre-defined id of VPN Gateway Ip Configuration.
+        :param str ip_configuration_id: The pre-defined id of VPN Gateway IP Configuration.
         :param Sequence[str] tunnel_ips: The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
         """
         pulumi.set(__self__, "custom_ips", custom_ips)
@@ -9608,7 +9608,7 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddress(dict):
     @pulumi.getter(name="ipConfigurationId")
     def ip_configuration_id(self) -> Optional[str]:
         """
-        The pre-defined id of VPN Gateway Ip Configuration.
+        The pre-defined id of VPN Gateway IP Configuration.
         """
         return pulumi.get(self, "ip_configuration_id")
 
@@ -9654,7 +9654,7 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddress(dict):
         """
         :param Sequence[str] custom_ips: A list of custom BGP peering addresses to assign to this instance.
         :param Sequence[str] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
-        :param str ip_configuration_id: The pre-defined id of VPN Gateway Ip Configuration.
+        :param str ip_configuration_id: The pre-defined id of VPN Gateway IP Configuration.
         :param Sequence[str] tunnel_ips: The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
         """
         pulumi.set(__self__, "custom_ips", custom_ips)
@@ -9685,7 +9685,7 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddress(dict):
     @pulumi.getter(name="ipConfigurationId")
     def ip_configuration_id(self) -> Optional[str]:
         """
-        The pre-defined id of VPN Gateway Ip Configuration.
+        The pre-defined id of VPN Gateway IP Configuration.
         """
         return pulumi.get(self, "ip_configuration_id")
 
@@ -9904,10 +9904,10 @@ class VpnGatewayConnectionVpnLink(dict):
         :param int bandwidth_mbps: The expected connection bandwidth in MBPS. Defaults to `10`.
         :param bool bgp_enabled: Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
         :param str connection_mode: The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-        :param Sequence[str] egress_nat_rule_ids: A list of the egress Nat Rule Ids.
-        :param Sequence[str] ingress_nat_rule_ids: A list of the ingress Nat Rule Ids.
+        :param Sequence[str] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
+        :param Sequence[str] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
         :param Sequence['VpnGatewayConnectionVpnLinkIpsecPolicyArgs'] ipsec_policies: One or more `ipsec_policy` blocks as defined above.
-        :param bool local_azure_ip_address_enabled: Whether to use local azure ip to initiate connection? Defaults to `false`.
+        :param bool local_azure_ip_address_enabled: Whether to use local Azure IP to initiate connection? Defaults to `false`.
         :param bool policy_based_traffic_selector_enabled: Whether to enable policy-based traffic selectors? Defaults to `false`.
         :param str protocol: The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
         :param bool ratelimit_enabled: Should the rate limit be enabled? Defaults to `false`.
@@ -9985,7 +9985,7 @@ class VpnGatewayConnectionVpnLink(dict):
     @pulumi.getter(name="egressNatRuleIds")
     def egress_nat_rule_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of the egress Nat Rule Ids.
+        A list of the egress NAT Rule Ids.
         """
         return pulumi.get(self, "egress_nat_rule_ids")
 
@@ -9993,7 +9993,7 @@ class VpnGatewayConnectionVpnLink(dict):
     @pulumi.getter(name="ingressNatRuleIds")
     def ingress_nat_rule_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of the ingress Nat Rule Ids.
+        A list of the ingress NAT Rule Ids.
         """
         return pulumi.get(self, "ingress_nat_rule_ids")
 
@@ -10009,7 +10009,7 @@ class VpnGatewayConnectionVpnLink(dict):
     @pulumi.getter(name="localAzureIpAddressEnabled")
     def local_azure_ip_address_enabled(self) -> Optional[bool]:
         """
-        Whether to use local azure ip to initiate connection? Defaults to `false`.
+        Whether to use local Azure IP to initiate connection? Defaults to `false`.
         """
         return pulumi.get(self, "local_azure_ip_address_enabled")
 
@@ -10733,7 +10733,7 @@ class VpnSiteLinkBgp(dict):
                  peering_address: str):
         """
         :param int asn: The BGP speaker's ASN.
-        :param str peering_address: The BGP peering ip address.
+        :param str peering_address: The BGP peering IP address.
         """
         pulumi.set(__self__, "asn", asn)
         pulumi.set(__self__, "peering_address", peering_address)
@@ -10750,7 +10750,7 @@ class VpnSiteLinkBgp(dict):
     @pulumi.getter(name="peeringAddress")
     def peering_address(self) -> str:
         """
-        The BGP peering ip address.
+        The BGP peering IP address.
         """
         return pulumi.get(self, "peering_address")
 
@@ -11328,7 +11328,7 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
                  subnet_id: str):
         """
         :param Sequence[str] application_gateway_backend_address_pools_ids: A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
-        :param str gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
+        :param str gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway SKU Load Balancer the Network Interface is consuming.
         :param Sequence[str] load_balancer_backend_address_pools_ids: A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
         :param Sequence[str] load_balancer_inbound_nat_rules_ids: A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
         :param str name: Specifies the name of the Network Interface.
@@ -11368,7 +11368,7 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
     @pulumi.getter(name="gatewayLoadBalancerFrontendIpConfigurationId")
     def gateway_load_balancer_frontend_ip_configuration_id(self) -> str:
         """
-        The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
+        The Frontend IP Configuration ID of a Gateway SKU Load Balancer the Network Interface is consuming.
         """
         return pulumi.get(self, "gateway_load_balancer_frontend_ip_configuration_id")
 
@@ -11914,7 +11914,7 @@ class GetTrafficManagerProfileMonitorConfigCustomHeaderResult(dict):
                  value: str):
         """
         :param str name: Specifies the name of the Traffic Manager Profile.
-        :param str value: The value of custom header. Applicable for Http and Https protocol.
+        :param str value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -11931,7 +11931,7 @@ class GetTrafficManagerProfileMonitorConfigCustomHeaderResult(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of custom header. Applicable for Http and Https protocol.
+        The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         return pulumi.get(self, "value")
 
@@ -12084,7 +12084,7 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
         :param str aad_tenant: AzureAD Tenant URL
                This setting is incompatible with the use of
                `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
-        :param Sequence[str] address_spaces: The address space out of which ip addresses for
+        :param Sequence[str] address_spaces: The address space out of which IP addresses for
                vpn clients will be taken. You can provide more than one address space, e.g.
                in CIDR notation.
         :param str radius_server_address: The address of the Radius server.
@@ -12150,7 +12150,7 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
     @pulumi.getter(name="addressSpaces")
     def address_spaces(self) -> Sequence[str]:
         """
-        The address space out of which ip addresses for
+        The address space out of which IP addresses for
         vpn clients will be taken. You can provide more than one address space, e.g.
         in CIDR notation.
         """
@@ -12335,7 +12335,7 @@ class GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult(dict):
         """
         :param Sequence[str] custom_ips: A list of custom BGP peering addresses to assigned to this instance.
         :param Sequence[str] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
-        :param str ip_configuration_id: The pre-defined id of VPN Gateway Ip Configuration.
+        :param str ip_configuration_id: The pre-defined id of VPN Gateway IP Configuration.
         :param Sequence[str] tunnel_ips: The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
         """
         pulumi.set(__self__, "custom_ips", custom_ips)
@@ -12363,7 +12363,7 @@ class GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult(dict):
     @pulumi.getter(name="ipConfigurationId")
     def ip_configuration_id(self) -> str:
         """
-        The pre-defined id of VPN Gateway Ip Configuration.
+        The pre-defined id of VPN Gateway IP Configuration.
         """
         return pulumi.get(self, "ip_configuration_id")
 
@@ -12386,7 +12386,7 @@ class GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult(dict):
         """
         :param Sequence[str] custom_ips: A list of custom BGP peering addresses to assigned to this instance.
         :param Sequence[str] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
-        :param str ip_configuration_id: The pre-defined id of VPN Gateway Ip Configuration.
+        :param str ip_configuration_id: The pre-defined id of VPN Gateway IP Configuration.
         :param Sequence[str] tunnel_ips: The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
         """
         pulumi.set(__self__, "custom_ips", custom_ips)
@@ -12414,7 +12414,7 @@ class GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult(dict):
     @pulumi.getter(name="ipConfigurationId")
     def ip_configuration_id(self) -> str:
         """
-        The pre-defined id of VPN Gateway Ip Configuration.
+        The pre-defined id of VPN Gateway IP Configuration.
         """
         return pulumi.get(self, "ip_configuration_id")
 

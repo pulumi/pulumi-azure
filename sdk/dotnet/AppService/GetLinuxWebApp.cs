@@ -224,6 +224,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppSiteCredentialResult> SiteCredentials;
         /// <summary>
+        /// A `sticky_settings` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLinuxWebAppStickySettingResult> StickySettings;
+        /// <summary>
         /// A `storage_account` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppStorageAccountResult> StorageAccounts;
@@ -288,6 +292,8 @@ namespace Pulumi.Azure.AppService
 
             ImmutableArray<Outputs.GetLinuxWebAppSiteCredentialResult> siteCredentials,
 
+            ImmutableArray<Outputs.GetLinuxWebAppStickySettingResult> stickySettings,
+
             ImmutableArray<Outputs.GetLinuxWebAppStorageAccountResult> storageAccounts,
 
             ImmutableDictionary<string, string> tags)
@@ -319,6 +325,7 @@ namespace Pulumi.Azure.AppService
             ServicePlanId = servicePlanId;
             SiteConfigs = siteConfigs;
             SiteCredentials = siteCredentials;
+            StickySettings = stickySettings;
             StorageAccounts = storageAccounts;
             Tags = tags;
         }

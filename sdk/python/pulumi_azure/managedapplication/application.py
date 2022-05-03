@@ -33,7 +33,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] application_definition_id: The application definition ID to deploy.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Managed Application. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] parameter_values: The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        :param pulumi.Input[str] parameter_values: The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
         :param pulumi.Input['ApplicationPlanArgs'] plan: One `plan` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -132,7 +132,7 @@ class ApplicationArgs:
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[pulumi.Input[str]]:
         """
-        The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         """
         return pulumi.get(self, "parameter_values")
 
@@ -199,7 +199,7 @@ class _ApplicationState:
         :param pulumi.Input[str] managed_resource_group_name: The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Managed Application. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] outputs: The name and value pairs that define the managed application outputs.
-        :param pulumi.Input[str] parameter_values: The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        :param pulumi.Input[str] parameter_values: The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
         :param pulumi.Input['ApplicationPlanArgs'] plan: One `plan` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
@@ -304,7 +304,7 @@ class _ApplicationState:
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[pulumi.Input[str]]:
         """
-        The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         """
         return pulumi.get(self, "parameter_values")
 
@@ -428,7 +428,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Managed Application. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] parameter_values: The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        :param pulumi.Input[str] parameter_values: The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
         :param pulumi.Input[pulumi.InputType['ApplicationPlanArgs']] plan: One `plan` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
@@ -572,7 +572,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] managed_resource_group_name: The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Managed Application. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] outputs: The name and value pairs that define the managed application outputs.
-        :param pulumi.Input[str] parameter_values: The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        :param pulumi.Input[str] parameter_values: The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
         :param pulumi.Input[pulumi.InputType['ApplicationPlanArgs']] plan: One `plan` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
@@ -647,7 +647,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> pulumi.Output[str]:
         """
-        The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         """
         return pulumi.get(self, "parameter_values")
 

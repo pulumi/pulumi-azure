@@ -69,7 +69,7 @@ type FirewallRule struct {
 	// The name of the firewall rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to
-	// create the sql server.
+	// create the SQL Server.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the Firewall Rule.
 	ServerName pulumi.StringOutput `pulumi:"serverName"`
@@ -123,7 +123,7 @@ type firewallRuleState struct {
 	// The name of the firewall rule.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to
-	// create the sql server.
+	// create the SQL Server.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the Firewall Rule.
 	ServerName *string `pulumi:"serverName"`
@@ -137,7 +137,7 @@ type FirewallRuleState struct {
 	// The name of the firewall rule.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to
-	// create the sql server.
+	// create the SQL Server.
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the SQL Server on which to create the Firewall Rule.
 	ServerName pulumi.StringPtrInput
@@ -155,7 +155,7 @@ type firewallRuleArgs struct {
 	// The name of the firewall rule.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to
-	// create the sql server.
+	// create the SQL Server.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the Firewall Rule.
 	ServerName string `pulumi:"serverName"`
@@ -170,7 +170,7 @@ type FirewallRuleArgs struct {
 	// The name of the firewall rule.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to
-	// create the sql server.
+	// create the SQL Server.
 	ResourceGroupName pulumi.StringInput
 	// The name of the SQL Server on which to create the Firewall Rule.
 	ServerName pulumi.StringInput

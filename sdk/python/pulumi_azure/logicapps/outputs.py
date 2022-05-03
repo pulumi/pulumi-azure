@@ -686,12 +686,12 @@ class StandardSiteConfig(dict):
         :param bool always_on: Should the Logic App be loaded at all times? Defaults to `false`.
         :param int app_scale_limit: The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param 'StandardSiteConfigCorsArgs' cors: A `cors` block as defined below.
-        :param str dotnet_framework_version: The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        :param str dotnet_framework_version: The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param int elastic_instance_minimum: The number of minimum instances for this Logic App Only affects apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param str health_check_path: Path which will be checked for this Logic App health.
-        :param bool http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-        :param Sequence['StandardSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param bool http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+        :param Sequence['StandardSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param str linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
         :param str min_tls_version: The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
@@ -761,7 +761,7 @@ class StandardSiteConfig(dict):
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[str]:
         """
-        The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -793,7 +793,7 @@ class StandardSiteConfig(dict):
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[bool]:
         """
-        Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+        Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -801,7 +801,7 @@ class StandardSiteConfig(dict):
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[Sequence['outputs.StandardSiteConfigIpRestriction']]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         """
         return pulumi.get(self, "ip_restrictions")
 

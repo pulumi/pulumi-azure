@@ -22,7 +22,7 @@ class IntegrationAccountArgs:
         """
         The set of arguments for constructing a IntegrationAccount resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+        :param pulumi.Input[str] sku_name: The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
         :param pulumi.Input[str] integration_service_environment_id: The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] location: The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
@@ -55,7 +55,7 @@ class IntegrationAccountArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+        The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -127,7 +127,7 @@ class _IntegrationAccountState:
         :param pulumi.Input[str] location: The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+        :param pulumi.Input[str] sku_name: The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logic App Integration Account.
         """
         if integration_service_environment_id is not None:
@@ -195,7 +195,7 @@ class _IntegrationAccountState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+        The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -261,7 +261,7 @@ class IntegrationAccount(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+        :param pulumi.Input[str] sku_name: The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logic App Integration Account.
         """
         ...
@@ -367,7 +367,7 @@ class IntegrationAccount(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+        :param pulumi.Input[str] sku_name: The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logic App Integration Account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -418,7 +418,7 @@ class IntegrationAccount(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+        The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
         """
         return pulumi.get(self, "sku_name")
 

@@ -94,7 +94,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<bool?> Locked { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+        /// The name of the App Configuration Feature. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<bool>? Locked { get; set; }
 
         /// <summary>
-        /// The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+        /// The name of the App Configuration Feature. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<bool>? Locked { get; set; }
 
         /// <summary>
-        /// The name of the App Configuration Feature. Changing this foces a new resource to be crearted.
+        /// The name of the App Configuration Feature. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

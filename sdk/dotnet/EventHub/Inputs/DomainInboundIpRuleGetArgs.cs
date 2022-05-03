@@ -19,7 +19,7 @@ namespace Pulumi.Azure.EventHub.Inputs
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// The ip mask (CIDR) to match on.
+        /// The IP mask (CIDR) to match on.
         /// </summary>
         [Input("ipMask", required: true)]
         public Input<string> IpMask { get; set; } = null!;

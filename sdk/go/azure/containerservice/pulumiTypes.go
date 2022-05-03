@@ -333,7 +333,7 @@ func (o GroupContainerArrayOutput) Index(i pulumi.IntInput) GroupContainerOutput
 type GroupContainerGpu struct {
 	// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
 	Count *int `pulumi:"count"`
-	// The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+	// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 }
 
@@ -351,7 +351,7 @@ type GroupContainerGpuInput interface {
 type GroupContainerGpuArgs struct {
 	// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+	// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
 }
 
@@ -437,7 +437,7 @@ func (o GroupContainerGpuOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerGpu) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupContainerGpu) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
@@ -476,7 +476,7 @@ func (o GroupContainerGpuPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuPtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupContainerGpu) *string {
 		if v == nil {
@@ -3938,7 +3938,7 @@ type KubernetesClusterDefaultNodePool struct {
 	NodeTaints           []string `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
 	OnlyCriticalAddonsEnabled *bool `pulumi:"onlyCriticalAddonsEnabled"`
-	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
@@ -4008,7 +4008,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	NodeTaints           pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
 	OnlyCriticalAddonsEnabled pulumi.BoolPtrInput `pulumi:"onlyCriticalAddonsEnabled"`
-	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
@@ -4195,7 +4195,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) OnlyCriticalAddonsEnabled() pulu
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.OnlyCriticalAddonsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
 func (o KubernetesClusterDefaultNodePoolOutput) OrchestratorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
 }
@@ -4444,7 +4444,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OnlyCriticalAddonsEnabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OrchestratorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -7863,7 +7863,7 @@ func (o KubernetesClusterMaintenanceWindowPtrOutput) NotAlloweds() KubernetesClu
 type KubernetesClusterMaintenanceWindowAllowed struct {
 	// A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 	Day string `pulumi:"day"`
-	// An array of hour slots in a day. Possible values are between `0` and `23`.
+	// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
 	Hours []int `pulumi:"hours"`
 }
 
@@ -7881,7 +7881,7 @@ type KubernetesClusterMaintenanceWindowAllowedInput interface {
 type KubernetesClusterMaintenanceWindowAllowedArgs struct {
 	// A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 	Day pulumi.StringInput `pulumi:"day"`
-	// An array of hour slots in a day. Possible values are between `0` and `23`.
+	// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
 	Hours pulumi.IntArrayInput `pulumi:"hours"`
 }
 
@@ -7941,7 +7941,7 @@ func (o KubernetesClusterMaintenanceWindowAllowedOutput) Day() pulumi.StringOutp
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAllowed) string { return v.Day }).(pulumi.StringOutput)
 }
 
-// An array of hour slots in a day. Possible values are between `0` and `23`.
+// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
 func (o KubernetesClusterMaintenanceWindowAllowedOutput) Hours() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAllowed) []int { return v.Hours }).(pulumi.IntArrayOutput)
 }
@@ -16440,7 +16440,7 @@ type GetKubernetesClusterNetworkProfile struct {
 	LoadBalancerSku  string `pulumi:"loadBalancerSku"`
 	// Network plugin used such as `azure` or `kubenet`.
 	NetworkPlugin string `pulumi:"networkPlugin"`
-	// Network policy to be used with Azure CNI. Eg: `calico` or `azure`
+	// Network policy to be used with Azure CNI. e.g. `calico` or `azure`
 	NetworkPolicy string `pulumi:"networkPolicy"`
 	// The CIDR used for pod IP addresses.
 	PodCidr string `pulumi:"podCidr"`
@@ -16467,7 +16467,7 @@ type GetKubernetesClusterNetworkProfileArgs struct {
 	LoadBalancerSku  pulumi.StringInput `pulumi:"loadBalancerSku"`
 	// Network plugin used such as `azure` or `kubenet`.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
-	// Network policy to be used with Azure CNI. Eg: `calico` or `azure`
+	// Network policy to be used with Azure CNI. e.g. `calico` or `azure`
 	NetworkPolicy pulumi.StringInput `pulumi:"networkPolicy"`
 	// The CIDR used for pod IP addresses.
 	PodCidr pulumi.StringInput `pulumi:"podCidr"`
@@ -16545,7 +16545,7 @@ func (o GetKubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringO
 	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
-// Network policy to be used with Azure CNI. Eg: `calico` or `azure`
+// Network policy to be used with Azure CNI. e.g. `calico` or `azure`
 func (o GetKubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.NetworkPolicy }).(pulumi.StringOutput)
 }

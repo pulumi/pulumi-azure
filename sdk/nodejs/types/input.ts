@@ -1456,7 +1456,7 @@ export namespace apimanagement {
 
     export interface ServiceTenantAccess {
         /**
-         * Should the access to the management api be enabled?
+         * Should the access to the management API be enabled?
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -1701,11 +1701,11 @@ export namespace appplatform {
 
     export interface SpringCloudServiceConfigServerGitSettingHttpBasicAuth {
         /**
-         * The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+         * The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
          */
         password: pulumi.Input<string>;
         /**
-         * The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+         * The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
          */
         username: pulumi.Input<string>;
     }
@@ -1743,11 +1743,11 @@ export namespace appplatform {
 
     export interface SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth {
         /**
-         * The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+         * The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
          */
         password: pulumi.Input<string>;
         /**
-         * The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+         * The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
          */
         username: pulumi.Input<string>;
     }
@@ -2120,7 +2120,7 @@ export namespace appservice {
          */
         retentionInDays: pulumi.Input<number>;
         /**
-         * The maximum size in megabytes that http log files can use before being removed.
+         * The maximum size in megabytes that HTTP log files can use before being removed.
          */
         retentionInMb: pulumi.Input<number>;
     }
@@ -2152,7 +2152,7 @@ export namespace appservice {
          */
         defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+         * The version of the .NET framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: pulumi.Input<string>;
         /**
@@ -2220,7 +2220,7 @@ export namespace appservice {
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
-         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          */
         scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceSiteConfigScmIpRestriction>[]>;
         /**
@@ -2667,7 +2667,7 @@ export namespace appservice {
          */
         cors?: pulumi.Input<inputs.appservice.FunctionAppSiteConfigCors>;
         /**
-         * The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         * The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: pulumi.Input<string>;
         /**
@@ -2683,11 +2683,11 @@ export namespace appservice {
          */
         healthCheckPath?: pulumi.Input<string>;
         /**
-         * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+         * Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
-         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSiteConfigIpRestriction>[]>;
         /**
@@ -2711,7 +2711,7 @@ export namespace appservice {
          */
         runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
         /**
-         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          */
         scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSiteConfigScmIpRestriction>[]>;
         /**
@@ -3040,7 +3040,7 @@ export namespace appservice {
          */
         cors?: pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfigCors>;
         /**
-         * The version of the .net framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         * The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: pulumi.Input<string>;
         /**
@@ -3053,11 +3053,11 @@ export namespace appservice {
         ftpsState?: pulumi.Input<string>;
         healthCheckPath?: pulumi.Input<string>;
         /**
-         * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+         * Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
-         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfigIpRestriction>[]>;
         javaVersion?: pulumi.Input<string>;
@@ -3241,6 +3241,9 @@ export namespace appservice {
          * An `activeDirectory` block as defined above.
          */
         activeDirectory?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsActiveDirectory>;
+        /**
+         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
@@ -3554,7 +3557,7 @@ export namespace appservice {
          */
         healthCheckPath?: pulumi.Input<string>;
         /**
-         * Specifies if the http2 protocol should be enabled. Defaults to `false`.
+         * Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
@@ -3638,7 +3641,7 @@ export namespace appservice {
          */
         dockers?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigApplicationStackDocker>[]>;
         /**
-         * The version of .Net to use. Possible values include `3.1` and `6.0`.
+         * The version of .NET to use. Possible values include `3.1` and `6.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -4143,7 +4146,7 @@ export namespace appservice {
          */
         healthCheckPath?: pulumi.Input<string>;
         /**
-         * Specifies if the http2 protocol should be enabled. Defaults to `false`.
+         * Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
@@ -4407,11 +4410,25 @@ export namespace appservice {
         password?: pulumi.Input<string>;
     }
 
+    export interface LinuxFunctionAppStickySettings {
+        /**
+         * A list of `appSetting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+         */
+        appSettingNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of `connectionString` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+         */
+        connectionStringNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface LinuxWebAppAuthSettings {
         /**
          * An `activeDirectory` block as defined above.
          */
         activeDirectory?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsActiveDirectory>;
+        /**
+         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
@@ -4685,6 +4702,9 @@ export namespace appservice {
     }
 
     export interface LinuxWebAppLogsApplicationLogsAzureBlobStorage {
+        /**
+         * The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+         */
         level: pulumi.Input<string>;
         /**
          * The time in days after which to remove blobs. A value of `0` means no retention.
@@ -4828,6 +4848,9 @@ export namespace appservice {
          * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
          */
         use32BitWorker?: pulumi.Input<boolean>;
+        /**
+         * Should all outbound traffic have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         */
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
          * Should Web Sockets be enabled. Defaults to `false`.
@@ -4849,11 +4872,11 @@ export namespace appservice {
          */
         dockerImageTag?: pulumi.Input<string>;
         /**
-         * The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
-         * The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+         * The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
          */
         javaServer?: pulumi.Input<string>;
         /**
@@ -5103,6 +5126,9 @@ export namespace appservice {
          * An `activeDirectory` block as defined above.
          */
         activeDirectory?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsActiveDirectory>;
+        /**
+         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
@@ -5376,6 +5402,9 @@ export namespace appservice {
     }
 
     export interface LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage {
+        /**
+         * The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+         */
         level: pulumi.Input<string>;
         /**
          * The time in days after which to remove blobs. A value of `0` means no retention.
@@ -5547,11 +5576,11 @@ export namespace appservice {
          */
         dockerImageTag?: pulumi.Input<string>;
         /**
-         * The version of .Net to use. Possible values include `3.1`, `5.0`, and `6.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
-         * The java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+         * The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
          */
         javaServer?: pulumi.Input<string>;
         /**
@@ -5821,6 +5850,17 @@ export namespace appservice {
          * The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface LinuxWebAppStickySettings {
+        /**
+         * A list of `appSetting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+         */
+        appSettingNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of `connectionString` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+         */
+        connectionStringNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface LinuxWebAppStorageAccount {
@@ -6096,7 +6136,7 @@ export namespace appservice {
          */
         retentionInDays: pulumi.Input<number>;
         /**
-         * The maximum size in megabytes that http log files can use before being removed.
+         * The maximum size in megabytes that HTTP log files can use before being removed.
          */
         retentionInMb: pulumi.Input<number>;
     }
@@ -6131,7 +6171,7 @@ export namespace appservice {
          */
         defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+         * The version of the .NET framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: pulumi.Input<string>;
         /**
@@ -6199,7 +6239,7 @@ export namespace appservice {
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
-         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          */
         scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.SlotSiteConfigScmIpRestriction>[]>;
         /**
@@ -6245,7 +6285,7 @@ export namespace appservice {
          */
         action?: pulumi.Input<string>;
         /**
-         * The headers for this specific `ipRestriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+         * The headers for this specific `ipRestriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
          */
         headers?: pulumi.Input<inputs.appservice.SlotSiteConfigIpRestrictionHeaders>;
         /**
@@ -6295,7 +6335,7 @@ export namespace appservice {
          */
         action?: pulumi.Input<string>;
         /**
-         * The headers for this specific `ipRestriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+         * The headers for this specific `ipRestriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
          */
         headers?: pulumi.Input<inputs.appservice.SlotSiteConfigScmIpRestrictionHeaders>;
         /**
@@ -6487,6 +6527,9 @@ export namespace appservice {
          * An `activeDirectory` block as defined above.
          */
         activeDirectory?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsActiveDirectory>;
+        /**
+         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
@@ -6792,7 +6835,7 @@ export namespace appservice {
          */
         healthCheckPath?: pulumi.Input<string>;
         /**
-         * Specifies if the http2 protocol should be enabled. Defaults to `false`.
+         * Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
@@ -6872,7 +6915,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteConfigApplicationStack {
         /**
-         * The version of .Net to use. Possible values include `3.1` and `6`.
+         * The version of .NET to use. Possible values include `3.1` and `6`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -7342,7 +7385,7 @@ export namespace appservice {
          */
         healthCheckPath?: pulumi.Input<string>;
         /**
-         * Specifies if the http2 protocol should be enabled. Defaults to `false`.
+         * Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
@@ -7575,11 +7618,25 @@ export namespace appservice {
         password?: pulumi.Input<string>;
     }
 
+    export interface WindowsFunctionAppStickySettings {
+        /**
+         * A list of `appSetting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+         */
+        appSettingNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of `connectionString` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+         */
+        connectionStringNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface WindowsWebAppAuthSettings {
         /**
          * An `activeDirectory` block as defined above.
          */
         activeDirectory?: pulumi.Input<inputs.appservice.WindowsWebAppAuthSettingsActiveDirectory>;
+        /**
+         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
@@ -7853,6 +7910,9 @@ export namespace appservice {
     }
 
     export interface WindowsWebAppLogsApplicationLogsAzureBlobStorage {
+        /**
+         * The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+         */
         level: pulumi.Input<string>;
         /**
          * The time in days after which to remove blobs. A value of `0` means no retention.
@@ -8033,7 +8093,7 @@ export namespace appservice {
          */
         dockerContainerTag?: pulumi.Input<string>;
         /**
-         * The version of .Net to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -8332,6 +8392,9 @@ export namespace appservice {
          * An `activeDirectory` block as defined above.
          */
         activeDirectory?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsActiveDirectory>;
+        /**
+         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
@@ -8605,6 +8668,9 @@ export namespace appservice {
     }
 
     export interface WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage {
+        /**
+         * The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+         */
         level: pulumi.Input<string>;
         /**
          * The time in days after which to remove blobs. A value of `0` means no retention.
@@ -8788,7 +8854,7 @@ export namespace appservice {
          */
         dockerContainerTag?: pulumi.Input<string>;
         /**
-         * The version of .Net to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, and `v6.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -9109,6 +9175,17 @@ export namespace appservice {
         type: pulumi.Input<string>;
     }
 
+    export interface WindowsWebAppStickySettings {
+        /**
+         * A list of `appSetting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+         */
+        appSettingNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of `connectionString` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+         */
+        connectionStringNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface WindowsWebAppStorageAccount {
         /**
          * The Access key for the storage account.
@@ -9182,7 +9259,7 @@ export namespace automation {
     export interface ModuleModuleLink {
         hash?: pulumi.Input<inputs.automation.ModuleModuleLinkHash>;
         /**
-         * The uri of the module content (zip or nupkg).
+         * The URI of the module content (zip or nupkg).
          */
         uri: pulumi.Input<string>;
     }
@@ -9202,7 +9279,7 @@ export namespace automation {
     export interface RunBookPublishContentLink {
         hash?: pulumi.Input<inputs.automation.RunBookPublishContentLinkHash>;
         /**
-         * The uri of the runbook content.
+         * The URI of the runbook content.
          */
         uri: pulumi.Input<string>;
         version?: pulumi.Input<string>;
@@ -9535,7 +9612,7 @@ export namespace batch {
          */
         publicAddressProvisioningType?: pulumi.Input<string>;
         /**
-         * A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
+         * A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
          */
         publicIps?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -10981,6 +11058,17 @@ export namespace compute {
         timeout?: pulumi.Input<string>;
     }
 
+    export interface LinuxVirtualMachineScaleSetTerminationNotification {
+        /**
+         * Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         */
+        timeout?: pulumi.Input<string>;
+    }
+
     export interface LinuxVirtualMachineSecret {
         /**
          * One or more `certificate` blocks as defined above.
@@ -11185,7 +11273,7 @@ export namespace compute {
          */
         disablePasswordAuthentication?: pulumi.Input<boolean>;
         /**
-         * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+         * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          */
         patchMode?: pulumi.Input<string>;
         provisionVmAgent?: pulumi.Input<boolean>;
@@ -11225,7 +11313,7 @@ export namespace compute {
          */
         hotpatchingEnabled?: pulumi.Input<boolean>;
         /**
-         * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+         * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          */
         patchMode?: pulumi.Input<string>;
         provisionVmAgent?: pulumi.Input<boolean>;
@@ -11358,7 +11446,7 @@ export namespace compute {
 
     export interface ScaleSetNetworkProfileDnsSettings {
         /**
-         * Specifies an array of dns servers.
+         * Specifies an array of DNS servers.
          */
         dnsServers: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -11377,7 +11465,7 @@ export namespace compute {
          */
         loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+         * Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
          */
         loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -11400,7 +11488,7 @@ export namespace compute {
 
     export interface ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration {
         /**
-         * The domain name label for the dns settings.
+         * The domain name label for the DNS settings.
          */
         domainNameLabel: pulumi.Input<string>;
         /**
@@ -11408,7 +11496,7 @@ export namespace compute {
          */
         idleTimeout: pulumi.Input<number>;
         /**
-         * The name of the public ip address configuration
+         * The name of the public IP address configuration
          */
         name: pulumi.Input<string>;
     }
@@ -11423,11 +11511,11 @@ export namespace compute {
          */
         adminUsername: pulumi.Input<string>;
         /**
-         * Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+         * Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for Linux. Changing this forces a new resource to be created.
          */
         computerNamePrefix: pulumi.Input<string>;
         /**
-         * Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+         * Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
          */
         customData?: pulumi.Input<string>;
     }
@@ -11625,7 +11713,7 @@ export namespace compute {
          */
         createOption: pulumi.Input<string>;
         /**
-         * Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
+         * Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
          * Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
          * When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
          */
@@ -11639,11 +11727,11 @@ export namespace compute {
          */
         name?: pulumi.Input<string>;
         /**
-         * Specifies the operating system Type, valid values are windows, linux.
+         * Specifies the operating system Type, valid values are windows, Linux.
          */
         osType?: pulumi.Input<string>;
         /**
-         * Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
+         * Specifies the VHD URI. Cannot be used when `image` or `managedDiskType` is specified.
          */
         vhdContainers?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -11949,7 +12037,7 @@ export namespace compute {
          */
         diskSizeGb?: pulumi.Input<number>;
         /**
-         * Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+         * Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
          */
         imageUri?: pulumi.Input<string>;
         /**
@@ -12430,6 +12518,17 @@ export namespace compute {
     export interface WindowsVirtualMachineScaleSetTerminateNotification {
         /**
          * Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         */
+        timeout?: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetTerminationNotification {
+        /**
+         * Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -12969,7 +13068,7 @@ export namespace containerservice {
          */
         count?: pulumi.Input<number>;
         /**
-         * The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+         * The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
          */
         sku?: pulumi.Input<string>;
     }
@@ -13470,7 +13569,7 @@ export namespace containerservice {
          */
         onlyCriticalAddonsEnabled?: pulumi.Input<boolean>;
         /**
-         * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+         * Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
          */
         orchestratorVersion?: pulumi.Input<string>;
         /**
@@ -13922,7 +14021,7 @@ export namespace containerservice {
          */
         day: pulumi.Input<string>;
         /**
-         * An array of hour slots in a day. Possible values are between `0` and `23`.
+         * An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
          */
         hours: pulumi.Input<pulumi.Input<number>[]>;
     }
@@ -14892,7 +14991,7 @@ export namespace cosmosdb {
          */
         allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+         * A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -15296,7 +15395,7 @@ export namespace databoxedge {
          */
         culture?: pulumi.Input<string>;
         /**
-         * The device software version number of the device (eg: 1.2.18105.6).
+         * The device software version number of the device (e.g. 1.2.18105.6).
          */
         hcsVersion?: pulumi.Input<string>;
         /**
@@ -15668,6 +15767,10 @@ export namespace datafactory {
          */
         container: pulumi.Input<string>;
         /**
+         * Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicContainerEnabled?: pulumi.Input<boolean>;
+        /**
          * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
          */
         dynamicFilenameEnabled?: pulumi.Input<boolean>;
@@ -15774,6 +15877,10 @@ export namespace datafactory {
          */
         container: pulumi.Input<string>;
         /**
+         * Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicContainerEnabled?: pulumi.Input<boolean>;
+        /**
          * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
          */
         dynamicFilenameEnabled?: pulumi.Input<boolean>;
@@ -15850,6 +15957,10 @@ export namespace datafactory {
          */
         container: pulumi.Input<string>;
         /**
+         * Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicContainerEnabled?: pulumi.Input<boolean>;
+        /**
          * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
          */
         dynamicFilenameEnabled?: pulumi.Input<boolean>;
@@ -15925,6 +16036,10 @@ export namespace datafactory {
          * The container on the Azure Blob Storage Account hosting the file.
          */
         container: pulumi.Input<string>;
+        /**
+         * Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicContainerEnabled?: pulumi.Input<boolean>;
         /**
          * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
          */
@@ -16349,7 +16464,7 @@ export namespace datafactory {
          */
         linkedServiceName: pulumi.Input<string>;
         /**
-         * Specifies the secret name in Azure Key Vault that stores the sas token.
+         * Specifies the secret name in Azure Key Vault that stores the SAS token.
          */
         secretName: pulumi.Input<string>;
     }
@@ -16683,7 +16798,7 @@ export namespace dataprotection {
          */
         name: pulumi.Input<string>;
         /**
-         * Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Postgre Sql to be created.
+         * Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created.
          */
         priority: pulumi.Input<number>;
     }
@@ -16702,7 +16817,7 @@ export namespace dataprotection {
          */
         monthsOfYears?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Postgre Sql to be created.
+         * Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy PostgreSQL to be created.
          */
         scheduledBackupTimes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -17214,7 +17329,7 @@ export namespace eventgrid {
          */
         action?: pulumi.Input<string>;
         /**
-         * The ip mask (CIDR) to match on.
+         * The IP mask (CIDR) to match on.
          */
         ipMask: pulumi.Input<string>;
     }
@@ -17686,7 +17801,7 @@ export namespace eventgrid {
          */
         action?: pulumi.Input<string>;
         /**
-         * The ip mask (CIDR) to match on.
+         * The IP mask (CIDR) to match on.
          */
         ipMask: pulumi.Input<string>;
     }
@@ -17697,7 +17812,7 @@ export namespace eventgrid {
          */
         action?: string;
         /**
-         * The ip mask (CIDR) to match on.
+         * The IP mask (CIDR) to match on.
          */
         ipMask: string;
     }
@@ -18159,7 +18274,7 @@ export namespace eventgrid {
          */
         action?: pulumi.Input<string>;
         /**
-         * The ip mask (CIDR) to match on.
+         * The IP mask (CIDR) to match on.
          */
         ipMask: pulumi.Input<string>;
     }
@@ -18234,7 +18349,7 @@ export namespace eventhub {
          */
         action?: pulumi.Input<string>;
         /**
-         * The ip mask (CIDR) to match on.
+         * The IP mask (CIDR) to match on.
          */
         ipMask: pulumi.Input<string>;
     }
@@ -18306,7 +18421,7 @@ export namespace eventhub {
          */
         action?: pulumi.Input<string>;
         /**
-         * The ip mask (CIDR) to match on.
+         * The IP mask (CIDR) to match on.
          */
         ipMask: pulumi.Input<string>;
     }
@@ -18439,7 +18554,7 @@ export namespace eventhub {
          */
         action?: pulumi.Input<string>;
         /**
-         * The ip mask to match on.
+         * The IP mask to match on.
          */
         ipMask: pulumi.Input<string>;
     }
@@ -19191,7 +19306,7 @@ export namespace frontdoor {
 
     export interface FrontdoorBackendPoolHealthProbe {
         /**
-         * Is this health probe enabled? Dafaults to `true`.
+         * Is this health probe enabled? Defaults to `true`.
          */
         enabled?: pulumi.Input<boolean>;
         /**
@@ -22320,7 +22435,7 @@ export namespace kusto {
 
     export interface ClusterSku {
         /**
-         * Specifies the node count for the cluster. Boundaries depend on the sku name.
+         * Specifies the node count for the cluster. Boundaries depend on the SKU name.
          */
         capacity?: pulumi.Input<number>;
         /**
@@ -22367,7 +22482,7 @@ export namespace lb {
 
     export interface LoadBalancerFrontendIpConfiguration {
         /**
-         * The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+         * The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
          */
         gatewayLoadBalancerFrontendIpConfigurationId?: pulumi.Input<string>;
         /**
@@ -22383,7 +22498,7 @@ export namespace lb {
          */
         loadBalancerRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the name of the frontend ip configuration.
+         * Specifies the name of the frontend IP configuration.
          */
         name: pulumi.Input<string>;
         /**
@@ -22757,7 +22872,7 @@ export namespace logicapps {
          */
         cors?: pulumi.Input<inputs.logicapps.StandardSiteConfigCors>;
         /**
-         * The version of the .net framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .net Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         * The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: pulumi.Input<string>;
         /**
@@ -22773,11 +22888,11 @@ export namespace logicapps {
          */
         healthCheckPath?: pulumi.Input<string>;
         /**
-         * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+         * Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
-         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardSiteConfigIpRestriction>[]>;
         /**
@@ -23106,19 +23221,19 @@ export namespace machinelearning {
 
     export interface InferenceClusterSsl {
         /**
-         * The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
          */
         cert?: pulumi.Input<string>;
         /**
-         * The cname of the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
          */
         cname?: pulumi.Input<string>;
         /**
-         * The key content for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
          */
         key?: pulumi.Input<string>;
         /**
-         * The leaf domain label for the ssl configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
          */
         leafDomainLabel?: pulumi.Input<string>;
         /**
@@ -23646,7 +23761,7 @@ export namespace media {
          */
         ipAccessControlAllows?: pulumi.Input<pulumi.Input<inputs.media.LiveEventPreviewIpAccessControlAllow>[]>;
         /**
-         * The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+         * The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
          */
         previewLocator?: pulumi.Input<string>;
         /**
@@ -24033,7 +24148,7 @@ export namespace mediaservices {
 export namespace monitoring {
     export interface AadDiagnosticSettingLog {
         /**
-         * The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `RiskyUsers`, `ServicePrincipalSignInLogs`, `UserRiskEvents`.
+         * The log category for the Azure Active Directory Diagnostic.
          */
         category: pulumi.Input<string>;
         /**
@@ -24124,7 +24239,7 @@ export namespace monitoring {
          */
         functionName: pulumi.Input<string>;
         /**
-         * The http trigger url where http request sent to.
+         * The HTTP trigger url where HTTP request sent to.
          */
         httpTriggerUrl: pulumi.Input<string>;
         /**
@@ -24196,7 +24311,7 @@ export namespace monitoring {
 
     export interface ActionGroupLogicAppReceiver {
         /**
-         * The callback url where http request sent to.
+         * The callback url where HTTP request sent to.
          */
         callbackUrl: pulumi.Input<string>;
         /**
@@ -24264,15 +24379,15 @@ export namespace monitoring {
 
     export interface ActionGroupWebhookReceiverAadAuth {
         /**
-         * The identifier uri for aad auth.
+         * The identifier URI for AAD auth.
          */
         identifierUri?: pulumi.Input<string>;
         /**
-         * The webhook application object Id for aad auth.
+         * The webhook application object Id for AAD auth.
          */
         objectId: pulumi.Input<string>;
         /**
-         * The tenant id for aad auth.
+         * The tenant id for AAD auth.
          */
         tenantId?: pulumi.Input<string>;
     }
@@ -25248,6 +25363,10 @@ export namespace mssql {
 
     export interface DatabaseShortTermRetentionPolicy {
         /**
+         * The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
+         */
+        backupIntervalInHours?: pulumi.Input<number>;
+        /**
          * Point In Time Restore configuration. Value has to be between `7` and `35`.
          */
         retentionDays: pulumi.Input<number>;
@@ -25504,7 +25623,7 @@ export namespace mssql {
 
     export interface VirtualMachineKeyVaultCredential {
         /**
-         * The azure Key Vault url. Changing this forces a new resource to be created.
+         * The Azure Key Vault url. Changing this forces a new resource to be created.
          */
         keyVaultUrl: pulumi.Input<string>;
         /**
@@ -26194,11 +26313,11 @@ export namespace network {
          */
         path: pulumi.Input<string>;
         /**
-         * Whether the host header should be picked from the backend http settings. Defaults to `false`.
+         * Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
          */
         pickHostNameFromBackendHttpSettings?: pulumi.Input<boolean>;
         /**
-         * Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+         * Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
          */
         port?: pulumi.Input<number>;
         /**
@@ -27175,7 +27294,7 @@ export namespace network {
          */
         sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+         * Specifies a list of source IP groups that shall be bypassed by intrusion detection.
          */
         sourceIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -27259,19 +27378,19 @@ export namespace network {
 
     export interface FirewallPolicyRuleCollectionGroupNatRuleCollection {
         /**
-         * The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+         * The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
          */
         action: pulumi.Input<string>;
         /**
-         * The name which should be used for this nat rule collection.
+         * The name which should be used for this NAT rule collection.
          */
         name: pulumi.Input<string>;
         /**
-         * The priority of the nat rule collection. The range is `100` - `65000`.
+         * The priority of the NAT rule collection. The range is `100` - `65000`.
          */
         priority: pulumi.Input<number>;
         /**
-         * A `rule` (nat rule) block as defined above.
+         * A `rule` (NAT rule) block as defined above.
          */
         rules: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNatRuleCollectionRule>[]>;
     }
@@ -27577,11 +27696,11 @@ export namespace network {
 
     export interface NetworkConnectionMonitorTestConfigurationTcpConfiguration {
         /**
-         * The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+         * The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
          */
         destinationPortBehavior?: pulumi.Input<string>;
         /**
-         * The port for the Tcp connection.
+         * The port for the TCP connection.
          */
         port: pulumi.Input<number>;
         /**
@@ -27615,7 +27734,7 @@ export namespace network {
 
     export interface NetworkInterfaceIpConfiguration {
         /**
-         * The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+         * The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
          */
         gatewayLoadBalancerFrontendIpConfigurationId?: pulumi.Input<string>;
         /**
@@ -27673,7 +27792,7 @@ export namespace network {
 
     export interface NetworkPacketCaptureStorageLocation {
         /**
-         * A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+         * A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
          */
         filePath?: pulumi.Input<string>;
         /**
@@ -27774,7 +27893,7 @@ export namespace network {
          */
         intervalInMinutes?: pulumi.Input<number>;
         /**
-         * The resource guid of the attached workspace.
+         * The resource GUID of the attached workspace.
          */
         workspaceId: pulumi.Input<string>;
         /**
@@ -27938,7 +28057,7 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
-         * The value of custom header. Applicable for Http and Https protocol.
+         * The value of custom header. Applicable for HTTP and HTTPS protocol.
          */
         value: pulumi.Input<string>;
     }
@@ -27964,7 +28083,7 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
-         * The value of custom header. Applicable for Http and Https protocol.
+         * The value of custom header. Applicable for HTTP and HTTPS protocol.
          */
         value: pulumi.Input<string>;
     }
@@ -27990,7 +28109,7 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
-         * The value of custom header. Applicable for Http and Https protocol.
+         * The value of custom header. Applicable for HTTP and HTTPS protocol.
          */
         value: pulumi.Input<string>;
     }
@@ -28062,7 +28181,7 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
-         * The value of custom header. Applicable for Http and Https protocol.
+         * The value of custom header. Applicable for HTTP and HTTPS protocol.
          */
         value: pulumi.Input<string>;
     }
@@ -28258,7 +28377,7 @@ export namespace network {
          */
         privateIpAddressAllocation?: pulumi.Input<string>;
         /**
-         * The ID of the public ip address to associate
+         * The ID of the public IP address to associate
          * with the Virtual Network Gateway.
          */
         publicIpAddressId: pulumi.Input<string>;
@@ -28286,7 +28405,7 @@ export namespace network {
          */
         aadTenant?: pulumi.Input<string>;
         /**
-         * The address space out of which ip addresses for
+         * The address space out of which IP addresses for
          * vpn clients will be taken. You can provide more than one address space, e.g.
          * in CIDR notation.
          */
@@ -28401,7 +28520,7 @@ export namespace network {
          */
         defaultIps?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The pre-defined id of VPN Gateway Ip Configuration.
+         * The pre-defined id of VPN Gateway IP Configuration.
          */
         ipConfigurationId?: pulumi.Input<string>;
         /**
@@ -28420,7 +28539,7 @@ export namespace network {
          */
         defaultIps?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The pre-defined id of VPN Gateway Ip Configuration.
+         * The pre-defined id of VPN Gateway IP Configuration.
          */
         ipConfigurationId?: pulumi.Input<string>;
         /**
@@ -28476,11 +28595,11 @@ export namespace network {
          */
         connectionMode?: pulumi.Input<string>;
         /**
-         * A list of the egress Nat Rule Ids.
+         * A list of the egress NAT Rule Ids.
          */
         egressNatRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of the ingress Nat Rule Ids.
+         * A list of the ingress NAT Rule Ids.
          */
         ingressNatRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -28488,7 +28607,7 @@ export namespace network {
          */
         ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionVpnLinkIpsecPolicy>[]>;
         /**
-         * Whether to use local azure ip to initiate connection? Defaults to `false`.
+         * Whether to use local Azure IP to initiate connection? Defaults to `false`.
          */
         localAzureIpAddressEnabled?: pulumi.Input<boolean>;
         /**
@@ -28717,7 +28836,7 @@ export namespace network {
          */
         asn: pulumi.Input<number>;
         /**
-         * The BGP peering ip address.
+         * The BGP peering IP address.
          */
         peeringAddress: pulumi.Input<string>;
     }
@@ -29257,19 +29376,19 @@ export namespace redis {
          */
         notifyKeyspaceEvents?: pulumi.Input<string>;
         /**
-         * Is Backup Enabled? Only supported on Premium SKU's.
+         * Is Backup Enabled? Only supported on Premium SKUs.
          */
         rdbBackupEnabled?: pulumi.Input<boolean>;
         /**
-         * The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+         * The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
          */
         rdbBackupFrequency?: pulumi.Input<number>;
         /**
-         * The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+         * The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
          */
         rdbBackupMaxSnapshotCount?: pulumi.Input<number>;
         /**
-         * The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+         * The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
          */
         rdbStorageConnectionString?: pulumi.Input<string>;
     }
@@ -30530,7 +30649,7 @@ export namespace storage {
          */
         allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of http methods that are allowed to be executed by the origin. Valid options are
+         * A list of HTTP methods that are allowed to be executed by the origin. Valid options are
          * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
@@ -30607,7 +30726,7 @@ export namespace storage {
          */
         defaultAction: pulumi.Input<string>;
         /**
-         * List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+         * List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
          */
         ipRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -30667,7 +30786,7 @@ export namespace storage {
          */
         allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of http methods that are allowed to be executed by the origin. Valid options are
+         * A list of HTTP methods that are allowed to be executed by the origin. Valid options are
          * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
@@ -30756,7 +30875,7 @@ export namespace storage {
          */
         publishInternetEndpoints?: pulumi.Input<boolean>;
         /**
-         * Should microsoft routing storage endpoints be published? Defaults to `false`.
+         * Should Microsoft routing storage endpoints be published? Defaults to `false`.
          */
         publishMicrosoftEndpoints?: pulumi.Input<boolean>;
     }
@@ -30782,7 +30901,7 @@ export namespace storage {
          */
         allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of http methods that are allowed to be executed by the origin. Valid options are
+         * A list of HTTP methods that are allowed to be executed by the origin. Valid options are
          * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
@@ -31614,11 +31733,11 @@ export namespace synapse {
 
     export interface SqlPoolRestore {
         /**
-         * Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+         * Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
          */
         pointInTime: pulumi.Input<string>;
         /**
-         * The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+         * The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
          */
         sourceDatabaseId: pulumi.Input<string>;
     }
@@ -31828,7 +31947,7 @@ export namespace trafficmanager {
          */
         name: pulumi.Input<string>;
         /**
-         * The value of custom header. Applicable for Http and Https protocol.
+         * The value of custom header. Applicable for HTTP and HTTPS protocol.
          */
         value: pulumi.Input<string>;
     }

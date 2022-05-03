@@ -111,6 +111,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Should the Linux Web App use a 32-bit worker. Defaults to `true`.
         /// </summary>
         public readonly bool? Use32BitWorker;
+        /// <summary>
+        /// Should all outbound traffic have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        /// </summary>
         public readonly bool? VnetRouteAllEnabled;
         /// <summary>
         /// Should Web Sockets be enabled. Defaults to `false`.

@@ -136,7 +136,7 @@ export class Module extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+     * The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -219,7 +219,7 @@ export interface ModuleState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+     * The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -257,7 +257,7 @@ export interface ModuleArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+     * The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
     skuName: pulumi.Input<string>;
     /**

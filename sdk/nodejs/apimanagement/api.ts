@@ -125,7 +125,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly revision!: pulumi.Output<string>;
     /**
-     * The description of the Api Revision of the API Management API.
+     * The description of the API Revision of the API Management API.
      */
     public readonly revisionDescription!: pulumi.Output<string | undefined>;
     /**
@@ -153,7 +153,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly version!: pulumi.Output<string>;
     /**
-     * The description of the Api Version of the API Management API.
+     * The description of the API Version of the API Management API.
      */
     public readonly versionDescription!: pulumi.Output<string | undefined>;
     /**
@@ -292,7 +292,7 @@ export interface ApiState {
      */
     revision?: pulumi.Input<string>;
     /**
-     * The description of the Api Revision of the API Management API.
+     * The description of the API Revision of the API Management API.
      */
     revisionDescription?: pulumi.Input<string>;
     /**
@@ -320,7 +320,7 @@ export interface ApiState {
      */
     version?: pulumi.Input<string>;
     /**
-     * The description of the Api Version of the API Management API.
+     * The description of the API Version of the API Management API.
      */
     versionDescription?: pulumi.Input<string>;
     /**
@@ -378,7 +378,7 @@ export interface ApiArgs {
      */
     revision: pulumi.Input<string>;
     /**
-     * The description of the Api Revision of the API Management API.
+     * The description of the API Revision of the API Management API.
      */
     revisionDescription?: pulumi.Input<string>;
     /**
@@ -406,7 +406,7 @@ export interface ApiArgs {
      */
     version?: pulumi.Input<string>;
     /**
-     * The description of the Api Version of the API Management API.
+     * The description of the API Version of the API Management API.
      */
     versionDescription?: pulumi.Input<string>;
     /**

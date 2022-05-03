@@ -23,7 +23,7 @@ class VirtualHubIpArgs:
         The set of arguments for constructing a VirtualHubIp resource.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub IP. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: The private IP address of the IP configuration.
         :param pulumi.Input[str] private_ip_allocation_method: The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
@@ -66,7 +66,7 @@ class VirtualHubIpArgs:
     @pulumi.getter(name="virtualHubId")
     def virtual_hub_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+        The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_hub_id")
 
@@ -127,7 +127,7 @@ class _VirtualHubIpState:
         :param pulumi.Input[str] private_ip_allocation_method: The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -206,7 +206,7 @@ class _VirtualHubIpState:
     @pulumi.getter(name="virtualHubId")
     def virtual_hub_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+        The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_hub_id")
 
@@ -279,7 +279,7 @@ class VirtualHubIp(pulumi.CustomResource):
         :param pulumi.Input[str] private_ip_allocation_method: The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -405,7 +405,7 @@ class VirtualHubIp(pulumi.CustomResource):
         :param pulumi.Input[str] private_ip_allocation_method: The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -463,7 +463,7 @@ class VirtualHubIp(pulumi.CustomResource):
     @pulumi.getter(name="virtualHubId")
     def virtual_hub_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
+        The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_hub_id")
 

@@ -85,7 +85,7 @@ type SecuritySolution struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the Log Analytics Workspace ID to which the security data will be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
-	// Should ip addressed be unmasked in the log? Defaults to `false`.
+	// Should IP addressed be unmasked in the log? Defaults to `false`.
 	LogUnmaskedIpsEnabled pulumi.BoolPtrOutput `pulumi:"logUnmaskedIpsEnabled"`
 	// Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -155,7 +155,7 @@ type securitySolutionState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the Log Analytics Workspace ID to which the security data will be sent.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// Should ip addressed be unmasked in the log? Defaults to `false`.
+	// Should IP addressed be unmasked in the log? Defaults to `false`.
 	LogUnmaskedIpsEnabled *bool `pulumi:"logUnmaskedIpsEnabled"`
 	// Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -188,7 +188,7 @@ type SecuritySolutionState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the Log Analytics Workspace ID to which the security data will be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
-	// Should ip addressed be unmasked in the log? Defaults to `false`.
+	// Should IP addressed be unmasked in the log? Defaults to `false`.
 	LogUnmaskedIpsEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -225,7 +225,7 @@ type securitySolutionArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the Log Analytics Workspace ID to which the security data will be sent.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// Should ip addressed be unmasked in the log? Defaults to `false`.
+	// Should IP addressed be unmasked in the log? Defaults to `false`.
 	LogUnmaskedIpsEnabled *bool `pulumi:"logUnmaskedIpsEnabled"`
 	// Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -259,7 +259,7 @@ type SecuritySolutionArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the Log Analytics Workspace ID to which the security data will be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
-	// Should ip addressed be unmasked in the log? Defaults to `false`.
+	// Should IP addressed be unmasked in the log? Defaults to `false`.
 	LogUnmaskedIpsEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

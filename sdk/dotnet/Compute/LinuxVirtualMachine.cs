@@ -259,7 +259,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.LinuxVirtualMachineOsDisk> OsDisk { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// </summary>
         [Output("patchMode")]
         public Output<string?> PatchMode { get; private set; } = null!;
@@ -593,7 +593,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineOsDiskArgs> OsDisk { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
@@ -870,7 +870,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineOsDiskGetArgs>? OsDisk { get; set; }
 
         /// <summary>
-        /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more informaton on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }

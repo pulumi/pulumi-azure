@@ -70,7 +70,7 @@ type Definition struct {
 
 	// One or more `authorization` block defined below.
 	Authorizations DefinitionAuthorizationArrayOutput `pulumi:"authorizations"`
-	// Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+	// Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
 	CreateUiDefinition pulumi.StringPtrOutput `pulumi:"createUiDefinition"`
 	// Specifies the managed application definition description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -80,7 +80,7 @@ type Definition struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
 	LockLevel pulumi.StringOutput `pulumi:"lockLevel"`
-	// Specifies the inline main template json which has resources to be provisioned.
+	// Specifies the inline main template JSON which has resources to be provisioned.
 	MainTemplate pulumi.StringPtrOutput `pulumi:"mainTemplate"`
 	// Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -134,7 +134,7 @@ func GetDefinition(ctx *pulumi.Context,
 type definitionState struct {
 	// One or more `authorization` block defined below.
 	Authorizations []DefinitionAuthorization `pulumi:"authorizations"`
-	// Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+	// Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
 	CreateUiDefinition *string `pulumi:"createUiDefinition"`
 	// Specifies the managed application definition description.
 	Description *string `pulumi:"description"`
@@ -144,7 +144,7 @@ type definitionState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
 	LockLevel *string `pulumi:"lockLevel"`
-	// Specifies the inline main template json which has resources to be provisioned.
+	// Specifies the inline main template JSON which has resources to be provisioned.
 	MainTemplate *string `pulumi:"mainTemplate"`
 	// Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -161,7 +161,7 @@ type definitionState struct {
 type DefinitionState struct {
 	// One or more `authorization` block defined below.
 	Authorizations DefinitionAuthorizationArrayInput
-	// Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+	// Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
 	CreateUiDefinition pulumi.StringPtrInput
 	// Specifies the managed application definition description.
 	Description pulumi.StringPtrInput
@@ -171,7 +171,7 @@ type DefinitionState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
 	LockLevel pulumi.StringPtrInput
-	// Specifies the inline main template json which has resources to be provisioned.
+	// Specifies the inline main template JSON which has resources to be provisioned.
 	MainTemplate pulumi.StringPtrInput
 	// Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -192,7 +192,7 @@ func (DefinitionState) ElementType() reflect.Type {
 type definitionArgs struct {
 	// One or more `authorization` block defined below.
 	Authorizations []DefinitionAuthorization `pulumi:"authorizations"`
-	// Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+	// Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
 	CreateUiDefinition *string `pulumi:"createUiDefinition"`
 	// Specifies the managed application definition description.
 	Description *string `pulumi:"description"`
@@ -202,7 +202,7 @@ type definitionArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
 	LockLevel string `pulumi:"lockLevel"`
-	// Specifies the inline main template json which has resources to be provisioned.
+	// Specifies the inline main template JSON which has resources to be provisioned.
 	MainTemplate *string `pulumi:"mainTemplate"`
 	// Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -220,7 +220,7 @@ type definitionArgs struct {
 type DefinitionArgs struct {
 	// One or more `authorization` block defined below.
 	Authorizations DefinitionAuthorizationArrayInput
-	// Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+	// Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
 	CreateUiDefinition pulumi.StringPtrInput
 	// Specifies the managed application definition description.
 	Description pulumi.StringPtrInput
@@ -230,7 +230,7 @@ type DefinitionArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
 	LockLevel pulumi.StringInput
-	// Specifies the inline main template json which has resources to be provisioned.
+	// Specifies the inline main template JSON which has resources to be provisioned.
 	MainTemplate pulumi.StringPtrInput
 	// Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

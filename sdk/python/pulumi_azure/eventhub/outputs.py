@@ -156,7 +156,7 @@ class DomainInboundIpRule(dict):
                  ip_mask: str,
                  action: Optional[str] = None):
         """
-        :param str ip_mask: The ip mask (CIDR) to match on.
+        :param str ip_mask: The IP mask (CIDR) to match on.
         :param str action: The action to take when the rule is matched. Possible values are `Allow`.
         """
         pulumi.set(__self__, "ip_mask", ip_mask)
@@ -167,7 +167,7 @@ class DomainInboundIpRule(dict):
     @pulumi.getter(name="ipMask")
     def ip_mask(self) -> str:
         """
-        The ip mask (CIDR) to match on.
+        The IP mask (CIDR) to match on.
         """
         return pulumi.get(self, "ip_mask")
 
@@ -440,7 +440,7 @@ class EventGridTopicInboundIpRule(dict):
                  ip_mask: str,
                  action: Optional[str] = None):
         """
-        :param str ip_mask: The ip mask (CIDR) to match on.
+        :param str ip_mask: The IP mask (CIDR) to match on.
         :param str action: The action to take when the rule is matched. Possible values are `Allow`.
         """
         pulumi.set(__self__, "ip_mask", ip_mask)
@@ -451,7 +451,7 @@ class EventGridTopicInboundIpRule(dict):
     @pulumi.getter(name="ipMask")
     def ip_mask(self) -> str:
         """
-        The ip mask (CIDR) to match on.
+        The IP mask (CIDR) to match on.
         """
         return pulumi.get(self, "ip_mask")
 
@@ -956,7 +956,7 @@ class EventHubNamespaceNetworkRulesetsIpRule(dict):
                  ip_mask: str,
                  action: Optional[str] = None):
         """
-        :param str ip_mask: The ip mask to match on.
+        :param str ip_mask: The IP mask to match on.
         :param str action: The action to take when the rule is matched. Possible values are `Allow`.
         """
         pulumi.set(__self__, "ip_mask", ip_mask)
@@ -967,7 +967,7 @@ class EventHubNamespaceNetworkRulesetsIpRule(dict):
     @pulumi.getter(name="ipMask")
     def ip_mask(self) -> str:
         """
-        The ip mask to match on.
+        The IP mask to match on.
         """
         return pulumi.get(self, "ip_mask")
 

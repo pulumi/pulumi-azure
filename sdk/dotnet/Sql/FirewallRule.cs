@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Sql
 
         /// <summary>
         /// The name of the resource group in which to
-        /// create the sql server.
+        /// create the SQL Server.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.Sql
 
         /// <summary>
         /// The name of the resource group in which to
-        /// create the sql server.
+        /// create the SQL Server.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Sql
 
         /// <summary>
         /// The name of the resource group in which to
-        /// create the sql server.
+        /// create the SQL Server.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

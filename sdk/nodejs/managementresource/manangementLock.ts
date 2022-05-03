@@ -21,8 +21,7 @@ import * as utilities from "../utilities";
  *     notes: "Items can't be deleted in this subscription!",
  * });
  * ```
- *
- * ## Example Usage (Resource Group Level Lock)
+ * ### Resource Group Level Lock)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

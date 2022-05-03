@@ -2277,9 +2277,9 @@ type ApplicationGatewayProbe struct {
 	Name string `pulumi:"name"`
 	// The Path used for this Probe.
 	Path string `pulumi:"path"`
-	// Whether the host header should be picked from the backend http settings. Defaults to `false`.
+	// Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
 	PickHostNameFromBackendHttpSettings *bool `pulumi:"pickHostNameFromBackendHttpSettings"`
-	// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+	// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
 	Port *int `pulumi:"port"`
 	// The Protocol used for this Probe. Possible values are `Http` and `Https`.
 	Protocol string `pulumi:"protocol"`
@@ -2315,9 +2315,9 @@ type ApplicationGatewayProbeArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Path used for this Probe.
 	Path pulumi.StringInput `pulumi:"path"`
-	// Whether the host header should be picked from the backend http settings. Defaults to `false`.
+	// Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
 	PickHostNameFromBackendHttpSettings pulumi.BoolPtrInput `pulumi:"pickHostNameFromBackendHttpSettings"`
-	// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+	// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// The Protocol used for this Probe. Possible values are `Http` and `Https`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
@@ -2413,12 +2413,12 @@ func (o ApplicationGatewayProbeOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// Whether the host header should be picked from the backend http settings. Defaults to `false`.
+// Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
 func (o ApplicationGatewayProbeOutput) PickHostNameFromBackendHttpSettings() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) *bool { return v.PickHostNameFromBackendHttpSettings }).(pulumi.BoolPtrOutput)
 }
 
-// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
 func (o ApplicationGatewayProbeOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -9423,7 +9423,7 @@ type FirewallPolicyIntrusionDetectionTrafficBypass struct {
 	Protocol string `pulumi:"protocol"`
 	// Specifies a list of source addresses that shall be bypassed by intrusion detection.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
-	// Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+	// Specifies a list of source IP groups that shall be bypassed by intrusion detection.
 	SourceIpGroups []string `pulumi:"sourceIpGroups"`
 }
 
@@ -9453,7 +9453,7 @@ type FirewallPolicyIntrusionDetectionTrafficBypassArgs struct {
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// Specifies a list of source addresses that shall be bypassed by intrusion detection.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
-	// Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+	// Specifies a list of source IP groups that shall be bypassed by intrusion detection.
 	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
 }
 
@@ -9543,7 +9543,7 @@ func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) SourceAddresses() p
 	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionTrafficBypass) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of source ip groups that shall be bypassed by intrusion detection.
+// Specifies a list of source IP groups that shall be bypassed by intrusion detection.
 func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) SourceIpGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionTrafficBypass) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
 }
@@ -10004,13 +10004,13 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolAr
 }
 
 type FirewallPolicyRuleCollectionGroupNatRuleCollection struct {
-	// The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+	// The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
 	Action string `pulumi:"action"`
-	// The name which should be used for this nat rule collection.
+	// The name which should be used for this NAT rule collection.
 	Name string `pulumi:"name"`
-	// The priority of the nat rule collection. The range is `100` - `65000`.
+	// The priority of the NAT rule collection. The range is `100` - `65000`.
 	Priority int `pulumi:"priority"`
-	// A `rule` (nat rule) block as defined above.
+	// A `rule` (NAT rule) block as defined above.
 	Rules []FirewallPolicyRuleCollectionGroupNatRuleCollectionRule `pulumi:"rules"`
 }
 
@@ -10026,13 +10026,13 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionInput interface {
 }
 
 type FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs struct {
-	// The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+	// The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The name which should be used for this nat rule collection.
+	// The name which should be used for this NAT rule collection.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The priority of the nat rule collection. The range is `100` - `65000`.
+	// The priority of the NAT rule collection. The range is `100` - `65000`.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// A `rule` (nat rule) block as defined above.
+	// A `rule` (NAT rule) block as defined above.
 	Rules FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayInput `pulumi:"rules"`
 }
 
@@ -10087,22 +10087,22 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) ToFirewallPoli
 	return o
 }
 
-// The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+// The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollection) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this nat rule collection.
+// The name which should be used for this NAT rule collection.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollection) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The priority of the nat rule collection. The range is `100` - `65000`.
+// The priority of the NAT rule collection. The range is `100` - `65000`.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollection) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// A `rule` (nat rule) block as defined above.
+// A `rule` (NAT rule) block as defined above.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) Rules() FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollection) []FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
 		return v.Rules
@@ -12505,9 +12505,9 @@ func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput) Roun
 }
 
 type NetworkConnectionMonitorTestConfigurationTcpConfiguration struct {
-	// The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+	// The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
 	DestinationPortBehavior *string `pulumi:"destinationPortBehavior"`
-	// The port for the Tcp connection.
+	// The port for the TCP connection.
 	Port int `pulumi:"port"`
 	// Should path evaluation with trace route be enabled? Defaults to `true`.
 	TraceRouteEnabled *bool `pulumi:"traceRouteEnabled"`
@@ -12525,9 +12525,9 @@ type NetworkConnectionMonitorTestConfigurationTcpConfigurationInput interface {
 }
 
 type NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs struct {
-	// The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+	// The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
 	DestinationPortBehavior pulumi.StringPtrInput `pulumi:"destinationPortBehavior"`
-	// The port for the Tcp connection.
+	// The port for the TCP connection.
 	Port pulumi.IntInput `pulumi:"port"`
 	// Should path evaluation with trace route be enabled? Defaults to `true`.
 	TraceRouteEnabled pulumi.BoolPtrInput `pulumi:"traceRouteEnabled"`
@@ -12610,14 +12610,14 @@ func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) ToNetwo
 	}).(NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput)
 }
 
-// The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+// The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
 func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) DestinationPortBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationTcpConfiguration) *string {
 		return v.DestinationPortBehavior
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port for the Tcp connection.
+// The port for the TCP connection.
 func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationTcpConfiguration) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -12651,7 +12651,7 @@ func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) Elem
 	}).(NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput)
 }
 
-// The destination port behavior for the Tcp connection. Possible values are `None` and `ListenIfAvailable`.
+// The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
 func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) DestinationPortBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationTcpConfiguration) *string {
 		if v == nil {
@@ -12661,7 +12661,7 @@ func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) Dest
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port for the Tcp connection.
+// The port for the TCP connection.
 func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationTcpConfiguration) *int {
 		if v == nil {
@@ -12815,7 +12815,7 @@ func (o NetworkConnectionMonitorTestGroupArrayOutput) Index(i pulumi.IntInput) N
 }
 
 type NetworkInterfaceIpConfiguration struct {
-	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+	// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
 	GatewayLoadBalancerFrontendIpConfigurationId *string `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
 	// A name used for this IP Configuration.
 	Name string `pulumi:"name"`
@@ -12845,7 +12845,7 @@ type NetworkInterfaceIpConfigurationInput interface {
 }
 
 type NetworkInterfaceIpConfigurationArgs struct {
-	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+	// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
 	GatewayLoadBalancerFrontendIpConfigurationId pulumi.StringPtrInput `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
 	// A name used for this IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -12914,7 +12914,7 @@ func (o NetworkInterfaceIpConfigurationOutput) ToNetworkInterfaceIpConfiguration
 	return o
 }
 
-// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
 func (o NetworkInterfaceIpConfigurationOutput) GatewayLoadBalancerFrontendIpConfigurationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) *string { return v.GatewayLoadBalancerFrontendIpConfigurationId }).(pulumi.StringPtrOutput)
 }
@@ -13108,7 +13108,7 @@ func (o NetworkPacketCaptureFilterArrayOutput) Index(i pulumi.IntInput) NetworkP
 }
 
 type NetworkPacketCaptureStorageLocation struct {
-	// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+	// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
 	FilePath *string `pulumi:"filePath"`
 	// The ID of the storage account to save the packet capture session
 	StorageAccountId *string `pulumi:"storageAccountId"`
@@ -13128,7 +13128,7 @@ type NetworkPacketCaptureStorageLocationInput interface {
 }
 
 type NetworkPacketCaptureStorageLocationArgs struct {
-	// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+	// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
 	FilePath pulumi.StringPtrInput `pulumi:"filePath"`
 	// The ID of the storage account to save the packet capture session
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
@@ -13213,7 +13213,7 @@ func (o NetworkPacketCaptureStorageLocationOutput) ToNetworkPacketCaptureStorage
 	}).(NetworkPacketCaptureStorageLocationPtrOutput)
 }
 
-// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
 func (o NetworkPacketCaptureStorageLocationOutput) FilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkPacketCaptureStorageLocation) *string { return v.FilePath }).(pulumi.StringPtrOutput)
 }
@@ -13252,7 +13252,7 @@ func (o NetworkPacketCaptureStorageLocationPtrOutput) Elem() NetworkPacketCaptur
 	}).(NetworkPacketCaptureStorageLocationOutput)
 }
 
-// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
 func (o NetworkPacketCaptureStorageLocationPtrOutput) FilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkPacketCaptureStorageLocation) *string {
 		if v == nil {
@@ -13675,7 +13675,7 @@ type NetworkWatcherFlowLogTrafficAnalytics struct {
 	Enabled bool `pulumi:"enabled"`
 	// How frequently service should do flow analytics in minutes.
 	IntervalInMinutes *int `pulumi:"intervalInMinutes"`
-	// The resource guid of the attached workspace.
+	// The resource GUID of the attached workspace.
 	WorkspaceId string `pulumi:"workspaceId"`
 	// The location of the attached workspace.
 	WorkspaceRegion string `pulumi:"workspaceRegion"`
@@ -13699,7 +13699,7 @@ type NetworkWatcherFlowLogTrafficAnalyticsArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// How frequently service should do flow analytics in minutes.
 	IntervalInMinutes pulumi.IntPtrInput `pulumi:"intervalInMinutes"`
-	// The resource guid of the attached workspace.
+	// The resource GUID of the attached workspace.
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 	// The location of the attached workspace.
 	WorkspaceRegion pulumi.StringInput `pulumi:"workspaceRegion"`
@@ -13794,7 +13794,7 @@ func (o NetworkWatcherFlowLogTrafficAnalyticsOutput) IntervalInMinutes() pulumi.
 	return o.ApplyT(func(v NetworkWatcherFlowLogTrafficAnalytics) *int { return v.IntervalInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The resource guid of the attached workspace.
+// The resource GUID of the attached workspace.
 func (o NetworkWatcherFlowLogTrafficAnalyticsOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkWatcherFlowLogTrafficAnalytics) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
@@ -13853,7 +13853,7 @@ func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) IntervalInMinutes() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The resource guid of the attached workspace.
+// The resource GUID of the attached workspace.
 func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLogTrafficAnalytics) *string {
 		if v == nil {
@@ -15463,7 +15463,7 @@ func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) ServiceResources(
 type TrafficManagerAzureEndpointCustomHeader struct {
 	// The name of the custom header.
 	Name string `pulumi:"name"`
-	// The value of custom header. Applicable for Http and Https protocol.
+	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value string `pulumi:"value"`
 }
 
@@ -15481,7 +15481,7 @@ type TrafficManagerAzureEndpointCustomHeaderInput interface {
 type TrafficManagerAzureEndpointCustomHeaderArgs struct {
 	// The name of the custom header.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of custom header. Applicable for Http and Https protocol.
+	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -15541,7 +15541,7 @@ func (o TrafficManagerAzureEndpointCustomHeaderOutput) Name() pulumi.StringOutpu
 	return o.ApplyT(func(v TrafficManagerAzureEndpointCustomHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of custom header. Applicable for Http and Https protocol.
+// The value of custom header. Applicable for HTTP and HTTPS protocol.
 func (o TrafficManagerAzureEndpointCustomHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TrafficManagerAzureEndpointCustomHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -15684,7 +15684,7 @@ func (o TrafficManagerAzureEndpointSubnetArrayOutput) Index(i pulumi.IntInput) T
 type TrafficManagerExternalEndpointCustomHeader struct {
 	// The name of the custom header.
 	Name string `pulumi:"name"`
-	// The value of custom header. Applicable for Http and Https protocol.
+	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value string `pulumi:"value"`
 }
 
@@ -15702,7 +15702,7 @@ type TrafficManagerExternalEndpointCustomHeaderInput interface {
 type TrafficManagerExternalEndpointCustomHeaderArgs struct {
 	// The name of the custom header.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of custom header. Applicable for Http and Https protocol.
+	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -15762,7 +15762,7 @@ func (o TrafficManagerExternalEndpointCustomHeaderOutput) Name() pulumi.StringOu
 	return o.ApplyT(func(v TrafficManagerExternalEndpointCustomHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of custom header. Applicable for Http and Https protocol.
+// The value of custom header. Applicable for HTTP and HTTPS protocol.
 func (o TrafficManagerExternalEndpointCustomHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TrafficManagerExternalEndpointCustomHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -15905,7 +15905,7 @@ func (o TrafficManagerExternalEndpointSubnetArrayOutput) Index(i pulumi.IntInput
 type TrafficManagerNestedEndpointCustomHeader struct {
 	// The name of the custom header.
 	Name string `pulumi:"name"`
-	// The value of custom header. Applicable for Http and Https protocol.
+	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value string `pulumi:"value"`
 }
 
@@ -15923,7 +15923,7 @@ type TrafficManagerNestedEndpointCustomHeaderInput interface {
 type TrafficManagerNestedEndpointCustomHeaderArgs struct {
 	// The name of the custom header.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of custom header. Applicable for Http and Https protocol.
+	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -15983,7 +15983,7 @@ func (o TrafficManagerNestedEndpointCustomHeaderOutput) Name() pulumi.StringOutp
 	return o.ApplyT(func(v TrafficManagerNestedEndpointCustomHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of custom header. Applicable for Http and Https protocol.
+// The value of custom header. Applicable for HTTP and HTTPS protocol.
 func (o TrafficManagerNestedEndpointCustomHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TrafficManagerNestedEndpointCustomHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -16554,7 +16554,7 @@ func (o TrafficManagerProfileMonitorConfigPtrOutput) ToleratedNumberOfFailures()
 type TrafficManagerProfileMonitorConfigCustomHeader struct {
 	// The name of the custom header.
 	Name string `pulumi:"name"`
-	// The value of custom header. Applicable for Http and Https protocol.
+	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value string `pulumi:"value"`
 }
 
@@ -16572,7 +16572,7 @@ type TrafficManagerProfileMonitorConfigCustomHeaderInput interface {
 type TrafficManagerProfileMonitorConfigCustomHeaderArgs struct {
 	// The name of the custom header.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of custom header. Applicable for Http and Https protocol.
+	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -16632,7 +16632,7 @@ func (o TrafficManagerProfileMonitorConfigCustomHeaderOutput) Name() pulumi.Stri
 	return o.ApplyT(func(v TrafficManagerProfileMonitorConfigCustomHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of custom header. Applicable for Http and Https protocol.
+// The value of custom header. Applicable for HTTP and HTTPS protocol.
 func (o TrafficManagerProfileMonitorConfigCustomHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TrafficManagerProfileMonitorConfigCustomHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -18410,7 +18410,7 @@ type VirtualNetworkGatewayIpConfiguration struct {
 	// of the gateways virtual interface is assigned. Valid options are `Static` or
 	// `Dynamic`. Defaults to `Dynamic`.
 	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
-	// The ID of the public ip address to associate
+	// The ID of the public IP address to associate
 	// with the Virtual Network Gateway.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 	// The ID of the gateway subnet of a virtual network in
@@ -18439,7 +18439,7 @@ type VirtualNetworkGatewayIpConfigurationArgs struct {
 	// of the gateways virtual interface is assigned. Valid options are `Static` or
 	// `Dynamic`. Defaults to `Dynamic`.
 	PrivateIpAddressAllocation pulumi.StringPtrInput `pulumi:"privateIpAddressAllocation"`
-	// The ID of the public ip address to associate
+	// The ID of the public IP address to associate
 	// with the Virtual Network Gateway.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
 	// The ID of the gateway subnet of a virtual network in
@@ -18513,7 +18513,7 @@ func (o VirtualNetworkGatewayIpConfigurationOutput) PrivateIpAddressAllocation()
 	return o.ApplyT(func(v VirtualNetworkGatewayIpConfiguration) *string { return v.PrivateIpAddressAllocation }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the public ip address to associate
+// The ID of the public IP address to associate
 // with the Virtual Network Gateway.
 func (o VirtualNetworkGatewayIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
@@ -18555,7 +18555,7 @@ type VirtualNetworkGatewayVpnClientConfiguration struct {
 	AadIssuer *string `pulumi:"aadIssuer"`
 	// AzureAD Tenant URL
 	AadTenant *string `pulumi:"aadTenant"`
-	// The address space out of which ip addresses for
+	// The address space out of which IP addresses for
 	// vpn clients will be taken. You can provide more than one address space, e.g.
 	// in CIDR notation.
 	AddressSpaces []string `pulumi:"addressSpaces"`
@@ -18599,7 +18599,7 @@ type VirtualNetworkGatewayVpnClientConfigurationArgs struct {
 	AadIssuer pulumi.StringPtrInput `pulumi:"aadIssuer"`
 	// AzureAD Tenant URL
 	AadTenant pulumi.StringPtrInput `pulumi:"aadTenant"`
-	// The address space out of which ip addresses for
+	// The address space out of which IP addresses for
 	// vpn clients will be taken. You can provide more than one address space, e.g.
 	// in CIDR notation.
 	AddressSpaces pulumi.StringArrayInput `pulumi:"addressSpaces"`
@@ -18717,7 +18717,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AadTenant() pulumi.St
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.AadTenant }).(pulumi.StringPtrOutput)
 }
 
-// The address space out of which ip addresses for
+// The address space out of which IP addresses for
 // vpn clients will be taken. You can provide more than one address space, e.g.
 // in CIDR notation.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AddressSpaces() pulumi.StringArrayOutput {
@@ -18820,7 +18820,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AadTenant() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The address space out of which ip addresses for
+// The address space out of which IP addresses for
 // vpn clients will be taken. You can provide more than one address space, e.g.
 // in CIDR notation.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AddressSpaces() pulumi.StringArrayOutput {
@@ -19472,7 +19472,7 @@ type VpnGatewayBgpSettingsInstance0BgpPeeringAddress struct {
 	CustomIps []string `pulumi:"customIps"`
 	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
 	DefaultIps []string `pulumi:"defaultIps"`
-	// The pre-defined id of VPN Gateway Ip Configuration.
+	// The pre-defined id of VPN Gateway IP Configuration.
 	IpConfigurationId *string `pulumi:"ipConfigurationId"`
 	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
 	TunnelIps []string `pulumi:"tunnelIps"`
@@ -19494,7 +19494,7 @@ type VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs struct {
 	CustomIps pulumi.StringArrayInput `pulumi:"customIps"`
 	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
 	DefaultIps pulumi.StringArrayInput `pulumi:"defaultIps"`
-	// The pre-defined id of VPN Gateway Ip Configuration.
+	// The pre-defined id of VPN Gateway IP Configuration.
 	IpConfigurationId pulumi.StringPtrInput `pulumi:"ipConfigurationId"`
 	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
 	TunnelIps pulumi.StringArrayInput `pulumi:"tunnelIps"`
@@ -19587,7 +19587,7 @@ func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) DefaultIps() pulu
 	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance0BgpPeeringAddress) []string { return v.DefaultIps }).(pulumi.StringArrayOutput)
 }
 
-// The pre-defined id of VPN Gateway Ip Configuration.
+// The pre-defined id of VPN Gateway IP Configuration.
 func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) IpConfigurationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance0BgpPeeringAddress) *string { return v.IpConfigurationId }).(pulumi.StringPtrOutput)
 }
@@ -19641,7 +19641,7 @@ func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) DefaultIps() p
 	}).(pulumi.StringArrayOutput)
 }
 
-// The pre-defined id of VPN Gateway Ip Configuration.
+// The pre-defined id of VPN Gateway IP Configuration.
 func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) IpConfigurationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance0BgpPeeringAddress) *string {
 		if v == nil {
@@ -19666,7 +19666,7 @@ type VpnGatewayBgpSettingsInstance1BgpPeeringAddress struct {
 	CustomIps []string `pulumi:"customIps"`
 	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
 	DefaultIps []string `pulumi:"defaultIps"`
-	// The pre-defined id of VPN Gateway Ip Configuration.
+	// The pre-defined id of VPN Gateway IP Configuration.
 	IpConfigurationId *string `pulumi:"ipConfigurationId"`
 	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
 	TunnelIps []string `pulumi:"tunnelIps"`
@@ -19688,7 +19688,7 @@ type VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs struct {
 	CustomIps pulumi.StringArrayInput `pulumi:"customIps"`
 	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
 	DefaultIps pulumi.StringArrayInput `pulumi:"defaultIps"`
-	// The pre-defined id of VPN Gateway Ip Configuration.
+	// The pre-defined id of VPN Gateway IP Configuration.
 	IpConfigurationId pulumi.StringPtrInput `pulumi:"ipConfigurationId"`
 	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
 	TunnelIps pulumi.StringArrayInput `pulumi:"tunnelIps"`
@@ -19781,7 +19781,7 @@ func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) DefaultIps() pulu
 	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance1BgpPeeringAddress) []string { return v.DefaultIps }).(pulumi.StringArrayOutput)
 }
 
-// The pre-defined id of VPN Gateway Ip Configuration.
+// The pre-defined id of VPN Gateway IP Configuration.
 func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) IpConfigurationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance1BgpPeeringAddress) *string { return v.IpConfigurationId }).(pulumi.StringPtrOutput)
 }
@@ -19835,7 +19835,7 @@ func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) DefaultIps() p
 	}).(pulumi.StringArrayOutput)
 }
 
-// The pre-defined id of VPN Gateway Ip Configuration.
+// The pre-defined id of VPN Gateway IP Configuration.
 func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) IpConfigurationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance1BgpPeeringAddress) *string {
 		if v == nil {
@@ -20282,13 +20282,13 @@ type VpnGatewayConnectionVpnLink struct {
 	BgpEnabled *bool `pulumi:"bgpEnabled"`
 	// The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
 	ConnectionMode *string `pulumi:"connectionMode"`
-	// A list of the egress Nat Rule Ids.
+	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds []string `pulumi:"egressNatRuleIds"`
-	// A list of the ingress Nat Rule Ids.
+	// A list of the ingress NAT Rule Ids.
 	IngressNatRuleIds []string `pulumi:"ingressNatRuleIds"`
 	// One or more `ipsecPolicy` blocks as defined above.
 	IpsecPolicies []VpnGatewayConnectionVpnLinkIpsecPolicy `pulumi:"ipsecPolicies"`
-	// Whether to use local azure ip to initiate connection? Defaults to `false`.
+	// Whether to use local Azure IP to initiate connection? Defaults to `false`.
 	LocalAzureIpAddressEnabled *bool `pulumi:"localAzureIpAddressEnabled"`
 	// The name which should be used for this VPN Link Connection.
 	Name string `pulumi:"name"`
@@ -20324,13 +20324,13 @@ type VpnGatewayConnectionVpnLinkArgs struct {
 	BgpEnabled pulumi.BoolPtrInput `pulumi:"bgpEnabled"`
 	// The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
 	ConnectionMode pulumi.StringPtrInput `pulumi:"connectionMode"`
-	// A list of the egress Nat Rule Ids.
+	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds pulumi.StringArrayInput `pulumi:"egressNatRuleIds"`
-	// A list of the ingress Nat Rule Ids.
+	// A list of the ingress NAT Rule Ids.
 	IngressNatRuleIds pulumi.StringArrayInput `pulumi:"ingressNatRuleIds"`
 	// One or more `ipsecPolicy` blocks as defined above.
 	IpsecPolicies VpnGatewayConnectionVpnLinkIpsecPolicyArrayInput `pulumi:"ipsecPolicies"`
-	// Whether to use local azure ip to initiate connection? Defaults to `false`.
+	// Whether to use local Azure IP to initiate connection? Defaults to `false`.
 	LocalAzureIpAddressEnabled pulumi.BoolPtrInput `pulumi:"localAzureIpAddressEnabled"`
 	// The name which should be used for this VPN Link Connection.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -20414,12 +20414,12 @@ func (o VpnGatewayConnectionVpnLinkOutput) ConnectionMode() pulumi.StringPtrOutp
 	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *string { return v.ConnectionMode }).(pulumi.StringPtrOutput)
 }
 
-// A list of the egress Nat Rule Ids.
+// A list of the egress NAT Rule Ids.
 func (o VpnGatewayConnectionVpnLinkOutput) EgressNatRuleIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) []string { return v.EgressNatRuleIds }).(pulumi.StringArrayOutput)
 }
 
-// A list of the ingress Nat Rule Ids.
+// A list of the ingress NAT Rule Ids.
 func (o VpnGatewayConnectionVpnLinkOutput) IngressNatRuleIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) []string { return v.IngressNatRuleIds }).(pulumi.StringArrayOutput)
 }
@@ -20429,7 +20429,7 @@ func (o VpnGatewayConnectionVpnLinkOutput) IpsecPolicies() VpnGatewayConnectionV
 	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) []VpnGatewayConnectionVpnLinkIpsecPolicy { return v.IpsecPolicies }).(VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput)
 }
 
-// Whether to use local azure ip to initiate connection? Defaults to `false`.
+// Whether to use local Azure IP to initiate connection? Defaults to `false`.
 func (o VpnGatewayConnectionVpnLinkOutput) LocalAzureIpAddressEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *bool { return v.LocalAzureIpAddressEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -21906,7 +21906,7 @@ func (o VpnSiteLinkArrayOutput) Index(i pulumi.IntInput) VpnSiteLinkOutput {
 type VpnSiteLinkBgp struct {
 	// The BGP speaker's ASN.
 	Asn int `pulumi:"asn"`
-	// The BGP peering ip address.
+	// The BGP peering IP address.
 	PeeringAddress string `pulumi:"peeringAddress"`
 }
 
@@ -21924,7 +21924,7 @@ type VpnSiteLinkBgpInput interface {
 type VpnSiteLinkBgpArgs struct {
 	// The BGP speaker's ASN.
 	Asn pulumi.IntInput `pulumi:"asn"`
-	// The BGP peering ip address.
+	// The BGP peering IP address.
 	PeeringAddress pulumi.StringInput `pulumi:"peeringAddress"`
 }
 
@@ -22010,7 +22010,7 @@ func (o VpnSiteLinkBgpOutput) Asn() pulumi.IntOutput {
 	return o.ApplyT(func(v VpnSiteLinkBgp) int { return v.Asn }).(pulumi.IntOutput)
 }
 
-// The BGP peering ip address.
+// The BGP peering IP address.
 func (o VpnSiteLinkBgpOutput) PeeringAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v VpnSiteLinkBgp) string { return v.PeeringAddress }).(pulumi.StringOutput)
 }
@@ -22049,7 +22049,7 @@ func (o VpnSiteLinkBgpPtrOutput) Asn() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The BGP peering ip address.
+// The BGP peering IP address.
 func (o VpnSiteLinkBgpPtrOutput) PeeringAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnSiteLinkBgp) *string {
 		if v == nil {
@@ -23479,7 +23479,7 @@ type GetNetworkInterfaceIpConfiguration struct {
 	// A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
 	ApplicationGatewayBackendAddressPoolsIds []string `pulumi:"applicationGatewayBackendAddressPoolsIds"`
 	ApplicationSecurityGroupIds              []string `pulumi:"applicationSecurityGroupIds"`
-	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
+	// The Frontend IP Configuration ID of a Gateway SKU Load Balancer the Network Interface is consuming.
 	GatewayLoadBalancerFrontendIpConfigurationId string `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
 	// A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
 	LoadBalancerBackendAddressPoolsIds []string `pulumi:"loadBalancerBackendAddressPoolsIds"`
@@ -23515,7 +23515,7 @@ type GetNetworkInterfaceIpConfigurationArgs struct {
 	// A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
 	ApplicationGatewayBackendAddressPoolsIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolsIds"`
 	ApplicationSecurityGroupIds              pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
-	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
+	// The Frontend IP Configuration ID of a Gateway SKU Load Balancer the Network Interface is consuming.
 	GatewayLoadBalancerFrontendIpConfigurationId pulumi.StringInput `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
 	// A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
 	LoadBalancerBackendAddressPoolsIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolsIds"`
@@ -23596,7 +23596,7 @@ func (o GetNetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() 
 	return o.ApplyT(func(v GetNetworkInterfaceIpConfiguration) []string { return v.ApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
+// The Frontend IP Configuration ID of a Gateway SKU Load Balancer the Network Interface is consuming.
 func (o GetNetworkInterfaceIpConfigurationOutput) GatewayLoadBalancerFrontendIpConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceIpConfiguration) string {
 		return v.GatewayLoadBalancerFrontendIpConfigurationId
@@ -24545,7 +24545,7 @@ func (o GetTrafficManagerProfileMonitorConfigArrayOutput) Index(i pulumi.IntInpu
 type GetTrafficManagerProfileMonitorConfigCustomHeader struct {
 	// Specifies the name of the Traffic Manager Profile.
 	Name string `pulumi:"name"`
-	// The value of custom header. Applicable for Http and Https protocol.
+	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value string `pulumi:"value"`
 }
 
@@ -24563,7 +24563,7 @@ type GetTrafficManagerProfileMonitorConfigCustomHeaderInput interface {
 type GetTrafficManagerProfileMonitorConfigCustomHeaderArgs struct {
 	// Specifies the name of the Traffic Manager Profile.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of custom header. Applicable for Http and Https protocol.
+	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -24623,7 +24623,7 @@ func (o GetTrafficManagerProfileMonitorConfigCustomHeaderOutput) Name() pulumi.S
 	return o.ApplyT(func(v GetTrafficManagerProfileMonitorConfigCustomHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of custom header. Applicable for Http and Https protocol.
+// The value of custom header. Applicable for HTTP and HTTPS protocol.
 func (o GetTrafficManagerProfileMonitorConfigCustomHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrafficManagerProfileMonitorConfigCustomHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -25022,7 +25022,7 @@ type GetVirtualNetworkGatewayVpnClientConfiguration struct {
 	// This setting is incompatible with the use of
 	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 	AadTenant string `pulumi:"aadTenant"`
-	// The address space out of which ip addresses for
+	// The address space out of which IP addresses for
 	// vpn clients will be taken. You can provide more than one address space, e.g.
 	// in CIDR notation.
 	AddressSpaces []string `pulumi:"addressSpaces"`
@@ -25075,7 +25075,7 @@ type GetVirtualNetworkGatewayVpnClientConfigurationArgs struct {
 	// This setting is incompatible with the use of
 	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
 	AadTenant pulumi.StringInput `pulumi:"aadTenant"`
-	// The address space out of which ip addresses for
+	// The address space out of which IP addresses for
 	// vpn clients will be taken. You can provide more than one address space, e.g.
 	// in CIDR notation.
 	AddressSpaces pulumi.StringArrayInput `pulumi:"addressSpaces"`
@@ -25176,7 +25176,7 @@ func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) AadTenant() pulumi
 	return o.ApplyT(func(v GetVirtualNetworkGatewayVpnClientConfiguration) string { return v.AadTenant }).(pulumi.StringOutput)
 }
 
-// The address space out of which ip addresses for
+// The address space out of which IP addresses for
 // vpn clients will be taken. You can provide more than one address space, e.g.
 // in CIDR notation.
 func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) AddressSpaces() pulumi.StringArrayOutput {
@@ -25595,7 +25595,7 @@ type GetVpnGatewayBgpSettingInstance0BgpPeeringAddress struct {
 	CustomIps []string `pulumi:"customIps"`
 	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
 	DefaultIps []string `pulumi:"defaultIps"`
-	// The pre-defined id of VPN Gateway Ip Configuration.
+	// The pre-defined id of VPN Gateway IP Configuration.
 	IpConfigurationId string `pulumi:"ipConfigurationId"`
 	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
 	TunnelIps []string `pulumi:"tunnelIps"`
@@ -25617,7 +25617,7 @@ type GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArgs struct {
 	CustomIps pulumi.StringArrayInput `pulumi:"customIps"`
 	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
 	DefaultIps pulumi.StringArrayInput `pulumi:"defaultIps"`
-	// The pre-defined id of VPN Gateway Ip Configuration.
+	// The pre-defined id of VPN Gateway IP Configuration.
 	IpConfigurationId pulumi.StringInput `pulumi:"ipConfigurationId"`
 	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
 	TunnelIps pulumi.StringArrayInput `pulumi:"tunnelIps"`
@@ -25684,7 +25684,7 @@ func (o GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput) DefaultIps() pu
 	return o.ApplyT(func(v GetVpnGatewayBgpSettingInstance0BgpPeeringAddress) []string { return v.DefaultIps }).(pulumi.StringArrayOutput)
 }
 
-// The pre-defined id of VPN Gateway Ip Configuration.
+// The pre-defined id of VPN Gateway IP Configuration.
 func (o GetVpnGatewayBgpSettingInstance0BgpPeeringAddressOutput) IpConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnGatewayBgpSettingInstance0BgpPeeringAddress) string { return v.IpConfigurationId }).(pulumi.StringOutput)
 }
@@ -25719,7 +25719,7 @@ type GetVpnGatewayBgpSettingInstance1BgpPeeringAddress struct {
 	CustomIps []string `pulumi:"customIps"`
 	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
 	DefaultIps []string `pulumi:"defaultIps"`
-	// The pre-defined id of VPN Gateway Ip Configuration.
+	// The pre-defined id of VPN Gateway IP Configuration.
 	IpConfigurationId string `pulumi:"ipConfigurationId"`
 	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
 	TunnelIps []string `pulumi:"tunnelIps"`
@@ -25741,7 +25741,7 @@ type GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArgs struct {
 	CustomIps pulumi.StringArrayInput `pulumi:"customIps"`
 	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
 	DefaultIps pulumi.StringArrayInput `pulumi:"defaultIps"`
-	// The pre-defined id of VPN Gateway Ip Configuration.
+	// The pre-defined id of VPN Gateway IP Configuration.
 	IpConfigurationId pulumi.StringInput `pulumi:"ipConfigurationId"`
 	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
 	TunnelIps pulumi.StringArrayInput `pulumi:"tunnelIps"`
@@ -25808,7 +25808,7 @@ func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput) DefaultIps() pu
 	return o.ApplyT(func(v GetVpnGatewayBgpSettingInstance1BgpPeeringAddress) []string { return v.DefaultIps }).(pulumi.StringArrayOutput)
 }
 
-// The pre-defined id of VPN Gateway Ip Configuration.
+// The pre-defined id of VPN Gateway IP Configuration.
 func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput) IpConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnGatewayBgpSettingInstance1BgpPeeringAddress) string { return v.IpConfigurationId }).(pulumi.StringOutput)
 }
