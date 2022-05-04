@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     allocationPolicy: "Hashed",
  *     sku: {
  *         name: "S1",
- *         capacity: "1",
+ *         capacity: 1,
  *     },
  * });
  * ```

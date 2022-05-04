@@ -33,34 +33,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleWebAppActiveSlot = new azure.appservice.WebAppActiveSlot("exampleWebAppActiveSlot", {slotId: exampleWindowsWebAppSlot.id});
  * ```
- * ### Linux Web App
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: "West Europe",
- *     osType: "Linux",
- *     skuName: "P1v2",
- * });
- * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("exampleLinuxWebApp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleServicePlan.location,
- *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
- * });
- * const exampleLinuxWebAppSlot = new azure.appservice.LinuxWebAppSlot("exampleLinuxWebAppSlot", {
- *     appServiceName: exampleLinuxWebApp.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleServicePlan.location,
- *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
- * });
- * const exampleWebAppActiveSlot = new azure.appservice.WebAppActiveSlot("exampleWebAppActiveSlot", {slotId: exampleLinuxWebAppSlot.id});
- * ```
  *
  * ## Import
  *

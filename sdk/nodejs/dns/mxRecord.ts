@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *     ttl: 300,
  *     records: [
  *         {
- *             preference: 10,
+ *             preference: "10",
  *             exchange: "mail1.contoso.com",
  *         },
  *         {
- *             preference: 20,
+ *             preference: "20",
  *             exchange: "mail2.contoso.com",
  *         },
  *     ],

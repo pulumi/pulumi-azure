@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     location: azurerm_resource_group.example.location,
  *     sku: {
  *         name: "S1",
- *         capacity: "1",
+ *         capacity: 1,
  *     },
  * });
  * const exampleStreamInputIotHub = new azure.streamanalytics.StreamInputIotHub("exampleStreamInputIotHub", {

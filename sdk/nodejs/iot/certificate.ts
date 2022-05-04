@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     sku: {
  *         name: "B1",
- *         capacity: "1",
+ *         capacity: 1,
  *     },
  * });
  * const exampleCertificate = new azure.iot.Certificate("exampleCertificate", {

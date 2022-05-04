@@ -9,30 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note** A bot can only have a single Email Channel associated with it.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
- *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "F0",
- *     microsoftAppId: current.then(current => current.clientId),
- * });
- * const exampleChannelEmail = new azure.bot.ChannelEmail("exampleChannelEmail", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     clientId: "exampleId",
- *     clientSecret: "exampleSecret",
- *     verificationToken: "exampleVerificationToken",
- * });
- * ```
- *
  * ## Import
  *
  * The Email Integration for a Bot Channel can be imported using the `resource id`, e.g.

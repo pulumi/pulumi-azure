@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Premium",
- *     capacity: "1",
+ *     capacity: 1,
  * });
  * const secondary = new azure.servicebus.Namespace("secondary", {
  *     location: "West US",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Premium",
- *     capacity: "1",
+ *     capacity: 1,
  * });
  * const exampleNamespaceDisasterRecoveryConfig = new azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", {
  *     primaryNamespaceId: primary.id,

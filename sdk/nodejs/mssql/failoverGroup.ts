@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     serverId: primary.id,
  *     skuName: "S1",
  *     collation: "SQL_Latin1_General_CP1_CI_AS",
- *     maxSizeGb: "200",
+ *     maxSizeGb: 200,
  * });
  * const exampleFailoverGroup = new azure.mssql.FailoverGroup("exampleFailoverGroup", {
  *     serverId: primary.id,

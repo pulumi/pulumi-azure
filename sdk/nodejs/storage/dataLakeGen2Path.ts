@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     accountKind: "StorageV2",
- *     isHnsEnabled: "true",
+ *     isHnsEnabled: true,
  * });
  * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
  * const exampleDataLakeGen2Path = new azure.storage.DataLakeGen2Path("exampleDataLakeGen2Path", {
