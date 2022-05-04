@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: rg.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
- *     diskSizeGb: "1",
+ *     diskSizeGb: 1,
  * });
  * const exampleBackupVault = new azure.dataprotection.BackupVault("exampleBackupVault", {
  *     resourceGroupName: rg.name,

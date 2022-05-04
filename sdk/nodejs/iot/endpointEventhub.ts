@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     sku: {
  *         name: "B1",
- *         capacity: "1",
+ *         capacity: 1,
  *     },
  *     tags: {
  *         purpose: "example",

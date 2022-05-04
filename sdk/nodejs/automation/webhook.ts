@@ -23,8 +23,8 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     automationAccountName: exampleAccount.name,
- *     logVerbose: "true",
- *     logProgress: "true",
+ *     logVerbose: true,
+ *     logProgress: true,
  *     description: "This is an example runbook",
  *     runbookType: "PowerShellWorkflow",
  *     publishContentLink: {

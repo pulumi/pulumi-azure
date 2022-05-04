@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *                 scaleAction: {
  *                     direction: "Increase",
  *                     type: "ChangeCount",
- *                     value: "1",
+ *                     value: 1,
  *                     cooldown: "PT1M",
  *                 },
  *             },
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *                 scaleAction: {
  *                     direction: "Decrease",
  *                     type: "ChangeCount",
- *                     value: "1",
+ *                     value: 1,
  *                     cooldown: "PT1M",
  *                 },
  *             },
@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  *                 scaleAction: {
  *                     direction: "Increase",
  *                     type: "ChangeCount",
- *                     value: "2",
+ *                     value: 2,
  *                     cooldown: "PT1M",
  *                 },
  *             },
@@ -135,7 +135,7 @@ import * as utilities from "../utilities";
  *                 scaleAction: {
  *                     direction: "Decrease",
  *                     type: "ChangeCount",
- *                     value: "2",
+ *                     value: 2,
  *                     cooldown: "PT1M",
  *                 },
  *             },
@@ -196,7 +196,7 @@ import * as utilities from "../utilities";
  *                 scaleAction: {
  *                     direction: "Increase",
  *                     type: "ChangeCount",
- *                     value: "2",
+ *                     value: 2,
  *                     cooldown: "PT1M",
  *                 },
  *             },
@@ -214,7 +214,7 @@ import * as utilities from "../utilities";
  *                 scaleAction: {
  *                     direction: "Decrease",
  *                     type: "ChangeCount",
- *                     value: "2",
+ *                     value: 2,
  *                     cooldown: "PT1M",
  *                 },
  *             },

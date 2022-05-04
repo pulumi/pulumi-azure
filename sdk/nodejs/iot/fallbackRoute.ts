@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     sku: {
  *         name: "S1",
- *         capacity: "1",
+ *         capacity: 1,
  *     },
  *     tags: {
  *         purpose: "testing",

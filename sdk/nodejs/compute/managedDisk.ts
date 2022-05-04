@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
- *     diskSizeGb: "1",
+ *     diskSizeGb: 1,
  *     tags: {
  *         environment: "staging",
  *     },
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
- *     diskSizeGb: "1",
+ *     diskSizeGb: 1,
  *     tags: {
  *         environment: "staging",
  *     },
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Copy",
  *     sourceResourceId: source.id,
- *     diskSizeGb: "1",
+ *     diskSizeGb: 1,
  *     tags: {
  *         environment: "staging",
  *     },

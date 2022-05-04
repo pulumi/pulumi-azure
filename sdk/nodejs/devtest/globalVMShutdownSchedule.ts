@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *     timezone: "Pacific Standard Time",
  *     notificationSettings: {
  *         enabled: true,
- *         timeInMinutes: "60",
+ *         timeInMinutes: 60,
  *         webhookUrl: "https://sample-webhook-url.example.com",
  *     },
  * });
