@@ -123,30 +123,30 @@ namespace Pulumi.Azure.PrivateLink
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
+    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
     ///         {
     ///             Name = "example-resources",
     ///         }));
-    ///         var vnet = rg.Apply(rg =&gt; Output.Create(Azure.Network.GetVirtualNetwork.InvokeAsync(new Azure.Network.GetVirtualNetworkArgs
+    ///         var vnet = exampleResourceGroup.Apply(exampleResourceGroup =&gt; Output.Create(Azure.Network.GetVirtualNetwork.InvokeAsync(new Azure.Network.GetVirtualNetworkArgs
     ///         {
     ///             Name = "example-network",
-    ///             ResourceGroupName = rg.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///         })));
-    ///         var subnet = Output.Tuple(vnet, rg).Apply(values =&gt;
+    ///         var subnet = Output.Tuple(vnet, exampleResourceGroup).Apply(values =&gt;
     ///         {
     ///             var vnet = values.Item1;
-    ///             var rg = values.Item2;
+    ///             var exampleResourceGroup = values.Item2;
     ///             return Output.Create(Azure.Network.GetSubnet.InvokeAsync(new Azure.Network.GetSubnetArgs
     ///             {
     ///                 Name = "default",
     ///                 VirtualNetworkName = vnet.Name,
-    ///                 ResourceGroupName = rg.Name,
+    ///                 ResourceGroupName = exampleResourceGroup.Name,
     ///             }));
     ///         });
-    ///         var example = new Azure.PrivateLink.Endpoint("example", new Azure.PrivateLink.EndpointArgs
+    ///         var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new Azure.PrivateLink.EndpointArgs
     ///         {
-    ///             Location = rg.Apply(rg =&gt; rg.Location),
-    ///             ResourceGroupName = rg.Apply(rg =&gt; rg.Name),
+    ///             Location = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Location),
+    ///             ResourceGroupName = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Name),
     ///             SubnetId = subnet.Apply(subnet =&gt; subnet.Id),
     ///             PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
     ///             {

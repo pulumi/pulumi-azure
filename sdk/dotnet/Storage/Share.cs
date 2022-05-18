@@ -72,6 +72,9 @@ namespace Pulumi.Azure.Storage
     [AzureResourceType("azure:storage/share:Share")]
     public partial class Share : Pulumi.CustomResource
     {
+        [Output("accessTier")]
+        public Output<string?> AccessTier { get; private set; } = null!;
+
         /// <summary>
         /// One or more `acl` blocks as defined below.
         /// </summary>
@@ -167,6 +170,9 @@ namespace Pulumi.Azure.Storage
 
     public sealed class ShareArgs : Pulumi.ResourceArgs
     {
+        [Input("accessTier")]
+        public Input<string>? AccessTier { get; set; }
+
         [Input("acls")]
         private InputList<Inputs.ShareAclArgs>? _acls;
 
@@ -223,6 +229,9 @@ namespace Pulumi.Azure.Storage
 
     public sealed class ShareState : Pulumi.ResourceArgs
     {
+        [Input("accessTier")]
+        public Input<string>? AccessTier { get; set; }
+
         [Input("acls")]
         private InputList<Inputs.ShareAclGetArgs>? _acls;
 

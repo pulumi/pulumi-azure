@@ -40,7 +40,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         private InputList<string>? _virtualNetworkSubnetIds;
 
         /// <summary>
-        /// One or more Subnet ID's which should be able to access this Key Vault.
+        /// One or more Subnet IDs which should be able to access this Key Vault.
         /// </summary>
         public InputList<string> VirtualNetworkSubnetIds
         {

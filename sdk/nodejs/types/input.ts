@@ -1650,6 +1650,86 @@ export namespace appplatform {
         sizeInGb: pulumi.Input<number>;
     }
 
+    export interface SpringCloudBuildPackBindingLaunch {
+        /**
+         * Specifies a map of non-sensitive properties for launchProperties.
+         */
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Specifies a map of sensitive properties for launchProperties.
+         */
+        secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface SpringCloudBuilderBuildPackGroup {
+        /**
+         * Specifies a list of the build pack's ID.
+         */
+        buildPackIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name which should be used for this build pack group.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface SpringCloudBuilderStack {
+        /**
+         * Specifies the ID of the ClusterStack.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * Specifies the version of the ClusterStack
+         */
+        version: pulumi.Input<string>;
+    }
+
+    export interface SpringCloudConfigurationServiceRepository {
+        /**
+         * Specifies the SSH public key of git repository.
+         */
+        hostKey?: pulumi.Input<string>;
+        /**
+         * Specifies the SSH key algorithm of git repository.
+         */
+        hostKeyAlgorithm?: pulumi.Input<string>;
+        /**
+         * Specifies the label of the repository.
+         */
+        label: pulumi.Input<string>;
+        /**
+         * Specifies the name which should be used for this repository.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the password of git repository basic auth.
+         */
+        password?: pulumi.Input<string>;
+        /**
+         * Specifies the collection of patterns of the repository.
+         */
+        patterns: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the SSH private key of git repository.
+         */
+        privateKey?: pulumi.Input<string>;
+        /**
+         * Specifies a list of searching path of the repository
+         */
+        searchPaths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies whether enable the strict host key checking.
+         */
+        strictHostKeyChecking?: pulumi.Input<boolean>;
+        /**
+         * Specifies the URI of the repository.
+         */
+        uri: pulumi.Input<string>;
+        /**
+         * Specifies the username of git repository basic auth.
+         */
+        username?: pulumi.Input<string>;
+    }
+
     export interface SpringCloudContainerDeploymentQuota {
         /**
          * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -1659,6 +1739,86 @@ export namespace appplatform {
          * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
          */
         memory?: pulumi.Input<string>;
+    }
+
+    export interface SpringCloudGatewayApiMetadata {
+        /**
+         * Detailed description of the APIs available on the Gateway instance.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Location of additional documentation for the APIs available on the Gateway instance.
+         */
+        documentationUrl?: pulumi.Input<string>;
+        /**
+         * Base URL that API consumers will use to access APIs on the Gateway instance.
+         */
+        serverUrl?: pulumi.Input<string>;
+        /**
+         * Specifies the title describing the context of the APIs available on the Gateway instance.
+         */
+        title?: pulumi.Input<string>;
+        /**
+         * Specifies the version of APIs available on this Gateway instance.
+         */
+        version?: pulumi.Input<string>;
+    }
+
+    export interface SpringCloudGatewayCors {
+        /**
+         * Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
+         */
+        allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+         */
+        allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Allowed origins to make cross-site requests. The special value `*` allows all domains.
+         */
+        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * is user credentials are supported on cross-site requests?
+         */
+        credentialsAllowed?: pulumi.Input<boolean>;
+        /**
+         * HTTP response headers to expose for cross-site requests.
+         */
+        exposedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * How long, in seconds, the response from a pre-flight request can be cached by clients.
+         */
+        maxAgeSeconds?: pulumi.Input<number>;
+    }
+
+    export interface SpringCloudGatewayQuota {
+        /**
+         * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+         */
+        cpu?: pulumi.Input<string>;
+        /**
+         * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+         */
+        memory?: pulumi.Input<string>;
+    }
+
+    export interface SpringCloudGatewaySso {
+        /**
+         * The public identifier for the application.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The secret known only to the application and the authorization server.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * The URI of Issuer Identifier.
+         */
+        issuerUri?: pulumi.Input<string>;
+        /**
+         * It defines the specific actions applications can be allowed to do on a user's behalf.
+         */
+        scopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface SpringCloudJavaDeploymentQuota {
@@ -1843,7 +2003,6 @@ export namespace appplatform {
          */
         sampleRate?: pulumi.Input<number>;
     }
-
 }
 
 export namespace appservice {
@@ -1927,11 +2086,11 @@ export namespace appservice {
          */
         appId: pulumi.Input<string>;
         /**
-         * The App Secret of the Facebook app used for Facebook Login.
+         * The App Secret of the Facebook app used for Facebook login.
          */
         appSecret: pulumi.Input<string>;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -2557,11 +2716,11 @@ export namespace appservice {
          */
         appId: pulumi.Input<string>;
         /**
-         * The App Secret of the Facebook app used for Facebook Login.
+         * The App Secret of the Facebook app used for Facebook login.
          */
         appSecret: pulumi.Input<string>;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -2864,7 +3023,7 @@ export namespace appservice {
          */
         activeDirectory?: pulumi.Input<inputs.appservice.FunctionAppSlotAuthSettingsActiveDirectory>;
         /**
-         * Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+         * login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
          */
         additionalLoginParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -2938,11 +3097,11 @@ export namespace appservice {
          */
         appId: pulumi.Input<string>;
         /**
-         * The App Secret of the Facebook app used for Facebook Login.
+         * The App Secret of the Facebook app used for Facebook login.
          */
         appSecret: pulumi.Input<string>;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3242,7 +3401,7 @@ export namespace appservice {
          */
         activeDirectory?: pulumi.Input<inputs.appservice.LinuxFunctionAppAuthSettingsActiveDirectory>;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -3324,15 +3483,15 @@ export namespace appservice {
          */
         appId: pulumi.Input<string>;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3343,15 +3502,15 @@ export namespace appservice {
          */
         clientId: pulumi.Input<string>;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3366,7 +3525,7 @@ export namespace appservice {
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
@@ -3821,7 +3980,7 @@ export namespace appservice {
          */
         activeDirectory?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotAuthSettingsActiveDirectory>;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -3903,15 +4062,15 @@ export namespace appservice {
          */
         appId: pulumi.Input<string>;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3922,15 +4081,15 @@ export namespace appservice {
          */
         clientId: pulumi.Input<string>;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3945,7 +4104,7 @@ export namespace appservice {
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
@@ -4427,7 +4586,7 @@ export namespace appservice {
          */
         activeDirectory?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsActiveDirectory>;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -4509,15 +4668,15 @@ export namespace appservice {
          */
         appId: pulumi.Input<string>;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -4528,15 +4687,15 @@ export namespace appservice {
          */
         clientId: pulumi.Input<string>;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -4551,7 +4710,7 @@ export namespace appservice {
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
@@ -5127,7 +5286,7 @@ export namespace appservice {
          */
         activeDirectory?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsActiveDirectory>;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -5209,15 +5368,15 @@ export namespace appservice {
          */
         appId: pulumi.Input<string>;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -5228,15 +5387,15 @@ export namespace appservice {
          */
         clientId: pulumi.Input<string>;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -5251,7 +5410,7 @@ export namespace appservice {
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
@@ -5985,11 +6144,11 @@ export namespace appservice {
          */
         appId: pulumi.Input<string>;
         /**
-         * The App Secret of the Facebook app used for Facebook Login.
+         * The App Secret of the Facebook app used for Facebook login.
          */
         appSecret: pulumi.Input<string>;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -6511,7 +6670,7 @@ export namespace appservice {
 
     export interface StaticSiteIdentity {
         /**
-         * A list of Managed Identity ID's which should be assigned to this Static Site resource.
+         * A list of Managed Identity IDs which should be assigned to this Static Site resource.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         principalId?: pulumi.Input<string>;
@@ -6528,7 +6687,7 @@ export namespace appservice {
          */
         activeDirectory?: pulumi.Input<inputs.appservice.WindowsFunctionAppAuthSettingsActiveDirectory>;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -6610,15 +6769,15 @@ export namespace appservice {
          */
         appId: pulumi.Input<string>;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -6629,15 +6788,15 @@ export namespace appservice {
          */
         clientId: pulumi.Input<string>;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -6652,7 +6811,7 @@ export namespace appservice {
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
@@ -7068,7 +7227,7 @@ export namespace appservice {
          */
         activeDirectory?: pulumi.Input<inputs.appservice.WindowsFunctionAppSlotAuthSettingsActiveDirectory>;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -7150,11 +7309,11 @@ export namespace appservice {
          */
         appId: pulumi.Input<string>;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: pulumi.Input<string>;
         /**
@@ -7169,11 +7328,11 @@ export namespace appservice {
          */
         clientId: pulumi.Input<string>;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
@@ -7192,7 +7351,7 @@ export namespace appservice {
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
@@ -7635,7 +7794,7 @@ export namespace appservice {
          */
         activeDirectory?: pulumi.Input<inputs.appservice.WindowsWebAppAuthSettingsActiveDirectory>;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -7717,15 +7876,15 @@ export namespace appservice {
          */
         appId: pulumi.Input<string>;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -7736,15 +7895,15 @@ export namespace appservice {
          */
         clientId: pulumi.Input<string>;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -7759,7 +7918,7 @@ export namespace appservice {
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
@@ -8393,7 +8552,7 @@ export namespace appservice {
          */
         activeDirectory?: pulumi.Input<inputs.appservice.WindowsWebAppSlotAuthSettingsActiveDirectory>;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -8475,15 +8634,15 @@ export namespace appservice {
          */
         appId: pulumi.Input<string>;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -8494,15 +8653,15 @@ export namespace appservice {
          */
         clientId: pulumi.Input<string>;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -8517,7 +8676,7 @@ export namespace appservice {
          */
         clientSecret?: pulumi.Input<string>;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: pulumi.Input<string>;
         /**
@@ -9848,7 +10007,7 @@ export namespace cdn {
          */
         protocolType: pulumi.Input<string>;
         /**
-         * The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+         * The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
          */
         tlsVersion?: pulumi.Input<string>;
     }
@@ -9859,7 +10018,7 @@ export namespace cdn {
          */
         keyVaultCertificateId: pulumi.Input<string>;
         /**
-         * The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+         * The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
          */
         tlsVersion?: pulumi.Input<string>;
     }
@@ -10652,7 +10811,7 @@ export namespace compute {
          */
         caching: pulumi.Input<string>;
         /**
-         * A `diffDiskSettings` block as defined above.
+         * A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
          */
         diffDiskSettings?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsDiskDiffDiskSettings>;
         /**
@@ -10682,6 +10841,10 @@ export namespace compute {
          * Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
          */
         option: pulumi.Input<string>;
+        /**
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         */
+        placement?: pulumi.Input<string>;
     }
 
     export interface LinuxVirtualMachinePlan {
@@ -11112,7 +11275,7 @@ export namespace compute {
          */
         enabled: pulumi.Input<boolean>;
         /**
-         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
          */
         timeout?: pulumi.Input<string>;
     }
@@ -12037,7 +12200,7 @@ export namespace compute {
          */
         diskSizeGb?: pulumi.Input<number>;
         /**
-         * Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+         * Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
          */
         imageUri?: pulumi.Input<string>;
         /**
@@ -12116,7 +12279,7 @@ export namespace compute {
          */
         caching: pulumi.Input<string>;
         /**
-         * A `diffDiskSettings` block as defined above.
+         * A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
          */
         diffDiskSettings?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDiskDiffDiskSettings>;
         /**
@@ -12146,6 +12309,10 @@ export namespace compute {
          * Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
          */
         option: pulumi.Input<string>;
+        /**
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         */
+        placement?: pulumi.Input<string>;
     }
 
     export interface WindowsVirtualMachinePlan {
@@ -12595,7 +12762,7 @@ export namespace compute {
          */
         enabled: pulumi.Input<boolean>;
         /**
-         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
          */
         timeout?: pulumi.Input<string>;
     }
@@ -12606,6 +12773,34 @@ export namespace compute {
          */
         certificateUrl?: pulumi.Input<string>;
         protocol: pulumi.Input<string>;
+    }
+}
+
+export namespace confidentialledger {
+    export interface LedgerAzureadBasedServicePrincipal {
+        /**
+         * Specifies the Ledger Role to grant this AzureAD Service Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
+         */
+        ledgerRoleName: pulumi.Input<string>;
+        /**
+         * Specifies the Principal ID of the AzureAD Service Principal.
+         */
+        principalId: pulumi.Input<string>;
+        /**
+         * Specifies the Tenant ID for this AzureAD Service Principal.
+         */
+        tenantId: pulumi.Input<string>;
+    }
+
+    export interface LedgerCertificateBasedSecurityPrincipal {
+        /**
+         * Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
+         */
+        ledgerRoleName: pulumi.Input<string>;
+        /**
+         * The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
+         */
+        pemPublicKey: pulumi.Input<string>;
     }
 }
 
@@ -13556,7 +13751,7 @@ export namespace containerservice {
          */
         nodeCount?: pulumi.Input<number>;
         /**
-         * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+         * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
          */
         nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -13606,7 +13801,7 @@ export namespace containerservice {
          */
         upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettings>;
         /**
-         * The size of the Virtual Machine, such as `Standard_DS2_v2`.
+         * The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
         /**
@@ -14074,7 +14269,7 @@ export namespace containerservice {
          */
         networkMode?: pulumi.Input<string>;
         /**
-         * Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+         * Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
          */
         networkPlugin: pulumi.Input<string>;
         /**
@@ -14648,7 +14843,7 @@ export namespace containerservice {
 
     export interface RegistryTaskRegistryCredentialCustom {
         /**
-         * The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+         * The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `[system]`.
          */
         identity?: pulumi.Input<string>;
         /**
@@ -14807,7 +15002,7 @@ export namespace core {
 
     export interface ResourceGroupPolicyAssignmentIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -14837,7 +15032,7 @@ export namespace core {
 
     export interface ResourcePolicyAssignmentIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -14900,7 +15095,7 @@ export namespace core {
 
     export interface SubscriptionPolicyAssignmentIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -21252,6 +21447,38 @@ export namespace hdinsight {
 }
 
 export namespace healthcare {
+    export interface DicomServiceAuthentication {
+        /**
+         * The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+         */
+        audiences?: pulumi.Input<pulumi.Input<string>[]>;
+        authority?: pulumi.Input<string>;
+    }
+
+    export interface DicomServiceIdentity {
+        /**
+         * A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface DicomServicePrivateEndpoint {
+        /**
+         * The ID of the Healthcare DICOM Service.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
+         */
+        name?: pulumi.Input<string>;
+    }
+
     export interface ServiceAuthenticationConfiguration {
         /**
          * The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
@@ -21829,7 +22056,7 @@ export namespace iot {
          */
         connectionToIpsNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies which local user is not allowed to Login in current device group.
+         * Specifies which local user is not allowed to login in current device group.
          */
         localUsersNotAlloweds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -22369,7 +22596,7 @@ export namespace keyvault {
          */
         ipRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * One or more Subnet ID's which should be able to access this Key Vault.
+         * One or more Subnet IDs which should be able to access this Key Vault.
          */
         virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -23361,7 +23588,7 @@ export namespace managedapplication {
 export namespace management {
     export interface GroupPolicyAssignmentIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -25398,7 +25625,7 @@ export namespace mssql {
          */
         storageAccountAccessKey?: pulumi.Input<string>;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: pulumi.Input<string>;
     }
@@ -25503,6 +25730,21 @@ export namespace mssql {
         type: pulumi.Input<string>;
     }
 
+    export interface ManagedInstanceVulnerabilityAssessmentRecurringScans {
+        /**
+         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+         */
+        emailSubscriptionAdmins?: pulumi.Input<boolean>;
+        /**
+         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         */
+        emails?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+    }
+
     export interface ServerAzureadAdministrator {
         /**
          * Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
@@ -25547,7 +25789,7 @@ export namespace mssql {
          */
         emailSubscriptionAdmins?: pulumi.Input<boolean>;
         /**
-         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         * Specifies an array of email addresses to which the scan notification is sent.
          */
         emails?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -25780,7 +26022,7 @@ export namespace mysql {
          */
         storageAccountAccessKey?: pulumi.Input<string>;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
          */
         storageEndpoint?: pulumi.Input<string>;
     }
@@ -27823,7 +28065,7 @@ export namespace network {
          */
         destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A List of destination Application Security Group ID's
+         * A List of destination Application Security Group IDs
          */
         destinationApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -27859,7 +28101,7 @@ export namespace network {
          */
         sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A List of source Application Security Group ID's
+         * A List of source Application Security Group IDs
          */
         sourceApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -28207,7 +28449,7 @@ export namespace network {
          */
         labels?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of Route Table ID's to associated with this Virtual Hub Connection.
+         * A list of Route Table IDs to associated with this Virtual Hub Connection.
          */
         routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -28307,6 +28549,17 @@ export namespace network {
         tunnelIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface VirtualNetworkGatewayConnectionCustomBgpAddresses {
+        /**
+         * single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (first one)
+         */
+        primary: pulumi.Input<string>;
+        /**
+         * single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (second one)
+         */
+        secondary: pulumi.Input<string>;
+    }
+
     export interface VirtualNetworkGatewayConnectionIpsecPolicy {
         /**
          * The DH group used in IKE phase 1 for initial SA. Valid
@@ -28353,7 +28606,13 @@ export namespace network {
     }
 
     export interface VirtualNetworkGatewayConnectionTrafficSelectorPolicy {
+        /**
+         * List of local CIDRs.
+         */
         localAddressCidrs: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of remote CIDRs.
+         */
         remoteAddressCidrs: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -28565,7 +28824,7 @@ export namespace network {
          */
         labels?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of Route Table ID's to associated with this VPN Gateway Connection.
+         * A list of Route Table IDs to associated with this VPN Gateway Connection.
          */
         routeTableIds: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -29039,7 +29298,7 @@ export namespace postgresql {
          */
         storageAccountAccessKey?: pulumi.Input<string>;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
          */
         storageEndpoint?: pulumi.Input<string>;
     }
@@ -30444,7 +30703,7 @@ export namespace sql {
          */
         storageAccountAccessKey?: pulumi.Input<string>;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: pulumi.Input<string>;
     }
@@ -30560,7 +30819,7 @@ export namespace sql {
          */
         storageAccountAccessKey?: pulumi.Input<string>;
         /**
-         * Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: pulumi.Input<string>;
     }
@@ -31399,7 +31658,7 @@ export namespace storage {
         /**
          * An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
          */
-        blobTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        blobTypes: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
          */
@@ -31501,6 +31760,10 @@ export namespace storage {
 export namespace streamanalytics {
     export interface FunctionJavaScriptUDFInput {
         /**
+         * Is this input parameter a configuration parameter? Defaults to `false`.
+         */
+        configurationParameter?: pulumi.Input<boolean>;
+        /**
          * The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
          */
         type: pulumi.Input<string>;
@@ -31514,6 +31777,10 @@ export namespace streamanalytics {
     }
 
     export interface FunctionJavascriptUdaInput {
+        /**
+         * Is this input parameter a configuration parameter? Defaults to `false`.
+         */
+        configurationParameter?: pulumi.Input<boolean>;
         /**
          * The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
          */
@@ -31733,7 +32000,7 @@ export namespace synapse {
 
     export interface SqlPoolRestore {
         /**
-         * Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
+         * Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
          */
         pointInTime: pulumi.Input<string>;
         /**
@@ -31755,7 +32022,7 @@ export namespace synapse {
          */
         emailSubscriptionAdminsEnabled?: pulumi.Input<boolean>;
         /**
-         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         * Specifies an array of email addresses to which the scan notification is sent.
          */
         emails?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -31884,7 +32151,7 @@ export namespace synapse {
          */
         emailSubscriptionAdminsEnabled?: pulumi.Input<boolean>;
         /**
-         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         * Specifies an array of email addresses to which the scan notification is sent.
          */
         emails?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -32078,7 +32345,7 @@ export namespace waf {
 
     export interface PolicyManagedRulesManagedRuleSetRuleGroupOverride {
         /**
-         * One or more Rule ID's
+         * One or more Rule IDs
          */
         disabledRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**

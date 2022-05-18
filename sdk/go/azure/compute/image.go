@@ -34,7 +34,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = compute.NewImage(ctx, "exampleImage", &compute.ImageArgs{
-// 			Location:          pulumi.String("West US"),
+// 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			OsDisk: &compute.ImageOsDiskArgs{
 // 				OsType:  pulumi.String("Linux"),
@@ -70,7 +70,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = compute.NewImage(ctx, "exampleImage", &compute.ImageArgs{
-// 			Location:               pulumi.String("West US"),
+// 			Location:               exampleResourceGroup.Location,
 // 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			SourceVirtualMachineId: pulumi.String("{vm_id}"),
 // 		})

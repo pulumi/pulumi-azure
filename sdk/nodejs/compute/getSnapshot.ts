@@ -76,6 +76,10 @@ export interface GetSnapshotResult {
      */
     readonly storageAccountId: string;
     readonly timeCreated: string;
+    /**
+     * Whether Trusted Launch is enabled for the Snapshot.
+     */
+    readonly trustedLaunchEnabled: boolean;
 }
 
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {

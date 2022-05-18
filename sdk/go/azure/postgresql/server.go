@@ -38,7 +38,7 @@ import (
 // 			AdministratorLogin:           pulumi.String("psqladmin"),
 // 			AdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 // 			SkuName:                      pulumi.String("GP_Gen5_4"),
-// 			Version:                      pulumi.String("9.6"),
+// 			Version:                      pulumi.String("11"),
 // 			StorageMb:                    pulumi.Int(640000),
 // 			BackupRetentionDays:          pulumi.Int(7),
 // 			GeoRedundantBackupEnabled:    pulumi.Bool(true),
@@ -65,7 +65,7 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
-	// The Administrator Login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
+	// The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
@@ -75,7 +75,7 @@ type Server struct {
 	BackupRetentionDays pulumi.IntOutput `pulumi:"backupRetentionDays"`
 	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
-	// For creation modes other then default the source server ID to use.
+	// For creation modes other than `Default`, the source server ID to use.
 	CreationSourceServerId pulumi.StringPtrOutput `pulumi:"creationSourceServerId"`
 	// The FQDN of the PostgreSQL Server.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
@@ -152,7 +152,7 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
-	// The Administrator Login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
+	// The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
@@ -162,7 +162,7 @@ type serverState struct {
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
 	CreateMode *string `pulumi:"createMode"`
-	// For creation modes other then default the source server ID to use.
+	// For creation modes other than `Default`, the source server ID to use.
 	CreationSourceServerId *string `pulumi:"creationSourceServerId"`
 	// The FQDN of the PostgreSQL Server.
 	Fqdn *string `pulumi:"fqdn"`
@@ -199,7 +199,7 @@ type serverState struct {
 }
 
 type ServerState struct {
-	// The Administrator Login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
+	// The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword pulumi.StringPtrInput
@@ -209,7 +209,7 @@ type ServerState struct {
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
 	CreateMode pulumi.StringPtrInput
-	// For creation modes other then default the source server ID to use.
+	// For creation modes other than `Default`, the source server ID to use.
 	CreationSourceServerId pulumi.StringPtrInput
 	// The FQDN of the PostgreSQL Server.
 	Fqdn pulumi.StringPtrInput
@@ -250,7 +250,7 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// The Administrator Login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
+	// The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
@@ -260,7 +260,7 @@ type serverArgs struct {
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
 	CreateMode *string `pulumi:"createMode"`
-	// For creation modes other then default the source server ID to use.
+	// For creation modes other than `Default`, the source server ID to use.
 	CreationSourceServerId *string `pulumi:"creationSourceServerId"`
 	// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
 	GeoRedundantBackupEnabled *bool `pulumi:"geoRedundantBackupEnabled"`
@@ -296,7 +296,7 @@ type serverArgs struct {
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// The Administrator Login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
+	// The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword pulumi.StringPtrInput
@@ -306,7 +306,7 @@ type ServerArgs struct {
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
 	CreateMode pulumi.StringPtrInput
-	// For creation modes other then default the source server ID to use.
+	// For creation modes other than `Default`, the source server ID to use.
 	CreationSourceServerId pulumi.StringPtrInput
 	// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
 	GeoRedundantBackupEnabled pulumi.BoolPtrInput
@@ -427,7 +427,7 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
-// The Administrator Login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
+// The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
 func (o ServerOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
@@ -452,7 +452,7 @@ func (o ServerOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// For creation modes other then default the source server ID to use.
+// For creation modes other than `Default`, the source server ID to use.
 func (o ServerOutput) CreationSourceServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.CreationSourceServerId }).(pulumi.StringPtrOutput)
 }

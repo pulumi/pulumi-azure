@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ConnectionToIpsNotAlloweds;
         /// <summary>
-        /// Specifies which local user is not allowed to Login in current device group.
+        /// Specifies which local user is not allowed to login in current device group.
         /// </summary>
         public readonly ImmutableArray<string> LocalUsersNotAlloweds;
         /// <summary>

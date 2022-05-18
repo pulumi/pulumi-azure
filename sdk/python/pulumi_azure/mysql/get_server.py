@@ -87,7 +87,7 @@ class GetServerResult:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> str:
         """
-        The Administrator Login for the MySQL Server.
+        The Administrator login for the MySQL Server.
         """
         return pulumi.get(self, "administrator_login")
 

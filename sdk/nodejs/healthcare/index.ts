@@ -5,12 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./dicomService";
+export * from "./getDicomService";
 export * from "./getService";
 export * from "./getWorkspace";
 export * from "./service";
 export * from "./workspace";
 
 // Import resources to register:
+import { DicomService } from "./dicomService";
 import { Service } from "./service";
 import { Workspace } from "./workspace";
 
@@ -18,6 +21,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:healthcare/dicomService:DicomService":
+                return new DicomService(name, <any>undefined, { urn })
             case "azure:healthcare/service:Service":
                 return new Service(name, <any>undefined, { urn })
             case "azure:healthcare/workspace:Workspace":
@@ -27,5 +32,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "healthcare/dicomService", _module)
 pulumi.runtime.registerResourceModule("azure", "healthcare/service", _module)
 pulumi.runtime.registerResourceModule("azure", "healthcare/workspace", _module)

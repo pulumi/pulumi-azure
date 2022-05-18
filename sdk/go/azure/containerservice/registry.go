@@ -26,15 +26,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
-// 			ResourceGroupName: rg.Name,
-// 			Location:          rg.Location,
+// 			ResourceGroupName: example.Name,
+// 			Location:          example.Location,
 // 			Sku:               pulumi.String("Premium"),
 // 			AdminEnabled:      pulumi.Bool(false),
 // 			Georeplications: containerservice.RegistryGeoreplicationArray{
@@ -72,15 +72,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
-// 			Location:          pulumi.Any(azurerm_resource_group.Example.Location),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -93,8 +93,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
-// 			ResourceGroupName: rg.Name,
-// 			Location:          rg.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
 // 			Sku:               pulumi.String("Premium"),
 // 			Identity: &containerservice.RegistryIdentityArgs{
 // 				Type: pulumi.String("UserAssigned"),

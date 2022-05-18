@@ -13,6 +13,12 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
     public sealed class FunctionJavaScriptUDFInputGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is this input parameter a configuration parameter? Defaults to `false`.
+        /// </summary>
+        [Input("configurationParameter")]
+        public Input<bool>? ConfigurationParameter { get; set; }
+
+        /// <summary>
         /// The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         /// </summary>
         [Input("type", required: true)]

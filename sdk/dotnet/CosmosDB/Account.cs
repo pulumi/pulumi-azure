@@ -34,8 +34,8 @@ namespace Pulumi.Azure.CosmosDB
     ///         });
     ///         var db = new Azure.CosmosDB.Account("db", new Azure.CosmosDB.AccountArgs
     ///         {
-    ///             Location = rg.Location,
-    ///             ResourceGroupName = rg.Name,
+    ///             Location = azurerm_resource_group.Example.Location,
+    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
     ///             OfferType = "Standard",
     ///             Kind = "MongoDB",
     ///             EnableAutomaticFailover = true,
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.CosmosDB
     ///                 },
     ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
     ///                 {
-    ///                     Location = rg.Location,
+    ///                     Location = azurerm_resource_group.Example.Location,
     ///                     FailoverPriority = 0,
     ///                 },
     ///             },
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
+        /// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
         /// </summary>
         [Output("mongoServerVersion")]
         public Output<string> MongoServerVersion { get; private set; } = null!;
@@ -513,7 +513,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
+        /// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
         /// </summary>
         [Input("mongoServerVersion")]
         public Input<string>? MongoServerVersion { get; set; }
@@ -754,7 +754,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
+        /// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
         /// </summary>
         [Input("mongoServerVersion")]
         public Input<string>? MongoServerVersion { get; set; }

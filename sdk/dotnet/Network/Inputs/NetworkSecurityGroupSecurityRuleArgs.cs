@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _destinationApplicationSecurityGroupIds;
 
         /// <summary>
-        /// A List of destination Application Security Group ID's
+        /// A List of destination Application Security Group IDs
         /// </summary>
         public InputList<string> DestinationApplicationSecurityGroupIds
         {
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _sourceApplicationSecurityGroupIds;
 
         /// <summary>
-        /// A List of source Application Security Group ID's
+        /// A List of source Application Security Group IDs
         /// </summary>
         public InputList<string> SourceApplicationSecurityGroupIds
         {

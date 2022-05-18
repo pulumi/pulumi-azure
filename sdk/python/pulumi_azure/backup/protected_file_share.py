@@ -201,23 +201,23 @@ class ProtectedFileShare(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         vault = azure.recoveryservices.Vault("vault",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku="Standard")
         sa = azure.storage.Account("sa",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             account_tier="Standard",
             account_replication_type="LRS")
         example_share = azure.storage.Share("exampleShare", storage_account_name=sa.name)
         protection_container = azure.backup.ContainerStorageAccount("protection-container",
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name,
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
         example_policy_file_share = azure.backup.PolicyFileShare("examplePolicyFileShare",
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name,
             recovery_vault_name=vault.name,
             backup=azure.backup.PolicyFileShareBackupArgs(
                 frequency="Daily",
@@ -227,7 +227,7 @@ class ProtectedFileShare(pulumi.CustomResource):
                 count=10,
             ))
         share1 = azure.backup.ProtectedFileShare("share1",
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name,
             recovery_vault_name=vault.name,
             source_storage_account_id=protection_container.storage_account_id,
             source_file_share_name=example_share.name,
@@ -267,23 +267,23 @@ class ProtectedFileShare(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         vault = azure.recoveryservices.Vault("vault",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku="Standard")
         sa = azure.storage.Account("sa",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             account_tier="Standard",
             account_replication_type="LRS")
         example_share = azure.storage.Share("exampleShare", storage_account_name=sa.name)
         protection_container = azure.backup.ContainerStorageAccount("protection-container",
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name,
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
         example_policy_file_share = azure.backup.PolicyFileShare("examplePolicyFileShare",
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name,
             recovery_vault_name=vault.name,
             backup=azure.backup.PolicyFileShareBackupArgs(
                 frequency="Daily",
@@ -293,7 +293,7 @@ class ProtectedFileShare(pulumi.CustomResource):
                 count=10,
             ))
         share1 = azure.backup.ProtectedFileShare("share1",
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name,
             recovery_vault_name=vault.name,
             source_storage_account_id=protection_container.storage_account_id,
             source_file_share_name=example_share.name,

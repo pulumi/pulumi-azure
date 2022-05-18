@@ -104,6 +104,8 @@ type Group struct {
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
+	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -180,6 +182,8 @@ type groupState struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType *string `pulumi:"ipAddressType"`
+	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -219,6 +223,8 @@ type GroupState struct {
 	IpAddress pulumi.StringPtrInput
 	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType pulumi.StringPtrInput
+	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -258,6 +264,8 @@ type groupArgs struct {
 	InitContainers []GroupInitContainer `pulumi:"initContainers"`
 	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType *string `pulumi:"ipAddressType"`
+	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -294,6 +302,8 @@ type GroupArgs struct {
 	InitContainers GroupInitContainerArrayInput
 	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType pulumi.StringPtrInput
+	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -450,6 +460,11 @@ func (o GroupOutput) IpAddress() pulumi.StringOutput {
 // Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 func (o GroupOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+func (o GroupOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

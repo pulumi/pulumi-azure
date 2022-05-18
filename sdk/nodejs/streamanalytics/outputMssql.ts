@@ -13,23 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleJob = azure.streamanalytics.getJob({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleJob = azure.streamanalytics.getJobOutput({
  *     name: "example-job",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     version: "12.0",
  *     administratorLogin: "dbadmin",
  *     administratorLoginPassword: "example-password",
  * });
  * const exampleDatabase = new azure.sql.Database("exampleDatabase", {
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     serverName: exampleSqlServer.name,
  *     requestedServiceObjectiveName: "S0",
  *     collation: "SQL_LATIN1_GENERAL_CP1_CI_AS",

@@ -23,19 +23,19 @@ namespace Pulumi.Azure.LogicApps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var testIntegrationAccount = new Azure.LogicApps.IntegrationAccount("testIntegrationAccount", new Azure.LogicApps.IntegrationAccountArgs
     ///         {
-    ///             Location = testResourceGroup.Location,
-    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             Location = example.Location,
+    ///             ResourceGroupName = example.Name,
     ///             SkuName = "Standard",
     ///         });
     ///         var host = new Azure.LogicApps.IntegrationAccountPartner("host", new Azure.LogicApps.IntegrationAccountPartnerArgs
     ///         {
-    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             ResourceGroupName = example.Name,
     ///             IntegrationAccountName = testIntegrationAccount.Name,
     ///             BusinessIdentities = 
     ///             {
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.LogicApps
     ///         });
     ///         var guest = new Azure.LogicApps.IntegrationAccountPartner("guest", new Azure.LogicApps.IntegrationAccountPartnerArgs
     ///         {
-    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             ResourceGroupName = example.Name,
     ///             IntegrationAccountName = testIntegrationAccount.Name,
     ///             BusinessIdentities = 
     ///             {
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.LogicApps
     ///         });
     ///         var testIntegrationAccountAgreement = new Azure.LogicApps.IntegrationAccountAgreement("testIntegrationAccountAgreement", new Azure.LogicApps.IntegrationAccountAgreementArgs
     ///         {
-    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             ResourceGroupName = example.Name,
     ///             IntegrationAccountName = testIntegrationAccount.Name,
     ///             AgreementType = "AS2",
     ///             HostPartnerName = host.Name,

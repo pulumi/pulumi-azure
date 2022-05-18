@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const acr = new azure.containerservice.Registry("acr", {
- *     resourceGroupName: rg.name,
- *     location: rg.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "Premium",
  *     adminEnabled: false,
  *     georeplications: [
@@ -40,18 +40,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  * });
  * const exampleKey = azure.keyvault.getKey({
  *     name: "super-secret",
  *     keyVaultId: data.azurerm_key_vault.existing.id,
  * });
  * const acr = new azure.containerservice.Registry("acr", {
- *     resourceGroupName: rg.name,
- *     location: rg.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     sku: "Premium",
  *     identity: {
  *         type: "UserAssigned",

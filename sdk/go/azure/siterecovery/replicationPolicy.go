@@ -27,22 +27,22 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("East US"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-// 			Location:          secondary.Location,
-// 			ResourceGroupName: secondary.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 			Sku:               pulumi.String("Standard"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = siterecovery.NewReplicationPolicy(ctx, "policy", &siterecovery.ReplicationPolicyArgs{
-// 			ResourceGroupName:                               secondary.Name,
+// 			ResourceGroupName:                               example.Name,
 // 			RecoveryVaultName:                               vault.Name,
 // 			RecoveryPointRetentionInMinutes:                 24 * 60,
 // 			ApplicationConsistentSnapshotFrequencyInMinutes: 4 * 60,

@@ -62,7 +62,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? NodeCount;
         /// <summary>
-        /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+        /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? NodeLabels;
         /// <summary>
@@ -112,7 +112,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolUpgradeSettings? UpgradeSettings;
         /// <summary>
-        /// The size of the Virtual Machine, such as `Standard_DS2_v2`.
+        /// The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string VmSize;
         /// <summary>

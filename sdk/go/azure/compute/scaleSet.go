@@ -50,7 +50,7 @@ import (
 // 			AddressSpaces: pulumi.StringArray{
 // 				pulumi.String("10.0.0.0/16"),
 // 			},
-// 			Location:          pulumi.String("West US"),
+// 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 		})
 // 		if err != nil {
@@ -68,7 +68,7 @@ import (
 // 		}
 // 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
 // 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               pulumi.String("westus"),
+// 			Location:               exampleResourceGroup.Location,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
 // 			Tags: pulumi.StringMap{
@@ -86,7 +86,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
-// 			Location:          pulumi.String("West US"),
+// 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			UpgradePolicyMode: pulumi.String("Manual"),
 // 			Sku: &compute.ScaleSetSkuArgs{

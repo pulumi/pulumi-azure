@@ -14,16 +14,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleJob = azure.streamanalytics.getJob({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleJob = azure.streamanalytics.getJobOutput({
  *     name: "example-job",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.location),
- *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
  * const exampleQueue = new azure.servicebus.Queue("exampleQueue", {
@@ -31,8 +29,8 @@ import * as utilities from "../utilities";
  *     enablePartitioning: true,
  * });
  * const exampleOutputServiceBusQueue = new azure.streamanalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue", {
- *     streamAnalyticsJobName: exampleJob.then(exampleJob => exampleJob.name),
- *     resourceGroupName: exampleJob.then(exampleJob => exampleJob.resourceGroupName),
+ *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
  *     queueName: exampleQueue.name,
  *     servicebusNamespace: exampleNamespace.name,
  *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,
@@ -84,6 +82,10 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A list of property columns to add to the Service Bus Queue output.
+     */
+    public readonly propertyColumns!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the Service Bus Queue.
      */
     public readonly queueName!: pulumi.Output<string>;
@@ -111,6 +113,10 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     public readonly streamAnalyticsJobName!: pulumi.Output<string>;
+    /**
+     * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+     */
+    public readonly systemPropertyColumns!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a OutputServiceBusQueue resource with the given unique name, arguments, and options.
@@ -126,6 +132,7 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as OutputServiceBusQueueState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["propertyColumns"] = state ? state.propertyColumns : undefined;
             resourceInputs["queueName"] = state ? state.queueName : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["serialization"] = state ? state.serialization : undefined;
@@ -133,6 +140,7 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
             resourceInputs["sharedAccessPolicyKey"] = state ? state.sharedAccessPolicyKey : undefined;
             resourceInputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
             resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["systemPropertyColumns"] = state ? state.systemPropertyColumns : undefined;
         } else {
             const args = argsOrState as OutputServiceBusQueueArgs | undefined;
             if ((!args || args.queueName === undefined) && !opts.urn) {
@@ -157,6 +165,7 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["propertyColumns"] = args ? args.propertyColumns : undefined;
             resourceInputs["queueName"] = args ? args.queueName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serialization"] = args ? args.serialization : undefined;
@@ -164,6 +173,7 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
             resourceInputs["sharedAccessPolicyKey"] = args ? args.sharedAccessPolicyKey : undefined;
             resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["systemPropertyColumns"] = args ? args.systemPropertyColumns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OutputServiceBusQueue.__pulumiType, name, resourceInputs, opts);
@@ -178,6 +188,10 @@ export interface OutputServiceBusQueueState {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A list of property columns to add to the Service Bus Queue output.
+     */
+    propertyColumns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Service Bus Queue.
      */
@@ -206,6 +220,10 @@ export interface OutputServiceBusQueueState {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     streamAnalyticsJobName?: pulumi.Input<string>;
+    /**
+     * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+     */
+    systemPropertyColumns?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -216,6 +234,10 @@ export interface OutputServiceBusQueueArgs {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A list of property columns to add to the Service Bus Queue output.
+     */
+    propertyColumns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Service Bus Queue.
      */
@@ -244,4 +266,8 @@ export interface OutputServiceBusQueueArgs {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     streamAnalyticsJobName: pulumi.Input<string>;
+    /**
+     * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+     */
+    systemPropertyColumns?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

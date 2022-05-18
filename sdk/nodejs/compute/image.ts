@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleImage = new azure.compute.Image("exampleImage", {
- *     location: "West US",
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     osDisk: {
  *         osType: "Linux",
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleImage = new azure.compute.Image("exampleImage", {
- *     location: "West US",
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sourceVirtualMachineId: "{vm_id}",
  * });

@@ -58,7 +58,7 @@ namespace Pulumi.Azure.MariaDB
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+        /// The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
         /// </summary>
         [Output("administratorLogin")]
         public Output<string> AdministratorLogin { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.MariaDB
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+        /// The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.MariaDB
     public sealed class ServerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+        /// The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: "West US",
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     location: "westus",
+ *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     tags: {
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {
- *     location: "West US",
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     upgradePolicyMode: "Manual",
  *     sku: {

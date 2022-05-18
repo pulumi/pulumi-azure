@@ -22,14 +22,14 @@ namespace Pulumi.Azure.ContainerService
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var acr = new Azure.ContainerService.Registry("acr", new Azure.ContainerService.RegistryArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
-    ///             Location = rg.Location,
+    ///             ResourceGroupName = example.Name,
+    ///             Location = example.Location,
     ///             Sku = "Premium",
     ///             AdminEnabled = false,
     ///             Georeplications = 
@@ -62,14 +62,14 @@ namespace Pulumi.Azure.ContainerService
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new Azure.Authorization.UserAssignedIdentityArgs
     ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///             Location = azurerm_resource_group.Example.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///         });
     ///         var exampleKey = Output.Create(Azure.KeyVault.GetKey.InvokeAsync(new Azure.KeyVault.GetKeyArgs
     ///         {
@@ -78,8 +78,8 @@ namespace Pulumi.Azure.ContainerService
     ///         }));
     ///         var acr = new Azure.ContainerService.Registry("acr", new Azure.ContainerService.RegistryArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
-    ///             Location = rg.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             Sku = "Premium",
     ///             Identity = new Azure.ContainerService.Inputs.RegistryIdentityArgs
     ///             {

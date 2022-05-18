@@ -363,15 +363,15 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.get_resource_group(name="example-resources")
+        example_resource_group = azure.core.get_resource_group(name="example-resources")
         vnet = azure.network.get_virtual_network(name="example-network",
-            resource_group_name=rg.name)
+            resource_group_name=example_resource_group.name)
         subnet = azure.network.get_subnet(name="default",
             virtual_network_name=vnet.name,
-            resource_group_name=rg.name)
-        example = azure.privatelink.Endpoint("example",
-            location=rg.location,
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name)
+        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             subnet_id=subnet.id,
             private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
                 name="example-privateserviceconnection",
@@ -470,15 +470,15 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.get_resource_group(name="example-resources")
+        example_resource_group = azure.core.get_resource_group(name="example-resources")
         vnet = azure.network.get_virtual_network(name="example-network",
-            resource_group_name=rg.name)
+            resource_group_name=example_resource_group.name)
         subnet = azure.network.get_subnet(name="default",
             virtual_network_name=vnet.name,
-            resource_group_name=rg.name)
-        example = azure.privatelink.Endpoint("example",
-            location=rg.location,
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name)
+        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             subnet_id=subnet.id,
             private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
                 name="example-privateserviceconnection",

@@ -29,7 +29,7 @@ namespace Pulumi.Azure.LoadTest
     ///         var exampleLoadTest = new Azure.LoadTest.LoadTest("exampleLoadTest", new Azure.LoadTest.LoadTestArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = "West Europe",
+    ///             Location = exampleResourceGroup.Location,
     ///         });
     ///     }
     /// 

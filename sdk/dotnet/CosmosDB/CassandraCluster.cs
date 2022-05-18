@@ -12,11 +12,26 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a Cassandra Cluster.
     /// 
+    /// &gt; ** NOTE: ** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
     /// 
     /// class MyStack : Stack
     /// {
@@ -44,11 +59,15 @@ namespace Pulumi.Azure.CosmosDB
     ///                 "10.0.1.0/24",
     ///             },
     ///         });
+    ///         var exampleServicePrincipal = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
+    ///         {
+    ///             DisplayName = "Azure Cosmos DB",
+    ///         }));
     ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
     ///         {
     ///             Scope = exampleVirtualNetwork.Id,
     ///             RoleDefinitionName = "Network Contributor",
-    ///             PrincipalId = "e5007d2c-4b13-4a74-9b6a-605d99f03501",
+    ///             PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.ObjectId),
     ///         });
     ///         var exampleCassandraCluster = new Azure.CosmosDB.CassandraCluster("exampleCassandraCluster", new Azure.CosmosDB.CassandraClusterArgs
     ///         {
@@ -56,6 +75,12 @@ namespace Pulumi.Azure.CosmosDB
     ///             Location = exampleResourceGroup.Location,
     ///             DelegatedManagementSubnetId = exampleSubnet.Id,
     ///             DefaultAdminPassword = "Password1234",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleAssignment,
+    ///             },
     ///         });
     ///     }
     /// 
@@ -102,6 +127,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -179,6 +210,18 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public CassandraClusterArgs()
         {
         }
@@ -215,6 +258,18 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public CassandraClusterState()
         {

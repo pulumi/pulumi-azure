@@ -141,6 +141,10 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string StorageAccountId;
         public readonly string TimeCreated;
+        /// <summary>
+        /// Whether Trusted Launch is enabled for the Snapshot.
+        /// </summary>
+        public readonly bool TrustedLaunchEnabled;
 
         [OutputConstructor]
         private GetSnapshotResult(
@@ -164,7 +168,9 @@ namespace Pulumi.Azure.Compute
 
             string storageAccountId,
 
-            string timeCreated)
+            string timeCreated,
+
+            bool trustedLaunchEnabled)
         {
             CreationOption = creationOption;
             DiskSizeGb = diskSizeGb;
@@ -177,6 +183,7 @@ namespace Pulumi.Azure.Compute
             SourceUri = sourceUri;
             StorageAccountId = storageAccountId;
             TimeCreated = timeCreated;
+            TrustedLaunchEnabled = trustedLaunchEnabled;
         }
     }
 }

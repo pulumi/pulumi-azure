@@ -179,7 +179,7 @@ import (
 // 	})
 // }
 // ```
-// > **Note:** Version `~3` is required for Linux Function Apps.
+// > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
 // ### Python In A Consumption Plan)
 //
 // ```go
@@ -288,7 +288,7 @@ type FunctionApp struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Function App. Changing this forces a new resource to be created.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A string indicating the Operating System type for this function app.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
@@ -385,7 +385,7 @@ type functionAppState struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Function App. Changing this forces a new resource to be created.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
 	Name *string `pulumi:"name"`
 	// A string indicating the Operating System type for this function app.
 	OsType *string `pulumi:"osType"`
@@ -442,7 +442,7 @@ type FunctionAppState struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Function App. Changing this forces a new resource to be created.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
 	Name pulumi.StringPtrInput
 	// A string indicating the Operating System type for this function app.
 	OsType pulumi.StringPtrInput
@@ -497,7 +497,7 @@ type functionAppArgs struct {
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Function App. Changing this forces a new resource to be created.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
 	Name *string `pulumi:"name"`
 	// A string indicating the Operating System type for this function app.
 	OsType *string `pulumi:"osType"`
@@ -543,7 +543,7 @@ type FunctionAppArgs struct {
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Function App. Changing this forces a new resource to be created.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
 	Name pulumi.StringPtrInput
 	// A string indicating the Operating System type for this function app.
 	OsType pulumi.StringPtrInput
@@ -725,7 +725,7 @@ func (o FunctionAppOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Function App. Changing this forces a new resource to be created.
+// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
 func (o FunctionAppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

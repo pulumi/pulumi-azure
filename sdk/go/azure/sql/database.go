@@ -29,7 +29,7 @@ type Database struct {
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The default secondary location of the SQL Database.
 	DefaultSecondaryLocation pulumi.StringOutput `pulumi:"defaultSecondaryLocation"`
-	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
 	Edition pulumi.StringOutput `pulumi:"edition"`
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringOutput `pulumi:"elasticPoolName"`
@@ -38,7 +38,7 @@ type Database struct {
 	Import DatabaseImportPtrOutput `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
 	MaxSizeBytes pulumi.StringOutput `pulumi:"maxSizeBytes"`
 	MaxSizeGb    pulumi.StringOutput `pulumi:"maxSizeGb"`
 	// The name of the database.
@@ -111,7 +111,7 @@ type databaseState struct {
 	CreationDate *string `pulumi:"creationDate"`
 	// The default secondary location of the SQL Database.
 	DefaultSecondaryLocation *string `pulumi:"defaultSecondaryLocation"`
-	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
 	Edition *string `pulumi:"edition"`
 	// The name of the elastic database pool.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
@@ -120,7 +120,7 @@ type databaseState struct {
 	Import *DatabaseImport `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
 	MaxSizeBytes *string `pulumi:"maxSizeBytes"`
 	MaxSizeGb    *string `pulumi:"maxSizeGb"`
 	// The name of the database.
@@ -159,7 +159,7 @@ type DatabaseState struct {
 	CreationDate pulumi.StringPtrInput
 	// The default secondary location of the SQL Database.
 	DefaultSecondaryLocation pulumi.StringPtrInput
-	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
 	Edition pulumi.StringPtrInput
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringPtrInput
@@ -168,7 +168,7 @@ type DatabaseState struct {
 	Import DatabaseImportPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
 	MaxSizeBytes pulumi.StringPtrInput
 	MaxSizeGb    pulumi.StringPtrInput
 	// The name of the database.
@@ -207,7 +207,7 @@ type databaseArgs struct {
 	Collation *string `pulumi:"collation"`
 	// Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
 	CreateMode *string `pulumi:"createMode"`
-	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
 	Edition *string `pulumi:"edition"`
 	// The name of the elastic database pool.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
@@ -215,7 +215,7 @@ type databaseArgs struct {
 	Import *DatabaseImport `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
 	MaxSizeBytes *string `pulumi:"maxSizeBytes"`
 	MaxSizeGb    *string `pulumi:"maxSizeGb"`
 	// The name of the database.
@@ -251,7 +251,7 @@ type DatabaseArgs struct {
 	Collation pulumi.StringPtrInput
 	// Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
 	CreateMode pulumi.StringPtrInput
-	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
 	Edition pulumi.StringPtrInput
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringPtrInput
@@ -259,7 +259,7 @@ type DatabaseArgs struct {
 	Import DatabaseImportPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
 	MaxSizeBytes pulumi.StringPtrInput
 	MaxSizeGb    pulumi.StringPtrInput
 	// The name of the database.
@@ -396,7 +396,7 @@ func (o DatabaseOutput) DefaultSecondaryLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.DefaultSecondaryLocation }).(pulumi.StringOutput)
 }
 
-// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
 func (o DatabaseOutput) Edition() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Edition }).(pulumi.StringOutput)
 }
@@ -420,7 +420,7 @@ func (o DatabaseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
 func (o DatabaseOutput) MaxSizeBytes() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.MaxSizeBytes }).(pulumi.StringOutput)
 }

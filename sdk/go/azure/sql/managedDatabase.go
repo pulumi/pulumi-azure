@@ -17,15 +17,22 @@ import (
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sql.NewManagedDatabase(ctx, "example", &sql.ManagedDatabaseArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sql.NewManagedDatabase(ctx, "exampleManagedDatabase", &sql.ManagedDatabaseArgs{
 // 			SqlManagedInstanceId: pulumi.Any(azurerm_sql_managed_instance.Example.Id),
-// 			Location:             pulumi.Any(azurerm_resource_group.Example.Location),
+// 			Location:             exampleResourceGroup.Location,
 // 		})
 // 		if err != nil {
 // 			return err

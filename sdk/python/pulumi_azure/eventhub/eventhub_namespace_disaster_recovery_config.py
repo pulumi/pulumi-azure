@@ -176,7 +176,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard")
         secondary = azure.eventhub.EventHubNamespace("secondary",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="Standard")
         example_eventhub_namespace_disaster_recovery_config = azure.eventhub.EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig",
@@ -221,7 +221,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard")
         secondary = azure.eventhub.EventHubNamespace("secondary",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="Standard")
         example_eventhub_namespace_disaster_recovery_config = azure.eventhub.EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig",

@@ -55,7 +55,7 @@ type LookupFirewallArgs struct {
 
 // A collection of values returned by getFirewall.
 type LookupFirewallResult struct {
-	// The list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+	// The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.
 	DnsServers []string `pulumi:"dnsServers"`
 	// The ID of the Firewall Policy applied to the Azure Firewall.
 	FirewallPolicyId string `pulumi:"firewallPolicyId"`
@@ -123,7 +123,7 @@ func (o LookupFirewallResultOutput) ToLookupFirewallResultOutputWithContext(ctx 
 	return o
 }
 
-// The list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+// The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.
 func (o LookupFirewallResultOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFirewallResult) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }

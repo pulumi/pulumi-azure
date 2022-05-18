@@ -299,16 +299,16 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
         example_cluster_principal_assignment = azure.kusto.ClusterPrincipalAssignment("exampleClusterPrincipalAssignment",
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name,
             cluster_name=example_cluster.name,
             tenant_id=current.tenant_id,
             principal_id=current.client_id,
@@ -350,16 +350,16 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
         example_cluster_principal_assignment = azure.kusto.ClusterPrincipalAssignment("exampleClusterPrincipalAssignment",
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name,
             cluster_name=example_cluster.name,
             tenant_id=current.tenant_id,
             principal_id=current.client_id,

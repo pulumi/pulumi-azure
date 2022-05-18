@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Network.Outputs
     [OutputType]
     public sealed class VirtualNetworkGatewayConnectionTrafficSelectorPolicy
     {
+        /// <summary>
+        /// List of local CIDRs.
+        /// </summary>
         public readonly ImmutableArray<string> LocalAddressCidrs;
+        /// <summary>
+        /// List of remote CIDRs.
+        /// </summary>
         public readonly ImmutableArray<string> RemoteAddressCidrs;
 
         [OutputConstructor]

@@ -71,7 +71,7 @@ namespace Pulumi.Azure.MSSql
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         /// </summary>
         [Output("licenseType")]
-        public Output<string> LicenseType { get; private set; } = null!;
+        public Output<string?> LicenseType { get; private set; } = null!;
 
         /// <summary>
         /// A `long_term_retention_policy` block as defined below.
@@ -169,6 +169,9 @@ namespace Pulumi.Azure.MSSql
         [Output("threatDetectionPolicy")]
         public Output<Outputs.DatabaseThreatDetectionPolicy> ThreatDetectionPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+        /// </summary>
         [Output("transparentDataEncryptionEnabled")]
         public Output<bool?> TransparentDataEncryptionEnabled { get; private set; } = null!;
 
@@ -374,6 +377,9 @@ namespace Pulumi.Azure.MSSql
         [Input("threatDetectionPolicy")]
         public Input<Inputs.DatabaseThreatDetectionPolicyArgs>? ThreatDetectionPolicy { get; set; }
 
+        /// <summary>
+        /// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+        /// </summary>
         [Input("transparentDataEncryptionEnabled")]
         public Input<bool>? TransparentDataEncryptionEnabled { get; set; }
 
@@ -540,6 +546,9 @@ namespace Pulumi.Azure.MSSql
         [Input("threatDetectionPolicy")]
         public Input<Inputs.DatabaseThreatDetectionPolicyGetArgs>? ThreatDetectionPolicy { get; set; }
 
+        /// <summary>
+        /// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+        /// </summary>
         [Input("transparentDataEncryptionEnabled")]
         public Input<bool>? TransparentDataEncryptionEnabled { get; set; }
 

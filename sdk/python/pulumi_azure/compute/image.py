@@ -354,7 +354,7 @@ class Image(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_image = azure.compute.Image("exampleImage",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             os_disk=azure.compute.ImageOsDiskArgs(
                 os_type="Linux",
@@ -371,7 +371,7 @@ class Image(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_image = azure.compute.Image("exampleImage",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             source_virtual_machine_id="{vm_id}")
         ```
@@ -417,7 +417,7 @@ class Image(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_image = azure.compute.Image("exampleImage",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             os_disk=azure.compute.ImageOsDiskArgs(
                 os_type="Linux",
@@ -434,7 +434,7 @@ class Image(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_image = azure.compute.Image("exampleImage",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             source_virtual_machine_id="{vm_id}")
         ```

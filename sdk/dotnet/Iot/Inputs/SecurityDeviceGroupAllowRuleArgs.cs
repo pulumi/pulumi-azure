@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Iot.Inputs
         private InputList<string>? _localUsersNotAlloweds;
 
         /// <summary>
-        /// Specifies which local user is not allowed to Login in current device group.
+        /// Specifies which local user is not allowed to login in current device group.
         /// </summary>
         public InputList<string> LocalUsersNotAlloweds
         {

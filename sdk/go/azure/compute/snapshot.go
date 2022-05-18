@@ -85,6 +85,8 @@ type Snapshot struct {
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Whether Trusted Launch is enabled for the Snapshot.
+	TrustedLaunchEnabled pulumi.BoolOutput `pulumi:"trustedLaunchEnabled"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -141,6 +143,8 @@ type snapshotState struct {
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Whether Trusted Launch is enabled for the Snapshot.
+	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 }
 
 type SnapshotState struct {
@@ -163,6 +167,8 @@ type SnapshotState struct {
 	StorageAccountId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Whether Trusted Launch is enabled for the Snapshot.
+	TrustedLaunchEnabled pulumi.BoolPtrInput
 }
 
 func (SnapshotState) ElementType() reflect.Type {
@@ -348,6 +354,11 @@ func (o SnapshotOutput) StorageAccountId() pulumi.StringPtrOutput {
 // A mapping of tags to assign to the resource.
 func (o SnapshotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Whether Trusted Launch is enabled for the Snapshot.
+func (o SnapshotOutput) TrustedLaunchEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.BoolOutput { return v.TrustedLaunchEnabled }).(pulumi.BoolOutput)
 }
 
 type SnapshotArrayOutput struct{ *pulumi.OutputState }

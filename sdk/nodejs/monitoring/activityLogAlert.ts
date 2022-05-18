@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const mainActionGroup = new azure.monitoring.ActionGroup("mainActionGroup", {
- *     resourceGroupName: mainResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     shortName: "p0action",
  *     webhookReceivers: [{
  *         name: "callmyapi",
@@ -24,14 +24,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const toMonitor = new azure.storage.Account("toMonitor", {
- *     resourceGroupName: mainResourceGroup.name,
- *     location: mainResourceGroup.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
  * const mainActivityLogAlert = new azure.monitoring.ActivityLogAlert("mainActivityLogAlert", {
- *     resourceGroupName: mainResourceGroup.name,
- *     scopes: [mainResourceGroup.id],
+ *     resourceGroupName: example.name,
+ *     scopes: [example.id],
  *     description: "This alert will monitor a specific storage account updates.",
  *     criteria: {
  *         resourceId: toMonitor.id,

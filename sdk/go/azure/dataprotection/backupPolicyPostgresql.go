@@ -26,15 +26,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
-// 			ResourceGroupName: rg.Name,
-// 			Location:          rg.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
 // 			DatastoreType:     pulumi.String("VaultStore"),
 // 			Redundancy:        pulumi.String("LocallyRedundant"),
 // 		})
@@ -42,7 +42,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = dataprotection.NewBackupPolicyPostgresql(ctx, "exampleBackupPolicyPostgresql", &dataprotection.BackupPolicyPostgresqlArgs{
-// 			ResourceGroupName: rg.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			VaultName:         exampleBackupVault.Name,
 // 			BackupRepeatingTimeIntervals: pulumi.StringArray{
 // 				pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),

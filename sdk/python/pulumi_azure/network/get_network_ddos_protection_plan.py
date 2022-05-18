@@ -78,7 +78,7 @@ class GetNetworkDdosProtectionPlanResult:
     @pulumi.getter(name="virtualNetworkIds")
     def virtual_network_ids(self) -> Sequence[str]:
         """
-        A list of ID's of the Virtual Networks associated with this DDoS Protection Plan.
+        A list of IDs of the Virtual Networks associated with this DDoS Protection Plan.
         """
         return pulumi.get(self, "virtual_network_ids")
 

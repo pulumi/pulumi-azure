@@ -122,7 +122,7 @@ namespace Pulumi.Azure.MySql
     public sealed class GetFlexibleServerResult
     {
         /// <summary>
-        /// The Administrator Login of the MySQL Flexible Server.
+        /// The Administrator login of the MySQL Flexible Server.
         /// </summary>
         public readonly string AdministratorLogin;
         /// <summary>

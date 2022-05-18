@@ -43,7 +43,7 @@ class GroupPolicyAssignmentIdentity(dict):
                  tenant_id: Optional[str] = None):
         """
         :param str type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
-        :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+        :param Sequence[str] identity_ids: A list of User Managed Identity IDs which should be assigned to the Policy Definition.
         :param str principal_id: The Principal ID of the Policy Assignment for this Management Group.
         :param str tenant_id: The Tenant ID of the Policy Assignment for this Management Group.
         """
@@ -67,7 +67,7 @@ class GroupPolicyAssignmentIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+        A list of User Managed Identity IDs which should be assigned to the Policy Definition.
         """
         return pulumi.get(self, "identity_ids")
 

@@ -13,41 +13,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const cluster = new azure.kusto.Cluster("cluster", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,
  *     },
  * });
  * const database = new azure.kusto.Database("database", {
- *     resourceGroupName: rg.name,
- *     location: rg.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     clusterName: cluster.name,
  *     hotCachePeriod: "P7D",
  *     softDeletePeriod: "P31D",
  * });
  * const eventhubNs = new azure.eventhub.EventHubNamespace("eventhubNs", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
  * const eventhub = new azure.eventhub.EventHub("eventhub", {
  *     namespaceName: eventhubNs.name,
- *     resourceGroupName: rg.name,
+ *     resourceGroupName: example.name,
  *     partitionCount: 1,
  *     messageRetention: 1,
  * });
  * const consumerGroup = new azure.eventhub.ConsumerGroup("consumerGroup", {
  *     namespaceName: eventhubNs.name,
  *     eventhubName: eventhub.name,
- *     resourceGroupName: rg.name,
+ *     resourceGroupName: example.name,
  * });
  * const eventhubConnection = new azure.kusto.EventhubDataConnection("eventhubConnection", {
- *     resourceGroupName: rg.name,
- *     location: rg.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     clusterName: cluster.name,
  *     databaseName: database.name,
  *     eventhubId: eventhub.id,

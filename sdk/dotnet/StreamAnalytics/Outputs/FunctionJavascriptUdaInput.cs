@@ -14,13 +14,21 @@ namespace Pulumi.Azure.StreamAnalytics.Outputs
     public sealed class FunctionJavascriptUdaInput
     {
         /// <summary>
+        /// Is this input parameter a configuration parameter? Defaults to `false`.
+        /// </summary>
+        public readonly bool? ConfigurationParameter;
+        /// <summary>
         /// The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
-        private FunctionJavascriptUdaInput(string type)
+        private FunctionJavascriptUdaInput(
+            bool? configurationParameter,
+
+            string type)
         {
+            ConfigurationParameter = configurationParameter;
             Type = type;
         }
     }

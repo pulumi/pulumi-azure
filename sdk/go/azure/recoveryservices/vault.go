@@ -26,15 +26,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-// 			Location:          rg.Location,
-// 			ResourceGroupName: rg.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 			Sku:               pulumi.String("Standard"),
 // 			SoftDeleteEnabled: pulumi.Bool(true),
 // 		})

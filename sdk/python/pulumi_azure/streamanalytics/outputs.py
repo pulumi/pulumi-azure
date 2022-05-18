@@ -27,12 +27,33 @@ __all__ = [
 
 @pulumi.output_type
 class FunctionJavaScriptUDFInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationParameter":
+            suggest = "configuration_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionJavaScriptUDFInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionJavaScriptUDFInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionJavaScriptUDFInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 type: str):
+                 type: str,
+                 configuration_parameter: Optional[bool] = None):
         """
         :param str type: The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        :param bool configuration_parameter: Is this input parameter a configuration parameter? Defaults to `false`.
         """
         pulumi.set(__self__, "type", type)
+        if configuration_parameter is not None:
+            pulumi.set(__self__, "configuration_parameter", configuration_parameter)
 
     @property
     @pulumi.getter
@@ -41,6 +62,14 @@ class FunctionJavaScriptUDFInput(dict):
         The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="configurationParameter")
+    def configuration_parameter(self) -> Optional[bool]:
+        """
+        Is this input parameter a configuration parameter? Defaults to `false`.
+        """
+        return pulumi.get(self, "configuration_parameter")
 
 
 @pulumi.output_type
@@ -63,12 +92,33 @@ class FunctionJavaScriptUDFOutput(dict):
 
 @pulumi.output_type
 class FunctionJavascriptUdaInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationParameter":
+            suggest = "configuration_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionJavascriptUdaInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionJavascriptUdaInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionJavascriptUdaInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 type: str):
+                 type: str,
+                 configuration_parameter: Optional[bool] = None):
         """
         :param str type: The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        :param bool configuration_parameter: Is this input parameter a configuration parameter? Defaults to `false`.
         """
         pulumi.set(__self__, "type", type)
+        if configuration_parameter is not None:
+            pulumi.set(__self__, "configuration_parameter", configuration_parameter)
 
     @property
     @pulumi.getter
@@ -77,6 +127,14 @@ class FunctionJavascriptUdaInput(dict):
         The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="configurationParameter")
+    def configuration_parameter(self) -> Optional[bool]:
+        """
+        Is this input parameter a configuration parameter? Defaults to `false`.
+        """
+        return pulumi.get(self, "configuration_parameter")
 
 
 @pulumi.output_type

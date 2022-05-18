@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.1.0.0/24"],
  * });
  * const test = new azure.machinelearning.ComputeCluster("test", {
- *     location: "West Europe",
+ *     location: exampleResourceGroup.location,
  *     vmPriority: "LowPriority",
  *     vmSize: "Standard_DS2_v2",
  *     machineLearningWorkspaceId: exampleWorkspace.id,

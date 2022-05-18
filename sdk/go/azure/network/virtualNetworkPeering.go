@@ -38,7 +38,7 @@ import (
 // 			AddressSpaces: pulumi.StringArray{
 // 				pulumi.String("10.0.1.0/24"),
 // 			},
-// 			Location: pulumi.String("West US"),
+// 			Location: example.Location,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -48,7 +48,7 @@ import (
 // 			AddressSpaces: pulumi.StringArray{
 // 				pulumi.String("10.0.2.0/24"),
 // 			},
-// 			Location: pulumi.String("West US"),
+// 			Location: example.Location,
 // 		})
 // 		if err != nil {
 // 			return err

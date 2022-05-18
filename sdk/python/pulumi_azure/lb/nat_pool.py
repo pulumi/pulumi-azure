@@ -415,11 +415,11 @@ class NatPool(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             allocation_method="Static")
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name="PublicIPAddress",
@@ -478,11 +478,11 @@ class NatPool(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             allocation_method="Static")
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name="PublicIPAddress",

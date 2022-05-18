@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Management.Outputs
     public sealed class GroupPolicyAssignmentIdentity
     {
         /// <summary>
-        /// A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+        /// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

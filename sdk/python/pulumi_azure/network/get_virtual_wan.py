@@ -125,7 +125,7 @@ class GetVirtualWanResult:
     @pulumi.getter(name="virtualHubIds")
     def virtual_hub_ids(self) -> Sequence[str]:
         """
-        A list of Virtual Hubs ID's attached to this Virtual WAN.
+        A list of Virtual Hubs IDs attached to this Virtual WAN.
         """
         return pulumi.get(self, "virtual_hub_ids")
 
@@ -133,7 +133,7 @@ class GetVirtualWanResult:
     @pulumi.getter(name="vpnSiteIds")
     def vpn_site_ids(self) -> Sequence[str]:
         """
-        A list of VPN Site ID's attached to this Virtual WAN.
+        A list of VPN Site IDs attached to this Virtual WAN.
         """
         return pulumi.get(self, "vpn_site_ids")
 

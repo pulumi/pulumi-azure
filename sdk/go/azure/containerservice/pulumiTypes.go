@@ -3931,7 +3931,7 @@ type KubernetesClusterDefaultNodePool struct {
 	Name string `pulumi:"name"`
 	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
 	NodeCount *int `pulumi:"nodeCount"`
-	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId *string  `pulumi:"nodePublicIpPrefixId"`
@@ -3957,7 +3957,7 @@ type KubernetesClusterDefaultNodePool struct {
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings *KubernetesClusterDefaultNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
-	// The size of the Virtual Machine, such as `Standard_DS2_v2`.
+	// The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
 	VmSize string `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
@@ -4001,7 +4001,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
-	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrInput   `pulumi:"nodePublicIpPrefixId"`
@@ -4027,7 +4027,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
-	// The size of the Virtual Machine, such as `Standard_DS2_v2`.
+	// The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
@@ -4176,7 +4176,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
 
-// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
@@ -4246,7 +4246,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) UpgradeSettings() KubernetesClus
 	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
 }
 
-// The size of the Virtual Machine, such as `Standard_DS2_v2`.
+// The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -4405,7 +4405,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeCount() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) map[string]string {
 		if v == nil {
@@ -4543,7 +4543,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) UpgradeSettings() KubernetesC
 	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
 }
 
-// The size of the Virtual Machine, such as `Standard_DS2_v2`.
+// The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -8224,7 +8224,7 @@ type KubernetesClusterNetworkProfile struct {
 	NatGatewayProfile *KubernetesClusterNetworkProfileNatGatewayProfile `pulumi:"natGatewayProfile"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	NetworkMode *string `pulumi:"networkMode"`
-	// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 	NetworkPlugin string `pulumi:"networkPlugin"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
@@ -8262,7 +8262,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	NatGatewayProfile KubernetesClusterNetworkProfileNatGatewayProfilePtrInput `pulumi:"natGatewayProfile"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
-	// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
@@ -8390,7 +8390,7 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkMode() pulumi.StringPtrOut
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkMode }).(pulumi.StringPtrOutput)
 }
 
-// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
@@ -8509,7 +8509,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkMode() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -13547,7 +13547,7 @@ func (o RegistryTaskRegistryCredentialPtrOutput) Source() RegistryTaskRegistryCr
 }
 
 type RegistryTaskRegistryCredentialCustom struct {
-	// The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+	// The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `[system]`.
 	Identity *string `pulumi:"identity"`
 	// The login server of the custom Container Registry.
 	LoginServer string `pulumi:"loginServer"`
@@ -13569,7 +13569,7 @@ type RegistryTaskRegistryCredentialCustomInput interface {
 }
 
 type RegistryTaskRegistryCredentialCustomArgs struct {
-	// The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+	// The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `[system]`.
 	Identity pulumi.StringPtrInput `pulumi:"identity"`
 	// The login server of the custom Container Registry.
 	LoginServer pulumi.StringInput `pulumi:"loginServer"`
@@ -13630,7 +13630,7 @@ func (o RegistryTaskRegistryCredentialCustomOutput) ToRegistryTaskRegistryCreden
 	return o
 }
 
-// The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+// The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `[system]`.
 func (o RegistryTaskRegistryCredentialCustomOutput) Identity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistryTaskRegistryCredentialCustom) *string { return v.Identity }).(pulumi.StringPtrOutput)
 }

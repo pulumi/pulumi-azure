@@ -160,6 +160,12 @@ namespace Pulumi.Azure.Storage
         public Output<Outputs.AccountBlobProperties> BlobProperties { get; private set; } = null!;
 
         /// <summary>
+        /// Should cross Tenant replication be enabled? Defaults to `true`.
+        /// </summary>
+        [Output("crossTenantReplicationEnabled")]
+        public Output<bool?> CrossTenantReplicationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `custom_domain` block as documented below.
         /// </summary>
         [Output("customDomain")]
@@ -570,6 +576,12 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountBlobPropertiesArgs>? BlobProperties { get; set; }
 
         /// <summary>
+        /// Should cross Tenant replication be enabled? Defaults to `true`.
+        /// </summary>
+        [Input("crossTenantReplicationEnabled")]
+        public Input<bool>? CrossTenantReplicationEnabled { get; set; }
+
+        /// <summary>
         /// A `custom_domain` block as documented below.
         /// </summary>
         [Input("customDomain")]
@@ -753,6 +765,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("blobProperties")]
         public Input<Inputs.AccountBlobPropertiesGetArgs>? BlobProperties { get; set; }
+
+        /// <summary>
+        /// Should cross Tenant replication be enabled? Defaults to `true`.
+        /// </summary>
+        [Input("crossTenantReplicationEnabled")]
+        public Input<bool>? CrossTenantReplicationEnabled { get; set; }
 
         /// <summary>
         /// A `custom_domain` block as documented below.

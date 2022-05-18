@@ -211,8 +211,8 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             sku_name="standard",
             purge_protection_enabled=True)
         example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=azurerm_resource_group["rg"]["location"],
-            resource_group_name=azurerm_resource_group["rg"]["name"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
@@ -303,8 +303,8 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             sku_name="standard",
             purge_protection_enabled=True)
         example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=azurerm_resource_group["rg"]["location"],
-            resource_group_name=azurerm_resource_group["rg"]["name"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,

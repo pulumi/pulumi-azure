@@ -31,7 +31,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = cdn.NewProfile(ctx, "exampleProfile", &cdn.ProfileArgs{
-// 			Location:          pulumi.String("West US"),
+// 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard_Verizon"),
 // 			Tags: pulumi.StringMap{

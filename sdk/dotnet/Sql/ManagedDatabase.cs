@@ -20,10 +20,14 @@ namespace Pulumi.Azure.Sql
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Azure.Sql.ManagedDatabase("example", new Azure.Sql.ManagedDatabaseArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleManagedDatabase = new Azure.Sql.ManagedDatabase("exampleManagedDatabase", new Azure.Sql.ManagedDatabaseArgs
     ///         {
     ///             SqlManagedInstanceId = azurerm_sql_managed_instance.Example.Id,
-    ///             Location = azurerm_resource_group.Example.Location,
+    ///             Location = exampleResourceGroup.Location,
     ///         });
     ///     }
     /// 

@@ -22,7 +22,9 @@ class OutputServiceBusQueueArgs:
                  shared_access_policy_key: pulumi.Input[str],
                  shared_access_policy_name: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OutputServiceBusQueue resource.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue.
@@ -33,6 +35,8 @@ class OutputServiceBusQueueArgs:
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Queue output.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
         """
         pulumi.set(__self__, "queue_name", queue_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -43,6 +47,10 @@ class OutputServiceBusQueueArgs:
         pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if property_columns is not None:
+            pulumi.set(__self__, "property_columns", property_columns)
+        if system_property_columns is not None:
+            pulumi.set(__self__, "system_property_columns", system_property_columns)
 
     @property
     @pulumi.getter(name="queueName")
@@ -140,21 +148,48 @@ class OutputServiceBusQueueArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="propertyColumns")
+    def property_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of property columns to add to the Service Bus Queue output.
+        """
+        return pulumi.get(self, "property_columns")
+
+    @property_columns.setter
+    def property_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "property_columns", value)
+
+    @property
+    @pulumi.getter(name="systemPropertyColumns")
+    def system_property_columns(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+        """
+        return pulumi.get(self, "system_property_columns")
+
+    @system_property_columns.setter
+    def system_property_columns(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "system_property_columns", value)
+
 
 @pulumi.input_type
 class _OutputServiceBusQueueState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
+                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input['OutputServiceBusQueueSerializationArgs']] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
-                 stream_analytics_job_name: Optional[pulumi.Input[str]] = None):
+                 stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering OutputServiceBusQueue resources.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Queue output.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input['OutputServiceBusQueueSerializationArgs'] serialization: A `serialization` block as defined below.
@@ -162,9 +197,12 @@ class _OutputServiceBusQueueState:
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if property_columns is not None:
+            pulumi.set(__self__, "property_columns", property_columns)
         if queue_name is not None:
             pulumi.set(__self__, "queue_name", queue_name)
         if resource_group_name is not None:
@@ -179,6 +217,8 @@ class _OutputServiceBusQueueState:
             pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
         if stream_analytics_job_name is not None:
             pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+        if system_property_columns is not None:
+            pulumi.set(__self__, "system_property_columns", system_property_columns)
 
     @property
     @pulumi.getter
@@ -191,6 +231,18 @@ class _OutputServiceBusQueueState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="propertyColumns")
+    def property_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of property columns to add to the Service Bus Queue output.
+        """
+        return pulumi.get(self, "property_columns")
+
+    @property_columns.setter
+    def property_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "property_columns", value)
 
     @property
     @pulumi.getter(name="queueName")
@@ -276,6 +328,18 @@ class _OutputServiceBusQueueState:
     def stream_analytics_job_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "stream_analytics_job_name", value)
 
+    @property
+    @pulumi.getter(name="systemPropertyColumns")
+    def system_property_columns(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+        """
+        return pulumi.get(self, "system_property_columns")
+
+    @system_property_columns.setter
+    def system_property_columns(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "system_property_columns", value)
+
 
 class OutputServiceBusQueue(pulumi.CustomResource):
     @overload
@@ -283,6 +347,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArgs']]] = None,
@@ -290,6 +355,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages a Stream Analytics Output to a ServiceBus Queue.
@@ -300,9 +366,9 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=azurerm_resource_group["example"]["name"])
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
         example_namespace = azure.servicebus.Namespace("exampleNamespace",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -333,6 +399,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Queue output.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArgs']] serialization: A `serialization` block as defined below.
@@ -340,6 +407,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
         """
         ...
     @overload
@@ -356,9 +424,9 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=azurerm_resource_group["example"]["name"])
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
         example_namespace = azure.servicebus.Namespace("exampleNamespace",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -402,6 +470,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArgs']]] = None,
@@ -409,6 +478,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -422,6 +492,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             __props__ = OutputServiceBusQueueArgs.__new__(OutputServiceBusQueueArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["property_columns"] = property_columns
             if queue_name is None and not opts.urn:
                 raise TypeError("Missing required property 'queue_name'")
             __props__.__dict__["queue_name"] = queue_name
@@ -443,6 +514,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
             __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
+            __props__.__dict__["system_property_columns"] = system_property_columns
         super(OutputServiceBusQueue, __self__).__init__(
             'azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue',
             resource_name,
@@ -454,13 +526,15 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
+            property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             queue_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             serialization: Optional[pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArgs']]] = None,
             servicebus_namespace: Optional[pulumi.Input[str]] = None,
             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
-            stream_analytics_job_name: Optional[pulumi.Input[str]] = None) -> 'OutputServiceBusQueue':
+            stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+            system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'OutputServiceBusQueue':
         """
         Get an existing OutputServiceBusQueue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -469,6 +543,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Queue output.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArgs']] serialization: A `serialization` block as defined below.
@@ -476,12 +551,14 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _OutputServiceBusQueueState.__new__(_OutputServiceBusQueueState)
 
         __props__.__dict__["name"] = name
+        __props__.__dict__["property_columns"] = property_columns
         __props__.__dict__["queue_name"] = queue_name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["serialization"] = serialization
@@ -489,6 +566,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         __props__.__dict__["shared_access_policy_key"] = shared_access_policy_key
         __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
         __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
+        __props__.__dict__["system_property_columns"] = system_property_columns
         return OutputServiceBusQueue(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -498,6 +576,14 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         The name of the Stream Output. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="propertyColumns")
+    def property_columns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of property columns to add to the Service Bus Queue output.
+        """
+        return pulumi.get(self, "property_columns")
 
     @property
     @pulumi.getter(name="queueName")
@@ -554,4 +640,12 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_name")
+
+    @property
+    @pulumi.getter(name="systemPropertyColumns")
+    def system_property_columns(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+        """
+        return pulumi.get(self, "system_property_columns")
 

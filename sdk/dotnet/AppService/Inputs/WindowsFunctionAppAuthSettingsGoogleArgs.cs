@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? ClientSecret { get; set; }
 
         /// <summary>
-        /// The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        /// The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         /// </summary>
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }

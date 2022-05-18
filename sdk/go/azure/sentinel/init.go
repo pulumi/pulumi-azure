@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AutomationRule{}
 	case "azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail":
 		r = &DataConnectorAwsCloudTrail{}
+	case "azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3":
+		r = &DataConnectorAwsS3{}
 	case "azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory":
 		r = &DataConnectorAzureActiveDirectory{}
 	case "azure:sentinel/dataConnectorAzureAdvancedThreadProtection:DataConnectorAzureAdvancedThreadProtection":
@@ -99,6 +101,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/dataConnectorAwsCloudTrail",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/dataConnectorAwsS3",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

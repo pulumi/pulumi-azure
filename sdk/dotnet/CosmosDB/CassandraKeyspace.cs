@@ -22,14 +22,14 @@ namespace Pulumi.Azure.CosmosDB
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Name = "tflex-cosmosdb-account-rg",
-    ///         }));
+    ///             Location = "West Europe",
+    ///         });
     ///         var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new Azure.CosmosDB.AccountArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Name),
-    ///             Location = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Location),
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             OfferType = "Standard",
     ///             Capabilities = 
     ///             {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.CosmosDB
     ///             {
     ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
     ///                 {
-    ///                     Location = "West US",
+    ///                     Location = exampleResourceGroup.Location,
     ///                     FailoverPriority = 0,
     ///                 },
     ///             },

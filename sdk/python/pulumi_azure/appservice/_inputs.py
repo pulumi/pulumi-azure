@@ -614,8 +614,8 @@ class AppServiceAuthSettingsFacebookArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login
-        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -638,7 +638,7 @@ class AppServiceAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecret")
     def app_secret(self) -> pulumi.Input[str]:
         """
-        The App Secret of the Facebook app used for Facebook Login.
+        The App Secret of the Facebook app used for Facebook login.
         """
         return pulumi.get(self, "app_secret")
 
@@ -650,7 +650,7 @@ class AppServiceAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -2975,8 +2975,8 @@ class FunctionAppAuthSettingsFacebookArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login
-        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -2999,7 +2999,7 @@ class FunctionAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecret")
     def app_secret(self) -> pulumi.Input[str]:
         """
-        The App Secret of the Facebook app used for Facebook Login.
+        The App Secret of the Facebook app used for Facebook login.
         """
         return pulumi.get(self, "app_secret")
 
@@ -3011,7 +3011,7 @@ class FunctionAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -4138,7 +4138,7 @@ class FunctionAppSlotAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Is Authentication enabled?
         :param pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_params: login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
         :param pulumi.Input['FunctionAppSlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -4207,7 +4207,7 @@ class FunctionAppSlotAuthSettingsArgs:
     @pulumi.getter(name="additionalLoginParams")
     def additional_login_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
         """
         return pulumi.get(self, "additional_login_params")
 
@@ -4410,8 +4410,8 @@ class FunctionAppSlotAuthSettingsFacebookArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login
-        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -4434,7 +4434,7 @@ class FunctionAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecret")
     def app_secret(self) -> pulumi.Input[str]:
         """
-        The App Secret of the Facebook app used for Facebook Login.
+        The App Secret of the Facebook app used for Facebook login.
         """
         return pulumi.get(self, "app_secret")
 
@@ -4446,7 +4446,7 @@ class FunctionAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -5604,7 +5604,7 @@ class LinuxFunctionAppAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
         :param pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
         :param pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -5676,7 +5676,7 @@ class LinuxFunctionAppAuthSettingsArgs:
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         """
         return pulumi.get(self, "additional_login_parameters")
 
@@ -5908,9 +5908,9 @@ class LinuxFunctionAppAuthSettingsFacebookArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
-        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
-        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         if app_secret is not None:
@@ -5936,7 +5936,7 @@ class LinuxFunctionAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecret")
     def app_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
         """
         return pulumi.get(self, "app_secret")
 
@@ -5948,7 +5948,7 @@ class LinuxFunctionAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecretSettingName")
     def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -5960,7 +5960,7 @@ class LinuxFunctionAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -5978,9 +5978,9 @@ class LinuxFunctionAppAuthSettingsGithubArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
-        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -6006,7 +6006,7 @@ class LinuxFunctionAppAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -6018,7 +6018,7 @@ class LinuxFunctionAppAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -6030,7 +6030,7 @@ class LinuxFunctionAppAuthSettingsGithubArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -6049,7 +6049,7 @@ class LinuxFunctionAppAuthSettingsGoogleArgs:
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -6088,7 +6088,7 @@ class LinuxFunctionAppAuthSettingsGoogleArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -7827,7 +7827,7 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled?
         :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: an `active_directory` block as detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
         :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArgs'] facebook: a `facebook` block as detailed below.
@@ -7899,7 +7899,7 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         """
         return pulumi.get(self, "additional_login_parameters")
 
@@ -8131,9 +8131,9 @@ class LinuxFunctionAppSlotAuthSettingsFacebookArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
-        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
-        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         if app_secret is not None:
@@ -8159,7 +8159,7 @@ class LinuxFunctionAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecret")
     def app_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
         """
         return pulumi.get(self, "app_secret")
 
@@ -8171,7 +8171,7 @@ class LinuxFunctionAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecretSettingName")
     def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -8183,7 +8183,7 @@ class LinuxFunctionAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -8201,9 +8201,9 @@ class LinuxFunctionAppSlotAuthSettingsGithubArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
-        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -8229,7 +8229,7 @@ class LinuxFunctionAppSlotAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -8241,7 +8241,7 @@ class LinuxFunctionAppSlotAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -8253,7 +8253,7 @@ class LinuxFunctionAppSlotAuthSettingsGithubArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -8272,7 +8272,7 @@ class LinuxFunctionAppSlotAuthSettingsGoogleArgs:
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -8311,7 +8311,7 @@ class LinuxFunctionAppSlotAuthSettingsGoogleArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -10121,7 +10121,7 @@ class LinuxWebAppAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
         :param pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
         :param pulumi.Input['LinuxWebAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -10193,7 +10193,7 @@ class LinuxWebAppAuthSettingsArgs:
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         """
         return pulumi.get(self, "additional_login_parameters")
 
@@ -10425,9 +10425,9 @@ class LinuxWebAppAuthSettingsFacebookArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
-        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
-        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         if app_secret is not None:
@@ -10453,7 +10453,7 @@ class LinuxWebAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecret")
     def app_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
         """
         return pulumi.get(self, "app_secret")
 
@@ -10465,7 +10465,7 @@ class LinuxWebAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecretSettingName")
     def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -10477,7 +10477,7 @@ class LinuxWebAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -10495,9 +10495,9 @@ class LinuxWebAppAuthSettingsGithubArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
-        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -10523,7 +10523,7 @@ class LinuxWebAppAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -10535,7 +10535,7 @@ class LinuxWebAppAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -10547,7 +10547,7 @@ class LinuxWebAppAuthSettingsGithubArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -10566,7 +10566,7 @@ class LinuxWebAppAuthSettingsGoogleArgs:
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -10605,7 +10605,7 @@ class LinuxWebAppAuthSettingsGoogleArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -12789,7 +12789,7 @@ class LinuxWebAppSlotAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
         :param pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
         :param pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -12861,7 +12861,7 @@ class LinuxWebAppSlotAuthSettingsArgs:
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         """
         return pulumi.get(self, "additional_login_parameters")
 
@@ -13093,9 +13093,9 @@ class LinuxWebAppSlotAuthSettingsFacebookArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
-        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
-        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         if app_secret is not None:
@@ -13121,7 +13121,7 @@ class LinuxWebAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecret")
     def app_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
         """
         return pulumi.get(self, "app_secret")
 
@@ -13133,7 +13133,7 @@ class LinuxWebAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecretSettingName")
     def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -13145,7 +13145,7 @@ class LinuxWebAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -13163,9 +13163,9 @@ class LinuxWebAppSlotAuthSettingsGithubArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
-        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -13191,7 +13191,7 @@ class LinuxWebAppSlotAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -13203,7 +13203,7 @@ class LinuxWebAppSlotAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -13215,7 +13215,7 @@ class LinuxWebAppSlotAuthSettingsGithubArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -13234,7 +13234,7 @@ class LinuxWebAppSlotAuthSettingsGoogleArgs:
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -13273,7 +13273,7 @@ class LinuxWebAppSlotAuthSettingsGoogleArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -16032,8 +16032,8 @@ class SlotAuthSettingsFacebookArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login
-        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -16056,7 +16056,7 @@ class SlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecret")
     def app_secret(self) -> pulumi.Input[str]:
         """
-        The App Secret of the Facebook app used for Facebook Login.
+        The App Secret of the Facebook app used for Facebook login.
         """
         return pulumi.get(self, "app_secret")
 
@@ -16068,7 +16068,7 @@ class SlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -18020,7 +18020,7 @@ class StaticSiteIdentityArgs:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of Managed Identity ID's which should be assigned to this Static Site resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of Managed Identity IDs which should be assigned to this Static Site resource.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -18046,7 +18046,7 @@ class StaticSiteIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Managed Identity ID's which should be assigned to this Static Site resource.
+        A list of Managed Identity IDs which should be assigned to this Static Site resource.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -18094,7 +18094,7 @@ class WindowsFunctionAppAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Windows Function App?
         :param pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
         :param pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -18166,7 +18166,7 @@ class WindowsFunctionAppAuthSettingsArgs:
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         """
         return pulumi.get(self, "additional_login_parameters")
 
@@ -18398,9 +18398,9 @@ class WindowsFunctionAppAuthSettingsFacebookArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
-        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
-        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         if app_secret is not None:
@@ -18426,7 +18426,7 @@ class WindowsFunctionAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecret")
     def app_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
         """
         return pulumi.get(self, "app_secret")
 
@@ -18438,7 +18438,7 @@ class WindowsFunctionAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecretSettingName")
     def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -18450,7 +18450,7 @@ class WindowsFunctionAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -18468,9 +18468,9 @@ class WindowsFunctionAppAuthSettingsGithubArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
-        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -18496,7 +18496,7 @@ class WindowsFunctionAppAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -18508,7 +18508,7 @@ class WindowsFunctionAppAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -18520,7 +18520,7 @@ class WindowsFunctionAppAuthSettingsGithubArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -18539,7 +18539,7 @@ class WindowsFunctionAppAuthSettingsGoogleArgs:
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -18578,7 +18578,7 @@ class WindowsFunctionAppAuthSettingsGoogleArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -20169,7 +20169,7 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled?
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: an `active_directory` block as detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArgs'] facebook: a `facebook` block as detailed below.
@@ -20241,7 +20241,7 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         """
         return pulumi.get(self, "additional_login_parameters")
 
@@ -20473,8 +20473,8 @@ class WindowsFunctionAppSlotAuthSettingsFacebookArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
-        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
-        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: an `oauth_scopes` block as detailed below.
         """
         pulumi.set(__self__, "app_id", app_id)
@@ -20501,7 +20501,7 @@ class WindowsFunctionAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecret")
     def app_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
         """
         return pulumi.get(self, "app_secret")
 
@@ -20513,7 +20513,7 @@ class WindowsFunctionAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecretSettingName")
     def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -20543,8 +20543,8 @@ class WindowsFunctionAppSlotAuthSettingsGithubArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
-        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: an `oauth_scopes` block as detailed below.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -20571,7 +20571,7 @@ class WindowsFunctionAppSlotAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -20583,7 +20583,7 @@ class WindowsFunctionAppSlotAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -20614,7 +20614,7 @@ class WindowsFunctionAppSlotAuthSettingsGoogleArgs:
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: an `oauth_scopes` block as detailed below.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -20653,7 +20653,7 @@ class WindowsFunctionAppSlotAuthSettingsGoogleArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -22315,7 +22315,7 @@ class WindowsWebAppAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature is enabled for the Windows Web App be enabled?
         :param pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
         :param pulumi.Input['WindowsWebAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -22387,7 +22387,7 @@ class WindowsWebAppAuthSettingsArgs:
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         """
         return pulumi.get(self, "additional_login_parameters")
 
@@ -22619,9 +22619,9 @@ class WindowsWebAppAuthSettingsFacebookArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
-        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
-        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         if app_secret is not None:
@@ -22647,7 +22647,7 @@ class WindowsWebAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecret")
     def app_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
         """
         return pulumi.get(self, "app_secret")
 
@@ -22659,7 +22659,7 @@ class WindowsWebAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecretSettingName")
     def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -22671,7 +22671,7 @@ class WindowsWebAppAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -22689,9 +22689,9 @@ class WindowsWebAppAuthSettingsGithubArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
-        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -22717,7 +22717,7 @@ class WindowsWebAppAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -22729,7 +22729,7 @@ class WindowsWebAppAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -22741,7 +22741,7 @@ class WindowsWebAppAuthSettingsGithubArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -22760,7 +22760,7 @@ class WindowsWebAppAuthSettingsGoogleArgs:
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -22799,7 +22799,7 @@ class WindowsWebAppAuthSettingsGoogleArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -25202,7 +25202,7 @@ class WindowsWebAppSlotAuthSettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Windows Web App?
         :param pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
         :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
         :param pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
@@ -25274,7 +25274,7 @@ class WindowsWebAppSlotAuthSettingsArgs:
     @pulumi.getter(name="additionalLoginParameters")
     def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         """
         return pulumi.get(self, "additional_login_parameters")
 
@@ -25506,9 +25506,9 @@ class WindowsWebAppSlotAuthSettingsFacebookArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
-        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
-        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         if app_secret is not None:
@@ -25534,7 +25534,7 @@ class WindowsWebAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecret")
     def app_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
         """
         return pulumi.get(self, "app_secret")
 
@@ -25546,7 +25546,7 @@ class WindowsWebAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="appSecretSettingName")
     def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
         """
         return pulumi.get(self, "app_secret_setting_name")
 
@@ -25558,7 +25558,7 @@ class WindowsWebAppSlotAuthSettingsFacebookArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -25576,9 +25576,9 @@ class WindowsWebAppSlotAuthSettingsGithubArgs:
                  oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
-        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -25604,7 +25604,7 @@ class WindowsWebAppSlotAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
         """
         return pulumi.get(self, "client_secret")
 
@@ -25616,7 +25616,7 @@ class WindowsWebAppSlotAuthSettingsGithubArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 
@@ -25628,7 +25628,7 @@ class WindowsWebAppSlotAuthSettingsGithubArgs:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -25647,7 +25647,7 @@ class WindowsWebAppSlotAuthSettingsGoogleArgs:
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
-        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -25686,7 +25686,7 @@ class WindowsWebAppSlotAuthSettingsGoogleArgs:
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         """
         return pulumi.get(self, "client_secret_setting_name")
 

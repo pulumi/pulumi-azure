@@ -17,11 +17,19 @@ namespace Pulumi.Azure.Compute.Outputs
         /// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Option;
+        /// <summary>
+        /// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? Placement;
 
         [OutputConstructor]
-        private LinuxVirtualMachineOsDiskDiffDiskSettings(string option)
+        private LinuxVirtualMachineOsDiskDiffDiskSettings(
+            string option,
+
+            string? placement)
         {
             Option = option;
+            Placement = placement;
         }
     }
 }

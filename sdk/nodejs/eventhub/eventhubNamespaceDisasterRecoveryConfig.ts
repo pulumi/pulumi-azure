@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     sku: "Standard",
  * });
  * const secondary = new azure.eventhub.EventHubNamespace("secondary", {
- *     location: "West US",
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });

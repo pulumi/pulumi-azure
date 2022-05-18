@@ -52,7 +52,7 @@ export interface GetFirewallArgs {
  */
 export interface GetFirewallResult {
     /**
-     * The list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+     * The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.
      */
     readonly dnsServers: string[];
     /**

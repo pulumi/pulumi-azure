@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Cdn
     ///         });
     ///         var exampleProfile = new Azure.Cdn.Profile("exampleProfile", new Azure.Cdn.ProfileArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = "Standard_Verizon",
     ///             Tags = 

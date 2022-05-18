@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// A list of ID's of the Virtual Networks associated with this DDoS Protection Plan.
+        /// A list of IDs of the Virtual Networks associated with this DDoS Protection Plan.
         /// </summary>
         public readonly ImmutableArray<string> VirtualNetworkIds;
 

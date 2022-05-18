@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Sql
     ///         var secondary = new Azure.Sql.SqlServer("secondary", new Azure.Sql.SqlServerArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = "northeurope",
+    ///             Location = exampleResourceGroup.Location,
     ///             Version = "12.0",
     ///             AdministratorLogin = "sqladmin",
     ///             AdministratorLoginPassword = "pa$$w0rd",

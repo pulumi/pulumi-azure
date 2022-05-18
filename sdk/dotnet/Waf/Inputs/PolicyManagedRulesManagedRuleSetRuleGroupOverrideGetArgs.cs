@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<string>? _disabledRules;
 
         /// <summary>
-        /// One or more Rule ID's
+        /// One or more Rule IDs
         /// </summary>
         public InputList<string> DisabledRules
         {

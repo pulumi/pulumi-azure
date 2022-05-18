@@ -19,13 +19,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> AppId { get; set; } = null!;
 
         /// <summary>
-        /// The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+        /// The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
         /// </summary>
         [Input("appSecret")]
         public Input<string>? AppSecret { get; set; }
 
         /// <summary>
-        /// The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+        /// The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
         /// </summary>
         [Input("appSecretSettingName")]
         public Input<string>? AppSecretSettingName { get; set; }

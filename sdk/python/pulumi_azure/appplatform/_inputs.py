@@ -12,7 +12,15 @@ __all__ = [
     'SpringCloudAppCustomPersistentDiskArgs',
     'SpringCloudAppIdentityArgs',
     'SpringCloudAppPersistentDiskArgs',
+    'SpringCloudBuildPackBindingLaunchArgs',
+    'SpringCloudBuilderBuildPackGroupArgs',
+    'SpringCloudBuilderStackArgs',
+    'SpringCloudConfigurationServiceRepositoryArgs',
     'SpringCloudContainerDeploymentQuotaArgs',
+    'SpringCloudGatewayApiMetadataArgs',
+    'SpringCloudGatewayCorsArgs',
+    'SpringCloudGatewayQuotaArgs',
+    'SpringCloudGatewaySsoArgs',
     'SpringCloudJavaDeploymentQuotaArgs',
     'SpringCloudServiceConfigServerGitSettingArgs',
     'SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs',
@@ -202,6 +210,299 @@ class SpringCloudAppPersistentDiskArgs:
 
 
 @pulumi.input_type
+class SpringCloudBuildPackBindingLaunchArgs:
+    def __init__(__self__, *,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 secrets: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Specifies a map of non-sensitive properties for launchProperties.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secrets: Specifies a map of sensitive properties for launchProperties.
+        """
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a map of non-sensitive properties for launchProperties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a map of sensitive properties for launchProperties.
+        """
+        return pulumi.get(self, "secrets")
+
+    @secrets.setter
+    def secrets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "secrets", value)
+
+
+@pulumi.input_type
+class SpringCloudBuilderBuildPackGroupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 build_pack_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this build pack group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] build_pack_ids: Specifies a list of the build pack's ID.
+        """
+        pulumi.set(__self__, "name", name)
+        if build_pack_ids is not None:
+            pulumi.set(__self__, "build_pack_ids", build_pack_ids)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this build pack group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="buildPackIds")
+    def build_pack_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of the build pack's ID.
+        """
+        return pulumi.get(self, "build_pack_ids")
+
+    @build_pack_ids.setter
+    def build_pack_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "build_pack_ids", value)
+
+
+@pulumi.input_type
+class SpringCloudBuilderStackArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: Specifies the ID of the ClusterStack.
+        :param pulumi.Input[str] version: Specifies the version of the ClusterStack
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the ClusterStack.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        Specifies the version of the ClusterStack
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class SpringCloudConfigurationServiceRepositoryArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 uri: pulumi.Input[str],
+                 host_key: Optional[pulumi.Input[str]] = None,
+                 host_key_algorithm: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 private_key: Optional[pulumi.Input[str]] = None,
+                 search_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 strict_host_key_checking: Optional[pulumi.Input[bool]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] label: Specifies the label of the repository.
+        :param pulumi.Input[str] name: Specifies the name which should be used for this repository.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns: Specifies the collection of patterns of the repository.
+        :param pulumi.Input[str] uri: Specifies the URI of the repository.
+        :param pulumi.Input[str] host_key: Specifies the SSH public key of git repository.
+        :param pulumi.Input[str] host_key_algorithm: Specifies the SSH key algorithm of git repository.
+        :param pulumi.Input[str] password: Specifies the password of git repository basic auth.
+        :param pulumi.Input[str] private_key: Specifies the SSH private key of git repository.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] search_paths: Specifies a list of searching path of the repository
+        :param pulumi.Input[bool] strict_host_key_checking: Specifies whether enable the strict host key checking.
+        :param pulumi.Input[str] username: Specifies the username of git repository basic auth.
+        """
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "patterns", patterns)
+        pulumi.set(__self__, "uri", uri)
+        if host_key is not None:
+            pulumi.set(__self__, "host_key", host_key)
+        if host_key_algorithm is not None:
+            pulumi.set(__self__, "host_key_algorithm", host_key_algorithm)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if search_paths is not None:
+            pulumi.set(__self__, "search_paths", search_paths)
+        if strict_host_key_checking is not None:
+            pulumi.set(__self__, "strict_host_key_checking", strict_host_key_checking)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        """
+        Specifies the label of the repository.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name which should be used for this repository.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def patterns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies the collection of patterns of the repository.
+        """
+        return pulumi.get(self, "patterns")
+
+    @patterns.setter
+    def patterns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "patterns", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        Specifies the URI of the repository.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter(name="hostKey")
+    def host_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the SSH public key of git repository.
+        """
+        return pulumi.get(self, "host_key")
+
+    @host_key.setter
+    def host_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_key", value)
+
+    @property
+    @pulumi.getter(name="hostKeyAlgorithm")
+    def host_key_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the SSH key algorithm of git repository.
+        """
+        return pulumi.get(self, "host_key_algorithm")
+
+    @host_key_algorithm.setter
+    def host_key_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_key_algorithm", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the password of git repository basic auth.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the SSH private key of git repository.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter(name="searchPaths")
+    def search_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of searching path of the repository
+        """
+        return pulumi.get(self, "search_paths")
+
+    @search_paths.setter
+    def search_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "search_paths", value)
+
+    @property
+    @pulumi.getter(name="strictHostKeyChecking")
+    def strict_host_key_checking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether enable the strict host key checking.
+        """
+        return pulumi.get(self, "strict_host_key_checking")
+
+    @strict_host_key_checking.setter
+    def strict_host_key_checking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "strict_host_key_checking", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the username of git repository basic auth.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
 class SpringCloudContainerDeploymentQuotaArgs:
     def __init__(__self__, *,
                  cpu: Optional[pulumi.Input[str]] = None,
@@ -238,6 +539,306 @@ class SpringCloudContainerDeploymentQuotaArgs:
     @memory.setter
     def memory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "memory", value)
+
+
+@pulumi.input_type
+class SpringCloudGatewayApiMetadataArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 documentation_url: Optional[pulumi.Input[str]] = None,
+                 server_url: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] description: Detailed description of the APIs available on the Gateway instance.
+        :param pulumi.Input[str] documentation_url: Location of additional documentation for the APIs available on the Gateway instance.
+        :param pulumi.Input[str] server_url: Base URL that API consumers will use to access APIs on the Gateway instance.
+        :param pulumi.Input[str] title: Specifies the title describing the context of the APIs available on the Gateway instance.
+        :param pulumi.Input[str] version: Specifies the version of APIs available on this Gateway instance.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if documentation_url is not None:
+            pulumi.set(__self__, "documentation_url", documentation_url)
+        if server_url is not None:
+            pulumi.set(__self__, "server_url", server_url)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Detailed description of the APIs available on the Gateway instance.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="documentationUrl")
+    def documentation_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of additional documentation for the APIs available on the Gateway instance.
+        """
+        return pulumi.get(self, "documentation_url")
+
+    @documentation_url.setter
+    def documentation_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "documentation_url", value)
+
+    @property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base URL that API consumers will use to access APIs on the Gateway instance.
+        """
+        return pulumi.get(self, "server_url")
+
+    @server_url.setter
+    def server_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_url", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the title describing the context of the APIs available on the Gateway instance.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version of APIs available on this Gateway instance.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class SpringCloudGatewayCorsArgs:
+    def __init__(__self__, *,
+                 allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 credentials_allowed: Optional[pulumi.Input[bool]] = None,
+                 exposed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 max_age_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Allowed origins to make cross-site requests. The special value `*` allows all domains.
+        :param pulumi.Input[bool] credentials_allowed: is user credentials are supported on cross-site requests?
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exposed_headers: HTTP response headers to expose for cross-site requests.
+        :param pulumi.Input[int] max_age_seconds: How long, in seconds, the response from a pre-flight request can be cached by clients.
+        """
+        if allowed_headers is not None:
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if credentials_allowed is not None:
+            pulumi.set(__self__, "credentials_allowed", credentials_allowed)
+        if exposed_headers is not None:
+            pulumi.set(__self__, "exposed_headers", exposed_headers)
+        if max_age_seconds is not None:
+            pulumi.set(__self__, "max_age_seconds", max_age_seconds)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @allowed_headers.setter
+    def allowed_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_headers", value)
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_methods", value)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Allowed origins to make cross-site requests. The special value `*` allows all domains.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="credentialsAllowed")
+    def credentials_allowed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        is user credentials are supported on cross-site requests?
+        """
+        return pulumi.get(self, "credentials_allowed")
+
+    @credentials_allowed.setter
+    def credentials_allowed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "credentials_allowed", value)
+
+    @property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        HTTP response headers to expose for cross-site requests.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @exposed_headers.setter
+    def exposed_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exposed_headers", value)
+
+    @property
+    @pulumi.getter(name="maxAgeSeconds")
+    def max_age_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        How long, in seconds, the response from a pre-flight request can be cached by clients.
+        """
+        return pulumi.get(self, "max_age_seconds")
+
+    @max_age_seconds.setter
+    def max_age_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_age_seconds", value)
+
+
+@pulumi.input_type
+class SpringCloudGatewayQuotaArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input[str]] = None,
+                 memory: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+        :param pulumi.Input[str] memory: Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "memory", value)
+
+
+@pulumi.input_type
+class SpringCloudGatewaySsoArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 issuer_uri: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The public identifier for the application.
+        :param pulumi.Input[str] client_secret: The secret known only to the application and the authorization server.
+        :param pulumi.Input[str] issuer_uri: The URI of Issuer Identifier.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: It defines the specific actions applications can be allowed to do on a user's behalf.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if issuer_uri is not None:
+            pulumi.set(__self__, "issuer_uri", issuer_uri)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public identifier for the application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secret known only to the application and the authorization server.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="issuerUri")
+    def issuer_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of Issuer Identifier.
+        """
+        return pulumi.get(self, "issuer_uri")
+
+    @issuer_uri.setter
+    def issuer_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_uri", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        It defines the specific actions applications can be allowed to do on a user's behalf.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
 
 
 @pulumi.input_type

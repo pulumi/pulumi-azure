@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const defaultResourceGroup = new azure.core.ResourceGroup("defaultResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const defaultAccount = new azure.storage.Account("defaultAccount", {
- *     resourceGroupName: defaultResourceGroup.name,
- *     location: defaultResourceGroup.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     tags: {
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * });
  * const defaultQueue = new azure.storage.Queue("defaultQueue", {storageAccountName: defaultAccount.name});
  * const defaultEventSubscription = new azure.eventgrid.EventSubscription("defaultEventSubscription", {
- *     scope: defaultResourceGroup.id,
+ *     scope: example.id,
  *     storageQueueEndpoint: {
  *         storageAccountId: defaultAccount.id,
  *         queueName: defaultQueue.name,

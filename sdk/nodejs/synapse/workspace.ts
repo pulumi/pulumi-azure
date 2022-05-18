@@ -239,7 +239,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly sqlAadAdmin!: pulumi.Output<outputs.synapse.WorkspaceSqlAadAdmin>;
     /**
-     * Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
      */
     public readonly sqlAdministratorLogin!: pulumi.Output<string>;
     /**
@@ -412,7 +412,7 @@ export interface WorkspaceState {
      */
     sqlAadAdmin?: pulumi.Input<inputs.synapse.WorkspaceSqlAadAdmin>;
     /**
-     * Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
      */
     sqlAdministratorLogin?: pulumi.Input<string>;
     /**
@@ -502,7 +502,7 @@ export interface WorkspaceArgs {
      */
     sqlAadAdmin?: pulumi.Input<inputs.synapse.WorkspaceSqlAadAdmin>;
     /**
-     * Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
      */
     sqlAdministratorLogin: pulumi.Input<string>;
     /**

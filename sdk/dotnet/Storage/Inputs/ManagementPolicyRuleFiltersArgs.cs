@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Storage.Inputs
 
     public sealed class ManagementPolicyRuleFiltersArgs : Pulumi.ResourceArgs
     {
-        [Input("blobTypes")]
+        [Input("blobTypes", required: true)]
         private InputList<string>? _blobTypes;
 
         /// <summary>

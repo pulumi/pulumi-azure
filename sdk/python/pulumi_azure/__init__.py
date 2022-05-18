@@ -52,6 +52,8 @@ if typing.TYPE_CHECKING:
     communication = __communication
     import pulumi_azure.compute as __compute
     compute = __compute
+    import pulumi_azure.confidentialledger as __confidentialledger
+    confidentialledger = __confidentialledger
     import pulumi_azure.config as __config
     config = __config
     import pulumi_azure.connections as __connections
@@ -238,6 +240,7 @@ else:
     cognitive = _utilities.lazy_import('pulumi_azure.cognitive')
     communication = _utilities.lazy_import('pulumi_azure.communication')
     compute = _utilities.lazy_import('pulumi_azure.compute')
+    confidentialledger = _utilities.lazy_import('pulumi_azure.confidentialledger')
     config = _utilities.lazy_import('pulumi_azure.config')
     connections = _utilities.lazy_import('pulumi_azure.connections')
     consumption = _utilities.lazy_import('pulumi_azure.consumption')
@@ -774,10 +777,34 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appplatform/springCloudBuildPackBinding",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding": "SpringCloudBuildPackBinding"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appplatform/springCloudBuilder",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudBuilder:SpringCloudBuilder": "SpringCloudBuilder"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appplatform/springCloudCertificate",
   "fqn": "pulumi_azure.appplatform",
   "classes": {
    "azure:appplatform/springCloudCertificate:SpringCloudCertificate": "SpringCloudCertificate"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appplatform/springCloudConfigurationService",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService": "SpringCloudConfigurationService"
   }
  },
  {
@@ -794,6 +821,22 @@ _utilities.register(
   "fqn": "pulumi_azure.appplatform",
   "classes": {
    "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain": "SpringCloudCustomDomain"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appplatform/springCloudGateway",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudGateway:SpringCloudGateway": "SpringCloudGateway"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appplatform/springCloudGatewayCustomDomain",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain": "SpringCloudGatewayCustomDomain"
   }
  },
  {
@@ -1710,6 +1753,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "compute/managedDiskSasToken",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/managedDiskSasToken:ManagedDiskSasToken": "ManagedDiskSasToken"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "compute/orchestratedVirtualMachineScaleSet",
   "fqn": "pulumi_azure.compute",
   "classes": {
@@ -1794,6 +1845,14 @@ _utilities.register(
   "fqn": "pulumi_azure.compute",
   "classes": {
    "azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet": "WindowsVirtualMachineScaleSet"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "confidentialledger/ledger",
+  "fqn": "pulumi_azure.confidentialledger",
+  "classes": {
+   "azure:confidentialledger/ledger:Ledger": "Ledger"
   }
  },
  {
@@ -3278,6 +3337,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "healthcare/dicomService",
+  "fqn": "pulumi_azure.healthcare",
+  "classes": {
+   "azure:healthcare/dicomService:DicomService": "DicomService"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "healthcare/service",
   "fqn": "pulumi_azure.healthcare",
   "classes": {
@@ -4542,6 +4609,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mssql/managedInstanceVulnerabilityAssessment",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/managedInstanceVulnerabilityAssessment:ManagedInstanceVulnerabilityAssessment": "ManagedInstanceVulnerabilityAssessment"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mssql/outboundFirewallRule",
   "fqn": "pulumi_azure.mssql",
   "classes": {
@@ -5798,6 +5873,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "sentinel/dataConnectorAwsS3",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3": "DataConnectorAwsS3"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "sentinel/dataConnectorAzureActiveDirectory",
   "fqn": "pulumi_azure.sentinel",
   "classes": {
@@ -6378,6 +6461,14 @@ _utilities.register(
   "fqn": "pulumi_azure.streamanalytics",
   "classes": {
    "azure:streamanalytics/outputMssql:OutputMssql": "OutputMssql"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "streamanalytics/outputPowerbi",
+  "fqn": "pulumi_azure.streamanalytics",
+  "classes": {
+   "azure:streamanalytics/outputPowerbi:OutputPowerbi": "OutputPowerbi"
   }
  },
  {

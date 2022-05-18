@@ -237,14 +237,14 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant")
         example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql",
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name,
             vault_name=example_backup_vault.name,
             backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
             default_retention_duration="P4M",
@@ -314,14 +314,14 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant")
         example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql",
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name,
             vault_name=example_backup_vault.name,
             backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
             default_retention_duration="P4M",

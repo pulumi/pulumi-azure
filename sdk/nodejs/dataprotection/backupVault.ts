@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
- * const example = new azure.dataprotection.BackupVault("example", {
- *     resourceGroupName: rg.name,
- *     location: rg.location,
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleBackupVault = new azure.dataprotection.BackupVault("exampleBackupVault", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
  * });

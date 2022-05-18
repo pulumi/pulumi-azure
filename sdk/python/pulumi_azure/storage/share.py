@@ -17,6 +17,7 @@ class ShareArgs:
     def __init__(__self__, *,
                  quota: pulumi.Input[int],
                  storage_account_name: pulumi.Input[str],
+                 access_tier: Optional[pulumi.Input[str]] = None,
                  acls: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]] = None,
                  enabled_protocol: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,6 +34,8 @@ class ShareArgs:
         """
         pulumi.set(__self__, "quota", quota)
         pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if access_tier is not None:
+            pulumi.set(__self__, "access_tier", access_tier)
         if acls is not None:
             pulumi.set(__self__, "acls", acls)
         if enabled_protocol is not None:
@@ -66,6 +69,15 @@ class ShareArgs:
     @storage_account_name.setter
     def storage_account_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="accessTier")
+    def access_tier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "access_tier")
+
+    @access_tier.setter
+    def access_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_tier", value)
 
     @property
     @pulumi.getter
@@ -119,6 +131,7 @@ class ShareArgs:
 @pulumi.input_type
 class _ShareState:
     def __init__(__self__, *,
+                 access_tier: Optional[pulumi.Input[str]] = None,
                  acls: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]] = None,
                  enabled_protocol: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -139,6 +152,8 @@ class _ShareState:
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the File Share
         """
+        if access_tier is not None:
+            pulumi.set(__self__, "access_tier", access_tier)
         if acls is not None:
             pulumi.set(__self__, "acls", acls)
         if enabled_protocol is not None:
@@ -155,6 +170,15 @@ class _ShareState:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
         if url is not None:
             pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="accessTier")
+    def access_tier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "access_tier")
+
+    @access_tier.setter
+    def access_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_tier", value)
 
     @property
     @pulumi.getter
@@ -259,6 +283,7 @@ class Share(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_tier: Optional[pulumi.Input[str]] = None,
                  acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]]] = None,
                  enabled_protocol: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -373,6 +398,7 @@ class Share(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_tier: Optional[pulumi.Input[str]] = None,
                  acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]]] = None,
                  enabled_protocol: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -391,6 +417,7 @@ class Share(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ShareArgs.__new__(ShareArgs)
 
+            __props__.__dict__["access_tier"] = access_tier
             __props__.__dict__["acls"] = acls
             __props__.__dict__["enabled_protocol"] = enabled_protocol
             __props__.__dict__["metadata"] = metadata
@@ -413,6 +440,7 @@ class Share(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            access_tier: Optional[pulumi.Input[str]] = None,
             acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]]] = None,
             enabled_protocol: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -442,6 +470,7 @@ class Share(pulumi.CustomResource):
 
         __props__ = _ShareState.__new__(_ShareState)
 
+        __props__.__dict__["access_tier"] = access_tier
         __props__.__dict__["acls"] = acls
         __props__.__dict__["enabled_protocol"] = enabled_protocol
         __props__.__dict__["metadata"] = metadata
@@ -451,6 +480,11 @@ class Share(pulumi.CustomResource):
         __props__.__dict__["storage_account_name"] = storage_account_name
         __props__.__dict__["url"] = url
         return Share(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessTier")
+    def access_tier(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "access_tier")
 
     @property
     @pulumi.getter

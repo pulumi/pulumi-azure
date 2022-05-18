@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     location: "West Europe",
+ *     location: exampleResourceGroup.location,
  *     osType: "Linux",
  *     skuName: "P1v2",
  * });

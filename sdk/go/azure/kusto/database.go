@@ -26,15 +26,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		cluster, err := kusto.NewCluster(ctx, "cluster", &kusto.ClusterArgs{
-// 			Location:          rg.Location,
-// 			ResourceGroupName: rg.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 			Sku: &kusto.ClusterSkuArgs{
 // 				Name:     pulumi.String("Standard_D13_v2"),
 // 				Capacity: pulumi.Int(2),
@@ -44,8 +44,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = kusto.NewDatabase(ctx, "database", &kusto.DatabaseArgs{
-// 			ResourceGroupName: rg.Name,
-// 			Location:          rg.Location,
+// 			ResourceGroupName: example.Name,
+// 			Location:          example.Location,
 // 			ClusterName:       cluster.Name,
 // 			HotCachePeriod:    pulumi.String("P7D"),
 // 			SoftDeletePeriod:  pulumi.String("P31D"),

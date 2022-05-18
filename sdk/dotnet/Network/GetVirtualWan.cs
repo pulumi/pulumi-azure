@@ -98,11 +98,11 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A list of Virtual Hubs ID's attached to this Virtual WAN.
+        /// A list of Virtual Hubs IDs attached to this Virtual WAN.
         /// </summary>
         public readonly ImmutableArray<string> VirtualHubIds;
         /// <summary>
-        /// A list of VPN Site ID's attached to this Virtual WAN.
+        /// A list of VPN Site IDs attached to this Virtual WAN.
         /// </summary>
         public readonly ImmutableArray<string> VpnSiteIds;
 

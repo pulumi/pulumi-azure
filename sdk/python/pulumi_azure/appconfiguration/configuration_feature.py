@@ -397,10 +397,10 @@ class ConfigurationFeature(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
-            resource_group_name=rg.name,
-            location=rg.location)
+            resource_group_name=example.name,
+            location=example.location)
         test = azure.appconfiguration.ConfigurationFeature("test",
             configuration_store_id=appconf.id,
             description="test description",
@@ -450,10 +450,10 @@ class ConfigurationFeature(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
-            resource_group_name=rg.name,
-            location=rg.location)
+            resource_group_name=example.name,
+            location=example.location)
         test = azure.appconfiguration.ConfigurationFeature("test",
             configuration_store_id=appconf.id,
             description="test description",

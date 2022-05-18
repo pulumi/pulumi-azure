@@ -160,7 +160,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<int> NodeCount { get; private set; } = null!;
 
         /// <summary>
-        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         /// </summary>
         [Output("nodeLabels")]
         public Output<ImmutableDictionary<string, string>> NodeLabels { get; private set; } = null!;
@@ -419,7 +419,7 @@ namespace Pulumi.Azure.ContainerService
         private InputMap<string>? _nodeLabels;
 
         /// <summary>
-        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         /// </summary>
         public InputMap<string> NodeLabels
         {
@@ -660,7 +660,7 @@ namespace Pulumi.Azure.ContainerService
         private InputMap<string>? _nodeLabels;
 
         /// <summary>
-        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         /// </summary>
         public InputMap<string> NodeLabels
         {

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
- *     location: "West US 2",
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const source = new azure.compute.ManagedDisk("source", {
- *     location: "West US 2",
+ *     location: example.location,
  *     resourceGroupName: example.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const copy = new azure.compute.ManagedDisk("copy", {
- *     location: "West US 2",
+ *     location: example.location,
  *     resourceGroupName: example.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Copy",

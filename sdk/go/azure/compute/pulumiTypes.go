@@ -1302,7 +1302,7 @@ func (o LinuxVirtualMachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type LinuxVirtualMachineOsDisk struct {
 	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching string `pulumi:"caching"`
-	// A `diffDiskSettings` block as defined above.
+	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings *LinuxVirtualMachineOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -1330,7 +1330,7 @@ type LinuxVirtualMachineOsDiskInput interface {
 type LinuxVirtualMachineOsDiskArgs struct {
 	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringInput `pulumi:"caching"`
-	// A `diffDiskSettings` block as defined above.
+	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -1426,7 +1426,7 @@ func (o LinuxVirtualMachineOsDiskOutput) Caching() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
-// A `diffDiskSettings` block as defined above.
+// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOsDiskOutput) DiffDiskSettings() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDiskDiffDiskSettings {
 		return v.DiffDiskSettings
@@ -1492,7 +1492,7 @@ func (o LinuxVirtualMachineOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `diffDiskSettings` block as defined above.
+// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOsDiskPtrOutput) DiffDiskSettings() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDiskDiffDiskSettings {
 		if v == nil {
@@ -1555,6 +1555,8 @@ func (o LinuxVirtualMachineOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.Boo
 type LinuxVirtualMachineOsDiskDiffDiskSettings struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	Placement *string `pulumi:"placement"`
 }
 
 // LinuxVirtualMachineOsDiskDiffDiskSettingsInput is an input type that accepts LinuxVirtualMachineOsDiskDiffDiskSettingsArgs and LinuxVirtualMachineOsDiskDiffDiskSettingsOutput values.
@@ -1571,6 +1573,8 @@ type LinuxVirtualMachineOsDiskDiffDiskSettingsInput interface {
 type LinuxVirtualMachineOsDiskDiffDiskSettingsArgs struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
 func (LinuxVirtualMachineOsDiskDiffDiskSettingsArgs) ElementType() reflect.Type {
@@ -1655,6 +1659,11 @@ func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) Option() pulumi.StringO
 	return o.ApplyT(func(v LinuxVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
+}
+
 type LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ElementType() reflect.Type {
@@ -1686,6 +1695,16 @@ func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.Stri
 			return nil
 		}
 		return &v.Option
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineOsDiskDiffDiskSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Placement
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5525,7 +5544,7 @@ func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.Strin
 type LinuxVirtualMachineTerminationNotification struct {
 	// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
 	Enabled bool `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 	Timeout *string `pulumi:"timeout"`
 }
 
@@ -5543,7 +5562,7 @@ type LinuxVirtualMachineTerminationNotificationInput interface {
 type LinuxVirtualMachineTerminationNotificationArgs struct {
 	// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
@@ -5629,7 +5648,7 @@ func (o LinuxVirtualMachineTerminationNotificationOutput) Enabled() pulumi.BoolO
 	return o.ApplyT(func(v LinuxVirtualMachineTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 func (o LinuxVirtualMachineTerminationNotificationOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineTerminationNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
@@ -5668,7 +5687,7 @@ func (o LinuxVirtualMachineTerminationNotificationPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 func (o LinuxVirtualMachineTerminationNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineTerminationNotification) *string {
 		if v == nil {
@@ -16012,7 +16031,7 @@ type VirtualMachineStorageOsDisk struct {
 	CreateOption string `pulumi:"createOption"`
 	// Specifies the size of the OS Disk in gigabytes.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
-	// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+	// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 	ImageUri *string `pulumi:"imageUri"`
 	// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
 	ManagedDiskId *string `pulumi:"managedDiskId"`
@@ -16046,7 +16065,7 @@ type VirtualMachineStorageOsDiskArgs struct {
 	CreateOption pulumi.StringInput `pulumi:"createOption"`
 	// Specifies the size of the OS Disk in gigabytes.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
-	// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+	// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 	ImageUri pulumi.StringPtrInput `pulumi:"imageUri"`
 	// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
@@ -16154,7 +16173,7 @@ func (o VirtualMachineStorageOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 func (o VirtualMachineStorageOsDiskOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
 }
@@ -16243,7 +16262,7 @@ func (o VirtualMachineStorageOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 func (o VirtualMachineStorageOsDiskPtrOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *string {
 		if v == nil {
@@ -16890,7 +16909,7 @@ func (o WindowsVirtualMachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type WindowsVirtualMachineOsDisk struct {
 	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching string `pulumi:"caching"`
-	// A `diffDiskSettings` block as defined above.
+	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings *WindowsVirtualMachineOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -16918,7 +16937,7 @@ type WindowsVirtualMachineOsDiskInput interface {
 type WindowsVirtualMachineOsDiskArgs struct {
 	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringInput `pulumi:"caching"`
-	// A `diffDiskSettings` block as defined above.
+	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -17014,7 +17033,7 @@ func (o WindowsVirtualMachineOsDiskOutput) Caching() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
-// A `diffDiskSettings` block as defined above.
+// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOsDiskOutput) DiffDiskSettings() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDiskDiffDiskSettings {
 		return v.DiffDiskSettings
@@ -17080,7 +17099,7 @@ func (o WindowsVirtualMachineOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `diffDiskSettings` block as defined above.
+// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOsDiskPtrOutput) DiffDiskSettings() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDiskDiffDiskSettings {
 		if v == nil {
@@ -17143,6 +17162,8 @@ func (o WindowsVirtualMachineOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.B
 type WindowsVirtualMachineOsDiskDiffDiskSettings struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option string `pulumi:"option"`
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	Placement *string `pulumi:"placement"`
 }
 
 // WindowsVirtualMachineOsDiskDiffDiskSettingsInput is an input type that accepts WindowsVirtualMachineOsDiskDiffDiskSettingsArgs and WindowsVirtualMachineOsDiskDiffDiskSettingsOutput values.
@@ -17159,6 +17180,8 @@ type WindowsVirtualMachineOsDiskDiffDiskSettingsInput interface {
 type WindowsVirtualMachineOsDiskDiffDiskSettingsArgs struct {
 	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 	Option pulumi.StringInput `pulumi:"option"`
+	// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+	Placement pulumi.StringPtrInput `pulumi:"placement"`
 }
 
 func (WindowsVirtualMachineOsDiskDiffDiskSettingsArgs) ElementType() reflect.Type {
@@ -17243,6 +17266,11 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) Option() pulumi.Strin
 	return o.ApplyT(func(v WindowsVirtualMachineOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
 }
 
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineOsDiskDiffDiskSettingsOutput) Placement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDiskDiffDiskSettings) *string { return v.Placement }).(pulumi.StringPtrOutput)
+}
+
 type WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) ElementType() reflect.Type {
@@ -17274,6 +17302,16 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.St
 			return nil
 		}
 		return &v.Option
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineOsDiskDiffDiskSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Placement
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -21237,7 +21275,7 @@ func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.Str
 type WindowsVirtualMachineTerminationNotification struct {
 	// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
 	Enabled bool `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 	Timeout *string `pulumi:"timeout"`
 }
 
@@ -21255,7 +21293,7 @@ type WindowsVirtualMachineTerminationNotificationInput interface {
 type WindowsVirtualMachineTerminationNotificationArgs struct {
 	// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
@@ -21341,7 +21379,7 @@ func (o WindowsVirtualMachineTerminationNotificationOutput) Enabled() pulumi.Boo
 	return o.ApplyT(func(v WindowsVirtualMachineTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 func (o WindowsVirtualMachineTerminationNotificationOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineTerminationNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
@@ -21380,7 +21418,7 @@ func (o WindowsVirtualMachineTerminationNotificationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
 func (o WindowsVirtualMachineTerminationNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineTerminationNotification) *string {
 		if v == nil {
@@ -21491,6 +21529,227 @@ func (o WindowsVirtualMachineWinrmListenerArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineWinrmListener {
 		return vs[0].([]WindowsVirtualMachineWinrmListener)[vs[1].(int)]
 	}).(WindowsVirtualMachineWinrmListenerOutput)
+}
+
+type GetConfidentialLedgerAzureadBasedServicePrincipal struct {
+	// The Ledger Role to grant this Certificate Security Principal.
+	LedgerRoleName string `pulumi:"ledgerRoleName"`
+	// The Principal ID of the AzureAD Service Principal.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID for this AzureAD Service Principal.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// GetConfidentialLedgerAzureadBasedServicePrincipalInput is an input type that accepts GetConfidentialLedgerAzureadBasedServicePrincipalArgs and GetConfidentialLedgerAzureadBasedServicePrincipalOutput values.
+// You can construct a concrete instance of `GetConfidentialLedgerAzureadBasedServicePrincipalInput` via:
+//
+//          GetConfidentialLedgerAzureadBasedServicePrincipalArgs{...}
+type GetConfidentialLedgerAzureadBasedServicePrincipalInput interface {
+	pulumi.Input
+
+	ToGetConfidentialLedgerAzureadBasedServicePrincipalOutput() GetConfidentialLedgerAzureadBasedServicePrincipalOutput
+	ToGetConfidentialLedgerAzureadBasedServicePrincipalOutputWithContext(context.Context) GetConfidentialLedgerAzureadBasedServicePrincipalOutput
+}
+
+type GetConfidentialLedgerAzureadBasedServicePrincipalArgs struct {
+	// The Ledger Role to grant this Certificate Security Principal.
+	LedgerRoleName pulumi.StringInput `pulumi:"ledgerRoleName"`
+	// The Principal ID of the AzureAD Service Principal.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for this AzureAD Service Principal.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (GetConfidentialLedgerAzureadBasedServicePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfidentialLedgerAzureadBasedServicePrincipal)(nil)).Elem()
+}
+
+func (i GetConfidentialLedgerAzureadBasedServicePrincipalArgs) ToGetConfidentialLedgerAzureadBasedServicePrincipalOutput() GetConfidentialLedgerAzureadBasedServicePrincipalOutput {
+	return i.ToGetConfidentialLedgerAzureadBasedServicePrincipalOutputWithContext(context.Background())
+}
+
+func (i GetConfidentialLedgerAzureadBasedServicePrincipalArgs) ToGetConfidentialLedgerAzureadBasedServicePrincipalOutputWithContext(ctx context.Context) GetConfidentialLedgerAzureadBasedServicePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfidentialLedgerAzureadBasedServicePrincipalOutput)
+}
+
+// GetConfidentialLedgerAzureadBasedServicePrincipalArrayInput is an input type that accepts GetConfidentialLedgerAzureadBasedServicePrincipalArray and GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput values.
+// You can construct a concrete instance of `GetConfidentialLedgerAzureadBasedServicePrincipalArrayInput` via:
+//
+//          GetConfidentialLedgerAzureadBasedServicePrincipalArray{ GetConfidentialLedgerAzureadBasedServicePrincipalArgs{...} }
+type GetConfidentialLedgerAzureadBasedServicePrincipalArrayInput interface {
+	pulumi.Input
+
+	ToGetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput() GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput
+	ToGetConfidentialLedgerAzureadBasedServicePrincipalArrayOutputWithContext(context.Context) GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput
+}
+
+type GetConfidentialLedgerAzureadBasedServicePrincipalArray []GetConfidentialLedgerAzureadBasedServicePrincipalInput
+
+func (GetConfidentialLedgerAzureadBasedServicePrincipalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfidentialLedgerAzureadBasedServicePrincipal)(nil)).Elem()
+}
+
+func (i GetConfidentialLedgerAzureadBasedServicePrincipalArray) ToGetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput() GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput {
+	return i.ToGetConfidentialLedgerAzureadBasedServicePrincipalArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfidentialLedgerAzureadBasedServicePrincipalArray) ToGetConfidentialLedgerAzureadBasedServicePrincipalArrayOutputWithContext(ctx context.Context) GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput)
+}
+
+type GetConfidentialLedgerAzureadBasedServicePrincipalOutput struct{ *pulumi.OutputState }
+
+func (GetConfidentialLedgerAzureadBasedServicePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfidentialLedgerAzureadBasedServicePrincipal)(nil)).Elem()
+}
+
+func (o GetConfidentialLedgerAzureadBasedServicePrincipalOutput) ToGetConfidentialLedgerAzureadBasedServicePrincipalOutput() GetConfidentialLedgerAzureadBasedServicePrincipalOutput {
+	return o
+}
+
+func (o GetConfidentialLedgerAzureadBasedServicePrincipalOutput) ToGetConfidentialLedgerAzureadBasedServicePrincipalOutputWithContext(ctx context.Context) GetConfidentialLedgerAzureadBasedServicePrincipalOutput {
+	return o
+}
+
+// The Ledger Role to grant this Certificate Security Principal.
+func (o GetConfidentialLedgerAzureadBasedServicePrincipalOutput) LedgerRoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfidentialLedgerAzureadBasedServicePrincipal) string { return v.LedgerRoleName }).(pulumi.StringOutput)
+}
+
+// The Principal ID of the AzureAD Service Principal.
+func (o GetConfidentialLedgerAzureadBasedServicePrincipalOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfidentialLedgerAzureadBasedServicePrincipal) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID for this AzureAD Service Principal.
+func (o GetConfidentialLedgerAzureadBasedServicePrincipalOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfidentialLedgerAzureadBasedServicePrincipal) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfidentialLedgerAzureadBasedServicePrincipal)(nil)).Elem()
+}
+
+func (o GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput) ToGetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput() GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput {
+	return o
+}
+
+func (o GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput) ToGetConfidentialLedgerAzureadBasedServicePrincipalArrayOutputWithContext(ctx context.Context) GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput {
+	return o
+}
+
+func (o GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput) Index(i pulumi.IntInput) GetConfidentialLedgerAzureadBasedServicePrincipalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfidentialLedgerAzureadBasedServicePrincipal {
+		return vs[0].([]GetConfidentialLedgerAzureadBasedServicePrincipal)[vs[1].(int)]
+	}).(GetConfidentialLedgerAzureadBasedServicePrincipalOutput)
+}
+
+type GetConfidentialLedgerCertificateBasedSecurityPrincipal struct {
+	// The Ledger Role to grant this Certificate Security Principal.
+	LedgerRoleName string `pulumi:"ledgerRoleName"`
+	// The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
+	PemPublicKey string `pulumi:"pemPublicKey"`
+}
+
+// GetConfidentialLedgerCertificateBasedSecurityPrincipalInput is an input type that accepts GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs and GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput values.
+// You can construct a concrete instance of `GetConfidentialLedgerCertificateBasedSecurityPrincipalInput` via:
+//
+//          GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs{...}
+type GetConfidentialLedgerCertificateBasedSecurityPrincipalInput interface {
+	pulumi.Input
+
+	ToGetConfidentialLedgerCertificateBasedSecurityPrincipalOutput() GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput
+	ToGetConfidentialLedgerCertificateBasedSecurityPrincipalOutputWithContext(context.Context) GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput
+}
+
+type GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs struct {
+	// The Ledger Role to grant this Certificate Security Principal.
+	LedgerRoleName pulumi.StringInput `pulumi:"ledgerRoleName"`
+	// The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
+	PemPublicKey pulumi.StringInput `pulumi:"pemPublicKey"`
+}
+
+func (GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfidentialLedgerCertificateBasedSecurityPrincipal)(nil)).Elem()
+}
+
+func (i GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs) ToGetConfidentialLedgerCertificateBasedSecurityPrincipalOutput() GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput {
+	return i.ToGetConfidentialLedgerCertificateBasedSecurityPrincipalOutputWithContext(context.Background())
+}
+
+func (i GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs) ToGetConfidentialLedgerCertificateBasedSecurityPrincipalOutputWithContext(ctx context.Context) GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput)
+}
+
+// GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayInput is an input type that accepts GetConfidentialLedgerCertificateBasedSecurityPrincipalArray and GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput values.
+// You can construct a concrete instance of `GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayInput` via:
+//
+//          GetConfidentialLedgerCertificateBasedSecurityPrincipalArray{ GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs{...} }
+type GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayInput interface {
+	pulumi.Input
+
+	ToGetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput() GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput
+	ToGetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutputWithContext(context.Context) GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput
+}
+
+type GetConfidentialLedgerCertificateBasedSecurityPrincipalArray []GetConfidentialLedgerCertificateBasedSecurityPrincipalInput
+
+func (GetConfidentialLedgerCertificateBasedSecurityPrincipalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfidentialLedgerCertificateBasedSecurityPrincipal)(nil)).Elem()
+}
+
+func (i GetConfidentialLedgerCertificateBasedSecurityPrincipalArray) ToGetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput() GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput {
+	return i.ToGetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfidentialLedgerCertificateBasedSecurityPrincipalArray) ToGetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutputWithContext(ctx context.Context) GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput)
+}
+
+type GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput struct{ *pulumi.OutputState }
+
+func (GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfidentialLedgerCertificateBasedSecurityPrincipal)(nil)).Elem()
+}
+
+func (o GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput) ToGetConfidentialLedgerCertificateBasedSecurityPrincipalOutput() GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput {
+	return o
+}
+
+func (o GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput) ToGetConfidentialLedgerCertificateBasedSecurityPrincipalOutputWithContext(ctx context.Context) GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput {
+	return o
+}
+
+// The Ledger Role to grant this Certificate Security Principal.
+func (o GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput) LedgerRoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfidentialLedgerCertificateBasedSecurityPrincipal) string { return v.LedgerRoleName }).(pulumi.StringOutput)
+}
+
+// The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
+func (o GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput) PemPublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfidentialLedgerCertificateBasedSecurityPrincipal) string { return v.PemPublicKey }).(pulumi.StringOutput)
+}
+
+type GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfidentialLedgerCertificateBasedSecurityPrincipal)(nil)).Elem()
+}
+
+func (o GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput) ToGetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput() GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput {
+	return o
+}
+
+func (o GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput) ToGetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutputWithContext(ctx context.Context) GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput {
+	return o
+}
+
+func (o GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput) Index(i pulumi.IntInput) GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfidentialLedgerCertificateBasedSecurityPrincipal {
+		return vs[0].([]GetConfidentialLedgerCertificateBasedSecurityPrincipal)[vs[1].(int)]
+	}).(GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput)
 }
 
 type GetImageDataDisk struct {
@@ -22983,7 +23242,7 @@ func (o GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput) Index(i pulumi.
 }
 
 type GetVirtualMachineIdentity struct {
-	// The list of User Managed Identity ID's which are assigned to the Virtual Machine.
+	// The list of User Managed Identity IDs which are assigned to the Virtual Machine.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal assigned to the Virtual Machine.
 	PrincipalId string `pulumi:"principalId"`
@@ -23005,7 +23264,7 @@ type GetVirtualMachineIdentityInput interface {
 }
 
 type GetVirtualMachineIdentityArgs struct {
-	// The list of User Managed Identity ID's which are assigned to the Virtual Machine.
+	// The list of User Managed Identity IDs which are assigned to the Virtual Machine.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal assigned to the Virtual Machine.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
@@ -23066,7 +23325,7 @@ func (o GetVirtualMachineIdentityOutput) ToGetVirtualMachineIdentityOutputWithCo
 	return o
 }
 
-// The list of User Managed Identity ID's which are assigned to the Virtual Machine.
+// The list of User Managed Identity IDs which are assigned to the Virtual Machine.
 func (o GetVirtualMachineIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -24087,6 +24346,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineTerminationNotificationPtrInput)(nil)).Elem(), WindowsVirtualMachineTerminationNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineWinrmListenerInput)(nil)).Elem(), WindowsVirtualMachineWinrmListenerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineWinrmListenerArrayInput)(nil)).Elem(), WindowsVirtualMachineWinrmListenerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfidentialLedgerAzureadBasedServicePrincipalInput)(nil)).Elem(), GetConfidentialLedgerAzureadBasedServicePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfidentialLedgerAzureadBasedServicePrincipalArrayInput)(nil)).Elem(), GetConfidentialLedgerAzureadBasedServicePrincipalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfidentialLedgerCertificateBasedSecurityPrincipalInput)(nil)).Elem(), GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayInput)(nil)).Elem(), GetConfidentialLedgerCertificateBasedSecurityPrincipalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageDataDiskInput)(nil)).Elem(), GetImageDataDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageDataDiskArrayInput)(nil)).Elem(), GetImageDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOsDiskInput)(nil)).Elem(), GetImageOsDiskArgs{})
@@ -24399,6 +24662,10 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineTerminationNotificationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineWinrmListenerOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineWinrmListenerArrayOutput{})
+	pulumi.RegisterOutputType(GetConfidentialLedgerAzureadBasedServicePrincipalOutput{})
+	pulumi.RegisterOutputType(GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput{})
+	pulumi.RegisterOutputType(GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput{})
+	pulumi.RegisterOutputType(GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput{})
 	pulumi.RegisterOutputType(GetImageDataDiskOutput{})
 	pulumi.RegisterOutputType(GetImageDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(GetImageOsDiskOutput{})

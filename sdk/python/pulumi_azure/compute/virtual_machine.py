@@ -41,7 +41,7 @@ class VirtualMachineArgs:
                  zones: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: A list of Network Interface ID's which should be associated with the Virtual Machine.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: A list of Network Interface IDs which should be associated with the Virtual Machine.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineStorageOsDiskArgs'] storage_os_disk: A `storage_os_disk` block as defined below.
         :param pulumi.Input[str] vm_size: Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
@@ -115,7 +115,7 @@ class VirtualMachineArgs:
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of Network Interface ID's which should be associated with the Virtual Machine.
+        A list of Network Interface IDs which should be associated with the Virtual Machine.
         """
         return pulumi.get(self, "network_interface_ids")
 
@@ -438,7 +438,7 @@ class _VirtualMachineState:
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: A list of Network Interface ID's which should be associated with the Virtual Machine.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: A list of Network Interface IDs which should be associated with the Virtual Machine.
         :param pulumi.Input['VirtualMachineOsProfileArgs'] os_profile: An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
         :param pulumi.Input['VirtualMachineOsProfileLinuxConfigArgs'] os_profile_linux_config: An `os_profile_linux_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretArgs']]] os_profile_secrets: One or more `os_profile_secrets` blocks.
@@ -615,7 +615,7 @@ class _VirtualMachineState:
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Network Interface ID's which should be associated with the Virtual Machine.
+        A list of Network Interface IDs which should be associated with the Virtual Machine.
         """
         return pulumi.get(self, "network_interface_ids")
 
@@ -844,26 +844,26 @@ class VirtualMachine(pulumi.CustomResource):
         prefix = config.get("prefix")
         if prefix is None:
             prefix = "tfvmex"
-        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
             address_spaces=["10.0.0.0/16"],
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name)
+            location=example.location,
+            resource_group_name=example.name)
         internal = azure.network.Subnet("internal",
-            resource_group_name=main_resource_group.name,
-            virtual_network_name=main_virtual_network.name,
+            resource_group_name=example.name,
+            virtual_network_name=azurerm_virtual_network["example"]["name"],
             address_prefixes=["10.0.2.0/24"])
         main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="testconfiguration1",
                 subnet_id=internal.id,
                 private_ip_address_allocation="Dynamic",
             )])
         main_virtual_machine = azure.compute.VirtualMachine("mainVirtualMachine",
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             network_interface_ids=[main_network_interface.id],
             vm_size="Standard_DS1_v2",
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
@@ -910,7 +910,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: A list of Network Interface ID's which should be associated with the Virtual Machine.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: A list of Network Interface IDs which should be associated with the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['VirtualMachineOsProfileArgs']] os_profile: An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
         :param pulumi.Input[pulumi.InputType['VirtualMachineOsProfileLinuxConfigArgs']] os_profile_linux_config: An `os_profile_linux_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileSecretArgs']]]] os_profile_secrets: One or more `os_profile_secrets` blocks.
@@ -954,26 +954,26 @@ class VirtualMachine(pulumi.CustomResource):
         prefix = config.get("prefix")
         if prefix is None:
             prefix = "tfvmex"
-        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
             address_spaces=["10.0.0.0/16"],
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name)
+            location=example.location,
+            resource_group_name=example.name)
         internal = azure.network.Subnet("internal",
-            resource_group_name=main_resource_group.name,
-            virtual_network_name=main_virtual_network.name,
+            resource_group_name=example.name,
+            virtual_network_name=azurerm_virtual_network["example"]["name"],
             address_prefixes=["10.0.2.0/24"])
         main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="testconfiguration1",
                 subnet_id=internal.id,
                 private_ip_address_allocation="Dynamic",
             )])
         main_virtual_machine = azure.compute.VirtualMachine("mainVirtualMachine",
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             network_interface_ids=[main_network_interface.id],
             vm_size="Standard_DS1_v2",
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
@@ -1142,7 +1142,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: A list of Network Interface ID's which should be associated with the Virtual Machine.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: A list of Network Interface IDs which should be associated with the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['VirtualMachineOsProfileArgs']] os_profile: An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
         :param pulumi.Input[pulumi.InputType['VirtualMachineOsProfileLinuxConfigArgs']] os_profile_linux_config: An `os_profile_linux_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileSecretArgs']]]] os_profile_secrets: One or more `os_profile_secrets` blocks.
@@ -1264,7 +1264,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of Network Interface ID's which should be associated with the Virtual Machine.
+        A list of Network Interface IDs which should be associated with the Virtual Machine.
         """
         return pulumi.get(self, "network_interface_ids")
 

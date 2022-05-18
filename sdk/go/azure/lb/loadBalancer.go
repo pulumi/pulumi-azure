@@ -34,7 +34,7 @@ import (
 // 			return err
 // 		}
 // 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          pulumi.String("West US"),
+// 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			AllocationMethod:  pulumi.String("Static"),
 // 		})
@@ -42,7 +42,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
-// 			Location:          pulumi.String("West US"),
+// 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 // 				&lb.LoadBalancerFrontendIpConfigurationArgs{

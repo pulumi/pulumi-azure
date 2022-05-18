@@ -28,15 +28,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
-// 			Location:           rg.Location,
-// 			ResourceGroupName:  rg.Name,
+// 			Location:           exampleResourceGroup.Location,
+// 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			StorageAccountType: pulumi.String("Standard_LRS"),
 // 			CreateOption:       pulumi.String("Empty"),
 // 			DiskSizeGb:         pulumi.Int(1),
@@ -45,8 +45,8 @@ import (
 // 			return err
 // 		}
 // 		exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
-// 			ResourceGroupName: rg.Name,
-// 			Location:          rg.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
 // 			DatastoreType:     pulumi.String("VaultStore"),
 // 			Redundancy:        pulumi.String("LocallyRedundant"),
 // 			Identity: &dataprotection.BackupVaultIdentityArgs{
@@ -57,7 +57,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = authorization.NewAssignment(ctx, "example1", &authorization.AssignmentArgs{
-// 			Scope:              rg.ID(),
+// 			Scope:              exampleResourceGroup.ID(),
 // 			RoleDefinitionName: pulumi.String("Disk Snapshot Contributor"),
 // 			PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (string, error) {
 // 				return identity.PrincipalId, nil
@@ -90,7 +90,7 @@ import (
 // 			Location:                  exampleBackupVault.Location,
 // 			VaultId:                   exampleBackupVault.ID(),
 // 			DiskId:                    exampleManagedDisk.ID(),
-// 			SnapshotResourceGroupName: rg.Name,
+// 			SnapshotResourceGroupName: exampleResourceGroup.Name,
 // 			BackupPolicyId:            exampleBackupPolicyDisk.ID(),
 // 		})
 // 		if err != nil {

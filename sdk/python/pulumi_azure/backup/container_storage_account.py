@@ -137,18 +137,18 @@ class ContainerStorageAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         vault = azure.recoveryservices.Vault("vault",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
         sa = azure.storage.Account("sa",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example.location,
+            resource_group_name=example.name,
             account_tier="Standard",
             account_replication_type="LRS")
         container = azure.backup.ContainerStorageAccount("container",
-            resource_group_name=rg.name,
+            resource_group_name=example.name,
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
         ```
@@ -184,18 +184,18 @@ class ContainerStorageAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         vault = azure.recoveryservices.Vault("vault",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
         sa = azure.storage.Account("sa",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example.location,
+            resource_group_name=example.name,
             account_tier="Standard",
             account_replication_type="LRS")
         container = azure.backup.ContainerStorageAccount("container",
-            resource_group_name=rg.name,
+            resource_group_name=example.name,
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
         ```

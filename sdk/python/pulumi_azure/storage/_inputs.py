@@ -2112,7 +2112,7 @@ class ManagementPolicyRuleActionsVersionArgs:
 @pulumi.input_type
 class ManagementPolicyRuleFiltersArgs:
     def __init__(__self__, *,
-                 blob_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 blob_types: pulumi.Input[Sequence[pulumi.Input[str]]],
                  match_blob_index_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]] = None,
                  prefix_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -2120,8 +2120,7 @@ class ManagementPolicyRuleFiltersArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_matches: An array of strings for prefixes to be matched.
         """
-        if blob_types is not None:
-            pulumi.set(__self__, "blob_types", blob_types)
+        pulumi.set(__self__, "blob_types", blob_types)
         if match_blob_index_tags is not None:
             pulumi.set(__self__, "match_blob_index_tags", match_blob_index_tags)
         if prefix_matches is not None:
@@ -2129,14 +2128,14 @@ class ManagementPolicyRuleFiltersArgs:
 
     @property
     @pulumi.getter(name="blobTypes")
-    def blob_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def blob_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         """
         return pulumi.get(self, "blob_types")
 
     @blob_types.setter
-    def blob_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def blob_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "blob_types", value)
 
     @property

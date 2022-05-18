@@ -28,23 +28,23 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-// 			Location:          rg.Location,
-// 			ResourceGroupName: rg.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		sa, err := storage.NewAccount(ctx, "sa", &storage.AccountArgs{
-// 			Location:               rg.Location,
-// 			ResourceGroupName:      rg.Name,
+// 			Location:               exampleResourceGroup.Location,
+// 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
 // 		})
@@ -58,7 +58,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = backup.NewContainerStorageAccount(ctx, "protection-container", &backup.ContainerStorageAccountArgs{
-// 			ResourceGroupName: rg.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			RecoveryVaultName: vault.Name,
 // 			StorageAccountId:  sa.ID(),
 // 		})
@@ -66,7 +66,7 @@ import (
 // 			return err
 // 		}
 // 		examplePolicyFileShare, err := backup.NewPolicyFileShare(ctx, "examplePolicyFileShare", &backup.PolicyFileShareArgs{
-// 			ResourceGroupName: rg.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			RecoveryVaultName: vault.Name,
 // 			Backup: &backup.PolicyFileShareBackupArgs{
 // 				Frequency: pulumi.String("Daily"),
@@ -80,7 +80,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = backup.NewProtectedFileShare(ctx, "share1", &backup.ProtectedFileShareArgs{
-// 			ResourceGroupName:      rg.Name,
+// 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			RecoveryVaultName:      vault.Name,
 // 			SourceStorageAccountId: protection_container.StorageAccountId,
 // 			SourceFileShareName:    exampleShare.Name,

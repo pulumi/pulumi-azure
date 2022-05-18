@@ -13,20 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
  * const sa = new azure.storage.Account("sa", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
  * const container = new azure.backup.ContainerStorageAccount("container", {
- *     resourceGroupName: rg.name,
+ *     resourceGroupName: example.name,
  *     recoveryVaultName: vault.name,
  *     storageAccountId: sa.id,
  * });

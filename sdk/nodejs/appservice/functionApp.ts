@@ -99,7 +99,7 @@ import * as utilities from "../utilities";
  *     version: "~3",
  * });
  * ```
- * > **Note:** Version `~3` is required for Linux Function Apps.
+ * > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
  * ### Python In A Consumption Plan)
  *
  * ```typescript
@@ -238,7 +238,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created.
+     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -438,7 +438,7 @@ export interface FunctionAppState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created.
+     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
      */
     name?: pulumi.Input<string>;
     /**
@@ -540,7 +540,7 @@ export interface FunctionAppArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created.
+     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
      */
     name?: pulumi.Input<string>;
     /**

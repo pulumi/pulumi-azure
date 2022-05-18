@@ -367,7 +367,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="Basic",
             capacity=2,
@@ -423,7 +423,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="Basic",
             capacity=2,

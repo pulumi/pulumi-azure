@@ -30,15 +30,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
-// 			Location:          rg.Location,
-// 			ResourceGroupName: rg.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku: &kusto.ClusterSkuArgs{
 // 				Name:     pulumi.String("Standard_D13_v2"),
 // 				Capacity: pulumi.Int(2),
@@ -48,8 +48,8 @@ import (
 // 			return err
 // 		}
 // 		exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
-// 			ResourceGroupName: rg.Name,
-// 			Location:          rg.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
 // 			ClusterName:       exampleCluster.Name,
 // 			HotCachePeriod:    pulumi.String("P7D"),
 // 			SoftDeletePeriod:  pulumi.String("P31D"),
@@ -58,7 +58,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = kusto.NewDatabasePrincipalAssignment(ctx, "exampleDatabasePrincipalAssignment", &kusto.DatabasePrincipalAssignmentArgs{
-// 			ResourceGroupName: rg.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ClusterName:       exampleCluster.Name,
 // 			DatabaseName:      exampleDatabase.Name,
 // 			TenantId:          pulumi.String(current.TenantId),
@@ -97,7 +97,7 @@ type DatabasePrincipalAssignment struct {
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+	// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
 	Role pulumi.StringOutput `pulumi:"role"`
 	// The tenant id in which the principal resides. Changing this forces a new resource to be created.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
@@ -168,7 +168,7 @@ type databasePrincipalAssignmentState struct {
 	PrincipalType *string `pulumi:"principalType"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+	// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
 	Role *string `pulumi:"role"`
 	// The tenant id in which the principal resides. Changing this forces a new resource to be created.
 	TenantId *string `pulumi:"tenantId"`
@@ -190,7 +190,7 @@ type DatabasePrincipalAssignmentState struct {
 	PrincipalType pulumi.StringPtrInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+	// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
 	Role pulumi.StringPtrInput
 	// The tenant id in which the principal resides. Changing this forces a new resource to be created.
 	TenantId pulumi.StringPtrInput
@@ -214,7 +214,7 @@ type databasePrincipalAssignmentArgs struct {
 	PrincipalType string `pulumi:"principalType"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+	// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
 	Role string `pulumi:"role"`
 	// The tenant id in which the principal resides. Changing this forces a new resource to be created.
 	TenantId string `pulumi:"tenantId"`
@@ -233,7 +233,7 @@ type DatabasePrincipalAssignmentArgs struct {
 	PrincipalType pulumi.StringInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+	// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
 	Role pulumi.StringInput
 	// The tenant id in which the principal resides. Changing this forces a new resource to be created.
 	TenantId pulumi.StringInput
@@ -360,7 +360,7 @@ func (o DatabasePrincipalAssignmentOutput) ResourceGroupName() pulumi.StringOutp
 	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
 func (o DatabasePrincipalAssignmentOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }

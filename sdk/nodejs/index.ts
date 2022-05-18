@@ -31,6 +31,7 @@ import * as cdn from "./cdn";
 import * as cognitive from "./cognitive";
 import * as communication from "./communication";
 import * as compute from "./compute";
+import * as confidentialledger from "./confidentialledger";
 import * as config from "./config";
 import * as connections from "./connections";
 import * as consumption from "./consumption";
@@ -137,6 +138,7 @@ export {
     cognitive,
     communication,
     compute,
+    confidentialledger,
     config,
     connections,
     consumption,

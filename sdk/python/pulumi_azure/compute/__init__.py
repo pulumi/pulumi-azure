@@ -18,6 +18,7 @@ from .disk_pool_iscsi_target_lun import *
 from .disk_pool_managed_disk_attachment import *
 from .extension import *
 from .get_availability_set import *
+from .get_confidential_ledger import *
 from .get_dedicated_host import *
 from .get_dedicated_host_group import *
 from .get_disk_access import *
@@ -38,6 +39,7 @@ from .image import *
 from .linux_virtual_machine import *
 from .linux_virtual_machine_scale_set import *
 from .managed_disk import *
+from .managed_disk_sas_token import *
 from .orchestrated_virtual_machine_scale_set import *
 from .scale_set import *
 from .shared_image import *

@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  * const example_1VirtualNetwork = new azure.network.VirtualNetwork("example-1VirtualNetwork", {
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.1.0/24"],
- *     location: "West US",
+ *     location: example.location,
  * });
  * const example_2VirtualNetwork = new azure.network.VirtualNetwork("example-2VirtualNetwork", {
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.2.0/24"],
- *     location: "West US",
+ *     location: example.location,
  * });
  * const example_1VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-1VirtualNetworkPeering", {
  *     resourceGroupName: example.name,

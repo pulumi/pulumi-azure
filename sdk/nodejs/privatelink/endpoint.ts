@@ -77,21 +77,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = azure.core.getResourceGroup({
+ * const exampleResourceGroup = azure.core.getResourceGroup({
  *     name: "example-resources",
  * });
- * const vnet = rg.then(rg => azure.network.getVirtualNetwork({
+ * const vnet = exampleResourceGroup.then(exampleResourceGroup => azure.network.getVirtualNetwork({
  *     name: "example-network",
- *     resourceGroupName: rg.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * }));
- * const subnet = Promise.all([vnet, rg]).then(([vnet, rg]) => azure.network.getSubnet({
+ * const subnet = Promise.all([vnet, exampleResourceGroup]).then(([vnet, exampleResourceGroup]) => azure.network.getSubnet({
  *     name: "default",
  *     virtualNetworkName: vnet.name,
- *     resourceGroupName: rg.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * }));
- * const example = new azure.privatelink.Endpoint("example", {
- *     location: rg.then(rg => rg.location),
- *     resourceGroupName: rg.then(rg => rg.name),
+ * const exampleEndpoint = new azure.privatelink.Endpoint("exampleEndpoint", {
+ *     location: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.location),
+ *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
  *     subnetId: subnet.then(subnet => subnet.id),
  *     privateServiceConnection: {
  *         name: "example-privateserviceconnection",

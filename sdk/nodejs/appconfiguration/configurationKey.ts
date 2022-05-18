@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const appconf = new azure.appconfiguration.ConfigurationStore("appconf", {
- *     resourceGroupName: rg.name,
- *     location: rg.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const current = azure.core.getClientConfig({});
  * const appconfDataowner = new azure.authorization.Assignment("appconfDataowner", {
@@ -41,10 +41,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const appconf = new azure.appconfiguration.ConfigurationStore("appconf", {
- *     resourceGroupName: rg.name,
- *     location: rg.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const current = azure.core.getClientConfig({});
  * const kv = new azure.keyvault.KeyVault("kv", {

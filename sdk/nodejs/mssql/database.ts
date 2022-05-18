@@ -77,7 +77,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
-    public readonly licenseType!: pulumi.Output<string>;
+    public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
      * A `longTermRetentionPolicy` block as defined below.
      */
@@ -142,6 +142,9 @@ export class Database extends pulumi.CustomResource {
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
     public readonly threatDetectionPolicy!: pulumi.Output<outputs.mssql.DatabaseThreatDetectionPolicy>;
+    /**
+     * If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+     */
     public readonly transparentDataEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
@@ -324,6 +327,9 @@ export interface DatabaseState {
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
     threatDetectionPolicy?: pulumi.Input<inputs.mssql.DatabaseThreatDetectionPolicy>;
+    /**
+     * If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+     */
     transparentDataEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
@@ -431,6 +437,9 @@ export interface DatabaseArgs {
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
     threatDetectionPolicy?: pulumi.Input<inputs.mssql.DatabaseThreatDetectionPolicy>;
+    /**
+     * If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+     */
     transparentDataEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.

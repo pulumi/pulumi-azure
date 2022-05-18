@@ -36,22 +36,22 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		testIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "testIntegrationAccount", &logicapps.IntegrationAccountArgs{
-// 			Location:          testResourceGroup.Location,
-// 			ResourceGroupName: testResourceGroup.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 			SkuName:           pulumi.String("Standard"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		host, err := logicapps.NewIntegrationAccountPartner(ctx, "host", &logicapps.IntegrationAccountPartnerArgs{
-// 			ResourceGroupName:      testResourceGroup.Name,
+// 			ResourceGroupName:      example.Name,
 // 			IntegrationAccountName: testIntegrationAccount.Name,
 // 			BusinessIdentities: logicapps.IntegrationAccountPartnerBusinessIdentityArray{
 // 				&logicapps.IntegrationAccountPartnerBusinessIdentityArgs{
@@ -64,7 +64,7 @@ import (
 // 			return err
 // 		}
 // 		guest, err := logicapps.NewIntegrationAccountPartner(ctx, "guest", &logicapps.IntegrationAccountPartnerArgs{
-// 			ResourceGroupName:      testResourceGroup.Name,
+// 			ResourceGroupName:      example.Name,
 // 			IntegrationAccountName: testIntegrationAccount.Name,
 // 			BusinessIdentities: logicapps.IntegrationAccountPartnerBusinessIdentityArray{
 // 				&logicapps.IntegrationAccountPartnerBusinessIdentityArgs{
@@ -77,7 +77,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = logicapps.NewIntegrationAccountAgreement(ctx, "testIntegrationAccountAgreement", &logicapps.IntegrationAccountAgreementArgs{
-// 			ResourceGroupName:      testResourceGroup.Name,
+// 			ResourceGroupName:      example.Name,
 // 			IntegrationAccountName: testIntegrationAccount.Name,
 // 			AgreementType:          pulumi.String("AS2"),
 // 			HostPartnerName:        host.Name,

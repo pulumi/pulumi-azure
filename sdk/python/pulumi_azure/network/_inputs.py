@@ -124,6 +124,7 @@ __all__ = [
     'VirtualNetworkDdosProtectionPlanArgs',
     'VirtualNetworkGatewayBgpSettingsArgs',
     'VirtualNetworkGatewayBgpSettingsPeeringAddressArgs',
+    'VirtualNetworkGatewayConnectionCustomBgpAddressesArgs',
     'VirtualNetworkGatewayConnectionIpsecPolicyArgs',
     'VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs',
     'VirtualNetworkGatewayCustomRouteArgs',
@@ -7122,12 +7123,12 @@ class NetworkSecurityGroupSecurityRuleArgs:
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 characters.
         :param pulumi.Input[str] destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_application_security_group_ids: A List of destination Application Security Group ID's
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_application_security_group_ids: A List of destination Application Security Group IDs
         :param pulumi.Input[str] destination_port_range: Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_port_ranges: List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
         :param pulumi.Input[str] source_address_prefix: CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_application_security_group_ids: A List of source Application Security Group ID's
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_application_security_group_ids: A List of source Application Security Group IDs
         :param pulumi.Input[str] source_port_range: Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """
@@ -7259,7 +7260,7 @@ class NetworkSecurityGroupSecurityRuleArgs:
     @pulumi.getter(name="destinationApplicationSecurityGroupIds")
     def destination_application_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A List of destination Application Security Group ID's
+        A List of destination Application Security Group IDs
         """
         return pulumi.get(self, "destination_application_security_group_ids")
 
@@ -7319,7 +7320,7 @@ class NetworkSecurityGroupSecurityRuleArgs:
     @pulumi.getter(name="sourceApplicationSecurityGroupIds")
     def source_application_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A List of source Application Security Group ID's
+        A List of source Application Security Group IDs
         """
         return pulumi.get(self, "source_application_security_group_ids")
 
@@ -8518,7 +8519,7 @@ class VirtualHubConnectionRoutingPropagatedRouteTableArgs:
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: The list of labels to assign to this route table.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: A list of Route Table ID's to associated with this Virtual Hub Connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: A list of Route Table IDs to associated with this Virtual Hub Connection.
         """
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
@@ -8541,7 +8542,7 @@ class VirtualHubConnectionRoutingPropagatedRouteTableArgs:
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Route Table ID's to associated with this Virtual Hub Connection.
+        A list of Route Table IDs to associated with this Virtual Hub Connection.
         """
         return pulumi.get(self, "route_table_ids")
 
@@ -8891,6 +8892,43 @@ class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs:
 
 
 @pulumi.input_type
+class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs:
+    def __init__(__self__, *,
+                 primary: pulumi.Input[str],
+                 secondary: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] primary: single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (first one)
+        :param pulumi.Input[str] secondary: single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (second one)
+        """
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "secondary", secondary)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> pulumi.Input[str]:
+        """
+        single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (first one)
+        """
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary", value)
+
+    @property
+    @pulumi.getter
+    def secondary(self) -> pulumi.Input[str]:
+        """
+        single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (second one)
+        """
+        return pulumi.get(self, "secondary")
+
+    @secondary.setter
+    def secondary(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secondary", value)
+
+
+@pulumi.input_type
 class VirtualNetworkGatewayConnectionIpsecPolicyArgs:
     def __init__(__self__, *,
                  dh_group: pulumi.Input[str],
@@ -9044,12 +9082,19 @@ class VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs:
     def __init__(__self__, *,
                  local_address_cidrs: pulumi.Input[Sequence[pulumi.Input[str]]],
                  remote_address_cidrs: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_address_cidrs: List of local CIDRs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_address_cidrs: List of remote CIDRs.
+        """
         pulumi.set(__self__, "local_address_cidrs", local_address_cidrs)
         pulumi.set(__self__, "remote_address_cidrs", remote_address_cidrs)
 
     @property
     @pulumi.getter(name="localAddressCidrs")
     def local_address_cidrs(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of local CIDRs.
+        """
         return pulumi.get(self, "local_address_cidrs")
 
     @local_address_cidrs.setter
@@ -9059,6 +9104,9 @@ class VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs:
     @property
     @pulumi.getter(name="remoteAddressCidrs")
     def remote_address_cidrs(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of remote CIDRs.
+        """
         return pulumi.get(self, "remote_address_cidrs")
 
     @remote_address_cidrs.setter
@@ -9778,7 +9826,7 @@ class VpnGatewayConnectionRoutingPropagatedRouteTableArgs:
                  route_table_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: A list of Route Table ID's to associated with this VPN Gateway Connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: A list of Route Table IDs to associated with this VPN Gateway Connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: A list of labels to assign to this route table.
         """
         pulumi.set(__self__, "route_table_ids", route_table_ids)
@@ -9789,7 +9837,7 @@ class VpnGatewayConnectionRoutingPropagatedRouteTableArgs:
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of Route Table ID's to associated with this VPN Gateway Connection.
+        A list of Route Table IDs to associated with this VPN Gateway Connection.
         """
         return pulumi.get(self, "route_table_ids")
 

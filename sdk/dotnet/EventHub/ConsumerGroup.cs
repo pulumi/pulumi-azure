@@ -28,7 +28,7 @@ namespace Pulumi.Azure.EventHub
     ///         });
     ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = "Basic",
     ///             Capacity = 2,

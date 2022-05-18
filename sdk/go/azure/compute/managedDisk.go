@@ -34,7 +34,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
-// 			Location:           pulumi.String("West US 2"),
+// 			Location:           exampleResourceGroup.Location,
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			StorageAccountType: pulumi.String("Standard_LRS"),
 // 			CreateOption:       pulumi.String("Empty"),
@@ -70,7 +70,7 @@ import (
 // 			return err
 // 		}
 // 		source, err := compute.NewManagedDisk(ctx, "source", &compute.ManagedDiskArgs{
-// 			Location:           pulumi.String("West US 2"),
+// 			Location:           example.Location,
 // 			ResourceGroupName:  example.Name,
 // 			StorageAccountType: pulumi.String("Standard_LRS"),
 // 			CreateOption:       pulumi.String("Empty"),
@@ -83,7 +83,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = compute.NewManagedDisk(ctx, "copy", &compute.ManagedDiskArgs{
-// 			Location:           pulumi.String("West US 2"),
+// 			Location:           example.Location,
 // 			ResourceGroupName:  example.Name,
 // 			StorageAccountType: pulumi.String("Standard_LRS"),
 // 			CreateOption:       pulumi.String("Copy"),

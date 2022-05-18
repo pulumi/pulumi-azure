@@ -68,11 +68,11 @@ export interface GetVirtualWanResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * A list of Virtual Hubs ID's attached to this Virtual WAN.
+     * A list of Virtual Hubs IDs attached to this Virtual WAN.
      */
     readonly virtualHubIds: string[];
     /**
-     * A list of VPN Site ID's attached to this Virtual WAN.
+     * A list of VPN Site IDs attached to this Virtual WAN.
      */
     readonly vpnSiteIds: string[];
 }

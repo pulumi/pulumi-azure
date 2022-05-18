@@ -465,36 +465,36 @@ class EventhubDataConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         cluster = azure.kusto.Cluster("cluster",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
         database = azure.kusto.Database("database",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example.name,
+            location=example.location,
             cluster_name=cluster.name,
             hot_cache_period="P7D",
             soft_delete_period="P31D")
         eventhub_ns = azure.eventhub.EventHubNamespace("eventhubNs",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
         eventhub = azure.eventhub.EventHub("eventhub",
             namespace_name=eventhub_ns.name,
-            resource_group_name=rg.name,
+            resource_group_name=example.name,
             partition_count=1,
             message_retention=1)
         consumer_group = azure.eventhub.ConsumerGroup("consumerGroup",
             namespace_name=eventhub_ns.name,
             eventhub_name=eventhub.name,
-            resource_group_name=rg.name)
+            resource_group_name=example.name)
         eventhub_connection = azure.kusto.EventhubDataConnection("eventhubConnection",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example.name,
+            location=example.location,
             cluster_name=cluster.name,
             database_name=database.name,
             eventhub_id=eventhub.id,
@@ -544,36 +544,36 @@ class EventhubDataConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         cluster = azure.kusto.Cluster("cluster",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
         database = azure.kusto.Database("database",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example.name,
+            location=example.location,
             cluster_name=cluster.name,
             hot_cache_period="P7D",
             soft_delete_period="P31D")
         eventhub_ns = azure.eventhub.EventHubNamespace("eventhubNs",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
         eventhub = azure.eventhub.EventHub("eventhub",
             namespace_name=eventhub_ns.name,
-            resource_group_name=rg.name,
+            resource_group_name=example.name,
             partition_count=1,
             message_retention=1)
         consumer_group = azure.eventhub.ConsumerGroup("consumerGroup",
             namespace_name=eventhub_ns.name,
             eventhub_name=eventhub.name,
-            resource_group_name=rg.name)
+            resource_group_name=example.name)
         eventhub_connection = azure.kusto.EventhubDataConnection("eventhubConnection",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example.name,
+            location=example.location,
             cluster_name=cluster.name,
             database_name=database.name,
             eventhub_id=eventhub.id,

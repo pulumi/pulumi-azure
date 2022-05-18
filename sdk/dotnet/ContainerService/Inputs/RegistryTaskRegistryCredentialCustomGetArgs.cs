@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class RegistryTaskRegistryCredentialCustomGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+        /// The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `[system]`.
         /// </summary>
         [Input("identity")]
         public Input<string>? Identity { get; set; }

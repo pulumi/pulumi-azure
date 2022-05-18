@@ -85,7 +85,7 @@ namespace Pulumi.Azure.MachineLearning
     ///         });
     ///         var test = new Azure.MachineLearning.ComputeCluster("test", new Azure.MachineLearning.ComputeClusterArgs
     ///         {
-    ///             Location = "West Europe",
+    ///             Location = exampleResourceGroup.Location,
     ///             VmPriority = "LowPriority",
     ///             VmSize = "Standard_DS2_v2",
     ///             MachineLearningWorkspaceId = exampleWorkspace.Id,

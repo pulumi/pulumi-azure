@@ -372,10 +372,10 @@ class ConfigurationKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
-            resource_group_name=rg.name,
-            location=rg.location)
+            resource_group_name=example.name,
+            location=example.location)
         current = azure.core.get_client_config()
         appconf_dataowner = azure.authorization.Assignment("appconfDataowner",
             scope=appconf.id,
@@ -393,10 +393,10 @@ class ConfigurationKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
-            resource_group_name=rg.name,
-            location=rg.location)
+            resource_group_name=example.name,
+            location=example.location)
         current = azure.core.get_client_config()
         kv = azure.keyvault.KeyVault("kv",
             location=azurerm_resource_group["test"]["location"],
@@ -480,10 +480,10 @@ class ConfigurationKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
-            resource_group_name=rg.name,
-            location=rg.location)
+            resource_group_name=example.name,
+            location=example.location)
         current = azure.core.get_client_config()
         appconf_dataowner = azure.authorization.Assignment("appconfDataowner",
             scope=appconf.id,
@@ -501,10 +501,10 @@ class ConfigurationKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
-            resource_group_name=rg.name,
-            location=rg.location)
+            resource_group_name=example.name,
+            location=example.location)
         current = azure.core.get_client_config()
         kv = azure.keyvault.KeyVault("kv",
             location=azurerm_resource_group["test"]["location"],

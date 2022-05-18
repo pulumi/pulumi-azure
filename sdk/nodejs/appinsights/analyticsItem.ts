@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: "West Europe",
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     applicationType: "web",
  * });

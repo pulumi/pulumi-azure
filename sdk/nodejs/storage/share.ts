@@ -73,6 +73,7 @@ export class Share extends pulumi.CustomResource {
         return obj['__pulumiType'] === Share.__pulumiType;
     }
 
+    public readonly accessTier!: pulumi.Output<string | undefined>;
     /**
      * One or more `acl` blocks as defined below.
      */
@@ -120,6 +121,7 @@ export class Share extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ShareState | undefined;
+            resourceInputs["accessTier"] = state ? state.accessTier : undefined;
             resourceInputs["acls"] = state ? state.acls : undefined;
             resourceInputs["enabledProtocol"] = state ? state.enabledProtocol : undefined;
             resourceInputs["metadata"] = state ? state.metadata : undefined;
@@ -136,6 +138,7 @@ export class Share extends pulumi.CustomResource {
             if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
+            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
             resourceInputs["acls"] = args ? args.acls : undefined;
             resourceInputs["enabledProtocol"] = args ? args.enabledProtocol : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
@@ -154,6 +157,7 @@ export class Share extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Share resources.
  */
 export interface ShareState {
+    accessTier?: pulumi.Input<string>;
     /**
      * One or more `acl` blocks as defined below.
      */
@@ -193,6 +197,7 @@ export interface ShareState {
  * The set of arguments for constructing a Share resource.
  */
 export interface ShareArgs {
+    accessTier?: pulumi.Input<string>;
     /**
      * One or more `acl` blocks as defined below.
      */

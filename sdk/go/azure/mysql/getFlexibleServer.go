@@ -55,7 +55,7 @@ type LookupFlexibleServerArgs struct {
 
 // A collection of values returned by getFlexibleServer.
 type LookupFlexibleServerResult struct {
-	// The Administrator Login of the MySQL Flexible Server.
+	// The Administrator login of the MySQL Flexible Server.
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The backup retention days of the MySQL Flexible Server.
 	BackupRetentionDays int `pulumi:"backupRetentionDays"`
@@ -136,7 +136,7 @@ func (o LookupFlexibleServerResultOutput) ToLookupFlexibleServerResultOutputWith
 	return o
 }
 
-// The Administrator Login of the MySQL Flexible Server.
+// The Administrator login of the MySQL Flexible Server.
 func (o LookupFlexibleServerResultOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }

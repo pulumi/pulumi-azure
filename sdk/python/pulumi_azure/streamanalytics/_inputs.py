@@ -27,11 +27,15 @@ __all__ = [
 @pulumi.input_type
 class FunctionJavaScriptUDFInputArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 configuration_parameter: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] type: The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        :param pulumi.Input[bool] configuration_parameter: Is this input parameter a configuration parameter? Defaults to `false`.
         """
         pulumi.set(__self__, "type", type)
+        if configuration_parameter is not None:
+            pulumi.set(__self__, "configuration_parameter", configuration_parameter)
 
     @property
     @pulumi.getter
@@ -44,6 +48,18 @@ class FunctionJavaScriptUDFInputArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="configurationParameter")
+    def configuration_parameter(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is this input parameter a configuration parameter? Defaults to `false`.
+        """
+        return pulumi.get(self, "configuration_parameter")
+
+    @configuration_parameter.setter
+    def configuration_parameter(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "configuration_parameter", value)
 
 
 @pulumi.input_type
@@ -71,11 +87,15 @@ class FunctionJavaScriptUDFOutputArgs:
 @pulumi.input_type
 class FunctionJavascriptUdaInputArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 configuration_parameter: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] type: The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        :param pulumi.Input[bool] configuration_parameter: Is this input parameter a configuration parameter? Defaults to `false`.
         """
         pulumi.set(__self__, "type", type)
+        if configuration_parameter is not None:
+            pulumi.set(__self__, "configuration_parameter", configuration_parameter)
 
     @property
     @pulumi.getter
@@ -88,6 +108,18 @@ class FunctionJavascriptUdaInputArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="configurationParameter")
+    def configuration_parameter(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is this input parameter a configuration parameter? Defaults to `false`.
+        """
+        return pulumi.get(self, "configuration_parameter")
+
+    @configuration_parameter.setter
+    def configuration_parameter(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "configuration_parameter", value)
 
 
 @pulumi.input_type

@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		_, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("westus"),
 // 		})
 // 		if err != nil {
@@ -41,8 +41,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = cosmosdb.NewAccount(ctx, "db", &cosmosdb.AccountArgs{
-// 			Location:                rg.Location,
-// 			ResourceGroupName:       rg.Name,
+// 			Location:                pulumi.Any(azurerm_resource_group.Example.Location),
+// 			ResourceGroupName:       pulumi.Any(azurerm_resource_group.Example.Name),
 // 			OfferType:               pulumi.String("Standard"),
 // 			Kind:                    pulumi.String("MongoDB"),
 // 			EnableAutomaticFailover: pulumi.Bool(true),
@@ -71,7 +71,7 @@ import (
 // 					FailoverPriority: pulumi.Int(1),
 // 				},
 // 				&cosmosdb.AccountGeoLocationArgs{
-// 					Location:         rg.Location,
+// 					Location:         pulumi.Any(azurerm_resource_group.Example.Location),
 // 					FailoverPriority: pulumi.Int(0),
 // 				},
 // 			},
@@ -140,7 +140,7 @@ type Account struct {
 	LocalAuthenticationDisabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
+	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringOutput `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -261,7 +261,7 @@ type accountState struct {
 	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
+	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion *string `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -342,7 +342,7 @@ type AccountState struct {
 	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
+	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringPtrInput
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -423,7 +423,7 @@ type accountArgs struct {
 	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
+	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion *string `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -489,7 +489,7 @@ type AccountArgs struct {
 	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
+	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringPtrInput
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -713,7 +713,7 @@ func (o AccountOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
+// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 func (o AccountOutput) MongoServerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.MongoServerVersion }).(pulumi.StringOutput)
 }

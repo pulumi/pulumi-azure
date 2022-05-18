@@ -277,6 +277,10 @@ type VirtualNetworkGatewayConnection struct {
 	// Changing this value will force a resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringOutput `pulumi:"connectionProtocol"`
+	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+	// The block can only be used on `IPSec` / `activeactive` connections,
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput `pulumi:"customBgpAddresses"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrOutput `pulumi:"dpdTimeoutSeconds"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
@@ -318,8 +322,8 @@ type VirtualNetworkGatewayConnection struct {
 	SharedKey pulumi.StringPtrOutput `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
-	// Only one block can be defined for a connection.
+	// One or more `trafficSelectorPolicy` blocks which are documented below.
+	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput `pulumi:"trafficSelectorPolicy"`
 	// The type of connection. Valid options are `IPsec`
@@ -389,6 +393,10 @@ type virtualNetworkGatewayConnectionState struct {
 	// Changing this value will force a resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
+	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+	// The block can only be used on `IPSec` / `activeactive` connections,
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	CustomBgpAddresses *VirtualNetworkGatewayConnectionCustomBgpAddresses `pulumi:"customBgpAddresses"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
@@ -430,8 +438,8 @@ type virtualNetworkGatewayConnectionState struct {
 	SharedKey *string `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
-	// Only one block can be defined for a connection.
+	// One or more `trafficSelectorPolicy` blocks which are documented below.
+	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy *VirtualNetworkGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicy"`
 	// The type of connection. Valid options are `IPsec`
@@ -464,6 +472,10 @@ type VirtualNetworkGatewayConnectionState struct {
 	// Changing this value will force a resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringPtrInput
+	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+	// The block can only be used on `IPSec` / `activeactive` connections,
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrInput
 	// If `true`, BGP (Border Gateway Protocol) is enabled
@@ -505,8 +517,8 @@ type VirtualNetworkGatewayConnectionState struct {
 	SharedKey pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
-	// Only one block can be defined for a connection.
+	// One or more `trafficSelectorPolicy` blocks which are documented below.
+	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput
 	// The type of connection. Valid options are `IPsec`
@@ -543,6 +555,10 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// Changing this value will force a resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
+	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+	// The block can only be used on `IPSec` / `activeactive` connections,
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	CustomBgpAddresses *VirtualNetworkGatewayConnectionCustomBgpAddresses `pulumi:"customBgpAddresses"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
@@ -584,8 +600,8 @@ type virtualNetworkGatewayConnectionArgs struct {
 	SharedKey *string `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
-	// Only one block can be defined for a connection.
+	// One or more `trafficSelectorPolicy` blocks which are documented below.
+	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy *VirtualNetworkGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicy"`
 	// The type of connection. Valid options are `IPsec`
@@ -619,6 +635,10 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// Changing this value will force a resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringPtrInput
+	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+	// The block can only be used on `IPSec` / `activeactive` connections,
+	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrInput
 	// If `true`, BGP (Border Gateway Protocol) is enabled
@@ -660,8 +680,8 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	SharedKey pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
-	// Only one block can be defined for a connection.
+	// One or more `trafficSelectorPolicy` blocks which are documented below.
+	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput
 	// The type of connection. Valid options are `IPsec`
@@ -789,6 +809,15 @@ func (o VirtualNetworkGatewayConnectionOutput) ConnectionProtocol() pulumi.Strin
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringOutput { return v.ConnectionProtocol }).(pulumi.StringOutput)
 }
 
+// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+// The block can only be used on `IPSec` / `activeactive` connections,
+// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+func (o VirtualNetworkGatewayConnectionOutput) CustomBgpAddresses() VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
+		return v.CustomBgpAddresses
+	}).(VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput)
+}
+
 // The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayConnectionOutput) DpdTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.IntPtrOutput { return v.DpdTimeoutSeconds }).(pulumi.IntPtrOutput)
@@ -874,8 +903,8 @@ func (o VirtualNetworkGatewayConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
-// Only one block can be defined for a connection.
+// One or more `trafficSelectorPolicy` blocks which are documented below.
+// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
 // For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 func (o VirtualNetworkGatewayConnectionOutput) TrafficSelectorPolicy() VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {

@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network
     ///             {
     ///                 "10.0.1.0/24",
     ///             },
-    ///             Location = "West US",
+    ///             Location = example.Location,
     ///         });
     ///         var example_2VirtualNetwork = new Azure.Network.VirtualNetwork("example-2VirtualNetwork", new Azure.Network.VirtualNetworkArgs
     ///         {
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network
     ///             {
     ///                 "10.0.2.0/24",
     ///             },
-    ///             Location = "West US",
+    ///             Location = example.Location,
     ///         });
     ///         var example_1VirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("example-1VirtualNetworkPeering", new Azure.Network.VirtualNetworkPeeringArgs
     ///         {

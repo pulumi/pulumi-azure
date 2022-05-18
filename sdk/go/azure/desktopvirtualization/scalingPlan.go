@@ -81,7 +81,7 @@ import (
 // 			Name:                         pulumi.Any(random_uuid.Example.Result),
 // 			Scope:                        exampleResourceGroup.ID(),
 // 			RoleDefinitionId:             exampleRoleDefinition.RoleDefinitionResourceId,
-// 			PrincipalId:                  pulumi.String(exampleServicePrincipal.ApplicationId),
+// 			PrincipalId:                  pulumi.String(exampleServicePrincipal.Id),
 // 			SkipServicePrincipalAadCheck: pulumi.Bool(true),
 // 		})
 // 		if err != nil {

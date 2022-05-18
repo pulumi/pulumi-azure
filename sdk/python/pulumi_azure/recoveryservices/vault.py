@@ -371,10 +371,10 @@ class Vault(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         vault = azure.recoveryservices.Vault("vault",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             soft_delete_enabled=True)
         ```
@@ -415,10 +415,10 @@ class Vault(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         vault = azure.recoveryservices.Vault("vault",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             soft_delete_enabled=True)
         ```

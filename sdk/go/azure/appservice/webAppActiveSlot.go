@@ -35,7 +35,7 @@ import (
 // 		}
 // 		exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          pulumi.String("West Europe"),
+// 			Location:          exampleResourceGroup.Location,
 // 			OsType:            pulumi.String("Windows"),
 // 			SkuName:           pulumi.String("P1v2"),
 // 		})

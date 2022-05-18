@@ -15,7 +15,7 @@ type EndpointCustomDomainCdnManagedHttps struct {
 	CertificateType string `pulumi:"certificateType"`
 	// The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
 	ProtocolType string `pulumi:"protocolType"`
-	// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 	TlsVersion *string `pulumi:"tlsVersion"`
 }
 
@@ -35,7 +35,7 @@ type EndpointCustomDomainCdnManagedHttpsArgs struct {
 	CertificateType pulumi.StringInput `pulumi:"certificateType"`
 	// The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
 	ProtocolType pulumi.StringInput `pulumi:"protocolType"`
-	// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 	TlsVersion pulumi.StringPtrInput `pulumi:"tlsVersion"`
 }
 
@@ -126,7 +126,7 @@ func (o EndpointCustomDomainCdnManagedHttpsOutput) ProtocolType() pulumi.StringO
 	return o.ApplyT(func(v EndpointCustomDomainCdnManagedHttps) string { return v.ProtocolType }).(pulumi.StringOutput)
 }
 
-// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 func (o EndpointCustomDomainCdnManagedHttpsOutput) TlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointCustomDomainCdnManagedHttps) *string { return v.TlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -175,7 +175,7 @@ func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) ProtocolType() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) TlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCustomDomainCdnManagedHttps) *string {
 		if v == nil {
@@ -188,7 +188,7 @@ func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) TlsVersion() pulumi.String
 type EndpointCustomDomainUserManagedHttps struct {
 	// The ID of the Key Vault Certificate that contains the HTTPS certificate.
 	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
-	// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 	TlsVersion *string `pulumi:"tlsVersion"`
 }
 
@@ -206,7 +206,7 @@ type EndpointCustomDomainUserManagedHttpsInput interface {
 type EndpointCustomDomainUserManagedHttpsArgs struct {
 	// The ID of the Key Vault Certificate that contains the HTTPS certificate.
 	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
-	// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 	TlsVersion pulumi.StringPtrInput `pulumi:"tlsVersion"`
 }
 
@@ -292,7 +292,7 @@ func (o EndpointCustomDomainUserManagedHttpsOutput) KeyVaultCertificateId() pulu
 	return o.ApplyT(func(v EndpointCustomDomainUserManagedHttps) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
 }
 
-// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 func (o EndpointCustomDomainUserManagedHttpsOutput) TlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointCustomDomainUserManagedHttps) *string { return v.TlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -331,7 +331,7 @@ func (o EndpointCustomDomainUserManagedHttpsPtrOutput) KeyVaultCertificateId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 func (o EndpointCustomDomainUserManagedHttpsPtrOutput) TlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCustomDomainUserManagedHttps) *string {
 		if v == nil {

@@ -40,7 +40,7 @@ import (
 // 			prefix = param
 // 		}
 // 		vmName := fmt.Sprintf("%v%v", prefix, "-vm")
-// 		mainResourceGroup, err := core.NewResourceGroup(ctx, "mainResourceGroup", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
@@ -50,14 +50,14 @@ import (
 // 			AddressSpaces: pulumi.StringArray{
 // 				pulumi.String("10.0.0.0/16"),
 // 			},
-// 			Location:          mainResourceGroup.Location,
-// 			ResourceGroupName: mainResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-// 			ResourceGroupName:  mainResourceGroup.Name,
+// 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			VirtualNetworkName: mainVirtualNetwork.Name,
 // 			AddressPrefixes: pulumi.StringArray{
 // 				pulumi.String("10.0.2.0/24"),
@@ -67,8 +67,8 @@ import (
 // 			return err
 // 		}
 // 		mainNetworkInterface, err := network.NewNetworkInterface(ctx, "mainNetworkInterface", &network.NetworkInterfaceArgs{
-// 			Location:          mainResourceGroup.Location,
-// 			ResourceGroupName: mainResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 // 				&network.NetworkInterfaceIpConfigurationArgs{
 // 					Name:                       pulumi.String("internal"),
@@ -81,8 +81,8 @@ import (
 // 			return err
 // 		}
 // 		exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
-// 			Location:          mainResourceGroup.Location,
-// 			ResourceGroupName: mainResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			NetworkInterfaceIds: pulumi.StringArray{
 // 				mainNetworkInterface.ID(),
 // 			},
@@ -112,8 +112,8 @@ import (
 // 			return err
 // 		}
 // 		exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
-// 			Location:           mainResourceGroup.Location,
-// 			ResourceGroupName:  mainResourceGroup.Name,
+// 			Location:           exampleResourceGroup.Location,
+// 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			StorageAccountType: pulumi.String("Standard_LRS"),
 // 			CreateOption:       pulumi.String("Empty"),
 // 			DiskSizeGb:         pulumi.Int(10),

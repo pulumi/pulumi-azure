@@ -341,7 +341,7 @@ class SourceControl(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
             resource_group_name=example_resource_group.name,
-            location="West Europe",
+            location=example_resource_group.location,
             os_type="Linux",
             sku_name="P1v2")
         example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",
@@ -392,7 +392,7 @@ class SourceControl(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
             resource_group_name=example_resource_group.name,
-            location="West Europe",
+            location=example_resource_group.location,
             os_type="Linux",
             sku_name="P1v2")
         example_linux_web_app = azure.appservice.LinuxWebApp("exampleLinuxWebApp",

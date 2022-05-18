@@ -11,7 +11,7 @@ import (
 )
 
 type GroupPolicyAssignmentIdentity struct {
-	// A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Management Group.
 	PrincipalId *string `pulumi:"principalId"`
@@ -33,7 +33,7 @@ type GroupPolicyAssignmentIdentityInput interface {
 }
 
 type GroupPolicyAssignmentIdentityArgs struct {
-	// A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Management Group.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -120,7 +120,7 @@ func (o GroupPolicyAssignmentIdentityOutput) ToGroupPolicyAssignmentIdentityPtrO
 	}).(GroupPolicyAssignmentIdentityPtrOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 func (o GroupPolicyAssignmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupPolicyAssignmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -164,7 +164,7 @@ func (o GroupPolicyAssignmentIdentityPtrOutput) Elem() GroupPolicyAssignmentIden
 	}).(GroupPolicyAssignmentIdentityOutput)
 }
 
-// A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 func (o GroupPolicyAssignmentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupPolicyAssignmentIdentity) []string {
 		if v == nil {

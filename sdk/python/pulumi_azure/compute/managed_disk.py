@@ -1033,7 +1033,7 @@ class ManagedDisk(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
-            location="West US 2",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             storage_account_type="Standard_LRS",
             create_option="Empty",
@@ -1050,7 +1050,7 @@ class ManagedDisk(pulumi.CustomResource):
 
         example = azure.core.ResourceGroup("example", location="West Europe")
         source = azure.compute.ManagedDisk("source",
-            location="West US 2",
+            location=example.location,
             resource_group_name=example.name,
             storage_account_type="Standard_LRS",
             create_option="Empty",
@@ -1059,7 +1059,7 @@ class ManagedDisk(pulumi.CustomResource):
                 "environment": "staging",
             })
         copy = azure.compute.ManagedDisk("copy",
-            location="West US 2",
+            location=example.location,
             resource_group_name=example.name,
             storage_account_type="Standard_LRS",
             create_option="Copy",
@@ -1129,7 +1129,7 @@ class ManagedDisk(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
-            location="West US 2",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             storage_account_type="Standard_LRS",
             create_option="Empty",
@@ -1146,7 +1146,7 @@ class ManagedDisk(pulumi.CustomResource):
 
         example = azure.core.ResourceGroup("example", location="West Europe")
         source = azure.compute.ManagedDisk("source",
-            location="West US 2",
+            location=example.location,
             resource_group_name=example.name,
             storage_account_type="Standard_LRS",
             create_option="Empty",
@@ -1155,7 +1155,7 @@ class ManagedDisk(pulumi.CustomResource):
                 "environment": "staging",
             })
         copy = azure.compute.ManagedDisk("copy",
-            location="West US 2",
+            location=example.location,
             resource_group_name=example.name,
             storage_account_type="Standard_LRS",
             create_option="Copy",

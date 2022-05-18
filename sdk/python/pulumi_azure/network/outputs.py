@@ -125,6 +125,7 @@ __all__ = [
     'VirtualNetworkDdosProtectionPlan',
     'VirtualNetworkGatewayBgpSettings',
     'VirtualNetworkGatewayBgpSettingsPeeringAddress',
+    'VirtualNetworkGatewayConnectionCustomBgpAddresses',
     'VirtualNetworkGatewayConnectionIpsecPolicy',
     'VirtualNetworkGatewayConnectionTrafficSelectorPolicy',
     'VirtualNetworkGatewayCustomRoute',
@@ -7085,12 +7086,12 @@ class NetworkSecurityGroupSecurityRule(dict):
         :param str description: A description for this rule. Restricted to 140 characters.
         :param str destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
         :param Sequence[str] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
-        :param Sequence[str] destination_application_security_group_ids: A List of destination Application Security Group ID's
+        :param Sequence[str] destination_application_security_group_ids: A List of destination Application Security Group IDs
         :param str destination_port_range: Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
         :param Sequence[str] destination_port_ranges: List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
         :param str source_address_prefix: CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
         :param Sequence[str] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
-        :param Sequence[str] source_application_security_group_ids: A List of source Application Security Group ID's
+        :param Sequence[str] source_application_security_group_ids: A List of source Application Security Group IDs
         :param str source_port_range: Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
         :param Sequence[str] source_port_ranges: List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """
@@ -7190,7 +7191,7 @@ class NetworkSecurityGroupSecurityRule(dict):
     @pulumi.getter(name="destinationApplicationSecurityGroupIds")
     def destination_application_security_group_ids(self) -> Optional[Sequence[str]]:
         """
-        A List of destination Application Security Group ID's
+        A List of destination Application Security Group IDs
         """
         return pulumi.get(self, "destination_application_security_group_ids")
 
@@ -7230,7 +7231,7 @@ class NetworkSecurityGroupSecurityRule(dict):
     @pulumi.getter(name="sourceApplicationSecurityGroupIds")
     def source_application_security_group_ids(self) -> Optional[Sequence[str]]:
         """
-        A List of source Application Security Group ID's
+        A List of source Application Security Group IDs
         """
         return pulumi.get(self, "source_application_security_group_ids")
 
@@ -8421,7 +8422,7 @@ class VirtualHubConnectionRoutingPropagatedRouteTable(dict):
                  route_table_ids: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] labels: The list of labels to assign to this route table.
-        :param Sequence[str] route_table_ids: A list of Route Table ID's to associated with this Virtual Hub Connection.
+        :param Sequence[str] route_table_ids: A list of Route Table IDs to associated with this Virtual Hub Connection.
         """
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
@@ -8440,7 +8441,7 @@ class VirtualHubConnectionRoutingPropagatedRouteTable(dict):
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of Route Table ID's to associated with this Virtual Hub Connection.
+        A list of Route Table IDs to associated with this Virtual Hub Connection.
         """
         return pulumi.get(self, "route_table_ids")
 
@@ -8811,6 +8812,35 @@ class VirtualNetworkGatewayBgpSettingsPeeringAddress(dict):
 
 
 @pulumi.output_type
+class VirtualNetworkGatewayConnectionCustomBgpAddresses(dict):
+    def __init__(__self__, *,
+                 primary: str,
+                 secondary: str):
+        """
+        :param str primary: single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (first one)
+        :param str secondary: single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (second one)
+        """
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "secondary", secondary)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> str:
+        """
+        single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (first one)
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter
+    def secondary(self) -> str:
+        """
+        single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (second one)
+        """
+        return pulumi.get(self, "secondary")
+
+
+@pulumi.output_type
 class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8982,17 +9012,27 @@ class VirtualNetworkGatewayConnectionTrafficSelectorPolicy(dict):
     def __init__(__self__, *,
                  local_address_cidrs: Sequence[str],
                  remote_address_cidrs: Sequence[str]):
+        """
+        :param Sequence[str] local_address_cidrs: List of local CIDRs.
+        :param Sequence[str] remote_address_cidrs: List of remote CIDRs.
+        """
         pulumi.set(__self__, "local_address_cidrs", local_address_cidrs)
         pulumi.set(__self__, "remote_address_cidrs", remote_address_cidrs)
 
     @property
     @pulumi.getter(name="localAddressCidrs")
     def local_address_cidrs(self) -> Sequence[str]:
+        """
+        List of local CIDRs.
+        """
         return pulumi.get(self, "local_address_cidrs")
 
     @property
     @pulumi.getter(name="remoteAddressCidrs")
     def remote_address_cidrs(self) -> Sequence[str]:
+        """
+        List of remote CIDRs.
+        """
         return pulumi.get(self, "remote_address_cidrs")
 
 
@@ -9770,7 +9810,7 @@ class VpnGatewayConnectionRoutingPropagatedRouteTable(dict):
                  route_table_ids: Sequence[str],
                  labels: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] route_table_ids: A list of Route Table ID's to associated with this VPN Gateway Connection.
+        :param Sequence[str] route_table_ids: A list of Route Table IDs to associated with this VPN Gateway Connection.
         :param Sequence[str] labels: A list of labels to assign to this route table.
         """
         pulumi.set(__self__, "route_table_ids", route_table_ids)
@@ -9781,7 +9821,7 @@ class VpnGatewayConnectionRoutingPropagatedRouteTable(dict):
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> Sequence[str]:
         """
-        A list of Route Table ID's to associated with this VPN Gateway Connection.
+        A list of Route Table IDs to associated with this VPN Gateway Connection.
         """
         return pulumi.get(self, "route_table_ids")
 
@@ -11327,10 +11367,10 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
                  public_ip_address_id: str,
                  subnet_id: str):
         """
-        :param Sequence[str] application_gateway_backend_address_pools_ids: A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
+        :param Sequence[str] application_gateway_backend_address_pools_ids: A list of Backend Address Pool IDs within a Application Gateway that this Network Interface is connected to.
         :param str gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway SKU Load Balancer the Network Interface is consuming.
-        :param Sequence[str] load_balancer_backend_address_pools_ids: A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
-        :param Sequence[str] load_balancer_inbound_nat_rules_ids: A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
+        :param Sequence[str] load_balancer_backend_address_pools_ids: A list of Backend Address Pool IDs within a Load Balancer that this Network Interface is connected to.
+        :param Sequence[str] load_balancer_inbound_nat_rules_ids: A list of Inbound NAT Rule IDs within a Load Balancer that this Network Interface is connected to.
         :param str name: Specifies the name of the Network Interface.
         :param bool primary: is this the Primary IP Configuration for this Network Interface?
         :param str private_ip_address: The Private IP Address assigned to this Network Interface.
@@ -11355,7 +11395,7 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
     @pulumi.getter(name="applicationGatewayBackendAddressPoolsIds")
     def application_gateway_backend_address_pools_ids(self) -> Sequence[str]:
         """
-        A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
+        A list of Backend Address Pool IDs within a Application Gateway that this Network Interface is connected to.
         """
         return pulumi.get(self, "application_gateway_backend_address_pools_ids")
 
@@ -11376,7 +11416,7 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
     @pulumi.getter(name="loadBalancerBackendAddressPoolsIds")
     def load_balancer_backend_address_pools_ids(self) -> Sequence[str]:
         """
-        A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
+        A list of Backend Address Pool IDs within a Load Balancer that this Network Interface is connected to.
         """
         return pulumi.get(self, "load_balancer_backend_address_pools_ids")
 
@@ -11384,7 +11424,7 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
     @pulumi.getter(name="loadBalancerInboundNatRulesIds")
     def load_balancer_inbound_nat_rules_ids(self) -> Sequence[str]:
         """
-        A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
+        A list of Inbound NAT Rule IDs within a Load Balancer that this Network Interface is connected to.
         """
         return pulumi.get(self, "load_balancer_inbound_nat_rules_ids")
 
@@ -11474,8 +11514,8 @@ class GetNetworkSecurityGroupSecurityRuleResult(dict):
         :param str source_address_prefix: CIDR or source IP range or * to match any IP.
         :param Sequence[str] source_address_prefixes: A list of CIDRs or source IP ranges.
         :param str source_port_range: The Source Port or Range.
-        :param Sequence[str] destination_application_security_group_ids: A List of destination Application Security Group ID's
-        :param Sequence[str] source_application_security_group_ids: A List of source Application Security Group ID's
+        :param Sequence[str] destination_application_security_group_ids: A List of destination Application Security Group IDs
+        :param Sequence[str] source_application_security_group_ids: A List of source Application Security Group IDs
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "description", description)
@@ -11606,7 +11646,7 @@ class GetNetworkSecurityGroupSecurityRuleResult(dict):
     @pulumi.getter(name="destinationApplicationSecurityGroupIds")
     def destination_application_security_group_ids(self) -> Optional[Sequence[str]]:
         """
-        A List of destination Application Security Group ID's
+        A List of destination Application Security Group IDs
         """
         return pulumi.get(self, "destination_application_security_group_ids")
 
@@ -11614,7 +11654,7 @@ class GetNetworkSecurityGroupSecurityRuleResult(dict):
     @pulumi.getter(name="sourceApplicationSecurityGroupIds")
     def source_application_security_group_ids(self) -> Optional[Sequence[str]]:
         """
-        A List of source Application Security Group ID's
+        A List of source Application Security Group IDs
         """
         return pulumi.get(self, "source_application_security_group_ids")
 

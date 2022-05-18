@@ -128,6 +128,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
+     * The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+     */
+    public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -180,6 +184,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["initContainers"] = state ? state.initContainers : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
+            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfileId"] = state ? state.networkProfileId : undefined;
@@ -207,6 +212,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
             resourceInputs["initContainers"] = args ? args.initContainers : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfileId"] = args ? args.networkProfileId : undefined;
@@ -270,6 +276,10 @@ export interface GroupState {
      * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
      */
     ipAddressType?: pulumi.Input<string>;
+    /**
+     * The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+     */
+    keyVaultKeyId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -340,6 +350,10 @@ export interface GroupArgs {
      * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
      */
     ipAddressType?: pulumi.Input<string>;
+    /**
+     * The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+     */
+    keyVaultKeyId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

@@ -211,10 +211,10 @@ class Dashboard(pulumi.CustomResource):
         if video_link is None:
             video_link = "https://www.youtube.com/watch?v=......"
         current = azure.core.get_subscription()
-        my_group = azure.core.ResourceGroup("my-group", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         my_board = azure.portal.Dashboard("my-board",
-            resource_group_name=my_group.name,
-            location=my_group.location,
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "source": "managed",
             },
@@ -371,10 +371,10 @@ class Dashboard(pulumi.CustomResource):
         if video_link is None:
             video_link = "https://www.youtube.com/watch?v=......"
         current = azure.core.get_subscription()
-        my_group = azure.core.ResourceGroup("my-group", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         my_board = azure.portal.Dashboard("my-board",
-            resource_group_name=my_group.name,
-            location=my_group.location,
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "source": "managed",
             },

@@ -39,7 +39,7 @@ namespace Pulumi.Azure.ContainerService
     ///         var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("exampleRegistryScopeMap", new Azure.ContainerService.RegistryScopeMapArgs
     ///         {
     ///             ContainerRegistryName = azurerm_container_registry.Acr.Name,
-    ///             ResourceGroupName = azurerm_resource_group.Rg.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Actions = 
     ///             {
     ///                 "repositories/repo1/content/read",
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.ContainerService
     ///         var exampleRegistryToken = new Azure.ContainerService.RegistryToken("exampleRegistryToken", new Azure.ContainerService.RegistryTokenArgs
     ///         {
     ///             ContainerRegistryName = azurerm_container_registry.Acr.Name,
-    ///             ResourceGroupName = azurerm_resource_group.Rg.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ScopeMapId = azurerm_container_registry_scope_map.Map.Id,
     ///         });
     ///     }

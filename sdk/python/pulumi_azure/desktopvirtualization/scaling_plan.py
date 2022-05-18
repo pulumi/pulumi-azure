@@ -406,7 +406,7 @@ class ScalingPlan(pulumi.CustomResource):
             name=random_uuid["example"]["result"],
             scope=example_resource_group.id,
             role_definition_id=example_role_definition.role_definition_resource_id,
-            principal_id=example_service_principal.application_id,
+            principal_id=example_service_principal.id,
             skip_service_principal_aad_check=True)
         example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
             location=example_resource_group.location,
@@ -524,7 +524,7 @@ class ScalingPlan(pulumi.CustomResource):
             name=random_uuid["example"]["result"],
             scope=example_resource_group.id,
             role_definition_id=example_role_definition.role_definition_resource_id,
-            principal_id=example_service_principal.application_id,
+            principal_id=example_service_principal.id,
             skip_service_principal_aad_check=True)
         example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
             location=example_resource_group.location,

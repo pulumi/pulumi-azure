@@ -29,7 +29,7 @@ namespace Pulumi.Azure.MSSql
     ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = "West US",
+    ///             Location = exampleResourceGroup.Location,
     ///             Version = "12.0",
     ///             AdministratorLogin = "4dm1n157r470r",
     ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",

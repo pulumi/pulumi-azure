@@ -136,7 +136,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly nodeCount!: pulumi.Output<number>;
     /**
-     * A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+     * A map of Kubernetes labels which should be applied to nodes in this Node Pool.
      */
     public readonly nodeLabels!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -378,7 +378,7 @@ export interface KubernetesClusterNodePoolState {
      */
     nodeCount?: pulumi.Input<number>;
     /**
-     * A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+     * A map of Kubernetes labels which should be applied to nodes in this Node Pool.
      */
     nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -524,7 +524,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     nodeCount?: pulumi.Input<number>;
     /**
-     * A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+     * A map of Kubernetes labels which should be applied to nodes in this Node Pool.
      */
     nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

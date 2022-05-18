@@ -22,24 +22,24 @@ namespace Pulumi.Azure.Network
     /// {
     ///     public MyStack()
     ///     {
-    ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var testNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("testNetworkSecurityGroup", new Azure.Network.NetworkSecurityGroupArgs
     ///         {
-    ///             Location = testResourceGroup.Location,
-    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             Location = example.Location,
+    ///             ResourceGroupName = example.Name,
     ///         });
     ///         var testNetworkWatcher = new Azure.Network.NetworkWatcher("testNetworkWatcher", new Azure.Network.NetworkWatcherArgs
     ///         {
-    ///             Location = testResourceGroup.Location,
-    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             Location = example.Location,
+    ///             ResourceGroupName = example.Name,
     ///         });
     ///         var testAccount = new Azure.Storage.Account("testAccount", new Azure.Storage.AccountArgs
     ///         {
-    ///             ResourceGroupName = testResourceGroup.Name,
-    ///             Location = testResourceGroup.Location,
+    ///             ResourceGroupName = example.Name,
+    ///             Location = example.Location,
     ///             AccountTier = "Standard",
     ///             AccountKind = "StorageV2",
     ///             AccountReplicationType = "LRS",
@@ -47,14 +47,14 @@ namespace Pulumi.Azure.Network
     ///         });
     ///         var testAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("testAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
     ///         {
-    ///             Location = testResourceGroup.Location,
-    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             Location = example.Location,
+    ///             ResourceGroupName = example.Name,
     ///             Sku = "PerGB2018",
     ///         });
     ///         var testNetworkWatcherFlowLog = new Azure.Network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog", new Azure.Network.NetworkWatcherFlowLogArgs
     ///         {
     ///             NetworkWatcherName = testNetworkWatcher.Name,
-    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             ResourceGroupName = example.Name,
     ///             NetworkSecurityGroupId = testNetworkSecurityGroup.Id,
     ///             StorageAccountId = testAccount.Id,
     ///             Enabled = true,

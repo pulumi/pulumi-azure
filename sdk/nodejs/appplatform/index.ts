@@ -12,9 +12,14 @@ export * from "./springCloudApp";
 export * from "./springCloudAppCosmosDBAssociation";
 export * from "./springCloudAppMysqlAssociation";
 export * from "./springCloudAppRedisAssociation";
+export * from "./springCloudBuildPackBinding";
+export * from "./springCloudBuilder";
 export * from "./springCloudCertificate";
+export * from "./springCloudConfigurationService";
 export * from "./springCloudContainerDeployment";
 export * from "./springCloudCustomDomain";
+export * from "./springCloudGateway";
+export * from "./springCloudGatewayCustomDomain";
 export * from "./springCloudJavaDeployment";
 export * from "./springCloudService";
 export * from "./springCloudStorage";
@@ -25,9 +30,14 @@ import { SpringCloudApp } from "./springCloudApp";
 import { SpringCloudAppCosmosDBAssociation } from "./springCloudAppCosmosDBAssociation";
 import { SpringCloudAppMysqlAssociation } from "./springCloudAppMysqlAssociation";
 import { SpringCloudAppRedisAssociation } from "./springCloudAppRedisAssociation";
+import { SpringCloudBuildPackBinding } from "./springCloudBuildPackBinding";
+import { SpringCloudBuilder } from "./springCloudBuilder";
 import { SpringCloudCertificate } from "./springCloudCertificate";
+import { SpringCloudConfigurationService } from "./springCloudConfigurationService";
 import { SpringCloudContainerDeployment } from "./springCloudContainerDeployment";
 import { SpringCloudCustomDomain } from "./springCloudCustomDomain";
+import { SpringCloudGateway } from "./springCloudGateway";
+import { SpringCloudGatewayCustomDomain } from "./springCloudGatewayCustomDomain";
 import { SpringCloudJavaDeployment } from "./springCloudJavaDeployment";
 import { SpringCloudService } from "./springCloudService";
 import { SpringCloudStorage } from "./springCloudStorage";
@@ -46,12 +56,22 @@ const _module = {
                 return new SpringCloudAppMysqlAssociation(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation":
                 return new SpringCloudAppRedisAssociation(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding":
+                return new SpringCloudBuildPackBinding(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudBuilder:SpringCloudBuilder":
+                return new SpringCloudBuilder(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudCertificate:SpringCloudCertificate":
                 return new SpringCloudCertificate(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService":
+                return new SpringCloudConfigurationService(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment":
                 return new SpringCloudContainerDeployment(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain":
                 return new SpringCloudCustomDomain(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudGateway:SpringCloudGateway":
+                return new SpringCloudGateway(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain":
+                return new SpringCloudGatewayCustomDomain(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment":
                 return new SpringCloudJavaDeployment(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudService:SpringCloudService":
@@ -68,9 +88,14 @@ pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApp", _mo
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppCosmosDBAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppMysqlAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppRedisAssociation", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudBuildPackBinding", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudBuilder", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCertificate", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudConfigurationService", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudContainerDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCustomDomain", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudGateway", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudGatewayCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudJavaDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudService", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudStorage", _module)

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Synapse.Inputs
     public sealed class SqlPoolRestoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
+        /// Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("pointInTime", required: true)]
         public Input<string> PointInTime { get; set; } = null!;

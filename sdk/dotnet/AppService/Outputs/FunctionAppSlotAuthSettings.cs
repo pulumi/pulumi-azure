@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.FunctionAppSlotAuthSettingsActiveDirectory? ActiveDirectory;
         /// <summary>
-        /// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        /// login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
         /// </summary>
         public readonly ImmutableDictionary<string, string>? AdditionalLoginParams;
         /// <summary>

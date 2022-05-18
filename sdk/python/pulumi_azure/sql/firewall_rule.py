@@ -207,7 +207,7 @@ class FirewallRule(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_sql_server = azure.sql.SqlServer("exampleSqlServer",
             resource_group_name=example_resource_group.name,
-            location="West US",
+            location=example_resource_group.location,
             version="12.0",
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
@@ -251,7 +251,7 @@ class FirewallRule(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_sql_server = azure.sql.SqlServer("exampleSqlServer",
             resource_group_name=example_resource_group.name,
-            location="West US",
+            location=example_resource_group.location,
             version="12.0",
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")

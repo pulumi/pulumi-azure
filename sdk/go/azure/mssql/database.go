@@ -40,7 +40,7 @@ type Database struct {
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled pulumi.BoolOutput `pulumi:"ledgerEnabled"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
+	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// A `longTermRetentionPolicy` block as defined below.
 	LongTermRetentionPolicy DatabaseLongTermRetentionPolicyOutput `pulumi:"longTermRetentionPolicy"`
 	// The max size of the database in gigabytes.
@@ -72,8 +72,9 @@ type Database struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-	ThreatDetectionPolicy            DatabaseThreatDetectionPolicyOutput `pulumi:"threatDetectionPolicy"`
-	TransparentDataEncryptionEnabled pulumi.BoolPtrOutput                `pulumi:"transparentDataEncryptionEnabled"`
+	ThreatDetectionPolicy DatabaseThreatDetectionPolicyOutput `pulumi:"threatDetectionPolicy"`
+	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+	TransparentDataEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transparentDataEncryptionEnabled"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant pulumi.BoolOutput `pulumi:"zoneRedundant"`
 }
@@ -157,8 +158,9 @@ type databaseState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-	ThreatDetectionPolicy            *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
-	TransparentDataEncryptionEnabled *bool                          `pulumi:"transparentDataEncryptionEnabled"`
+	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
+	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+	TransparentDataEncryptionEnabled *bool `pulumi:"transparentDataEncryptionEnabled"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
@@ -211,7 +213,8 @@ type DatabaseState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-	ThreatDetectionPolicy            DatabaseThreatDetectionPolicyPtrInput
+	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
+	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 	TransparentDataEncryptionEnabled pulumi.BoolPtrInput
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant pulumi.BoolPtrInput
@@ -269,8 +272,9 @@ type databaseArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-	ThreatDetectionPolicy            *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
-	TransparentDataEncryptionEnabled *bool                          `pulumi:"transparentDataEncryptionEnabled"`
+	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
+	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+	TransparentDataEncryptionEnabled *bool `pulumi:"transparentDataEncryptionEnabled"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
@@ -324,7 +328,8 @@ type DatabaseArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-	ThreatDetectionPolicy            DatabaseThreatDetectionPolicyPtrInput
+	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
+	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 	TransparentDataEncryptionEnabled pulumi.BoolPtrInput
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant pulumi.BoolPtrInput
@@ -453,8 +458,8 @@ func (o DatabaseOutput) LedgerEnabled() pulumi.BoolOutput {
 }
 
 // Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-func (o DatabaseOutput) LicenseType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.LicenseType }).(pulumi.StringOutput)
+func (o DatabaseOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
 // A `longTermRetentionPolicy` block as defined below.
@@ -537,6 +542,7 @@ func (o DatabaseOutput) ThreatDetectionPolicy() DatabaseThreatDetectionPolicyOut
 	return o.ApplyT(func(v *Database) DatabaseThreatDetectionPolicyOutput { return v.ThreatDetectionPolicy }).(DatabaseThreatDetectionPolicyOutput)
 }
 
+// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 func (o DatabaseOutput) TransparentDataEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.TransparentDataEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }

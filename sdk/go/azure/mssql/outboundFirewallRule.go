@@ -34,7 +34,7 @@ import (
 // 		}
 // 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
 // 			ResourceGroupName:                 exampleResourceGroup.Name,
-// 			Location:                          pulumi.String("West US"),
+// 			Location:                          exampleResourceGroup.Location,
 // 			Version:                           pulumi.String("12.0"),
 // 			AdministratorLogin:                pulumi.String("4dm1n157r470r"),
 // 			AdministratorLoginPassword:        pulumi.String("4-v3ry-53cr37-p455w0rd"),

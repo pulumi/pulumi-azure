@@ -26,15 +26,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		acr, err := containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
-// 			ResourceGroupName: rg.Name,
-// 			Location:          rg.Location,
+// 			ResourceGroupName: example.Name,
+// 			Location:          example.Location,
 // 			Sku:               pulumi.String("Standard"),
 // 			AdminEnabled:      pulumi.Bool(false),
 // 		})
@@ -42,9 +42,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = containerservice.NewRegistryWebhook(ctx, "webhook", &containerservice.RegistryWebhookArgs{
-// 			ResourceGroupName: rg.Name,
+// 			ResourceGroupName: example.Name,
 // 			RegistryName:      acr.Name,
-// 			Location:          rg.Location,
+// 			Location:          example.Location,
 // 			ServiceUri:        pulumi.String("https://mywebhookreceiver.example/mytag"),
 // 			Status:            pulumi.String("enabled"),
 // 			Scope:             pulumi.String("mytag:*"),

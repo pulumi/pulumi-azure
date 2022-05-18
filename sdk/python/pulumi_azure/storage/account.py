@@ -23,6 +23,7 @@ class AccountArgs:
                  allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
                  azure_files_authentication: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']] = None,
                  blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
+                 cross_tenant_replication_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
                  customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
@@ -54,6 +55,7 @@ class AccountArgs:
         :param pulumi.Input[bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
+        :param pulumi.Input[bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `true`.
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
@@ -89,6 +91,8 @@ class AccountArgs:
             pulumi.set(__self__, "azure_files_authentication", azure_files_authentication)
         if blob_properties is not None:
             pulumi.set(__self__, "blob_properties", blob_properties)
+        if cross_tenant_replication_enabled is not None:
+            pulumi.set(__self__, "cross_tenant_replication_enabled", cross_tenant_replication_enabled)
         if custom_domain is not None:
             pulumi.set(__self__, "custom_domain", custom_domain)
         if customer_managed_key is not None:
@@ -227,6 +231,18 @@ class AccountArgs:
     @blob_properties.setter
     def blob_properties(self, value: Optional[pulumi.Input['AccountBlobPropertiesArgs']]):
         pulumi.set(self, "blob_properties", value)
+
+    @property
+    @pulumi.getter(name="crossTenantReplicationEnabled")
+    def cross_tenant_replication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should cross Tenant replication be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "cross_tenant_replication_enabled")
+
+    @cross_tenant_replication_enabled.setter
+    def cross_tenant_replication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cross_tenant_replication_enabled", value)
 
     @property
     @pulumi.getter(name="customDomain")
@@ -489,6 +505,7 @@ class _AccountState:
                  allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
                  azure_files_authentication: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']] = None,
                  blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
+                 cross_tenant_replication_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
                  customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
@@ -552,6 +569,7 @@ class _AccountState:
         :param pulumi.Input[bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
+        :param pulumi.Input[bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `true`.
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
@@ -621,6 +639,8 @@ class _AccountState:
             pulumi.set(__self__, "azure_files_authentication", azure_files_authentication)
         if blob_properties is not None:
             pulumi.set(__self__, "blob_properties", blob_properties)
+        if cross_tenant_replication_enabled is not None:
+            pulumi.set(__self__, "cross_tenant_replication_enabled", cross_tenant_replication_enabled)
         if custom_domain is not None:
             pulumi.set(__self__, "custom_domain", custom_domain)
         if customer_managed_key is not None:
@@ -813,6 +833,18 @@ class _AccountState:
     @blob_properties.setter
     def blob_properties(self, value: Optional[pulumi.Input['AccountBlobPropertiesArgs']]):
         pulumi.set(self, "blob_properties", value)
+
+    @property
+    @pulumi.getter(name="crossTenantReplicationEnabled")
+    def cross_tenant_replication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should cross Tenant replication be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "cross_tenant_replication_enabled")
+
+    @cross_tenant_replication_enabled.setter
+    def cross_tenant_replication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cross_tenant_replication_enabled", value)
 
     @property
     @pulumi.getter(name="customDomain")
@@ -1473,6 +1505,7 @@ class Account(pulumi.CustomResource):
                  allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
                  azure_files_authentication: Optional[pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']]] = None,
                  blob_properties: Optional[pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']]] = None,
+                 cross_tenant_replication_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
@@ -1566,6 +1599,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']] blob_properties: A `blob_properties` block as defined below.
+        :param pulumi.Input[bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
@@ -1678,6 +1712,7 @@ class Account(pulumi.CustomResource):
                  allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
                  azure_files_authentication: Optional[pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']]] = None,
                  blob_properties: Optional[pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']]] = None,
+                 cross_tenant_replication_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
@@ -1723,6 +1758,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["allow_nested_items_to_be_public"] = allow_nested_items_to_be_public
             __props__.__dict__["azure_files_authentication"] = azure_files_authentication
             __props__.__dict__["blob_properties"] = blob_properties
+            __props__.__dict__["cross_tenant_replication_enabled"] = cross_tenant_replication_enabled
             __props__.__dict__["custom_domain"] = custom_domain
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["edge_zone"] = edge_zone
@@ -1796,6 +1832,7 @@ class Account(pulumi.CustomResource):
             allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
             azure_files_authentication: Optional[pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']]] = None,
             blob_properties: Optional[pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']]] = None,
+            cross_tenant_replication_enabled: Optional[pulumi.Input[bool]] = None,
             custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
             customer_managed_key: Optional[pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']]] = None,
             edge_zone: Optional[pulumi.Input[str]] = None,
@@ -1864,6 +1901,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']] blob_properties: A `blob_properties` block as defined below.
+        :param pulumi.Input[bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
@@ -1930,6 +1968,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["allow_nested_items_to_be_public"] = allow_nested_items_to_be_public
         __props__.__dict__["azure_files_authentication"] = azure_files_authentication
         __props__.__dict__["blob_properties"] = blob_properties
+        __props__.__dict__["cross_tenant_replication_enabled"] = cross_tenant_replication_enabled
         __props__.__dict__["custom_domain"] = custom_domain
         __props__.__dict__["customer_managed_key"] = customer_managed_key
         __props__.__dict__["edge_zone"] = edge_zone
@@ -2041,6 +2080,14 @@ class Account(pulumi.CustomResource):
         A `blob_properties` block as defined below.
         """
         return pulumi.get(self, "blob_properties")
+
+    @property
+    @pulumi.getter(name="crossTenantReplicationEnabled")
+    def cross_tenant_replication_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should cross Tenant replication be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "cross_tenant_replication_enabled")
 
     @property
     @pulumi.getter(name="customDomain")

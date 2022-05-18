@@ -206,7 +206,7 @@ class CassandraKeyspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="tflex-cosmosdb-account-rg")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_account = azure.cosmosdb.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -218,7 +218,7 @@ class CassandraKeyspace(pulumi.CustomResource):
                 consistency_level="Strong",
             ),
             geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location="West US",
+                location=example_resource_group.location,
                 failover_priority=0,
             )])
         example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("exampleCassandraKeyspace",
@@ -258,7 +258,7 @@ class CassandraKeyspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="tflex-cosmosdb-account-rg")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_account = azure.cosmosdb.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -270,7 +270,7 @@ class CassandraKeyspace(pulumi.CustomResource):
                 consistency_level="Strong",
             ),
             geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location="West US",
+                location=example_resource_group.location,
                 failover_priority=0,
             )])
         example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("exampleCassandraKeyspace",

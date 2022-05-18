@@ -13291,7 +13291,7 @@ type NetworkSecurityGroupSecurityRule struct {
 	DestinationAddressPrefix *string `pulumi:"destinationAddressPrefix"`
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes []string `pulumi:"destinationAddressPrefixes"`
-	// A List of destination Application Security Group ID's
+	// A List of destination Application Security Group IDs
 	DestinationApplicationSecurityGroupIds []string `pulumi:"destinationApplicationSecurityGroupIds"`
 	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
 	DestinationPortRange *string `pulumi:"destinationPortRange"`
@@ -13309,7 +13309,7 @@ type NetworkSecurityGroupSecurityRule struct {
 	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes []string `pulumi:"sourceAddressPrefixes"`
-	// A List of source Application Security Group ID's
+	// A List of source Application Security Group IDs
 	SourceApplicationSecurityGroupIds []string `pulumi:"sourceApplicationSecurityGroupIds"`
 	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
 	SourcePortRange *string `pulumi:"sourcePortRange"`
@@ -13337,7 +13337,7 @@ type NetworkSecurityGroupSecurityRuleArgs struct {
 	DestinationAddressPrefix pulumi.StringPtrInput `pulumi:"destinationAddressPrefix"`
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes pulumi.StringArrayInput `pulumi:"destinationAddressPrefixes"`
-	// A List of destination Application Security Group ID's
+	// A List of destination Application Security Group IDs
 	DestinationApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"destinationApplicationSecurityGroupIds"`
 	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
 	DestinationPortRange pulumi.StringPtrInput `pulumi:"destinationPortRange"`
@@ -13355,7 +13355,7 @@ type NetworkSecurityGroupSecurityRuleArgs struct {
 	SourceAddressPrefix pulumi.StringPtrInput `pulumi:"sourceAddressPrefix"`
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes pulumi.StringArrayInput `pulumi:"sourceAddressPrefixes"`
-	// A List of source Application Security Group ID's
+	// A List of source Application Security Group IDs
 	SourceApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"sourceApplicationSecurityGroupIds"`
 	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
 	SourcePortRange pulumi.StringPtrInput `pulumi:"sourcePortRange"`
@@ -13434,7 +13434,7 @@ func (o NetworkSecurityGroupSecurityRuleOutput) DestinationAddressPrefixes() pul
 	return o.ApplyT(func(v NetworkSecurityGroupSecurityRule) []string { return v.DestinationAddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// A List of destination Application Security Group ID's
+// A List of destination Application Security Group IDs
 func (o NetworkSecurityGroupSecurityRuleOutput) DestinationApplicationSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupSecurityRule) []string { return v.DestinationApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -13479,7 +13479,7 @@ func (o NetworkSecurityGroupSecurityRuleOutput) SourceAddressPrefixes() pulumi.S
 	return o.ApplyT(func(v NetworkSecurityGroupSecurityRule) []string { return v.SourceAddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// A List of source Application Security Group ID's
+// A List of source Application Security Group IDs
 func (o NetworkSecurityGroupSecurityRuleOutput) SourceApplicationSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupSecurityRule) []string { return v.SourceApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -16839,7 +16839,7 @@ func (o VirtualHubConnectionRoutingPtrOutput) StaticVnetRoutes() VirtualHubConne
 type VirtualHubConnectionRoutingPropagatedRouteTable struct {
 	// The list of labels to assign to this route table.
 	Labels []string `pulumi:"labels"`
-	// A list of Route Table ID's to associated with this Virtual Hub Connection.
+	// A list of Route Table IDs to associated with this Virtual Hub Connection.
 	RouteTableIds []string `pulumi:"routeTableIds"`
 }
 
@@ -16857,7 +16857,7 @@ type VirtualHubConnectionRoutingPropagatedRouteTableInput interface {
 type VirtualHubConnectionRoutingPropagatedRouteTableArgs struct {
 	// The list of labels to assign to this route table.
 	Labels pulumi.StringArrayInput `pulumi:"labels"`
-	// A list of Route Table ID's to associated with this Virtual Hub Connection.
+	// A list of Route Table IDs to associated with this Virtual Hub Connection.
 	RouteTableIds pulumi.StringArrayInput `pulumi:"routeTableIds"`
 }
 
@@ -16943,7 +16943,7 @@ func (o VirtualHubConnectionRoutingPropagatedRouteTableOutput) Labels() pulumi.S
 	return o.ApplyT(func(v VirtualHubConnectionRoutingPropagatedRouteTable) []string { return v.Labels }).(pulumi.StringArrayOutput)
 }
 
-// A list of Route Table ID's to associated with this Virtual Hub Connection.
+// A list of Route Table IDs to associated with this Virtual Hub Connection.
 func (o VirtualHubConnectionRoutingPropagatedRouteTableOutput) RouteTableIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualHubConnectionRoutingPropagatedRouteTable) []string { return v.RouteTableIds }).(pulumi.StringArrayOutput)
 }
@@ -16982,7 +16982,7 @@ func (o VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput) Labels() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of Route Table ID's to associated with this Virtual Hub Connection.
+// A list of Route Table IDs to associated with this Virtual Hub Connection.
 func (o VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput) RouteTableIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualHubConnectionRoutingPropagatedRouteTable) []string {
 		if v == nil {
@@ -17807,6 +17807,162 @@ func (o VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput) Index(i pulum
 	}).(VirtualNetworkGatewayBgpSettingsPeeringAddressOutput)
 }
 
+type VirtualNetworkGatewayConnectionCustomBgpAddresses struct {
+	// single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (first one)
+	Primary string `pulumi:"primary"`
+	// single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (second one)
+	Secondary string `pulumi:"secondary"`
+}
+
+// VirtualNetworkGatewayConnectionCustomBgpAddressesInput is an input type that accepts VirtualNetworkGatewayConnectionCustomBgpAddressesArgs and VirtualNetworkGatewayConnectionCustomBgpAddressesOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayConnectionCustomBgpAddressesInput` via:
+//
+//          VirtualNetworkGatewayConnectionCustomBgpAddressesArgs{...}
+type VirtualNetworkGatewayConnectionCustomBgpAddressesInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayConnectionCustomBgpAddressesOutput() VirtualNetworkGatewayConnectionCustomBgpAddressesOutput
+	ToVirtualNetworkGatewayConnectionCustomBgpAddressesOutputWithContext(context.Context) VirtualNetworkGatewayConnectionCustomBgpAddressesOutput
+}
+
+type VirtualNetworkGatewayConnectionCustomBgpAddressesArgs struct {
+	// single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (first one)
+	Primary pulumi.StringInput `pulumi:"primary"`
+	// single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (second one)
+	Secondary pulumi.StringInput `pulumi:"secondary"`
+}
+
+func (VirtualNetworkGatewayConnectionCustomBgpAddressesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayConnectionCustomBgpAddresses)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayConnectionCustomBgpAddressesArgs) ToVirtualNetworkGatewayConnectionCustomBgpAddressesOutput() VirtualNetworkGatewayConnectionCustomBgpAddressesOutput {
+	return i.ToVirtualNetworkGatewayConnectionCustomBgpAddressesOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayConnectionCustomBgpAddressesArgs) ToVirtualNetworkGatewayConnectionCustomBgpAddressesOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionCustomBgpAddressesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionCustomBgpAddressesOutput)
+}
+
+func (i VirtualNetworkGatewayConnectionCustomBgpAddressesArgs) ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput() VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
+	return i.ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayConnectionCustomBgpAddressesArgs) ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionCustomBgpAddressesOutput).ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput is an input type that accepts VirtualNetworkGatewayConnectionCustomBgpAddressesArgs, VirtualNetworkGatewayConnectionCustomBgpAddressesPtr and VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput` via:
+//
+//          VirtualNetworkGatewayConnectionCustomBgpAddressesArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput() VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput
+	ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutputWithContext(context.Context) VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput
+}
+
+type virtualNetworkGatewayConnectionCustomBgpAddressesPtrType VirtualNetworkGatewayConnectionCustomBgpAddressesArgs
+
+func VirtualNetworkGatewayConnectionCustomBgpAddressesPtr(v *VirtualNetworkGatewayConnectionCustomBgpAddressesArgs) VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput {
+	return (*virtualNetworkGatewayConnectionCustomBgpAddressesPtrType)(v)
+}
+
+func (*virtualNetworkGatewayConnectionCustomBgpAddressesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkGatewayConnectionCustomBgpAddresses)(nil)).Elem()
+}
+
+func (i *virtualNetworkGatewayConnectionCustomBgpAddressesPtrType) ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput() VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
+	return i.ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkGatewayConnectionCustomBgpAddressesPtrType) ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput)
+}
+
+type VirtualNetworkGatewayConnectionCustomBgpAddressesOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayConnectionCustomBgpAddressesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayConnectionCustomBgpAddresses)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayConnectionCustomBgpAddressesOutput) ToVirtualNetworkGatewayConnectionCustomBgpAddressesOutput() VirtualNetworkGatewayConnectionCustomBgpAddressesOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionCustomBgpAddressesOutput) ToVirtualNetworkGatewayConnectionCustomBgpAddressesOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionCustomBgpAddressesOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionCustomBgpAddressesOutput) ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput() VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
+	return o.ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkGatewayConnectionCustomBgpAddressesOutput) ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkGatewayConnectionCustomBgpAddresses) *VirtualNetworkGatewayConnectionCustomBgpAddresses {
+		return &v
+	}).(VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput)
+}
+
+// single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (first one)
+func (o VirtualNetworkGatewayConnectionCustomBgpAddressesOutput) Primary() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayConnectionCustomBgpAddresses) string { return v.Primary }).(pulumi.StringOutput)
+}
+
+// single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (second one)
+func (o VirtualNetworkGatewayConnectionCustomBgpAddressesOutput) Secondary() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayConnectionCustomBgpAddresses) string { return v.Secondary }).(pulumi.StringOutput)
+}
+
+type VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkGatewayConnectionCustomBgpAddresses)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput) ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput() VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput) ToVirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput) Elem() VirtualNetworkGatewayConnectionCustomBgpAddressesOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionCustomBgpAddresses) VirtualNetworkGatewayConnectionCustomBgpAddresses {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkGatewayConnectionCustomBgpAddresses
+		return ret
+	}).(VirtualNetworkGatewayConnectionCustomBgpAddressesOutput)
+}
+
+// single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (first one)
+func (o VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput) Primary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionCustomBgpAddresses) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Primary
+	}).(pulumi.StringPtrOutput)
+}
+
+// single IP address that is part of the `network.VirtualNetworkGateway` ipConfiguration (second one)
+func (o VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput) Secondary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionCustomBgpAddresses) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secondary
+	}).(pulumi.StringPtrOutput)
+}
+
 type VirtualNetworkGatewayConnectionIpsecPolicy struct {
 	// The DH group used in IKE phase 1 for initial SA. Valid
 	// options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
@@ -18118,7 +18274,9 @@ func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) SaLifetime() pulumi
 }
 
 type VirtualNetworkGatewayConnectionTrafficSelectorPolicy struct {
-	LocalAddressCidrs  []string `pulumi:"localAddressCidrs"`
+	// List of local CIDRs.
+	LocalAddressCidrs []string `pulumi:"localAddressCidrs"`
+	// List of remote CIDRs.
 	RemoteAddressCidrs []string `pulumi:"remoteAddressCidrs"`
 }
 
@@ -18134,7 +18292,9 @@ type VirtualNetworkGatewayConnectionTrafficSelectorPolicyInput interface {
 }
 
 type VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs struct {
-	LocalAddressCidrs  pulumi.StringArrayInput `pulumi:"localAddressCidrs"`
+	// List of local CIDRs.
+	LocalAddressCidrs pulumi.StringArrayInput `pulumi:"localAddressCidrs"`
+	// List of remote CIDRs.
 	RemoteAddressCidrs pulumi.StringArrayInput `pulumi:"remoteAddressCidrs"`
 }
 
@@ -18215,10 +18375,12 @@ func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) ToVirtualNet
 	}).(VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput)
 }
 
+// List of local CIDRs.
 func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) LocalAddressCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayConnectionTrafficSelectorPolicy) []string { return v.LocalAddressCidrs }).(pulumi.StringArrayOutput)
 }
 
+// List of remote CIDRs.
 func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) RemoteAddressCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayConnectionTrafficSelectorPolicy) []string { return v.RemoteAddressCidrs }).(pulumi.StringArrayOutput)
 }
@@ -18247,6 +18409,7 @@ func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) Elem() Vi
 	}).(VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput)
 }
 
+// List of local CIDRs.
 func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) LocalAddressCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionTrafficSelectorPolicy) []string {
 		if v == nil {
@@ -18256,6 +18419,7 @@ func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) LocalAddr
 	}).(pulumi.StringArrayOutput)
 }
 
+// List of remote CIDRs.
 func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) RemoteAddressCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionTrafficSelectorPolicy) []string {
 		if v == nil {
@@ -20016,7 +20180,7 @@ func (o VpnGatewayConnectionRoutingPtrOutput) PropagatedRouteTable() VpnGatewayC
 type VpnGatewayConnectionRoutingPropagatedRouteTable struct {
 	// A list of labels to assign to this route table.
 	Labels []string `pulumi:"labels"`
-	// A list of Route Table ID's to associated with this VPN Gateway Connection.
+	// A list of Route Table IDs to associated with this VPN Gateway Connection.
 	RouteTableIds []string `pulumi:"routeTableIds"`
 }
 
@@ -20034,7 +20198,7 @@ type VpnGatewayConnectionRoutingPropagatedRouteTableInput interface {
 type VpnGatewayConnectionRoutingPropagatedRouteTableArgs struct {
 	// A list of labels to assign to this route table.
 	Labels pulumi.StringArrayInput `pulumi:"labels"`
-	// A list of Route Table ID's to associated with this VPN Gateway Connection.
+	// A list of Route Table IDs to associated with this VPN Gateway Connection.
 	RouteTableIds pulumi.StringArrayInput `pulumi:"routeTableIds"`
 }
 
@@ -20120,7 +20284,7 @@ func (o VpnGatewayConnectionRoutingPropagatedRouteTableOutput) Labels() pulumi.S
 	return o.ApplyT(func(v VpnGatewayConnectionRoutingPropagatedRouteTable) []string { return v.Labels }).(pulumi.StringArrayOutput)
 }
 
-// A list of Route Table ID's to associated with this VPN Gateway Connection.
+// A list of Route Table IDs to associated with this VPN Gateway Connection.
 func (o VpnGatewayConnectionRoutingPropagatedRouteTableOutput) RouteTableIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VpnGatewayConnectionRoutingPropagatedRouteTable) []string { return v.RouteTableIds }).(pulumi.StringArrayOutput)
 }
@@ -20159,7 +20323,7 @@ func (o VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput) Labels() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of Route Table ID's to associated with this VPN Gateway Connection.
+// A list of Route Table IDs to associated with this VPN Gateway Connection.
 func (o VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput) RouteTableIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnGatewayConnectionRoutingPropagatedRouteTable) []string {
 		if v == nil {
@@ -23476,14 +23640,14 @@ func (o GetLocalNetworkGatewayBgpSettingArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetNetworkInterfaceIpConfiguration struct {
-	// A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
+	// A list of Backend Address Pool IDs within a Application Gateway that this Network Interface is connected to.
 	ApplicationGatewayBackendAddressPoolsIds []string `pulumi:"applicationGatewayBackendAddressPoolsIds"`
 	ApplicationSecurityGroupIds              []string `pulumi:"applicationSecurityGroupIds"`
 	// The Frontend IP Configuration ID of a Gateway SKU Load Balancer the Network Interface is consuming.
 	GatewayLoadBalancerFrontendIpConfigurationId string `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
-	// A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
+	// A list of Backend Address Pool IDs within a Load Balancer that this Network Interface is connected to.
 	LoadBalancerBackendAddressPoolsIds []string `pulumi:"loadBalancerBackendAddressPoolsIds"`
-	// A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
+	// A list of Inbound NAT Rule IDs within a Load Balancer that this Network Interface is connected to.
 	LoadBalancerInboundNatRulesIds []string `pulumi:"loadBalancerInboundNatRulesIds"`
 	// Specifies the name of the Network Interface.
 	Name string `pulumi:"name"`
@@ -23512,14 +23676,14 @@ type GetNetworkInterfaceIpConfigurationInput interface {
 }
 
 type GetNetworkInterfaceIpConfigurationArgs struct {
-	// A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
+	// A list of Backend Address Pool IDs within a Application Gateway that this Network Interface is connected to.
 	ApplicationGatewayBackendAddressPoolsIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolsIds"`
 	ApplicationSecurityGroupIds              pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
 	// The Frontend IP Configuration ID of a Gateway SKU Load Balancer the Network Interface is consuming.
 	GatewayLoadBalancerFrontendIpConfigurationId pulumi.StringInput `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
-	// A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
+	// A list of Backend Address Pool IDs within a Load Balancer that this Network Interface is connected to.
 	LoadBalancerBackendAddressPoolsIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolsIds"`
-	// A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
+	// A list of Inbound NAT Rule IDs within a Load Balancer that this Network Interface is connected to.
 	LoadBalancerInboundNatRulesIds pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
 	// Specifies the name of the Network Interface.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -23587,7 +23751,7 @@ func (o GetNetworkInterfaceIpConfigurationOutput) ToGetNetworkInterfaceIpConfigu
 	return o
 }
 
-// A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
+// A list of Backend Address Pool IDs within a Application Gateway that this Network Interface is connected to.
 func (o GetNetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddressPoolsIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceIpConfiguration) []string { return v.ApplicationGatewayBackendAddressPoolsIds }).(pulumi.StringArrayOutput)
 }
@@ -23603,12 +23767,12 @@ func (o GetNetworkInterfaceIpConfigurationOutput) GatewayLoadBalancerFrontendIpC
 	}).(pulumi.StringOutput)
 }
 
-// A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
+// A list of Backend Address Pool IDs within a Load Balancer that this Network Interface is connected to.
 func (o GetNetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPoolsIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceIpConfiguration) []string { return v.LoadBalancerBackendAddressPoolsIds }).(pulumi.StringArrayOutput)
 }
 
-// A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
+// A list of Inbound NAT Rule IDs within a Load Balancer that this Network Interface is connected to.
 func (o GetNetworkInterfaceIpConfigurationOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceIpConfiguration) []string { return v.LoadBalancerInboundNatRulesIds }).(pulumi.StringArrayOutput)
 }
@@ -23676,7 +23840,7 @@ type GetNetworkSecurityGroupSecurityRule struct {
 	DestinationAddressPrefix string `pulumi:"destinationAddressPrefix"`
 	// A list of CIDRs or destination IP ranges.
 	DestinationAddressPrefixes []string `pulumi:"destinationAddressPrefixes"`
-	// A List of destination Application Security Group ID's
+	// A List of destination Application Security Group IDs
 	DestinationApplicationSecurityGroupIds []string `pulumi:"destinationApplicationSecurityGroupIds"`
 	// The Destination Port or Range.
 	DestinationPortRange  string   `pulumi:"destinationPortRange"`
@@ -23693,7 +23857,7 @@ type GetNetworkSecurityGroupSecurityRule struct {
 	SourceAddressPrefix string `pulumi:"sourceAddressPrefix"`
 	// A list of CIDRs or source IP ranges.
 	SourceAddressPrefixes []string `pulumi:"sourceAddressPrefixes"`
-	// A List of source Application Security Group ID's
+	// A List of source Application Security Group IDs
 	SourceApplicationSecurityGroupIds []string `pulumi:"sourceApplicationSecurityGroupIds"`
 	// The Source Port or Range.
 	SourcePortRange  string   `pulumi:"sourcePortRange"`
@@ -23720,7 +23884,7 @@ type GetNetworkSecurityGroupSecurityRuleArgs struct {
 	DestinationAddressPrefix pulumi.StringInput `pulumi:"destinationAddressPrefix"`
 	// A list of CIDRs or destination IP ranges.
 	DestinationAddressPrefixes pulumi.StringArrayInput `pulumi:"destinationAddressPrefixes"`
-	// A List of destination Application Security Group ID's
+	// A List of destination Application Security Group IDs
 	DestinationApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"destinationApplicationSecurityGroupIds"`
 	// The Destination Port or Range.
 	DestinationPortRange  pulumi.StringInput      `pulumi:"destinationPortRange"`
@@ -23737,7 +23901,7 @@ type GetNetworkSecurityGroupSecurityRuleArgs struct {
 	SourceAddressPrefix pulumi.StringInput `pulumi:"sourceAddressPrefix"`
 	// A list of CIDRs or source IP ranges.
 	SourceAddressPrefixes pulumi.StringArrayInput `pulumi:"sourceAddressPrefixes"`
-	// A List of source Application Security Group ID's
+	// A List of source Application Security Group IDs
 	SourceApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"sourceApplicationSecurityGroupIds"`
 	// The Source Port or Range.
 	SourcePortRange  pulumi.StringInput      `pulumi:"sourcePortRange"`
@@ -23815,7 +23979,7 @@ func (o GetNetworkSecurityGroupSecurityRuleOutput) DestinationAddressPrefixes() 
 	return o.ApplyT(func(v GetNetworkSecurityGroupSecurityRule) []string { return v.DestinationAddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// A List of destination Application Security Group ID's
+// A List of destination Application Security Group IDs
 func (o GetNetworkSecurityGroupSecurityRuleOutput) DestinationApplicationSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkSecurityGroupSecurityRule) []string { return v.DestinationApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -23859,7 +24023,7 @@ func (o GetNetworkSecurityGroupSecurityRuleOutput) SourceAddressPrefixes() pulum
 	return o.ApplyT(func(v GetNetworkSecurityGroupSecurityRule) []string { return v.SourceAddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// A List of source Application Security Group ID's
+// A List of source Application Security Group IDs
 func (o GetNetworkSecurityGroupSecurityRuleOutput) SourceApplicationSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkSecurityGroupSecurityRule) []string { return v.SourceApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -26068,6 +26232,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayBgpSettingsPtrInput)(nil)).Elem(), VirtualNetworkGatewayBgpSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayBgpSettingsPeeringAddressInput)(nil)).Elem(), VirtualNetworkGatewayBgpSettingsPeeringAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayBgpSettingsPeeringAddressArrayInput)(nil)).Elem(), VirtualNetworkGatewayBgpSettingsPeeringAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayConnectionCustomBgpAddressesInput)(nil)).Elem(), VirtualNetworkGatewayConnectionCustomBgpAddressesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput)(nil)).Elem(), VirtualNetworkGatewayConnectionCustomBgpAddressesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayConnectionIpsecPolicyInput)(nil)).Elem(), VirtualNetworkGatewayConnectionIpsecPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayConnectionIpsecPolicyPtrInput)(nil)).Elem(), VirtualNetworkGatewayConnectionIpsecPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayConnectionTrafficSelectorPolicyInput)(nil)).Elem(), VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs{})
@@ -26406,6 +26572,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsPeeringAddressOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionCustomBgpAddressesOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionIpsecPolicyOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput{})

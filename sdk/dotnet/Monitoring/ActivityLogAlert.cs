@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Monitoring
     /// {
     ///     public MyStack()
     ///     {
-    ///         var mainResourceGroup = new Azure.Core.ResourceGroup("mainResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var mainActionGroup = new Azure.Monitoring.ActionGroup("mainActionGroup", new Azure.Monitoring.ActionGroupArgs
     ///         {
-    ///             ResourceGroupName = mainResourceGroup.Name,
+    ///             ResourceGroupName = example.Name,
     ///             ShortName = "p0action",
     ///             WebhookReceivers = 
     ///             {
@@ -41,17 +41,17 @@ namespace Pulumi.Azure.Monitoring
     ///         });
     ///         var toMonitor = new Azure.Storage.Account("toMonitor", new Azure.Storage.AccountArgs
     ///         {
-    ///             ResourceGroupName = mainResourceGroup.Name,
-    ///             Location = mainResourceGroup.Location,
+    ///             ResourceGroupName = example.Name,
+    ///             Location = example.Location,
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "GRS",
     ///         });
     ///         var mainActivityLogAlert = new Azure.Monitoring.ActivityLogAlert("mainActivityLogAlert", new Azure.Monitoring.ActivityLogAlertArgs
     ///         {
-    ///             ResourceGroupName = mainResourceGroup.Name,
+    ///             ResourceGroupName = example.Name,
     ///             Scopes = 
     ///             {
-    ///                 mainResourceGroup.Id,
+    ///                 example.Id,
     ///             },
     ///             Description = "This alert will monitor a specific storage account updates.",
     ///             Criteria = new Azure.Monitoring.Inputs.ActivityLogAlertCriteriaArgs

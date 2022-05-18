@@ -13,6 +13,22 @@ import (
 
 // Manages a Cassandra Cluster.
 //
+// > ** NOTE: ** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Example Usage
 //
 // ```go
@@ -23,6 +39,7 @@ import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+// 	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -54,10 +71,16 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+// 		exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+// 			DisplayName: pulumi.StringRef("Azure Cosmos DB"),
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 // 			Scope:              exampleVirtualNetwork.ID(),
 // 			RoleDefinitionName: pulumi.String("Network Contributor"),
-// 			PrincipalId:        pulumi.String("e5007d2c-4b13-4a74-9b6a-605d99f03501"),
+// 			PrincipalId:        pulumi.String(exampleServicePrincipal.ObjectId),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -67,7 +90,9 @@ import (
 // 			Location:                    exampleResourceGroup.Location,
 // 			DelegatedManagementSubnetId: exampleSubnet.ID(),
 // 			DefaultAdminPassword:        pulumi.String("Password1234"),
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleAssignment,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -96,6 +121,8 @@ type CassandraCluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCassandraCluster registers a new resource with the given unique name, arguments, and options.
@@ -146,6 +173,8 @@ type cassandraClusterState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type CassandraClusterState struct {
@@ -159,6 +188,8 @@ type CassandraClusterState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (CassandraClusterState) ElementType() reflect.Type {
@@ -176,6 +207,8 @@ type cassandraClusterArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CassandraCluster resource.
@@ -190,6 +223,8 @@ type CassandraClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName pulumi.StringInput
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (CassandraClusterArgs) ElementType() reflect.Type {
@@ -302,6 +337,11 @@ func (o CassandraClusterOutput) Name() pulumi.StringOutput {
 // The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 func (o CassandraClusterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraCluster) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o CassandraClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CassandraCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type CassandraClusterArrayOutput struct{ *pulumi.OutputState }

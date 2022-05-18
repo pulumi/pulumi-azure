@@ -356,18 +356,18 @@ class OutputMssql(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=azurerm_resource_group["example"]["name"])
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
         example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             version="12.0",
             administrator_login="dbadmin",
             administrator_login_password="example-password")
         example_database = azure.sql.Database("exampleDatabase",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             server_name=example_sql_server.name,
             requested_service_objective_name="S0",
             collation="SQL_LATIN1_GENERAL_CP1_CI_AS",
@@ -418,18 +418,18 @@ class OutputMssql(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=azurerm_resource_group["example"]["name"])
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
         example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             version="12.0",
             administrator_login="dbadmin",
             administrator_login_password="example-password")
         example_database = azure.sql.Database("exampleDatabase",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             server_name=example_sql_server.name,
             requested_service_objective_name="S0",
             collation="SQL_LATIN1_GENERAL_CP1_CI_AS",

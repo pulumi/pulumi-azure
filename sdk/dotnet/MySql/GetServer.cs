@@ -122,7 +122,7 @@ namespace Pulumi.Azure.MySql
     public sealed class GetServerResult
     {
         /// <summary>
-        /// The Administrator Login for the MySQL Server.
+        /// The Administrator login for the MySQL Server.
         /// </summary>
         public readonly string AdministratorLogin;
         /// <summary>

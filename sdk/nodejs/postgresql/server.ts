@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     administratorLogin: "psqladmin",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     skuName: "GP_Gen5_4",
- *     version: "9.6",
+ *     version: "11",
  *     storageMb: 640000,
  *     backupRetentionDays: 7,
  *     geoRedundantBackupEnabled: true,
@@ -69,7 +69,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
-     * The Administrator Login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
+     * The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
@@ -89,7 +89,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
-     * For creation modes other then default the source server ID to use.
+     * For creation modes other than `Default`, the source server ID to use.
      */
     public readonly creationSourceServerId!: pulumi.Output<string | undefined>;
     /**
@@ -239,7 +239,7 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerState {
     /**
-     * The Administrator Login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
+     * The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
      */
     administratorLogin?: pulumi.Input<string>;
     /**
@@ -259,7 +259,7 @@ export interface ServerState {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * For creation modes other then default the source server ID to use.
+     * For creation modes other than `Default`, the source server ID to use.
      */
     creationSourceServerId?: pulumi.Input<string>;
     /**
@@ -333,7 +333,7 @@ export interface ServerState {
  */
 export interface ServerArgs {
     /**
-     * The Administrator Login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
+     * The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
      */
     administratorLogin?: pulumi.Input<string>;
     /**
@@ -353,7 +353,7 @@ export interface ServerArgs {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * For creation modes other then default the source server ID to use.
+     * For creation modes other than `Default`, the source server ID to use.
      */
     creationSourceServerId?: pulumi.Input<string>;
     /**

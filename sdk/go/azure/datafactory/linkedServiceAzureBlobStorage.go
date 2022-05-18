@@ -71,7 +71,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
@@ -82,15 +82,15 @@ import (
 // 			return err
 // 		}
 // 		testFactory, err := datafactory.NewFactory(ctx, "testFactory", &datafactory.FactoryArgs{
-// 			Location:          testResourceGroup.Location,
-// 			ResourceGroupName: testResourceGroup.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		testKeyVault, err := keyvault.NewKeyVault(ctx, "testKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          testResourceGroup.Location,
-// 			ResourceGroupName: testResourceGroup.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 			TenantId:          pulumi.String(current.TenantId),
 // 			SkuName:           pulumi.String("standard"),
 // 		})
@@ -106,7 +106,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "testLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
 // 			DataFactoryId: testFactory.ID(),
-// 			SasUri:        pulumi.String("https://storageaccountname.blob.core.windows.net"),
+// 			SasUri:        pulumi.String("https://example.blob.core.windows.net"),
 // 			KeyVaultSasToken: &datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{
 // 				LinkedServiceName: testLinkedServiceKeyVault.Name,
 // 				SecretName:        pulumi.String("secret"),
@@ -117,7 +117,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
 // 			DataFactoryId:      testFactory.ID(),
-// 			ServiceEndpoint:    pulumi.String("https://storageaccountname.blob.core.windows.net"),
+// 			ServiceEndpoint:    pulumi.String("https://example.blob.core.windows.net"),
 // 			ServicePrincipalId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			TenantId:           pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			ServicePrincipalLinkedKeyVaultKey: &datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs{

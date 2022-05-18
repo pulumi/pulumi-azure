@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * const secondary = new azure.sql.SqlServer("secondary", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     location: "northeurope",
+ *     location: exampleResourceGroup.location,
  *     version: "12.0",
  *     administratorLogin: "sqladmin",
  *     administratorLoginPassword: `pa$$w0rd`,

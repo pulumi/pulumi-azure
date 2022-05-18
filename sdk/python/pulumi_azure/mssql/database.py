@@ -67,6 +67,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         """
         pulumi.set(__self__, "server_id", server_id)
@@ -412,6 +413,9 @@ class DatabaseArgs:
     @property
     @pulumi.getter(name="transparentDataEncryptionEnabled")
     def transparent_data_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+        """
         return pulumi.get(self, "transparent_data_encryption_enabled")
 
     @transparent_data_encryption_enabled.setter
@@ -486,6 +490,7 @@ class _DatabaseState:
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         """
         if auto_pause_delay_in_minutes is not None:
@@ -832,6 +837,9 @@ class _DatabaseState:
     @property
     @pulumi.getter(name="transparentDataEncryptionEnabled")
     def transparent_data_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+        """
         return pulumi.get(self, "transparent_data_encryption_enabled")
 
     @transparent_data_encryption_enabled.setter
@@ -922,6 +930,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         """
         ...
@@ -1091,6 +1100,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`.  The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1183,7 +1193,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> pulumi.Output[str]:
+    def license_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         """
@@ -1320,6 +1330,9 @@ class Database(pulumi.CustomResource):
     @property
     @pulumi.getter(name="transparentDataEncryptionEnabled")
     def transparent_data_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
+        """
         return pulumi.get(self, "transparent_data_encryption_enabled")
 
     @property

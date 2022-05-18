@@ -148,6 +148,8 @@ __all__ = [
     'WindowsVirtualMachineSourceImageReference',
     'WindowsVirtualMachineTerminationNotification',
     'WindowsVirtualMachineWinrmListener',
+    'GetConfidentialLedgerAzureadBasedServicePrincipalResult',
+    'GetConfidentialLedgerCertificateBasedSecurityPrincipalResult',
     'GetImageDataDiskResult',
     'GetImageOsDiskResult',
     'GetImagesImageResult',
@@ -711,7 +713,7 @@ class LinuxVirtualMachineOsDisk(dict):
         """
         :param str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param 'LinuxVirtualMachineOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above.
+        :param 'LinuxVirtualMachineOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
         :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
         :param str name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
@@ -750,7 +752,7 @@ class LinuxVirtualMachineOsDisk(dict):
     @pulumi.getter(name="diffDiskSettings")
     def diff_disk_settings(self) -> Optional['outputs.LinuxVirtualMachineOsDiskDiffDiskSettings']:
         """
-        A `diff_disk_settings` block as defined above.
+        A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "diff_disk_settings")
 
@@ -790,11 +792,15 @@ class LinuxVirtualMachineOsDisk(dict):
 @pulumi.output_type
 class LinuxVirtualMachineOsDiskDiffDiskSettings(dict):
     def __init__(__self__, *,
-                 option: str):
+                 option: str,
+                 placement: Optional[str] = None):
         """
         :param str option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+        :param str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "option", option)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
 
     @property
     @pulumi.getter
@@ -803,6 +809,14 @@ class LinuxVirtualMachineOsDiskDiffDiskSettings(dict):
         Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "option")
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional[str]:
+        """
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "placement")
 
 
 @pulumi.output_type
@@ -2313,7 +2327,7 @@ class LinuxVirtualMachineTerminationNotification(dict):
                  timeout: Optional[str] = None):
         """
         :param bool enabled: Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
-        :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        :param str timeout: Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -2331,7 +2345,7 @@ class LinuxVirtualMachineTerminationNotification(dict):
     @pulumi.getter
     def timeout(self) -> Optional[str]:
         """
-        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
         """
         return pulumi.get(self, "timeout")
 
@@ -6356,7 +6370,7 @@ class VirtualMachineStorageOsDisk(dict):
         :param str name: Specifies the name of the OS Disk.
         :param str caching: Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
         :param int disk_size_gb: Specifies the size of the OS Disk in gigabytes.
-        :param str image_uri: Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+        :param str image_uri: Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
         :param str managed_disk_id: Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
         :param str managed_disk_type: Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
         :param str os_type: Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
@@ -6418,7 +6432,7 @@ class VirtualMachineStorageOsDisk(dict):
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> Optional[str]:
         """
-        Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+        Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
         """
         return pulumi.get(self, "image_uri")
 
@@ -6677,7 +6691,7 @@ class WindowsVirtualMachineOsDisk(dict):
         """
         :param str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param 'WindowsVirtualMachineOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above.
+        :param 'WindowsVirtualMachineOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
         :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
         :param str name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
@@ -6716,7 +6730,7 @@ class WindowsVirtualMachineOsDisk(dict):
     @pulumi.getter(name="diffDiskSettings")
     def diff_disk_settings(self) -> Optional['outputs.WindowsVirtualMachineOsDiskDiffDiskSettings']:
         """
-        A `diff_disk_settings` block as defined above.
+        A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "diff_disk_settings")
 
@@ -6756,11 +6770,15 @@ class WindowsVirtualMachineOsDisk(dict):
 @pulumi.output_type
 class WindowsVirtualMachineOsDiskDiffDiskSettings(dict):
     def __init__(__self__, *,
-                 option: str):
+                 option: str,
+                 placement: Optional[str] = None):
         """
         :param str option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+        :param str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "option", option)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
 
     @property
     @pulumi.getter
@@ -6769,6 +6787,14 @@ class WindowsVirtualMachineOsDiskDiffDiskSettings(dict):
         Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "option")
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional[str]:
+        """
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "placement")
 
 
 @pulumi.output_type
@@ -8331,7 +8357,7 @@ class WindowsVirtualMachineTerminationNotification(dict):
                  timeout: Optional[str] = None):
         """
         :param bool enabled: Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
-        :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        :param str timeout: Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -8349,7 +8375,7 @@ class WindowsVirtualMachineTerminationNotification(dict):
     @pulumi.getter
     def timeout(self) -> Optional[str]:
         """
-        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
         """
         return pulumi.get(self, "timeout")
 
@@ -8395,6 +8421,75 @@ class WindowsVirtualMachineWinrmListener(dict):
         The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
         """
         return pulumi.get(self, "certificate_url")
+
+
+@pulumi.output_type
+class GetConfidentialLedgerAzureadBasedServicePrincipalResult(dict):
+    def __init__(__self__, *,
+                 ledger_role_name: str,
+                 principal_id: str,
+                 tenant_id: str):
+        """
+        :param str ledger_role_name: The Ledger Role to grant this Certificate Security Principal.
+        :param str principal_id: The Principal ID of the AzureAD Service Principal.
+        :param str tenant_id: The Tenant ID for this AzureAD Service Principal.
+        """
+        pulumi.set(__self__, "ledger_role_name", ledger_role_name)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="ledgerRoleName")
+    def ledger_role_name(self) -> str:
+        """
+        The Ledger Role to grant this Certificate Security Principal.
+        """
+        return pulumi.get(self, "ledger_role_name")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID of the AzureAD Service Principal.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID for this AzureAD Service Principal.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class GetConfidentialLedgerCertificateBasedSecurityPrincipalResult(dict):
+    def __init__(__self__, *,
+                 ledger_role_name: str,
+                 pem_public_key: str):
+        """
+        :param str ledger_role_name: The Ledger Role to grant this Certificate Security Principal.
+        :param str pem_public_key: The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
+        """
+        pulumi.set(__self__, "ledger_role_name", ledger_role_name)
+        pulumi.set(__self__, "pem_public_key", pem_public_key)
+
+    @property
+    @pulumi.getter(name="ledgerRoleName")
+    def ledger_role_name(self) -> str:
+        """
+        The Ledger Role to grant this Certificate Security Principal.
+        """
+        return pulumi.get(self, "ledger_role_name")
+
+    @property
+    @pulumi.getter(name="pemPublicKey")
+    def pem_public_key(self) -> str:
+        """
+        The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
+        """
+        return pulumi.get(self, "pem_public_key")
 
 
 @pulumi.output_type
@@ -9005,7 +9100,7 @@ class GetVirtualMachineIdentityResult(dict):
                  tenant_id: str,
                  type: str):
         """
-        :param Sequence[str] identity_ids: The list of User Managed Identity ID's which are assigned to the Virtual Machine.
+        :param Sequence[str] identity_ids: The list of User Managed Identity IDs which are assigned to the Virtual Machine.
         :param str principal_id: The ID of the System Managed Service Principal assigned to the Virtual Machine.
         :param str tenant_id: The ID of the Tenant of the System Managed Service Principal assigned to the Virtual Machine.
         :param str type: The identity type of the Managed Identity assigned to the Virtual Machine.
@@ -9019,7 +9114,7 @@ class GetVirtualMachineIdentityResult(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
         """
-        The list of User Managed Identity ID's which are assigned to the Virtual Machine.
+        The list of User Managed Identity IDs which are assigned to the Virtual Machine.
         """
         return pulumi.get(self, "identity_ids")
 

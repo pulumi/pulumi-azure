@@ -84,7 +84,7 @@ type Namespace struct {
 	// The name of the resource group in which to
 	// create the namespace.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+	// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -159,7 +159,7 @@ type namespaceState struct {
 	// The name of the resource group in which to
 	// create the namespace.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+	// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -194,7 +194,7 @@ type NamespaceState struct {
 	// The name of the resource group in which to
 	// create the namespace.
 	ResourceGroupName pulumi.StringPtrInput
-	// Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+	// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -223,7 +223,7 @@ type namespaceArgs struct {
 	// The name of the resource group in which to
 	// create the namespace.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+	// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -249,7 +249,7 @@ type NamespaceArgs struct {
 	// The name of the resource group in which to
 	// create the namespace.
 	ResourceGroupName pulumi.StringInput
-	// Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+	// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -403,7 +403,7 @@ func (o NamespaceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
 func (o NamespaceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }

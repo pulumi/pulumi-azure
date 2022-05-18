@@ -143,7 +143,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
 // 			Name: "example-resources",
 // 		}, nil)
 // 		if err != nil {
@@ -151,7 +151,7 @@ import (
 // 		}
 // 		vnet, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
 // 			Name:              "example-network",
-// 			ResourceGroupName: rg.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -159,14 +159,14 @@ import (
 // 		subnet, err := network.LookupSubnet(ctx, &network.LookupSubnetArgs{
 // 			Name:               "default",
 // 			VirtualNetworkName: vnet.Name,
-// 			ResourceGroupName:  rg.Name,
+// 			ResourceGroupName:  exampleResourceGroup.Name,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
-// 			Location:          pulumi.String(rg.Location),
-// 			ResourceGroupName: pulumi.String(rg.Name),
+// 		_, err = privatelink.NewEndpoint(ctx, "exampleEndpoint", &privatelink.EndpointArgs{
+// 			Location:          pulumi.String(exampleResourceGroup.Location),
+// 			ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
 // 			SubnetId:          pulumi.String(subnet.Id),
 // 			PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 // 				Name:                           pulumi.String("example-privateserviceconnection"),

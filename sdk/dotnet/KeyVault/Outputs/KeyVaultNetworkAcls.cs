@@ -26,7 +26,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IpRules;
         /// <summary>
-        /// One or more Subnet ID's which should be able to access this Key Vault.
+        /// One or more Subnet IDs which should be able to access this Key Vault.
         /// </summary>
         public readonly ImmutableArray<string> VirtualNetworkSubnetIds;
 

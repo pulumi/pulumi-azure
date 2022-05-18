@@ -37,8 +37,8 @@ namespace Pulumi.Azure.Kusto
     ///         });
     ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
     ///         {
-    ///             Location = azurerm_resource_group.Rg.Location,
-    ///             ResourceGroupName = azurerm_resource_group.Rg.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///             {
     ///                 Name = "Standard_D13_v2",

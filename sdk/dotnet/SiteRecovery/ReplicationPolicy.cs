@@ -22,19 +22,19 @@ namespace Pulumi.Azure.SiteRecovery
     /// {
     ///     public MyStack()
     ///     {
-    ///         var secondary = new Azure.Core.ResourceGroup("secondary", new Azure.Core.ResourceGroupArgs
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "East US",
     ///         });
     ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
     ///         {
-    ///             Location = secondary.Location,
-    ///             ResourceGroupName = secondary.Name,
+    ///             Location = example.Location,
+    ///             ResourceGroupName = example.Name,
     ///             Sku = "Standard",
     ///         });
     ///         var policy = new Azure.SiteRecovery.ReplicationPolicy("policy", new Azure.SiteRecovery.ReplicationPolicyArgs
     ///         {
-    ///             ResourceGroupName = secondary.Name,
+    ///             ResourceGroupName = example.Name,
     ///             RecoveryVaultName = vault.Name,
     ///             RecoveryPointRetentionInMinutes = 24 * 60,
     ///             ApplicationConsistentSnapshotFrequencyInMinutes = 4 * 60,

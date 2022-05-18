@@ -243,11 +243,11 @@ class AAAARecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
-        test_zone = azure.privatedns.Zone("testZone", resource_group_name=test_resource_group.name)
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        test_zone = azure.privatedns.Zone("testZone", resource_group_name=example.name)
         test_aaaa_record = azure.privatedns.AAAARecord("testAAAARecord",
             zone_name=test_zone.name,
-            resource_group_name=test_resource_group.name,
+            resource_group_name=example.name,
             ttl=300,
             records=[
                 "fd5d:70bc:930e:d008:0000:0000:0000:7334",
@@ -286,11 +286,11 @@ class AAAARecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
-        test_zone = azure.privatedns.Zone("testZone", resource_group_name=test_resource_group.name)
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        test_zone = azure.privatedns.Zone("testZone", resource_group_name=example.name)
         test_aaaa_record = azure.privatedns.AAAARecord("testAAAARecord",
             zone_name=test_zone.name,
-            resource_group_name=test_resource_group.name,
+            resource_group_name=example.name,
             ttl=300,
             records=[
                 "fd5d:70bc:930e:d008:0000:0000:0000:7334",

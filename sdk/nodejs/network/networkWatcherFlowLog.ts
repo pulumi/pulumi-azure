@@ -14,31 +14,31 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("testNetworkSecurityGroup", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const testNetworkWatcher = new azure.network.NetworkWatcher("testNetworkWatcher", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const testAccount = new azure.storage.Account("testAccount", {
- *     resourceGroupName: testResourceGroup.name,
- *     location: testResourceGroup.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountKind: "StorageV2",
  *     accountReplicationType: "LRS",
  *     enableHttpsTrafficOnly: true,
  * });
  * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("testAnalyticsWorkspace", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
  * const testNetworkWatcherFlowLog = new azure.network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog", {
  *     networkWatcherName: testNetworkWatcher.name,
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     networkSecurityGroupId: testNetworkSecurityGroup.id,
  *     storageAccountId: testAccount.id,
  *     enabled: true,

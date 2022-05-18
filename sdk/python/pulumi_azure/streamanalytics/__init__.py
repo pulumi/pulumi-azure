@@ -17,6 +17,7 @@ from .output_cosmosdb import *
 from .output_event_hub import *
 from .output_function import *
 from .output_mssql import *
+from .output_powerbi import *
 from .output_service_bus_queue import *
 from .output_servicebus_topic import *
 from .output_synapse import *

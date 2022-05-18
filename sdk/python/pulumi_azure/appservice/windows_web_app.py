@@ -831,7 +831,7 @@ class WindowsWebApp(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
             resource_group_name=example_resource_group.name,
-            location="West Europe",
+            location=example_resource_group.location,
             sku_name="P1v2")
         example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
             resource_group_name=example_resource_group.name,
@@ -889,7 +889,7 @@ class WindowsWebApp(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
             resource_group_name=example_resource_group.name,
-            location="West Europe",
+            location=example_resource_group.location,
             sku_name="P1v2")
         example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
             resource_group_name=example_resource_group.name,

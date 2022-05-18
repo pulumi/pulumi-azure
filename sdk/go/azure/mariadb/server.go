@@ -64,7 +64,7 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
-	// The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+	// The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the MariaDB Server.
 	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
@@ -143,7 +143,7 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
-	// The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+	// The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the MariaDB Server.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
@@ -182,7 +182,7 @@ type serverState struct {
 }
 
 type ServerState struct {
-	// The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+	// The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the MariaDB Server.
 	AdministratorLoginPassword pulumi.StringPtrInput
@@ -225,7 +225,7 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+	// The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the MariaDB Server.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
@@ -263,7 +263,7 @@ type serverArgs struct {
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+	// The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the MariaDB Server.
 	AdministratorLoginPassword pulumi.StringPtrInput
@@ -386,7 +386,7 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
-// The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+// The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
 func (o ServerOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.AdministratorLogin }).(pulumi.StringOutput)
 }

@@ -22,19 +22,19 @@ namespace Pulumi.Azure.StreamAnalytics
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Name = "example-resources",
-    ///         }));
-    ///         var exampleJob = Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new Azure.StreamAnalytics.GetJobInvokeArgs
     ///         {
     ///             Name = "example-job",
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///         }));
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
     ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
     ///         {
-    ///             Location = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Location),
-    ///             ResourceGroupName = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Name),
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = "Standard",
     ///         });
     ///         var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new Azure.ServiceBus.QueueArgs
@@ -78,6 +78,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A list of property columns to add to the Service Bus Queue output.
+        /// </summary>
+        [Output("propertyColumns")]
+        public Output<ImmutableArray<string>> PropertyColumns { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Service Bus Queue.
         /// </summary>
         [Output("queueName")]
@@ -118,6 +124,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Output("streamAnalyticsJobName")]
         public Output<string> StreamAnalyticsJobName { get; private set; } = null!;
+
+        /// <summary>
+        /// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+        /// </summary>
+        [Output("systemPropertyColumns")]
+        public Output<ImmutableDictionary<string, string>?> SystemPropertyColumns { get; private set; } = null!;
 
 
         /// <summary>
@@ -171,6 +183,18 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("propertyColumns")]
+        private InputList<string>? _propertyColumns;
+
+        /// <summary>
+        /// A list of property columns to add to the Service Bus Queue output.
+        /// </summary>
+        public InputList<string> PropertyColumns
+        {
+            get => _propertyColumns ?? (_propertyColumns = new InputList<string>());
+            set => _propertyColumns = value;
+        }
+
         /// <summary>
         /// The name of the Service Bus Queue.
         /// </summary>
@@ -213,6 +237,18 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("streamAnalyticsJobName", required: true)]
         public Input<string> StreamAnalyticsJobName { get; set; } = null!;
 
+        [Input("systemPropertyColumns")]
+        private InputMap<string>? _systemPropertyColumns;
+
+        /// <summary>
+        /// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+        /// </summary>
+        public InputMap<string> SystemPropertyColumns
+        {
+            get => _systemPropertyColumns ?? (_systemPropertyColumns = new InputMap<string>());
+            set => _systemPropertyColumns = value;
+        }
+
         public OutputServiceBusQueueArgs()
         {
         }
@@ -225,6 +261,18 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("propertyColumns")]
+        private InputList<string>? _propertyColumns;
+
+        /// <summary>
+        /// A list of property columns to add to the Service Bus Queue output.
+        /// </summary>
+        public InputList<string> PropertyColumns
+        {
+            get => _propertyColumns ?? (_propertyColumns = new InputList<string>());
+            set => _propertyColumns = value;
+        }
 
         /// <summary>
         /// The name of the Service Bus Queue.
@@ -267,6 +315,18 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("streamAnalyticsJobName")]
         public Input<string>? StreamAnalyticsJobName { get; set; }
+
+        [Input("systemPropertyColumns")]
+        private InputMap<string>? _systemPropertyColumns;
+
+        /// <summary>
+        /// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+        /// </summary>
+        public InputMap<string> SystemPropertyColumns
+        {
+            get => _systemPropertyColumns ?? (_systemPropertyColumns = new InputMap<string>());
+            set => _systemPropertyColumns = value;
+        }
 
         public OutputServiceBusQueueState()
         {

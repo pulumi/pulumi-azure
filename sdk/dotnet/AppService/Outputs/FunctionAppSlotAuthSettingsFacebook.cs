@@ -18,11 +18,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string AppId;
         /// <summary>
-        /// The App Secret of the Facebook app used for Facebook Login.
+        /// The App Secret of the Facebook app used for Facebook login.
         /// </summary>
         public readonly string AppSecret;
         /// <summary>
-        /// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        /// The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
         /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
 

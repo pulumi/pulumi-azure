@@ -122,7 +122,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class GetFlexibleServerResult
     {
         /// <summary>
-        /// The Administrator Login for the PostgreSQL Flexible Server.
+        /// The Administrator login for the PostgreSQL Flexible Server.
         /// </summary>
         public readonly string AdministratorLogin;
         /// <summary>
