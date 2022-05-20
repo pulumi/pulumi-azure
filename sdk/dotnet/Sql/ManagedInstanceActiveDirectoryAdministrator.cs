@@ -20,10 +20,14 @@ namespace Pulumi.Azure.Sql
     /// {
     ///     public MyStack()
     ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
     ///         var exampleManagedInstance = new Azure.Sql.ManagedInstance("exampleManagedInstance", new Azure.Sql.ManagedInstanceArgs
     ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///             Location = azurerm_resource_group.Example.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             AdministratorLogin = "mradministrator",
     ///             AdministratorLoginPassword = "thisIsDog11",
     ///             LicenseType = "BasePrice",
@@ -43,7 +47,7 @@ namespace Pulumi.Azure.Sql
     ///         var exampleManagedInstanceActiveDirectoryAdministrator = new Azure.Sql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", new Azure.Sql.ManagedInstanceActiveDirectoryAdministratorArgs
     ///         {
     ///             ManagedInstanceName = exampleManagedInstance.Name,
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Login = "sqladmin",
     ///             TenantId = current.Apply(current =&gt; current.TenantId),
     ///             ObjectId = current.Apply(current =&gt; current.ObjectId),

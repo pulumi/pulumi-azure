@@ -41,7 +41,7 @@ import (
 // 			return err
 // 		}
 // 		secondary, err := eventhub.NewEventHubNamespace(ctx, "secondary", &eventhub.EventHubNamespaceArgs{
-// 			Location:          pulumi.String("West US"),
+// 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
 // 		})

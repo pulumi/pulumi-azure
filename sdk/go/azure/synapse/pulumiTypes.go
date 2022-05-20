@@ -772,7 +772,7 @@ func (o SparkPoolSparkConfigPtrOutput) Filename() pulumi.StringPtrOutput {
 }
 
 type SqlPoolRestore struct {
-	// Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
+	// Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
 	PointInTime string `pulumi:"pointInTime"`
 	// The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
 	SourceDatabaseId string `pulumi:"sourceDatabaseId"`
@@ -790,7 +790,7 @@ type SqlPoolRestoreInput interface {
 }
 
 type SqlPoolRestoreArgs struct {
-	// Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
+	// Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
 	PointInTime pulumi.StringInput `pulumi:"pointInTime"`
 	// The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
 	SourceDatabaseId pulumi.StringInput `pulumi:"sourceDatabaseId"`
@@ -873,7 +873,7 @@ func (o SqlPoolRestoreOutput) ToSqlPoolRestorePtrOutputWithContext(ctx context.C
 	}).(SqlPoolRestorePtrOutput)
 }
 
-// Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
+// Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
 func (o SqlPoolRestoreOutput) PointInTime() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlPoolRestore) string { return v.PointInTime }).(pulumi.StringOutput)
 }
@@ -907,7 +907,7 @@ func (o SqlPoolRestorePtrOutput) Elem() SqlPoolRestoreOutput {
 	}).(SqlPoolRestoreOutput)
 }
 
-// Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
+// Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
 func (o SqlPoolRestorePtrOutput) PointInTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlPoolRestore) *string {
 		if v == nil {
@@ -1027,7 +1027,7 @@ func (o SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput) Index(i pulum
 type SqlPoolVulnerabilityAssessmentRecurringScans struct {
 	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
 	EmailSubscriptionAdminsEnabled *bool `pulumi:"emailSubscriptionAdminsEnabled"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	// Specifies an array of email addresses to which the scan notification is sent.
 	Emails []string `pulumi:"emails"`
 	// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
@@ -1047,7 +1047,7 @@ type SqlPoolVulnerabilityAssessmentRecurringScansInput interface {
 type SqlPoolVulnerabilityAssessmentRecurringScansArgs struct {
 	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
 	EmailSubscriptionAdminsEnabled pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdminsEnabled"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	// Specifies an array of email addresses to which the scan notification is sent.
 	Emails pulumi.StringArrayInput `pulumi:"emails"`
 	// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -1135,7 +1135,7 @@ func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) EmailSubscriptionAdm
 	return o.ApplyT(func(v SqlPoolVulnerabilityAssessmentRecurringScans) *bool { return v.EmailSubscriptionAdminsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
+// Specifies an array of email addresses to which the scan notification is sent.
 func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SqlPoolVulnerabilityAssessmentRecurringScans) []string { return v.Emails }).(pulumi.StringArrayOutput)
 }
@@ -1179,7 +1179,7 @@ func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) EmailSubscription
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
+// Specifies an array of email addresses to which the scan notification is sent.
 func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SqlPoolVulnerabilityAssessmentRecurringScans) []string {
 		if v == nil {
@@ -2366,7 +2366,7 @@ func (o WorkspaceSqlAadAdminTypePtrOutput) TenantId() pulumi.StringPtrOutput {
 type WorkspaceVulnerabilityAssessmentRecurringScans struct {
 	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
 	EmailSubscriptionAdminsEnabled *bool `pulumi:"emailSubscriptionAdminsEnabled"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	// Specifies an array of email addresses to which the scan notification is sent.
 	Emails []string `pulumi:"emails"`
 	// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
@@ -2386,7 +2386,7 @@ type WorkspaceVulnerabilityAssessmentRecurringScansInput interface {
 type WorkspaceVulnerabilityAssessmentRecurringScansArgs struct {
 	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
 	EmailSubscriptionAdminsEnabled pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdminsEnabled"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	// Specifies an array of email addresses to which the scan notification is sent.
 	Emails pulumi.StringArrayInput `pulumi:"emails"`
 	// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -2474,7 +2474,7 @@ func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) EmailSubscriptionA
 	return o.ApplyT(func(v WorkspaceVulnerabilityAssessmentRecurringScans) *bool { return v.EmailSubscriptionAdminsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
+// Specifies an array of email addresses to which the scan notification is sent.
 func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkspaceVulnerabilityAssessmentRecurringScans) []string { return v.Emails }).(pulumi.StringArrayOutput)
 }
@@ -2518,7 +2518,7 @@ func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) EmailSubscripti
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
+// Specifies an array of email addresses to which the scan notification is sent.
 func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkspaceVulnerabilityAssessmentRecurringScans) []string {
 		if v == nil {

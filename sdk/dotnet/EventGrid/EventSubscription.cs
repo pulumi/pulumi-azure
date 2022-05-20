@@ -22,14 +22,14 @@ namespace Pulumi.Azure.EventGrid
     /// {
     ///     public MyStack()
     ///     {
-    ///         var defaultResourceGroup = new Azure.Core.ResourceGroup("defaultResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var defaultAccount = new Azure.Storage.Account("defaultAccount", new Azure.Storage.AccountArgs
     ///         {
-    ///             ResourceGroupName = defaultResourceGroup.Name,
-    ///             Location = defaultResourceGroup.Location,
+    ///             ResourceGroupName = example.Name,
+    ///             Location = example.Location,
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "LRS",
     ///             Tags = 
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.EventGrid
     ///         });
     ///         var defaultEventSubscription = new Azure.EventGrid.EventSubscription("defaultEventSubscription", new Azure.EventGrid.EventSubscriptionArgs
     ///         {
-    ///             Scope = defaultResourceGroup.Id,
+    ///             Scope = example.Id,
     ///             StorageQueueEndpoint = new Azure.EventGrid.Inputs.EventSubscriptionStorageQueueEndpointArgs
     ///             {
     ///                 StorageAccountId = defaultAccount.Id,

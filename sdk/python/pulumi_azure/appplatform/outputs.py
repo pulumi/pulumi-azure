@@ -13,7 +13,15 @@ __all__ = [
     'SpringCloudAppCustomPersistentDisk',
     'SpringCloudAppIdentity',
     'SpringCloudAppPersistentDisk',
+    'SpringCloudBuildPackBindingLaunch',
+    'SpringCloudBuilderBuildPackGroup',
+    'SpringCloudBuilderStack',
+    'SpringCloudConfigurationServiceRepository',
     'SpringCloudContainerDeploymentQuota',
+    'SpringCloudGatewayApiMetadata',
+    'SpringCloudGatewayCors',
+    'SpringCloudGatewayQuota',
+    'SpringCloudGatewaySso',
     'SpringCloudJavaDeploymentQuota',
     'SpringCloudServiceConfigServerGitSetting',
     'SpringCloudServiceConfigServerGitSettingHttpBasicAuth',
@@ -235,6 +243,273 @@ class SpringCloudAppPersistentDisk(dict):
 
 
 @pulumi.output_type
+class SpringCloudBuildPackBindingLaunch(dict):
+    def __init__(__self__, *,
+                 properties: Optional[Mapping[str, str]] = None,
+                 secrets: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] properties: Specifies a map of non-sensitive properties for launchProperties.
+        :param Mapping[str, str] secrets: Specifies a map of sensitive properties for launchProperties.
+        """
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of non-sensitive properties for launchProperties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of sensitive properties for launchProperties.
+        """
+        return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class SpringCloudBuilderBuildPackGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "buildPackIds":
+            suggest = "build_pack_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudBuilderBuildPackGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudBuilderBuildPackGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudBuilderBuildPackGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 build_pack_ids: Optional[Sequence[str]] = None):
+        """
+        :param str name: The name which should be used for this build pack group.
+        :param Sequence[str] build_pack_ids: Specifies a list of the build pack's ID.
+        """
+        pulumi.set(__self__, "name", name)
+        if build_pack_ids is not None:
+            pulumi.set(__self__, "build_pack_ids", build_pack_ids)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this build pack group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="buildPackIds")
+    def build_pack_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of the build pack's ID.
+        """
+        return pulumi.get(self, "build_pack_ids")
+
+
+@pulumi.output_type
+class SpringCloudBuilderStack(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 version: str):
+        """
+        :param str id: Specifies the ID of the ClusterStack.
+        :param str version: Specifies the version of the ClusterStack
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Specifies the ID of the ClusterStack.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Specifies the version of the ClusterStack
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class SpringCloudConfigurationServiceRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostKey":
+            suggest = "host_key"
+        elif key == "hostKeyAlgorithm":
+            suggest = "host_key_algorithm"
+        elif key == "privateKey":
+            suggest = "private_key"
+        elif key == "searchPaths":
+            suggest = "search_paths"
+        elif key == "strictHostKeyChecking":
+            suggest = "strict_host_key_checking"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudConfigurationServiceRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudConfigurationServiceRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudConfigurationServiceRepository.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 label: str,
+                 name: str,
+                 patterns: Sequence[str],
+                 uri: str,
+                 host_key: Optional[str] = None,
+                 host_key_algorithm: Optional[str] = None,
+                 password: Optional[str] = None,
+                 private_key: Optional[str] = None,
+                 search_paths: Optional[Sequence[str]] = None,
+                 strict_host_key_checking: Optional[bool] = None,
+                 username: Optional[str] = None):
+        """
+        :param str label: Specifies the label of the repository.
+        :param str name: Specifies the name which should be used for this repository.
+        :param Sequence[str] patterns: Specifies the collection of patterns of the repository.
+        :param str uri: Specifies the URI of the repository.
+        :param str host_key: Specifies the SSH public key of git repository.
+        :param str host_key_algorithm: Specifies the SSH key algorithm of git repository.
+        :param str password: Specifies the password of git repository basic auth.
+        :param str private_key: Specifies the SSH private key of git repository.
+        :param Sequence[str] search_paths: Specifies a list of searching path of the repository
+        :param bool strict_host_key_checking: Specifies whether enable the strict host key checking.
+        :param str username: Specifies the username of git repository basic auth.
+        """
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "patterns", patterns)
+        pulumi.set(__self__, "uri", uri)
+        if host_key is not None:
+            pulumi.set(__self__, "host_key", host_key)
+        if host_key_algorithm is not None:
+            pulumi.set(__self__, "host_key_algorithm", host_key_algorithm)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if search_paths is not None:
+            pulumi.set(__self__, "search_paths", search_paths)
+        if strict_host_key_checking is not None:
+            pulumi.set(__self__, "strict_host_key_checking", strict_host_key_checking)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        Specifies the label of the repository.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name which should be used for this repository.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def patterns(self) -> Sequence[str]:
+        """
+        Specifies the collection of patterns of the repository.
+        """
+        return pulumi.get(self, "patterns")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        Specifies the URI of the repository.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="hostKey")
+    def host_key(self) -> Optional[str]:
+        """
+        Specifies the SSH public key of git repository.
+        """
+        return pulumi.get(self, "host_key")
+
+    @property
+    @pulumi.getter(name="hostKeyAlgorithm")
+    def host_key_algorithm(self) -> Optional[str]:
+        """
+        Specifies the SSH key algorithm of git repository.
+        """
+        return pulumi.get(self, "host_key_algorithm")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Specifies the password of git repository basic auth.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[str]:
+        """
+        Specifies the SSH private key of git repository.
+        """
+        return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="searchPaths")
+    def search_paths(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of searching path of the repository
+        """
+        return pulumi.get(self, "search_paths")
+
+    @property
+    @pulumi.getter(name="strictHostKeyChecking")
+    def strict_host_key_checking(self) -> Optional[bool]:
+        """
+        Specifies whether enable the strict host key checking.
+        """
+        return pulumi.get(self, "strict_host_key_checking")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Specifies the username of git repository basic auth.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
 class SpringCloudContainerDeploymentQuota(dict):
     def __init__(__self__, *,
                  cpu: Optional[str] = None,
@@ -263,6 +538,305 @@ class SpringCloudContainerDeploymentQuota(dict):
         Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
         """
         return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class SpringCloudGatewayApiMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentationUrl":
+            suggest = "documentation_url"
+        elif key == "serverUrl":
+            suggest = "server_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudGatewayApiMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudGatewayApiMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudGatewayApiMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 documentation_url: Optional[str] = None,
+                 server_url: Optional[str] = None,
+                 title: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        :param str description: Detailed description of the APIs available on the Gateway instance.
+        :param str documentation_url: Location of additional documentation for the APIs available on the Gateway instance.
+        :param str server_url: Base URL that API consumers will use to access APIs on the Gateway instance.
+        :param str title: Specifies the title describing the context of the APIs available on the Gateway instance.
+        :param str version: Specifies the version of APIs available on this Gateway instance.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if documentation_url is not None:
+            pulumi.set(__self__, "documentation_url", documentation_url)
+        if server_url is not None:
+            pulumi.set(__self__, "server_url", server_url)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Detailed description of the APIs available on the Gateway instance.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="documentationUrl")
+    def documentation_url(self) -> Optional[str]:
+        """
+        Location of additional documentation for the APIs available on the Gateway instance.
+        """
+        return pulumi.get(self, "documentation_url")
+
+    @property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> Optional[str]:
+        """
+        Base URL that API consumers will use to access APIs on the Gateway instance.
+        """
+        return pulumi.get(self, "server_url")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        Specifies the title describing the context of the APIs available on the Gateway instance.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Specifies the version of APIs available on this Gateway instance.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class SpringCloudGatewayCors(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "credentialsAllowed":
+            suggest = "credentials_allowed"
+        elif key == "exposedHeaders":
+            suggest = "exposed_headers"
+        elif key == "maxAgeSeconds":
+            suggest = "max_age_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudGatewayCors. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudGatewayCors.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudGatewayCors.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_headers: Optional[Sequence[str]] = None,
+                 allowed_methods: Optional[Sequence[str]] = None,
+                 allowed_origins: Optional[Sequence[str]] = None,
+                 credentials_allowed: Optional[bool] = None,
+                 exposed_headers: Optional[Sequence[str]] = None,
+                 max_age_seconds: Optional[int] = None):
+        """
+        :param Sequence[str] allowed_headers: Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
+        :param Sequence[str] allowed_methods: Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+        :param Sequence[str] allowed_origins: Allowed origins to make cross-site requests. The special value `*` allows all domains.
+        :param bool credentials_allowed: is user credentials are supported on cross-site requests?
+        :param Sequence[str] exposed_headers: HTTP response headers to expose for cross-site requests.
+        :param int max_age_seconds: How long, in seconds, the response from a pre-flight request can be cached by clients.
+        """
+        if allowed_headers is not None:
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if credentials_allowed is not None:
+            pulumi.set(__self__, "credentials_allowed", credentials_allowed)
+        if exposed_headers is not None:
+            pulumi.set(__self__, "exposed_headers", exposed_headers)
+        if max_age_seconds is not None:
+            pulumi.set(__self__, "max_age_seconds", max_age_seconds)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Optional[Sequence[str]]:
+        """
+        Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[Sequence[str]]:
+        """
+        Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Optional[Sequence[str]]:
+        """
+        Allowed origins to make cross-site requests. The special value `*` allows all domains.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="credentialsAllowed")
+    def credentials_allowed(self) -> Optional[bool]:
+        """
+        is user credentials are supported on cross-site requests?
+        """
+        return pulumi.get(self, "credentials_allowed")
+
+    @property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> Optional[Sequence[str]]:
+        """
+        HTTP response headers to expose for cross-site requests.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @property
+    @pulumi.getter(name="maxAgeSeconds")
+    def max_age_seconds(self) -> Optional[int]:
+        """
+        How long, in seconds, the response from a pre-flight request can be cached by clients.
+        """
+        return pulumi.get(self, "max_age_seconds")
+
+
+@pulumi.output_type
+class SpringCloudGatewayQuota(dict):
+    def __init__(__self__, *,
+                 cpu: Optional[str] = None,
+                 memory: Optional[str] = None):
+        """
+        :param str cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+        :param str memory: Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[str]:
+        """
+        Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[str]:
+        """
+        Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+        """
+        return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class SpringCloudGatewaySso(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "issuerUri":
+            suggest = "issuer_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudGatewaySso. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudGatewaySso.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudGatewaySso.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 issuer_uri: Optional[str] = None,
+                 scopes: Optional[Sequence[str]] = None):
+        """
+        :param str client_id: The public identifier for the application.
+        :param str client_secret: The secret known only to the application and the authorization server.
+        :param str issuer_uri: The URI of Issuer Identifier.
+        :param Sequence[str] scopes: It defines the specific actions applications can be allowed to do on a user's behalf.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if issuer_uri is not None:
+            pulumi.set(__self__, "issuer_uri", issuer_uri)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The public identifier for the application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        """
+        The secret known only to the application and the authorization server.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="issuerUri")
+    def issuer_uri(self) -> Optional[str]:
+        """
+        The URI of Issuer Identifier.
+        """
+        return pulumi.get(self, "issuer_uri")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence[str]]:
+        """
+        It defines the specific actions applications can be allowed to do on a user's behalf.
+        """
+        return pulumi.get(self, "scopes")
 
 
 @pulumi.output_type
@@ -1333,6 +1907,7 @@ class GetSpringCloudServiceRequiredNetworkTrafficRuleResult(dict):
         """
         :param str direction: The direction of required traffic. Possible values are `Inbound`, `Outbound`.
         :param Sequence[str] fqdns: The FQDN list of required traffic.
+        :param Sequence[str] ip_addresses: The IP list of required traffic.
         :param int port: The port of required traffic.
         :param str protocol: The protocol of required traffic.
         """
@@ -1361,6 +1936,9 @@ class GetSpringCloudServiceRequiredNetworkTrafficRuleResult(dict):
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Sequence[str]:
+        """
+        The IP list of required traffic.
+        """
         return pulumi.get(self, "ip_addresses")
 
     @property

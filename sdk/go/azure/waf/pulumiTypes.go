@@ -773,7 +773,7 @@ func (o PolicyManagedRulesManagedRuleSetArrayOutput) Index(i pulumi.IntInput) Po
 }
 
 type PolicyManagedRulesManagedRuleSetRuleGroupOverride struct {
-	// One or more Rule ID's
+	// One or more Rule IDs
 	DisabledRules []string `pulumi:"disabledRules"`
 	// The name of the Rule Group
 	RuleGroupName string `pulumi:"ruleGroupName"`
@@ -791,7 +791,7 @@ type PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput interface {
 }
 
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs struct {
-	// One or more Rule ID's
+	// One or more Rule IDs
 	DisabledRules pulumi.StringArrayInput `pulumi:"disabledRules"`
 	// The name of the Rule Group
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
@@ -848,7 +848,7 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) ToPolicyManaged
 	return o
 }
 
-// One or more Rule ID's
+// One or more Rule IDs
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) DisabledRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) []string { return v.DisabledRules }).(pulumi.StringArrayOutput)
 }

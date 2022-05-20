@@ -22,22 +22,22 @@ namespace Pulumi.Azure.ContainerService
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var acr = new Azure.ContainerService.Registry("acr", new Azure.ContainerService.RegistryArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
-    ///             Location = rg.Location,
+    ///             ResourceGroupName = example.Name,
+    ///             Location = example.Location,
     ///             Sku = "Standard",
     ///             AdminEnabled = false,
     ///         });
     ///         var webhook = new Azure.ContainerService.RegistryWebhook("webhook", new Azure.ContainerService.RegistryWebhookArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
+    ///             ResourceGroupName = example.Name,
     ///             RegistryName = acr.Name,
-    ///             Location = rg.Location,
+    ///             Location = example.Location,
     ///             ServiceUri = "https://mywebhookreceiver.example/mytag",
     ///             Status = "enabled",
     ///             Scope = "mytag:*",

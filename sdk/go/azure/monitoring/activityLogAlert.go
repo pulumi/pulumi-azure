@@ -27,14 +27,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		mainResourceGroup, err := core.NewResourceGroup(ctx, "mainResourceGroup", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		mainActionGroup, err := monitoring.NewActionGroup(ctx, "mainActionGroup", &monitoring.ActionGroupArgs{
-// 			ResourceGroupName: mainResourceGroup.Name,
+// 			ResourceGroupName: example.Name,
 // 			ShortName:         pulumi.String("p0action"),
 // 			WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
 // 				&monitoring.ActionGroupWebhookReceiverArgs{
@@ -47,8 +47,8 @@ import (
 // 			return err
 // 		}
 // 		toMonitor, err := storage.NewAccount(ctx, "toMonitor", &storage.AccountArgs{
-// 			ResourceGroupName:      mainResourceGroup.Name,
-// 			Location:               mainResourceGroup.Location,
+// 			ResourceGroupName:      example.Name,
+// 			Location:               example.Location,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("GRS"),
 // 		})
@@ -56,9 +56,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = monitoring.NewActivityLogAlert(ctx, "mainActivityLogAlert", &monitoring.ActivityLogAlertArgs{
-// 			ResourceGroupName: mainResourceGroup.Name,
+// 			ResourceGroupName: example.Name,
 // 			Scopes: pulumi.StringArray{
-// 				mainResourceGroup.ID(),
+// 				example.ID(),
 // 			},
 // 			Description: pulumi.String("This alert will monitor a specific storage account updates."),
 // 			Criteria: &monitoring.ActivityLogAlertCriteriaArgs{

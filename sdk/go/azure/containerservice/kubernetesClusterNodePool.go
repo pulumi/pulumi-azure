@@ -105,7 +105,7 @@ type KubernetesClusterNodePool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `minCount` - `maxCount`.
 	NodeCount pulumi.IntOutput `pulumi:"nodeCount"`
-	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrOutput `pulumi:"nodePublicIpPrefixId"`
@@ -212,7 +212,7 @@ type kubernetesClusterNodePoolState struct {
 	Name *string `pulumi:"name"`
 	// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `minCount` - `maxCount`.
 	NodeCount *int `pulumi:"nodeCount"`
-	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
@@ -285,7 +285,7 @@ type KubernetesClusterNodePoolState struct {
 	Name pulumi.StringPtrInput
 	// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `minCount` - `maxCount`.
 	NodeCount pulumi.IntPtrInput
-	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapInput
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrInput
@@ -362,7 +362,7 @@ type kubernetesClusterNodePoolArgs struct {
 	Name *string `pulumi:"name"`
 	// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `minCount` - `maxCount`.
 	NodeCount *int `pulumi:"nodeCount"`
-	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
@@ -436,7 +436,7 @@ type KubernetesClusterNodePoolArgs struct {
 	Name pulumi.StringPtrInput
 	// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `minCount` - `maxCount`.
 	NodeCount pulumi.IntPtrInput
-	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapInput
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrInput
@@ -644,7 +644,7 @@ func (o KubernetesClusterNodePoolOutput) NodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.IntOutput { return v.NodeCount }).(pulumi.IntOutput)
 }
 
-// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 func (o KubernetesClusterNodePoolOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringMapOutput { return v.NodeLabels }).(pulumi.StringMapOutput)
 }

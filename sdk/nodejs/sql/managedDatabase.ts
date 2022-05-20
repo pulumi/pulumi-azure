@@ -11,9 +11,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.sql.ManagedDatabase("example", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleManagedDatabase = new azure.sql.ManagedDatabase("exampleManagedDatabase", {
  *     sqlManagedInstanceId: azurerm_sql_managed_instance.example.id,
- *     location: azurerm_resource_group.example.location,
+ *     location: exampleResourceGroup.location,
  * });
  * ```
  *

@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleRegistryScopeMap = new azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap", {
  *     containerRegistryName: azurerm_container_registry.acr.name,
- *     resourceGroupName: azurerm_resource_group.rg.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     actions: [
  *         "repositories/repo1/content/read",
  *         "repositories/repo1/content/write",
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleRegistryToken = new azure.containerservice.RegistryToken("exampleRegistryToken", {
  *     containerRegistryName: azurerm_container_registry.acr.name,
- *     resourceGroupName: azurerm_resource_group.rg.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     scopeMapId: azurerm_container_registry_scope_map.map.id,
  * });
  * ```

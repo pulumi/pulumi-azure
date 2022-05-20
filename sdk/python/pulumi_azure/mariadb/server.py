@@ -36,7 +36,7 @@ class ServerArgs:
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
         :param pulumi.Input[bool] ssl_enforcement_enabled: Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         :param pulumi.Input[str] version: Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] administrator_login: The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login: The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the MariaDB Server.
         :param pulumi.Input[bool] auto_grow_enabled: Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
         :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
@@ -133,7 +133,7 @@ class ServerArgs:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> Optional[pulumi.Input[str]]:
         """
-        The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+        The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_login")
 
@@ -309,7 +309,7 @@ class _ServerState:
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Server resources.
-        :param pulumi.Input[str] administrator_login: The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login: The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the MariaDB Server.
         :param pulumi.Input[bool] auto_grow_enabled: Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
         :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
@@ -369,7 +369,7 @@ class _ServerState:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> Optional[pulumi.Input[str]]:
         """
-        The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+        The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_login")
 
@@ -640,7 +640,7 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login: The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login: The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the MariaDB Server.
         :param pulumi.Input[bool] auto_grow_enabled: Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
         :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
@@ -802,7 +802,7 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login: The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login: The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the MariaDB Server.
         :param pulumi.Input[bool] auto_grow_enabled: Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
         :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
@@ -849,7 +849,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> pulumi.Output[str]:
         """
-        The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+        The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_login")
 

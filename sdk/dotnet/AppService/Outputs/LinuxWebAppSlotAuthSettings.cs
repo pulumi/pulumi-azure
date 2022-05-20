@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.LinuxWebAppSlotAuthSettingsActiveDirectory? ActiveDirectory;
         /// <summary>
-        /// Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        /// Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? AdditionalLoginParameters;
         /// <summary>

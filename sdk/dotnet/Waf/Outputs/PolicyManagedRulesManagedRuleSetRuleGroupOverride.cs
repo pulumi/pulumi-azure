@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyManagedRulesManagedRuleSetRuleGroupOverride
     {
         /// <summary>
-        /// One or more Rule ID's
+        /// One or more Rule IDs
         /// </summary>
         public readonly ImmutableArray<string> DisabledRules;
         /// <summary>

@@ -27,22 +27,19 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
-// 			Name: "example-resources",
-// 		}, nil)
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
-// 			Name:              "example-job",
-// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+// 			Name:              pulumi.String("example-job"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
 // 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-// 			Location:          pulumi.String(exampleResourceGroup.Location),
-// 			ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
 // 		})
 // 		if err != nil {
@@ -56,8 +53,12 @@ import (
 // 			return err
 // 		}
 // 		_, err = streamanalytics.NewOutputServicebusTopic(ctx, "exampleOutputServicebusTopic", &streamanalytics.OutputServicebusTopicArgs{
-// 			StreamAnalyticsJobName: pulumi.String(exampleJob.Name),
-// 			ResourceGroupName:      pulumi.String(exampleJob.ResourceGroupName),
+// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.Name, nil
+// 			}).(pulumi.StringOutput),
+// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.ResourceGroupName, nil
+// 			}).(pulumi.StringOutput),
 // 			TopicName:              exampleTopic.Name,
 // 			ServicebusNamespace:    exampleNamespace.Name,
 // 			SharedAccessPolicyKey:  exampleNamespace.DefaultPrimaryKey,

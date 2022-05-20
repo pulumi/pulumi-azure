@@ -14,23 +14,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West Europe"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const toMonitor = new azure.storage.Account("toMonitor", {
- *     resourceGroupName: mainResourceGroup.name,
- *     location: mainResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const mainActionGroup = new azure.monitoring.ActionGroup("mainActionGroup", {
- *     resourceGroupName: mainResourceGroup.name,
+ * const main = new azure.monitoring.ActionGroup("main", {
+ *     resourceGroupName: exampleResourceGroup.name,
  *     shortName: "exampleact",
  *     webhookReceivers: [{
  *         name: "callmyapi",
  *         serviceUri: "http://example.com/alert",
  *     }],
  * });
- * const example = new azure.monitoring.MetricAlert("example", {
- *     resourceGroupName: mainResourceGroup.name,
+ * const exampleMetricAlert = new azure.monitoring.MetricAlert("exampleMetricAlert", {
+ *     resourceGroupName: exampleResourceGroup.name,
  *     scopes: [toMonitor.id],
  *     description: "Action will be triggered when Transactions count is greater than 50.",
  *     criterias: [{
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  *     actions: [{
- *         actionGroupId: mainActionGroup.id,
+ *         actionGroupId: main.id,
  *     }],
  * });
  * ```

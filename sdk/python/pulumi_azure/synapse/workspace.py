@@ -40,7 +40,7 @@ class WorkspaceArgs:
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
@@ -126,7 +126,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="sqlAdministratorLogin")
     def sql_administrator_login(self) -> pulumi.Input[str]:
         """
-        Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+        Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sql_administrator_login")
 
@@ -395,7 +395,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceSqlAadAdminArgs'] sql_aad_admin: An `sql_aad_admin` block as defined below.
-        :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
@@ -654,7 +654,7 @@ class _WorkspaceState:
     @pulumi.getter(name="sqlAdministratorLogin")
     def sql_administrator_login(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+        Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sql_administrator_login")
 
@@ -880,7 +880,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']] sql_aad_admin: An `sql_aad_admin` block as defined below.
-        :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
@@ -1152,7 +1152,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']] sql_aad_admin: An `sql_aad_admin` block as defined below.
-        :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
@@ -1326,7 +1326,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="sqlAdministratorLogin")
     def sql_administrator_login(self) -> pulumi.Output[str]:
         """
-        Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+        Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sql_administrator_login")
 

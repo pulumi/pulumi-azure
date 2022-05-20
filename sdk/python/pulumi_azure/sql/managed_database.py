@@ -137,9 +137,10 @@ class ManagedDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.sql.ManagedDatabase("example",
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_managed_database = azure.sql.ManagedDatabase("exampleManagedDatabase",
             sql_managed_instance_id=azurerm_sql_managed_instance["example"]["id"],
-            location=azurerm_resource_group["example"]["location"])
+            location=example_resource_group.location)
         ```
 
         ## Import
@@ -169,9 +170,10 @@ class ManagedDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.sql.ManagedDatabase("example",
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_managed_database = azure.sql.ManagedDatabase("exampleManagedDatabase",
             sql_managed_instance_id=azurerm_sql_managed_instance["example"]["id"],
-            location=azurerm_resource_group["example"]["location"])
+            location=example_resource_group.location)
         ```
 
         ## Import

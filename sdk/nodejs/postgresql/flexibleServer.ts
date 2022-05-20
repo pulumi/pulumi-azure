@@ -92,7 +92,7 @@ export class FlexibleServer extends pulumi.CustomResource {
     }
 
     /**
-     * The Administrator Login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
@@ -248,7 +248,7 @@ export class FlexibleServer extends pulumi.CustomResource {
  */
 export interface FlexibleServerState {
     /**
-     * The Administrator Login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     administratorLogin?: pulumi.Input<string>;
     /**
@@ -339,7 +339,7 @@ export interface FlexibleServerState {
  */
 export interface FlexibleServerArgs {
     /**
-     * The Administrator Login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     administratorLogin?: pulumi.Input<string>;
     /**

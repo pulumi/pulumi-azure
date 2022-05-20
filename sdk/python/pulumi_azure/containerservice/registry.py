@@ -716,10 +716,10 @@ class Registry(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         acr = azure.containerservice.Registry("acr",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example.name,
+            location=example.location,
             sku="Premium",
             admin_enabled=False,
             georeplications=[
@@ -741,15 +741,15 @@ class Registry(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            location=azurerm_resource_group["example"]["location"])
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_key = azure.keyvault.get_key(name="super-secret",
             key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
         acr = azure.containerservice.Registry("acr",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             sku="Premium",
             identity=azure.containerservice.RegistryIdentityArgs(
                 type="UserAssigned",
@@ -838,10 +838,10 @@ class Registry(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         acr = azure.containerservice.Registry("acr",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example.name,
+            location=example.location,
             sku="Premium",
             admin_enabled=False,
             georeplications=[
@@ -863,15 +863,15 @@ class Registry(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            location=azurerm_resource_group["example"]["location"])
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_key = azure.keyvault.get_key(name="super-secret",
             key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
         acr = azure.containerservice.Registry("acr",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             sku="Premium",
             identity=azure.containerservice.RegistryIdentityArgs(
                 type="UserAssigned",

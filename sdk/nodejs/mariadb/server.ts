@@ -67,7 +67,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
-     * The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+     * The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
@@ -213,7 +213,7 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerState {
     /**
-     * The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+     * The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
      */
     administratorLogin?: pulumi.Input<string>;
     /**
@@ -291,7 +291,7 @@ export interface ServerState {
  */
 export interface ServerArgs {
     /**
-     * The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+     * The Administrator login for the MariaDB Server. Changing this forces a new resource to be created.
      */
     administratorLogin?: pulumi.Input<string>;
     /**

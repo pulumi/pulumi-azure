@@ -22,7 +22,7 @@ class GroupPolicyAssignmentIdentityArgs:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Managed Identity IDs which should be assigned to the Policy Definition.
         :param pulumi.Input[str] principal_id: The Principal ID of the Policy Assignment for this Management Group.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Policy Assignment for this Management Group.
         """
@@ -50,7 +50,7 @@ class GroupPolicyAssignmentIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+        A list of User Managed Identity IDs which should be assigned to the Policy Definition.
         """
         return pulumi.get(self, "identity_ids")
 

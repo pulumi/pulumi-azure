@@ -30,13 +30,13 @@ namespace Pulumi.Azure.Lb
     ///         });
     ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             AllocationMethod = "Static",
     ///         });
     ///         var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new Azure.Lb.LoadBalancerArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             FrontendIpConfigurations = 
     ///             {

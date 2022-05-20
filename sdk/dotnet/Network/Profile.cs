@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.ProfileContainerNetworkInterface> ContainerNetworkInterface { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Container Network Interface ID's.
+        /// A list of Container Network Interface IDs.
         /// </summary>
         [Output("containerNetworkInterfaceIds")]
         public Output<ImmutableArray<string>> ContainerNetworkInterfaceIds { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _containerNetworkInterfaceIds;
 
         /// <summary>
-        /// A list of Container Network Interface ID's.
+        /// A list of Container Network Interface IDs.
         /// </summary>
         public InputList<string> ContainerNetworkInterfaceIds
         {

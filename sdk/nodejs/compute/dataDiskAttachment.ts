@@ -20,20 +20,20 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const prefix = config.get("prefix") || "example";
  * const vmName = `${prefix}-vm`;
- * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West Europe"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const mainVirtualNetwork = new azure.network.VirtualNetwork("mainVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: mainResourceGroup.location,
- *     resourceGroupName: mainResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: mainResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: mainVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const mainNetworkInterface = new azure.network.NetworkInterface("mainNetworkInterface", {
- *     location: mainResourceGroup.location,
- *     resourceGroupName: mainResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: internal.id,
@@ -41,8 +41,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleVirtualMachine = new azure.compute.VirtualMachine("exampleVirtualMachine", {
- *     location: mainResourceGroup.location,
- *     resourceGroupName: mainResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     networkInterfaceIds: [mainNetworkInterface.id],
  *     vmSize: "Standard_F2",
  *     storageImageReference: {
@@ -67,8 +67,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
- *     location: mainResourceGroup.location,
- *     resourceGroupName: mainResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
  *     diskSizeGb: 10,

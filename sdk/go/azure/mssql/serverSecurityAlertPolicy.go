@@ -89,7 +89,7 @@ type ServerSecurityAlertPolicy struct {
 	DisabledAlerts pulumi.StringArrayOutput `pulumi:"disabledAlerts"`
 	// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
 	EmailAccountAdmins pulumi.BoolPtrOutput `pulumi:"emailAccountAdmins"`
-	// Specifies an array of e-mail addresses to which the alert is sent.
+	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayOutput `pulumi:"emailAddresses"`
 	// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -101,7 +101,7 @@ type ServerSecurityAlertPolicy struct {
 	State pulumi.StringOutput `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
 }
 
@@ -147,7 +147,7 @@ type serverSecurityAlertPolicyState struct {
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
 	// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
 	EmailAccountAdmins *bool `pulumi:"emailAccountAdmins"`
-	// Specifies an array of e-mail addresses to which the alert is sent.
+	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -159,7 +159,7 @@ type serverSecurityAlertPolicyState struct {
 	State *string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
@@ -168,7 +168,7 @@ type ServerSecurityAlertPolicyState struct {
 	DisabledAlerts pulumi.StringArrayInput
 	// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
 	EmailAccountAdmins pulumi.BoolPtrInput
-	// Specifies an array of e-mail addresses to which the alert is sent.
+	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayInput
 	// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -180,7 +180,7 @@ type ServerSecurityAlertPolicyState struct {
 	State pulumi.StringPtrInput
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
 	StorageAccountAccessKey pulumi.StringPtrInput
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrInput
 }
 
@@ -193,7 +193,7 @@ type serverSecurityAlertPolicyArgs struct {
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
 	// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
 	EmailAccountAdmins *bool `pulumi:"emailAccountAdmins"`
-	// Specifies an array of e-mail addresses to which the alert is sent.
+	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -205,7 +205,7 @@ type serverSecurityAlertPolicyArgs struct {
 	State string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
@@ -215,7 +215,7 @@ type ServerSecurityAlertPolicyArgs struct {
 	DisabledAlerts pulumi.StringArrayInput
 	// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
 	EmailAccountAdmins pulumi.BoolPtrInput
-	// Specifies an array of e-mail addresses to which the alert is sent.
+	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayInput
 	// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -227,7 +227,7 @@ type ServerSecurityAlertPolicyArgs struct {
 	State pulumi.StringInput
 	// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
 	StorageAccountAccessKey pulumi.StringPtrInput
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrInput
 }
 
@@ -328,7 +328,7 @@ func (o ServerSecurityAlertPolicyOutput) EmailAccountAdmins() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v *ServerSecurityAlertPolicy) pulumi.BoolPtrOutput { return v.EmailAccountAdmins }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the alert is sent.
+// Specifies an array of email addresses to which the alert is sent.
 func (o ServerSecurityAlertPolicyOutput) EmailAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerSecurityAlertPolicy) pulumi.StringArrayOutput { return v.EmailAddresses }).(pulumi.StringArrayOutput)
 }
@@ -358,7 +358,7 @@ func (o ServerSecurityAlertPolicyOutput) StorageAccountAccessKey() pulumi.String
 	return o.ApplyT(func(v *ServerSecurityAlertPolicy) pulumi.StringPtrOutput { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 func (o ServerSecurityAlertPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerSecurityAlertPolicy) pulumi.StringPtrOutput { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }

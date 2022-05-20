@@ -51,7 +51,7 @@ export interface GetFlexibleServerArgs {
  */
 export interface GetFlexibleServerResult {
     /**
-     * The Administrator Login for the PostgreSQL Flexible Server.
+     * The Administrator login for the PostgreSQL Flexible Server.
      */
     readonly administratorLogin: string;
     /**

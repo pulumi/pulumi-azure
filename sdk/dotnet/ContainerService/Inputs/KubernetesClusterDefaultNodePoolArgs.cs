@@ -88,7 +88,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputMap<string>? _nodeLabels;
 
         /// <summary>
-        /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+        /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         /// </summary>
         public InputMap<string> NodeLabels
         {
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<Inputs.KubernetesClusterDefaultNodePoolUpgradeSettingsArgs>? UpgradeSettings { get; set; }
 
         /// <summary>
-        /// The size of the Virtual Machine, such as `Standard_DS2_v2`.
+        /// The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;

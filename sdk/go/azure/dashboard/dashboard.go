@@ -40,15 +40,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = core.NewResourceGroup(ctx, "my-group", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = portal.NewDashboard(ctx, "my-board", &portal.DashboardArgs{
-// 			ResourceGroupName: my_group.Name,
-// 			Location:          my_group.Location,
+// 			ResourceGroupName: example.Name,
+// 			Location:          example.Location,
 // 			Tags: pulumi.StringMap{
 // 				"source": pulumi.String("managed"),
 // 			},

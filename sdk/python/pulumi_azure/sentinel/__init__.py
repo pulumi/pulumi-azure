@@ -12,6 +12,7 @@ from .alert_rule_scheduled import *
 from .authomation_rule import *
 from .automation_rule import *
 from .data_connector_aws_cloud_trail import *
+from .data_connector_aws_s3 import *
 from .data_connector_azure_active_directory import *
 from .data_connector_azure_advanced_thread_protection import *
 from .data_connector_azure_security_center import *

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class GetVirtualMachineIdentityResult
     {
         /// <summary>
-        /// The list of User Managed Identity ID's which are assigned to the Virtual Machine.
+        /// The list of User Managed Identity IDs which are assigned to the Virtual Machine.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

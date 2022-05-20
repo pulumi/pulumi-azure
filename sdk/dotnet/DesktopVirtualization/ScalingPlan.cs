@@ -75,7 +75,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///             Name = random_uuid.Example.Result,
     ///             Scope = exampleResourceGroup.Id,
     ///             RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
-    ///             PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.ApplicationId),
+    ///             PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.Id),
     ///             SkipServicePrincipalAadCheck = true,
     ///         });
     ///         var exampleHostPool = new Azure.DesktopVirtualization.HostPool("exampleHostPool", new Azure.DesktopVirtualization.HostPoolArgs

@@ -70,6 +70,8 @@ type LookupSnapshotResult struct {
 	// The ID of an storage account.
 	StorageAccountId string `pulumi:"storageAccountId"`
 	TimeCreated      string `pulumi:"timeCreated"`
+	// Whether Trusted Launch is enabled for the Snapshot.
+	TrustedLaunchEnabled bool `pulumi:"trustedLaunchEnabled"`
 }
 
 func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotResultOutput {
@@ -159,6 +161,11 @@ func (o LookupSnapshotResultOutput) StorageAccountId() pulumi.StringOutput {
 
 func (o LookupSnapshotResultOutput) TimeCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// Whether Trusted Launch is enabled for the Snapshot.
+func (o LookupSnapshotResultOutput) TrustedLaunchEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) bool { return v.TrustedLaunchEnabled }).(pulumi.BoolOutput)
 }
 
 func init() {

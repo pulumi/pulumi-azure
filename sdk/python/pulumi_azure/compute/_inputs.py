@@ -611,7 +611,7 @@ class LinuxVirtualMachineOsDiskArgs:
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above.
+        :param pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
         :param pulumi.Input[str] name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
@@ -658,7 +658,7 @@ class LinuxVirtualMachineOsDiskArgs:
     @pulumi.getter(name="diffDiskSettings")
     def diff_disk_settings(self) -> Optional[pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs']]:
         """
-        A `diff_disk_settings` block as defined above.
+        A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "diff_disk_settings")
 
@@ -718,11 +718,15 @@ class LinuxVirtualMachineOsDiskArgs:
 @pulumi.input_type
 class LinuxVirtualMachineOsDiskDiffDiskSettingsArgs:
     def __init__(__self__, *,
-                 option: pulumi.Input[str]):
+                 option: pulumi.Input[str],
+                 placement: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "option", option)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
 
     @property
     @pulumi.getter
@@ -735,6 +739,18 @@ class LinuxVirtualMachineOsDiskDiffDiskSettingsArgs:
     @option.setter
     def option(self, value: pulumi.Input[str]):
         pulumi.set(self, "option", value)
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "placement")
+
+    @placement.setter
+    def placement(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement", value)
 
 
 @pulumi.input_type
@@ -2280,7 +2296,7 @@ class LinuxVirtualMachineTerminationNotificationArgs:
                  timeout: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
-        :param pulumi.Input[str] timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        :param pulumi.Input[str] timeout: Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -2302,7 +2318,7 @@ class LinuxVirtualMachineTerminationNotificationArgs:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[str]]:
         """
-        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
         """
         return pulumi.get(self, "timeout")
 
@@ -6185,7 +6201,7 @@ class VirtualMachineStorageOsDiskArgs:
         :param pulumi.Input[str] name: Specifies the name of the OS Disk.
         :param pulumi.Input[str] caching: Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the OS Disk in gigabytes.
-        :param pulumi.Input[str] image_uri: Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+        :param pulumi.Input[str] image_uri: Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
         :param pulumi.Input[str] managed_disk_id: Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
         :param pulumi.Input[str] managed_disk_type: Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
         :param pulumi.Input[str] os_type: Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
@@ -6263,7 +6279,7 @@ class VirtualMachineStorageOsDiskArgs:
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+        Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
         """
         return pulumi.get(self, "image_uri")
 
@@ -6498,7 +6514,7 @@ class WindowsVirtualMachineOsDiskArgs:
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above.
+        :param pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
         :param pulumi.Input[str] name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
@@ -6545,7 +6561,7 @@ class WindowsVirtualMachineOsDiskArgs:
     @pulumi.getter(name="diffDiskSettings")
     def diff_disk_settings(self) -> Optional[pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs']]:
         """
-        A `diff_disk_settings` block as defined above.
+        A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "diff_disk_settings")
 
@@ -6605,11 +6621,15 @@ class WindowsVirtualMachineOsDiskArgs:
 @pulumi.input_type
 class WindowsVirtualMachineOsDiskDiffDiskSettingsArgs:
     def __init__(__self__, *,
-                 option: pulumi.Input[str]):
+                 option: pulumi.Input[str],
+                 placement: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "option", option)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
 
     @property
     @pulumi.getter
@@ -6622,6 +6642,18 @@ class WindowsVirtualMachineOsDiskDiffDiskSettingsArgs:
     @option.setter
     def option(self, value: pulumi.Input[str]):
         pulumi.set(self, "option", value)
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "placement")
+
+    @placement.setter
+    def placement(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement", value)
 
 
 @pulumi.input_type
@@ -8235,7 +8267,7 @@ class WindowsVirtualMachineTerminationNotificationArgs:
                  timeout: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
-        :param pulumi.Input[str] timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        :param pulumi.Input[str] timeout: Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -8257,7 +8289,7 @@ class WindowsVirtualMachineTerminationNotificationArgs:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[str]]:
         """
-        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
         """
         return pulumi.get(self, "timeout")
 

@@ -77,7 +77,7 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A list of Virtual Network ID's associated with the DDoS Protection Plan.
+     * A list of Virtual Network IDs associated with the DDoS Protection Plan.
      */
     public /*out*/ readonly virtualNetworkIds!: pulumi.Output<string[]>;
 
@@ -136,7 +136,7 @@ export interface DdosProtectionPlanState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of Virtual Network ID's associated with the DDoS Protection Plan.
+     * A list of Virtual Network IDs associated with the DDoS Protection Plan.
      */
     virtualNetworkIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

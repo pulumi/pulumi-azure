@@ -24,14 +24,14 @@ namespace Pulumi.Azure.Portal
     ///         var mdContent = config.Get("mdContent") ?? "# Hello all :)";
     ///         var videoLink = config.Get("videoLink") ?? "https://www.youtube.com/watch?v=......";
     ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var my_group = new Azure.Core.ResourceGroup("my-group", new Azure.Core.ResourceGroupArgs
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var my_board = new Azure.Portal.Dashboard("my-board", new Azure.Portal.DashboardArgs
     ///         {
-    ///             ResourceGroupName = my_group.Name,
-    ///             Location = my_group.Location,
+    ///             ResourceGroupName = example.Name,
+    ///             Location = example.Location,
     ///             Tags = 
     ///             {
     ///                 { "source", "managed" },

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class GetNetworkInterfaceIpConfigurationResult
     {
         /// <summary>
-        /// A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
+        /// A list of Backend Address Pool IDs within a Application Gateway that this Network Interface is connected to.
         /// </summary>
         public readonly ImmutableArray<string> ApplicationGatewayBackendAddressPoolsIds;
         public readonly ImmutableArray<string> ApplicationSecurityGroupIds;
@@ -23,11 +23,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string GatewayLoadBalancerFrontendIpConfigurationId;
         /// <summary>
-        /// A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
+        /// A list of Backend Address Pool IDs within a Load Balancer that this Network Interface is connected to.
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerBackendAddressPoolsIds;
         /// <summary>
-        /// A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
+        /// A list of Inbound NAT Rule IDs within a Load Balancer that this Network Interface is connected to.
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerInboundNatRulesIds;
         /// <summary>

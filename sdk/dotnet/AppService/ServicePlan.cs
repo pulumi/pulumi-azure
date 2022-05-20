@@ -29,7 +29,7 @@ namespace Pulumi.Azure.AppService
     ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = "West Europe",
+    ///             Location = exampleResourceGroup.Location,
     ///             OsType = "Linux",
     ///             SkuName = "P1v2",
     ///         });

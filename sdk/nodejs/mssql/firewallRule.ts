@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleServer = new azure.mssql.Server("exampleServer", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     location: "West US",
+ *     location: exampleResourceGroup.location,
  *     version: "12.0",
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",

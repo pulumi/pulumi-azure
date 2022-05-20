@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Backup
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
     ///         {
-    ///             Location = rg.Location,
-    ///             ResourceGroupName = rg.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = "Standard",
     ///         });
     ///         var sa = new Azure.Storage.Account("sa", new Azure.Storage.AccountArgs
     ///         {
-    ///             Location = rg.Location,
-    ///             ResourceGroupName = rg.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "LRS",
     ///         });
@@ -45,13 +45,13 @@ namespace Pulumi.Azure.Backup
     ///         });
     ///         var protection_container = new Azure.Backup.ContainerStorageAccount("protection-container", new Azure.Backup.ContainerStorageAccountArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             RecoveryVaultName = vault.Name,
     ///             StorageAccountId = sa.Id,
     ///         });
     ///         var examplePolicyFileShare = new Azure.Backup.PolicyFileShare("examplePolicyFileShare", new Azure.Backup.PolicyFileShareArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             RecoveryVaultName = vault.Name,
     ///             Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
     ///             {
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Backup
     ///         });
     ///         var share1 = new Azure.Backup.ProtectedFileShare("share1", new Azure.Backup.ProtectedFileShareArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             RecoveryVaultName = vault.Name,
     ///             SourceStorageAccountId = protection_container.StorageAccountId,
     ///             SourceFileShareName = exampleShare.Name,

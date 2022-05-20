@@ -10,6 +10,401 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DicomServiceAuthentication struct {
+	// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+	Audiences []string `pulumi:"audiences"`
+	Authority *string  `pulumi:"authority"`
+}
+
+// DicomServiceAuthenticationInput is an input type that accepts DicomServiceAuthenticationArgs and DicomServiceAuthenticationOutput values.
+// You can construct a concrete instance of `DicomServiceAuthenticationInput` via:
+//
+//          DicomServiceAuthenticationArgs{...}
+type DicomServiceAuthenticationInput interface {
+	pulumi.Input
+
+	ToDicomServiceAuthenticationOutput() DicomServiceAuthenticationOutput
+	ToDicomServiceAuthenticationOutputWithContext(context.Context) DicomServiceAuthenticationOutput
+}
+
+type DicomServiceAuthenticationArgs struct {
+	// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
+	Authority pulumi.StringPtrInput   `pulumi:"authority"`
+}
+
+func (DicomServiceAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DicomServiceAuthentication)(nil)).Elem()
+}
+
+func (i DicomServiceAuthenticationArgs) ToDicomServiceAuthenticationOutput() DicomServiceAuthenticationOutput {
+	return i.ToDicomServiceAuthenticationOutputWithContext(context.Background())
+}
+
+func (i DicomServiceAuthenticationArgs) ToDicomServiceAuthenticationOutputWithContext(ctx context.Context) DicomServiceAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceAuthenticationOutput)
+}
+
+// DicomServiceAuthenticationArrayInput is an input type that accepts DicomServiceAuthenticationArray and DicomServiceAuthenticationArrayOutput values.
+// You can construct a concrete instance of `DicomServiceAuthenticationArrayInput` via:
+//
+//          DicomServiceAuthenticationArray{ DicomServiceAuthenticationArgs{...} }
+type DicomServiceAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToDicomServiceAuthenticationArrayOutput() DicomServiceAuthenticationArrayOutput
+	ToDicomServiceAuthenticationArrayOutputWithContext(context.Context) DicomServiceAuthenticationArrayOutput
+}
+
+type DicomServiceAuthenticationArray []DicomServiceAuthenticationInput
+
+func (DicomServiceAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DicomServiceAuthentication)(nil)).Elem()
+}
+
+func (i DicomServiceAuthenticationArray) ToDicomServiceAuthenticationArrayOutput() DicomServiceAuthenticationArrayOutput {
+	return i.ToDicomServiceAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i DicomServiceAuthenticationArray) ToDicomServiceAuthenticationArrayOutputWithContext(ctx context.Context) DicomServiceAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceAuthenticationArrayOutput)
+}
+
+type DicomServiceAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (DicomServiceAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DicomServiceAuthentication)(nil)).Elem()
+}
+
+func (o DicomServiceAuthenticationOutput) ToDicomServiceAuthenticationOutput() DicomServiceAuthenticationOutput {
+	return o
+}
+
+func (o DicomServiceAuthenticationOutput) ToDicomServiceAuthenticationOutputWithContext(ctx context.Context) DicomServiceAuthenticationOutput {
+	return o
+}
+
+// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+func (o DicomServiceAuthenticationOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DicomServiceAuthentication) []string { return v.Audiences }).(pulumi.StringArrayOutput)
+}
+
+func (o DicomServiceAuthenticationOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DicomServiceAuthentication) *string { return v.Authority }).(pulumi.StringPtrOutput)
+}
+
+type DicomServiceAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (DicomServiceAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DicomServiceAuthentication)(nil)).Elem()
+}
+
+func (o DicomServiceAuthenticationArrayOutput) ToDicomServiceAuthenticationArrayOutput() DicomServiceAuthenticationArrayOutput {
+	return o
+}
+
+func (o DicomServiceAuthenticationArrayOutput) ToDicomServiceAuthenticationArrayOutputWithContext(ctx context.Context) DicomServiceAuthenticationArrayOutput {
+	return o
+}
+
+func (o DicomServiceAuthenticationArrayOutput) Index(i pulumi.IntInput) DicomServiceAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DicomServiceAuthentication {
+		return vs[0].([]DicomServiceAuthentication)[vs[1].(int)]
+	}).(DicomServiceAuthenticationOutput)
+}
+
+type DicomServiceIdentity struct {
+	// A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
+	Type string `pulumi:"type"`
+}
+
+// DicomServiceIdentityInput is an input type that accepts DicomServiceIdentityArgs and DicomServiceIdentityOutput values.
+// You can construct a concrete instance of `DicomServiceIdentityInput` via:
+//
+//          DicomServiceIdentityArgs{...}
+type DicomServiceIdentityInput interface {
+	pulumi.Input
+
+	ToDicomServiceIdentityOutput() DicomServiceIdentityOutput
+	ToDicomServiceIdentityOutputWithContext(context.Context) DicomServiceIdentityOutput
+}
+
+type DicomServiceIdentityArgs struct {
+	// A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DicomServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DicomServiceIdentity)(nil)).Elem()
+}
+
+func (i DicomServiceIdentityArgs) ToDicomServiceIdentityOutput() DicomServiceIdentityOutput {
+	return i.ToDicomServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i DicomServiceIdentityArgs) ToDicomServiceIdentityOutputWithContext(ctx context.Context) DicomServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceIdentityOutput)
+}
+
+func (i DicomServiceIdentityArgs) ToDicomServiceIdentityPtrOutput() DicomServiceIdentityPtrOutput {
+	return i.ToDicomServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i DicomServiceIdentityArgs) ToDicomServiceIdentityPtrOutputWithContext(ctx context.Context) DicomServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceIdentityOutput).ToDicomServiceIdentityPtrOutputWithContext(ctx)
+}
+
+// DicomServiceIdentityPtrInput is an input type that accepts DicomServiceIdentityArgs, DicomServiceIdentityPtr and DicomServiceIdentityPtrOutput values.
+// You can construct a concrete instance of `DicomServiceIdentityPtrInput` via:
+//
+//          DicomServiceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type DicomServiceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToDicomServiceIdentityPtrOutput() DicomServiceIdentityPtrOutput
+	ToDicomServiceIdentityPtrOutputWithContext(context.Context) DicomServiceIdentityPtrOutput
+}
+
+type dicomServiceIdentityPtrType DicomServiceIdentityArgs
+
+func DicomServiceIdentityPtr(v *DicomServiceIdentityArgs) DicomServiceIdentityPtrInput {
+	return (*dicomServiceIdentityPtrType)(v)
+}
+
+func (*dicomServiceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DicomServiceIdentity)(nil)).Elem()
+}
+
+func (i *dicomServiceIdentityPtrType) ToDicomServiceIdentityPtrOutput() DicomServiceIdentityPtrOutput {
+	return i.ToDicomServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *dicomServiceIdentityPtrType) ToDicomServiceIdentityPtrOutputWithContext(ctx context.Context) DicomServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceIdentityPtrOutput)
+}
+
+type DicomServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (DicomServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DicomServiceIdentity)(nil)).Elem()
+}
+
+func (o DicomServiceIdentityOutput) ToDicomServiceIdentityOutput() DicomServiceIdentityOutput {
+	return o
+}
+
+func (o DicomServiceIdentityOutput) ToDicomServiceIdentityOutputWithContext(ctx context.Context) DicomServiceIdentityOutput {
+	return o
+}
+
+func (o DicomServiceIdentityOutput) ToDicomServiceIdentityPtrOutput() DicomServiceIdentityPtrOutput {
+	return o.ToDicomServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o DicomServiceIdentityOutput) ToDicomServiceIdentityPtrOutputWithContext(ctx context.Context) DicomServiceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DicomServiceIdentity) *DicomServiceIdentity {
+		return &v
+	}).(DicomServiceIdentityPtrOutput)
+}
+
+// A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
+func (o DicomServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DicomServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o DicomServiceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DicomServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o DicomServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DicomServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
+func (o DicomServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DicomServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DicomServiceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (DicomServiceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DicomServiceIdentity)(nil)).Elem()
+}
+
+func (o DicomServiceIdentityPtrOutput) ToDicomServiceIdentityPtrOutput() DicomServiceIdentityPtrOutput {
+	return o
+}
+
+func (o DicomServiceIdentityPtrOutput) ToDicomServiceIdentityPtrOutputWithContext(ctx context.Context) DicomServiceIdentityPtrOutput {
+	return o
+}
+
+func (o DicomServiceIdentityPtrOutput) Elem() DicomServiceIdentityOutput {
+	return o.ApplyT(func(v *DicomServiceIdentity) DicomServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret DicomServiceIdentity
+		return ret
+	}).(DicomServiceIdentityOutput)
+}
+
+// A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
+func (o DicomServiceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DicomServiceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DicomServiceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DicomServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DicomServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DicomServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
+func (o DicomServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DicomServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type DicomServicePrivateEndpoint struct {
+	// The ID of the Healthcare DICOM Service.
+	Id *string `pulumi:"id"`
+	// Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
+	Name *string `pulumi:"name"`
+}
+
+// DicomServicePrivateEndpointInput is an input type that accepts DicomServicePrivateEndpointArgs and DicomServicePrivateEndpointOutput values.
+// You can construct a concrete instance of `DicomServicePrivateEndpointInput` via:
+//
+//          DicomServicePrivateEndpointArgs{...}
+type DicomServicePrivateEndpointInput interface {
+	pulumi.Input
+
+	ToDicomServicePrivateEndpointOutput() DicomServicePrivateEndpointOutput
+	ToDicomServicePrivateEndpointOutputWithContext(context.Context) DicomServicePrivateEndpointOutput
+}
+
+type DicomServicePrivateEndpointArgs struct {
+	// The ID of the Healthcare DICOM Service.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DicomServicePrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DicomServicePrivateEndpoint)(nil)).Elem()
+}
+
+func (i DicomServicePrivateEndpointArgs) ToDicomServicePrivateEndpointOutput() DicomServicePrivateEndpointOutput {
+	return i.ToDicomServicePrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i DicomServicePrivateEndpointArgs) ToDicomServicePrivateEndpointOutputWithContext(ctx context.Context) DicomServicePrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServicePrivateEndpointOutput)
+}
+
+// DicomServicePrivateEndpointArrayInput is an input type that accepts DicomServicePrivateEndpointArray and DicomServicePrivateEndpointArrayOutput values.
+// You can construct a concrete instance of `DicomServicePrivateEndpointArrayInput` via:
+//
+//          DicomServicePrivateEndpointArray{ DicomServicePrivateEndpointArgs{...} }
+type DicomServicePrivateEndpointArrayInput interface {
+	pulumi.Input
+
+	ToDicomServicePrivateEndpointArrayOutput() DicomServicePrivateEndpointArrayOutput
+	ToDicomServicePrivateEndpointArrayOutputWithContext(context.Context) DicomServicePrivateEndpointArrayOutput
+}
+
+type DicomServicePrivateEndpointArray []DicomServicePrivateEndpointInput
+
+func (DicomServicePrivateEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DicomServicePrivateEndpoint)(nil)).Elem()
+}
+
+func (i DicomServicePrivateEndpointArray) ToDicomServicePrivateEndpointArrayOutput() DicomServicePrivateEndpointArrayOutput {
+	return i.ToDicomServicePrivateEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i DicomServicePrivateEndpointArray) ToDicomServicePrivateEndpointArrayOutputWithContext(ctx context.Context) DicomServicePrivateEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServicePrivateEndpointArrayOutput)
+}
+
+type DicomServicePrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (DicomServicePrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DicomServicePrivateEndpoint)(nil)).Elem()
+}
+
+func (o DicomServicePrivateEndpointOutput) ToDicomServicePrivateEndpointOutput() DicomServicePrivateEndpointOutput {
+	return o
+}
+
+func (o DicomServicePrivateEndpointOutput) ToDicomServicePrivateEndpointOutputWithContext(ctx context.Context) DicomServicePrivateEndpointOutput {
+	return o
+}
+
+// The ID of the Healthcare DICOM Service.
+func (o DicomServicePrivateEndpointOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DicomServicePrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
+func (o DicomServicePrivateEndpointOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DicomServicePrivateEndpoint) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DicomServicePrivateEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (DicomServicePrivateEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DicomServicePrivateEndpoint)(nil)).Elem()
+}
+
+func (o DicomServicePrivateEndpointArrayOutput) ToDicomServicePrivateEndpointArrayOutput() DicomServicePrivateEndpointArrayOutput {
+	return o
+}
+
+func (o DicomServicePrivateEndpointArrayOutput) ToDicomServicePrivateEndpointArrayOutputWithContext(ctx context.Context) DicomServicePrivateEndpointArrayOutput {
+	return o
+}
+
+func (o DicomServicePrivateEndpointArrayOutput) Index(i pulumi.IntInput) DicomServicePrivateEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DicomServicePrivateEndpoint {
+		return vs[0].([]DicomServicePrivateEndpoint)[vs[1].(int)]
+	}).(DicomServicePrivateEndpointOutput)
+}
+
 type ServiceAuthenticationConfiguration struct {
 	// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
 	Audience *string `pulumi:"audience"`
@@ -508,6 +903,327 @@ func (o WorkspacePrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) 
 	}).(WorkspacePrivateEndpointConnectionOutput)
 }
 
+type GetDicomServiceAuthentication struct {
+	// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+	Audiences []string `pulumi:"audiences"`
+	Authority string   `pulumi:"authority"`
+}
+
+// GetDicomServiceAuthenticationInput is an input type that accepts GetDicomServiceAuthenticationArgs and GetDicomServiceAuthenticationOutput values.
+// You can construct a concrete instance of `GetDicomServiceAuthenticationInput` via:
+//
+//          GetDicomServiceAuthenticationArgs{...}
+type GetDicomServiceAuthenticationInput interface {
+	pulumi.Input
+
+	ToGetDicomServiceAuthenticationOutput() GetDicomServiceAuthenticationOutput
+	ToGetDicomServiceAuthenticationOutputWithContext(context.Context) GetDicomServiceAuthenticationOutput
+}
+
+type GetDicomServiceAuthenticationArgs struct {
+	// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
+	Authority pulumi.StringInput      `pulumi:"authority"`
+}
+
+func (GetDicomServiceAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDicomServiceAuthentication)(nil)).Elem()
+}
+
+func (i GetDicomServiceAuthenticationArgs) ToGetDicomServiceAuthenticationOutput() GetDicomServiceAuthenticationOutput {
+	return i.ToGetDicomServiceAuthenticationOutputWithContext(context.Background())
+}
+
+func (i GetDicomServiceAuthenticationArgs) ToGetDicomServiceAuthenticationOutputWithContext(ctx context.Context) GetDicomServiceAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServiceAuthenticationOutput)
+}
+
+// GetDicomServiceAuthenticationArrayInput is an input type that accepts GetDicomServiceAuthenticationArray and GetDicomServiceAuthenticationArrayOutput values.
+// You can construct a concrete instance of `GetDicomServiceAuthenticationArrayInput` via:
+//
+//          GetDicomServiceAuthenticationArray{ GetDicomServiceAuthenticationArgs{...} }
+type GetDicomServiceAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToGetDicomServiceAuthenticationArrayOutput() GetDicomServiceAuthenticationArrayOutput
+	ToGetDicomServiceAuthenticationArrayOutputWithContext(context.Context) GetDicomServiceAuthenticationArrayOutput
+}
+
+type GetDicomServiceAuthenticationArray []GetDicomServiceAuthenticationInput
+
+func (GetDicomServiceAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDicomServiceAuthentication)(nil)).Elem()
+}
+
+func (i GetDicomServiceAuthenticationArray) ToGetDicomServiceAuthenticationArrayOutput() GetDicomServiceAuthenticationArrayOutput {
+	return i.ToGetDicomServiceAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDicomServiceAuthenticationArray) ToGetDicomServiceAuthenticationArrayOutputWithContext(ctx context.Context) GetDicomServiceAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServiceAuthenticationArrayOutput)
+}
+
+type GetDicomServiceAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (GetDicomServiceAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDicomServiceAuthentication)(nil)).Elem()
+}
+
+func (o GetDicomServiceAuthenticationOutput) ToGetDicomServiceAuthenticationOutput() GetDicomServiceAuthenticationOutput {
+	return o
+}
+
+func (o GetDicomServiceAuthenticationOutput) ToGetDicomServiceAuthenticationOutputWithContext(ctx context.Context) GetDicomServiceAuthenticationOutput {
+	return o
+}
+
+// The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+func (o GetDicomServiceAuthenticationOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDicomServiceAuthentication) []string { return v.Audiences }).(pulumi.StringArrayOutput)
+}
+
+func (o GetDicomServiceAuthenticationOutput) Authority() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDicomServiceAuthentication) string { return v.Authority }).(pulumi.StringOutput)
+}
+
+type GetDicomServiceAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDicomServiceAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDicomServiceAuthentication)(nil)).Elem()
+}
+
+func (o GetDicomServiceAuthenticationArrayOutput) ToGetDicomServiceAuthenticationArrayOutput() GetDicomServiceAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetDicomServiceAuthenticationArrayOutput) ToGetDicomServiceAuthenticationArrayOutputWithContext(ctx context.Context) GetDicomServiceAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetDicomServiceAuthenticationArrayOutput) Index(i pulumi.IntInput) GetDicomServiceAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDicomServiceAuthentication {
+		return vs[0].([]GetDicomServiceAuthentication)[vs[1].(int)]
+	}).(GetDicomServiceAuthenticationOutput)
+}
+
+type GetDicomServiceIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId string   `pulumi:"principalId"`
+	TenantId    string   `pulumi:"tenantId"`
+	Type        string   `pulumi:"type"`
+}
+
+// GetDicomServiceIdentityInput is an input type that accepts GetDicomServiceIdentityArgs and GetDicomServiceIdentityOutput values.
+// You can construct a concrete instance of `GetDicomServiceIdentityInput` via:
+//
+//          GetDicomServiceIdentityArgs{...}
+type GetDicomServiceIdentityInput interface {
+	pulumi.Input
+
+	ToGetDicomServiceIdentityOutput() GetDicomServiceIdentityOutput
+	ToGetDicomServiceIdentityOutputWithContext(context.Context) GetDicomServiceIdentityOutput
+}
+
+type GetDicomServiceIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringInput      `pulumi:"principalId"`
+	TenantId    pulumi.StringInput      `pulumi:"tenantId"`
+	Type        pulumi.StringInput      `pulumi:"type"`
+}
+
+func (GetDicomServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDicomServiceIdentity)(nil)).Elem()
+}
+
+func (i GetDicomServiceIdentityArgs) ToGetDicomServiceIdentityOutput() GetDicomServiceIdentityOutput {
+	return i.ToGetDicomServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i GetDicomServiceIdentityArgs) ToGetDicomServiceIdentityOutputWithContext(ctx context.Context) GetDicomServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServiceIdentityOutput)
+}
+
+// GetDicomServiceIdentityArrayInput is an input type that accepts GetDicomServiceIdentityArray and GetDicomServiceIdentityArrayOutput values.
+// You can construct a concrete instance of `GetDicomServiceIdentityArrayInput` via:
+//
+//          GetDicomServiceIdentityArray{ GetDicomServiceIdentityArgs{...} }
+type GetDicomServiceIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetDicomServiceIdentityArrayOutput() GetDicomServiceIdentityArrayOutput
+	ToGetDicomServiceIdentityArrayOutputWithContext(context.Context) GetDicomServiceIdentityArrayOutput
+}
+
+type GetDicomServiceIdentityArray []GetDicomServiceIdentityInput
+
+func (GetDicomServiceIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDicomServiceIdentity)(nil)).Elem()
+}
+
+func (i GetDicomServiceIdentityArray) ToGetDicomServiceIdentityArrayOutput() GetDicomServiceIdentityArrayOutput {
+	return i.ToGetDicomServiceIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetDicomServiceIdentityArray) ToGetDicomServiceIdentityArrayOutputWithContext(ctx context.Context) GetDicomServiceIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServiceIdentityArrayOutput)
+}
+
+type GetDicomServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetDicomServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDicomServiceIdentity)(nil)).Elem()
+}
+
+func (o GetDicomServiceIdentityOutput) ToGetDicomServiceIdentityOutput() GetDicomServiceIdentityOutput {
+	return o
+}
+
+func (o GetDicomServiceIdentityOutput) ToGetDicomServiceIdentityOutputWithContext(ctx context.Context) GetDicomServiceIdentityOutput {
+	return o
+}
+
+func (o GetDicomServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDicomServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetDicomServiceIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDicomServiceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetDicomServiceIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDicomServiceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o GetDicomServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDicomServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDicomServiceIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDicomServiceIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDicomServiceIdentity)(nil)).Elem()
+}
+
+func (o GetDicomServiceIdentityArrayOutput) ToGetDicomServiceIdentityArrayOutput() GetDicomServiceIdentityArrayOutput {
+	return o
+}
+
+func (o GetDicomServiceIdentityArrayOutput) ToGetDicomServiceIdentityArrayOutputWithContext(ctx context.Context) GetDicomServiceIdentityArrayOutput {
+	return o
+}
+
+func (o GetDicomServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetDicomServiceIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDicomServiceIdentity {
+		return vs[0].([]GetDicomServiceIdentity)[vs[1].(int)]
+	}).(GetDicomServiceIdentityOutput)
+}
+
+type GetDicomServicePrivateEndpoint struct {
+	// The ID of the Healthcare DICOM Service.
+	Id string `pulumi:"id"`
+	// The name of the Healthcare DICOM Service
+	Name string `pulumi:"name"`
+}
+
+// GetDicomServicePrivateEndpointInput is an input type that accepts GetDicomServicePrivateEndpointArgs and GetDicomServicePrivateEndpointOutput values.
+// You can construct a concrete instance of `GetDicomServicePrivateEndpointInput` via:
+//
+//          GetDicomServicePrivateEndpointArgs{...}
+type GetDicomServicePrivateEndpointInput interface {
+	pulumi.Input
+
+	ToGetDicomServicePrivateEndpointOutput() GetDicomServicePrivateEndpointOutput
+	ToGetDicomServicePrivateEndpointOutputWithContext(context.Context) GetDicomServicePrivateEndpointOutput
+}
+
+type GetDicomServicePrivateEndpointArgs struct {
+	// The ID of the Healthcare DICOM Service.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Healthcare DICOM Service
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetDicomServicePrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDicomServicePrivateEndpoint)(nil)).Elem()
+}
+
+func (i GetDicomServicePrivateEndpointArgs) ToGetDicomServicePrivateEndpointOutput() GetDicomServicePrivateEndpointOutput {
+	return i.ToGetDicomServicePrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i GetDicomServicePrivateEndpointArgs) ToGetDicomServicePrivateEndpointOutputWithContext(ctx context.Context) GetDicomServicePrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServicePrivateEndpointOutput)
+}
+
+// GetDicomServicePrivateEndpointArrayInput is an input type that accepts GetDicomServicePrivateEndpointArray and GetDicomServicePrivateEndpointArrayOutput values.
+// You can construct a concrete instance of `GetDicomServicePrivateEndpointArrayInput` via:
+//
+//          GetDicomServicePrivateEndpointArray{ GetDicomServicePrivateEndpointArgs{...} }
+type GetDicomServicePrivateEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetDicomServicePrivateEndpointArrayOutput() GetDicomServicePrivateEndpointArrayOutput
+	ToGetDicomServicePrivateEndpointArrayOutputWithContext(context.Context) GetDicomServicePrivateEndpointArrayOutput
+}
+
+type GetDicomServicePrivateEndpointArray []GetDicomServicePrivateEndpointInput
+
+func (GetDicomServicePrivateEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDicomServicePrivateEndpoint)(nil)).Elem()
+}
+
+func (i GetDicomServicePrivateEndpointArray) ToGetDicomServicePrivateEndpointArrayOutput() GetDicomServicePrivateEndpointArrayOutput {
+	return i.ToGetDicomServicePrivateEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetDicomServicePrivateEndpointArray) ToGetDicomServicePrivateEndpointArrayOutputWithContext(ctx context.Context) GetDicomServicePrivateEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServicePrivateEndpointArrayOutput)
+}
+
+type GetDicomServicePrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetDicomServicePrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDicomServicePrivateEndpoint)(nil)).Elem()
+}
+
+func (o GetDicomServicePrivateEndpointOutput) ToGetDicomServicePrivateEndpointOutput() GetDicomServicePrivateEndpointOutput {
+	return o
+}
+
+func (o GetDicomServicePrivateEndpointOutput) ToGetDicomServicePrivateEndpointOutputWithContext(ctx context.Context) GetDicomServicePrivateEndpointOutput {
+	return o
+}
+
+// The ID of the Healthcare DICOM Service.
+func (o GetDicomServicePrivateEndpointOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDicomServicePrivateEndpoint) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the Healthcare DICOM Service
+func (o GetDicomServicePrivateEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDicomServicePrivateEndpoint) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetDicomServicePrivateEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDicomServicePrivateEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDicomServicePrivateEndpoint)(nil)).Elem()
+}
+
+func (o GetDicomServicePrivateEndpointArrayOutput) ToGetDicomServicePrivateEndpointArrayOutput() GetDicomServicePrivateEndpointArrayOutput {
+	return o
+}
+
+func (o GetDicomServicePrivateEndpointArrayOutput) ToGetDicomServicePrivateEndpointArrayOutputWithContext(ctx context.Context) GetDicomServicePrivateEndpointArrayOutput {
+	return o
+}
+
+func (o GetDicomServicePrivateEndpointArrayOutput) Index(i pulumi.IntInput) GetDicomServicePrivateEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDicomServicePrivateEndpoint {
+		return vs[0].([]GetDicomServicePrivateEndpoint)[vs[1].(int)]
+	}).(GetDicomServicePrivateEndpointOutput)
+}
+
 type GetServiceAuthenticationConfiguration struct {
 	// The intended audience to receive authentication tokens for the service.
 	Audience string `pulumi:"audience"`
@@ -757,22 +1473,46 @@ func (o GetServiceCorsConfigurationArrayOutput) Index(i pulumi.IntInput) GetServ
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceAuthenticationInput)(nil)).Elem(), DicomServiceAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceAuthenticationArrayInput)(nil)).Elem(), DicomServiceAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceIdentityInput)(nil)).Elem(), DicomServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceIdentityPtrInput)(nil)).Elem(), DicomServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DicomServicePrivateEndpointInput)(nil)).Elem(), DicomServicePrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DicomServicePrivateEndpointArrayInput)(nil)).Elem(), DicomServicePrivateEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationPtrInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorsConfigurationInput)(nil)).Elem(), ServiceCorsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorsConfigurationPtrInput)(nil)).Elem(), ServiceCorsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePrivateEndpointConnectionInput)(nil)).Elem(), WorkspacePrivateEndpointConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePrivateEndpointConnectionArrayInput)(nil)).Elem(), WorkspacePrivateEndpointConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceAuthenticationInput)(nil)).Elem(), GetDicomServiceAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceAuthenticationArrayInput)(nil)).Elem(), GetDicomServiceAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceIdentityInput)(nil)).Elem(), GetDicomServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceIdentityArrayInput)(nil)).Elem(), GetDicomServiceIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServicePrivateEndpointInput)(nil)).Elem(), GetDicomServicePrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServicePrivateEndpointArrayInput)(nil)).Elem(), GetDicomServicePrivateEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceAuthenticationConfigurationInput)(nil)).Elem(), GetServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceAuthenticationConfigurationArrayInput)(nil)).Elem(), GetServiceAuthenticationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCorsConfigurationInput)(nil)).Elem(), GetServiceCorsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCorsConfigurationArrayInput)(nil)).Elem(), GetServiceCorsConfigurationArray{})
+	pulumi.RegisterOutputType(DicomServiceAuthenticationOutput{})
+	pulumi.RegisterOutputType(DicomServiceAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(DicomServiceIdentityOutput{})
+	pulumi.RegisterOutputType(DicomServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(DicomServicePrivateEndpointOutput{})
+	pulumi.RegisterOutputType(DicomServicePrivateEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkspacePrivateEndpointConnectionOutput{})
 	pulumi.RegisterOutputType(WorkspacePrivateEndpointConnectionArrayOutput{})
+	pulumi.RegisterOutputType(GetDicomServiceAuthenticationOutput{})
+	pulumi.RegisterOutputType(GetDicomServiceAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(GetDicomServiceIdentityOutput{})
+	pulumi.RegisterOutputType(GetDicomServiceIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetDicomServicePrivateEndpointOutput{})
+	pulumi.RegisterOutputType(GetDicomServicePrivateEndpointArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceAuthenticationConfigurationOutput{})
 	pulumi.RegisterOutputType(GetServiceAuthenticationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceCorsConfigurationOutput{})

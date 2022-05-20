@@ -22,14 +22,14 @@ namespace Pulumi.Azure.SecurityCenter
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
     ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///             Location = azurerm_resource_group.Example.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "LRS",
     ///             Tags = 

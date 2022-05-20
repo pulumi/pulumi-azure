@@ -44,7 +44,7 @@ import (
 // 			return err
 // 		}
 // 		secondary, err := servicebus.NewNamespace(ctx, "secondary", &servicebus.NamespaceArgs{
-// 			Location:          pulumi.String("West US"),
+// 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Premium"),
 // 			Capacity:          pulumi.Int(1),

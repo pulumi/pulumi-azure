@@ -379,10 +379,10 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         server = azure.analysisservices.Server("server",
-            location="northeurope",
-            resource_group_name=rg.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku="S0",
             admin_users=["myuser@domain.tld"],
             enable_power_bi_service=True,
@@ -433,10 +433,10 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         server = azure.analysisservices.Server("server",
-            location="northeurope",
-            resource_group_name=rg.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku="S0",
             admin_users=["myuser@domain.tld"],
             enable_power_bi_service=True,

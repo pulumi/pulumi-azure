@@ -97,7 +97,7 @@ export class WorkspaceExtendedAuditingPolicy extends pulumi.CustomResource {
      */
     public readonly storageAccountAccessKeyIsSecondary!: pulumi.Output<boolean | undefined>;
     /**
-     * The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
      */
     public readonly storageEndpoint!: pulumi.Output<string | undefined>;
     /**
@@ -162,7 +162,7 @@ export interface WorkspaceExtendedAuditingPolicyState {
      */
     storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
     /**
-     * The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
      */
     storageEndpoint?: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface WorkspaceExtendedAuditingPolicyArgs {
      */
     storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
     /**
-     * The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
      */
     storageEndpoint?: pulumi.Input<string>;
     /**

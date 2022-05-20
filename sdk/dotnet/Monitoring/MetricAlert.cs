@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Monitoring
     /// {
     ///     public MyStack()
     ///     {
-    ///         var mainResourceGroup = new Azure.Core.ResourceGroup("mainResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var toMonitor = new Azure.Storage.Account("toMonitor", new Azure.Storage.AccountArgs
     ///         {
-    ///             ResourceGroupName = mainResourceGroup.Name,
-    ///             Location = mainResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "LRS",
     ///         });
-    ///         var mainActionGroup = new Azure.Monitoring.ActionGroup("mainActionGroup", new Azure.Monitoring.ActionGroupArgs
+    ///         var main = new Azure.Monitoring.ActionGroup("main", new Azure.Monitoring.ActionGroupArgs
     ///         {
-    ///             ResourceGroupName = mainResourceGroup.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ShortName = "exampleact",
     ///             WebhookReceivers = 
     ///             {
@@ -46,9 +46,9 @@ namespace Pulumi.Azure.Monitoring
     ///                 },
     ///             },
     ///         });
-    ///         var example = new Azure.Monitoring.MetricAlert("example", new Azure.Monitoring.MetricAlertArgs
+    ///         var exampleMetricAlert = new Azure.Monitoring.MetricAlert("exampleMetricAlert", new Azure.Monitoring.MetricAlertArgs
     ///         {
-    ///             ResourceGroupName = mainResourceGroup.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Scopes = 
     ///             {
     ///                 toMonitor.Id,
@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Monitoring
     ///             {
     ///                 new Azure.Monitoring.Inputs.MetricAlertActionArgs
     ///                 {
-    ///                     ActionGroupId = mainActionGroup.Id,
+    ///                     ActionGroupId = main.Id,
     ///                 },
     ///             },
     ///         });

@@ -18,6 +18,12 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("option", required: true)]
         public Input<string> Option { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("placement")]
+        public Input<string>? Placement { get; set; }
+
         public WindowsVirtualMachineOsDiskDiffDiskSettingsArgs()
         {
         }

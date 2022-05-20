@@ -95,7 +95,7 @@ class _DdosProtectionPlanState:
         :param pulumi.Input[str] name: Specifies the name of the Network DDoS Protection Plan. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_ids: A list of Virtual Network ID's associated with the DDoS Protection Plan.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_ids: A list of Virtual Network IDs associated with the DDoS Protection Plan.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -160,7 +160,7 @@ class _DdosProtectionPlanState:
     @pulumi.getter(name="virtualNetworkIds")
     def virtual_network_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Virtual Network ID's associated with the DDoS Protection Plan.
+        A list of Virtual Network IDs associated with the DDoS Protection Plan.
         """
         return pulumi.get(self, "virtual_network_ids")
 
@@ -310,7 +310,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Network DDoS Protection Plan. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_ids: A list of Virtual Network ID's associated with the DDoS Protection Plan.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_ids: A list of Virtual Network IDs associated with the DDoS Protection Plan.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -359,7 +359,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkIds")
     def virtual_network_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of Virtual Network ID's associated with the DDoS Protection Plan.
+        A list of Virtual Network IDs associated with the DDoS Protection Plan.
         """
         return pulumi.get(self, "virtual_network_ids")
 

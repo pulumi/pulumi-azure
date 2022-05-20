@@ -48,8 +48,8 @@ import (
 // 			return err
 // 		}
 // 		exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
-// 			Location:          pulumi.Any(azurerm_resource_group.Rg.Location),
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Rg.Name),
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku: &kusto.ClusterSkuArgs{
 // 				Name:     pulumi.String("Standard_D13_v2"),
 // 				Capacity: pulumi.Int(2),

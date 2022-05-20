@@ -740,10 +740,10 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        default_resource_group = azure.core.ResourceGroup("defaultResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         default_account = azure.storage.Account("defaultAccount",
-            resource_group_name=default_resource_group.name,
-            location=default_resource_group.location,
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             tags={
@@ -751,7 +751,7 @@ class EventSubscription(pulumi.CustomResource):
             })
         default_queue = azure.storage.Queue("defaultQueue", storage_account_name=default_account.name)
         default_event_subscription = azure.eventgrid.EventSubscription("defaultEventSubscription",
-            scope=default_resource_group.id,
+            scope=example.id,
             storage_queue_endpoint=azure.eventgrid.EventSubscriptionStorageQueueEndpointArgs(
                 storage_account_id=default_account.id,
                 queue_name=default_queue.name,
@@ -807,10 +807,10 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        default_resource_group = azure.core.ResourceGroup("defaultResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         default_account = azure.storage.Account("defaultAccount",
-            resource_group_name=default_resource_group.name,
-            location=default_resource_group.location,
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             tags={
@@ -818,7 +818,7 @@ class EventSubscription(pulumi.CustomResource):
             })
         default_queue = azure.storage.Queue("defaultQueue", storage_account_name=default_account.name)
         default_event_subscription = azure.eventgrid.EventSubscription("defaultEventSubscription",
-            scope=default_resource_group.id,
+            scope=example.id,
             storage_queue_endpoint=azure.eventgrid.EventSubscriptionStorageQueueEndpointArgs(
                 storage_account_id=default_account.id,
                 queue_name=default_queue.name,

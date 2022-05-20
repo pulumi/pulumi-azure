@@ -400,27 +400,27 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         test_network_security_group = azure.network.NetworkSecurityGroup("testNetworkSecurityGroup",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name)
+            location=example.location,
+            resource_group_name=example.name)
         test_network_watcher = azure.network.NetworkWatcher("testNetworkWatcher",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name)
+            location=example.location,
+            resource_group_name=example.name)
         test_account = azure.storage.Account("testAccount",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_kind="StorageV2",
             account_replication_type="LRS",
             enable_https_traffic_only=True)
         test_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("testAnalyticsWorkspace",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018")
         test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog",
             network_watcher_name=test_network_watcher.name,
-            resource_group_name=test_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_id=test_network_security_group.id,
             storage_account_id=test_account.id,
             enabled=True,
@@ -474,27 +474,27 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         test_network_security_group = azure.network.NetworkSecurityGroup("testNetworkSecurityGroup",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name)
+            location=example.location,
+            resource_group_name=example.name)
         test_network_watcher = azure.network.NetworkWatcher("testNetworkWatcher",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name)
+            location=example.location,
+            resource_group_name=example.name)
         test_account = azure.storage.Account("testAccount",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_kind="StorageV2",
             account_replication_type="LRS",
             enable_https_traffic_only=True)
         test_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("testAnalyticsWorkspace",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018")
         test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog",
             network_watcher_name=test_network_watcher.name,
-            resource_group_name=test_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_id=test_network_security_group.id,
             storage_account_id=test_account.id,
             enabled=True,

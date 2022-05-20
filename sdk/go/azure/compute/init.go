@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinuxVirtualMachineScaleSet{}
 	case "azure:compute/managedDisk:ManagedDisk":
 		r = &ManagedDisk{}
+	case "azure:compute/managedDiskSasToken:ManagedDiskSasToken":
+		r = &ManagedDiskSasToken{}
 	case "azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet":
 		r = &OrchestratedVirtualMachineScaleSet{}
 	case "azure:compute/scaleSet:ScaleSet":
@@ -166,6 +168,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/managedDisk",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/managedDiskSasToken",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

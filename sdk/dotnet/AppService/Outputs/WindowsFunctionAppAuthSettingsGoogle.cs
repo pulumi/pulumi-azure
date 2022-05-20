@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ClientSecret;
         /// <summary>
-        /// The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+        /// The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>

@@ -28,29 +28,29 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		testNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "testNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
-// 			Location:          testResourceGroup.Location,
-// 			ResourceGroupName: testResourceGroup.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		testNetworkWatcher, err := network.NewNetworkWatcher(ctx, "testNetworkWatcher", &network.NetworkWatcherArgs{
-// 			Location:          testResourceGroup.Location,
-// 			ResourceGroupName: testResourceGroup.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		testAccount, err := storage.NewAccount(ctx, "testAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      testResourceGroup.Name,
-// 			Location:               testResourceGroup.Location,
+// 			ResourceGroupName:      example.Name,
+// 			Location:               example.Location,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountKind:            pulumi.String("StorageV2"),
 // 			AccountReplicationType: pulumi.String("LRS"),
@@ -60,8 +60,8 @@ import (
 // 			return err
 // 		}
 // 		testAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "testAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          testResourceGroup.Location,
-// 			ResourceGroupName: testResourceGroup.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 			Sku:               pulumi.String("PerGB2018"),
 // 		})
 // 		if err != nil {
@@ -69,7 +69,7 @@ import (
 // 		}
 // 		_, err = network.NewNetworkWatcherFlowLog(ctx, "testNetworkWatcherFlowLog", &network.NetworkWatcherFlowLogArgs{
 // 			NetworkWatcherName:     testNetworkWatcher.Name,
-// 			ResourceGroupName:      testResourceGroup.Name,
+// 			ResourceGroupName:      example.Name,
 // 			NetworkSecurityGroupId: testNetworkSecurityGroup.ID(),
 // 			StorageAccountId:       testAccount.ID(),
 // 			Enabled:                pulumi.Bool(true),

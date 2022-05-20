@@ -110,7 +110,7 @@ type WorkspaceSecurityAlertPolicy struct {
 	DisabledAlerts pulumi.StringArrayOutput `pulumi:"disabledAlerts"`
 	// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
 	EmailAccountAdminsEnabled pulumi.BoolPtrOutput `pulumi:"emailAccountAdminsEnabled"`
-	// Specifies an array of e-mail addresses to which the alert is sent.
+	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayOutput `pulumi:"emailAddresses"`
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
 	PolicyState pulumi.StringOutput `pulumi:"policyState"`
@@ -118,7 +118,7 @@ type WorkspaceSecurityAlertPolicy struct {
 	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
 	// Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
 	SynapseWorkspaceId pulumi.StringOutput `pulumi:"synapseWorkspaceId"`
@@ -163,7 +163,7 @@ type workspaceSecurityAlertPolicyState struct {
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
 	// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
 	EmailAccountAdminsEnabled *bool `pulumi:"emailAccountAdminsEnabled"`
-	// Specifies an array of e-mail addresses to which the alert is sent.
+	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
 	PolicyState *string `pulumi:"policyState"`
@@ -171,7 +171,7 @@ type workspaceSecurityAlertPolicyState struct {
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 	// Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
 	SynapseWorkspaceId *string `pulumi:"synapseWorkspaceId"`
@@ -182,7 +182,7 @@ type WorkspaceSecurityAlertPolicyState struct {
 	DisabledAlerts pulumi.StringArrayInput
 	// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
 	EmailAccountAdminsEnabled pulumi.BoolPtrInput
-	// Specifies an array of e-mail addresses to which the alert is sent.
+	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayInput
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
 	PolicyState pulumi.StringPtrInput
@@ -190,7 +190,7 @@ type WorkspaceSecurityAlertPolicyState struct {
 	RetentionDays pulumi.IntPtrInput
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrInput
 	// Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
 	SynapseWorkspaceId pulumi.StringPtrInput
@@ -205,7 +205,7 @@ type workspaceSecurityAlertPolicyArgs struct {
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
 	// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
 	EmailAccountAdminsEnabled *bool `pulumi:"emailAccountAdminsEnabled"`
-	// Specifies an array of e-mail addresses to which the alert is sent.
+	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
 	PolicyState string `pulumi:"policyState"`
@@ -213,7 +213,7 @@ type workspaceSecurityAlertPolicyArgs struct {
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 	// Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
 	SynapseWorkspaceId string `pulumi:"synapseWorkspaceId"`
@@ -225,7 +225,7 @@ type WorkspaceSecurityAlertPolicyArgs struct {
 	DisabledAlerts pulumi.StringArrayInput
 	// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
 	EmailAccountAdminsEnabled pulumi.BoolPtrInput
-	// Specifies an array of e-mail addresses to which the alert is sent.
+	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayInput
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Allowed values are: `Disabled`, `Enabled`.
 	PolicyState pulumi.StringInput
@@ -233,7 +233,7 @@ type WorkspaceSecurityAlertPolicyArgs struct {
 	RetentionDays pulumi.IntPtrInput
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrInput
 	// Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
 	SynapseWorkspaceId pulumi.StringInput
@@ -336,7 +336,7 @@ func (o WorkspaceSecurityAlertPolicyOutput) EmailAccountAdminsEnabled() pulumi.B
 	return o.ApplyT(func(v *WorkspaceSecurityAlertPolicy) pulumi.BoolPtrOutput { return v.EmailAccountAdminsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the alert is sent.
+// Specifies an array of email addresses to which the alert is sent.
 func (o WorkspaceSecurityAlertPolicyOutput) EmailAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkspaceSecurityAlertPolicy) pulumi.StringArrayOutput { return v.EmailAddresses }).(pulumi.StringArrayOutput)
 }
@@ -356,7 +356,7 @@ func (o WorkspaceSecurityAlertPolicyOutput) StorageAccountAccessKey() pulumi.Str
 	return o.ApplyT(func(v *WorkspaceSecurityAlertPolicy) pulumi.StringPtrOutput { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 func (o WorkspaceSecurityAlertPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSecurityAlertPolicy) pulumi.StringPtrOutput { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }

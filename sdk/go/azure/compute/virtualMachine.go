@@ -42,25 +42,25 @@ import (
 // 		if param := cfg.Get("prefix"); param != "" {
 // 			prefix = param
 // 		}
-// 		mainResourceGroup, err := core.NewResourceGroup(ctx, "mainResourceGroup", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		mainVirtualNetwork, err := network.NewVirtualNetwork(ctx, "mainVirtualNetwork", &network.VirtualNetworkArgs{
+// 		_, err = network.NewVirtualNetwork(ctx, "mainVirtualNetwork", &network.VirtualNetworkArgs{
 // 			AddressSpaces: pulumi.StringArray{
 // 				pulumi.String("10.0.0.0/16"),
 // 			},
-// 			Location:          mainResourceGroup.Location,
-// 			ResourceGroupName: mainResourceGroup.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-// 			ResourceGroupName:  mainResourceGroup.Name,
-// 			VirtualNetworkName: mainVirtualNetwork.Name,
+// 			ResourceGroupName:  example.Name,
+// 			VirtualNetworkName: pulumi.Any(azurerm_virtual_network.Example.Name),
 // 			AddressPrefixes: pulumi.StringArray{
 // 				pulumi.String("10.0.2.0/24"),
 // 			},
@@ -69,8 +69,8 @@ import (
 // 			return err
 // 		}
 // 		mainNetworkInterface, err := network.NewNetworkInterface(ctx, "mainNetworkInterface", &network.NetworkInterfaceArgs{
-// 			Location:          mainResourceGroup.Location,
-// 			ResourceGroupName: mainResourceGroup.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 // 				&network.NetworkInterfaceIpConfigurationArgs{
 // 					Name:                       pulumi.String("testconfiguration1"),
@@ -83,8 +83,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = compute.NewVirtualMachine(ctx, "mainVirtualMachine", &compute.VirtualMachineArgs{
-// 			Location:          mainResourceGroup.Location,
-// 			ResourceGroupName: mainResourceGroup.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 			NetworkInterfaceIds: pulumi.StringArray{
 // 				mainNetworkInterface.ID(),
 // 			},
@@ -149,7 +149,7 @@ type VirtualMachine struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of Network Interface ID's which should be associated with the Virtual Machine.
+	// A list of Network Interface IDs which should be associated with the Virtual Machine.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile VirtualMachineOsProfilePtrOutput `pulumi:"osProfile"`
@@ -240,7 +240,7 @@ type virtualMachineState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of Network Interface ID's which should be associated with the Virtual Machine.
+	// A list of Network Interface IDs which should be associated with the Virtual Machine.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile *VirtualMachineOsProfile `pulumi:"osProfile"`
@@ -291,7 +291,7 @@ type VirtualMachineState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of Network Interface ID's which should be associated with the Virtual Machine.
+	// A list of Network Interface IDs which should be associated with the Virtual Machine.
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile VirtualMachineOsProfilePtrInput
@@ -346,7 +346,7 @@ type virtualMachineArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of Network Interface ID's which should be associated with the Virtual Machine.
+	// A list of Network Interface IDs which should be associated with the Virtual Machine.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile *VirtualMachineOsProfile `pulumi:"osProfile"`
@@ -398,7 +398,7 @@ type VirtualMachineArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of Network Interface ID's which should be associated with the Virtual Machine.
+	// A list of Network Interface IDs which should be associated with the Virtual Machine.
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile VirtualMachineOsProfilePtrInput
@@ -562,7 +562,7 @@ func (o VirtualMachineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of Network Interface ID's which should be associated with the Virtual Machine.
+// A list of Network Interface IDs which should be associated with the Virtual Machine.
 func (o VirtualMachineOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
 }

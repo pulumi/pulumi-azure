@@ -142,6 +142,8 @@ type Account struct {
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrOutput `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesOutput `pulumi:"blobProperties"`
+	// Should cross Tenant replication be enabled? Defaults to `true`.
+	CrossTenantReplicationEnabled pulumi.BoolPtrOutput `pulumi:"crossTenantReplicationEnabled"`
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrOutput `pulumi:"customDomain"`
 	// A `customerManagedKey` block as documented below.
@@ -304,6 +306,8 @@ type accountState struct {
 	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
+	// Should cross Tenant replication be enabled? Defaults to `true`.
+	CrossTenantReplicationEnabled *bool `pulumi:"crossTenantReplicationEnabled"`
 	// A `customDomain` block as documented below.
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
 	// A `customerManagedKey` block as documented below.
@@ -429,6 +433,8 @@ type AccountState struct {
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesPtrInput
+	// Should cross Tenant replication be enabled? Defaults to `true`.
+	CrossTenantReplicationEnabled pulumi.BoolPtrInput
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrInput
 	// A `customerManagedKey` block as documented below.
@@ -558,6 +564,8 @@ type accountArgs struct {
 	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
+	// Should cross Tenant replication be enabled? Defaults to `true`.
+	CrossTenantReplicationEnabled *bool `pulumi:"crossTenantReplicationEnabled"`
 	// A `customDomain` block as documented below.
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
 	// A `customerManagedKey` block as documented below.
@@ -620,6 +628,8 @@ type AccountArgs struct {
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesPtrInput
+	// Should cross Tenant replication be enabled? Defaults to `true`.
+	CrossTenantReplicationEnabled pulumi.BoolPtrInput
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrInput
 	// A `customerManagedKey` block as documented below.
@@ -786,6 +796,11 @@ func (o AccountOutput) AzureFilesAuthentication() AccountAzureFilesAuthenticatio
 // A `blobProperties` block as defined below.
 func (o AccountOutput) BlobProperties() AccountBlobPropertiesOutput {
 	return o.ApplyT(func(v *Account) AccountBlobPropertiesOutput { return v.BlobProperties }).(AccountBlobPropertiesOutput)
+}
+
+// Should cross Tenant replication be enabled? Defaults to `true`.
+func (o AccountOutput) CrossTenantReplicationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.CrossTenantReplicationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A `customDomain` block as documented below.

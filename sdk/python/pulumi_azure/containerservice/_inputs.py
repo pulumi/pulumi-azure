@@ -2042,7 +2042,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`.
+        :param pulumi.Input[str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
@@ -2054,7 +2054,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
@@ -2142,7 +2142,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> pulumi.Input[str]:
         """
-        The size of the Virtual Machine, such as `Standard_DS2_v2`.
+        The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vm_size")
 
@@ -2286,7 +2286,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="nodeLabels")
     def node_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+        A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         """
         return pulumi.get(self, "node_labels")
 
@@ -4080,7 +4080,7 @@ class KubernetesClusterNetworkProfileArgs:
                  pod_cidr: Optional[pulumi.Input[str]] = None,
                  service_cidr: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] network_plugin: Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_plugin: Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param pulumi.Input[str] docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
@@ -4121,7 +4121,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="networkPlugin")
     def network_plugin(self) -> pulumi.Input[str]:
         """
-        Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+        Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_plugin")
 
@@ -6327,7 +6327,7 @@ class RegistryTaskRegistryCredentialCustomArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] login_server: The login server of the custom Container Registry.
-        :param pulumi.Input[str] identity: The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+        :param pulumi.Input[str] identity: The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `[system]`.
         :param pulumi.Input[str] password: The password for logging into the custom Container Registry. It can be either a plain text of password, or a Keyvault Secret ID.
         :param pulumi.Input[str] username: The username for logging into the custom Container Registry. It can be either a plain text of username, or a Keyvault Secret ID.
         """
@@ -6355,7 +6355,7 @@ class RegistryTaskRegistryCredentialCustomArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input[str]]:
         """
-        The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+        The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `[system]`.
         """
         return pulumi.get(self, "identity")
 

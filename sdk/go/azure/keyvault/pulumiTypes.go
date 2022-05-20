@@ -3657,7 +3657,7 @@ type KeyVaultNetworkAcls struct {
 	DefaultAction string `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
 	IpRules []string `pulumi:"ipRules"`
-	// One or more Subnet ID's which should be able to access this Key Vault.
+	// One or more Subnet IDs which should be able to access this Key Vault.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -3679,7 +3679,7 @@ type KeyVaultNetworkAclsArgs struct {
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
 	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
-	// One or more Subnet ID's which should be able to access this Key Vault.
+	// One or more Subnet IDs which should be able to access this Key Vault.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -3775,7 +3775,7 @@ func (o KeyVaultNetworkAclsOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultNetworkAcls) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
 
-// One or more Subnet ID's which should be able to access this Key Vault.
+// One or more Subnet IDs which should be able to access this Key Vault.
 func (o KeyVaultNetworkAclsOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultNetworkAcls) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -3834,7 +3834,7 @@ func (o KeyVaultNetworkAclsPtrOutput) IpRules() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// One or more Subnet ID's which should be able to access this Key Vault.
+// One or more Subnet IDs which should be able to access this Key Vault.
 func (o KeyVaultNetworkAclsPtrOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KeyVaultNetworkAcls) []string {
 		if v == nil {

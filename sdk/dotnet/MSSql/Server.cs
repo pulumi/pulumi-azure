@@ -26,13 +26,6 @@ namespace Pulumi.Azure.MSSql
     ///         {
     ///             Location = "West Europe",
     ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
     ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,

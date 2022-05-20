@@ -24,9 +24,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		exampleManagedInstance, err := sql.NewManagedInstance(ctx, "exampleManagedInstance", &sql.ManagedInstanceArgs{
-// 			ResourceGroupName:          pulumi.Any(azurerm_resource_group.Example.Name),
-// 			Location:                   pulumi.Any(azurerm_resource_group.Example.Location),
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			Location:                   exampleResourceGroup.Location,
 // 			AdministratorLogin:         pulumi.String("mradministrator"),
 // 			AdministratorLoginPassword: pulumi.String("thisIsDog11"),
 // 			LicenseType:                pulumi.String("BasePrice"),
@@ -47,7 +53,7 @@ import (
 // 		}
 // 		_, err = sql.NewManagedInstanceActiveDirectoryAdministrator(ctx, "exampleManagedInstanceActiveDirectoryAdministrator", &sql.ManagedInstanceActiveDirectoryAdministratorArgs{
 // 			ManagedInstanceName: exampleManagedInstance.Name,
-// 			ResourceGroupName:   pulumi.Any(azurerm_resource_group.Example.Name),
+// 			ResourceGroupName:   exampleResourceGroup.Name,
 // 			Login:               pulumi.String("sqladmin"),
 // 			TenantId:            pulumi.String(current.TenantId),
 // 			ObjectId:            pulumi.String(current.ObjectId),

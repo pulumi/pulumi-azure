@@ -27,22 +27,19 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
-// 			Name: "example-resources",
-// 		}, nil)
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
-// 			Name:              "example-job",
-// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 		_ = streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+// 			Name:              pulumi.String("example-job"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
 // 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      pulumi.String(exampleResourceGroup.Name),
-// 			Location:               pulumi.String(exampleResourceGroup.Location),
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
 // 		})

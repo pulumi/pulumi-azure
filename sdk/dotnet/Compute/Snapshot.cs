@@ -114,6 +114,12 @@ namespace Pulumi.Azure.Compute
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether Trusted Launch is enabled for the Snapshot.
+        /// </summary>
+        [Output("trustedLaunchEnabled")]
+        public Output<bool> TrustedLaunchEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Snapshot resource with the given unique name, arguments, and options.
@@ -292,6 +298,12 @@ namespace Pulumi.Azure.Compute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Whether Trusted Launch is enabled for the Snapshot.
+        /// </summary>
+        [Input("trustedLaunchEnabled")]
+        public Input<bool>? TrustedLaunchEnabled { get; set; }
 
         public SnapshotState()
         {

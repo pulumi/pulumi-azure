@@ -22,26 +22,26 @@ namespace Pulumi.Azure.Backup
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
     ///         {
-    ///             Location = rg.Location,
-    ///             ResourceGroupName = rg.Name,
+    ///             Location = example.Location,
+    ///             ResourceGroupName = example.Name,
     ///             Sku = "Standard",
     ///         });
     ///         var sa = new Azure.Storage.Account("sa", new Azure.Storage.AccountArgs
     ///         {
-    ///             Location = rg.Location,
-    ///             ResourceGroupName = rg.Name,
+    ///             Location = example.Location,
+    ///             ResourceGroupName = example.Name,
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "LRS",
     ///         });
     ///         var container = new Azure.Backup.ContainerStorageAccount("container", new Azure.Backup.ContainerStorageAccountArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
+    ///             ResourceGroupName = example.Name,
     ///             RecoveryVaultName = vault.Name,
     ///             StorageAccountId = sa.Id,
     ///         });

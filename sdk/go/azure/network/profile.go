@@ -96,7 +96,7 @@ type Profile struct {
 
 	// A `containerNetworkInterface` block as documented below.
 	ContainerNetworkInterface ProfileContainerNetworkInterfaceOutput `pulumi:"containerNetworkInterface"`
-	// A list of Container Network Interface ID's.
+	// A list of Container Network Interface IDs.
 	ContainerNetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"containerNetworkInterfaceIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -145,7 +145,7 @@ func GetProfile(ctx *pulumi.Context,
 type profileState struct {
 	// A `containerNetworkInterface` block as documented below.
 	ContainerNetworkInterface *ProfileContainerNetworkInterface `pulumi:"containerNetworkInterface"`
-	// A list of Container Network Interface ID's.
+	// A list of Container Network Interface IDs.
 	ContainerNetworkInterfaceIds []string `pulumi:"containerNetworkInterfaceIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -160,7 +160,7 @@ type profileState struct {
 type ProfileState struct {
 	// A `containerNetworkInterface` block as documented below.
 	ContainerNetworkInterface ProfileContainerNetworkInterfacePtrInput
-	// A list of Container Network Interface ID's.
+	// A list of Container Network Interface IDs.
 	ContainerNetworkInterfaceIds pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -295,7 +295,7 @@ func (o ProfileOutput) ContainerNetworkInterface() ProfileContainerNetworkInterf
 	return o.ApplyT(func(v *Profile) ProfileContainerNetworkInterfaceOutput { return v.ContainerNetworkInterface }).(ProfileContainerNetworkInterfaceOutput)
 }
 
-// A list of Container Network Interface ID's.
+// A list of Container Network Interface IDs.
 func (o ProfileOutput) ContainerNetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringArrayOutput { return v.ContainerNetworkInterfaceIds }).(pulumi.StringArrayOutput)
 }

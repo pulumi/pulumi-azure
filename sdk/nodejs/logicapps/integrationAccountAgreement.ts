@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * from "fs";
  *
- * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const testIntegrationAccount = new azure.logicapps.IntegrationAccount("testIntegrationAccount", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Standard",
  * });
  * const host = new azure.logicapps.IntegrationAccountPartner("host", {
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     integrationAccountName: testIntegrationAccount.name,
  *     businessIdentities: [{
  *         qualifier: "AS2Identity",
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const guest = new azure.logicapps.IntegrationAccountPartner("guest", {
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     integrationAccountName: testIntegrationAccount.name,
  *     businessIdentities: [{
  *         qualifier: "AS2Identity",
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const testIntegrationAccountAgreement = new azure.logicapps.IntegrationAccountAgreement("testIntegrationAccountAgreement", {
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     integrationAccountName: testIntegrationAccount.name,
  *     agreementType: "AS2",
  *     hostPartnerName: host.name,

@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Sql
         public Output<string> DefaultSecondaryLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+        /// The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
         /// </summary>
         [Output("edition")]
         public Output<string> Edition { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Sql
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+        /// The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
         /// </summary>
         [Output("maxSizeBytes")]
         public Output<string> MaxSizeBytes { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+        /// The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
         /// </summary>
         [Input("edition")]
         public Input<string>? Edition { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+        /// The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
         /// </summary>
         [Input("maxSizeBytes")]
         public Input<string>? MaxSizeBytes { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? DefaultSecondaryLocation { get; set; }
 
         /// <summary>
-        /// The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+        /// The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
         /// </summary>
         [Input("edition")]
         public Input<string>? Edition { get; set; }
@@ -383,7 +383,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+        /// The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
         /// </summary>
         [Input("maxSizeBytes")]
         public Input<string>? MaxSizeBytes { get; set; }

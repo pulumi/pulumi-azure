@@ -20,6 +20,7 @@ __all__ = [
     'ManagedInstanceFailoverGroupPartnerRegionArgs',
     'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs',
     'ManagedInstanceIdentityArgs',
+    'ManagedInstanceVulnerabilityAssessmentRecurringScansArgs',
     'ServerAzureadAdministratorArgs',
     'ServerIdentityArgs',
     'ServerVulnerabilityAssessmentRecurringScansArgs',
@@ -159,7 +160,7 @@ class DatabaseThreatDetectionPolicyArgs:
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
         :param pulumi.Input[str] state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-        :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
         if disabled_alerts is not None:
             pulumi.set(__self__, "disabled_alerts", disabled_alerts)
@@ -252,7 +253,7 @@ class DatabaseThreatDetectionPolicyArgs:
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
         return pulumi.get(self, "storage_endpoint")
 
@@ -612,6 +613,61 @@ class ManagedInstanceIdentityArgs:
 
 
 @pulumi.input_type
+class ManagedInstanceVulnerabilityAssessmentRecurringScansArgs:
+    def __init__(__self__, *,
+                 email_subscription_admins: Optional[pulumi.Input[bool]] = None,
+                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] email_subscription_admins: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param pulumi.Input[bool] enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+        if email_subscription_admins is not None:
+            pulumi.set(__self__, "email_subscription_admins", email_subscription_admins)
+        if emails is not None:
+            pulumi.set(__self__, "emails", emails)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="emailSubscriptionAdmins")
+    def email_subscription_admins(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+        """
+        return pulumi.get(self, "email_subscription_admins")
+
+    @email_subscription_admins.setter
+    def email_subscription_admins(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "email_subscription_admins", value)
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies an array of e-mail addresses to which the scan notification is sent.
+        """
+        return pulumi.get(self, "emails")
+
+    @emails.setter
+    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "emails", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
 class ServerAzureadAdministratorArgs:
     def __init__(__self__, *,
                  login_username: pulumi.Input[str],
@@ -758,7 +814,7 @@ class ServerVulnerabilityAssessmentRecurringScansArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] email_subscription_admins: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of email addresses to which the scan notification is sent.
         :param pulumi.Input[bool] enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
         if email_subscription_admins is not None:
@@ -784,7 +840,7 @@ class ServerVulnerabilityAssessmentRecurringScansArgs:
     @pulumi.getter
     def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies an array of e-mail addresses to which the scan notification is sent.
+        Specifies an array of email addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 

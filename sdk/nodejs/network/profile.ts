@@ -86,7 +86,7 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly containerNetworkInterface!: pulumi.Output<outputs.network.ProfileContainerNetworkInterface>;
     /**
-     * A list of Container Network Interface ID's.
+     * A list of Container Network Interface IDs.
      */
     public /*out*/ readonly containerNetworkInterfaceIds!: pulumi.Output<string[]>;
     /**
@@ -154,7 +154,7 @@ export interface ProfileState {
      */
     containerNetworkInterface?: pulumi.Input<inputs.network.ProfileContainerNetworkInterface>;
     /**
-     * A list of Container Network Interface ID's.
+     * A list of Container Network Interface IDs.
      */
     containerNetworkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

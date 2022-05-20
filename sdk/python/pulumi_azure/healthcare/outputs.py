@@ -9,12 +9,143 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DicomServiceAuthentication',
+    'DicomServiceIdentity',
+    'DicomServicePrivateEndpoint',
     'ServiceAuthenticationConfiguration',
     'ServiceCorsConfiguration',
     'WorkspacePrivateEndpointConnection',
+    'GetDicomServiceAuthenticationResult',
+    'GetDicomServiceIdentityResult',
+    'GetDicomServicePrivateEndpointResult',
     'GetServiceAuthenticationConfigurationResult',
     'GetServiceCorsConfigurationResult',
 ]
+
+@pulumi.output_type
+class DicomServiceAuthentication(dict):
+    def __init__(__self__, *,
+                 audiences: Optional[Sequence[str]] = None,
+                 authority: Optional[str] = None):
+        """
+        :param Sequence[str] audiences: The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+        """
+        if audiences is not None:
+            pulumi.set(__self__, "audiences", audiences)
+        if authority is not None:
+            pulumi.set(__self__, "authority", authority)
+
+    @property
+    @pulumi.getter
+    def audiences(self) -> Optional[Sequence[str]]:
+        """
+        The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+        """
+        return pulumi.get(self, "audiences")
+
+    @property
+    @pulumi.getter
+    def authority(self) -> Optional[str]:
+        return pulumi.get(self, "authority")
+
+
+@pulumi.output_type
+class DicomServiceIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DicomServiceIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DicomServiceIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DicomServiceIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
+        :param Sequence[str] identity_ids: A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class DicomServicePrivateEndpoint(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str id: The ID of the Healthcare DICOM Service.
+        :param str name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the Healthcare DICOM Service.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
+        """
+        return pulumi.get(self, "name")
+
 
 @pulumi.output_type
 class ServiceAuthenticationConfiguration(dict):
@@ -197,6 +328,93 @@ class WorkspacePrivateEndpointConnection(dict):
     def name(self) -> Optional[str]:
         """
         Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetDicomServiceAuthenticationResult(dict):
+    def __init__(__self__, *,
+                 audiences: Sequence[str],
+                 authority: str):
+        """
+        :param Sequence[str] audiences: The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+        """
+        pulumi.set(__self__, "audiences", audiences)
+        pulumi.set(__self__, "authority", authority)
+
+    @property
+    @pulumi.getter
+    def audiences(self) -> Sequence[str]:
+        """
+        The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+        """
+        return pulumi.get(self, "audiences")
+
+    @property
+    @pulumi.getter
+    def authority(self) -> str:
+        return pulumi.get(self, "authority")
+
+
+@pulumi.output_type
+class GetDicomServiceIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetDicomServicePrivateEndpointResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        :param str id: The ID of the Healthcare DICOM Service.
+        :param str name: The name of the Healthcare DICOM Service
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Healthcare DICOM Service.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Healthcare DICOM Service
         """
         return pulumi.get(self, "name")
 

@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Compute
     ///         });
     ///         var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new Azure.Compute.ManagedDiskArgs
     ///         {
-    ///             Location = "West US 2",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             StorageAccountType = "Standard_LRS",
     ///             CreateOption = "Empty",
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Compute
     ///         });
     ///         var source = new Azure.Compute.ManagedDisk("source", new Azure.Compute.ManagedDiskArgs
     ///         {
-    ///             Location = "West US 2",
+    ///             Location = example.Location,
     ///             ResourceGroupName = example.Name,
     ///             StorageAccountType = "Standard_LRS",
     ///             CreateOption = "Empty",
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Compute
     ///         });
     ///         var copy = new Azure.Compute.ManagedDisk("copy", new Azure.Compute.ManagedDiskArgs
     ///         {
-    ///             Location = "West US 2",
+    ///             Location = example.Location,
     ///             ResourceGroupName = example.Name,
     ///             StorageAccountType = "Standard_LRS",
     ///             CreateOption = "Copy",

@@ -66,7 +66,7 @@ type DdosProtectionPlan struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A list of Virtual Network ID's associated with the DDoS Protection Plan.
+	// A list of Virtual Network IDs associated with the DDoS Protection Plan.
 	VirtualNetworkIds pulumi.StringArrayOutput `pulumi:"virtualNetworkIds"`
 }
 
@@ -110,7 +110,7 @@ type ddosProtectionPlanState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Virtual Network ID's associated with the DDoS Protection Plan.
+	// A list of Virtual Network IDs associated with the DDoS Protection Plan.
 	VirtualNetworkIds []string `pulumi:"virtualNetworkIds"`
 }
 
@@ -123,7 +123,7 @@ type DdosProtectionPlanState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A list of Virtual Network ID's associated with the DDoS Protection Plan.
+	// A list of Virtual Network IDs associated with the DDoS Protection Plan.
 	VirtualNetworkIds pulumi.StringArrayInput
 }
 
@@ -261,7 +261,7 @@ func (o DdosProtectionPlanOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DdosProtectionPlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A list of Virtual Network ID's associated with the DDoS Protection Plan.
+// A list of Virtual Network IDs associated with the DDoS Protection Plan.
 func (o DdosProtectionPlanOutput) VirtualNetworkIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DdosProtectionPlan) pulumi.StringArrayOutput { return v.VirtualNetworkIds }).(pulumi.StringArrayOutput)
 }

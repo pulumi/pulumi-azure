@@ -1969,6 +1969,9 @@ export namespace appplatform {
          * The FQDN list of required traffic.
          */
         fqdns: string[];
+        /**
+         * The IP list of required traffic.
+         */
         ipAddresses: string[];
         /**
          * The port of required traffic.
@@ -2029,6 +2032,86 @@ export namespace appplatform {
         sizeInGb: number;
     }
 
+    export interface SpringCloudBuildPackBindingLaunch {
+        /**
+         * Specifies a map of non-sensitive properties for launchProperties.
+         */
+        properties?: {[key: string]: string};
+        /**
+         * Specifies a map of sensitive properties for launchProperties.
+         */
+        secrets?: {[key: string]: string};
+    }
+
+    export interface SpringCloudBuilderBuildPackGroup {
+        /**
+         * Specifies a list of the build pack's ID.
+         */
+        buildPackIds?: string[];
+        /**
+         * The name which should be used for this build pack group.
+         */
+        name: string;
+    }
+
+    export interface SpringCloudBuilderStack {
+        /**
+         * Specifies the ID of the ClusterStack.
+         */
+        id: string;
+        /**
+         * Specifies the version of the ClusterStack
+         */
+        version: string;
+    }
+
+    export interface SpringCloudConfigurationServiceRepository {
+        /**
+         * Specifies the SSH public key of git repository.
+         */
+        hostKey?: string;
+        /**
+         * Specifies the SSH key algorithm of git repository.
+         */
+        hostKeyAlgorithm?: string;
+        /**
+         * Specifies the label of the repository.
+         */
+        label: string;
+        /**
+         * Specifies the name which should be used for this repository.
+         */
+        name: string;
+        /**
+         * Specifies the password of git repository basic auth.
+         */
+        password?: string;
+        /**
+         * Specifies the collection of patterns of the repository.
+         */
+        patterns: string[];
+        /**
+         * Specifies the SSH private key of git repository.
+         */
+        privateKey?: string;
+        /**
+         * Specifies a list of searching path of the repository
+         */
+        searchPaths?: string[];
+        /**
+         * Specifies whether enable the strict host key checking.
+         */
+        strictHostKeyChecking?: boolean;
+        /**
+         * Specifies the URI of the repository.
+         */
+        uri: string;
+        /**
+         * Specifies the username of git repository basic auth.
+         */
+        username?: string;
+    }
+
     export interface SpringCloudContainerDeploymentQuota {
         /**
          * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -2038,6 +2121,86 @@ export namespace appplatform {
          * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
          */
         memory: string;
+    }
+
+    export interface SpringCloudGatewayApiMetadata {
+        /**
+         * Detailed description of the APIs available on the Gateway instance.
+         */
+        description?: string;
+        /**
+         * Location of additional documentation for the APIs available on the Gateway instance.
+         */
+        documentationUrl?: string;
+        /**
+         * Base URL that API consumers will use to access APIs on the Gateway instance.
+         */
+        serverUrl?: string;
+        /**
+         * Specifies the title describing the context of the APIs available on the Gateway instance.
+         */
+        title?: string;
+        /**
+         * Specifies the version of APIs available on this Gateway instance.
+         */
+        version?: string;
+    }
+
+    export interface SpringCloudGatewayCors {
+        /**
+         * Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
+         */
+        allowedHeaders?: string[];
+        /**
+         * Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+         */
+        allowedMethods?: string[];
+        /**
+         * Allowed origins to make cross-site requests. The special value `*` allows all domains.
+         */
+        allowedOrigins?: string[];
+        /**
+         * is user credentials are supported on cross-site requests?
+         */
+        credentialsAllowed?: boolean;
+        /**
+         * HTTP response headers to expose for cross-site requests.
+         */
+        exposedHeaders?: string[];
+        /**
+         * How long, in seconds, the response from a pre-flight request can be cached by clients.
+         */
+        maxAgeSeconds?: number;
+    }
+
+    export interface SpringCloudGatewayQuota {
+        /**
+         * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+         */
+        cpu?: string;
+        /**
+         * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+         */
+        memory?: string;
+    }
+
+    export interface SpringCloudGatewaySso {
+        /**
+         * The public identifier for the application.
+         */
+        clientId?: string;
+        /**
+         * The secret known only to the application and the authorization server.
+         */
+        clientSecret?: string;
+        /**
+         * The URI of Issuer Identifier.
+         */
+        issuerUri?: string;
+        /**
+         * It defines the specific actions applications can be allowed to do on a user's behalf.
+         */
+        scopes?: string[];
     }
 
     export interface SpringCloudJavaDeploymentQuota {
@@ -2222,6 +2385,7 @@ export namespace appplatform {
          */
         sampleRate?: number;
     }
+
 }
 
 export namespace appservice {
@@ -2305,11 +2469,11 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login.
+         * The App Secret of the Facebook app used for Facebook login.
          */
         appSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
          */
         oauthScopes?: string[];
     }
@@ -2935,11 +3099,11 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login.
+         * The App Secret of the Facebook app used for Facebook login.
          */
         appSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
          */
         oauthScopes?: string[];
     }
@@ -3242,7 +3406,7 @@ export namespace appservice {
          */
         activeDirectory?: outputs.appservice.FunctionAppSlotAuthSettingsActiveDirectory;
         /**
-         * Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+         * login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
          */
         additionalLoginParams?: {[key: string]: string};
         /**
@@ -3316,11 +3480,11 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login.
+         * The App Secret of the Facebook app used for Facebook login.
          */
         appSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
          */
         oauthScopes?: string[];
     }
@@ -4162,7 +4326,7 @@ export namespace appservice {
          */
         activeDirectories: outputs.appservice.GetLinuxFunctionAppAuthSettingActiveDirectory[];
         /**
-         * A map of Login Parameters sent to the OpenID Connect authorization endpoint when a user logs in.
+         * A map of login parameters sent to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters: {[key: string]: string};
         /**
@@ -4244,11 +4408,11 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login.
+         * The App Secret of the Facebook app used for Facebook login.
          */
         appSecret: string;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         * The app setting name that contains the `appSecret` value used for Facebook login.
          */
         appSecretSettingName: string;
         /**
@@ -4831,11 +4995,11 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login.
+         * The App Secret of the Facebook app used for Facebook login.
          */
         appSecret: string;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         * The app setting name that contains the `appSecret` value used for Facebook login.
          */
         appSecretSettingName: string;
         /**
@@ -6027,11 +6191,11 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login.
+         * The App Secret of the Facebook app used for Facebook login.
          */
         appSecret: string;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         * The app setting name that contains the `appSecret` value used for Facebook login.
          */
         appSecretSettingName: string;
         /**
@@ -6701,7 +6865,7 @@ export namespace appservice {
          */
         activeDirectory?: outputs.appservice.LinuxFunctionAppAuthSettingsActiveDirectory;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: {[key: string]: string};
         /**
@@ -6783,15 +6947,15 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: string;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: string[];
     }
@@ -6802,15 +6966,15 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: string[];
     }
@@ -6825,7 +6989,7 @@ export namespace appservice {
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
@@ -7280,7 +7444,7 @@ export namespace appservice {
          */
         activeDirectory?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsActiveDirectory;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: {[key: string]: string};
         /**
@@ -7362,15 +7526,15 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: string;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: string[];
     }
@@ -7381,15 +7545,15 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: string[];
     }
@@ -7404,7 +7568,7 @@ export namespace appservice {
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
@@ -7886,7 +8050,7 @@ export namespace appservice {
          */
         activeDirectory?: outputs.appservice.LinuxWebAppAuthSettingsActiveDirectory;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: {[key: string]: string};
         /**
@@ -7968,15 +8132,15 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: string;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: string[];
     }
@@ -7987,15 +8151,15 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: string[];
     }
@@ -8010,7 +8174,7 @@ export namespace appservice {
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
@@ -8586,7 +8750,7 @@ export namespace appservice {
          */
         activeDirectory?: outputs.appservice.LinuxWebAppSlotAuthSettingsActiveDirectory;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: {[key: string]: string};
         /**
@@ -8668,15 +8832,15 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: string;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: string[];
     }
@@ -8687,15 +8851,15 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: string[];
     }
@@ -8710,7 +8874,7 @@ export namespace appservice {
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
@@ -9444,11 +9608,11 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login.
+         * The App Secret of the Facebook app used for Facebook login.
          */
         appSecret: string;
         /**
-         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         * The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
          */
         oauthScopes?: string[];
     }
@@ -9970,7 +10134,7 @@ export namespace appservice {
 
     export interface StaticSiteIdentity {
         /**
-         * A list of Managed Identity ID's which should be assigned to this Static Site resource.
+         * A list of Managed Identity IDs which should be assigned to this Static Site resource.
          */
         identityIds?: string[];
         principalId: string;
@@ -9987,7 +10151,7 @@ export namespace appservice {
          */
         activeDirectory?: outputs.appservice.WindowsFunctionAppAuthSettingsActiveDirectory;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: {[key: string]: string};
         /**
@@ -10069,15 +10233,15 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: string;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: string[];
     }
@@ -10088,15 +10252,15 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: string[];
     }
@@ -10111,7 +10275,7 @@ export namespace appservice {
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
@@ -10527,7 +10691,7 @@ export namespace appservice {
          */
         activeDirectory?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsActiveDirectory;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: {[key: string]: string};
         /**
@@ -10609,11 +10773,11 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: string;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: string;
         /**
@@ -10628,11 +10792,11 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
@@ -10651,7 +10815,7 @@ export namespace appservice {
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
@@ -11094,7 +11258,7 @@ export namespace appservice {
          */
         activeDirectory?: outputs.appservice.WindowsWebAppAuthSettingsActiveDirectory;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: {[key: string]: string};
         /**
@@ -11176,15 +11340,15 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: string;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: string[];
     }
@@ -11195,15 +11359,15 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: string[];
     }
@@ -11218,7 +11382,7 @@ export namespace appservice {
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
@@ -11852,7 +12016,7 @@ export namespace appservice {
          */
         activeDirectory?: outputs.appservice.WindowsWebAppSlotAuthSettingsActiveDirectory;
         /**
-         * Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
          */
         additionalLoginParameters?: {[key: string]: string};
         /**
@@ -11934,15 +12098,15 @@ export namespace appservice {
          */
         appId: string;
         /**
-         * The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `appSecretSettingName`.
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
          */
         appSecret?: string;
         /**
-         * The app setting name that contains the `appSecret` value used for Facebook Login. Cannot be specified with `appSecret`.
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
          */
         appSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
          */
         oauthScopes?: string[];
     }
@@ -11953,15 +12117,15 @@ export namespace appservice {
          */
         clientId: string;
         /**
-         * The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `clientSecretSettingName`.
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for GitHub Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
          */
         oauthScopes?: string[];
     }
@@ -11976,7 +12140,7 @@ export namespace appservice {
          */
         clientSecret?: string;
         /**
-         * The app setting name that contains the `clientSecret` value used for Google Login. Cannot be specified with `clientSecret`.
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
@@ -13576,7 +13740,7 @@ export namespace cdn {
          */
         protocolType: string;
         /**
-         * The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+         * The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
          */
         tlsVersion?: string;
     }
@@ -13587,7 +13751,7 @@ export namespace cdn {
          */
         keyVaultCertificateId: string;
         /**
-         * The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+         * The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
          */
         tlsVersion?: string;
     }
@@ -14282,6 +14446,32 @@ export namespace compute {
         type: string;
     }
 
+    export interface GetConfidentialLedgerAzureadBasedServicePrincipal {
+        /**
+         * The Ledger Role to grant this Certificate Security Principal.
+         */
+        ledgerRoleName: string;
+        /**
+         * The Principal ID of the AzureAD Service Principal.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for this AzureAD Service Principal.
+         */
+        tenantId: string;
+    }
+
+    export interface GetConfidentialLedgerCertificateBasedSecurityPrincipal {
+        /**
+         * The Ledger Role to grant this Certificate Security Principal.
+         */
+        ledgerRoleName: string;
+        /**
+         * The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
+         */
+        pemPublicKey: string;
+    }
+
     export interface GetImageDataDisk {
         /**
          * the URI in Azure storage of the blob used to create the image.
@@ -14499,7 +14689,7 @@ export namespace compute {
 
     export interface GetVirtualMachineIdentity {
         /**
-         * The list of User Managed Identity ID's which are assigned to the Virtual Machine.
+         * The list of User Managed Identity IDs which are assigned to the Virtual Machine.
          */
         identityIds: string[];
         /**
@@ -14736,7 +14926,7 @@ export namespace compute {
          */
         caching: string;
         /**
-         * A `diffDiskSettings` block as defined above.
+         * A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
          */
         diffDiskSettings?: outputs.compute.LinuxVirtualMachineOsDiskDiffDiskSettings;
         /**
@@ -14766,6 +14956,10 @@ export namespace compute {
          * Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
          */
         option: string;
+        /**
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         */
+        placement?: string;
     }
 
     export interface LinuxVirtualMachinePlan {
@@ -15196,7 +15390,7 @@ export namespace compute {
          */
         enabled: boolean;
         /**
-         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
          */
         timeout?: string;
     }
@@ -16121,7 +16315,7 @@ export namespace compute {
          */
         diskSizeGb: number;
         /**
-         * Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+         * Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
          */
         imageUri?: string;
         /**
@@ -16200,7 +16394,7 @@ export namespace compute {
          */
         caching: string;
         /**
-         * A `diffDiskSettings` block as defined above.
+         * A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
          */
         diffDiskSettings?: outputs.compute.WindowsVirtualMachineOsDiskDiffDiskSettings;
         /**
@@ -16230,6 +16424,10 @@ export namespace compute {
          * Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
          */
         option: string;
+        /**
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         */
+        placement?: string;
     }
 
     export interface WindowsVirtualMachinePlan {
@@ -16679,7 +16877,7 @@ export namespace compute {
          */
         enabled: boolean;
         /**
-         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
          */
         timeout?: string;
     }
@@ -16691,6 +16889,35 @@ export namespace compute {
         certificateUrl?: string;
         protocol: string;
     }
+}
+
+export namespace confidentialledger {
+    export interface LedgerAzureadBasedServicePrincipal {
+        /**
+         * Specifies the Ledger Role to grant this AzureAD Service Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
+         */
+        ledgerRoleName: string;
+        /**
+         * Specifies the Principal ID of the AzureAD Service Principal.
+         */
+        principalId: string;
+        /**
+         * Specifies the Tenant ID for this AzureAD Service Principal.
+         */
+        tenantId: string;
+    }
+
+    export interface LedgerCertificateBasedSecurityPrincipal {
+        /**
+         * Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
+         */
+        ledgerRoleName: string;
+        /**
+         * The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
+         */
+        pemPublicKey: string;
+    }
+
 }
 
 export namespace config {
@@ -18326,7 +18553,7 @@ export namespace containerservice {
          */
         nodeCount: number;
         /**
-         * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+         * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
          */
         nodeLabels: {[key: string]: string};
         /**
@@ -18376,7 +18603,7 @@ export namespace containerservice {
          */
         upgradeSettings?: outputs.containerservice.KubernetesClusterDefaultNodePoolUpgradeSettings;
         /**
-         * The size of the Virtual Machine, such as `Standard_DS2_v2`.
+         * The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
          */
         vmSize: string;
         /**
@@ -18844,7 +19071,7 @@ export namespace containerservice {
          */
         networkMode: string;
         /**
-         * Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+         * Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
          */
         networkPlugin: string;
         /**
@@ -19418,7 +19645,7 @@ export namespace containerservice {
 
     export interface RegistryTaskRegistryCredentialCustom {
         /**
-         * The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+         * The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `[system]`.
          */
         identity?: string;
         /**
@@ -19639,7 +19866,7 @@ export namespace core {
 
     export interface ResourceGroupPolicyAssignmentIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          */
         identityIds?: string[];
         /**
@@ -19669,7 +19896,7 @@ export namespace core {
 
     export interface ResourcePolicyAssignmentIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          */
         identityIds?: string[];
         /**
@@ -19732,7 +19959,7 @@ export namespace core {
 
     export interface SubscriptionPolicyAssignmentIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          */
         identityIds?: string[];
         /**
@@ -26505,6 +26732,64 @@ export namespace hdinsight {
 }
 
 export namespace healthcare {
+    export interface DicomServiceAuthentication {
+        /**
+         * The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+         */
+        audiences: string[];
+        authority: string;
+    }
+
+    export interface DicomServiceIdentity {
+        /**
+         * A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identityIds` must be set as well.
+         */
+        type: string;
+    }
+
+    export interface DicomServicePrivateEndpoint {
+        /**
+         * The ID of the Healthcare DICOM Service.
+         */
+        id: string;
+        /**
+         * Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
+         */
+        name: string;
+    }
+
+    export interface GetDicomServiceAuthentication {
+        /**
+         * The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
+         */
+        audiences: string[];
+        authority: string;
+    }
+
+    export interface GetDicomServiceIdentity {
+        identityIds: string[];
+        principalId: string;
+        tenantId: string;
+        type: string;
+    }
+
+    export interface GetDicomServicePrivateEndpoint {
+        /**
+         * The ID of the Healthcare DICOM Service.
+         */
+        id: string;
+        /**
+         * The name of the Healthcare DICOM Service
+         */
+        name: string;
+    }
+
     export interface GetServiceAuthenticationConfiguration {
         /**
          * The intended audience to receive authentication tokens for the service.
@@ -27123,7 +27408,7 @@ export namespace iot {
          */
         connectionToIpsNotAlloweds?: string[];
         /**
-         * Specifies which local user is not allowed to Login in current device group.
+         * Specifies which local user is not allowed to login in current device group.
          */
         localUsersNotAlloweds?: string[];
         /**
@@ -27844,7 +28129,7 @@ export namespace keyvault {
          */
         ipRules?: string[];
         /**
-         * One or more Subnet ID's which should be able to access this Key Vault.
+         * One or more Subnet IDs which should be able to access this Key Vault.
          */
         virtualNetworkSubnetIds?: string[];
     }
@@ -28946,7 +29231,7 @@ export namespace managedapplication {
 export namespace management {
     export interface GroupPolicyAssignmentIdentity {
         /**
-         * A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+         * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
          */
         identityIds?: string[];
         /**
@@ -31253,7 +31538,7 @@ export namespace mssql {
          */
         storageAccountAccessKey?: string;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: string;
     }
@@ -31411,6 +31696,21 @@ export namespace mssql {
         type: string;
     }
 
+    export interface ManagedInstanceVulnerabilityAssessmentRecurringScans {
+        /**
+         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+         */
+        emailSubscriptionAdmins?: boolean;
+        /**
+         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         */
+        emails?: string[];
+        /**
+         * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+         */
+        enabled?: boolean;
+    }
+
     export interface ServerAzureadAdministrator {
         /**
          * Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
@@ -31455,7 +31755,7 @@ export namespace mssql {
          */
         emailSubscriptionAdmins?: boolean;
         /**
-         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         * Specifies an array of email addresses to which the scan notification is sent.
          */
         emails?: string[];
         /**
@@ -31731,7 +32031,7 @@ export namespace mysql {
          */
         storageAccountAccessKey: string;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
          */
         storageEndpoint: string;
     }
@@ -31777,7 +32077,7 @@ export namespace mysql {
          */
         storageAccountAccessKey?: string;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
          */
         storageEndpoint?: string;
     }
@@ -33809,7 +34109,7 @@ export namespace network {
 
     export interface GetNetworkInterfaceIpConfiguration {
         /**
-         * A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
+         * A list of Backend Address Pool IDs within a Application Gateway that this Network Interface is connected to.
          */
         applicationGatewayBackendAddressPoolsIds: string[];
         applicationSecurityGroupIds: string[];
@@ -33818,11 +34118,11 @@ export namespace network {
          */
         gatewayLoadBalancerFrontendIpConfigurationId: string;
         /**
-         * A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
+         * A list of Backend Address Pool IDs within a Load Balancer that this Network Interface is connected to.
          */
         loadBalancerBackendAddressPoolsIds: string[];
         /**
-         * A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
+         * A list of Inbound NAT Rule IDs within a Load Balancer that this Network Interface is connected to.
          */
         loadBalancerInboundNatRulesIds: string[];
         /**
@@ -33870,7 +34170,7 @@ export namespace network {
          */
         destinationAddressPrefixes: string[];
         /**
-         * A List of destination Application Security Group ID's
+         * A List of destination Application Security Group IDs
          */
         destinationApplicationSecurityGroupIds?: string[];
         /**
@@ -33903,7 +34203,7 @@ export namespace network {
          */
         sourceAddressPrefixes: string[];
         /**
-         * A List of source Application Security Group ID's
+         * A List of source Application Security Group IDs
          */
         sourceApplicationSecurityGroupIds?: string[];
         /**
@@ -34514,7 +34814,7 @@ export namespace network {
          */
         destinationAddressPrefixes?: string[];
         /**
-         * A List of destination Application Security Group ID's
+         * A List of destination Application Security Group IDs
          */
         destinationApplicationSecurityGroupIds?: string[];
         /**
@@ -34550,7 +34850,7 @@ export namespace network {
          */
         sourceAddressPrefixes?: string[];
         /**
-         * A List of source Application Security Group ID's
+         * A List of source Application Security Group IDs
          */
         sourceApplicationSecurityGroupIds?: string[];
         /**
@@ -34898,7 +35198,7 @@ export namespace network {
          */
         labels: string[];
         /**
-         * A list of Route Table ID's to associated with this Virtual Hub Connection.
+         * A list of Route Table IDs to associated with this Virtual Hub Connection.
          */
         routeTableIds: string[];
     }
@@ -34998,6 +35298,17 @@ export namespace network {
         tunnelIpAddresses: string[];
     }
 
+    export interface VirtualNetworkGatewayConnectionCustomBgpAddresses {
+        /**
+         * single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (first one)
+         */
+        primary: string;
+        /**
+         * single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (second one)
+         */
+        secondary: string;
+    }
+
     export interface VirtualNetworkGatewayConnectionIpsecPolicy {
         /**
          * The DH group used in IKE phase 1 for initial SA. Valid
@@ -35044,7 +35355,13 @@ export namespace network {
     }
 
     export interface VirtualNetworkGatewayConnectionTrafficSelectorPolicy {
+        /**
+         * List of local CIDRs.
+         */
         localAddressCidrs: string[];
+        /**
+         * List of remote CIDRs.
+         */
         remoteAddressCidrs: string[];
     }
 
@@ -35256,7 +35573,7 @@ export namespace network {
          */
         labels?: string[];
         /**
-         * A list of Route Table ID's to associated with this VPN Gateway Connection.
+         * A list of Route Table IDs to associated with this VPN Gateway Connection.
          */
         routeTableIds: string[];
     }
@@ -35531,7 +35848,6 @@ export namespace network {
          */
         peeringAddress: string;
     }
-
 }
 
 export namespace notificationhub {
@@ -35831,7 +36147,7 @@ export namespace postgresql {
          */
         storageAccountAccessKey?: string;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
          */
         storageEndpoint?: string;
     }
@@ -37479,7 +37795,7 @@ export namespace sql {
          */
         storageAccountAccessKey?: string;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: string;
     }
@@ -37622,7 +37938,7 @@ export namespace sql {
          */
         storageAccountAccessKey?: string;
         /**
-         * Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint?: string;
     }
@@ -37832,15 +38148,15 @@ export namespace storage {
         /**
          * A `hourMetrics` block as defined below.
          */
-        hourMetrics?: outputs.storage.AccountQueuePropertiesHourMetrics;
+        hourMetrics: outputs.storage.AccountQueuePropertiesHourMetrics;
         /**
          * A `logging` block as defined below.
          */
-        logging?: outputs.storage.AccountQueuePropertiesLogging;
+        logging: outputs.storage.AccountQueuePropertiesLogging;
         /**
          * A `minuteMetrics` block as defined below.
          */
-        minuteMetrics?: outputs.storage.AccountQueuePropertiesMinuteMetrics;
+        minuteMetrics: outputs.storage.AccountQueuePropertiesMinuteMetrics;
     }
 
     export interface AccountQueuePropertiesCorsRule {
@@ -38449,7 +38765,7 @@ export namespace storage {
         /**
          * An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
          */
-        blobTypes?: string[];
+        blobTypes: string[];
         /**
          * A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
          */
@@ -38552,6 +38868,10 @@ export namespace storage {
 export namespace streamanalytics {
     export interface FunctionJavaScriptUDFInput {
         /**
+         * Is this input parameter a configuration parameter? Defaults to `false`.
+         */
+        configurationParameter?: boolean;
+        /**
          * The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
          */
         type: string;
@@ -38565,6 +38885,10 @@ export namespace streamanalytics {
     }
 
     export interface FunctionJavascriptUdaInput {
+        /**
+         * Is this input parameter a configuration parameter? Defaults to `false`.
+         */
+        configurationParameter?: boolean;
         /**
          * The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
          */
@@ -38815,7 +39139,7 @@ export namespace synapse {
 
     export interface SqlPoolRestore {
         /**
-         * Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
+         * Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
          */
         pointInTime: string;
         /**
@@ -38837,7 +39161,7 @@ export namespace synapse {
          */
         emailSubscriptionAdminsEnabled?: boolean;
         /**
-         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         * Specifies an array of email addresses to which the scan notification is sent.
          */
         emails?: string[];
         /**
@@ -38966,7 +39290,7 @@ export namespace synapse {
          */
         emailSubscriptionAdminsEnabled?: boolean;
         /**
-         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         * Specifies an array of email addresses to which the scan notification is sent.
          */
         emails?: string[];
         /**
@@ -39163,7 +39487,7 @@ export namespace waf {
 
     export interface PolicyManagedRulesManagedRuleSetRuleGroupOverride {
         /**
-         * One or more Rule ID's
+         * One or more Rule IDs
          */
         disabledRules?: string[];
         /**

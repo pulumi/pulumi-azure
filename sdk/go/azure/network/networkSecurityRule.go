@@ -81,7 +81,7 @@ type NetworkSecurityRule struct {
 	DestinationAddressPrefix pulumi.StringPtrOutput `pulumi:"destinationAddressPrefix"`
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes pulumi.StringArrayOutput `pulumi:"destinationAddressPrefixes"`
-	// A List of destination Application Security Group ID's
+	// A List of destination Application Security Group IDs
 	DestinationApplicationSecurityGroupIds pulumi.StringPtrOutput `pulumi:"destinationApplicationSecurityGroupIds"`
 	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
 	DestinationPortRange pulumi.StringPtrOutput `pulumi:"destinationPortRange"`
@@ -103,7 +103,7 @@ type NetworkSecurityRule struct {
 	SourceAddressPrefix pulumi.StringPtrOutput `pulumi:"sourceAddressPrefix"`
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes pulumi.StringArrayOutput `pulumi:"sourceAddressPrefixes"`
-	// A List of source Application Security Group ID's
+	// A List of source Application Security Group IDs
 	SourceApplicationSecurityGroupIds pulumi.StringPtrOutput `pulumi:"sourceApplicationSecurityGroupIds"`
 	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
 	SourcePortRange pulumi.StringPtrOutput `pulumi:"sourcePortRange"`
@@ -166,7 +166,7 @@ type networkSecurityRuleState struct {
 	DestinationAddressPrefix *string `pulumi:"destinationAddressPrefix"`
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes []string `pulumi:"destinationAddressPrefixes"`
-	// A List of destination Application Security Group ID's
+	// A List of destination Application Security Group IDs
 	DestinationApplicationSecurityGroupIds *string `pulumi:"destinationApplicationSecurityGroupIds"`
 	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
 	DestinationPortRange *string `pulumi:"destinationPortRange"`
@@ -188,7 +188,7 @@ type networkSecurityRuleState struct {
 	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes []string `pulumi:"sourceAddressPrefixes"`
-	// A List of source Application Security Group ID's
+	// A List of source Application Security Group IDs
 	SourceApplicationSecurityGroupIds *string `pulumi:"sourceApplicationSecurityGroupIds"`
 	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
 	SourcePortRange *string `pulumi:"sourcePortRange"`
@@ -205,7 +205,7 @@ type NetworkSecurityRuleState struct {
 	DestinationAddressPrefix pulumi.StringPtrInput
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes pulumi.StringArrayInput
-	// A List of destination Application Security Group ID's
+	// A List of destination Application Security Group IDs
 	DestinationApplicationSecurityGroupIds pulumi.StringPtrInput
 	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
 	DestinationPortRange pulumi.StringPtrInput
@@ -227,7 +227,7 @@ type NetworkSecurityRuleState struct {
 	SourceAddressPrefix pulumi.StringPtrInput
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes pulumi.StringArrayInput
-	// A List of source Application Security Group ID's
+	// A List of source Application Security Group IDs
 	SourceApplicationSecurityGroupIds pulumi.StringPtrInput
 	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
 	SourcePortRange pulumi.StringPtrInput
@@ -248,7 +248,7 @@ type networkSecurityRuleArgs struct {
 	DestinationAddressPrefix *string `pulumi:"destinationAddressPrefix"`
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes []string `pulumi:"destinationAddressPrefixes"`
-	// A List of destination Application Security Group ID's
+	// A List of destination Application Security Group IDs
 	DestinationApplicationSecurityGroupIds *string `pulumi:"destinationApplicationSecurityGroupIds"`
 	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
 	DestinationPortRange *string `pulumi:"destinationPortRange"`
@@ -270,7 +270,7 @@ type networkSecurityRuleArgs struct {
 	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes []string `pulumi:"sourceAddressPrefixes"`
-	// A List of source Application Security Group ID's
+	// A List of source Application Security Group IDs
 	SourceApplicationSecurityGroupIds *string `pulumi:"sourceApplicationSecurityGroupIds"`
 	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
 	SourcePortRange *string `pulumi:"sourcePortRange"`
@@ -288,7 +288,7 @@ type NetworkSecurityRuleArgs struct {
 	DestinationAddressPrefix pulumi.StringPtrInput
 	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes pulumi.StringArrayInput
-	// A List of destination Application Security Group ID's
+	// A List of destination Application Security Group IDs
 	DestinationApplicationSecurityGroupIds pulumi.StringPtrInput
 	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
 	DestinationPortRange pulumi.StringPtrInput
@@ -310,7 +310,7 @@ type NetworkSecurityRuleArgs struct {
 	SourceAddressPrefix pulumi.StringPtrInput
 	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes pulumi.StringArrayInput
-	// A List of source Application Security Group ID's
+	// A List of source Application Security Group IDs
 	SourceApplicationSecurityGroupIds pulumi.StringPtrInput
 	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
 	SourcePortRange pulumi.StringPtrInput
@@ -425,7 +425,7 @@ func (o NetworkSecurityRuleOutput) DestinationAddressPrefixes() pulumi.StringArr
 	return o.ApplyT(func(v *NetworkSecurityRule) pulumi.StringArrayOutput { return v.DestinationAddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// A List of destination Application Security Group ID's
+// A List of destination Application Security Group IDs
 func (o NetworkSecurityRuleOutput) DestinationApplicationSecurityGroupIds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkSecurityRule) pulumi.StringPtrOutput { return v.DestinationApplicationSecurityGroupIds }).(pulumi.StringPtrOutput)
 }
@@ -480,7 +480,7 @@ func (o NetworkSecurityRuleOutput) SourceAddressPrefixes() pulumi.StringArrayOut
 	return o.ApplyT(func(v *NetworkSecurityRule) pulumi.StringArrayOutput { return v.SourceAddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// A List of source Application Security Group ID's
+// A List of source Application Security Group IDs
 func (o NetworkSecurityRuleOutput) SourceApplicationSecurityGroupIds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkSecurityRule) pulumi.StringPtrOutput { return v.SourceApplicationSecurityGroupIds }).(pulumi.StringPtrOutput)
 }

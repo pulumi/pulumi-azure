@@ -107,7 +107,7 @@ namespace Pulumi.Azure.MySql
     public partial class FlexibleServer : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        /// The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Output("administratorLogin")]
         public Output<string> AdministratorLogin { get; private set; } = null!;
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.MySql
     public sealed class FlexibleServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        /// The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.Azure.MySql
     public sealed class FlexibleServerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        /// The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }

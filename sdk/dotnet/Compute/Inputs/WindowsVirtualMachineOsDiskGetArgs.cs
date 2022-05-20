@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> Caching { get; set; } = null!;
 
         /// <summary>
-        /// A `diff_disk_settings` block as defined above.
+        /// A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diffDiskSettings")]
         public Input<Inputs.WindowsVirtualMachineOsDiskDiffDiskSettingsGetArgs>? DiffDiskSettings { get; set; }

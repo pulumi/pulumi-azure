@@ -35,7 +35,7 @@ import (
 // 			return err
 // 		}
 // 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          pulumi.String("West Europe"),
+// 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ApplicationType:   pulumi.String("web"),
 // 		})

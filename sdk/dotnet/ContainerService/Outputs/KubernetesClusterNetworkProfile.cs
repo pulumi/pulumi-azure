@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? NetworkMode;
         /// <summary>
-        /// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+        /// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string NetworkPlugin;
         /// <summary>

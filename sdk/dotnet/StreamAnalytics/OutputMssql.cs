@@ -22,27 +22,27 @@ namespace Pulumi.Azure.StreamAnalytics
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Name = "example-resources",
-    ///         }));
-    ///         var exampleJob = Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new Azure.StreamAnalytics.GetJobInvokeArgs
     ///         {
     ///             Name = "example-job",
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///         }));
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
     ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
     ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///             Location = azurerm_resource_group.Example.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             Version = "12.0",
     ///             AdministratorLogin = "dbadmin",
     ///             AdministratorLoginPassword = "example-password",
     ///         });
     ///         var exampleDatabase = new Azure.Sql.Database("exampleDatabase", new Azure.Sql.DatabaseArgs
     ///         {
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///             Location = azurerm_resource_group.Example.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             ServerName = exampleSqlServer.Name,
     ///             RequestedServiceObjectiveName = "S0",
     ///             Collation = "SQL_LATIN1_GENERAL_CP1_CI_AS",

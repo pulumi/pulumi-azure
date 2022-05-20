@@ -127,6 +127,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly blobProperties!: pulumi.Output<outputs.storage.AccountBlobProperties>;
     /**
+     * Should cross Tenant replication be enabled? Defaults to `true`.
+     */
+    public readonly crossTenantReplicationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `customDomain` block as documented below.
      */
     public readonly customDomain!: pulumi.Output<outputs.storage.AccountCustomDomain | undefined>;
@@ -361,6 +365,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["allowNestedItemsToBePublic"] = state ? state.allowNestedItemsToBePublic : undefined;
             resourceInputs["azureFilesAuthentication"] = state ? state.azureFilesAuthentication : undefined;
             resourceInputs["blobProperties"] = state ? state.blobProperties : undefined;
+            resourceInputs["crossTenantReplicationEnabled"] = state ? state.crossTenantReplicationEnabled : undefined;
             resourceInputs["customDomain"] = state ? state.customDomain : undefined;
             resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
@@ -433,6 +438,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["allowNestedItemsToBePublic"] = args ? args.allowNestedItemsToBePublic : undefined;
             resourceInputs["azureFilesAuthentication"] = args ? args.azureFilesAuthentication : undefined;
             resourceInputs["blobProperties"] = args ? args.blobProperties : undefined;
+            resourceInputs["crossTenantReplicationEnabled"] = args ? args.crossTenantReplicationEnabled : undefined;
             resourceInputs["customDomain"] = args ? args.customDomain : undefined;
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
@@ -525,6 +531,10 @@ export interface AccountState {
      * A `blobProperties` block as defined below.
      */
     blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
+    /**
+     * Should cross Tenant replication be enabled? Defaults to `true`.
+     */
+    crossTenantReplicationEnabled?: pulumi.Input<boolean>;
     /**
      * A `customDomain` block as documented below.
      */
@@ -773,6 +783,10 @@ export interface AccountArgs {
      * A `blobProperties` block as defined below.
      */
     blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
+    /**
+     * Should cross Tenant replication be enabled? Defaults to `true`.
+     */
+    crossTenantReplicationEnabled?: pulumi.Input<boolean>;
     /**
      * A `customDomain` block as documented below.
      */

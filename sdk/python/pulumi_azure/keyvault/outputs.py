@@ -1549,7 +1549,7 @@ class KeyVaultNetworkAcls(dict):
         :param str bypass: Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
         :param str default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
         :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
-        :param Sequence[str] virtual_network_subnet_ids: One or more Subnet ID's which should be able to access this Key Vault.
+        :param Sequence[str] virtual_network_subnet_ids: One or more Subnet IDs which should be able to access this Key Vault.
         """
         pulumi.set(__self__, "bypass", bypass)
         pulumi.set(__self__, "default_action", default_action)
@@ -1586,7 +1586,7 @@ class KeyVaultNetworkAcls(dict):
     @pulumi.getter(name="virtualNetworkSubnetIds")
     def virtual_network_subnet_ids(self) -> Optional[Sequence[str]]:
         """
-        One or more Subnet ID's which should be able to access this Key Vault.
+        One or more Subnet IDs which should be able to access this Key Vault.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
 

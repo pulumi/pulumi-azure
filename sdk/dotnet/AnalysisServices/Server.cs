@@ -22,14 +22,14 @@ namespace Pulumi.Azure.AnalysisServices
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var server = new Azure.AnalysisServices.Server("server", new Azure.AnalysisServices.ServerArgs
     ///         {
-    ///             Location = "northeurope",
-    ///             ResourceGroupName = rg.Name,
+    ///             Location = example.Location,
+    ///             ResourceGroupName = example.Name,
     ///             Sku = "S0",
     ///             AdminUsers = 
     ///             {

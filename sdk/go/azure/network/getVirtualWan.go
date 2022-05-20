@@ -46,9 +46,9 @@ type LookupVirtualWanResult struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the Virtual Wan.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Virtual Hubs ID's attached to this Virtual WAN.
+	// A list of Virtual Hubs IDs attached to this Virtual WAN.
 	VirtualHubIds []string `pulumi:"virtualHubIds"`
-	// A list of VPN Site ID's attached to this Virtual WAN.
+	// A list of VPN Site IDs attached to this Virtual WAN.
 	VpnSiteIds []string `pulumi:"vpnSiteIds"`
 }
 
@@ -135,12 +135,12 @@ func (o LookupVirtualWanResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVirtualWanResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A list of Virtual Hubs ID's attached to this Virtual WAN.
+// A list of Virtual Hubs IDs attached to this Virtual WAN.
 func (o LookupVirtualWanResultOutput) VirtualHubIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVirtualWanResult) []string { return v.VirtualHubIds }).(pulumi.StringArrayOutput)
 }
 
-// A list of VPN Site ID's attached to this Virtual WAN.
+// A list of VPN Site IDs attached to this Virtual WAN.
 func (o LookupVirtualWanResultOutput) VpnSiteIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVirtualWanResult) []string { return v.VpnSiteIds }).(pulumi.StringArrayOutput)
 }

@@ -21,6 +21,7 @@ export * from "./managedDatabase";
 export * from "./managedInstance";
 export * from "./managedInstanceActiveDirectoryAdministrator";
 export * from "./managedInstanceFailoverGroup";
+export * from "./managedInstanceVulnerabilityAssessment";
 export * from "./outboundFirewallRule";
 export * from "./server";
 export * from "./serverExtendedAuditingPolicy";
@@ -43,6 +44,7 @@ import { ManagedDatabase } from "./managedDatabase";
 import { ManagedInstance } from "./managedInstance";
 import { ManagedInstanceActiveDirectoryAdministrator } from "./managedInstanceActiveDirectoryAdministrator";
 import { ManagedInstanceFailoverGroup } from "./managedInstanceFailoverGroup";
+import { ManagedInstanceVulnerabilityAssessment } from "./managedInstanceVulnerabilityAssessment";
 import { OutboundFirewallRule } from "./outboundFirewallRule";
 import { Server } from "./server";
 import { ServerExtendedAuditingPolicy } from "./serverExtendedAuditingPolicy";
@@ -80,6 +82,8 @@ const _module = {
                 return new ManagedInstanceActiveDirectoryAdministrator(name, <any>undefined, { urn })
             case "azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup":
                 return new ManagedInstanceFailoverGroup(name, <any>undefined, { urn })
+            case "azure:mssql/managedInstanceVulnerabilityAssessment:ManagedInstanceVulnerabilityAssessment":
+                return new ManagedInstanceVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure:mssql/outboundFirewallRule:OutboundFirewallRule":
                 return new OutboundFirewallRule(name, <any>undefined, { urn })
             case "azure:mssql/server:Server":
@@ -113,6 +117,7 @@ pulumi.runtime.registerResourceModule("azure", "mssql/managedDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceActiveDirectoryAdministrator", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceFailoverGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/outboundFirewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/server", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverExtendedAuditingPolicy", _module)

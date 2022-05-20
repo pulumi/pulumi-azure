@@ -42,16 +42,16 @@ namespace Pulumi.Azure.KeyVault
     ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
     ///                     KeyPermissions = 
     ///                     {
-    ///                         "create",
-    ///                         "get",
+    ///                         "Create",
+    ///                         "Get",
     ///                     },
     ///                     SecretPermissions = 
     ///                     {
-    ///                         "set",
-    ///                         "get",
-    ///                         "delete",
-    ///                         "purge",
-    ///                         "recover",
+    ///                         "Set",
+    ///                         "Get",
+    ///                         "Delete",
+    ///                         "Purge",
+    ///                         "Recover",
     ///                     },
     ///                 },
     ///             },

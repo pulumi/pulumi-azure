@@ -569,21 +569,21 @@ class MetricAlert(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         to_monitor = azure.storage.Account("toMonitor",
-            resource_group_name=main_resource_group.name,
-            location=main_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        main_action_group = azure.monitoring.ActionGroup("mainActionGroup",
-            resource_group_name=main_resource_group.name,
+        main = azure.monitoring.ActionGroup("main",
+            resource_group_name=example_resource_group.name,
             short_name="exampleact",
             webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
                 name="callmyapi",
                 service_uri="http://example.com/alert",
             )])
-        example = azure.monitoring.MetricAlert("example",
-            resource_group_name=main_resource_group.name,
+        example_metric_alert = azure.monitoring.MetricAlert("exampleMetricAlert",
+            resource_group_name=example_resource_group.name,
             scopes=[to_monitor.id],
             description="Action will be triggered when Transactions count is greater than 50.",
             criterias=[azure.monitoring.MetricAlertCriteriaArgs(
@@ -599,7 +599,7 @@ class MetricAlert(pulumi.CustomResource):
                 )],
             )],
             actions=[azure.monitoring.MetricAlertActionArgs(
-                action_group_id=main_action_group.id,
+                action_group_id=main.id,
             )])
         ```
 
@@ -645,21 +645,21 @@ class MetricAlert(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         to_monitor = azure.storage.Account("toMonitor",
-            resource_group_name=main_resource_group.name,
-            location=main_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        main_action_group = azure.monitoring.ActionGroup("mainActionGroup",
-            resource_group_name=main_resource_group.name,
+        main = azure.monitoring.ActionGroup("main",
+            resource_group_name=example_resource_group.name,
             short_name="exampleact",
             webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
                 name="callmyapi",
                 service_uri="http://example.com/alert",
             )])
-        example = azure.monitoring.MetricAlert("example",
-            resource_group_name=main_resource_group.name,
+        example_metric_alert = azure.monitoring.MetricAlert("exampleMetricAlert",
+            resource_group_name=example_resource_group.name,
             scopes=[to_monitor.id],
             description="Action will be triggered when Transactions count is greater than 50.",
             criterias=[azure.monitoring.MetricAlertCriteriaArgs(
@@ -675,7 +675,7 @@ class MetricAlert(pulumi.CustomResource):
                 )],
             )],
             actions=[azure.monitoring.MetricAlertActionArgs(
-                action_group_id=main_action_group.id,
+                action_group_id=main.id,
             )])
         ```
 

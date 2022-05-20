@@ -33,7 +33,7 @@ namespace Pulumi.Azure.PostgreSql
     ///             AdministratorLogin = "psqladmin",
     ///             AdministratorLoginPassword = "H@Sh1CoR3!",
     ///             SkuName = "GP_Gen5_4",
-    ///             Version = "9.6",
+    ///             Version = "11",
     ///             StorageMb = 640000,
     ///             BackupRetentionDays = 7,
     ///             GeoRedundantBackupEnabled = true,
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.PostgreSql
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Administrator Login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
+        /// The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("administratorLogin")]
         public Output<string> AdministratorLogin { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string?> CreateMode { get; private set; } = null!;
 
         /// <summary>
-        /// For creation modes other then default the source server ID to use.
+        /// For creation modes other than `Default`, the source server ID to use.
         /// </summary>
         [Output("creationSourceServerId")]
         public Output<string?> CreationSourceServerId { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator Login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
+        /// The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// For creation modes other then default the source server ID to use.
+        /// For creation modes other than `Default`, the source server ID to use.
         /// </summary>
         [Input("creationSourceServerId")]
         public Input<string>? CreationSourceServerId { get; set; }
@@ -376,7 +376,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class ServerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator Login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
+        /// The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -406,7 +406,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// For creation modes other then default the source server ID to use.
+        /// For creation modes other than `Default`, the source server ID to use.
         /// </summary>
         [Input("creationSourceServerId")]
         public Input<string>? CreationSourceServerId { get; set; }

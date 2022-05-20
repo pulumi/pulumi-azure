@@ -103,6 +103,10 @@ export class Snapshot extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Whether Trusted Launch is enabled for the Snapshot.
+     */
+    public /*out*/ readonly trustedLaunchEnabled!: pulumi.Output<boolean>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.
@@ -127,6 +131,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["sourceUri"] = state ? state.sourceUri : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["trustedLaunchEnabled"] = state ? state.trustedLaunchEnabled : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
             if ((!args || args.createOption === undefined) && !opts.urn) {
@@ -145,6 +150,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trustedLaunchEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Snapshot.__pulumiType, name, resourceInputs, opts);
@@ -192,6 +198,10 @@ export interface SnapshotState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether Trusted Launch is enabled for the Snapshot.
+     */
+    trustedLaunchEnabled?: pulumi.Input<boolean>;
 }
 
 /**

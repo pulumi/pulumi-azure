@@ -22,20 +22,20 @@ namespace Pulumi.Azure.DataProtection
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new Azure.DataProtection.BackupVaultArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
-    ///             Location = rg.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             DatastoreType = "VaultStore",
     ///             Redundancy = "LocallyRedundant",
     ///         });
     ///         var exampleBackupPolicyPostgresql = new Azure.DataProtection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql", new Azure.DataProtection.BackupPolicyPostgresqlArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VaultName = exampleBackupVault.Name,
     ///             BackupRepeatingTimeIntervals = 
     ///             {

@@ -430,9 +430,9 @@ class OutputBlob(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=azurerm_resource_group["example"]["name"])
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
         example_account = azure.storage.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -495,9 +495,9 @@ class OutputBlob(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=azurerm_resource_group["example"]["name"])
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
         example_account = azure.storage.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,

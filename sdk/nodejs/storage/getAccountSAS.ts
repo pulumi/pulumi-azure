@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     location: "westus",
+ *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  *     tags: {

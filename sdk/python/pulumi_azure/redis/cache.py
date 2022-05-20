@@ -859,7 +859,7 @@ class Cache(pulumi.CustomResource):
 
         ## Relevant Links
 
-         - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
+         - [Azure Cache for Redis planning](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-planning-faq)
          - [Redis: Available Configuration Settings](http://redis.io/topics/config)
 
         ## Import
@@ -950,7 +950,7 @@ class Cache(pulumi.CustomResource):
 
         ## Relevant Links
 
-         - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
+         - [Azure Cache for Redis planning](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-planning-faq)
          - [Redis: Available Configuration Settings](http://redis.io/topics/config)
 
         ## Import

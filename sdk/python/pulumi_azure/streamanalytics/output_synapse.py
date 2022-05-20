@@ -298,20 +298,20 @@ class OutputSynapse(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=azurerm_resource_group["example"]["name"])
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
         example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS",
             account_kind="StorageV2",
             is_hns_enabled=True)
         example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
         example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!")
@@ -359,20 +359,20 @@ class OutputSynapse(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=azurerm_resource_group["example"]["name"])
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
         example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS",
             account_kind="StorageV2",
             is_hns_enabled=True)
         example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
         example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!")

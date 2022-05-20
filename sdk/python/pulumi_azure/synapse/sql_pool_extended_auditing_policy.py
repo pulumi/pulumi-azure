@@ -26,7 +26,7 @@ class SqlPoolExtendedAuditingPolicyArgs:
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
-        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """
         pulumi.set(__self__, "sql_pool_id", sql_pool_id)
         if log_monitoring_enabled is not None:
@@ -104,7 +104,7 @@ class SqlPoolExtendedAuditingPolicyArgs:
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """
         return pulumi.get(self, "storage_endpoint")
 
@@ -129,7 +129,7 @@ class _SqlPoolExtendedAuditingPolicyState:
         :param pulumi.Input[str] sql_pool_id: The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
-        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """
         if log_monitoring_enabled is not None:
             pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
@@ -208,7 +208,7 @@ class _SqlPoolExtendedAuditingPolicyState:
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """
         return pulumi.get(self, "storage_endpoint")
 
@@ -284,7 +284,7 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] sql_pool_id: The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
-        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """
         ...
     @overload
@@ -409,7 +409,7 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] sql_pool_id: The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
-        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -467,7 +467,7 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
-        The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """
         return pulumi.get(self, "storage_endpoint")
 

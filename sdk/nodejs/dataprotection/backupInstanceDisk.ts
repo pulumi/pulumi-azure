@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
  *     diskSizeGb: 1,
  * });
  * const exampleBackupVault = new azure.dataprotection.BackupVault("exampleBackupVault", {
- *     resourceGroupName: rg.name,
- *     location: rg.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
  *     identity: {
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const example1 = new azure.authorization.Assignment("example1", {
- *     scope: rg.id,
+ *     scope: exampleResourceGroup.id,
  *     roleDefinitionName: "Disk Snapshot Contributor",
  *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
  * });
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *     location: exampleBackupVault.location,
  *     vaultId: exampleBackupVault.id,
  *     diskId: exampleManagedDisk.id,
- *     snapshotResourceGroupName: rg.name,
+ *     snapshotResourceGroupName: exampleResourceGroup.name,
  *     backupPolicyId: exampleBackupPolicyDisk.id,
  * });
  * ```

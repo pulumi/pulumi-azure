@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ServiceBus
     ///         });
     ///         var secondary = new Azure.ServiceBus.Namespace("secondary", new Azure.ServiceBus.NamespaceArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = "Premium",
     ///             Capacity = 1,

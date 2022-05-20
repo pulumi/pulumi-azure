@@ -29,22 +29,19 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
-// 			Name: "example-resources",
-// 		}, nil)
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
-// 			Name:              "example-job",
-// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+// 			Name:              pulumi.String("example-job"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
 // 		exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
-// 			Location:          pulumi.Any(azurerm_resource_group.Example.Location),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
 // 			Sku: &iot.IoTHubSkuArgs{
 // 				Name:     pulumi.String("S1"),
 // 				Capacity: pulumi.Int(1),
@@ -54,8 +51,12 @@ import (
 // 			return err
 // 		}
 // 		_, err = streamanalytics.NewStreamInputIotHub(ctx, "exampleStreamInputIotHub", &streamanalytics.StreamInputIotHubArgs{
-// 			StreamAnalyticsJobName:    pulumi.String(exampleJob.Name),
-// 			ResourceGroupName:         pulumi.String(exampleJob.ResourceGroupName),
+// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.Name, nil
+// 			}).(pulumi.StringOutput),
+// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.ResourceGroupName, nil
+// 			}).(pulumi.StringOutput),
 // 			Endpoint:                  pulumi.String("messages/events"),
 // 			EventhubConsumerGroupName: pulumi.String(fmt.Sprintf("%v%v", "$", "Default")),
 // 			IothubNamespace:           exampleIoTHub.Name,

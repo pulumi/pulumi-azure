@@ -34,7 +34,7 @@ import (
 // 		}
 // 		_, err = loadtest.NewLoadTest(ctx, "exampleLoadTest", &loadtest.LoadTestArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          pulumi.String("West Europe"),
+// 			Location:          exampleResourceGroup.Location,
 // 		})
 // 		if err != nil {
 // 			return err

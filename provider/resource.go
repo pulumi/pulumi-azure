@@ -66,6 +66,7 @@ const (
 	azureCognitive             = "Cognitive"             // Cognitive
 	azureCommunication         = "Communication"         // Communication
 	azureCompute               = "Compute"               // Virtual Machines
+	azureConfidentialLedger    = "ConfidentialLedger"    // Confidential Ledger
 	azureConnections           = "Connections"           // Connection
 	azureConsumption           = "Consumption"           // Consumption
 	azureContainerService      = "ContainerService"      // Azure Container Service
@@ -531,6 +532,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_spring_cloud_app_cosmosdb_association": {Tok: azureResource(azureAppPlatform, "SpringCloudAppCosmosDBAssociation")},
 			"azurerm_spring_cloud_storage":                  {Tok: azureResource(azureAppPlatform, "SpringCloudStorage")},
 			"azurerm_spring_cloud_container_deployment":     {Tok: azureResource(azureAppPlatform, "SpringCloudContainerDeployment")},
+			"azurerm_spring_cloud_build_pack_binding":       {Tok: azureResource(azureAppPlatform, "SpringCloudBuildPackBinding")},
+			"azurerm_spring_cloud_builder":                  {Tok: azureResource(azureAppPlatform, "SpringCloudBuilder")},
+			"azurerm_spring_cloud_configuration_service":    {Tok: azureResource(azureAppPlatform, "SpringCloudConfigurationService")},
+			"azurerm_spring_cloud_gateway":                  {Tok: azureResource(azureAppPlatform, "SpringCloudGateway")},
+			"azurerm_spring_cloud_gateway_custom_domain":    {Tok: azureResource(azureAppPlatform, "SpringCloudGatewayCustomDomain")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -790,6 +796,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_disk_pool_managed_disk_attachment":      {Tok: azureResource(azureCompute, "DiskPoolManagedDiskAttachment")},
 			"azurerm_disk_pool_iscsi_target":                 {Tok: azureResource(azureCompute, "DiskPoolIscsiTarget")},
 			"azurerm_disk_pool_iscsi_target_lun":             {Tok: azureResource(azureCompute, "DiskPoolIscsiTargetLun")},
+			"azurerm_managed_disk_sas_token": {
+				Tok: azureResource(azureCompute, "ManagedDiskSasToken"),
+				Docs: &tfbridge.DocInfo{
+					Source: "disk_sas_token.html.markdown",
+				},
+			},
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
@@ -1261,6 +1273,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_managed_instance":                                {Tok: azureResource(azureMSSQL, "ManagedInstance")},
 			"azurerm_mssql_managed_instance_active_directory_administrator": {Tok: azureResource(azureMSSQL, "ManagedInstanceActiveDirectoryAdministrator")},
 			"azurerm_mssql_managed_instance_failover_group":                 {Tok: azureResource(azureMSSQL, "ManagedInstanceFailoverGroup")},
+			"azurerm_mssql_managed_instance_vulnerability_assessment":       {Tok: azureResource(azureMSSQL, "ManagedInstanceVulnerabilityAssessment")},
 
 			// MySQL
 			"azurerm_mysql_configuration": {
@@ -1395,8 +1408,16 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_virtual_network_gateway_connection": {Tok: azureResource(azureNetwork, "VirtualNetworkGatewayConnection")},
-			"azurerm_local_network_gateway":              {Tok: azureResource(azureNetwork, "LocalNetworkGateway")},
+			"azurerm_virtual_network_gateway_connection": {
+				Tok: azureResource(azureNetwork, "VirtualNetworkGatewayConnection"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"traffic_selector_policy": {
+						Name:        "trafficSelectorPolicy",
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
+			"azurerm_local_network_gateway": {Tok: azureResource(azureNetwork, "LocalNetworkGateway")},
 			"azurerm_application_gateway": {
 				Tok: azureResource(azureNetwork, "ApplicationGateway"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1753,6 +1774,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_function_javascript_uda":  {Tok: azureResource(azureStreamAnalytics, "FunctionJavascriptUda")},
 			"azurerm_stream_analytics_job_schedule":             {Tok: azureResource(azureStreamAnalytics, "JobSchedule")},
 			"azurerm_stream_analytics_output_cosmosdb":          {Tok: azureResource(azureStreamAnalytics, "OutputCosmosdb")},
+			"azurerm_stream_analytics_output_powerbi":           {Tok: azureResource(azureStreamAnalytics, "OutputPowerbi")},
 
 			// Marketplace
 			"azurerm_marketplace_agreement": {Tok: azureResource(azureMarketPlace, "Agreement")},
@@ -1840,6 +1862,12 @@ func Provider() tfbridge.ProviderInfo {
 			// Healthcare
 			"azurerm_healthcare_service":   {Tok: azureResource(azureHealthcare, "Service")},
 			"azurerm_healthcare_workspace": {Tok: azureResource(azureHealthcare, "Workspace")},
+			"azurerm_healthcare_dicom_service": {
+				Tok: azureResource(azureHealthcare, "DicomService"),
+				Docs: &tfbridge.DocInfo{
+					Source: "healthcare_dicom.html.markdown",
+				},
+			},
 
 			// NetApp
 			"azurerm_netapp_account":         {Tok: azureResource(azureNetapp, "Account")},
@@ -1960,8 +1988,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule_machine_learning_behavior_analytics": {
 				Tok: azureResource(azureSentinel, "AlertRuleMachineLearningBehaviorAnalytics"),
 			},
-			"azurerm_sentinel_watchlist":      {Tok: azureResource(azureSentinel, "Watchlist")},
-			"azurerm_sentinel_watchlist_item": {Tok: azureResource(azureSentinel, "WatchlistItem")},
+			"azurerm_sentinel_watchlist":             {Tok: azureResource(azureSentinel, "Watchlist")},
+			"azurerm_sentinel_watchlist_item":        {Tok: azureResource(azureSentinel, "WatchlistItem")},
+			"azurerm_sentinel_data_connector_aws_s3": {Tok: azureResource(azureSentinel, "DataConnectorAwsS3")},
 
 			// Eventgrid
 			"azurerm_eventgrid_domain_topic": {Tok: azureResource(azureEventGrid, "DomainTopic")},
@@ -2064,6 +2093,9 @@ func Provider() tfbridge.ProviderInfo {
 			// communication
 			"azurerm_communication_service": {Tok: azureResource(azureCommunication, "Service")},
 
+			// confidential ledger
+			"azurerm_confidential_ledger": {Tok: azureResource(azureConfidentialLedger, "Ledger")},
+
 			// connections
 			"azurerm_api_connection": {Tok: azureResource(azureConnections, "ApiConnection")},
 
@@ -2159,6 +2191,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_shared_image":         {Tok: azureDataSource(azureCompute, "getSharedImage")},
 			"azurerm_shared_image_gallery": {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
 			"azurerm_shared_image_version": {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
+
+			"azurerm_confidential_ledger": {Tok: azureDataSource(azureCompute, "getConfidentialLedger")},
 
 			"azurerm_lb": {
 				Tok: azureDataSource(azureLB, "getLB"),
@@ -2314,18 +2348,26 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_certificate":       {Tok: azureDataSource(azureAppService, "getCertificate")},
 			"azurerm_app_service_certificate_order": {Tok: azureDataSource(azureAppService, "getCertificateOrder")},
 			"azurerm_data_factory":                  {Tok: azureDataSource(azureDataFactory, "getFactory")},
-			"azurerm_healthcare_service":            {Tok: azureDataSource(azureHealthcare, "getService")},
-			"azurerm_healthcare_workspace":          {Tok: azureDataSource(azureHealthcare, "getWorkspace")},
-			"azurerm_postgresql_server":             {Tok: azureDataSource(azurePostgresql, "getServer")},
-			"azurerm_postgresql_flexible_server":    {Tok: azureDataSource(azurePostgresql, "getFlexibleServer")},
-			"azurerm_resources":                     {Tok: azureDataSource(azureCore, "getResources")},
-			"azurerm_netapp_account":                {Tok: azureDataSource(azureNetapp, "getAccount")},
-			"azurerm_netapp_pool":                   {Tok: azureDataSource(azureNetapp, "getPool")},
-			"azurerm_netapp_volume":                 {Tok: azureDataSource(azureNetapp, "getVolume")},
-			"azurerm_netapp_snapshot":               {Tok: azureDataSource(azureNetapp, "getSnapshot")},
-			"azurerm_netapp_snapshot_policy":        {Tok: azureDataSource(azureNetapp, "getSnapshotPolicy")},
-			"azurerm_private_link_service":          {Tok: azureDataSource(azurePrivateLink, "getService")},
-			"azurerm_private_endpoint_connection":   {Tok: azureDataSource(azurePrivateLink, "getEndpointConnection")},
+
+			"azurerm_healthcare_service":   {Tok: azureDataSource(azureHealthcare, "getService")},
+			"azurerm_healthcare_workspace": {Tok: azureDataSource(azureHealthcare, "getWorkspace")},
+			"azurerm_healthcare_dicom_service": {
+				Tok: azureDataSource(azureHealthcare, "getDicomService"),
+				Docs: &tfbridge.DocInfo{
+					Source: "healthcare_dicom.html.markdown",
+				},
+			},
+
+			"azurerm_postgresql_server":           {Tok: azureDataSource(azurePostgresql, "getServer")},
+			"azurerm_postgresql_flexible_server":  {Tok: azureDataSource(azurePostgresql, "getFlexibleServer")},
+			"azurerm_resources":                   {Tok: azureDataSource(azureCore, "getResources")},
+			"azurerm_netapp_account":              {Tok: azureDataSource(azureNetapp, "getAccount")},
+			"azurerm_netapp_pool":                 {Tok: azureDataSource(azureNetapp, "getPool")},
+			"azurerm_netapp_volume":               {Tok: azureDataSource(azureNetapp, "getVolume")},
+			"azurerm_netapp_snapshot":             {Tok: azureDataSource(azureNetapp, "getSnapshot")},
+			"azurerm_netapp_snapshot_policy":      {Tok: azureDataSource(azureNetapp, "getSnapshotPolicy")},
+			"azurerm_private_link_service":        {Tok: azureDataSource(azurePrivateLink, "getService")},
+			"azurerm_private_endpoint_connection": {Tok: azureDataSource(azurePrivateLink, "getEndpointConnection")},
 			"azurerm_private_link_service_endpoint_connections": {
 				Tok: azureDataSource(azurePrivateLink, "getServiceEndpointConnections"),
 			},

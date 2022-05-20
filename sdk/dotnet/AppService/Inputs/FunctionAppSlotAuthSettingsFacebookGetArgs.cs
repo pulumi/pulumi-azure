@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> AppId { get; set; } = null!;
 
         /// <summary>
-        /// The App Secret of the Facebook app used for Facebook Login.
+        /// The App Secret of the Facebook app used for Facebook login.
         /// </summary>
         [Input("appSecret", required: true)]
         public Input<string> AppSecret { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _oauthScopes;
 
         /// <summary>
-        /// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        /// The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
         /// </summary>
         public InputList<string> OauthScopes
         {

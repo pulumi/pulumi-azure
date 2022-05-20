@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     capacity: 1,
  * });
  * const secondary = new azure.servicebus.Namespace("secondary", {
- *     location: "West US",
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Premium",
  *     capacity: 1,

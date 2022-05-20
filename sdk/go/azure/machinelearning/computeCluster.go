@@ -105,7 +105,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = machinelearning.NewComputeCluster(ctx, "test", &machinelearning.ComputeClusterArgs{
-// 			Location:                   pulumi.String("West Europe"),
+// 			Location:                   exampleResourceGroup.Location,
 // 			VmPriority:                 pulumi.String("LowPriority"),
 // 			VmSize:                     pulumi.String("Standard_DS2_v2"),
 // 			MachineLearningWorkspaceId: exampleWorkspace.ID(),

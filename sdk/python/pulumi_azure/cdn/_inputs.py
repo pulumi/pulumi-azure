@@ -52,7 +52,7 @@ class EndpointCustomDomainCdnManagedHttpsArgs:
         """
         :param pulumi.Input[str] certificate_type: The type of HTTPS certificate. Possible values are `Shared` and `Dedicated`.
         :param pulumi.Input[str] protocol_type: The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
-        :param pulumi.Input[str] tls_version: The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+        :param pulumi.Input[str] tls_version: The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
         """
         pulumi.set(__self__, "certificate_type", certificate_type)
         pulumi.set(__self__, "protocol_type", protocol_type)
@@ -87,7 +87,7 @@ class EndpointCustomDomainCdnManagedHttpsArgs:
     @pulumi.getter(name="tlsVersion")
     def tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+        The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
         """
         return pulumi.get(self, "tls_version")
 
@@ -103,7 +103,7 @@ class EndpointCustomDomainUserManagedHttpsArgs:
                  tls_version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key_vault_certificate_id: The ID of the Key Vault Certificate that contains the HTTPS certificate.
-        :param pulumi.Input[str] tls_version: The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+        :param pulumi.Input[str] tls_version: The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
         """
         pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
         if tls_version is not None:
@@ -125,7 +125,7 @@ class EndpointCustomDomainUserManagedHttpsArgs:
     @pulumi.getter(name="tlsVersion")
     def tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+        The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
         """
         return pulumi.get(self, "tls_version")
 

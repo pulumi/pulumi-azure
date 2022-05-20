@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  * const mdContent = config.get("mdContent") || "# Hello all :)";
  * const videoLink = config.get("videoLink") || "https://www.youtube.com/watch?v=......";
  * const current = azure.core.getSubscription({});
- * const my_group = new azure.core.ResourceGroup("my-group", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const my_board = new azure.portal.Dashboard("my-board", {
- *     resourceGroupName: my_group.name,
- *     location: my_group.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     tags: {
  *         source: "managed",
  *     },

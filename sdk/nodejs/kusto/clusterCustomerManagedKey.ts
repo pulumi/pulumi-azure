@@ -23,8 +23,8 @@ import * as utilities from "../utilities";
  *     purgeProtectionEnabled: true,
  * });
  * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: azurerm_resource_group.rg.location,
- *     resourceGroupName: azurerm_resource_group.rg.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,

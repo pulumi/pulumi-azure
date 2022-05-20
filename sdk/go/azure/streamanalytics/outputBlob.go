@@ -27,22 +27,19 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
-// 			Name: "example-resources",
-// 		}, nil)
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
-// 			Name:              "example-job",
-// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+// 			Name:              pulumi.String("example-job"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
 // 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      pulumi.String(exampleResourceGroup.Name),
-// 			Location:               pulumi.String(exampleResourceGroup.Location),
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
 // 		})
@@ -57,14 +54,18 @@ import (
 // 			return err
 // 		}
 // 		_, err = streamanalytics.NewOutputBlob(ctx, "exampleOutputBlob", &streamanalytics.OutputBlobArgs{
-// 			StreamAnalyticsJobName: pulumi.String(exampleJob.Name),
-// 			ResourceGroupName:      pulumi.String(exampleJob.ResourceGroupName),
-// 			StorageAccountName:     exampleAccount.Name,
-// 			StorageAccountKey:      exampleAccount.PrimaryAccessKey,
-// 			StorageContainerName:   exampleContainer.Name,
-// 			PathPattern:            pulumi.String("some-pattern"),
-// 			DateFormat:             pulumi.String("yyyy-MM-dd"),
-// 			TimeFormat:             pulumi.String("HH"),
+// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.Name, nil
+// 			}).(pulumi.StringOutput),
+// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.ResourceGroupName, nil
+// 			}).(pulumi.StringOutput),
+// 			StorageAccountName:   exampleAccount.Name,
+// 			StorageAccountKey:    exampleAccount.PrimaryAccessKey,
+// 			StorageContainerName: exampleContainer.Name,
+// 			PathPattern:          pulumi.String("some-pattern"),
+// 			DateFormat:           pulumi.String("yyyy-MM-dd"),
+// 			TimeFormat:           pulumi.String("HH"),
 // 			Serialization: &streamanalytics.OutputBlobSerializationArgs{
 // 				Type:           pulumi.String("Csv"),
 // 				Encoding:       pulumi.String("UTF8"),

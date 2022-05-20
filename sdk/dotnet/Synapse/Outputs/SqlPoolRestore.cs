@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Synapse.Outputs
     public sealed class SqlPoolRestore
     {
         /// <summary>
-        /// Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
+        /// Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         public readonly string PointInTime;
         /// <summary>

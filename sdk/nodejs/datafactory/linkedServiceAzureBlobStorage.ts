@@ -34,15 +34,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const current = azure.core.getClientConfig({});
  * const testFactory = new azure.datafactory.Factory("testFactory", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const testKeyVault = new azure.keyvault.KeyVault("testKeyVault", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  * });
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * });
  * const testLinkedServiceAzureBlobStorage = new azure.datafactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage", {
  *     dataFactoryId: testFactory.id,
- *     sasUri: "https://storageaccountname.blob.core.windows.net",
+ *     sasUri: "https://example.blob.core.windows.net",
  *     keyVaultSasToken: {
  *         linkedServiceName: testLinkedServiceKeyVault.name,
  *         secretName: "secret",
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  * });
  * const testDatafactory_linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage = new azure.datafactory.LinkedServiceAzureBlobStorage("testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage", {
  *     dataFactoryId: testFactory.id,
- *     serviceEndpoint: "https://storageaccountname.blob.core.windows.net",
+ *     serviceEndpoint: "https://example.blob.core.windows.net",
  *     servicePrincipalId: "00000000-0000-0000-0000-000000000000",
  *     tenantId: "00000000-0000-0000-0000-000000000000",
  *     servicePrincipalLinkedKeyVaultKey: {

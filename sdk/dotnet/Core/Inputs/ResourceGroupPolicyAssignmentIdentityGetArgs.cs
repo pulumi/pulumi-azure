@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Core.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// A list of User Managed Identity ID's which should be assigned to the Policy Definition.
+        /// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
         /// </summary>
         public InputList<string> IdentityIds
         {

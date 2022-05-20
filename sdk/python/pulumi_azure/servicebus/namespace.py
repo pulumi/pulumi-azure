@@ -29,7 +29,7 @@ class NamespaceArgs:
         The set of arguments for constructing a Namespace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace.
-        :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
         :param pulumi.Input['NamespaceCustomerManagedKeyArgs'] customer_managed_key: An `customer_managed_key` block as defined below.
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
@@ -76,7 +76,7 @@ class NamespaceArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
         """
-        Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         """
         return pulumi.get(self, "sku")
 
@@ -216,7 +216,7 @@ class _NamespaceState:
                new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace.
-        :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
         """
@@ -389,7 +389,7 @@ class _NamespaceState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         """
         return pulumi.get(self, "sku")
 
@@ -476,7 +476,7 @@ class Namespace(pulumi.CustomResource):
                new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace.
-        :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
         """
@@ -616,7 +616,7 @@ class Namespace(pulumi.CustomResource):
                new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace.
-        :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
         """
@@ -736,7 +736,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[str]:
         """
-        Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         """
         return pulumi.get(self, "sku")
 

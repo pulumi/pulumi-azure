@@ -45,7 +45,7 @@ import (
 // 		}
 // 		_, err = containerservice.NewRegistryScopeMap(ctx, "exampleRegistryScopeMap", &containerservice.RegistryScopeMapArgs{
 // 			ContainerRegistryName: pulumi.Any(azurerm_container_registry.Acr.Name),
-// 			ResourceGroupName:     pulumi.Any(azurerm_resource_group.Rg.Name),
+// 			ResourceGroupName:     exampleResourceGroup.Name,
 // 			Actions: pulumi.StringArray{
 // 				pulumi.String("repositories/repo1/content/read"),
 // 				pulumi.String("repositories/repo1/content/write"),

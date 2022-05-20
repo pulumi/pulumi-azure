@@ -17,6 +17,7 @@ export * from "./outputCosmosdb";
 export * from "./outputEventHub";
 export * from "./outputFunction";
 export * from "./outputMssql";
+export * from "./outputPowerbi";
 export * from "./outputServiceBusQueue";
 export * from "./outputServicebusTopic";
 export * from "./outputSynapse";
@@ -39,6 +40,7 @@ import { OutputCosmosdb } from "./outputCosmosdb";
 import { OutputEventHub } from "./outputEventHub";
 import { OutputFunction } from "./outputFunction";
 import { OutputMssql } from "./outputMssql";
+import { OutputPowerbi } from "./outputPowerbi";
 import { OutputServiceBusQueue } from "./outputServiceBusQueue";
 import { OutputServicebusTopic } from "./outputServicebusTopic";
 import { OutputSynapse } from "./outputSynapse";
@@ -75,6 +77,8 @@ const _module = {
                 return new OutputFunction(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputMssql:OutputMssql":
                 return new OutputMssql(name, <any>undefined, { urn })
+            case "azure:streamanalytics/outputPowerbi:OutputPowerbi":
+                return new OutputPowerbi(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue":
                 return new OutputServiceBusQueue(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic":
@@ -109,6 +113,7 @@ pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputCosmosdb",
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputEventHub", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputFunction", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputMssql", _module)
+pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputPowerbi", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputServiceBusQueue", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputServicebusTopic", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputSynapse", _module)

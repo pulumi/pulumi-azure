@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> DestinationAddressPrefixes { get; private set; } = null!;
 
         /// <summary>
-        /// A List of destination Application Security Group ID's
+        /// A List of destination Application Security Group IDs
         /// </summary>
         [Output("destinationApplicationSecurityGroupIds")]
         public Output<string?> DestinationApplicationSecurityGroupIds { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> SourceAddressPrefixes { get; private set; } = null!;
 
         /// <summary>
-        /// A List of source Application Security Group ID's
+        /// A List of source Application Security Group IDs
         /// </summary>
         [Output("sourceApplicationSecurityGroupIds")]
         public Output<string?> SourceApplicationSecurityGroupIds { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A List of destination Application Security Group ID's
+        /// A List of destination Application Security Group IDs
         /// </summary>
         [Input("destinationApplicationSecurityGroupIds")]
         public Input<string>? DestinationApplicationSecurityGroupIds { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A List of source Application Security Group ID's
+        /// A List of source Application Security Group IDs
         /// </summary>
         [Input("sourceApplicationSecurityGroupIds")]
         public Input<string>? SourceApplicationSecurityGroupIds { get; set; }
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A List of destination Application Security Group ID's
+        /// A List of destination Application Security Group IDs
         /// </summary>
         [Input("destinationApplicationSecurityGroupIds")]
         public Input<string>? DestinationApplicationSecurityGroupIds { get; set; }
@@ -466,7 +466,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A List of source Application Security Group ID's
+        /// A List of source Application Security Group IDs
         /// </summary>
         [Input("sourceApplicationSecurityGroupIds")]
         public Input<string>? SourceApplicationSecurityGroupIds { get; set; }

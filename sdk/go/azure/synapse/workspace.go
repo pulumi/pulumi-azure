@@ -263,7 +263,7 @@ type Workspace struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// An `sqlAadAdmin` block as defined below.
 	SqlAadAdmin WorkspaceSqlAadAdminTypeOutput `pulumi:"sqlAadAdmin"`
-	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
 	SqlAdministratorLogin pulumi.StringOutput `pulumi:"sqlAdministratorLogin"`
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
 	SqlAdministratorLoginPassword pulumi.StringOutput `pulumi:"sqlAdministratorLoginPassword"`
@@ -353,7 +353,7 @@ type workspaceState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// An `sqlAadAdmin` block as defined below.
 	SqlAadAdmin *WorkspaceSqlAadAdminType `pulumi:"sqlAadAdmin"`
-	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
 	SqlAdministratorLoginPassword *string `pulumi:"sqlAdministratorLoginPassword"`
@@ -400,7 +400,7 @@ type WorkspaceState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// An `sqlAadAdmin` block as defined below.
 	SqlAadAdmin WorkspaceSqlAadAdminTypePtrInput
-	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
 	SqlAdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
 	SqlAdministratorLoginPassword pulumi.StringPtrInput
@@ -449,7 +449,7 @@ type workspaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// An `sqlAadAdmin` block as defined below.
 	SqlAadAdmin *WorkspaceSqlAadAdminType `pulumi:"sqlAadAdmin"`
-	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
 	SqlAdministratorLogin string `pulumi:"sqlAdministratorLogin"`
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
 	SqlAdministratorLoginPassword string `pulumi:"sqlAdministratorLoginPassword"`
@@ -495,7 +495,7 @@ type WorkspaceArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// An `sqlAadAdmin` block as defined below.
 	SqlAadAdmin WorkspaceSqlAadAdminTypePtrInput
-	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
 	SqlAdministratorLogin pulumi.StringInput
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
 	SqlAdministratorLoginPassword pulumi.StringInput
@@ -679,7 +679,7 @@ func (o WorkspaceOutput) SqlAadAdmin() WorkspaceSqlAadAdminTypeOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceSqlAadAdminTypeOutput { return v.SqlAadAdmin }).(WorkspaceSqlAadAdminTypeOutput)
 }
 
-// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) SqlAdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.SqlAdministratorLogin }).(pulumi.StringOutput)
 }

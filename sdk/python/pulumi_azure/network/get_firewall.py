@@ -69,7 +69,7 @@ class GetFirewallResult:
     @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> Sequence[str]:
         """
-        The list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+        The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.
         """
         return pulumi.get(self, "dns_servers")
 

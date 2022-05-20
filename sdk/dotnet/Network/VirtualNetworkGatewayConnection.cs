@@ -259,6 +259,14 @@ namespace Pulumi.Azure.Network
         public Output<string> ConnectionProtocol { get; private set; } = null!;
 
         /// <summary>
+        /// A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        /// The block can only be used on `IPSec` / `activeactive` connections,
+        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+        /// </summary>
+        [Output("customBgpAddresses")]
+        public Output<Outputs.VirtualNetworkGatewayConnectionCustomBgpAddresses?> CustomBgpAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dpdTimeoutSeconds")]
@@ -356,8 +364,8 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `traffic_selector_policy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
-        /// Only one block can be defined for a connection.
+        /// One or more `traffic_selector_policy` blocks which are documented below.
+        /// A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
         /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>
         [Output("trafficSelectorPolicy")]
@@ -459,6 +467,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("connectionProtocol")]
         public Input<string>? ConnectionProtocol { get; set; }
+
+        /// <summary>
+        /// A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        /// The block can only be used on `IPSec` / `activeactive` connections,
+        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+        /// </summary>
+        [Input("customBgpAddresses")]
+        public Input<Inputs.VirtualNetworkGatewayConnectionCustomBgpAddressesArgs>? CustomBgpAddresses { get; set; }
 
         /// <summary>
         /// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
@@ -564,8 +580,8 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `traffic_selector_policy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
-        /// Only one block can be defined for a connection.
+        /// One or more `traffic_selector_policy` blocks which are documented below.
+        /// A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
         /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>
         [Input("trafficSelectorPolicy")]
@@ -628,6 +644,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("connectionProtocol")]
         public Input<string>? ConnectionProtocol { get; set; }
+
+        /// <summary>
+        /// A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        /// The block can only be used on `IPSec` / `activeactive` connections,
+        /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+        /// </summary>
+        [Input("customBgpAddresses")]
+        public Input<Inputs.VirtualNetworkGatewayConnectionCustomBgpAddressesGetArgs>? CustomBgpAddresses { get; set; }
 
         /// <summary>
         /// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
@@ -733,8 +757,8 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `traffic_selector_policy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
-        /// Only one block can be defined for a connection.
+        /// One or more `traffic_selector_policy` blocks which are documented below.
+        /// A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
         /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>
         [Input("trafficSelectorPolicy")]

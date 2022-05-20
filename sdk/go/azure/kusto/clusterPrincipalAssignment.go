@@ -30,15 +30,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
-// 			Location:          rg.Location,
-// 			ResourceGroupName: rg.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku: &kusto.ClusterSkuArgs{
 // 				Name:     pulumi.String("Standard_D13_v2"),
 // 				Capacity: pulumi.Int(2),
@@ -48,7 +48,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = kusto.NewClusterPrincipalAssignment(ctx, "exampleClusterPrincipalAssignment", &kusto.ClusterPrincipalAssignmentArgs{
-// 			ResourceGroupName: rg.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ClusterName:       exampleCluster.Name,
 // 			TenantId:          pulumi.String(current.TenantId),
 // 			PrincipalId:       pulumi.String(current.ClientId),

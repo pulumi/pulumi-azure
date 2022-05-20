@@ -55,7 +55,7 @@ type GetMariaDbServerArgs struct {
 
 // A collection of values returned by getMariaDbServer.
 type GetMariaDbServerResult struct {
-	// The Administrator Login for the MariaDB Server.
+	// The Administrator login for the MariaDB Server.
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The FQDN of the MariaDB Server.
 	Fqdn string `pulumi:"fqdn"`
@@ -118,7 +118,7 @@ func (o GetMariaDbServerResultOutput) ToGetMariaDbServerResultOutputWithContext(
 	return o
 }
 
-// The Administrator Login for the MariaDB Server.
+// The Administrator login for the MariaDB Server.
 func (o GetMariaDbServerResultOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMariaDbServerResult) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }

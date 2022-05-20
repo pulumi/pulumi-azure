@@ -27,23 +27,23 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		mainResourceGroup, err := core.NewResourceGroup(ctx, "mainResourceGroup", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		toMonitor, err := storage.NewAccount(ctx, "toMonitor", &storage.AccountArgs{
-// 			ResourceGroupName:      mainResourceGroup.Name,
-// 			Location:               mainResourceGroup.Location,
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		mainActionGroup, err := monitoring.NewActionGroup(ctx, "mainActionGroup", &monitoring.ActionGroupArgs{
-// 			ResourceGroupName: mainResourceGroup.Name,
+// 		main, err := monitoring.NewActionGroup(ctx, "main", &monitoring.ActionGroupArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ShortName:         pulumi.String("exampleact"),
 // 			WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
 // 				&monitoring.ActionGroupWebhookReceiverArgs{
@@ -55,8 +55,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = monitoring.NewMetricAlert(ctx, "example", &monitoring.MetricAlertArgs{
-// 			ResourceGroupName: mainResourceGroup.Name,
+// 		_, err = monitoring.NewMetricAlert(ctx, "exampleMetricAlert", &monitoring.MetricAlertArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Scopes: pulumi.StringArray{
 // 				toMonitor.ID(),
 // 			},
@@ -81,7 +81,7 @@ import (
 // 			},
 // 			Actions: monitoring.MetricAlertActionArray{
 // 				&monitoring.MetricAlertActionArgs{
-// 					ActionGroupId: mainActionGroup.ID(),
+// 					ActionGroupId: main.ID(),
 // 				},
 // 			},
 // 		})

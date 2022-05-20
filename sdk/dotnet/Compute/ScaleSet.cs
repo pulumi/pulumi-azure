@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Compute
     ///             {
     ///                 "10.0.0.0/16",
     ///             },
-    ///             Location = "West US",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///         });
     ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Compute
     ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = "westus",
+    ///             Location = exampleResourceGroup.Location,
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "LRS",
     ///             Tags = 
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Compute
     ///         });
     ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             UpgradePolicyMode = "Manual",
     ///             Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs

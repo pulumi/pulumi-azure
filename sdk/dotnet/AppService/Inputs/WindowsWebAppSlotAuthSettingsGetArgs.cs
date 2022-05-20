@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputMap<string>? _additionalLoginParameters;
 
         /// <summary>
-        /// Specifies a map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        /// Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         /// </summary>
         public InputMap<string> AdditionalLoginParameters
         {

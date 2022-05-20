@@ -3,16 +3,21 @@
 import * as azure from "@pulumi/azure";
 
 const resourceGroup = new azure.core.ResourceGroup("resourcegroup");
+// We ensure the accessTier is consistent between the storage account and the storage share to avoid any potential
+// unexpected changes upon refresh:
+const accessTier = "Hot";
 
 const storageAccount = new azure.storage.Account("storageaccount", {
     resourceGroupName: resourceGroup.name,
     accountTier: "standard",
     accountReplicationType: "LRS",
+    accessTier,
 });
 
 const storageShare = new azure.storage.Share("storageshare", {
     storageAccountName: storageAccount.name,
     quota: 50,
+    accessTier,
 });
 
 const containerGroup = new azure.containerservice.Group("containergroup", {

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:healthcare/dicomService:DicomService":
+		r = &DicomService{}
 	case "azure:healthcare/service:Service":
 		r = &Service{}
 	case "azure:healthcare/workspace:Workspace":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"healthcare/dicomService",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"healthcare/service",

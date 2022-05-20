@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppInsights
     ///         });
     ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
     ///         {
-    ///             Location = "West Europe",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ApplicationType = "web",
     ///         });

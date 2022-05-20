@@ -365,27 +365,27 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         test_integration_account = azure.logicapps.IntegrationAccount("testIntegrationAccount",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Standard")
         host = azure.logicapps.IntegrationAccountPartner("host",
-            resource_group_name=test_resource_group.name,
+            resource_group_name=example.name,
             integration_account_name=test_integration_account.name,
             business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
                 qualifier="AS2Identity",
                 value="FabrikamNY",
             )])
         guest = azure.logicapps.IntegrationAccountPartner("guest",
-            resource_group_name=test_resource_group.name,
+            resource_group_name=example.name,
             integration_account_name=test_integration_account.name,
             business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
                 qualifier="AS2Identity",
                 value="FabrikamDC",
             )])
         test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("testIntegrationAccountAgreement",
-            resource_group_name=test_resource_group.name,
+            resource_group_name=example.name,
             integration_account_name=test_integration_account.name,
             agreement_type="AS2",
             host_partner_name=host.name,
@@ -437,27 +437,27 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         test_integration_account = azure.logicapps.IntegrationAccount("testIntegrationAccount",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Standard")
         host = azure.logicapps.IntegrationAccountPartner("host",
-            resource_group_name=test_resource_group.name,
+            resource_group_name=example.name,
             integration_account_name=test_integration_account.name,
             business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
                 qualifier="AS2Identity",
                 value="FabrikamNY",
             )])
         guest = azure.logicapps.IntegrationAccountPartner("guest",
-            resource_group_name=test_resource_group.name,
+            resource_group_name=example.name,
             integration_account_name=test_integration_account.name,
             business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
                 qualifier="AS2Identity",
                 value="FabrikamDC",
             )])
         test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("testIntegrationAccountAgreement",
-            resource_group_name=test_resource_group.name,
+            resource_group_name=example.name,
             integration_account_name=test_integration_account.name,
             agreement_type="AS2",
             host_partner_name=host.name,

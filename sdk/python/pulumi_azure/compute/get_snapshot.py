@@ -21,7 +21,7 @@ class GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, creation_option=None, disk_size_gb=None, encryption_settings=None, id=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, time_created=None):
+    def __init__(__self__, creation_option=None, disk_size_gb=None, encryption_settings=None, id=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, time_created=None, trusted_launch_enabled=None):
         if creation_option and not isinstance(creation_option, str):
             raise TypeError("Expected argument 'creation_option' to be a str")
         pulumi.set(__self__, "creation_option", creation_option)
@@ -55,6 +55,9 @@ class GetSnapshotResult:
         if time_created and not isinstance(time_created, str):
             raise TypeError("Expected argument 'time_created' to be a str")
         pulumi.set(__self__, "time_created", time_created)
+        if trusted_launch_enabled and not isinstance(trusted_launch_enabled, bool):
+            raise TypeError("Expected argument 'trusted_launch_enabled' to be a bool")
+        pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
 
     @property
     @pulumi.getter(name="creationOption")
@@ -126,6 +129,14 @@ class GetSnapshotResult:
     def time_created(self) -> str:
         return pulumi.get(self, "time_created")
 
+    @property
+    @pulumi.getter(name="trustedLaunchEnabled")
+    def trusted_launch_enabled(self) -> bool:
+        """
+        Whether Trusted Launch is enabled for the Snapshot.
+        """
+        return pulumi.get(self, "trusted_launch_enabled")
+
 
 class AwaitableGetSnapshotResult(GetSnapshotResult):
     # pylint: disable=using-constant-test
@@ -143,7 +154,8 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             source_resource_id=self.source_resource_id,
             source_uri=self.source_uri,
             storage_account_id=self.storage_account_id,
-            time_created=self.time_created)
+            time_created=self.time_created,
+            trusted_launch_enabled=self.trusted_launch_enabled)
 
 
 def get_snapshot(name: Optional[str] = None,
@@ -186,7 +198,8 @@ def get_snapshot(name: Optional[str] = None,
         source_resource_id=__ret__.source_resource_id,
         source_uri=__ret__.source_uri,
         storage_account_id=__ret__.storage_account_id,
-        time_created=__ret__.time_created)
+        time_created=__ret__.time_created,
+        trusted_launch_enabled=__ret__.trusted_launch_enabled)
 
 
 @_utilities.lift_output_func(get_snapshot)

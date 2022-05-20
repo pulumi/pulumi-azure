@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Network
     public sealed class GetFirewallResult
     {
         /// <summary>
-        /// The list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+        /// The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
         /// <summary>

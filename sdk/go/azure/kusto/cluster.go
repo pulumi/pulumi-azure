@@ -26,15 +26,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
-// 			Location:          rg.Location,
-// 			ResourceGroupName: rg.Name,
+// 		_, err = kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku: &kusto.ClusterSkuArgs{
 // 				Name:     pulumi.String("Standard_D13_v2"),
 // 				Capacity: pulumi.Int(2),

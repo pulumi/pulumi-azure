@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _routeTableIds;
 
         /// <summary>
-        /// A list of Route Table ID's to associated with this Virtual Hub Connection.
+        /// A list of Route Table IDs to associated with this Virtual Hub Connection.
         /// </summary>
         public InputList<string> RouteTableIds
         {

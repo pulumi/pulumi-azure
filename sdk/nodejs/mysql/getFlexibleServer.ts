@@ -52,7 +52,7 @@ export interface GetFlexibleServerArgs {
  */
 export interface GetFlexibleServerResult {
     /**
-     * The Administrator Login of the MySQL Flexible Server.
+     * The Administrator login of the MySQL Flexible Server.
      */
     readonly administratorLogin: string;
     /**

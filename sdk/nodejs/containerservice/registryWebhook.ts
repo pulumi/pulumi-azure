@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const acr = new azure.containerservice.Registry("acr", {
- *     resourceGroupName: rg.name,
- *     location: rg.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "Standard",
  *     adminEnabled: false,
  * });
  * const webhook = new azure.containerservice.RegistryWebhook("webhook", {
- *     resourceGroupName: rg.name,
+ *     resourceGroupName: example.name,
  *     registryName: acr.name,
- *     location: rg.location,
+ *     location: example.location,
  *     serviceUri: "https://mywebhookreceiver.example/mytag",
  *     status: "enabled",
  *     scope: "mytag:*",

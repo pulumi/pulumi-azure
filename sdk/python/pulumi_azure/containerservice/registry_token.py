@@ -213,14 +213,14 @@ class RegistryToken(pulumi.CustomResource):
             ])
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
             container_registry_name=azurerm_container_registry["acr"]["name"],
-            resource_group_name=azurerm_resource_group["rg"]["name"],
+            resource_group_name=example_resource_group.name,
             actions=[
                 "repositories/repo1/content/read",
                 "repositories/repo1/content/write",
             ])
         example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
             container_registry_name=azurerm_container_registry["acr"]["name"],
-            resource_group_name=azurerm_resource_group["rg"]["name"],
+            resource_group_name=example_resource_group.name,
             scope_map_id=azurerm_container_registry_scope_map["map"]["id"])
         ```
 
@@ -265,14 +265,14 @@ class RegistryToken(pulumi.CustomResource):
             ])
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
             container_registry_name=azurerm_container_registry["acr"]["name"],
-            resource_group_name=azurerm_resource_group["rg"]["name"],
+            resource_group_name=example_resource_group.name,
             actions=[
                 "repositories/repo1/content/read",
                 "repositories/repo1/content/write",
             ])
         example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
             container_registry_name=azurerm_container_registry["acr"]["name"],
-            resource_group_name=azurerm_resource_group["rg"]["name"],
+            resource_group_name=example_resource_group.name,
             scope_map_id=azurerm_container_registry_scope_map["map"]["id"])
         ```
 

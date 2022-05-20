@@ -77,6 +77,7 @@ import (
 type Share struct {
 	pulumi.CustomResourceState
 
+	AccessTier pulumi.StringPtrOutput `pulumi:"accessTier"`
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayOutput `pulumi:"acls"`
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
@@ -131,6 +132,7 @@ func GetShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Share resources.
 type shareState struct {
+	AccessTier *string `pulumi:"accessTier"`
 	// One or more `acl` blocks as defined below.
 	Acls []ShareAcl `pulumi:"acls"`
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
@@ -151,6 +153,7 @@ type shareState struct {
 }
 
 type ShareState struct {
+	AccessTier pulumi.StringPtrInput
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayInput
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
@@ -175,6 +178,7 @@ func (ShareState) ElementType() reflect.Type {
 }
 
 type shareArgs struct {
+	AccessTier *string `pulumi:"accessTier"`
 	// One or more `acl` blocks as defined below.
 	Acls []ShareAcl `pulumi:"acls"`
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
@@ -192,6 +196,7 @@ type shareArgs struct {
 
 // The set of arguments for constructing a Share resource.
 type ShareArgs struct {
+	AccessTier pulumi.StringPtrInput
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayInput
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
@@ -292,6 +297,10 @@ func (o ShareOutput) ToShareOutput() ShareOutput {
 
 func (o ShareOutput) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 	return o
+}
+
+func (o ShareOutput) AccessTier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.AccessTier }).(pulumi.StringPtrOutput)
 }
 
 // One or more `acl` blocks as defined below.

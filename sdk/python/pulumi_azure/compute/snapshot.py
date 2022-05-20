@@ -186,7 +186,8 @@ class _SnapshotState:
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_launch_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
         :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
@@ -198,6 +199,7 @@ class _SnapshotState:
         :param pulumi.Input[str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] trusted_launch_enabled: Whether Trusted Launch is enabled for the Snapshot.
         """
         if create_option is not None:
             pulumi.set(__self__, "create_option", create_option)
@@ -219,6 +221,8 @@ class _SnapshotState:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if trusted_launch_enabled is not None:
+            pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
 
     @property
     @pulumi.getter(name="createOption")
@@ -336,6 +340,18 @@ class _SnapshotState:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="trustedLaunchEnabled")
+    def trusted_launch_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Trusted Launch is enabled for the Snapshot.
+        """
+        return pulumi.get(self, "trusted_launch_enabled")
+
+    @trusted_launch_enabled.setter
+    def trusted_launch_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "trusted_launch_enabled", value)
 
 
 class Snapshot(pulumi.CustomResource):
@@ -485,6 +501,7 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["source_uri"] = source_uri
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["trusted_launch_enabled"] = None
         super(Snapshot, __self__).__init__(
             'azure:compute/snapshot:Snapshot',
             resource_name,
@@ -504,7 +521,8 @@ class Snapshot(pulumi.CustomResource):
             source_resource_id: Optional[pulumi.Input[str]] = None,
             source_uri: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Snapshot':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            trusted_launch_enabled: Optional[pulumi.Input[bool]] = None) -> 'Snapshot':
         """
         Get an existing Snapshot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -521,6 +539,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] trusted_launch_enabled: Whether Trusted Launch is enabled for the Snapshot.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -536,6 +555,7 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["source_uri"] = source_uri
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["trusted_launch_enabled"] = trusted_launch_enabled
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -614,4 +634,12 @@ class Snapshot(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trustedLaunchEnabled")
+    def trusted_launch_enabled(self) -> pulumi.Output[bool]:
+        """
+        Whether Trusted Launch is enabled for the Snapshot.
+        """
+        return pulumi.get(self, "trusted_launch_enabled")
 

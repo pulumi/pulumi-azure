@@ -18,6 +18,7 @@ export * from "./diskPoolIscsiTargetLun";
 export * from "./diskPoolManagedDiskAttachment";
 export * from "./extension";
 export * from "./getAvailabilitySet";
+export * from "./getConfidentialLedger";
 export * from "./getDedicatedHost";
 export * from "./getDedicatedHostGroup";
 export * from "./getDiskAccess";
@@ -38,6 +39,7 @@ export * from "./image";
 export * from "./linuxVirtualMachine";
 export * from "./linuxVirtualMachineScaleSet";
 export * from "./managedDisk";
+export * from "./managedDiskSasToken";
 export * from "./orchestratedVirtualMachineScaleSet";
 export * from "./scaleSet";
 export * from "./sharedImage";
@@ -67,6 +69,7 @@ import { Image } from "./image";
 import { LinuxVirtualMachine } from "./linuxVirtualMachine";
 import { LinuxVirtualMachineScaleSet } from "./linuxVirtualMachineScaleSet";
 import { ManagedDisk } from "./managedDisk";
+import { ManagedDiskSasToken } from "./managedDiskSasToken";
 import { OrchestratedVirtualMachineScaleSet } from "./orchestratedVirtualMachineScaleSet";
 import { ScaleSet } from "./scaleSet";
 import { SharedImage } from "./sharedImage";
@@ -115,6 +118,8 @@ const _module = {
                 return new LinuxVirtualMachineScaleSet(name, <any>undefined, { urn })
             case "azure:compute/managedDisk:ManagedDisk":
                 return new ManagedDisk(name, <any>undefined, { urn })
+            case "azure:compute/managedDiskSasToken:ManagedDiskSasToken":
+                return new ManagedDiskSasToken(name, <any>undefined, { urn })
             case "azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet":
                 return new OrchestratedVirtualMachineScaleSet(name, <any>undefined, { urn })
             case "azure:compute/scaleSet:ScaleSet":
@@ -158,6 +163,7 @@ pulumi.runtime.registerResourceModule("azure", "compute/image", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/linuxVirtualMachine", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/linuxVirtualMachineScaleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/managedDisk", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/managedDiskSasToken", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/orchestratedVirtualMachineScaleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/scaleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/sharedImage", _module)

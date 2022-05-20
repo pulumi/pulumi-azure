@@ -22,14 +22,14 @@ namespace Pulumi.Azure.Kusto
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var cluster = new Azure.Kusto.Cluster("cluster", new Azure.Kusto.ClusterArgs
     ///         {
-    ///             Location = rg.Location,
-    ///             ResourceGroupName = rg.Name,
+    ///             Location = example.Location,
+    ///             ResourceGroupName = example.Name,
     ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///             {
     ///                 Name = "Standard_D13_v2",
@@ -38,22 +38,22 @@ namespace Pulumi.Azure.Kusto
     ///         });
     ///         var database = new Azure.Kusto.Database("database", new Azure.Kusto.DatabaseArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
-    ///             Location = rg.Location,
+    ///             ResourceGroupName = example.Name,
+    ///             Location = example.Location,
     ///             ClusterName = cluster.Name,
     ///             HotCachePeriod = "P7D",
     ///             SoftDeletePeriod = "P31D",
     ///         });
     ///         var eventhubNs = new Azure.EventHub.EventHubNamespace("eventhubNs", new Azure.EventHub.EventHubNamespaceArgs
     ///         {
-    ///             Location = rg.Location,
-    ///             ResourceGroupName = rg.Name,
+    ///             Location = example.Location,
+    ///             ResourceGroupName = example.Name,
     ///             Sku = "Standard",
     ///         });
     ///         var eventhub = new Azure.EventHub.EventHub("eventhub", new Azure.EventHub.EventHubArgs
     ///         {
     ///             NamespaceName = eventhubNs.Name,
-    ///             ResourceGroupName = rg.Name,
+    ///             ResourceGroupName = example.Name,
     ///             PartitionCount = 1,
     ///             MessageRetention = 1,
     ///         });
@@ -61,12 +61,12 @@ namespace Pulumi.Azure.Kusto
     ///         {
     ///             NamespaceName = eventhubNs.Name,
     ///             EventhubName = eventhub.Name,
-    ///             ResourceGroupName = rg.Name,
+    ///             ResourceGroupName = example.Name,
     ///         });
     ///         var eventhubConnection = new Azure.Kusto.EventhubDataConnection("eventhubConnection", new Azure.Kusto.EventhubDataConnectionArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
-    ///             Location = rg.Location,
+    ///             ResourceGroupName = example.Name,
+    ///             Location = example.Location,
     ///             ClusterName = cluster.Name,
     ///             DatabaseName = database.Name,
     ///             EventhubId = eventhub.Id,

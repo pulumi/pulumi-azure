@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<string> KeyVaultCertificateId { get; set; } = null!;
 
         /// <summary>
-        /// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+        /// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
         /// </summary>
         [Input("tlsVersion")]
         public Input<string>? TlsVersion { get; set; }

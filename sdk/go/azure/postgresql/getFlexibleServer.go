@@ -55,7 +55,7 @@ type LookupFlexibleServerArgs struct {
 
 // A collection of values returned by getFlexibleServer.
 type LookupFlexibleServerResult struct {
-	// The Administrator Login for the PostgreSQL Flexible Server.
+	// The Administrator login for the PostgreSQL Flexible Server.
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The backup retention days for the PostgreSQL Flexible Server.
 	BackupRetentionDays int `pulumi:"backupRetentionDays"`
@@ -121,7 +121,7 @@ func (o LookupFlexibleServerResultOutput) ToLookupFlexibleServerResultOutputWith
 	return o
 }
 
-// The Administrator Login for the PostgreSQL Flexible Server.
+// The Administrator login for the PostgreSQL Flexible Server.
 func (o LookupFlexibleServerResultOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }

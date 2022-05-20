@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// A list of Managed Identity ID's which should be assigned to this Static Site resource.
+        /// A list of Managed Identity IDs which should be assigned to this Static Site resource.
         /// </summary>
         public InputList<string> IdentityIds
         {

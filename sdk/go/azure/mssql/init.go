@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagedInstanceActiveDirectoryAdministrator{}
 	case "azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup":
 		r = &ManagedInstanceFailoverGroup{}
+	case "azure:mssql/managedInstanceVulnerabilityAssessment:ManagedInstanceVulnerabilityAssessment":
+		r = &ManagedInstanceVulnerabilityAssessment{}
 	case "azure:mssql/outboundFirewallRule:OutboundFirewallRule":
 		r = &OutboundFirewallRule{}
 	case "azure:mssql/server:Server":
@@ -132,6 +134,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mssql/managedInstanceFailoverGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/managedInstanceVulnerabilityAssessment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

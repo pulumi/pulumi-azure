@@ -52,7 +52,7 @@ export interface GetMariaDbServerArgs {
  */
 export interface GetMariaDbServerResult {
     /**
-     * The Administrator Login for the MariaDB Server.
+     * The Administrator login for the MariaDB Server.
      */
     readonly administratorLogin: string;
     /**

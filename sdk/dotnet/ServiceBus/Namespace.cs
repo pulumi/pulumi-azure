@@ -123,7 +123,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        /// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        /// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        /// Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

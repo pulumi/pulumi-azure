@@ -2358,7 +2358,7 @@ type SecurityDeviceGroupAllowRule struct {
 	ConnectionFromIpsNotAlloweds []string `pulumi:"connectionFromIpsNotAlloweds"`
 	// Specifies which IP is not allowed to be connected to in current device group for outbound connection.
 	ConnectionToIpsNotAlloweds []string `pulumi:"connectionToIpsNotAlloweds"`
-	// Specifies which local user is not allowed to Login in current device group.
+	// Specifies which local user is not allowed to login in current device group.
 	LocalUsersNotAlloweds []string `pulumi:"localUsersNotAlloweds"`
 	// Specifies which process is not allowed to be executed in current device group.
 	ProcessesNotAlloweds []string `pulumi:"processesNotAlloweds"`
@@ -2380,7 +2380,7 @@ type SecurityDeviceGroupAllowRuleArgs struct {
 	ConnectionFromIpsNotAlloweds pulumi.StringArrayInput `pulumi:"connectionFromIpsNotAlloweds"`
 	// Specifies which IP is not allowed to be connected to in current device group for outbound connection.
 	ConnectionToIpsNotAlloweds pulumi.StringArrayInput `pulumi:"connectionToIpsNotAlloweds"`
-	// Specifies which local user is not allowed to Login in current device group.
+	// Specifies which local user is not allowed to login in current device group.
 	LocalUsersNotAlloweds pulumi.StringArrayInput `pulumi:"localUsersNotAlloweds"`
 	// Specifies which process is not allowed to be executed in current device group.
 	ProcessesNotAlloweds pulumi.StringArrayInput `pulumi:"processesNotAlloweds"`
@@ -2473,7 +2473,7 @@ func (o SecurityDeviceGroupAllowRuleOutput) ConnectionToIpsNotAlloweds() pulumi.
 	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.ConnectionToIpsNotAlloweds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies which local user is not allowed to Login in current device group.
+// Specifies which local user is not allowed to login in current device group.
 func (o SecurityDeviceGroupAllowRuleOutput) LocalUsersNotAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.LocalUsersNotAlloweds }).(pulumi.StringArrayOutput)
 }
@@ -2527,7 +2527,7 @@ func (o SecurityDeviceGroupAllowRulePtrOutput) ConnectionToIpsNotAlloweds() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies which local user is not allowed to Login in current device group.
+// Specifies which local user is not allowed to login in current device group.
 func (o SecurityDeviceGroupAllowRulePtrOutput) LocalUsersNotAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
 		if v == nil {

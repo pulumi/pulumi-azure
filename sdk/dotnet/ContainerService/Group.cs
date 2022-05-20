@@ -148,6 +148,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> IpAddressType { get; private set; } = null!;
 
         /// <summary>
+        /// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("keyVaultKeyId")]
+        public Output<string?> KeyVaultKeyId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -314,6 +320,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
+        /// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("keyVaultKeyId")]
+        public Input<string>? KeyVaultKeyId { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -457,6 +469,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
+        /// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("keyVaultKeyId")]
+        public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

@@ -38,7 +38,7 @@ namespace Pulumi.Azure.PostgreSql.Outputs
         /// </summary>
         public readonly string? StorageAccountAccessKey;
         /// <summary>
-        /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+        /// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         /// </summary>
         public readonly string? StorageEndpoint;
 

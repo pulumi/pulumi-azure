@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _routeTableIds;
 
         /// <summary>
-        /// A list of Route Table ID's to associated with this VPN Gateway Connection.
+        /// A list of Route Table IDs to associated with this VPN Gateway Connection.
         /// </summary>
         public InputList<string> RouteTableIds
         {

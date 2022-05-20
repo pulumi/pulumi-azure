@@ -27,22 +27,19 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
-// 			Name: "example-resources",
-// 		}, nil)
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
-// 			Name:              "example-job",
-// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+// 			Name:              pulumi.String("example-job"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
 // 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-// 			Location:          pulumi.String(exampleResourceGroup.Location),
-// 			ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
 // 		})
 // 		if err != nil {
@@ -56,8 +53,12 @@ import (
 // 			return err
 // 		}
 // 		_, err = streamanalytics.NewOutputServiceBusQueue(ctx, "exampleOutputServiceBusQueue", &streamanalytics.OutputServiceBusQueueArgs{
-// 			StreamAnalyticsJobName: pulumi.String(exampleJob.Name),
-// 			ResourceGroupName:      pulumi.String(exampleJob.ResourceGroupName),
+// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.Name, nil
+// 			}).(pulumi.StringOutput),
+// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.ResourceGroupName, nil
+// 			}).(pulumi.StringOutput),
 // 			QueueName:              exampleQueue.Name,
 // 			ServicebusNamespace:    exampleNamespace.Name,
 // 			SharedAccessPolicyKey:  exampleNamespace.DefaultPrimaryKey,
@@ -86,6 +87,8 @@ type OutputServiceBusQueue struct {
 
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of property columns to add to the Service Bus Queue output.
+	PropertyColumns pulumi.StringArrayOutput `pulumi:"propertyColumns"`
 	// The name of the Service Bus Queue.
 	QueueName pulumi.StringOutput `pulumi:"queueName"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -100,6 +103,8 @@ type OutputServiceBusQueue struct {
 	SharedAccessPolicyName pulumi.StringOutput `pulumi:"sharedAccessPolicyName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringOutput `pulumi:"streamAnalyticsJobName"`
+	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+	SystemPropertyColumns pulumi.StringMapOutput `pulumi:"systemPropertyColumns"`
 }
 
 // NewOutputServiceBusQueue registers a new resource with the given unique name, arguments, and options.
@@ -154,6 +159,8 @@ func GetOutputServiceBusQueue(ctx *pulumi.Context,
 type outputServiceBusQueueState struct {
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A list of property columns to add to the Service Bus Queue output.
+	PropertyColumns []string `pulumi:"propertyColumns"`
 	// The name of the Service Bus Queue.
 	QueueName *string `pulumi:"queueName"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -168,11 +175,15 @@ type outputServiceBusQueueState struct {
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName *string `pulumi:"streamAnalyticsJobName"`
+	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+	SystemPropertyColumns map[string]string `pulumi:"systemPropertyColumns"`
 }
 
 type OutputServiceBusQueueState struct {
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A list of property columns to add to the Service Bus Queue output.
+	PropertyColumns pulumi.StringArrayInput
 	// The name of the Service Bus Queue.
 	QueueName pulumi.StringPtrInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -187,6 +198,8 @@ type OutputServiceBusQueueState struct {
 	SharedAccessPolicyName pulumi.StringPtrInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringPtrInput
+	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+	SystemPropertyColumns pulumi.StringMapInput
 }
 
 func (OutputServiceBusQueueState) ElementType() reflect.Type {
@@ -196,6 +209,8 @@ func (OutputServiceBusQueueState) ElementType() reflect.Type {
 type outputServiceBusQueueArgs struct {
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A list of property columns to add to the Service Bus Queue output.
+	PropertyColumns []string `pulumi:"propertyColumns"`
 	// The name of the Service Bus Queue.
 	QueueName string `pulumi:"queueName"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -210,12 +225,16 @@ type outputServiceBusQueueArgs struct {
 	SharedAccessPolicyName string `pulumi:"sharedAccessPolicyName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName string `pulumi:"streamAnalyticsJobName"`
+	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+	SystemPropertyColumns map[string]string `pulumi:"systemPropertyColumns"`
 }
 
 // The set of arguments for constructing a OutputServiceBusQueue resource.
 type OutputServiceBusQueueArgs struct {
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A list of property columns to add to the Service Bus Queue output.
+	PropertyColumns pulumi.StringArrayInput
 	// The name of the Service Bus Queue.
 	QueueName pulumi.StringInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -230,6 +249,8 @@ type OutputServiceBusQueueArgs struct {
 	SharedAccessPolicyName pulumi.StringInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringInput
+	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+	SystemPropertyColumns pulumi.StringMapInput
 }
 
 func (OutputServiceBusQueueArgs) ElementType() reflect.Type {
@@ -324,6 +345,11 @@ func (o OutputServiceBusQueueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputServiceBusQueue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of property columns to add to the Service Bus Queue output.
+func (o OutputServiceBusQueueOutput) PropertyColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OutputServiceBusQueue) pulumi.StringArrayOutput { return v.PropertyColumns }).(pulumi.StringArrayOutput)
+}
+
 // The name of the Service Bus Queue.
 func (o OutputServiceBusQueueOutput) QueueName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputServiceBusQueue) pulumi.StringOutput { return v.QueueName }).(pulumi.StringOutput)
@@ -357,6 +383,11 @@ func (o OutputServiceBusQueueOutput) SharedAccessPolicyName() pulumi.StringOutpu
 // The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 func (o OutputServiceBusQueueOutput) StreamAnalyticsJobName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputServiceBusQueue) pulumi.StringOutput { return v.StreamAnalyticsJobName }).(pulumi.StringOutput)
+}
+
+// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+func (o OutputServiceBusQueueOutput) SystemPropertyColumns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *OutputServiceBusQueue) pulumi.StringMapOutput { return v.SystemPropertyColumns }).(pulumi.StringMapOutput)
 }
 
 type OutputServiceBusQueueArrayOutput struct{ *pulumi.OutputState }

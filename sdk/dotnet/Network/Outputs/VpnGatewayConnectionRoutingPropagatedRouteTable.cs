@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Labels;
         /// <summary>
-        /// A list of Route Table ID's to associated with this VPN Gateway Connection.
+        /// A list of Route Table IDs to associated with this VPN Gateway Connection.
         /// </summary>
         public readonly ImmutableArray<string> RouteTableIds;
 

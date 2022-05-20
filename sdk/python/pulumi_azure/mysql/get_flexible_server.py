@@ -90,7 +90,7 @@ class GetFlexibleServerResult:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> str:
         """
-        The Administrator Login of the MySQL Flexible Server.
+        The Administrator login of the MySQL Flexible Server.
         """
         return pulumi.get(self, "administrator_login")
 

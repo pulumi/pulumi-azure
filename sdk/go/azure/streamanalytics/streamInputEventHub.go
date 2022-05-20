@@ -27,22 +27,19 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
-// 			Name: "example-resources",
-// 		}, nil)
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
-// 			Name:              "example-job",
-// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+// 			Name:              pulumi.String("example-job"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
 // 		exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-// 			Location:          pulumi.String(exampleResourceGroup.Location),
-// 			ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
 // 			Capacity:          pulumi.Int(1),
 // 		})
@@ -51,7 +48,7 @@ import (
 // 		}
 // 		exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
 // 			NamespaceName:     exampleEventHubNamespace.Name,
-// 			ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			PartitionCount:    pulumi.Int(2),
 // 			MessageRetention:  pulumi.Int(1),
 // 		})
@@ -61,14 +58,18 @@ import (
 // 		exampleConsumerGroup, err := eventhub.NewConsumerGroup(ctx, "exampleConsumerGroup", &eventhub.ConsumerGroupArgs{
 // 			NamespaceName:     exampleEventHubNamespace.Name,
 // 			EventhubName:      exampleEventHub.Name,
-// 			ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = streamanalytics.NewStreamInputEventHub(ctx, "exampleStreamInputEventHub", &streamanalytics.StreamInputEventHubArgs{
-// 			StreamAnalyticsJobName:    pulumi.String(exampleJob.Name),
-// 			ResourceGroupName:         pulumi.String(exampleJob.ResourceGroupName),
+// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.Name, nil
+// 			}).(pulumi.StringOutput),
+// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+// 				return exampleJob.ResourceGroupName, nil
+// 			}).(pulumi.StringOutput),
 // 			EventhubConsumerGroupName: exampleConsumerGroup.Name,
 // 			EventhubName:              exampleEventHub.Name,
 // 			ServicebusNamespace:       exampleEventHubNamespace.Name,

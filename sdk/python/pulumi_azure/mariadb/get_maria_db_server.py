@@ -60,7 +60,7 @@ class GetMariaDbServerResult:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> str:
         """
-        The Administrator Login for the MariaDB Server.
+        The Administrator login for the MariaDB Server.
         """
         return pulumi.get(self, "administrator_login")
 

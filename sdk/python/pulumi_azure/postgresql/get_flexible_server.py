@@ -65,7 +65,7 @@ class GetFlexibleServerResult:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> str:
         """
-        The Administrator Login for the PostgreSQL Flexible Server.
+        The Administrator login for the PostgreSQL Flexible Server.
         """
         return pulumi.get(self, "administrator_login")
 

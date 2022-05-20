@@ -193,7 +193,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
+     * . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
      */
     public readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
@@ -531,7 +531,7 @@ export interface WindowsVirtualMachineState {
      */
     name?: pulumi.Input<string>;
     /**
-     * . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
+     * . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
      */
     networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -733,7 +733,7 @@ export interface WindowsVirtualMachineArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
+     * . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
      */
     networkInterfaceIds: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  *     max: 99999,
  * });
  * const db = new azure.cosmosdb.Account("db", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
+ *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: azurerm_resource_group.example.name,
  *     offerType: "Standard",
  *     kind: "MongoDB",
  *     enableAutomaticFailover: true,
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *             failoverPriority: 1,
  *         },
  *         {
- *             location: rg.location,
+ *             location: azurerm_resource_group.example.location,
  *             failoverPriority: 0,
  *         },
  *     ],
@@ -187,7 +187,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
+     * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
      */
     public readonly mongoServerVersion!: pulumi.Output<string>;
     /**
@@ -459,7 +459,7 @@ export interface AccountState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
+     * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
      */
     mongoServerVersion?: pulumi.Input<string>;
     /**
@@ -613,7 +613,7 @@ export interface AccountArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`.
+     * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
      */
     mongoServerVersion?: pulumi.Input<string>;
     /**

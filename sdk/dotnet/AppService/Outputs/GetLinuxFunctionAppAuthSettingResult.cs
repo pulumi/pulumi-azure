@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppAuthSettingActiveDirectoryResult> ActiveDirectories;
         /// <summary>
-        /// A map of Login Parameters sent to the OpenID Connect authorization endpoint when a user logs in.
+        /// A map of login parameters sent to the OpenID Connect authorization endpoint when a user logs in.
         /// </summary>
         public readonly ImmutableDictionary<string, string> AdditionalLoginParameters;
         /// <summary>

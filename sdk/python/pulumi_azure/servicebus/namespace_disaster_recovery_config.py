@@ -211,7 +211,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             sku="Premium",
             capacity=1)
         secondary = azure.servicebus.Namespace("secondary",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="Premium",
             capacity=1)
@@ -258,7 +258,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             sku="Premium",
             capacity=1)
         secondary = azure.servicebus.Namespace("secondary",
-            location="West US",
+            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="Premium",
             capacity=1)

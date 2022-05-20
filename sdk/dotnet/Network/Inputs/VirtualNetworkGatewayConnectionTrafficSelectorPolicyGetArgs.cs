@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Network.Inputs
     {
         [Input("localAddressCidrs", required: true)]
         private InputList<string>? _localAddressCidrs;
+
+        /// <summary>
+        /// List of local CIDRs.
+        /// </summary>
         public InputList<string> LocalAddressCidrs
         {
             get => _localAddressCidrs ?? (_localAddressCidrs = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("remoteAddressCidrs", required: true)]
         private InputList<string>? _remoteAddressCidrs;
+
+        /// <summary>
+        /// List of remote CIDRs.
+        /// </summary>
         public InputList<string> RemoteAddressCidrs
         {
             get => _remoteAddressCidrs ?? (_remoteAddressCidrs = new InputList<string>());

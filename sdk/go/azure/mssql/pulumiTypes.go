@@ -373,7 +373,7 @@ type DatabaseThreatDetectionPolicy struct {
 	State *string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
@@ -401,7 +401,7 @@ type DatabaseThreatDetectionPolicyArgs struct {
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+	// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
 }
 
@@ -512,7 +512,7 @@ func (o DatabaseThreatDetectionPolicyOutput) StorageAccountAccessKey() pulumi.St
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 func (o DatabaseThreatDetectionPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -601,7 +601,7 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) StorageAccountAccessKey() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
 		if v == nil {
@@ -1766,6 +1766,181 @@ func (o ManagedInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ManagedInstanceVulnerabilityAssessmentRecurringScans struct {
+	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
+	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	Emails []string `pulumi:"emails"`
+	// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ManagedInstanceVulnerabilityAssessmentRecurringScansInput is an input type that accepts ManagedInstanceVulnerabilityAssessmentRecurringScansArgs and ManagedInstanceVulnerabilityAssessmentRecurringScansOutput values.
+// You can construct a concrete instance of `ManagedInstanceVulnerabilityAssessmentRecurringScansInput` via:
+//
+//          ManagedInstanceVulnerabilityAssessmentRecurringScansArgs{...}
+type ManagedInstanceVulnerabilityAssessmentRecurringScansInput interface {
+	pulumi.Input
+
+	ToManagedInstanceVulnerabilityAssessmentRecurringScansOutput() ManagedInstanceVulnerabilityAssessmentRecurringScansOutput
+	ToManagedInstanceVulnerabilityAssessmentRecurringScansOutputWithContext(context.Context) ManagedInstanceVulnerabilityAssessmentRecurringScansOutput
+}
+
+type ManagedInstanceVulnerabilityAssessmentRecurringScansArgs struct {
+	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+	EmailSubscriptionAdmins pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdmins"`
+	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	Emails pulumi.StringArrayInput `pulumi:"emails"`
+	// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ManagedInstanceVulnerabilityAssessmentRecurringScansArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceVulnerabilityAssessmentRecurringScans)(nil)).Elem()
+}
+
+func (i ManagedInstanceVulnerabilityAssessmentRecurringScansArgs) ToManagedInstanceVulnerabilityAssessmentRecurringScansOutput() ManagedInstanceVulnerabilityAssessmentRecurringScansOutput {
+	return i.ToManagedInstanceVulnerabilityAssessmentRecurringScansOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceVulnerabilityAssessmentRecurringScansArgs) ToManagedInstanceVulnerabilityAssessmentRecurringScansOutputWithContext(ctx context.Context) ManagedInstanceVulnerabilityAssessmentRecurringScansOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceVulnerabilityAssessmentRecurringScansOutput)
+}
+
+func (i ManagedInstanceVulnerabilityAssessmentRecurringScansArgs) ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput() ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return i.ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceVulnerabilityAssessmentRecurringScansArgs) ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceVulnerabilityAssessmentRecurringScansOutput).ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx)
+}
+
+// ManagedInstanceVulnerabilityAssessmentRecurringScansPtrInput is an input type that accepts ManagedInstanceVulnerabilityAssessmentRecurringScansArgs, ManagedInstanceVulnerabilityAssessmentRecurringScansPtr and ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput values.
+// You can construct a concrete instance of `ManagedInstanceVulnerabilityAssessmentRecurringScansPtrInput` via:
+//
+//          ManagedInstanceVulnerabilityAssessmentRecurringScansArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedInstanceVulnerabilityAssessmentRecurringScansPtrInput interface {
+	pulumi.Input
+
+	ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput() ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput
+	ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Context) ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput
+}
+
+type managedInstanceVulnerabilityAssessmentRecurringScansPtrType ManagedInstanceVulnerabilityAssessmentRecurringScansArgs
+
+func ManagedInstanceVulnerabilityAssessmentRecurringScansPtr(v *ManagedInstanceVulnerabilityAssessmentRecurringScansArgs) ManagedInstanceVulnerabilityAssessmentRecurringScansPtrInput {
+	return (*managedInstanceVulnerabilityAssessmentRecurringScansPtrType)(v)
+}
+
+func (*managedInstanceVulnerabilityAssessmentRecurringScansPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstanceVulnerabilityAssessmentRecurringScans)(nil)).Elem()
+}
+
+func (i *managedInstanceVulnerabilityAssessmentRecurringScansPtrType) ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput() ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return i.ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
+}
+
+func (i *managedInstanceVulnerabilityAssessmentRecurringScansPtrType) ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput)
+}
+
+type ManagedInstanceVulnerabilityAssessmentRecurringScansOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceVulnerabilityAssessmentRecurringScansOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceVulnerabilityAssessmentRecurringScans)(nil)).Elem()
+}
+
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansOutput) ToManagedInstanceVulnerabilityAssessmentRecurringScansOutput() ManagedInstanceVulnerabilityAssessmentRecurringScansOutput {
+	return o
+}
+
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansOutput) ToManagedInstanceVulnerabilityAssessmentRecurringScansOutputWithContext(ctx context.Context) ManagedInstanceVulnerabilityAssessmentRecurringScansOutput {
+	return o
+}
+
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansOutput) ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput() ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return o.ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansOutput) ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceVulnerabilityAssessmentRecurringScans) *ManagedInstanceVulnerabilityAssessmentRecurringScans {
+		return &v
+	}).(ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput)
+}
+
+// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceVulnerabilityAssessmentRecurringScans) *bool { return v.EmailSubscriptionAdmins }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an array of e-mail addresses to which the scan notification is sent.
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansOutput) Emails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedInstanceVulnerabilityAssessmentRecurringScans) []string { return v.Emails }).(pulumi.StringArrayOutput)
+}
+
+// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceVulnerabilityAssessmentRecurringScans) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstanceVulnerabilityAssessmentRecurringScans)(nil)).Elem()
+}
+
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput) ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput() ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return o
+}
+
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput) ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput {
+	return o
+}
+
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput) Elem() ManagedInstanceVulnerabilityAssessmentRecurringScansOutput {
+	return o.ApplyT(func(v *ManagedInstanceVulnerabilityAssessmentRecurringScans) ManagedInstanceVulnerabilityAssessmentRecurringScans {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedInstanceVulnerabilityAssessmentRecurringScans
+		return ret
+	}).(ManagedInstanceVulnerabilityAssessmentRecurringScansOutput)
+}
+
+// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceVulnerabilityAssessmentRecurringScans) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EmailSubscriptionAdmins
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an array of e-mail addresses to which the scan notification is sent.
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput) Emails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedInstanceVulnerabilityAssessmentRecurringScans) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Emails
+	}).(pulumi.StringArrayOutput)
+}
+
+// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+func (o ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceVulnerabilityAssessmentRecurringScans) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ServerAzureadAdministrator struct {
 	// Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
 	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
@@ -2157,7 +2332,7 @@ func (o ServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type ServerVulnerabilityAssessmentRecurringScans struct {
 	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
 	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	// Specifies an array of email addresses to which the scan notification is sent.
 	Emails []string `pulumi:"emails"`
 	// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
@@ -2177,7 +2352,7 @@ type ServerVulnerabilityAssessmentRecurringScansInput interface {
 type ServerVulnerabilityAssessmentRecurringScansArgs struct {
 	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
 	EmailSubscriptionAdmins pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	// Specifies an array of email addresses to which the scan notification is sent.
 	Emails pulumi.StringArrayInput `pulumi:"emails"`
 	// Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -2265,7 +2440,7 @@ func (o ServerVulnerabilityAssessmentRecurringScansOutput) EmailSubscriptionAdmi
 	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) *bool { return v.EmailSubscriptionAdmins }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
+// Specifies an array of email addresses to which the scan notification is sent.
 func (o ServerVulnerabilityAssessmentRecurringScansOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) []string { return v.Emails }).(pulumi.StringArrayOutput)
 }
@@ -2309,7 +2484,7 @@ func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) EmailSubscriptionA
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
+// Specifies an array of email addresses to which the scan notification is sent.
 func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerVulnerabilityAssessmentRecurringScans) []string {
 		if v == nil {
@@ -4216,6 +4391,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceIdentityInput)(nil)).Elem(), ManagedInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceIdentityPtrInput)(nil)).Elem(), ManagedInstanceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceVulnerabilityAssessmentRecurringScansInput)(nil)).Elem(), ManagedInstanceVulnerabilityAssessmentRecurringScansArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceVulnerabilityAssessmentRecurringScansPtrInput)(nil)).Elem(), ManagedInstanceVulnerabilityAssessmentRecurringScansArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAzureadAdministratorInput)(nil)).Elem(), ServerAzureadAdministratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAzureadAdministratorPtrInput)(nil)).Elem(), ServerAzureadAdministratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityInput)(nil)).Elem(), ServerIdentityArgs{})
@@ -4266,6 +4443,8 @@ func init() {
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceVulnerabilityAssessmentRecurringScansOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput{})
 	pulumi.RegisterOutputType(ServerAzureadAdministratorOutput{})
 	pulumi.RegisterOutputType(ServerAzureadAdministratorPtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityOutput{})

@@ -1227,7 +1227,7 @@ class SecurityDeviceGroupAllowRule(dict):
         """
         :param Sequence[str] connection_from_ips_not_alloweds: Specifies which IP is not allowed to be connected to in current device group for inbound connection.
         :param Sequence[str] connection_to_ips_not_alloweds: Specifies which IP is not allowed to be connected to in current device group for outbound connection.
-        :param Sequence[str] local_users_not_alloweds: Specifies which local user is not allowed to Login in current device group.
+        :param Sequence[str] local_users_not_alloweds: Specifies which local user is not allowed to login in current device group.
         :param Sequence[str] processes_not_alloweds: Specifies which process is not allowed to be executed in current device group.
         """
         if connection_from_ips_not_alloweds is not None:
@@ -1259,7 +1259,7 @@ class SecurityDeviceGroupAllowRule(dict):
     @pulumi.getter(name="localUsersNotAlloweds")
     def local_users_not_alloweds(self) -> Optional[Sequence[str]]:
         """
-        Specifies which local user is not allowed to Login in current device group.
+        Specifies which local user is not allowed to login in current device group.
         """
         return pulumi.get(self, "local_users_not_alloweds")
 

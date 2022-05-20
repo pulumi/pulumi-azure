@@ -22,22 +22,22 @@ namespace Pulumi.Azure.DataProtection
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new Azure.Compute.ManagedDiskArgs
     ///         {
-    ///             Location = rg.Location,
-    ///             ResourceGroupName = rg.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             StorageAccountType = "Standard_LRS",
     ///             CreateOption = "Empty",
     ///             DiskSizeGb = 1,
     ///         });
     ///         var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new Azure.DataProtection.BackupVaultArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
-    ///             Location = rg.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             DatastoreType = "VaultStore",
     ///             Redundancy = "LocallyRedundant",
     ///             Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
@@ -47,7 +47,7 @@ namespace Pulumi.Azure.DataProtection
     ///         });
     ///         var example1 = new Azure.Authorization.Assignment("example1", new Azure.Authorization.AssignmentArgs
     ///         {
-    ///             Scope = rg.Id,
+    ///             Scope = exampleResourceGroup.Id,
     ///             RoleDefinitionName = "Disk Snapshot Contributor",
     ///             PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///         });
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.DataProtection
     ///             Location = exampleBackupVault.Location,
     ///             VaultId = exampleBackupVault.Id,
     ///             DiskId = exampleManagedDisk.Id,
-    ///             SnapshotResourceGroupName = rg.Name,
+    ///             SnapshotResourceGroupName = exampleResourceGroup.Name,
     ///             BackupPolicyId = exampleBackupPolicyDisk.Id,
     ///         });
     ///     }

@@ -244,26 +244,26 @@ class DataDiskAttachment(pulumi.CustomResource):
         if prefix is None:
             prefix = "example"
         vm_name = f"{prefix}-vm"
-        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
             address_spaces=["10.0.0.0/16"],
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name)
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         internal = azure.network.Subnet("internal",
-            resource_group_name=main_resource_group.name,
+            resource_group_name=example_resource_group.name,
             virtual_network_name=main_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="internal",
                 subnet_id=internal.id,
                 private_ip_address_allocation="Dynamic",
             )])
         example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             network_interface_ids=[main_network_interface.id],
             vm_size="Standard_F2",
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
@@ -287,8 +287,8 @@ class DataDiskAttachment(pulumi.CustomResource):
                 disable_password_authentication=False,
             ))
         example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             storage_account_type="Standard_LRS",
             create_option="Empty",
             disk_size_gb=10)
@@ -340,26 +340,26 @@ class DataDiskAttachment(pulumi.CustomResource):
         if prefix is None:
             prefix = "example"
         vm_name = f"{prefix}-vm"
-        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
             address_spaces=["10.0.0.0/16"],
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name)
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         internal = azure.network.Subnet("internal",
-            resource_group_name=main_resource_group.name,
+            resource_group_name=example_resource_group.name,
             virtual_network_name=main_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="internal",
                 subnet_id=internal.id,
                 private_ip_address_allocation="Dynamic",
             )])
         example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             network_interface_ids=[main_network_interface.id],
             vm_size="Standard_F2",
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
@@ -383,8 +383,8 @@ class DataDiskAttachment(pulumi.CustomResource):
                 disable_password_authentication=False,
             ))
         example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
-            location=main_resource_group.location,
-            resource_group_name=main_resource_group.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             storage_account_type="Standard_LRS",
             create_option="Empty",
             disk_size_gb=10)

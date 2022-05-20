@@ -25,20 +25,20 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const prefix = config.get("prefix") || "tfvmex";
- * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
  * const mainVirtualNetwork = new azure.network.VirtualNetwork("mainVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: mainResourceGroup.location,
- *     resourceGroupName: mainResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: mainResourceGroup.name,
- *     virtualNetworkName: mainVirtualNetwork.name,
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: azurerm_virtual_network.example.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const mainNetworkInterface = new azure.network.NetworkInterface("mainNetworkInterface", {
- *     location: mainResourceGroup.location,
- *     resourceGroupName: mainResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: internal.id,
@@ -46,8 +46,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const mainVirtualMachine = new azure.compute.VirtualMachine("mainVirtualMachine", {
- *     location: mainResourceGroup.location,
- *     resourceGroupName: mainResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     networkInterfaceIds: [mainNetworkInterface.id],
  *     vmSize: "Standard_DS1_v2",
  *     storageImageReference: {
@@ -149,7 +149,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A list of Network Interface ID's which should be associated with the Virtual Machine.
+     * A list of Network Interface IDs which should be associated with the Virtual Machine.
      */
     public readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
@@ -331,7 +331,7 @@ export interface VirtualMachineState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A list of Network Interface ID's which should be associated with the Virtual Machine.
+     * A list of Network Interface IDs which should be associated with the Virtual Machine.
      */
     networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -433,7 +433,7 @@ export interface VirtualMachineArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A list of Network Interface ID's which should be associated with the Virtual Machine.
+     * A list of Network Interface IDs which should be associated with the Virtual Machine.
      */
     networkInterfaceIds: pulumi.Input<pulumi.Input<string>[]>;
     /**

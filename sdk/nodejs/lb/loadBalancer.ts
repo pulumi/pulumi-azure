@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: "West US",
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     allocationMethod: "Static",
  * });
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
- *     location: "West US",
+ *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",

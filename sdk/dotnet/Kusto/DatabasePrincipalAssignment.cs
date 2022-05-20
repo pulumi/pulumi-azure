@@ -23,14 +23,14 @@ namespace Pulumi.Azure.Kusto
     ///     public MyStack()
     ///     {
     ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
     ///         {
-    ///             Location = rg.Location,
-    ///             ResourceGroupName = rg.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///             {
     ///                 Name = "Standard_D13_v2",
@@ -39,15 +39,15 @@ namespace Pulumi.Azure.Kusto
     ///         });
     ///         var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new Azure.Kusto.DatabaseArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
-    ///             Location = rg.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             ClusterName = exampleCluster.Name,
     ///             HotCachePeriod = "P7D",
     ///             SoftDeletePeriod = "P31D",
     ///         });
     ///         var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", new Azure.Kusto.DatabasePrincipalAssignmentArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ClusterName = exampleCluster.Name,
     ///             DatabaseName = exampleDatabase.Name,
     ///             TenantId = current.Apply(current =&gt; current.TenantId),
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+        /// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+        /// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+        /// The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

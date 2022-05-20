@@ -31,12 +31,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpringCloudAppMysqlAssociation{}
 	case "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation":
 		r = &SpringCloudAppRedisAssociation{}
+	case "azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding":
+		r = &SpringCloudBuildPackBinding{}
+	case "azure:appplatform/springCloudBuilder:SpringCloudBuilder":
+		r = &SpringCloudBuilder{}
 	case "azure:appplatform/springCloudCertificate:SpringCloudCertificate":
 		r = &SpringCloudCertificate{}
+	case "azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService":
+		r = &SpringCloudConfigurationService{}
 	case "azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment":
 		r = &SpringCloudContainerDeployment{}
 	case "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain":
 		r = &SpringCloudCustomDomain{}
+	case "azure:appplatform/springCloudGateway:SpringCloudGateway":
+		r = &SpringCloudGateway{}
+	case "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain":
+		r = &SpringCloudGatewayCustomDomain{}
 	case "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment":
 		r = &SpringCloudJavaDeployment{}
 	case "azure:appplatform/springCloudService:SpringCloudService":
@@ -83,7 +93,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"appplatform/springCloudBuildPackBinding",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudBuilder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"appplatform/springCloudCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudConfigurationService",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -94,6 +119,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appplatform/springCloudCustomDomain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudGateway",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudGatewayCustomDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

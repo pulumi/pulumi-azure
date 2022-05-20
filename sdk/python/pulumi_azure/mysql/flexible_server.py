@@ -38,7 +38,7 @@ class FlexibleServerArgs:
         """
         The set of arguments for constructing a FlexibleServer resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[str] administrator_login: The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        :param pulumi.Input[str] administrator_login: The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
@@ -114,7 +114,7 @@ class FlexibleServerArgs:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> Optional[pulumi.Input[str]]:
         """
-        The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "administrator_login")
 
@@ -367,7 +367,7 @@ class _FlexibleServerState:
                  zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServer resources.
-        :param pulumi.Input[str] administrator_login: The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        :param pulumi.Input[str] administrator_login: The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
@@ -442,7 +442,7 @@ class _FlexibleServerState:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> Optional[pulumi.Input[str]]:
         """
-        The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "administrator_login")
 
@@ -794,7 +794,7 @@ class FlexibleServer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login: The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        :param pulumi.Input[str] administrator_login: The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
@@ -984,7 +984,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login: The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        :param pulumi.Input[str] administrator_login: The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
@@ -1041,7 +1041,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> pulumi.Output[str]:
         """
-        The Administrator Login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+        The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         """
         return pulumi.get(self, "administrator_login")
 

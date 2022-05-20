@@ -359,16 +359,16 @@ class RegistryWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         acr = azure.containerservice.Registry("acr",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example.name,
+            location=example.location,
             sku="Standard",
             admin_enabled=False)
         webhook = azure.containerservice.RegistryWebhook("webhook",
-            resource_group_name=rg.name,
+            resource_group_name=example.name,
             registry_name=acr.name,
-            location=rg.location,
+            location=example.location,
             service_uri="https://mywebhookreceiver.example/mytag",
             status="enabled",
             scope="mytag:*",
@@ -413,16 +413,16 @@ class RegistryWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         acr = azure.containerservice.Registry("acr",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example.name,
+            location=example.location,
             sku="Standard",
             admin_enabled=False)
         webhook = azure.containerservice.RegistryWebhook("webhook",
-            resource_group_name=rg.name,
+            resource_group_name=example.name,
             registry_name=acr.name,
-            location=rg.location,
+            location=example.location,
             service_uri="https://mywebhookreceiver.example/mytag",
             status="enabled",
             scope="mytag:*",

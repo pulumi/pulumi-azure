@@ -28,7 +28,7 @@ class DatabasePrincipalAssignmentArgs:
         :param pulumi.Input[str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] role: The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role: The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -105,7 +105,7 @@ class DatabasePrincipalAssignmentArgs:
     @pulumi.getter
     def role(self) -> pulumi.Input[str]:
         """
-        The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+        The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role")
 
@@ -156,7 +156,7 @@ class _DatabasePrincipalAssignmentState:
         :param pulumi.Input[str] principal_name: The name of the principal.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] role: The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role: The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_name: The name of the tenant.
         """
@@ -266,7 +266,7 @@ class _DatabasePrincipalAssignmentState:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+        The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role")
 
@@ -323,22 +323,22 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
         example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             cluster_name=example_cluster.name,
             hot_cache_period="P7D",
             soft_delete_period="P31D")
         example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment",
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name,
             cluster_name=example_cluster.name,
             database_name=example_database.name,
             tenant_id=current.tenant_id,
@@ -362,7 +362,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] role: The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role: The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
         """
         ...
@@ -381,22 +381,22 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=rg.location,
-            resource_group_name=rg.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
         example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=rg.name,
-            location=rg.location,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             cluster_name=example_cluster.name,
             hot_cache_period="P7D",
             soft_delete_period="P31D")
         example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment",
-            resource_group_name=rg.name,
+            resource_group_name=example_resource_group.name,
             cluster_name=example_cluster.name,
             database_name=example_database.name,
             tenant_id=current.tenant_id,
@@ -505,7 +505,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] principal_name: The name of the principal.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] role: The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role: The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_name: The name of the tenant.
         """
@@ -582,7 +582,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[str]:
         """
-        The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+        The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role")
 

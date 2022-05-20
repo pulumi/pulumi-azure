@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleLoadTest = new azure.loadtest.LoadTest("exampleLoadTest", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     location: "West Europe",
+ *     location: exampleResourceGroup.location,
  * });
  * ```
  *

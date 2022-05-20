@@ -122,7 +122,7 @@ namespace Pulumi.Azure.MariaDB
     public sealed class GetMariaDbServerResult
     {
         /// <summary>
-        /// The Administrator Login for the MariaDB Server.
+        /// The Administrator login for the MariaDB Server.
         /// </summary>
         public readonly string AdministratorLogin;
         /// <summary>

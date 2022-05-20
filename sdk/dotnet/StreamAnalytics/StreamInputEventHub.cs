@@ -22,26 +22,26 @@ namespace Pulumi.Azure.StreamAnalytics
     /// {
     ///     public MyStack()
     ///     {
-    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
-    ///             Name = "example-resources",
-    ///         }));
-    ///         var exampleJob = Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new Azure.StreamAnalytics.GetJobInvokeArgs
     ///         {
     ///             Name = "example-job",
-    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///         }));
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
     ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
     ///         {
-    ///             Location = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Location),
-    ///             ResourceGroupName = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Name),
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = "Standard",
     ///             Capacity = 1,
     ///         });
     ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
     ///         {
     ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Name),
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             PartitionCount = 2,
     ///             MessageRetention = 1,
     ///         });
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         {
     ///             NamespaceName = exampleEventHubNamespace.Name,
     ///             EventhubName = exampleEventHub.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Name),
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///         });
     ///         var exampleStreamInputEventHub = new Azure.StreamAnalytics.StreamInputEventHub("exampleStreamInputEventHub", new Azure.StreamAnalytics.StreamInputEventHubArgs
     ///         {

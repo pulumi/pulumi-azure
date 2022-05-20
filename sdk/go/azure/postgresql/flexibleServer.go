@@ -114,7 +114,7 @@ import (
 type FlexibleServer struct {
 	pulumi.CustomResourceState
 
-	// The Administrator Login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword pulumi.StringPtrOutput `pulumi:"administratorPassword"`
@@ -191,7 +191,7 @@ func GetFlexibleServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FlexibleServer resources.
 type flexibleServerState struct {
-	// The Administrator Login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
@@ -237,7 +237,7 @@ type flexibleServerState struct {
 }
 
 type FlexibleServerState struct {
-	// The Administrator Login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword pulumi.StringPtrInput
@@ -287,7 +287,7 @@ func (FlexibleServerState) ElementType() reflect.Type {
 }
 
 type flexibleServerArgs struct {
-	// The Administrator Login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
@@ -330,7 +330,7 @@ type flexibleServerArgs struct {
 
 // The set of arguments for constructing a FlexibleServer resource.
 type FlexibleServerArgs struct {
-	// The Administrator Login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default`.
 	AdministratorPassword pulumi.StringPtrInput
@@ -458,7 +458,7 @@ func (o FlexibleServerOutput) ToFlexibleServerOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Administrator Login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 func (o FlexibleServerOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.AdministratorLogin }).(pulumi.StringOutput)
 }

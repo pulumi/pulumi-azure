@@ -14,24 +14,24 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,
  *     },
  * });
  * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
- *     resourceGroupName: rg.name,
- *     location: rg.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     clusterName: exampleCluster.name,
  *     hotCachePeriod: "P7D",
  *     softDeletePeriod: "P31D",
  * });
  * const exampleDatabasePrincipalAssignment = new azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", {
- *     resourceGroupName: rg.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     clusterName: exampleCluster.name,
  *     databaseName: exampleDatabase.name,
  *     tenantId: current.then(current => current.tenantId),
@@ -103,7 +103,7 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+     * The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
      */
     public readonly role!: pulumi.Output<string>;
     /**
@@ -207,7 +207,7 @@ export interface DatabasePrincipalAssignmentState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+     * The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
      */
     role?: pulumi.Input<string>;
     /**
@@ -246,7 +246,7 @@ export interface DatabasePrincipalAssignmentArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
+     * The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
      */
     role: pulumi.Input<string>;
     /**

@@ -203,7 +203,7 @@ class SqlPoolRestoreArgs:
                  point_in_time: pulumi.Input[str],
                  source_database_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] point_in_time: Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
+        :param pulumi.Input[str] point_in_time: Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[str] source_database_id: The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
         """
         pulumi.set(__self__, "point_in_time", point_in_time)
@@ -213,7 +213,7 @@ class SqlPoolRestoreArgs:
     @pulumi.getter(name="pointInTime")
     def point_in_time(self) -> pulumi.Input[str]:
         """
-        Specifies the Snapshot time to restore. Changing this forces a new Synapse SQL Pool to be created.
+        Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
         """
         return pulumi.get(self, "point_in_time")
 
@@ -264,7 +264,7 @@ class SqlPoolVulnerabilityAssessmentRecurringScansArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] email_subscription_admins_enabled: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of email addresses to which the scan notification is sent.
         :param pulumi.Input[bool] enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
         if email_subscription_admins_enabled is not None:
@@ -290,7 +290,7 @@ class SqlPoolVulnerabilityAssessmentRecurringScansArgs:
     @pulumi.getter
     def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies an array of e-mail addresses to which the scan notification is sent.
+        Specifies an array of email addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 
@@ -728,7 +728,7 @@ class WorkspaceVulnerabilityAssessmentRecurringScansArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] email_subscription_admins_enabled: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of email addresses to which the scan notification is sent.
         :param pulumi.Input[bool] enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
         if email_subscription_admins_enabled is not None:
@@ -754,7 +754,7 @@ class WorkspaceVulnerabilityAssessmentRecurringScansArgs:
     @pulumi.getter
     def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies an array of e-mail addresses to which the scan notification is sent.
+        Specifies an array of email addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 

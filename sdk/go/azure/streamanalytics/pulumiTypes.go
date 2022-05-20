@@ -11,6 +11,8 @@ import (
 )
 
 type FunctionJavaScriptUDFInputType struct {
+	// Is this input parameter a configuration parameter? Defaults to `false`.
+	ConfigurationParameter *bool `pulumi:"configurationParameter"`
 	// The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 	Type string `pulumi:"type"`
 }
@@ -27,6 +29,8 @@ type FunctionJavaScriptUDFInputTypeInput interface {
 }
 
 type FunctionJavaScriptUDFInputTypeArgs struct {
+	// Is this input parameter a configuration parameter? Defaults to `false`.
+	ConfigurationParameter pulumi.BoolPtrInput `pulumi:"configurationParameter"`
 	// The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -80,6 +84,11 @@ func (o FunctionJavaScriptUDFInputTypeOutput) ToFunctionJavaScriptUDFInputTypeOu
 
 func (o FunctionJavaScriptUDFInputTypeOutput) ToFunctionJavaScriptUDFInputTypeOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputTypeOutput {
 	return o
+}
+
+// Is this input parameter a configuration parameter? Defaults to `false`.
+func (o FunctionJavaScriptUDFInputTypeOutput) ConfigurationParameter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionJavaScriptUDFInputType) *bool { return v.ConfigurationParameter }).(pulumi.BoolPtrOutput)
 }
 
 // The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
@@ -245,6 +254,8 @@ func (o FunctionJavaScriptUDFOutputTypePtrOutput) Type() pulumi.StringPtrOutput 
 }
 
 type FunctionJavascriptUdaInputType struct {
+	// Is this input parameter a configuration parameter? Defaults to `false`.
+	ConfigurationParameter *bool `pulumi:"configurationParameter"`
 	// The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 	Type string `pulumi:"type"`
 }
@@ -261,6 +272,8 @@ type FunctionJavascriptUdaInputTypeInput interface {
 }
 
 type FunctionJavascriptUdaInputTypeArgs struct {
+	// Is this input parameter a configuration parameter? Defaults to `false`.
+	ConfigurationParameter pulumi.BoolPtrInput `pulumi:"configurationParameter"`
 	// The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -314,6 +327,11 @@ func (o FunctionJavascriptUdaInputTypeOutput) ToFunctionJavascriptUdaInputTypeOu
 
 func (o FunctionJavascriptUdaInputTypeOutput) ToFunctionJavascriptUdaInputTypeOutputWithContext(ctx context.Context) FunctionJavascriptUdaInputTypeOutput {
 	return o
+}
+
+// Is this input parameter a configuration parameter? Defaults to `false`.
+func (o FunctionJavascriptUdaInputTypeOutput) ConfigurationParameter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionJavascriptUdaInputType) *bool { return v.ConfigurationParameter }).(pulumi.BoolPtrOutput)
 }
 
 // The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.

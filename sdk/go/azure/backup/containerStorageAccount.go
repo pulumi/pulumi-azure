@@ -28,23 +28,23 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-// 			Location:          rg.Location,
-// 			ResourceGroupName: rg.Name,
+// 			Location:          example.Location,
+// 			ResourceGroupName: example.Name,
 // 			Sku:               pulumi.String("Standard"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		sa, err := storage.NewAccount(ctx, "sa", &storage.AccountArgs{
-// 			Location:               rg.Location,
-// 			ResourceGroupName:      rg.Name,
+// 			Location:               example.Location,
+// 			ResourceGroupName:      example.Name,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
 // 		})
@@ -52,7 +52,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = backup.NewContainerStorageAccount(ctx, "container", &backup.ContainerStorageAccountArgs{
-// 			ResourceGroupName: rg.Name,
+// 			ResourceGroupName: example.Name,
 // 			RecoveryVaultName: vault.Name,
 // 			StorageAccountId:  sa.ID(),
 // 		})

@@ -14,12 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "tflex-cosmosdb-account-rg",
- * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
- *     location: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.location),
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     offerType: "Standard",
  *     capabilities: [{
  *         name: "EnableCassandra",
@@ -28,7 +26,7 @@ import * as utilities from "../utilities";
  *         consistencyLevel: "Strong",
  *     },
  *     geoLocations: [{
- *         location: "West US",
+ *         location: exampleResourceGroup.location,
  *         failoverPriority: 0,
  *     }],
  * });

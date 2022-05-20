@@ -55,20 +55,20 @@ namespace Pulumi.Azure.DataFactory
     /// {
     ///     public MyStack()
     ///     {
-    ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
     ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
     ///         var testFactory = new Azure.DataFactory.Factory("testFactory", new Azure.DataFactory.FactoryArgs
     ///         {
-    ///             Location = testResourceGroup.Location,
-    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             Location = example.Location,
+    ///             ResourceGroupName = example.Name,
     ///         });
     ///         var testKeyVault = new Azure.KeyVault.KeyVault("testKeyVault", new Azure.KeyVault.KeyVaultArgs
     ///         {
-    ///             Location = testResourceGroup.Location,
-    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             Location = example.Location,
+    ///             ResourceGroupName = example.Name,
     ///             TenantId = current.Apply(current =&gt; current.TenantId),
     ///             SkuName = "standard",
     ///         });
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.DataFactory
     ///         var testLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage", new Azure.DataFactory.LinkedServiceAzureBlobStorageArgs
     ///         {
     ///             DataFactoryId = testFactory.Id,
-    ///             SasUri = "https://storageaccountname.blob.core.windows.net",
+    ///             SasUri = "https://example.blob.core.windows.net",
     ///             KeyVaultSasToken = new Azure.DataFactory.Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs
     ///             {
     ///                 LinkedServiceName = testLinkedServiceKeyVault.Name,
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.DataFactory
     ///         var testDatafactory_linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage", new Azure.DataFactory.LinkedServiceAzureBlobStorageArgs
     ///         {
     ///             DataFactoryId = testFactory.Id,
-    ///             ServiceEndpoint = "https://storageaccountname.blob.core.windows.net",
+    ///             ServiceEndpoint = "https://example.blob.core.windows.net",
     ///             ServicePrincipalId = "00000000-0000-0000-0000-000000000000",
     ///             TenantId = "00000000-0000-0000-0000-000000000000",
     ///             ServicePrincipalLinkedKeyVaultKey = new Azure.DataFactory.Inputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs

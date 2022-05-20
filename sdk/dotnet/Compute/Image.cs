@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Compute
     ///         });
     ///         var exampleImage = new Azure.Compute.Image("exampleImage", new Azure.Compute.ImageArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             OsDisk = new Azure.Compute.Inputs.ImageOsDiskArgs
     ///             {
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Compute
     ///         });
     ///         var exampleImage = new Azure.Compute.Image("exampleImage", new Azure.Compute.ImageArgs
     ///         {
-    ///             Location = "West US",
+    ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             SourceVirtualMachineId = "{vm_id}",
     ///         });

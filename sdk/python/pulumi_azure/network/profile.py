@@ -110,7 +110,7 @@ class _ProfileState:
         """
         Input properties used for looking up and filtering Profile resources.
         :param pulumi.Input['ProfileContainerNetworkInterfaceArgs'] container_network_interface: A `container_network_interface` block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_network_interface_ids: A list of Container Network Interface ID's.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_network_interface_ids: A list of Container Network Interface IDs.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Network Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
@@ -145,7 +145,7 @@ class _ProfileState:
     @pulumi.getter(name="containerNetworkInterfaceIds")
     def container_network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Container Network Interface ID's.
+        A list of Container Network Interface IDs.
         """
         return pulumi.get(self, "container_network_interface_ids")
 
@@ -383,7 +383,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ProfileContainerNetworkInterfaceArgs']] container_network_interface: A `container_network_interface` block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_network_interface_ids: A list of Container Network Interface ID's.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_network_interface_ids: A list of Container Network Interface IDs.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Network Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
@@ -413,7 +413,7 @@ class Profile(pulumi.CustomResource):
     @pulumi.getter(name="containerNetworkInterfaceIds")
     def container_network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of Container Network Interface ID's.
+        A list of Container Network Interface IDs.
         """
         return pulumi.get(self, "container_network_interface_ids")
 

@@ -21,6 +21,7 @@ __all__ = [
     'ManagedInstanceFailoverGroupPartnerRegion',
     'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy',
     'ManagedInstanceIdentity',
+    'ManagedInstanceVulnerabilityAssessmentRecurringScans',
     'ServerAzureadAdministrator',
     'ServerIdentity',
     'ServerVulnerabilityAssessmentRecurringScans',
@@ -208,7 +209,7 @@ class DatabaseThreatDetectionPolicy(dict):
         :param int retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
         :param str state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-        :param str storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        :param str storage_endpoint: Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
         if disabled_alerts is not None:
             pulumi.set(__self__, "disabled_alerts", disabled_alerts)
@@ -277,7 +278,7 @@ class DatabaseThreatDetectionPolicy(dict):
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[str]:
         """
-        Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
         return pulumi.get(self, "storage_endpoint")
 
@@ -629,6 +630,66 @@ class ManagedInstanceIdentity(dict):
 
 
 @pulumi.output_type
+class ManagedInstanceVulnerabilityAssessmentRecurringScans(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailSubscriptionAdmins":
+            suggest = "email_subscription_admins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedInstanceVulnerabilityAssessmentRecurringScans. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedInstanceVulnerabilityAssessmentRecurringScans.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedInstanceVulnerabilityAssessmentRecurringScans.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_subscription_admins: Optional[bool] = None,
+                 emails: Optional[Sequence[str]] = None,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool email_subscription_admins: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+        :param Sequence[str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param bool enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+        if email_subscription_admins is not None:
+            pulumi.set(__self__, "email_subscription_admins", email_subscription_admins)
+        if emails is not None:
+            pulumi.set(__self__, "emails", emails)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="emailSubscriptionAdmins")
+    def email_subscription_admins(self) -> Optional[bool]:
+        """
+        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+        """
+        return pulumi.get(self, "email_subscription_admins")
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Optional[Sequence[str]]:
+        """
+        Specifies an array of e-mail addresses to which the scan notification is sent.
+        """
+        return pulumi.get(self, "emails")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class ServerAzureadAdministrator(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -804,7 +865,7 @@ class ServerVulnerabilityAssessmentRecurringScans(dict):
                  enabled: Optional[bool] = None):
         """
         :param bool email_subscription_admins: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
-        :param Sequence[str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param Sequence[str] emails: Specifies an array of email addresses to which the scan notification is sent.
         :param bool enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
         if email_subscription_admins is not None:
@@ -826,7 +887,7 @@ class ServerVulnerabilityAssessmentRecurringScans(dict):
     @pulumi.getter
     def emails(self) -> Optional[Sequence[str]]:
         """
-        Specifies an array of e-mail addresses to which the scan notification is sent.
+        Specifies an array of email addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 

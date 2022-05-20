@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DestinationAddressPrefixes;
         /// <summary>
-        /// A List of destination Application Security Group ID's
+        /// A List of destination Application Security Group IDs
         /// </summary>
         public readonly ImmutableArray<string> DestinationApplicationSecurityGroupIds;
         /// <summary>
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SourceAddressPrefixes;
         /// <summary>
-        /// A List of source Application Security Group ID's
+        /// A List of source Application Security Group IDs
         /// </summary>
         public readonly ImmutableArray<string> SourceApplicationSecurityGroupIds;
         /// <summary>

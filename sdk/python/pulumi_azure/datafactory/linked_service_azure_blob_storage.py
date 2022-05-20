@@ -619,14 +619,14 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         current = azure.core.get_client_config()
         test_factory = azure.datafactory.Factory("testFactory",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name)
+            location=example.location,
+            resource_group_name=example.name)
         test_key_vault = azure.keyvault.KeyVault("testKeyVault",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard")
         test_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("testLinkedServiceKeyVault",
@@ -634,14 +634,14 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             key_vault_id=test_key_vault.id)
         test_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage",
             data_factory_id=test_factory.id,
-            sas_uri="https://storageaccountname.blob.core.windows.net",
+            sas_uri="https://example.blob.core.windows.net",
             key_vault_sas_token=azure.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs(
                 linked_service_name=test_linked_service_key_vault.name,
                 secret_name="secret",
             ))
         test_datafactory_linked_service_azure_blob_storage_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage",
             data_factory_id=test_factory.id,
-            service_endpoint="https://storageaccountname.blob.core.windows.net",
+            service_endpoint="https://example.blob.core.windows.net",
             service_principal_id="00000000-0000-0000-0000-000000000000",
             tenant_id="00000000-0000-0000-0000-000000000000",
             service_principal_linked_key_vault_key=azure.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs(
@@ -709,14 +709,14 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example", location="West Europe")
         current = azure.core.get_client_config()
         test_factory = azure.datafactory.Factory("testFactory",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name)
+            location=example.location,
+            resource_group_name=example.name)
         test_key_vault = azure.keyvault.KeyVault("testKeyVault",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard")
         test_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("testLinkedServiceKeyVault",
@@ -724,14 +724,14 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             key_vault_id=test_key_vault.id)
         test_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage",
             data_factory_id=test_factory.id,
-            sas_uri="https://storageaccountname.blob.core.windows.net",
+            sas_uri="https://example.blob.core.windows.net",
             key_vault_sas_token=azure.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs(
                 linked_service_name=test_linked_service_key_vault.name,
                 secret_name="secret",
             ))
         test_datafactory_linked_service_azure_blob_storage_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testDatafactory/linkedServiceAzureBlobStorageLinkedServiceAzureBlobStorage",
             data_factory_id=test_factory.id,
-            service_endpoint="https://storageaccountname.blob.core.windows.net",
+            service_endpoint="https://example.blob.core.windows.net",
             service_principal_id="00000000-0000-0000-0000-000000000000",
             tenant_id="00000000-0000-0000-0000-000000000000",
             service_principal_linked_key_vault_key=azure.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs(

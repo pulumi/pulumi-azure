@@ -27,15 +27,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultResourceGroup, err := core.NewResourceGroup(ctx, "defaultResourceGroup", &core.ResourceGroupArgs{
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		defaultAccount, err := storage.NewAccount(ctx, "defaultAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      defaultResourceGroup.Name,
-// 			Location:               defaultResourceGroup.Location,
+// 			ResourceGroupName:      example.Name,
+// 			Location:               example.Location,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
 // 			Tags: pulumi.StringMap{
@@ -52,7 +52,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = eventgrid.NewEventSubscription(ctx, "defaultEventSubscription", &eventgrid.EventSubscriptionArgs{
-// 			Scope: defaultResourceGroup.ID(),
+// 			Scope: example.ID(),
 // 			StorageQueueEndpoint: &eventgrid.EventSubscriptionStorageQueueEndpointArgs{
 // 				StorageAccountId: defaultAccount.ID(),
 // 				QueueName:        defaultQueue.Name,

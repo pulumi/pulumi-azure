@@ -55,7 +55,7 @@ type LookupServerArgs struct {
 
 // A collection of values returned by getServer.
 type LookupServerResult struct {
-	// The Administrator Login for the MySQL Server.
+	// The Administrator login for the MySQL Server.
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The auto grow setting for this MySQL Server.
 	AutoGrowEnabled bool `pulumi:"autoGrowEnabled"`
@@ -135,7 +135,7 @@ func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx cont
 	return o
 }
 
-// The Administrator Login for the MySQL Server.
+// The Administrator login for the MySQL Server.
 func (o LookupServerResultOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }

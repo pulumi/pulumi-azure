@@ -13,26 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
  * const sa = new azure.storage.Account("sa", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
  * const exampleShare = new azure.storage.Share("exampleShare", {storageAccountName: sa.name});
  * const protection_container = new azure.backup.ContainerStorageAccount("protection-container", {
- *     resourceGroupName: rg.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     recoveryVaultName: vault.name,
  *     storageAccountId: sa.id,
  * });
  * const examplePolicyFileShare = new azure.backup.PolicyFileShare("examplePolicyFileShare", {
- *     resourceGroupName: rg.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     recoveryVaultName: vault.name,
  *     backup: {
  *         frequency: "Daily",
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const share1 = new azure.backup.ProtectedFileShare("share1", {
- *     resourceGroupName: rg.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     recoveryVaultName: vault.name,
  *     sourceStorageAccountId: protection_container.storageAccountId,
  *     sourceFileShareName: exampleShare.name,

@@ -11,9 +11,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleManagedInstance = new azure.sql.ManagedInstance("exampleManagedInstance", {
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     administratorLogin: "mradministrator",
  *     administratorLoginPassword: "thisIsDog11",
  *     licenseType: "BasePrice",
@@ -30,7 +31,7 @@ import * as utilities from "../utilities";
  * const current = azure.core.getClientConfig({});
  * const exampleManagedInstanceActiveDirectoryAdministrator = new azure.sql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", {
  *     managedInstanceName: exampleManagedInstance.name,
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     login: "sqladmin",
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),

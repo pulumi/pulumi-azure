@@ -508,7 +508,7 @@ class ComputeCluster(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.1.0.0/24"])
         test = azure.machinelearning.ComputeCluster("test",
-            location="West Europe",
+            location=example_resource_group.location,
             vm_priority="LowPriority",
             vm_size="Standard_DS2_v2",
             machine_learning_workspace_id=example_workspace.id,
@@ -602,7 +602,7 @@ class ComputeCluster(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.1.0.0/24"])
         test = azure.machinelearning.ComputeCluster("test",
-            location="West Europe",
+            location=example_resource_group.location,
             vm_priority="LowPriority",
             vm_size="Standard_DS2_v2",
             machine_learning_workspace_id=example_workspace.id,

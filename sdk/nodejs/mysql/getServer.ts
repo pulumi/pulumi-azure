@@ -52,7 +52,7 @@ export interface GetServerArgs {
  */
 export interface GetServerResult {
     /**
-     * The Administrator Login for the MySQL Server.
+     * The Administrator login for the MySQL Server.
      */
     readonly administratorLogin: string;
     /**

@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Storage
         ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
         ///         {
         ///             ResourceGroupName = exampleResourceGroup.Name,
-        ///             Location = "westus",
+        ///             Location = exampleResourceGroup.Location,
         ///             AccountTier = "Standard",
         ///             AccountReplicationType = "GRS",
         ///             Tags = 
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Storage
         ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
         ///         {
         ///             ResourceGroupName = exampleResourceGroup.Name,
-        ///             Location = "westus",
+        ///             Location = exampleResourceGroup.Location,
         ///             AccountTier = "Standard",
         ///             AccountReplicationType = "GRS",
         ///             Tags = 

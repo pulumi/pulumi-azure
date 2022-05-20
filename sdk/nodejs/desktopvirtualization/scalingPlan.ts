@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *     name: random_uuid.example.result,
  *     scope: exampleResourceGroup.id,
  *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
- *     principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.applicationId),
+ *     principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.id),
  *     skipServicePrincipalAadCheck: true,
  * });
  * const exampleHostPool = new azure.desktopvirtualization.HostPool("exampleHostPool", {

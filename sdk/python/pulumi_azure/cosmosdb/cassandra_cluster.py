@@ -17,7 +17,8 @@ class CassandraClusterArgs:
                  delegated_management_subnet_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CassandraCluster resource.
         :param pulumi.Input[str] default_admin_password: The initial admin password for this Cassandra Cluster.
@@ -25,6 +26,7 @@ class CassandraClusterArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
         pulumi.set(__self__, "default_admin_password", default_admin_password)
         pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
@@ -33,6 +35,8 @@ class CassandraClusterArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="defaultAdminPassword")
@@ -94,6 +98,18 @@ class CassandraClusterArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _CassandraClusterState:
@@ -102,7 +118,8 @@ class _CassandraClusterState:
                  delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None):
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering CassandraCluster resources.
         :param pulumi.Input[str] default_admin_password: The initial admin password for this Cassandra Cluster.
@@ -110,6 +127,7 @@ class _CassandraClusterState:
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
         if default_admin_password is not None:
             pulumi.set(__self__, "default_admin_password", default_admin_password)
@@ -121,6 +139,8 @@ class _CassandraClusterState:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="defaultAdminPassword")
@@ -182,6 +202,18 @@ class _CassandraClusterState:
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 class CassandraCluster(pulumi.CustomResource):
     @overload
@@ -193,15 +225,23 @@ class CassandraCluster(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages a Cassandra Cluster.
+
+        > ** NOTE: ** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+
+        ```python
+        import pulumi
+        ```
 
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azuread as azuread
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
@@ -212,15 +252,17 @@ class CassandraCluster(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
+        example_service_principal = azuread.get_service_principal(display_name="Azure Cosmos DB")
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             scope=example_virtual_network.id,
             role_definition_name="Network Contributor",
-            principal_id="e5007d2c-4b13-4a74-9b6a-605d99f03501")
+            principal_id=example_service_principal.object_id)
         example_cassandra_cluster = azure.cosmosdb.CassandraCluster("exampleCassandraCluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             delegated_management_subnet_id=example_subnet.id,
-            default_admin_password="Password1234")
+            default_admin_password="Password1234",
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -238,6 +280,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
         ...
     @overload
@@ -248,11 +291,18 @@ class CassandraCluster(pulumi.CustomResource):
         """
         Manages a Cassandra Cluster.
 
+        > ** NOTE: ** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+
+        ```python
+        import pulumi
+        ```
+
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azuread as azuread
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
@@ -263,15 +313,17 @@ class CassandraCluster(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
+        example_service_principal = azuread.get_service_principal(display_name="Azure Cosmos DB")
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             scope=example_virtual_network.id,
             role_definition_name="Network Contributor",
-            principal_id="e5007d2c-4b13-4a74-9b6a-605d99f03501")
+            principal_id=example_service_principal.object_id)
         example_cassandra_cluster = azure.cosmosdb.CassandraCluster("exampleCassandraCluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             delegated_management_subnet_id=example_subnet.id,
-            default_admin_password="Password1234")
+            default_admin_password="Password1234",
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -302,6 +354,7 @@ class CassandraCluster(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -325,6 +378,7 @@ class CassandraCluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
         super(CassandraCluster, __self__).__init__(
             'azure:cosmosdb/cassandraCluster:CassandraCluster',
             resource_name,
@@ -339,7 +393,8 @@ class CassandraCluster(pulumi.CustomResource):
             delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'CassandraCluster':
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'CassandraCluster':
         """
         Get an existing CassandraCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -352,6 +407,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -362,6 +418,7 @@ class CassandraCluster(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["tags"] = tags
         return CassandraCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -403,4 +460,12 @@ class CassandraCluster(pulumi.CustomResource):
         The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
 

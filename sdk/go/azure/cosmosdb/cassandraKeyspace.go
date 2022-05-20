@@ -26,15 +26,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
-// 			Name: "tflex-cosmosdb-account-rg",
-// 		}, nil)
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
-// 			ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
-// 			Location:          pulumi.String(exampleResourceGroup.Location),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
 // 			OfferType:         pulumi.String("Standard"),
 // 			Capabilities: cosmosdb.AccountCapabilityArray{
 // 				&cosmosdb.AccountCapabilityArgs{
@@ -46,7 +46,7 @@ import (
 // 			},
 // 			GeoLocations: cosmosdb.AccountGeoLocationArray{
 // 				&cosmosdb.AccountGeoLocationArgs{
-// 					Location:         pulumi.String("West US"),
+// 					Location:         exampleResourceGroup.Location,
 // 					FailoverPriority: pulumi.Int(0),
 // 				},
 // 			},

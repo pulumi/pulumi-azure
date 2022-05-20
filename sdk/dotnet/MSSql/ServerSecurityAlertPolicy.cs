@@ -86,7 +86,7 @@ namespace Pulumi.Azure.MSSql
         public Output<bool?> EmailAccountAdmins { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an array of e-mail addresses to which the alert is sent.
+        /// Specifies an array of email addresses to which the alert is sent.
         /// </summary>
         [Output("emailAddresses")]
         public Output<ImmutableArray<string>> EmailAddresses { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> StorageAccountAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+        /// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         /// </summary>
         [Output("storageEndpoint")]
         public Output<string?> StorageEndpoint { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<string>? _emailAddresses;
 
         /// <summary>
-        /// Specifies an array of e-mail addresses to which the alert is sent.
+        /// Specifies an array of email addresses to which the alert is sent.
         /// </summary>
         public InputList<string> EmailAddresses
         {
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? StorageAccountAccessKey { get; set; }
 
         /// <summary>
-        /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+        /// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         /// </summary>
         [Input("storageEndpoint")]
         public Input<string>? StorageEndpoint { get; set; }
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<string>? _emailAddresses;
 
         /// <summary>
-        /// Specifies an array of e-mail addresses to which the alert is sent.
+        /// Specifies an array of email addresses to which the alert is sent.
         /// </summary>
         public InputList<string> EmailAddresses
         {
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? StorageAccountAccessKey { get; set; }
 
         /// <summary>
-        /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+        /// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         /// </summary>
         [Input("storageEndpoint")]
         public Input<string>? StorageEndpoint { get; set; }

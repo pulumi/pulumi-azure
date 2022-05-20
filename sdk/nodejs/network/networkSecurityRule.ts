@@ -89,7 +89,7 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
      */
     public readonly destinationAddressPrefixes!: pulumi.Output<string[] | undefined>;
     /**
-     * A List of destination Application Security Group ID's
+     * A List of destination Application Security Group IDs
      */
     public readonly destinationApplicationSecurityGroupIds!: pulumi.Output<string | undefined>;
     /**
@@ -133,7 +133,7 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
      */
     public readonly sourceAddressPrefixes!: pulumi.Output<string[] | undefined>;
     /**
-     * A List of source Application Security Group ID's
+     * A List of source Application Security Group IDs
      */
     public readonly sourceApplicationSecurityGroupIds!: pulumi.Output<string | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface NetworkSecurityRuleState {
      */
     destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A List of destination Application Security Group ID's
+     * A List of destination Application Security Group IDs
      */
     destinationApplicationSecurityGroupIds?: pulumi.Input<string>;
     /**
@@ -285,7 +285,7 @@ export interface NetworkSecurityRuleState {
      */
     sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A List of source Application Security Group ID's
+     * A List of source Application Security Group IDs
      */
     sourceApplicationSecurityGroupIds?: pulumi.Input<string>;
     /**
@@ -319,7 +319,7 @@ export interface NetworkSecurityRuleArgs {
      */
     destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A List of destination Application Security Group ID's
+     * A List of destination Application Security Group IDs
      */
     destinationApplicationSecurityGroupIds?: pulumi.Input<string>;
     /**
@@ -363,7 +363,7 @@ export interface NetworkSecurityRuleArgs {
      */
     sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A List of source Application Security Group ID's
+     * A List of source Application Security Group IDs
      */
     sourceApplicationSecurityGroupIds?: pulumi.Input<string>;
     /**
