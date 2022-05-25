@@ -12,7 +12,7 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Static Site.
     /// 
-    /// -&gt;**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/en-us/azure/static-web-apps/github-actions-workflow).
+    /// -&gt;**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
     /// 
     /// ## Example Usage
     /// 
@@ -79,13 +79,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         /// </summary>
         [Output("skuSize")]
         public Output<string?> SkuSize { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         /// </summary>
         [Output("skuTier")]
         public Output<string?> SkuTier { get; private set; } = null!;
@@ -164,13 +164,13 @@ namespace Pulumi.Azure.AppService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         /// </summary>
         [Input("skuSize")]
         public Input<string>? SkuSize { get; set; }
 
         /// <summary>
-        /// Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
@@ -228,13 +228,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         /// </summary>
         [Input("skuSize")]
         public Input<string>? SkuSize { get; set; }
 
         /// <summary>
-        /// Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        /// Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }

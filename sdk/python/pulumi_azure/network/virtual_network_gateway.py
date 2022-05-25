@@ -58,7 +58,7 @@ class VirtualNetworkGatewayArgs:
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
-               [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+               [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
                If not specified, forced tunnelling is disabled.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
@@ -210,7 +210,7 @@ class VirtualNetworkGatewayArgs:
         The ID of the local network gateway
         through which outbound Internet traffic from the virtual network in which the
         gateway is created will be routed (*forced tunnelling*). Refer to the
-        [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+        [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
         If not specified, forced tunnelling is disabled.
         """
         return pulumi.get(self, "default_local_network_gateway_id")
@@ -364,7 +364,7 @@ class _VirtualNetworkGatewayState:
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
-               [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+               [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
                If not specified, forced tunnelling is disabled.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
@@ -476,7 +476,7 @@ class _VirtualNetworkGatewayState:
         The ID of the local network gateway
         through which outbound Internet traffic from the virtual network in which the
         gateway is created will be routed (*forced tunnelling*). Refer to the
-        [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+        [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
         If not specified, forced tunnelling is disabled.
         """
         return pulumi.get(self, "default_local_network_gateway_id")
@@ -772,7 +772,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
-               [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+               [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
                If not specified, forced tunnelling is disabled.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
@@ -1002,7 +1002,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
-               [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+               [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
                If not specified, forced tunnelling is disabled.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
@@ -1090,7 +1090,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         The ID of the local network gateway
         through which outbound Internet traffic from the virtual network in which the
         gateway is created will be routed (*forced tunnelling*). Refer to the
-        [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+        [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
         If not specified, forced tunnelling is disabled.
         """
         return pulumi.get(self, "default_local_network_gateway_id")

@@ -23,7 +23,7 @@ class ScriptArgs:
         The set of arguments for constructing a Script resource.
         :param pulumi.Input[str] database_id: The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
         :param pulumi.Input[str] sas_token: The SAS token used to access the script.
-        :param pulumi.Input[str] url: The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        :param pulumi.Input[str] url: The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         :param pulumi.Input[bool] continue_on_errors_enabled: Flag that indicates whether to continue if one of the command fails.
         :param pulumi.Input[str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
         :param pulumi.Input[str] name: The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
@@ -66,7 +66,7 @@ class ScriptArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         return pulumi.get(self, "url")
 
@@ -127,7 +127,7 @@ class _ScriptState:
         :param pulumi.Input[str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
         :param pulumi.Input[str] name: The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
         :param pulumi.Input[str] sas_token: The SAS token used to access the script.
-        :param pulumi.Input[str] url: The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        :param pulumi.Input[str] url: The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         if continue_on_errors_enabled is not None:
             pulumi.set(__self__, "continue_on_errors_enabled", continue_on_errors_enabled)
@@ -206,7 +206,7 @@ class _ScriptState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         return pulumi.get(self, "url")
 
@@ -297,7 +297,7 @@ class Script(pulumi.CustomResource):
         :param pulumi.Input[str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
         :param pulumi.Input[str] name: The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
         :param pulumi.Input[str] sas_token: The SAS token used to access the script.
-        :param pulumi.Input[str] url: The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        :param pulumi.Input[str] url: The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         ...
     @overload
@@ -441,7 +441,7 @@ class Script(pulumi.CustomResource):
         :param pulumi.Input[str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
         :param pulumi.Input[str] name: The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
         :param pulumi.Input[str] sas_token: The SAS token used to access the script.
-        :param pulumi.Input[str] url: The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        :param pulumi.Input[str] url: The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -499,7 +499,7 @@ class Script(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         """
         return pulumi.get(self, "url")
 

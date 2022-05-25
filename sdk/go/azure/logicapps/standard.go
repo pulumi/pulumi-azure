@@ -152,7 +152,7 @@ type Standard struct {
 
 	// The ID of the App Service Plan within which to create this Logic App
 	AppServicePlanId pulumi.StringOutput `pulumi:"appServicePlanId"`
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
 	BundleVersion pulumi.StringPtrOutput `pulumi:"bundleVersion"`
@@ -245,7 +245,7 @@ func GetStandard(ctx *pulumi.Context,
 type standardState struct {
 	// The ID of the App Service Plan within which to create this Logic App
 	AppServicePlanId *string `pulumi:"appServicePlanId"`
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
 	BundleVersion *string `pulumi:"bundleVersion"`
@@ -298,7 +298,7 @@ type standardState struct {
 type StandardState struct {
 	// The ID of the App Service Plan within which to create this Logic App
 	AppServicePlanId pulumi.StringPtrInput
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
 	BundleVersion pulumi.StringPtrInput
@@ -355,7 +355,7 @@ func (StandardState) ElementType() reflect.Type {
 type standardArgs struct {
 	// The ID of the App Service Plan within which to create this Logic App
 	AppServicePlanId string `pulumi:"appServicePlanId"`
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
 	BundleVersion *string `pulumi:"bundleVersion"`
@@ -397,7 +397,7 @@ type standardArgs struct {
 type StandardArgs struct {
 	// The ID of the App Service Plan within which to create this Logic App
 	AppServicePlanId pulumi.StringInput
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
 	BundleVersion pulumi.StringPtrInput
@@ -527,7 +527,7 @@ func (o StandardOutput) AppServicePlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.AppServicePlanId }).(pulumi.StringOutput)
 }
 
-// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 func (o StandardOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }

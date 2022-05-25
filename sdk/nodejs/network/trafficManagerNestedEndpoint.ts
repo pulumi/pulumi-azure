@@ -58,7 +58,7 @@ export class TrafficManagerNestedEndpoint extends pulumi.CustomResource {
      */
     public readonly endpointLocation!: pulumi.Output<string>;
     /**
-     * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+     * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
      */
     public readonly geoMappings!: pulumi.Output<string[] | undefined>;
     /**
@@ -183,7 +183,7 @@ export interface TrafficManagerNestedEndpointState {
      */
     endpointLocation?: pulumi.Input<string>;
     /**
-     * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+     * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
      */
     geoMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -250,7 +250,7 @@ export interface TrafficManagerNestedEndpointArgs {
      */
     endpointLocation?: pulumi.Input<string>;
     /**
-     * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+     * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
      */
     geoMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -155,7 +155,7 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         public readonly string PolicyRule;
         /// <summary>
-        /// The Type of the Policy. Possible values are "BuiltIn", "Custom" and "NotSpecified".
+        /// The Type of the Policy. Possible values are `BuiltIn`, `Custom` and `NotSpecified`.
         /// </summary>
         public readonly string PolicyType;
         /// <summary>

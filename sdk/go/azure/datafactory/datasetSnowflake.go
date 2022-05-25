@@ -84,7 +84,7 @@ type DatasetSnowflake struct {
 	Folder pulumi.StringPtrOutput `pulumi:"folder"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName pulumi.StringOutput `pulumi:"linkedServiceName"`
-	// Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset Snowflake.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -143,7 +143,7 @@ type datasetSnowflakeState struct {
 	Folder *string `pulumi:"folder"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName *string `pulumi:"linkedServiceName"`
-	// Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset Snowflake.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -168,7 +168,7 @@ type DatasetSnowflakeState struct {
 	Folder pulumi.StringPtrInput
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset Snowflake.
 	Parameters pulumi.StringMapInput
@@ -197,7 +197,7 @@ type datasetSnowflakeArgs struct {
 	Folder *string `pulumi:"folder"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
-	// Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset Snowflake.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -223,7 +223,7 @@ type DatasetSnowflakeArgs struct {
 	Folder pulumi.StringPtrInput
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName pulumi.StringInput
-	// Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset Snowflake.
 	Parameters pulumi.StringMapInput
@@ -352,7 +352,7 @@ func (o DatasetSnowflakeOutput) LinkedServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatasetSnowflake) pulumi.StringOutput { return v.LinkedServiceName }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+// Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o DatasetSnowflakeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatasetSnowflake) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

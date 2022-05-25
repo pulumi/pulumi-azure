@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly string Schedule;
         /// <summary>
-        /// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+        /// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
         /// </summary>
         public readonly ImmutableArray<string> SchemaFields;
         /// <summary>

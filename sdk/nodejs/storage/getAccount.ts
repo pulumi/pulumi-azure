@@ -81,7 +81,7 @@ export interface GetAccountResult {
      */
     readonly customDomains: outputs.storage.GetAccountCustomDomain[];
     /**
-     * Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+     * Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
      * for more information.
      */
     readonly enableHttpsTrafficOnly: boolean;
@@ -90,7 +90,7 @@ export interface GetAccountResult {
      */
     readonly id: string;
     /**
-     * Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable/)
+     * Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
      * for more information.
      * ---
      */

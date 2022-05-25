@@ -5887,9 +5887,9 @@ func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) ServerEndpoint() pulumi.S
 }
 
 type IntegrationRuntimeManagedCustomSetupScript struct {
-	// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+	// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 	BlobContainerUri string `pulumi:"blobContainerUri"`
-	// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+	// A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 	SasToken string `pulumi:"sasToken"`
 }
 
@@ -5905,9 +5905,9 @@ type IntegrationRuntimeManagedCustomSetupScriptInput interface {
 }
 
 type IntegrationRuntimeManagedCustomSetupScriptArgs struct {
-	// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+	// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 	BlobContainerUri pulumi.StringInput `pulumi:"blobContainerUri"`
-	// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+	// A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 	SasToken pulumi.StringInput `pulumi:"sasToken"`
 }
 
@@ -5988,12 +5988,12 @@ func (o IntegrationRuntimeManagedCustomSetupScriptOutput) ToIntegrationRuntimeMa
 	}).(IntegrationRuntimeManagedCustomSetupScriptPtrOutput)
 }
 
-// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 func (o IntegrationRuntimeManagedCustomSetupScriptOutput) BlobContainerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationRuntimeManagedCustomSetupScript) string { return v.BlobContainerUri }).(pulumi.StringOutput)
 }
 
-// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+// A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 func (o IntegrationRuntimeManagedCustomSetupScriptOutput) SasToken() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationRuntimeManagedCustomSetupScript) string { return v.SasToken }).(pulumi.StringOutput)
 }
@@ -6022,7 +6022,7 @@ func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) Elem() IntegrationR
 	}).(IntegrationRuntimeManagedCustomSetupScriptOutput)
 }
 
-// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) BlobContainerUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeManagedCustomSetupScript) *string {
 		if v == nil {
@@ -6032,7 +6032,7 @@ func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) BlobContainerUri() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+// A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) SasToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeManagedCustomSetupScript) *string {
 		if v == nil {
@@ -6509,9 +6509,9 @@ func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) ServerEndpoint() pulumi.Stri
 }
 
 type IntegrationRuntimeSsisCustomSetupScript struct {
-	// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+	// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 	BlobContainerUri string `pulumi:"blobContainerUri"`
-	// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+	// A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 	SasToken string `pulumi:"sasToken"`
 }
 
@@ -6527,9 +6527,9 @@ type IntegrationRuntimeSsisCustomSetupScriptInput interface {
 }
 
 type IntegrationRuntimeSsisCustomSetupScriptArgs struct {
-	// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+	// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 	BlobContainerUri pulumi.StringInput `pulumi:"blobContainerUri"`
-	// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+	// A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 	SasToken pulumi.StringInput `pulumi:"sasToken"`
 }
 
@@ -6610,12 +6610,12 @@ func (o IntegrationRuntimeSsisCustomSetupScriptOutput) ToIntegrationRuntimeSsisC
 	}).(IntegrationRuntimeSsisCustomSetupScriptPtrOutput)
 }
 
-// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 func (o IntegrationRuntimeSsisCustomSetupScriptOutput) BlobContainerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisCustomSetupScript) string { return v.BlobContainerUri }).(pulumi.StringOutput)
 }
 
-// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+// A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 func (o IntegrationRuntimeSsisCustomSetupScriptOutput) SasToken() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisCustomSetupScript) string { return v.SasToken }).(pulumi.StringOutput)
 }
@@ -6644,7 +6644,7 @@ func (o IntegrationRuntimeSsisCustomSetupScriptPtrOutput) Elem() IntegrationRunt
 	}).(IntegrationRuntimeSsisCustomSetupScriptOutput)
 }
 
-// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 func (o IntegrationRuntimeSsisCustomSetupScriptPtrOutput) BlobContainerUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisCustomSetupScript) *string {
 		if v == nil {
@@ -6654,7 +6654,7 @@ func (o IntegrationRuntimeSsisCustomSetupScriptPtrOutput) BlobContainerUri() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+// A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
 func (o IntegrationRuntimeSsisCustomSetupScriptPtrOutput) SasToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisCustomSetupScript) *string {
 		if v == nil {

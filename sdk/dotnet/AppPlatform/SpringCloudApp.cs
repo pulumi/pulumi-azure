@@ -57,6 +57,12 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudApp : Pulumi.CustomResource
     {
         /// <summary>
+        /// A JSON object that contains the addon configurations of the Spring Cloud Service.
+        /// </summary>
+        [Output("addonJson")]
+        public Output<string> AddonJson { get; private set; } = null!;
+
+        /// <summary>
         /// A `custom_persistent_disk` block as defined below.
         /// </summary>
         [Output("customPersistentDisks")]
@@ -168,6 +174,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudAppArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A JSON object that contains the addon configurations of the Spring Cloud Service.
+        /// </summary>
+        [Input("addonJson")]
+        public Input<string>? AddonJson { get; set; }
+
         [Input("customPersistentDisks")]
         private InputList<Inputs.SpringCloudAppCustomPersistentDiskArgs>? _customPersistentDisks;
 
@@ -235,6 +247,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudAppState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A JSON object that contains the addon configurations of the Spring Cloud Service.
+        /// </summary>
+        [Input("addonJson")]
+        public Input<string>? AddonJson { get; set; }
+
         [Input("customPersistentDisks")]
         private InputList<Inputs.SpringCloudAppCustomPersistentDiskGetArgs>? _customPersistentDisks;
 

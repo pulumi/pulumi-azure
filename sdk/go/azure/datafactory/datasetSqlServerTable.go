@@ -80,7 +80,7 @@ type DatasetSqlServerTable struct {
 	Folder pulumi.StringPtrOutput `pulumi:"folder"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName pulumi.StringOutput `pulumi:"linkedServiceName"`
-	// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset SQL Server Table.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -137,7 +137,7 @@ type datasetSqlServerTableState struct {
 	Folder *string `pulumi:"folder"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName *string `pulumi:"linkedServiceName"`
-	// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset SQL Server Table.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -160,7 +160,7 @@ type DatasetSqlServerTableState struct {
 	Folder pulumi.StringPtrInput
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset SQL Server Table.
 	Parameters pulumi.StringMapInput
@@ -187,7 +187,7 @@ type datasetSqlServerTableArgs struct {
 	Folder *string `pulumi:"folder"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
-	// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset SQL Server Table.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -211,7 +211,7 @@ type DatasetSqlServerTableArgs struct {
 	Folder pulumi.StringPtrInput
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName pulumi.StringInput
-	// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset SQL Server Table.
 	Parameters pulumi.StringMapInput
@@ -338,7 +338,7 @@ func (o DatasetSqlServerTableOutput) LinkedServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatasetSqlServerTable) pulumi.StringOutput { return v.LinkedServiceName }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+// Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o DatasetSqlServerTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatasetSqlServerTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

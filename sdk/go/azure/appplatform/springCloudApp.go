@@ -64,6 +64,8 @@ import (
 type SpringCloudApp struct {
 	pulumi.CustomResourceState
 
+	// A JSON object that contains the addon configurations of the Spring Cloud Service.
+	AddonJson pulumi.StringOutput `pulumi:"addonJson"`
 	// A `customPersistentDisk` block as defined below.
 	CustomPersistentDisks SpringCloudAppCustomPersistentDiskArrayOutput `pulumi:"customPersistentDisks"`
 	// The Fully Qualified DNS Name of the Spring Application in the service.
@@ -123,6 +125,8 @@ func GetSpringCloudApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudApp resources.
 type springCloudAppState struct {
+	// A JSON object that contains the addon configurations of the Spring Cloud Service.
+	AddonJson *string `pulumi:"addonJson"`
 	// A `customPersistentDisk` block as defined below.
 	CustomPersistentDisks []SpringCloudAppCustomPersistentDisk `pulumi:"customPersistentDisks"`
 	// The Fully Qualified DNS Name of the Spring Application in the service.
@@ -148,6 +152,8 @@ type springCloudAppState struct {
 }
 
 type SpringCloudAppState struct {
+	// A JSON object that contains the addon configurations of the Spring Cloud Service.
+	AddonJson pulumi.StringPtrInput
 	// A `customPersistentDisk` block as defined below.
 	CustomPersistentDisks SpringCloudAppCustomPersistentDiskArrayInput
 	// The Fully Qualified DNS Name of the Spring Application in the service.
@@ -177,6 +183,8 @@ func (SpringCloudAppState) ElementType() reflect.Type {
 }
 
 type springCloudAppArgs struct {
+	// A JSON object that contains the addon configurations of the Spring Cloud Service.
+	AddonJson *string `pulumi:"addonJson"`
 	// A `customPersistentDisk` block as defined below.
 	CustomPersistentDisks []SpringCloudAppCustomPersistentDisk `pulumi:"customPersistentDisks"`
 	// Is only HTTPS allowed? Defaults to `false`.
@@ -199,6 +207,8 @@ type springCloudAppArgs struct {
 
 // The set of arguments for constructing a SpringCloudApp resource.
 type SpringCloudAppArgs struct {
+	// A JSON object that contains the addon configurations of the Spring Cloud Service.
+	AddonJson pulumi.StringPtrInput
 	// A `customPersistentDisk` block as defined below.
 	CustomPersistentDisks SpringCloudAppCustomPersistentDiskArrayInput
 	// Is only HTTPS allowed? Defaults to `false`.
@@ -304,6 +314,11 @@ func (o SpringCloudAppOutput) ToSpringCloudAppOutput() SpringCloudAppOutput {
 
 func (o SpringCloudAppOutput) ToSpringCloudAppOutputWithContext(ctx context.Context) SpringCloudAppOutput {
 	return o
+}
+
+// A JSON object that contains the addon configurations of the Spring Cloud Service.
+func (o SpringCloudAppOutput) AddonJson() pulumi.StringOutput {
+	return o.ApplyT(func(v *SpringCloudApp) pulumi.StringOutput { return v.AddonJson }).(pulumi.StringOutput)
 }
 
 // A `customPersistentDisk` block as defined below.

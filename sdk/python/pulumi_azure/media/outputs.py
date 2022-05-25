@@ -190,7 +190,7 @@ class AssetFilterTrackSelectionCondition(dict):
                  value: Optional[str] = None):
         """
         :param str operation: The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
-        :param str property: The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+        :param str property: The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
         :param str value: The track property value to match or not match.
         """
         if operation is not None:
@@ -220,7 +220,7 @@ class AssetFilterTrackSelectionCondition(dict):
     @pulumi.getter
     def property(self) -> Optional[str]:
         """
-        The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+        The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
         """
         return pulumi.get(self, "property")
 
@@ -265,7 +265,7 @@ class ContentKeyPolicyPolicyOption(dict):
         """
         :param str name: The name which should be used for this Policy Option.
         :param bool clear_key_configuration_enabled: Enable a configuration for non-DRM keys.
-        :param 'ContentKeyPolicyPolicyOptionFairplayConfigurationArgs' fairplay_configuration: A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+        :param 'ContentKeyPolicyPolicyOptionFairplayConfigurationArgs' fairplay_configuration: A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
         :param bool open_restriction_enabled: Enable an open restriction. License or key will be delivered on every request.
         :param Sequence['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs'] playready_configuration_licenses: One or more `playready_configuration_license` blocks as defined above.
         :param 'ContentKeyPolicyPolicyOptionTokenRestrictionArgs' token_restriction: A `token_restriction` block as defined below.
@@ -305,7 +305,7 @@ class ContentKeyPolicyPolicyOption(dict):
     @pulumi.getter(name="fairplayConfiguration")
     def fairplay_configuration(self) -> Optional['outputs.ContentKeyPolicyPolicyOptionFairplayConfiguration']:
         """
-        A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+        A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
         """
         return pulumi.get(self, "fairplay_configuration")
 

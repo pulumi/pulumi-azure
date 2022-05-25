@@ -84,7 +84,7 @@ type TrafficManagerExternalEndpoint struct {
 	// Specifies the Azure location of the Endpoint,
 	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation pulumi.StringOutput `pulumi:"endpointLocation"`
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayOutput `pulumi:"geoMappings"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -149,7 +149,7 @@ type trafficManagerExternalEndpointState struct {
 	// Specifies the Azure location of the Endpoint,
 	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation *string `pulumi:"endpointLocation"`
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings []string `pulumi:"geoMappings"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -177,7 +177,7 @@ type TrafficManagerExternalEndpointState struct {
 	// Specifies the Azure location of the Endpoint,
 	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation pulumi.StringPtrInput
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayInput
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -209,7 +209,7 @@ type trafficManagerExternalEndpointArgs struct {
 	// Specifies the Azure location of the Endpoint,
 	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation *string `pulumi:"endpointLocation"`
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings []string `pulumi:"geoMappings"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -238,7 +238,7 @@ type TrafficManagerExternalEndpointArgs struct {
 	// Specifies the Azure location of the Endpoint,
 	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation pulumi.StringPtrInput
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayInput
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -363,7 +363,7 @@ func (o TrafficManagerExternalEndpointOutput) EndpointLocation() pulumi.StringOu
 	return o.ApplyT(func(v *TrafficManagerExternalEndpoint) pulumi.StringOutput { return v.EndpointLocation }).(pulumi.StringOutput)
 }
 
-// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 func (o TrafficManagerExternalEndpointOutput) GeoMappings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrafficManagerExternalEndpoint) pulumi.StringArrayOutput { return v.GeoMappings }).(pulumi.StringArrayOutput)
 }

@@ -405,6 +405,553 @@ func (o DicomServicePrivateEndpointArrayOutput) Index(i pulumi.IntInput) DicomSe
 	}).(DicomServicePrivateEndpointOutput)
 }
 
+type FhirServiceAuthentication struct {
+	// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+	Audience          string `pulumi:"audience"`
+	Authority         string `pulumi:"authority"`
+	SmartProxyEnabled *bool  `pulumi:"smartProxyEnabled"`
+}
+
+// FhirServiceAuthenticationInput is an input type that accepts FhirServiceAuthenticationArgs and FhirServiceAuthenticationOutput values.
+// You can construct a concrete instance of `FhirServiceAuthenticationInput` via:
+//
+//          FhirServiceAuthenticationArgs{...}
+type FhirServiceAuthenticationInput interface {
+	pulumi.Input
+
+	ToFhirServiceAuthenticationOutput() FhirServiceAuthenticationOutput
+	ToFhirServiceAuthenticationOutputWithContext(context.Context) FhirServiceAuthenticationOutput
+}
+
+type FhirServiceAuthenticationArgs struct {
+	// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+	Audience          pulumi.StringInput  `pulumi:"audience"`
+	Authority         pulumi.StringInput  `pulumi:"authority"`
+	SmartProxyEnabled pulumi.BoolPtrInput `pulumi:"smartProxyEnabled"`
+}
+
+func (FhirServiceAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAuthentication)(nil)).Elem()
+}
+
+func (i FhirServiceAuthenticationArgs) ToFhirServiceAuthenticationOutput() FhirServiceAuthenticationOutput {
+	return i.ToFhirServiceAuthenticationOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAuthenticationArgs) ToFhirServiceAuthenticationOutputWithContext(ctx context.Context) FhirServiceAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationOutput)
+}
+
+func (i FhirServiceAuthenticationArgs) ToFhirServiceAuthenticationPtrOutput() FhirServiceAuthenticationPtrOutput {
+	return i.ToFhirServiceAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAuthenticationArgs) ToFhirServiceAuthenticationPtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationOutput).ToFhirServiceAuthenticationPtrOutputWithContext(ctx)
+}
+
+// FhirServiceAuthenticationPtrInput is an input type that accepts FhirServiceAuthenticationArgs, FhirServiceAuthenticationPtr and FhirServiceAuthenticationPtrOutput values.
+// You can construct a concrete instance of `FhirServiceAuthenticationPtrInput` via:
+//
+//          FhirServiceAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type FhirServiceAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToFhirServiceAuthenticationPtrOutput() FhirServiceAuthenticationPtrOutput
+	ToFhirServiceAuthenticationPtrOutputWithContext(context.Context) FhirServiceAuthenticationPtrOutput
+}
+
+type fhirServiceAuthenticationPtrType FhirServiceAuthenticationArgs
+
+func FhirServiceAuthenticationPtr(v *FhirServiceAuthenticationArgs) FhirServiceAuthenticationPtrInput {
+	return (*fhirServiceAuthenticationPtrType)(v)
+}
+
+func (*fhirServiceAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceAuthentication)(nil)).Elem()
+}
+
+func (i *fhirServiceAuthenticationPtrType) ToFhirServiceAuthenticationPtrOutput() FhirServiceAuthenticationPtrOutput {
+	return i.ToFhirServiceAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *fhirServiceAuthenticationPtrType) ToFhirServiceAuthenticationPtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationPtrOutput)
+}
+
+type FhirServiceAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAuthentication)(nil)).Elem()
+}
+
+func (o FhirServiceAuthenticationOutput) ToFhirServiceAuthenticationOutput() FhirServiceAuthenticationOutput {
+	return o
+}
+
+func (o FhirServiceAuthenticationOutput) ToFhirServiceAuthenticationOutputWithContext(ctx context.Context) FhirServiceAuthenticationOutput {
+	return o
+}
+
+func (o FhirServiceAuthenticationOutput) ToFhirServiceAuthenticationPtrOutput() FhirServiceAuthenticationPtrOutput {
+	return o.ToFhirServiceAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o FhirServiceAuthenticationOutput) ToFhirServiceAuthenticationPtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceAuthentication) *FhirServiceAuthentication {
+		return &v
+	}).(FhirServiceAuthenticationPtrOutput)
+}
+
+// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+func (o FhirServiceAuthenticationOutput) Audience() pulumi.StringOutput {
+	return o.ApplyT(func(v FhirServiceAuthentication) string { return v.Audience }).(pulumi.StringOutput)
+}
+
+func (o FhirServiceAuthenticationOutput) Authority() pulumi.StringOutput {
+	return o.ApplyT(func(v FhirServiceAuthentication) string { return v.Authority }).(pulumi.StringOutput)
+}
+
+func (o FhirServiceAuthenticationOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FhirServiceAuthentication) *bool { return v.SmartProxyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type FhirServiceAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceAuthentication)(nil)).Elem()
+}
+
+func (o FhirServiceAuthenticationPtrOutput) ToFhirServiceAuthenticationPtrOutput() FhirServiceAuthenticationPtrOutput {
+	return o
+}
+
+func (o FhirServiceAuthenticationPtrOutput) ToFhirServiceAuthenticationPtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationPtrOutput {
+	return o
+}
+
+func (o FhirServiceAuthenticationPtrOutput) Elem() FhirServiceAuthenticationOutput {
+	return o.ApplyT(func(v *FhirServiceAuthentication) FhirServiceAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret FhirServiceAuthentication
+		return ret
+	}).(FhirServiceAuthenticationOutput)
+}
+
+// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+func (o FhirServiceAuthenticationPtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirServiceAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FhirServiceAuthenticationPtrOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirServiceAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Authority
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FhirServiceAuthenticationPtrOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FhirServiceAuthentication) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SmartProxyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type FhirServiceCors struct {
+	// A set of headers to be allowed via CORS.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// The methods to be allowed via CORS.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// A set of origins to be allowed via CORS.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// If credentials are allowed via CORS.
+	CredentialsAllowed *bool `pulumi:"credentialsAllowed"`
+	// The max age to be allowed via CORS.
+	MaxAgeInSeconds *int `pulumi:"maxAgeInSeconds"`
+}
+
+// FhirServiceCorsInput is an input type that accepts FhirServiceCorsArgs and FhirServiceCorsOutput values.
+// You can construct a concrete instance of `FhirServiceCorsInput` via:
+//
+//          FhirServiceCorsArgs{...}
+type FhirServiceCorsInput interface {
+	pulumi.Input
+
+	ToFhirServiceCorsOutput() FhirServiceCorsOutput
+	ToFhirServiceCorsOutputWithContext(context.Context) FhirServiceCorsOutput
+}
+
+type FhirServiceCorsArgs struct {
+	// A set of headers to be allowed via CORS.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// The methods to be allowed via CORS.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// A set of origins to be allowed via CORS.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// If credentials are allowed via CORS.
+	CredentialsAllowed pulumi.BoolPtrInput `pulumi:"credentialsAllowed"`
+	// The max age to be allowed via CORS.
+	MaxAgeInSeconds pulumi.IntPtrInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (FhirServiceCorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceCors)(nil)).Elem()
+}
+
+func (i FhirServiceCorsArgs) ToFhirServiceCorsOutput() FhirServiceCorsOutput {
+	return i.ToFhirServiceCorsOutputWithContext(context.Background())
+}
+
+func (i FhirServiceCorsArgs) ToFhirServiceCorsOutputWithContext(ctx context.Context) FhirServiceCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsOutput)
+}
+
+func (i FhirServiceCorsArgs) ToFhirServiceCorsPtrOutput() FhirServiceCorsPtrOutput {
+	return i.ToFhirServiceCorsPtrOutputWithContext(context.Background())
+}
+
+func (i FhirServiceCorsArgs) ToFhirServiceCorsPtrOutputWithContext(ctx context.Context) FhirServiceCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsOutput).ToFhirServiceCorsPtrOutputWithContext(ctx)
+}
+
+// FhirServiceCorsPtrInput is an input type that accepts FhirServiceCorsArgs, FhirServiceCorsPtr and FhirServiceCorsPtrOutput values.
+// You can construct a concrete instance of `FhirServiceCorsPtrInput` via:
+//
+//          FhirServiceCorsArgs{...}
+//
+//  or:
+//
+//          nil
+type FhirServiceCorsPtrInput interface {
+	pulumi.Input
+
+	ToFhirServiceCorsPtrOutput() FhirServiceCorsPtrOutput
+	ToFhirServiceCorsPtrOutputWithContext(context.Context) FhirServiceCorsPtrOutput
+}
+
+type fhirServiceCorsPtrType FhirServiceCorsArgs
+
+func FhirServiceCorsPtr(v *FhirServiceCorsArgs) FhirServiceCorsPtrInput {
+	return (*fhirServiceCorsPtrType)(v)
+}
+
+func (*fhirServiceCorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceCors)(nil)).Elem()
+}
+
+func (i *fhirServiceCorsPtrType) ToFhirServiceCorsPtrOutput() FhirServiceCorsPtrOutput {
+	return i.ToFhirServiceCorsPtrOutputWithContext(context.Background())
+}
+
+func (i *fhirServiceCorsPtrType) ToFhirServiceCorsPtrOutputWithContext(ctx context.Context) FhirServiceCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsPtrOutput)
+}
+
+type FhirServiceCorsOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceCorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceCors)(nil)).Elem()
+}
+
+func (o FhirServiceCorsOutput) ToFhirServiceCorsOutput() FhirServiceCorsOutput {
+	return o
+}
+
+func (o FhirServiceCorsOutput) ToFhirServiceCorsOutputWithContext(ctx context.Context) FhirServiceCorsOutput {
+	return o
+}
+
+func (o FhirServiceCorsOutput) ToFhirServiceCorsPtrOutput() FhirServiceCorsPtrOutput {
+	return o.ToFhirServiceCorsPtrOutputWithContext(context.Background())
+}
+
+func (o FhirServiceCorsOutput) ToFhirServiceCorsPtrOutputWithContext(ctx context.Context) FhirServiceCorsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceCors) *FhirServiceCors {
+		return &v
+	}).(FhirServiceCorsPtrOutput)
+}
+
+// A set of headers to be allowed via CORS.
+func (o FhirServiceCorsOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FhirServiceCors) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o FhirServiceCorsOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FhirServiceCors) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// A set of origins to be allowed via CORS.
+func (o FhirServiceCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FhirServiceCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// If credentials are allowed via CORS.
+func (o FhirServiceCorsOutput) CredentialsAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FhirServiceCors) *bool { return v.CredentialsAllowed }).(pulumi.BoolPtrOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o FhirServiceCorsOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FhirServiceCors) *int { return v.MaxAgeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type FhirServiceCorsPtrOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceCorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceCors)(nil)).Elem()
+}
+
+func (o FhirServiceCorsPtrOutput) ToFhirServiceCorsPtrOutput() FhirServiceCorsPtrOutput {
+	return o
+}
+
+func (o FhirServiceCorsPtrOutput) ToFhirServiceCorsPtrOutputWithContext(ctx context.Context) FhirServiceCorsPtrOutput {
+	return o
+}
+
+func (o FhirServiceCorsPtrOutput) Elem() FhirServiceCorsOutput {
+	return o.ApplyT(func(v *FhirServiceCors) FhirServiceCors {
+		if v != nil {
+			return *v
+		}
+		var ret FhirServiceCors
+		return ret
+	}).(FhirServiceCorsOutput)
+}
+
+// A set of headers to be allowed via CORS.
+func (o FhirServiceCorsPtrOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FhirServiceCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o FhirServiceCorsPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FhirServiceCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+// A set of origins to be allowed via CORS.
+func (o FhirServiceCorsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FhirServiceCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+// If credentials are allowed via CORS.
+func (o FhirServiceCorsPtrOutput) CredentialsAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FhirServiceCors) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CredentialsAllowed
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o FhirServiceCorsPtrOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FhirServiceCors) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAgeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type FhirServiceIdentity struct {
+	PrincipalId *string `pulumi:"principalId"`
+	TenantId    *string `pulumi:"tenantId"`
+	// The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// FhirServiceIdentityInput is an input type that accepts FhirServiceIdentityArgs and FhirServiceIdentityOutput values.
+// You can construct a concrete instance of `FhirServiceIdentityInput` via:
+//
+//          FhirServiceIdentityArgs{...}
+type FhirServiceIdentityInput interface {
+	pulumi.Input
+
+	ToFhirServiceIdentityOutput() FhirServiceIdentityOutput
+	ToFhirServiceIdentityOutputWithContext(context.Context) FhirServiceIdentityOutput
+}
+
+type FhirServiceIdentityArgs struct {
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FhirServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceIdentity)(nil)).Elem()
+}
+
+func (i FhirServiceIdentityArgs) ToFhirServiceIdentityOutput() FhirServiceIdentityOutput {
+	return i.ToFhirServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i FhirServiceIdentityArgs) ToFhirServiceIdentityOutputWithContext(ctx context.Context) FhirServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceIdentityOutput)
+}
+
+func (i FhirServiceIdentityArgs) ToFhirServiceIdentityPtrOutput() FhirServiceIdentityPtrOutput {
+	return i.ToFhirServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i FhirServiceIdentityArgs) ToFhirServiceIdentityPtrOutputWithContext(ctx context.Context) FhirServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceIdentityOutput).ToFhirServiceIdentityPtrOutputWithContext(ctx)
+}
+
+// FhirServiceIdentityPtrInput is an input type that accepts FhirServiceIdentityArgs, FhirServiceIdentityPtr and FhirServiceIdentityPtrOutput values.
+// You can construct a concrete instance of `FhirServiceIdentityPtrInput` via:
+//
+//          FhirServiceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type FhirServiceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToFhirServiceIdentityPtrOutput() FhirServiceIdentityPtrOutput
+	ToFhirServiceIdentityPtrOutputWithContext(context.Context) FhirServiceIdentityPtrOutput
+}
+
+type fhirServiceIdentityPtrType FhirServiceIdentityArgs
+
+func FhirServiceIdentityPtr(v *FhirServiceIdentityArgs) FhirServiceIdentityPtrInput {
+	return (*fhirServiceIdentityPtrType)(v)
+}
+
+func (*fhirServiceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceIdentity)(nil)).Elem()
+}
+
+func (i *fhirServiceIdentityPtrType) ToFhirServiceIdentityPtrOutput() FhirServiceIdentityPtrOutput {
+	return i.ToFhirServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *fhirServiceIdentityPtrType) ToFhirServiceIdentityPtrOutputWithContext(ctx context.Context) FhirServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceIdentityPtrOutput)
+}
+
+type FhirServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceIdentity)(nil)).Elem()
+}
+
+func (o FhirServiceIdentityOutput) ToFhirServiceIdentityOutput() FhirServiceIdentityOutput {
+	return o
+}
+
+func (o FhirServiceIdentityOutput) ToFhirServiceIdentityOutputWithContext(ctx context.Context) FhirServiceIdentityOutput {
+	return o
+}
+
+func (o FhirServiceIdentityOutput) ToFhirServiceIdentityPtrOutput() FhirServiceIdentityPtrOutput {
+	return o.ToFhirServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o FhirServiceIdentityOutput) ToFhirServiceIdentityPtrOutputWithContext(ctx context.Context) FhirServiceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceIdentity) *FhirServiceIdentity {
+		return &v
+	}).(FhirServiceIdentityPtrOutput)
+}
+
+func (o FhirServiceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o FhirServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+func (o FhirServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FhirServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FhirServiceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceIdentity)(nil)).Elem()
+}
+
+func (o FhirServiceIdentityPtrOutput) ToFhirServiceIdentityPtrOutput() FhirServiceIdentityPtrOutput {
+	return o
+}
+
+func (o FhirServiceIdentityPtrOutput) ToFhirServiceIdentityPtrOutputWithContext(ctx context.Context) FhirServiceIdentityPtrOutput {
+	return o
+}
+
+func (o FhirServiceIdentityPtrOutput) Elem() FhirServiceIdentityOutput {
+	return o.ApplyT(func(v *FhirServiceIdentity) FhirServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret FhirServiceIdentity
+		return ret
+	}).(FhirServiceIdentityOutput)
+}
+
+func (o FhirServiceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FhirServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+func (o FhirServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceAuthenticationConfiguration struct {
 	// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
 	Audience *string `pulumi:"audience"`
@@ -1224,6 +1771,363 @@ func (o GetDicomServicePrivateEndpointArrayOutput) Index(i pulumi.IntInput) GetD
 	}).(GetDicomServicePrivateEndpointOutput)
 }
 
+type GetFhirServiceAuthentication struct {
+	// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+	Audience          string `pulumi:"audience"`
+	Authority         string `pulumi:"authority"`
+	SmartProxyEnabled bool   `pulumi:"smartProxyEnabled"`
+}
+
+// GetFhirServiceAuthenticationInput is an input type that accepts GetFhirServiceAuthenticationArgs and GetFhirServiceAuthenticationOutput values.
+// You can construct a concrete instance of `GetFhirServiceAuthenticationInput` via:
+//
+//          GetFhirServiceAuthenticationArgs{...}
+type GetFhirServiceAuthenticationInput interface {
+	pulumi.Input
+
+	ToGetFhirServiceAuthenticationOutput() GetFhirServiceAuthenticationOutput
+	ToGetFhirServiceAuthenticationOutputWithContext(context.Context) GetFhirServiceAuthenticationOutput
+}
+
+type GetFhirServiceAuthenticationArgs struct {
+	// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+	Audience          pulumi.StringInput `pulumi:"audience"`
+	Authority         pulumi.StringInput `pulumi:"authority"`
+	SmartProxyEnabled pulumi.BoolInput   `pulumi:"smartProxyEnabled"`
+}
+
+func (GetFhirServiceAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFhirServiceAuthentication)(nil)).Elem()
+}
+
+func (i GetFhirServiceAuthenticationArgs) ToGetFhirServiceAuthenticationOutput() GetFhirServiceAuthenticationOutput {
+	return i.ToGetFhirServiceAuthenticationOutputWithContext(context.Background())
+}
+
+func (i GetFhirServiceAuthenticationArgs) ToGetFhirServiceAuthenticationOutputWithContext(ctx context.Context) GetFhirServiceAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFhirServiceAuthenticationOutput)
+}
+
+// GetFhirServiceAuthenticationArrayInput is an input type that accepts GetFhirServiceAuthenticationArray and GetFhirServiceAuthenticationArrayOutput values.
+// You can construct a concrete instance of `GetFhirServiceAuthenticationArrayInput` via:
+//
+//          GetFhirServiceAuthenticationArray{ GetFhirServiceAuthenticationArgs{...} }
+type GetFhirServiceAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToGetFhirServiceAuthenticationArrayOutput() GetFhirServiceAuthenticationArrayOutput
+	ToGetFhirServiceAuthenticationArrayOutputWithContext(context.Context) GetFhirServiceAuthenticationArrayOutput
+}
+
+type GetFhirServiceAuthenticationArray []GetFhirServiceAuthenticationInput
+
+func (GetFhirServiceAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFhirServiceAuthentication)(nil)).Elem()
+}
+
+func (i GetFhirServiceAuthenticationArray) ToGetFhirServiceAuthenticationArrayOutput() GetFhirServiceAuthenticationArrayOutput {
+	return i.ToGetFhirServiceAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i GetFhirServiceAuthenticationArray) ToGetFhirServiceAuthenticationArrayOutputWithContext(ctx context.Context) GetFhirServiceAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFhirServiceAuthenticationArrayOutput)
+}
+
+type GetFhirServiceAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (GetFhirServiceAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFhirServiceAuthentication)(nil)).Elem()
+}
+
+func (o GetFhirServiceAuthenticationOutput) ToGetFhirServiceAuthenticationOutput() GetFhirServiceAuthenticationOutput {
+	return o
+}
+
+func (o GetFhirServiceAuthenticationOutput) ToGetFhirServiceAuthenticationOutputWithContext(ctx context.Context) GetFhirServiceAuthenticationOutput {
+	return o
+}
+
+// The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+func (o GetFhirServiceAuthenticationOutput) Audience() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFhirServiceAuthentication) string { return v.Audience }).(pulumi.StringOutput)
+}
+
+func (o GetFhirServiceAuthenticationOutput) Authority() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFhirServiceAuthentication) string { return v.Authority }).(pulumi.StringOutput)
+}
+
+func (o GetFhirServiceAuthenticationOutput) SmartProxyEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFhirServiceAuthentication) bool { return v.SmartProxyEnabled }).(pulumi.BoolOutput)
+}
+
+type GetFhirServiceAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFhirServiceAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFhirServiceAuthentication)(nil)).Elem()
+}
+
+func (o GetFhirServiceAuthenticationArrayOutput) ToGetFhirServiceAuthenticationArrayOutput() GetFhirServiceAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetFhirServiceAuthenticationArrayOutput) ToGetFhirServiceAuthenticationArrayOutputWithContext(ctx context.Context) GetFhirServiceAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetFhirServiceAuthenticationArrayOutput) Index(i pulumi.IntInput) GetFhirServiceAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFhirServiceAuthentication {
+		return vs[0].([]GetFhirServiceAuthentication)[vs[1].(int)]
+	}).(GetFhirServiceAuthenticationOutput)
+}
+
+type GetFhirServiceCor struct {
+	// The set of headers to be allowed via CORS.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// The methods to be allowed via CORS.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// The set of origins to be allowed via CORS.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Are credentials allowed via CORS?
+	CredentialsAllowed bool `pulumi:"credentialsAllowed"`
+	// The max age to be allowed via CORS.
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+}
+
+// GetFhirServiceCorInput is an input type that accepts GetFhirServiceCorArgs and GetFhirServiceCorOutput values.
+// You can construct a concrete instance of `GetFhirServiceCorInput` via:
+//
+//          GetFhirServiceCorArgs{...}
+type GetFhirServiceCorInput interface {
+	pulumi.Input
+
+	ToGetFhirServiceCorOutput() GetFhirServiceCorOutput
+	ToGetFhirServiceCorOutputWithContext(context.Context) GetFhirServiceCorOutput
+}
+
+type GetFhirServiceCorArgs struct {
+	// The set of headers to be allowed via CORS.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// The methods to be allowed via CORS.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// The set of origins to be allowed via CORS.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Are credentials allowed via CORS?
+	CredentialsAllowed pulumi.BoolInput `pulumi:"credentialsAllowed"`
+	// The max age to be allowed via CORS.
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (GetFhirServiceCorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFhirServiceCor)(nil)).Elem()
+}
+
+func (i GetFhirServiceCorArgs) ToGetFhirServiceCorOutput() GetFhirServiceCorOutput {
+	return i.ToGetFhirServiceCorOutputWithContext(context.Background())
+}
+
+func (i GetFhirServiceCorArgs) ToGetFhirServiceCorOutputWithContext(ctx context.Context) GetFhirServiceCorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFhirServiceCorOutput)
+}
+
+// GetFhirServiceCorArrayInput is an input type that accepts GetFhirServiceCorArray and GetFhirServiceCorArrayOutput values.
+// You can construct a concrete instance of `GetFhirServiceCorArrayInput` via:
+//
+//          GetFhirServiceCorArray{ GetFhirServiceCorArgs{...} }
+type GetFhirServiceCorArrayInput interface {
+	pulumi.Input
+
+	ToGetFhirServiceCorArrayOutput() GetFhirServiceCorArrayOutput
+	ToGetFhirServiceCorArrayOutputWithContext(context.Context) GetFhirServiceCorArrayOutput
+}
+
+type GetFhirServiceCorArray []GetFhirServiceCorInput
+
+func (GetFhirServiceCorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFhirServiceCor)(nil)).Elem()
+}
+
+func (i GetFhirServiceCorArray) ToGetFhirServiceCorArrayOutput() GetFhirServiceCorArrayOutput {
+	return i.ToGetFhirServiceCorArrayOutputWithContext(context.Background())
+}
+
+func (i GetFhirServiceCorArray) ToGetFhirServiceCorArrayOutputWithContext(ctx context.Context) GetFhirServiceCorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFhirServiceCorArrayOutput)
+}
+
+type GetFhirServiceCorOutput struct{ *pulumi.OutputState }
+
+func (GetFhirServiceCorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFhirServiceCor)(nil)).Elem()
+}
+
+func (o GetFhirServiceCorOutput) ToGetFhirServiceCorOutput() GetFhirServiceCorOutput {
+	return o
+}
+
+func (o GetFhirServiceCorOutput) ToGetFhirServiceCorOutputWithContext(ctx context.Context) GetFhirServiceCorOutput {
+	return o
+}
+
+// The set of headers to be allowed via CORS.
+func (o GetFhirServiceCorOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFhirServiceCor) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o GetFhirServiceCorOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFhirServiceCor) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// The set of origins to be allowed via CORS.
+func (o GetFhirServiceCorOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFhirServiceCor) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Are credentials allowed via CORS?
+func (o GetFhirServiceCorOutput) CredentialsAllowed() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFhirServiceCor) bool { return v.CredentialsAllowed }).(pulumi.BoolOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o GetFhirServiceCorOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFhirServiceCor) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+}
+
+type GetFhirServiceCorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFhirServiceCorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFhirServiceCor)(nil)).Elem()
+}
+
+func (o GetFhirServiceCorArrayOutput) ToGetFhirServiceCorArrayOutput() GetFhirServiceCorArrayOutput {
+	return o
+}
+
+func (o GetFhirServiceCorArrayOutput) ToGetFhirServiceCorArrayOutputWithContext(ctx context.Context) GetFhirServiceCorArrayOutput {
+	return o
+}
+
+func (o GetFhirServiceCorArrayOutput) Index(i pulumi.IntInput) GetFhirServiceCorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFhirServiceCor {
+		return vs[0].([]GetFhirServiceCor)[vs[1].(int)]
+	}).(GetFhirServiceCorOutput)
+}
+
+type GetFhirServiceIdentity struct {
+	// The Principal ID associated with this System Assigned Managed Service Identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID associated with this System Assigned Managed Service Identity.
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for the Healthcare FHIR service.
+	Type string `pulumi:"type"`
+}
+
+// GetFhirServiceIdentityInput is an input type that accepts GetFhirServiceIdentityArgs and GetFhirServiceIdentityOutput values.
+// You can construct a concrete instance of `GetFhirServiceIdentityInput` via:
+//
+//          GetFhirServiceIdentityArgs{...}
+type GetFhirServiceIdentityInput interface {
+	pulumi.Input
+
+	ToGetFhirServiceIdentityOutput() GetFhirServiceIdentityOutput
+	ToGetFhirServiceIdentityOutputWithContext(context.Context) GetFhirServiceIdentityOutput
+}
+
+type GetFhirServiceIdentityArgs struct {
+	// The Principal ID associated with this System Assigned Managed Service Identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID associated with this System Assigned Managed Service Identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of identity used for the Healthcare FHIR service.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetFhirServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFhirServiceIdentity)(nil)).Elem()
+}
+
+func (i GetFhirServiceIdentityArgs) ToGetFhirServiceIdentityOutput() GetFhirServiceIdentityOutput {
+	return i.ToGetFhirServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i GetFhirServiceIdentityArgs) ToGetFhirServiceIdentityOutputWithContext(ctx context.Context) GetFhirServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFhirServiceIdentityOutput)
+}
+
+// GetFhirServiceIdentityArrayInput is an input type that accepts GetFhirServiceIdentityArray and GetFhirServiceIdentityArrayOutput values.
+// You can construct a concrete instance of `GetFhirServiceIdentityArrayInput` via:
+//
+//          GetFhirServiceIdentityArray{ GetFhirServiceIdentityArgs{...} }
+type GetFhirServiceIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetFhirServiceIdentityArrayOutput() GetFhirServiceIdentityArrayOutput
+	ToGetFhirServiceIdentityArrayOutputWithContext(context.Context) GetFhirServiceIdentityArrayOutput
+}
+
+type GetFhirServiceIdentityArray []GetFhirServiceIdentityInput
+
+func (GetFhirServiceIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFhirServiceIdentity)(nil)).Elem()
+}
+
+func (i GetFhirServiceIdentityArray) ToGetFhirServiceIdentityArrayOutput() GetFhirServiceIdentityArrayOutput {
+	return i.ToGetFhirServiceIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetFhirServiceIdentityArray) ToGetFhirServiceIdentityArrayOutputWithContext(ctx context.Context) GetFhirServiceIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFhirServiceIdentityArrayOutput)
+}
+
+type GetFhirServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetFhirServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFhirServiceIdentity)(nil)).Elem()
+}
+
+func (o GetFhirServiceIdentityOutput) ToGetFhirServiceIdentityOutput() GetFhirServiceIdentityOutput {
+	return o
+}
+
+func (o GetFhirServiceIdentityOutput) ToGetFhirServiceIdentityOutputWithContext(ctx context.Context) GetFhirServiceIdentityOutput {
+	return o
+}
+
+// The Principal ID associated with this System Assigned Managed Service Identity.
+func (o GetFhirServiceIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFhirServiceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID associated with this System Assigned Managed Service Identity.
+func (o GetFhirServiceIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFhirServiceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the Healthcare FHIR service.
+func (o GetFhirServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFhirServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetFhirServiceIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFhirServiceIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFhirServiceIdentity)(nil)).Elem()
+}
+
+func (o GetFhirServiceIdentityArrayOutput) ToGetFhirServiceIdentityArrayOutput() GetFhirServiceIdentityArrayOutput {
+	return o
+}
+
+func (o GetFhirServiceIdentityArrayOutput) ToGetFhirServiceIdentityArrayOutputWithContext(ctx context.Context) GetFhirServiceIdentityArrayOutput {
+	return o
+}
+
+func (o GetFhirServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetFhirServiceIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFhirServiceIdentity {
+		return vs[0].([]GetFhirServiceIdentity)[vs[1].(int)]
+	}).(GetFhirServiceIdentityOutput)
+}
+
 type GetServiceAuthenticationConfiguration struct {
 	// The intended audience to receive authentication tokens for the service.
 	Audience string `pulumi:"audience"`
@@ -1479,6 +2383,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceIdentityPtrInput)(nil)).Elem(), DicomServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DicomServicePrivateEndpointInput)(nil)).Elem(), DicomServicePrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DicomServicePrivateEndpointArrayInput)(nil)).Elem(), DicomServicePrivateEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceAuthenticationInput)(nil)).Elem(), FhirServiceAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceAuthenticationPtrInput)(nil)).Elem(), FhirServiceAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceCorsInput)(nil)).Elem(), FhirServiceCorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceCorsPtrInput)(nil)).Elem(), FhirServiceCorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceIdentityInput)(nil)).Elem(), FhirServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceIdentityPtrInput)(nil)).Elem(), FhirServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationPtrInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorsConfigurationInput)(nil)).Elem(), ServiceCorsConfigurationArgs{})
@@ -1491,6 +2401,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceIdentityArrayInput)(nil)).Elem(), GetDicomServiceIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServicePrivateEndpointInput)(nil)).Elem(), GetDicomServicePrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServicePrivateEndpointArrayInput)(nil)).Elem(), GetDicomServicePrivateEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFhirServiceAuthenticationInput)(nil)).Elem(), GetFhirServiceAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFhirServiceAuthenticationArrayInput)(nil)).Elem(), GetFhirServiceAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFhirServiceCorInput)(nil)).Elem(), GetFhirServiceCorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFhirServiceCorArrayInput)(nil)).Elem(), GetFhirServiceCorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFhirServiceIdentityInput)(nil)).Elem(), GetFhirServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFhirServiceIdentityArrayInput)(nil)).Elem(), GetFhirServiceIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceAuthenticationConfigurationInput)(nil)).Elem(), GetServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceAuthenticationConfigurationArrayInput)(nil)).Elem(), GetServiceAuthenticationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCorsConfigurationInput)(nil)).Elem(), GetServiceCorsConfigurationArgs{})
@@ -1501,6 +2417,12 @@ func init() {
 	pulumi.RegisterOutputType(DicomServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(DicomServicePrivateEndpointOutput{})
 	pulumi.RegisterOutputType(DicomServicePrivateEndpointArrayOutput{})
+	pulumi.RegisterOutputType(FhirServiceAuthenticationOutput{})
+	pulumi.RegisterOutputType(FhirServiceAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(FhirServiceCorsOutput{})
+	pulumi.RegisterOutputType(FhirServiceCorsPtrOutput{})
+	pulumi.RegisterOutputType(FhirServiceIdentityOutput{})
+	pulumi.RegisterOutputType(FhirServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationOutput{})
@@ -1513,6 +2435,12 @@ func init() {
 	pulumi.RegisterOutputType(GetDicomServiceIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetDicomServicePrivateEndpointOutput{})
 	pulumi.RegisterOutputType(GetDicomServicePrivateEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetFhirServiceAuthenticationOutput{})
+	pulumi.RegisterOutputType(GetFhirServiceAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(GetFhirServiceCorOutput{})
+	pulumi.RegisterOutputType(GetFhirServiceCorArrayOutput{})
+	pulumi.RegisterOutputType(GetFhirServiceIdentityOutput{})
+	pulumi.RegisterOutputType(GetFhirServiceIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceAuthenticationConfigurationOutput{})
 	pulumi.RegisterOutputType(GetServiceAuthenticationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceCorsConfigurationOutput{})

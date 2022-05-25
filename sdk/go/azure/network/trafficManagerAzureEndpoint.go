@@ -90,7 +90,7 @@ type TrafficManagerAzureEndpoint struct {
 	CustomHeaders TrafficManagerAzureEndpointCustomHeaderArrayOutput `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayOutput `pulumi:"geoMappings"`
 	// The name of the Azure Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -151,7 +151,7 @@ type trafficManagerAzureEndpointState struct {
 	CustomHeaders []TrafficManagerAzureEndpointCustomHeader `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings []string `pulumi:"geoMappings"`
 	// The name of the Azure Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -175,7 +175,7 @@ type TrafficManagerAzureEndpointState struct {
 	CustomHeaders TrafficManagerAzureEndpointCustomHeaderArrayInput
 	// Is the endpoint enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayInput
 	// The name of the Azure Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -203,7 +203,7 @@ type trafficManagerAzureEndpointArgs struct {
 	CustomHeaders []TrafficManagerAzureEndpointCustomHeader `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings []string `pulumi:"geoMappings"`
 	// The name of the Azure Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -228,7 +228,7 @@ type TrafficManagerAzureEndpointArgs struct {
 	CustomHeaders TrafficManagerAzureEndpointCustomHeaderArrayInput
 	// Is the endpoint enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayInput
 	// The name of the Azure Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -346,7 +346,7 @@ func (o TrafficManagerAzureEndpointOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TrafficManagerAzureEndpoint) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 func (o TrafficManagerAzureEndpointOutput) GeoMappings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrafficManagerAzureEndpoint) pulumi.StringArrayOutput { return v.GeoMappings }).(pulumi.StringArrayOutput)
 }

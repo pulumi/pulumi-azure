@@ -83,7 +83,7 @@ export class WebTest extends pulumi.CustomResource {
      */
     public readonly applicationInsightsId!: pulumi.Output<string>;
     /**
-     * An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+     * An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
      */
     public readonly configuration!: pulumi.Output<string>;
     /**
@@ -206,7 +206,7 @@ export interface WebTestState {
      */
     applicationInsightsId?: pulumi.Input<string>;
     /**
-     * An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+     * An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
      */
     configuration?: pulumi.Input<string>;
     /**
@@ -266,7 +266,7 @@ export interface WebTestArgs {
      */
     applicationInsightsId: pulumi.Input<string>;
     /**
-     * An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+     * An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
      */
     configuration: pulumi.Input<string>;
     /**

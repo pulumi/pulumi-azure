@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Core
         public string? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+        /// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
         /// </summary>
         [Input("type")]
         public string? Type { get; set; }
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+        /// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

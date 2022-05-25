@@ -120,7 +120,7 @@ type CustomDataset struct {
 	Folder pulumi.StringPtrOutput `pulumi:"folder"`
 	// A `linkedService` block as defined below.
 	LinkedService CustomDatasetLinkedServiceOutput `pulumi:"linkedService"`
-	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -185,7 +185,7 @@ type customDatasetState struct {
 	Folder *string `pulumi:"folder"`
 	// A `linkedService` block as defined below.
 	LinkedService *CustomDatasetLinkedService `pulumi:"linkedService"`
-	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -210,7 +210,7 @@ type CustomDatasetState struct {
 	Folder pulumi.StringPtrInput
 	// A `linkedService` block as defined below.
 	LinkedService CustomDatasetLinkedServicePtrInput
-	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapInput
@@ -239,7 +239,7 @@ type customDatasetArgs struct {
 	Folder *string `pulumi:"folder"`
 	// A `linkedService` block as defined below.
 	LinkedService CustomDatasetLinkedService `pulumi:"linkedService"`
-	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -265,7 +265,7 @@ type CustomDatasetArgs struct {
 	Folder pulumi.StringPtrInput
 	// A `linkedService` block as defined below.
 	LinkedService CustomDatasetLinkedServiceInput
-	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapInput
@@ -394,7 +394,7 @@ func (o CustomDatasetOutput) LinkedService() CustomDatasetLinkedServiceOutput {
 	return o.ApplyT(func(v *CustomDataset) CustomDatasetLinkedServiceOutput { return v.LinkedService }).(CustomDatasetLinkedServiceOutput)
 }
 
-// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o CustomDatasetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDataset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

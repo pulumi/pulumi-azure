@@ -109,7 +109,7 @@ type PointToPointVpnGateway struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The [Scale Unit](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
+	// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
 	ScaleUnit pulumi.IntOutput `pulumi:"scaleUnit"`
 	// A mapping of tags to assign to the Point-to-Site VPN Gateway.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -173,7 +173,7 @@ type pointToPointVpnGatewayState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The [Scale Unit](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
+	// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
 	ScaleUnit *int `pulumi:"scaleUnit"`
 	// A mapping of tags to assign to the Point-to-Site VPN Gateway.
 	Tags map[string]string `pulumi:"tags"`
@@ -194,7 +194,7 @@ type PointToPointVpnGatewayState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The [Scale Unit](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
+	// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
 	ScaleUnit pulumi.IntPtrInput
 	// A mapping of tags to assign to the Point-to-Site VPN Gateway.
 	Tags pulumi.StringMapInput
@@ -219,7 +219,7 @@ type pointToPointVpnGatewayArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The [Scale Unit](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
+	// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
 	ScaleUnit int `pulumi:"scaleUnit"`
 	// A mapping of tags to assign to the Point-to-Site VPN Gateway.
 	Tags map[string]string `pulumi:"tags"`
@@ -241,7 +241,7 @@ type PointToPointVpnGatewayArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The [Scale Unit](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
+	// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
 	ScaleUnit pulumi.IntInput
 	// A mapping of tags to assign to the Point-to-Site VPN Gateway.
 	Tags pulumi.StringMapInput
@@ -365,7 +365,7 @@ func (o PointToPointVpnGatewayOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PointToPointVpnGateway) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The [Scale Unit](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
+// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
 func (o PointToPointVpnGatewayOutput) ScaleUnit() pulumi.IntOutput {
 	return o.ApplyT(func(v *PointToPointVpnGateway) pulumi.IntOutput { return v.ScaleUnit }).(pulumi.IntOutput)
 }

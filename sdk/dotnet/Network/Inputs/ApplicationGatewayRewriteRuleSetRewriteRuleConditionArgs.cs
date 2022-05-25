@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Pattern { get; set; } = null!;
 
         /// <summary>
-        /// The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+        /// The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
         /// </summary>
         [Input("variable", required: true)]
         public Input<string> Variable { get; set; } = null!;

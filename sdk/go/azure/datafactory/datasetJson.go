@@ -93,7 +93,7 @@ type DatasetJson struct {
 	HttpServerLocation DatasetJsonHttpServerLocationPtrOutput `pulumi:"httpServerLocation"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName pulumi.StringOutput `pulumi:"linkedServiceName"`
-	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -154,7 +154,7 @@ type datasetJsonState struct {
 	HttpServerLocation *DatasetJsonHttpServerLocation `pulumi:"httpServerLocation"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName *string `pulumi:"linkedServiceName"`
-	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -181,7 +181,7 @@ type DatasetJsonState struct {
 	HttpServerLocation DatasetJsonHttpServerLocationPtrInput
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapInput
@@ -212,7 +212,7 @@ type datasetJsonArgs struct {
 	HttpServerLocation *DatasetJsonHttpServerLocation `pulumi:"httpServerLocation"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
-	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -240,7 +240,7 @@ type DatasetJsonArgs struct {
 	HttpServerLocation DatasetJsonHttpServerLocationPtrInput
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName pulumi.StringInput
-	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapInput
@@ -380,7 +380,7 @@ func (o DatasetJsonOutput) LinkedServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatasetJson) pulumi.StringOutput { return v.LinkedServiceName }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o DatasetJsonOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatasetJson) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

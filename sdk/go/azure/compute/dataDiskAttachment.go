@@ -155,7 +155,7 @@ type DataDiskAttachment struct {
 	ManagedDiskId pulumi.StringOutput `pulumi:"managedDiskId"`
 	// The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
-	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrOutput `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -210,7 +210,7 @@ type dataDiskAttachmentState struct {
 	ManagedDiskId *string `pulumi:"managedDiskId"`
 	// The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
-	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -225,7 +225,7 @@ type DataDiskAttachmentState struct {
 	ManagedDiskId pulumi.StringPtrInput
 	// The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
 	VirtualMachineId pulumi.StringPtrInput
-	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput
 }
 
@@ -244,7 +244,7 @@ type dataDiskAttachmentArgs struct {
 	ManagedDiskId string `pulumi:"managedDiskId"`
 	// The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
 	VirtualMachineId string `pulumi:"virtualMachineId"`
-	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -260,7 +260,7 @@ type DataDiskAttachmentArgs struct {
 	ManagedDiskId pulumi.StringInput
 	// The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
 	VirtualMachineId pulumi.StringInput
-	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput
 }
 
@@ -376,7 +376,7 @@ func (o DataDiskAttachmentOutput) VirtualMachineId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataDiskAttachment) pulumi.StringOutput { return v.VirtualMachineId }).(pulumi.StringOutput)
 }
 
-// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 func (o DataDiskAttachmentOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataDiskAttachment) pulumi.BoolPtrOutput { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }

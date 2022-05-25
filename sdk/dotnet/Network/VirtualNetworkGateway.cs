@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Network
         /// The ID of the local network gateway
         /// through which outbound Internet traffic from the virtual network in which the
         /// gateway is created will be routed (*forced tunnelling*). Refer to the
-        /// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+        /// [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
         /// If not specified, forced tunnelling is disabled.
         /// </summary>
         [Output("defaultLocalNetworkGatewayId")]
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Network
         /// The ID of the local network gateway
         /// through which outbound Internet traffic from the virtual network in which the
         /// gateway is created will be routed (*forced tunnelling*). Refer to the
-        /// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+        /// [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
         /// If not specified, forced tunnelling is disabled.
         /// </summary>
         [Input("defaultLocalNetworkGatewayId")]
@@ -466,7 +466,7 @@ namespace Pulumi.Azure.Network
         /// The ID of the local network gateway
         /// through which outbound Internet traffic from the virtual network in which the
         /// gateway is created will be routed (*forced tunnelling*). Refer to the
-        /// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+        /// [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
         /// If not specified, forced tunnelling is disabled.
         /// </summary>
         [Input("defaultLocalNetworkGatewayId")]

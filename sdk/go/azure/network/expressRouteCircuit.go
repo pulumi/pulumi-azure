@@ -84,7 +84,7 @@ type ExpressRouteCircuit struct {
 	ServiceKey pulumi.StringOutput `pulumi:"serviceKey"`
 	// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
 	ServiceProviderName pulumi.StringPtrOutput `pulumi:"serviceProviderName"`
-	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
 	ServiceProviderProvisioningState pulumi.StringOutput `pulumi:"serviceProviderProvisioningState"`
 	// A `sku` block for the ExpressRoute circuit as documented below.
 	Sku ExpressRouteCircuitSkuOutput `pulumi:"sku"`
@@ -147,7 +147,7 @@ type expressRouteCircuitState struct {
 	ServiceKey *string `pulumi:"serviceKey"`
 	// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
 	ServiceProviderName *string `pulumi:"serviceProviderName"`
-	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
 	ServiceProviderProvisioningState *string `pulumi:"serviceProviderProvisioningState"`
 	// A `sku` block for the ExpressRoute circuit as documented below.
 	Sku *ExpressRouteCircuitSku `pulumi:"sku"`
@@ -176,7 +176,7 @@ type ExpressRouteCircuitState struct {
 	ServiceKey pulumi.StringPtrInput
 	// The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
 	ServiceProviderName pulumi.StringPtrInput
-	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
 	ServiceProviderProvisioningState pulumi.StringPtrInput
 	// A `sku` block for the ExpressRoute circuit as documented below.
 	Sku ExpressRouteCircuitSkuPtrInput
@@ -376,7 +376,7 @@ func (o ExpressRouteCircuitOutput) ServiceProviderName() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.ServiceProviderName }).(pulumi.StringPtrOutput)
 }
 
-// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
 func (o ExpressRouteCircuitOutput) ServiceProviderProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringOutput { return v.ServiceProviderProvisioningState }).(pulumi.StringOutput)
 }

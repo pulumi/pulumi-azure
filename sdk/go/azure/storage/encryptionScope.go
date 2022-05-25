@@ -13,7 +13,7 @@ import (
 
 // Manages a Storage Encryption Scope.
 //
-// > **Note:** Storage Encryption Scopes are in Preview [more information can be found here](https://docs.microsoft.com/en-us/azure/storage/blobs/encryption-scope-manage).
+// > **Note:** Storage Encryption Scopes are in Preview [more information can be found here](https://docs.microsoft.com/azure/storage/blobs/encryption-scope-manage).
 //
 // ## Example Usage
 //

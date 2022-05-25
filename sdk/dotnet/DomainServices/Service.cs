@@ -28,7 +28,7 @@ namespace Pulumi.Azure.DomainServices
         public Output<string> DeploymentId { get; private set; } = null!;
 
         /// <summary>
-        /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+        /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.DomainServices
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+        /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.DomainServices
         public Input<string>? DeploymentId { get; set; }
 
         /// <summary>
-        /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+        /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

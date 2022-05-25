@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The End User Licence Agreement for the Shared Image.
+        /// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eula")]
         public Output<string?> Eula { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The End User Licence Agreement for the Shared Image.
+        /// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eula")]
         public Input<string>? Eula { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The End User Licence Agreement for the Shared Image.
+        /// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eula")]
         public Input<string>? Eula { get; set; }

@@ -130,6 +130,8 @@ __all__ = [
     'VirtualNetworkGatewayConnectionTrafficSelectorPolicy',
     'VirtualNetworkGatewayCustomRoute',
     'VirtualNetworkGatewayIpConfiguration',
+    'VirtualNetworkGatewayNatRuleExternalMapping',
+    'VirtualNetworkGatewayNatRuleInternalMapping',
     'VirtualNetworkGatewayVpnClientConfiguration',
     'VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate',
     'VirtualNetworkGatewayVpnClientConfigurationRootCertificate',
@@ -743,7 +745,7 @@ class ApplicationGatewayFrontendIpConfiguration(dict):
         :param str private_ip_address_allocation: The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
         :param str private_link_configuration_id: The ID of the associated private link configuration.
         :param str private_link_configuration_name: The name of the private link configuration to use for this frontend IP configuration.
-        :param str public_ip_address_id: The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
+        :param str public_ip_address_id: The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
         :param str subnet_id: The ID of the Subnet.
         """
         pulumi.set(__self__, "name", name)
@@ -814,7 +816,7 @@ class ApplicationGatewayFrontendIpConfiguration(dict):
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> Optional[str]:
         """
-        The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
+        The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -2197,7 +2199,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleCondition(dict):
                  negate: Optional[bool] = None):
         """
         :param str pattern: The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
-        :param str variable: The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+        :param str variable: The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
         :param bool ignore_case: Perform a case in-sensitive comparison. Defaults to `false`
         :param bool negate: Negate the result of the condition evaluation. Defaults to `false`
         """
@@ -2220,7 +2222,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleCondition(dict):
     @pulumi.getter
     def variable(self) -> str:
         """
-        The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+        The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
         """
         return pulumi.get(self, "variable")
 
@@ -2363,7 +2365,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrl(dict):
         """
         :param str path: The URL path to rewrite.
         :param str query_string: The query string to rewrite.
-        :param bool reroute: Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+        :param bool reroute: Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
         """
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -2392,7 +2394,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrl(dict):
     @pulumi.getter
     def reroute(self) -> Optional[bool]:
         """
-        Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+        Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
         """
         return pulumi.get(self, "reroute")
 
@@ -2573,7 +2575,7 @@ class ApplicationGatewaySslPolicy(dict):
         :param Sequence[str] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
         :param str min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
         :param str policy_name: The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-               are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+               are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
         :param str policy_type: The Type of the Policy. Possible values are `Predefined` and `Custom`.
         """
         if cipher_suites is not None:
@@ -2616,7 +2618,7 @@ class ApplicationGatewaySslPolicy(dict):
     def policy_name(self) -> Optional[str]:
         """
         The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-        are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+        are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
         """
         return pulumi.get(self, "policy_name")
 
@@ -2754,7 +2756,7 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
         :param Sequence[str] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
         :param str min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
         :param str policy_name: The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-               are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+               are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
         :param str policy_type: The Type of the Policy. Possible values are `Predefined` and `Custom`.
         """
         if cipher_suites is not None:
@@ -2797,7 +2799,7 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
     def policy_name(self) -> Optional[str]:
         """
         The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-        are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+        are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
         """
         return pulumi.get(self, "policy_name")
 
@@ -4683,7 +4685,7 @@ class FirewallNetworkRuleCollectionRule(dict):
         :param str name: Specifies the name of the rule.
         :param Sequence[str] protocols: A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
         :param str description: Specifies a description for the rule.
-        :param Sequence[str] destination_addresses: Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
+        :param Sequence[str] destination_addresses: Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
         :param Sequence[str] destination_fqdns: A list of destination FQDNS for the rule.
         :param Sequence[str] destination_ip_groups: A list of destination IP Group IDs for the rule.
         :param Sequence[str] source_addresses: A list of source IP addresses and/or IP ranges.
@@ -4741,7 +4743,7 @@ class FirewallNetworkRuleCollectionRule(dict):
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> Optional[Sequence[str]]:
         """
-        Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
+        Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
         """
         return pulumi.get(self, "destination_addresses")
 
@@ -5018,7 +5020,7 @@ class FirewallPolicyIntrusionDetection(dict):
                  signature_overrides: Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionSignatureOverride']] = None,
                  traffic_bypasses: Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionTrafficBypass']] = None):
         """
-        :param str mode: In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+        :param str mode: In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
         :param Sequence['FirewallPolicyIntrusionDetectionSignatureOverrideArgs'] signature_overrides: One or more `signature_overrides` blocks as defined below.
         :param Sequence['FirewallPolicyIntrusionDetectionTrafficBypassArgs'] traffic_bypasses: One or more `traffic_bypass` blocks as defined below.
         """
@@ -5033,7 +5035,7 @@ class FirewallPolicyIntrusionDetection(dict):
     @pulumi.getter
     def mode(self) -> Optional[str]:
         """
-        In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+        In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
         """
         return pulumi.get(self, "mode")
 
@@ -5061,7 +5063,7 @@ class FirewallPolicyIntrusionDetectionSignatureOverride(dict):
                  state: Optional[str] = None):
         """
         :param str id: 12-digit number (id) which identifies your signature.
-        :param str state: state can be any of "Off", "Alert" or "Deny".
+        :param str state: state can be any of `Off`, `Alert` or `Deny`.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -5080,7 +5082,7 @@ class FirewallPolicyIntrusionDetectionSignatureOverride(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
-        state can be any of "Off", "Alert" or "Deny".
+        state can be any of `Off`, `Alert` or `Deny`.
         """
         return pulumi.get(self, "state")
 
@@ -5123,7 +5125,7 @@ class FirewallPolicyIntrusionDetectionTrafficBypass(dict):
                  source_ip_groups: Optional[Sequence[str]] = None):
         """
         :param str name: The name which should be used for this bypass traffic setting.
-        :param str protocol: The protocols any of "ANY", "TCP", "ICMP", "UDP" that shall be bypassed by intrusion detection.
+        :param str protocol: The protocols any of `ANY`, `TCP`, `ICMP`, `UDP` that shall be bypassed by intrusion detection.
         :param str description: The description for this bypass traffic setting.
         :param Sequence[str] destination_addresses: Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
         :param Sequence[str] destination_ip_groups: Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
@@ -5158,7 +5160,7 @@ class FirewallPolicyIntrusionDetectionTrafficBypass(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        The protocols any of "ANY", "TCP", "ICMP", "UDP" that shall be bypassed by intrusion detection.
+        The protocols any of `ANY`, `TCP`, `ICMP`, `UDP` that shall be bypassed by intrusion detection.
         """
         return pulumi.get(self, "protocol")
 
@@ -7742,8 +7744,8 @@ class RouteTableRoute(dict):
                  next_hop_type: str,
                  next_hop_in_ip_address: Optional[str] = None):
         """
-        :param str address_prefix: The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
-        :param str name: The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+        :param str address_prefix: The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+        :param str name: The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
         :param str next_hop_type: The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
         :param str next_hop_in_ip_address: Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         """
@@ -7757,7 +7759,7 @@ class RouteTableRoute(dict):
     @pulumi.getter(name="addressPrefix")
     def address_prefix(self) -> str:
         """
-        The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+        The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
         """
         return pulumi.get(self, "address_prefix")
 
@@ -7765,7 +7767,7 @@ class RouteTableRoute(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+        The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
         """
         return pulumi.get(self, "name")
 
@@ -9158,6 +9160,104 @@ class VirtualNetworkGatewayIpConfiguration(dict):
         `Dynamic`. Defaults to `Dynamic`.
         """
         return pulumi.get(self, "private_ip_address_allocation")
+
+
+@pulumi.output_type
+class VirtualNetworkGatewayNatRuleExternalMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressSpace":
+            suggest = "address_space"
+        elif key == "portRange":
+            suggest = "port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkGatewayNatRuleExternalMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkGatewayNatRuleExternalMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkGatewayNatRuleExternalMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_space: str,
+                 port_range: Optional[str] = None):
+        """
+        :param str address_space: The string CIDR representing the address space for the Virtual Network Gateway Nat Rule external mapping.
+        :param str port_range: The single port range for the Virtual Network Gateway Nat Rule external mapping.
+        """
+        pulumi.set(__self__, "address_space", address_space)
+        if port_range is not None:
+            pulumi.set(__self__, "port_range", port_range)
+
+    @property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> str:
+        """
+        The string CIDR representing the address space for the Virtual Network Gateway Nat Rule external mapping.
+        """
+        return pulumi.get(self, "address_space")
+
+    @property
+    @pulumi.getter(name="portRange")
+    def port_range(self) -> Optional[str]:
+        """
+        The single port range for the Virtual Network Gateway Nat Rule external mapping.
+        """
+        return pulumi.get(self, "port_range")
+
+
+@pulumi.output_type
+class VirtualNetworkGatewayNatRuleInternalMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressSpace":
+            suggest = "address_space"
+        elif key == "portRange":
+            suggest = "port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkGatewayNatRuleInternalMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkGatewayNatRuleInternalMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkGatewayNatRuleInternalMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_space: str,
+                 port_range: Optional[str] = None):
+        """
+        :param str address_space: The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
+        :param str port_range: The single port range for the Virtual Network Gateway Nat Rule internal mapping.
+        """
+        pulumi.set(__self__, "address_space", address_space)
+        if port_range is not None:
+            pulumi.set(__self__, "port_range", port_range)
+
+    @property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> str:
+        """
+        The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
+        """
+        return pulumi.get(self, "address_space")
+
+    @property
+    @pulumi.getter(name="portRange")
+    def port_range(self) -> Optional[str]:
+        """
+        The single port range for the Virtual Network Gateway Nat Rule internal mapping.
+        """
+        return pulumi.get(self, "port_range")
 
 
 @pulumi.output_type
@@ -12043,11 +12143,13 @@ class GetVirtualNetworkGatewayCustomRouteResult(dict):
 @pulumi.output_type
 class GetVirtualNetworkGatewayIpConfigurationResult(dict):
     def __init__(__self__, *,
+                 id: str,
                  name: str,
                  private_ip_address_allocation: str,
                  public_ip_address_id: str,
                  subnet_id: str):
         """
+        :param str id: The resource ID of the IP configuration.
         :param str name: Specifies the name of the Virtual Network Gateway.
         :param str private_ip_address_allocation: Defines how the private IP address
                of the gateways virtual interface is assigned.
@@ -12058,10 +12160,19 @@ class GetVirtualNetworkGatewayIpConfigurationResult(dict):
                the associated subnet is named `GatewaySubnet`. Therefore, each virtual
                network can contain at most a single Virtual Network Gateway.
         """
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_ip_address_allocation", private_ip_address_allocation)
         pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID of the IP configuration.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter

@@ -37,7 +37,7 @@ class HostPoolArgs:
                a new resource to be created.
         :param pulumi.Input[str] type: The type of the Virtual Desktop Host Pool. Valid options are
                `Personal` or `Pooled`. Changing the type forces a new resource to be created.
-        :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Host Pool is
@@ -125,7 +125,7 @@ class HostPoolArgs:
     @pulumi.getter(name="customRdpProperties")
     def custom_rdp_properties(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         """
         return pulumi.get(self, "custom_rdp_properties")
 
@@ -278,7 +278,7 @@ class _HostPoolState:
                  validate_environment: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering HostPool resources.
-        :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
@@ -336,7 +336,7 @@ class _HostPoolState:
     @pulumi.getter(name="customRdpProperties")
     def custom_rdp_properties(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         """
         return pulumi.get(self, "custom_rdp_properties")
 
@@ -564,7 +564,7 @@ class HostPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
@@ -718,7 +718,7 @@ class HostPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
@@ -767,7 +767,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter(name="customRdpProperties")
     def custom_rdp_properties(self) -> pulumi.Output[Optional[str]]:
         """
-        A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         """
         return pulumi.get(self, "custom_rdp_properties")
 

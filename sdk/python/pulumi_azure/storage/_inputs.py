@@ -1466,7 +1466,7 @@ class BlobInventoryPolicyRuleArgs:
         :param pulumi.Input[str] format: The format of the inventory files. Possible values are `Csv` and `Parquet`.
         :param pulumi.Input[str] name: The name which should be used for this Blob Inventory Policy Rule.
         :param pulumi.Input[str] schedule: The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] schema_fields: A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] schema_fields: A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
         :param pulumi.Input[str] scope: The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
         :param pulumi.Input[str] storage_container_name: The storage container name to store the blob inventory files for this rule.
         :param pulumi.Input['BlobInventoryPolicyRuleFilterArgs'] filter: A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
@@ -1520,7 +1520,7 @@ class BlobInventoryPolicyRuleArgs:
     @pulumi.getter(name="schemaFields")
     def schema_fields(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+        A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
         """
         return pulumi.get(self, "schema_fields")
 

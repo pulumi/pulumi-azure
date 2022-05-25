@@ -23,7 +23,7 @@ type Service struct {
 
 	// A unique ID for the managed domain deployment.
 	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
-	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
 	FilteredSyncEnabled pulumi.BoolPtrOutput `pulumi:"filteredSyncEnabled"`
@@ -95,7 +95,7 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// A unique ID for the managed domain deployment.
 	DeploymentId *string `pulumi:"deploymentId"`
-	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 	DomainName *string `pulumi:"domainName"`
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
 	FilteredSyncEnabled *bool `pulumi:"filteredSyncEnabled"`
@@ -127,7 +127,7 @@ type serviceState struct {
 type ServiceState struct {
 	// A unique ID for the managed domain deployment.
 	DeploymentId pulumi.StringPtrInput
-	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 	DomainName pulumi.StringPtrInput
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
 	FilteredSyncEnabled pulumi.BoolPtrInput
@@ -161,7 +161,7 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 	DomainName string `pulumi:"domainName"`
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
 	FilteredSyncEnabled *bool `pulumi:"filteredSyncEnabled"`
@@ -187,7 +187,7 @@ type serviceArgs struct {
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 	DomainName pulumi.StringInput
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
 	FilteredSyncEnabled pulumi.BoolPtrInput
@@ -303,7 +303,7 @@ func (o ServiceOutput) DeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
 }
 
-// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 func (o ServiceOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

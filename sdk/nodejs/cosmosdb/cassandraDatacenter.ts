@@ -7,11 +7,18 @@ import * as utilities from "../utilities";
 /**
  * Manages a Cassandra Datacenter.
  *
+ * > ** NOTE: ** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ *
  * ## Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
@@ -24,16 +31,21 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
+ * const exampleServicePrincipal = azuread.getServicePrincipal({
+ *     displayName: "Azure Cosmos DB",
+ * });
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
  *     scope: exampleVirtualNetwork.id,
  *     roleDefinitionName: "Network Contributor",
- *     principalId: "e5007d2c-4b13-4a74-9b6a-605d99f03501",
+ *     principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.objectId),
  * });
  * const exampleCassandraCluster = new azure.cosmosdb.CassandraCluster("exampleCassandraCluster", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     delegatedManagementSubnetId: exampleSubnet.id,
  *     defaultAdminPassword: "Password1234",
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * const exampleCassandraDatacenter = new azure.cosmosdb.CassandraDatacenter("exampleCassandraDatacenter", {
  *     location: exampleCassandraCluster.location,

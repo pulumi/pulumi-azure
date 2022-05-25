@@ -1969,7 +1969,7 @@ type GetResourcesResource struct {
 	Name string `pulumi:"name"`
 	// A map of tags assigned to this Resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
 	Type string `pulumi:"type"`
 }
 
@@ -1993,7 +1993,7 @@ type GetResourcesResourceArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// A map of tags assigned to this Resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2068,7 +2068,7 @@ func (o GetResourcesResourceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetResourcesResource) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
 func (o GetResourcesResourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResourcesResource) string { return v.Type }).(pulumi.StringOutput)
 }

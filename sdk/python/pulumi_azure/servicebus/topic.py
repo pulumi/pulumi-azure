@@ -46,10 +46,10 @@ class TopicArgs:
                Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
                a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
                new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether
@@ -184,7 +184,7 @@ class TopicArgs:
         """
         Integer value which controls the maximum size of
         a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
@@ -198,7 +198,7 @@ class TopicArgs:
         """
         Integer value which controls the size of
         memory allocated for the topic. For supported values see the "Queue/topic size"
-        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         """
         return pulumi.get(self, "max_size_in_megabytes")
 
@@ -295,10 +295,10 @@ class _TopicState:
                Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
                a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
                new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
@@ -427,7 +427,7 @@ class _TopicState:
         """
         Integer value which controls the maximum size of
         a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
@@ -441,7 +441,7 @@ class _TopicState:
         """
         Integer value which controls the size of
         memory allocated for the topic. For supported values see the "Queue/topic size"
-        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         """
         return pulumi.get(self, "max_size_in_megabytes")
 
@@ -602,10 +602,10 @@ class Topic(pulumi.CustomResource):
                Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
                a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
                new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
@@ -762,10 +762,10 @@ class Topic(pulumi.CustomResource):
                Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
                a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
                new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
@@ -860,7 +860,7 @@ class Topic(pulumi.CustomResource):
         """
         Integer value which controls the maximum size of
         a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
@@ -870,7 +870,7 @@ class Topic(pulumi.CustomResource):
         """
         Integer value which controls the size of
         memory allocated for the topic. For supported values see the "Queue/topic size"
-        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         """
         return pulumi.get(self, "max_size_in_megabytes")
 

@@ -111,7 +111,7 @@ class GetPolicyDefintionResult:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> str:
         """
-        The Type of the Policy. Possible values are "BuiltIn", "Custom" and "NotSpecified".
+        The Type of the Policy. Possible values are `BuiltIn`, `Custom` and `NotSpecified`.
         """
         return pulumi.get(self, "policy_type")
 

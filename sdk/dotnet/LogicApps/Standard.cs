@@ -135,7 +135,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> AppServicePlanId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         /// </summary>
         [Output("appSettings")]
         public Output<ImmutableDictionary<string, string>> AppSettings { get; private set; } = null!;
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.LogicApps
         private InputMap<string>? _appSettings;
 
         /// <summary>
-        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -473,7 +473,7 @@ namespace Pulumi.Azure.LogicApps
         private InputMap<string>? _appSettings;
 
         /// <summary>
-        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         /// </summary>
         public InputMap<string> AppSettings
         {

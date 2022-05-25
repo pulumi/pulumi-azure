@@ -87,7 +87,7 @@ export class LinkedServiceWeb extends pulumi.CustomResource {
     public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -96,7 +96,7 @@ export class LinkedServiceWeb extends pulumi.CustomResource {
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * The URL of the web service endpoint (e.g. http://www.microsoft.com).
+     * The URL of the web service endpoint (e.g. https://www.microsoft.com).
      */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
@@ -183,7 +183,7 @@ export interface LinkedServiceWebState {
     integrationRuntimeName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface LinkedServiceWebState {
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     password?: pulumi.Input<string>;
     /**
-     * The URL of the web service endpoint (e.g. http://www.microsoft.com).
+     * The URL of the web service endpoint (e.g. https://www.microsoft.com).
      */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
@@ -228,7 +228,7 @@ export interface LinkedServiceWebArgs {
     integrationRuntimeName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**
@@ -237,7 +237,7 @@ export interface LinkedServiceWebArgs {
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     password?: pulumi.Input<string>;
     /**
-     * The URL of the web service endpoint (e.g. http://www.microsoft.com).
+     * The URL of the web service endpoint (e.g. https://www.microsoft.com).
      */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;

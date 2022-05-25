@@ -71,7 +71,7 @@ namespace Pulumi.Azure.ContainerService
     public partial class KubernetesCluster : Pulumi.CustomResource
     {
         /// <summary>
-        /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         /// </summary>
         [Output("aciConnectorLinux")]
         public Output<Outputs.KubernetesClusterAciConnectorLinux?> AciConnectorLinux { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterDefaultNodePool> DefaultNodePool { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
         /// </summary>
         [Output("diskEncryptionSetId")]
         public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterIngressApplicationGateway?> IngressApplicationGateway { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+        /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         /// </summary>
         [Output("keyVaultSecretsProvider")]
         public Output<Outputs.KubernetesClusterKeyVaultSecretsProvider?> KeyVaultSecretsProvider { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterLinuxProfile?> LinuxProfile { get; private set; } = null!;
 
         /// <summary>
-        /// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
+        /// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// </summary>
         [Output("localAccountDisabled")]
         public Output<bool?> LocalAccountDisabled { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> NodeResourceGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+        /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
         /// </summary>
         [Output("oidcIssuerEnabled")]
         public Output<bool?> OidcIssuerEnabled { get; private set; } = null!;
@@ -405,7 +405,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class KubernetesClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         /// </summary>
         [Input("aciConnectorLinux")]
         public Input<Inputs.KubernetesClusterAciConnectorLinuxArgs>? AciConnectorLinux { get; set; }
@@ -453,7 +453,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterDefaultNodePoolArgs> DefaultNodePool { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -498,7 +498,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterIngressApplicationGatewayArgs>? IngressApplicationGateway { get; set; }
 
         /// <summary>
-        /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+        /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         /// </summary>
         [Input("keyVaultSecretsProvider")]
         public Input<Inputs.KubernetesClusterKeyVaultSecretsProviderArgs>? KeyVaultSecretsProvider { get; set; }
@@ -522,7 +522,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterLinuxProfileArgs>? LinuxProfile { get; set; }
 
         /// <summary>
-        /// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
+        /// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// </summary>
         [Input("localAccountDisabled")]
         public Input<bool>? LocalAccountDisabled { get; set; }
@@ -564,7 +564,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NodeResourceGroup { get; set; }
 
         /// <summary>
-        /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+        /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
         /// </summary>
         [Input("oidcIssuerEnabled")]
         public Input<bool>? OidcIssuerEnabled { get; set; }
@@ -658,7 +658,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class KubernetesClusterState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         /// </summary>
         [Input("aciConnectorLinux")]
         public Input<Inputs.KubernetesClusterAciConnectorLinuxGetArgs>? AciConnectorLinux { get; set; }
@@ -706,7 +706,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterDefaultNodePoolGetArgs>? DefaultNodePool { get; set; }
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -763,7 +763,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterIngressApplicationGatewayGetArgs>? IngressApplicationGateway { get; set; }
 
         /// <summary>
-        /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+        /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         /// </summary>
         [Input("keyVaultSecretsProvider")]
         public Input<Inputs.KubernetesClusterKeyVaultSecretsProviderGetArgs>? KeyVaultSecretsProvider { get; set; }
@@ -823,7 +823,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterLinuxProfileGetArgs>? LinuxProfile { get; set; }
 
         /// <summary>
-        /// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
+        /// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// </summary>
         [Input("localAccountDisabled")]
         public Input<bool>? LocalAccountDisabled { get; set; }
@@ -865,7 +865,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NodeResourceGroup { get; set; }
 
         /// <summary>
-        /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+        /// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
         /// </summary>
         [Input("oidcIssuerEnabled")]
         public Input<bool>? OidcIssuerEnabled { get; set; }

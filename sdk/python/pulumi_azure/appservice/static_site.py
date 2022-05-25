@@ -27,8 +27,8 @@ class StaticSiteArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
-        :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
-        :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
+        :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -94,7 +94,7 @@ class StaticSiteArgs:
     @pulumi.getter(name="skuSize")
     def sku_size(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         """
         return pulumi.get(self, "sku_size")
 
@@ -106,7 +106,7 @@ class StaticSiteArgs:
     @pulumi.getter(name="skuTier")
     def sku_tier(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         """
         return pulumi.get(self, "sku_tier")
 
@@ -146,8 +146,8 @@ class _StaticSiteState:
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
-        :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
-        :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
+        :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if api_key is not None:
@@ -242,7 +242,7 @@ class _StaticSiteState:
     @pulumi.getter(name="skuSize")
     def sku_size(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         """
         return pulumi.get(self, "sku_size")
 
@@ -254,7 +254,7 @@ class _StaticSiteState:
     @pulumi.getter(name="skuTier")
     def sku_tier(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         """
         return pulumi.get(self, "sku_tier")
 
@@ -291,7 +291,7 @@ class StaticSite(pulumi.CustomResource):
         """
         Manages an App Service Static Site.
 
-        ->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/en-us/azure/static-web-apps/github-actions-workflow).
+        ->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
 
         ## Example Usage
 
@@ -317,8 +317,8 @@ class StaticSite(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
-        :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
-        :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
+        :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -330,7 +330,7 @@ class StaticSite(pulumi.CustomResource):
         """
         Manages an App Service Static Site.
 
-        ->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/en-us/azure/static-web-apps/github-actions-workflow).
+        ->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
 
         ## Example Usage
 
@@ -427,8 +427,8 @@ class StaticSite(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
-        :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
-        :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
+        :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -495,7 +495,7 @@ class StaticSite(pulumi.CustomResource):
     @pulumi.getter(name="skuSize")
     def sku_size(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         """
         return pulumi.get(self, "sku_size")
 
@@ -503,7 +503,7 @@ class StaticSite(pulumi.CustomResource):
     @pulumi.getter(name="skuTier")
     def sku_tier(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+        Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         """
         return pulumi.get(self, "sku_tier")
 

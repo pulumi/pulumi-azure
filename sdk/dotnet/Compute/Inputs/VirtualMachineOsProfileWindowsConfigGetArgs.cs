@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<bool>? ProvisionVmAgent { get; set; }
 
         /// <summary>
-        /// Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        /// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }

@@ -13,6 +13,8 @@ import (
 
 // Manages a Video Analyzer Edge Module.
 //
+// !> Video Analyzer (Preview) is now Deprecated and will be Retired on 2022-11-30 - as such the `videoanalyzer.EdgeModule` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
+//
 // ## Example Usage
 //
 // ```go

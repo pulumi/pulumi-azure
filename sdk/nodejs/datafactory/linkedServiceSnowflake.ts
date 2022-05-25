@@ -122,7 +122,7 @@ export class LinkedServiceSnowflake extends pulumi.CustomResource {
     public readonly keyVaultPassword!: pulumi.Output<outputs.datafactory.LinkedServiceSnowflakeKeyVaultPassword | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -209,7 +209,7 @@ export interface LinkedServiceSnowflakeState {
     keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSnowflakeKeyVaultPassword>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**
@@ -252,7 +252,7 @@ export interface LinkedServiceSnowflakeArgs {
     keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceSnowflakeKeyVaultPassword>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**

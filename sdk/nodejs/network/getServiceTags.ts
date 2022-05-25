@@ -40,7 +40,7 @@ export function getServiceTags(args: GetServiceTagsArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetServiceTagsArgs {
     /**
-     * The Azure Region where the Service Tags exists. This value is not used to filter the results but for specifying the region to request. For filtering by region use `locationFilter` instead.  More information can be found here: [Service Tags URL parameters](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/servicetags/list#uri-parameters).
+     * The Azure Region where the Service Tags exists. This value is not used to filter the results but for specifying the region to request. For filtering by region use `locationFilter` instead.  More information can be found here: [Service Tags URL parameters](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list#uri-parameters).
      */
     location: string;
     /**
@@ -48,7 +48,7 @@ export interface GetServiceTagsArgs {
      */
     locationFilter?: string;
     /**
-     * The type of the service for which address prefixes will be fetched. Available service tags can be found here: [Available service tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
+     * The type of the service for which address prefixes will be fetched. Available service tags can be found here: [Available service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
      */
     service: string;
 }
@@ -87,7 +87,7 @@ export function getServiceTagsOutput(args: GetServiceTagsOutputArgs, opts?: pulu
  */
 export interface GetServiceTagsOutputArgs {
     /**
-     * The Azure Region where the Service Tags exists. This value is not used to filter the results but for specifying the region to request. For filtering by region use `locationFilter` instead.  More information can be found here: [Service Tags URL parameters](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/servicetags/list#uri-parameters).
+     * The Azure Region where the Service Tags exists. This value is not used to filter the results but for specifying the region to request. For filtering by region use `locationFilter` instead.  More information can be found here: [Service Tags URL parameters](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list#uri-parameters).
      */
     location: pulumi.Input<string>;
     /**
@@ -95,7 +95,7 @@ export interface GetServiceTagsOutputArgs {
      */
     locationFilter?: pulumi.Input<string>;
     /**
-     * The type of the service for which address prefixes will be fetched. Available service tags can be found here: [Available service tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
+     * The type of the service for which address prefixes will be fetched. Available service tags can be found here: [Available service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
      */
     service: pulumi.Input<string>;
 }

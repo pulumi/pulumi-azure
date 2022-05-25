@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string? MinProtocolVersion;
         /// <summary>
         /// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-        /// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
+        /// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
         /// </summary>
         public readonly string? PolicyName;
         /// <summary>

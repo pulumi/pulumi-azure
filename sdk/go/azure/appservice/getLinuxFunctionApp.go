@@ -55,7 +55,7 @@ type LookupLinuxFunctionAppArgs struct {
 
 // A collection of values returned by getLinuxFunctionApp.
 type LookupLinuxFunctionAppResult struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings []GetLinuxFunctionAppAuthSetting `pulumi:"authSettings"`
@@ -68,8 +68,9 @@ type LookupLinuxFunctionAppResult struct {
 	// The mode of the Function App's client certificates requirement for incoming requests.
 	ClientCertificateMode string `pulumi:"clientCertificateMode"`
 	// A `connectionString` blocks as defined below.
-	ConnectionStrings         []GetLinuxFunctionAppConnectionString `pulumi:"connectionStrings"`
-	ContentShareForceDisabled bool                                  `pulumi:"contentShareForceDisabled"`
+	ConnectionStrings []GetLinuxFunctionAppConnectionString `pulumi:"connectionStrings"`
+	// Are the settings for linking the Function App to storage suppressed?
+	ContentShareForceDisabled bool `pulumi:"contentShareForceDisabled"`
 	// The identifier used by App Service to perform domain ownership verification via DNS TXT record.
 	CustomDomainVerificationId string `pulumi:"customDomainVerificationId"`
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day.
@@ -161,7 +162,7 @@ func (o LookupLinuxFunctionAppResultOutput) ToLookupLinuxFunctionAppResultOutput
 	return o
 }
 
-// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 func (o LookupLinuxFunctionAppResultOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) map[string]string { return v.AppSettings }).(pulumi.StringMapOutput)
 }
@@ -196,6 +197,7 @@ func (o LookupLinuxFunctionAppResultOutput) ConnectionStrings() GetLinuxFunction
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) []GetLinuxFunctionAppConnectionString { return v.ConnectionStrings }).(GetLinuxFunctionAppConnectionStringArrayOutput)
 }
 
+// Are the settings for linking the Function App to storage suppressed?
 func (o LookupLinuxFunctionAppResultOutput) ContentShareForceDisabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) bool { return v.ContentShareForceDisabled }).(pulumi.BoolOutput)
 }

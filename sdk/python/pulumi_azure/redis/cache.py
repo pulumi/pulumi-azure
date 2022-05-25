@@ -859,8 +859,8 @@ class Cache(pulumi.CustomResource):
 
         ## Relevant Links
 
-         - [Azure Cache for Redis planning](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-planning-faq)
-         - [Redis: Available Configuration Settings](http://redis.io/topics/config)
+         - [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
+         - [Redis: Available Configuration Settings](https://redis.io/topics/config)
 
         ## Import
 
@@ -950,8 +950,8 @@ class Cache(pulumi.CustomResource):
 
         ## Relevant Links
 
-         - [Azure Cache for Redis planning](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-planning-faq)
-         - [Redis: Available Configuration Settings](http://redis.io/topics/config)
+         - [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
+         - [Redis: Available Configuration Settings](https://redis.io/topics/config)
 
         ## Import
 

@@ -3913,7 +3913,7 @@ type BlobInventoryPolicyRule struct {
 	Name string `pulumi:"name"`
 	// The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
 	Schedule string `pulumi:"schedule"`
-	// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+	// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
 	SchemaFields []string `pulumi:"schemaFields"`
 	// The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
 	Scope string `pulumi:"scope"`
@@ -3941,7 +3941,7 @@ type BlobInventoryPolicyRuleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
 	Schedule pulumi.StringInput `pulumi:"schedule"`
-	// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+	// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
 	SchemaFields pulumi.StringArrayInput `pulumi:"schemaFields"`
 	// The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
 	Scope pulumi.StringInput `pulumi:"scope"`
@@ -4020,7 +4020,7 @@ func (o BlobInventoryPolicyRuleOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRule) string { return v.Schedule }).(pulumi.StringOutput)
 }
 
-// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
 func (o BlobInventoryPolicyRuleOutput) SchemaFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRule) []string { return v.SchemaFields }).(pulumi.StringArrayOutput)
 }

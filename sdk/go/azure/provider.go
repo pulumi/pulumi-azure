@@ -34,6 +34,12 @@ type Provider struct {
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint pulumi.StringPtrOutput `pulumi:"msiEndpoint"`
+	// The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+	// Connect.
+	OidcRequestToken pulumi.StringPtrOutput `pulumi:"oidcRequestToken"`
+	// The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+	// using OpenID Connect.
+	OidcRequestUrl pulumi.StringPtrOutput `pulumi:"oidcRequestUrl"`
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId pulumi.StringPtrOutput `pulumi:"partnerId"`
 	// The Subscription ID which should be used.
@@ -96,6 +102,12 @@ type providerArgs struct {
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint *string `pulumi:"msiEndpoint"`
+	// The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+	// Connect.
+	OidcRequestToken *string `pulumi:"oidcRequestToken"`
+	// The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+	// using OpenID Connect.
+	OidcRequestUrl *string `pulumi:"oidcRequestUrl"`
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId *string `pulumi:"partnerId"`
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
@@ -109,6 +121,8 @@ type providerArgs struct {
 	TenantId *string `pulumi:"tenantId"`
 	// Allowed Managed Service Identity be used for Authentication.
 	UseMsi *bool `pulumi:"useMsi"`
+	// Allow OpenID Connect to be used for authentication
+	UseOidc *bool `pulumi:"useOidc"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -136,6 +150,12 @@ type ProviderArgs struct {
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint pulumi.StringPtrInput
+	// The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+	// Connect.
+	OidcRequestToken pulumi.StringPtrInput
+	// The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+	// using OpenID Connect.
+	OidcRequestUrl pulumi.StringPtrInput
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId pulumi.StringPtrInput
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
@@ -149,6 +169,8 @@ type ProviderArgs struct {
 	TenantId pulumi.StringPtrInput
 	// Allowed Managed Service Identity be used for Authentication.
 	UseMsi pulumi.BoolPtrInput
+	// Allow OpenID Connect to be used for authentication
+	UseOidc pulumi.BoolPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -224,6 +246,18 @@ func (o ProviderOutput) MetadataHost() pulumi.StringPtrOutput {
 // automatically.
 func (o ProviderOutput) MsiEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.MsiEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+// Connect.
+func (o ProviderOutput) OidcRequestToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcRequestToken }).(pulumi.StringPtrOutput)
+}
+
+// The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+// using OpenID Connect.
+func (o ProviderOutput) OidcRequestUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcRequestUrl }).(pulumi.StringPtrOutput)
 }
 
 // A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.

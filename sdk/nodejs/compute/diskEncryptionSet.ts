@@ -112,7 +112,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      */
     public readonly autoKeyRotationEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
      */
     public readonly encryptionType!: pulumi.Output<string | undefined>;
     /**
@@ -195,7 +195,7 @@ export interface DiskEncryptionSetState {
      */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
     /**
-     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
      */
     encryptionType?: pulumi.Input<string>;
     /**
@@ -233,7 +233,7 @@ export interface DiskEncryptionSetArgs {
      */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
     /**
-     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
      */
     encryptionType?: pulumi.Input<string>;
     /**

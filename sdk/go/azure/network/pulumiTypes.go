@@ -1022,7 +1022,7 @@ type ApplicationGatewayFrontendIpConfiguration struct {
 	PrivateLinkConfigurationId *string `pulumi:"privateLinkConfigurationId"`
 	// The name of the private link configuration to use for this frontend IP configuration.
 	PrivateLinkConfigurationName *string `pulumi:"privateLinkConfigurationName"`
-	// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
+	// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet.
 	SubnetId *string `pulumi:"subnetId"`
@@ -1052,7 +1052,7 @@ type ApplicationGatewayFrontendIpConfigurationArgs struct {
 	PrivateLinkConfigurationId pulumi.StringPtrInput `pulumi:"privateLinkConfigurationId"`
 	// The name of the private link configuration to use for this frontend IP configuration.
 	PrivateLinkConfigurationName pulumi.StringPtrInput `pulumi:"privateLinkConfigurationName"`
-	// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
+	// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
 	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -1139,7 +1139,7 @@ func (o ApplicationGatewayFrontendIpConfigurationOutput) PrivateLinkConfiguratio
 	return o.ApplyT(func(v ApplicationGatewayFrontendIpConfiguration) *string { return v.PrivateLinkConfigurationName }).(pulumi.StringPtrOutput)
 }
 
-// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
+// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
 func (o ApplicationGatewayFrontendIpConfigurationOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIpConfiguration) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }
@@ -3277,7 +3277,7 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleCondition struct {
 	Negate *bool `pulumi:"negate"`
 	// The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
 	Pattern string `pulumi:"pattern"`
-	// The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+	// The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
 	Variable string `pulumi:"variable"`
 }
 
@@ -3299,7 +3299,7 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs struct {
 	Negate pulumi.BoolPtrInput `pulumi:"negate"`
 	// The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
-	// The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+	// The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
 	Variable pulumi.StringInput `pulumi:"variable"`
 }
 
@@ -3369,7 +3369,7 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput) Pattern() pu
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleCondition) string { return v.Pattern }).(pulumi.StringOutput)
 }
 
-// The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+// The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput) Variable() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleCondition) string { return v.Variable }).(pulumi.StringOutput)
 }
@@ -3619,7 +3619,7 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleUrl struct {
 	Path *string `pulumi:"path"`
 	// The query string to rewrite.
 	QueryString *string `pulumi:"queryString"`
-	// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+	// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
 	Reroute *bool `pulumi:"reroute"`
 }
 
@@ -3639,7 +3639,7 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The query string to rewrite.
 	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
-	// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+	// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
 	Reroute pulumi.BoolPtrInput `pulumi:"reroute"`
 }
 
@@ -3730,7 +3730,7 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) QueryString() pulu
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string { return v.QueryString }).(pulumi.StringPtrOutput)
 }
 
-// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) Reroute() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *bool { return v.Reroute }).(pulumi.BoolPtrOutput)
 }
@@ -3779,7 +3779,7 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) QueryString() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Reroute() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *bool {
 		if v == nil {
@@ -4114,7 +4114,7 @@ type ApplicationGatewaySslPolicy struct {
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	MinProtocolVersion *string `pulumi:"minProtocolVersion"`
 	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-	// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+	// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
 	PolicyName *string `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined` and `Custom`.
 	PolicyType *string `pulumi:"policyType"`
@@ -4139,7 +4139,7 @@ type ApplicationGatewaySslPolicyArgs struct {
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	MinProtocolVersion pulumi.StringPtrInput `pulumi:"minProtocolVersion"`
 	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-	// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+	// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
 	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined` and `Custom`.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
@@ -4238,7 +4238,7 @@ func (o ApplicationGatewaySslPolicyOutput) MinProtocolVersion() pulumi.StringPtr
 }
 
 // The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
 func (o ApplicationGatewaySslPolicyOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslPolicy) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
@@ -4303,7 +4303,7 @@ func (o ApplicationGatewaySslPolicyPtrOutput) MinProtocolVersion() pulumi.String
 }
 
 // The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
 func (o ApplicationGatewaySslPolicyPtrOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySslPolicy) *string {
 		if v == nil {
@@ -4464,7 +4464,7 @@ type ApplicationGatewaySslProfileSslPolicy struct {
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	MinProtocolVersion *string `pulumi:"minProtocolVersion"`
 	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-	// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+	// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
 	PolicyName *string `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined` and `Custom`.
 	PolicyType *string `pulumi:"policyType"`
@@ -4489,7 +4489,7 @@ type ApplicationGatewaySslProfileSslPolicyArgs struct {
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	MinProtocolVersion pulumi.StringPtrInput `pulumi:"minProtocolVersion"`
 	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-	// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+	// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
 	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined` and `Custom`.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
@@ -4588,7 +4588,7 @@ func (o ApplicationGatewaySslProfileSslPolicyOutput) MinProtocolVersion() pulumi
 }
 
 // The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
 func (o ApplicationGatewaySslProfileSslPolicyOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfileSslPolicy) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
@@ -4653,7 +4653,7 @@ func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) MinProtocolVersion() pul
 }
 
 // The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+// are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
 func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySslProfileSslPolicy) *string {
 		if v == nil {
@@ -8343,7 +8343,7 @@ func (o FirewallNatRuleCollectionRuleArrayOutput) Index(i pulumi.IntInput) Firew
 type FirewallNetworkRuleCollectionRule struct {
 	// Specifies a description for the rule.
 	Description *string `pulumi:"description"`
-	// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
+	// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
 	DestinationAddresses []string `pulumi:"destinationAddresses"`
 	// A list of destination FQDNS for the rule.
 	DestinationFqdns []string `pulumi:"destinationFqdns"`
@@ -8375,7 +8375,7 @@ type FirewallNetworkRuleCollectionRuleInput interface {
 type FirewallNetworkRuleCollectionRuleArgs struct {
 	// Specifies a description for the rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
+	// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
 	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
 	// A list of destination FQDNS for the rule.
 	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
@@ -8449,7 +8449,7 @@ func (o FirewallNetworkRuleCollectionRuleOutput) Description() pulumi.StringPtrO
 	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
+// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
 func (o FirewallNetworkRuleCollectionRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
 }
@@ -9124,7 +9124,7 @@ func (o FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput) Index(i pulumi.I
 }
 
 type FirewallPolicyIntrusionDetection struct {
-	// In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+	// In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
 	Mode *string `pulumi:"mode"`
 	// One or more `signatureOverrides` blocks as defined below.
 	SignatureOverrides []FirewallPolicyIntrusionDetectionSignatureOverride `pulumi:"signatureOverrides"`
@@ -9144,7 +9144,7 @@ type FirewallPolicyIntrusionDetectionInput interface {
 }
 
 type FirewallPolicyIntrusionDetectionArgs struct {
-	// In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+	// In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// One or more `signatureOverrides` blocks as defined below.
 	SignatureOverrides FirewallPolicyIntrusionDetectionSignatureOverrideArrayInput `pulumi:"signatureOverrides"`
@@ -9229,7 +9229,7 @@ func (o FirewallPolicyIntrusionDetectionOutput) ToFirewallPolicyIntrusionDetecti
 	}).(FirewallPolicyIntrusionDetectionPtrOutput)
 }
 
-// In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+// In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
 func (o FirewallPolicyIntrusionDetectionOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyIntrusionDetection) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -9272,7 +9272,7 @@ func (o FirewallPolicyIntrusionDetectionPtrOutput) Elem() FirewallPolicyIntrusio
 	}).(FirewallPolicyIntrusionDetectionOutput)
 }
 
-// In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+// In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
 func (o FirewallPolicyIntrusionDetectionPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyIntrusionDetection) *string {
 		if v == nil {
@@ -9305,7 +9305,7 @@ func (o FirewallPolicyIntrusionDetectionPtrOutput) TrafficBypasses() FirewallPol
 type FirewallPolicyIntrusionDetectionSignatureOverride struct {
 	// 12-digit number (id) which identifies your signature.
 	Id *string `pulumi:"id"`
-	// state can be any of "Off", "Alert" or "Deny".
+	// state can be any of `Off`, `Alert` or `Deny`.
 	State *string `pulumi:"state"`
 }
 
@@ -9323,7 +9323,7 @@ type FirewallPolicyIntrusionDetectionSignatureOverrideInput interface {
 type FirewallPolicyIntrusionDetectionSignatureOverrideArgs struct {
 	// 12-digit number (id) which identifies your signature.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// state can be any of "Off", "Alert" or "Deny".
+	// state can be any of `Off`, `Alert` or `Deny`.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -9383,7 +9383,7 @@ func (o FirewallPolicyIntrusionDetectionSignatureOverrideOutput) Id() pulumi.Str
 	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionSignatureOverride) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// state can be any of "Off", "Alert" or "Deny".
+// state can be any of `Off`, `Alert` or `Deny`.
 func (o FirewallPolicyIntrusionDetectionSignatureOverrideOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionSignatureOverride) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -9419,7 +9419,7 @@ type FirewallPolicyIntrusionDetectionTrafficBypass struct {
 	DestinationPorts []string `pulumi:"destinationPorts"`
 	// The name which should be used for this bypass traffic setting.
 	Name string `pulumi:"name"`
-	// The protocols any of "ANY", "TCP", "ICMP", "UDP" that shall be bypassed by intrusion detection.
+	// The protocols any of `ANY`, `TCP`, `ICMP`, `UDP` that shall be bypassed by intrusion detection.
 	Protocol string `pulumi:"protocol"`
 	// Specifies a list of source addresses that shall be bypassed by intrusion detection.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -9449,7 +9449,7 @@ type FirewallPolicyIntrusionDetectionTrafficBypassArgs struct {
 	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
 	// The name which should be used for this bypass traffic setting.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The protocols any of "ANY", "TCP", "ICMP", "UDP" that shall be bypassed by intrusion detection.
+	// The protocols any of `ANY`, `TCP`, `ICMP`, `UDP` that shall be bypassed by intrusion detection.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// Specifies a list of source addresses that shall be bypassed by intrusion detection.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -9533,7 +9533,7 @@ func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) Name() pulumi.Strin
 	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionTrafficBypass) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The protocols any of "ANY", "TCP", "ICMP", "UDP" that shall be bypassed by intrusion detection.
+// The protocols any of `ANY`, `TCP`, `ICMP`, `UDP` that shall be bypassed by intrusion detection.
 func (o FirewallPolicyIntrusionDetectionTrafficBypassOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyIntrusionDetectionTrafficBypass) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -14995,9 +14995,9 @@ func (o RouteFilterRulePtrOutput) RuleType() pulumi.StringPtrOutput {
 }
 
 type RouteTableRoute struct {
-	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix string `pulumi:"addressPrefix"`
-	// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+	// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	Name string `pulumi:"name"`
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress *string `pulumi:"nextHopInIpAddress"`
@@ -15017,9 +15017,9 @@ type RouteTableRouteInput interface {
 }
 
 type RouteTableRouteArgs struct {
-	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
-	// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+	// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress pulumi.StringPtrInput `pulumi:"nextHopInIpAddress"`
@@ -15078,12 +15078,12 @@ func (o RouteTableRouteOutput) ToRouteTableRouteOutputWithContext(ctx context.Co
 	return o
 }
 
-// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 func (o RouteTableRouteOutput) AddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteTableRoute) string { return v.AddressPrefix }).(pulumi.StringOutput)
 }
 
-// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 func (o RouteTableRouteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteTableRoute) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -18709,6 +18709,218 @@ func (o VirtualNetworkGatewayIpConfigurationArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkGatewayIpConfiguration {
 		return vs[0].([]VirtualNetworkGatewayIpConfiguration)[vs[1].(int)]
 	}).(VirtualNetworkGatewayIpConfigurationOutput)
+}
+
+type VirtualNetworkGatewayNatRuleExternalMapping struct {
+	// The string CIDR representing the address space for the Virtual Network Gateway Nat Rule external mapping.
+	AddressSpace string `pulumi:"addressSpace"`
+	// The single port range for the Virtual Network Gateway Nat Rule external mapping.
+	PortRange *string `pulumi:"portRange"`
+}
+
+// VirtualNetworkGatewayNatRuleExternalMappingInput is an input type that accepts VirtualNetworkGatewayNatRuleExternalMappingArgs and VirtualNetworkGatewayNatRuleExternalMappingOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayNatRuleExternalMappingInput` via:
+//
+//          VirtualNetworkGatewayNatRuleExternalMappingArgs{...}
+type VirtualNetworkGatewayNatRuleExternalMappingInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayNatRuleExternalMappingOutput() VirtualNetworkGatewayNatRuleExternalMappingOutput
+	ToVirtualNetworkGatewayNatRuleExternalMappingOutputWithContext(context.Context) VirtualNetworkGatewayNatRuleExternalMappingOutput
+}
+
+type VirtualNetworkGatewayNatRuleExternalMappingArgs struct {
+	// The string CIDR representing the address space for the Virtual Network Gateway Nat Rule external mapping.
+	AddressSpace pulumi.StringInput `pulumi:"addressSpace"`
+	// The single port range for the Virtual Network Gateway Nat Rule external mapping.
+	PortRange pulumi.StringPtrInput `pulumi:"portRange"`
+}
+
+func (VirtualNetworkGatewayNatRuleExternalMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayNatRuleExternalMapping)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayNatRuleExternalMappingArgs) ToVirtualNetworkGatewayNatRuleExternalMappingOutput() VirtualNetworkGatewayNatRuleExternalMappingOutput {
+	return i.ToVirtualNetworkGatewayNatRuleExternalMappingOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayNatRuleExternalMappingArgs) ToVirtualNetworkGatewayNatRuleExternalMappingOutputWithContext(ctx context.Context) VirtualNetworkGatewayNatRuleExternalMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayNatRuleExternalMappingOutput)
+}
+
+// VirtualNetworkGatewayNatRuleExternalMappingArrayInput is an input type that accepts VirtualNetworkGatewayNatRuleExternalMappingArray and VirtualNetworkGatewayNatRuleExternalMappingArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayNatRuleExternalMappingArrayInput` via:
+//
+//          VirtualNetworkGatewayNatRuleExternalMappingArray{ VirtualNetworkGatewayNatRuleExternalMappingArgs{...} }
+type VirtualNetworkGatewayNatRuleExternalMappingArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayNatRuleExternalMappingArrayOutput() VirtualNetworkGatewayNatRuleExternalMappingArrayOutput
+	ToVirtualNetworkGatewayNatRuleExternalMappingArrayOutputWithContext(context.Context) VirtualNetworkGatewayNatRuleExternalMappingArrayOutput
+}
+
+type VirtualNetworkGatewayNatRuleExternalMappingArray []VirtualNetworkGatewayNatRuleExternalMappingInput
+
+func (VirtualNetworkGatewayNatRuleExternalMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayNatRuleExternalMapping)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayNatRuleExternalMappingArray) ToVirtualNetworkGatewayNatRuleExternalMappingArrayOutput() VirtualNetworkGatewayNatRuleExternalMappingArrayOutput {
+	return i.ToVirtualNetworkGatewayNatRuleExternalMappingArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayNatRuleExternalMappingArray) ToVirtualNetworkGatewayNatRuleExternalMappingArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayNatRuleExternalMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayNatRuleExternalMappingArrayOutput)
+}
+
+type VirtualNetworkGatewayNatRuleExternalMappingOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayNatRuleExternalMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayNatRuleExternalMapping)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayNatRuleExternalMappingOutput) ToVirtualNetworkGatewayNatRuleExternalMappingOutput() VirtualNetworkGatewayNatRuleExternalMappingOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayNatRuleExternalMappingOutput) ToVirtualNetworkGatewayNatRuleExternalMappingOutputWithContext(ctx context.Context) VirtualNetworkGatewayNatRuleExternalMappingOutput {
+	return o
+}
+
+// The string CIDR representing the address space for the Virtual Network Gateway Nat Rule external mapping.
+func (o VirtualNetworkGatewayNatRuleExternalMappingOutput) AddressSpace() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayNatRuleExternalMapping) string { return v.AddressSpace }).(pulumi.StringOutput)
+}
+
+// The single port range for the Virtual Network Gateway Nat Rule external mapping.
+func (o VirtualNetworkGatewayNatRuleExternalMappingOutput) PortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayNatRuleExternalMapping) *string { return v.PortRange }).(pulumi.StringPtrOutput)
+}
+
+type VirtualNetworkGatewayNatRuleExternalMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayNatRuleExternalMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayNatRuleExternalMapping)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayNatRuleExternalMappingArrayOutput) ToVirtualNetworkGatewayNatRuleExternalMappingArrayOutput() VirtualNetworkGatewayNatRuleExternalMappingArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayNatRuleExternalMappingArrayOutput) ToVirtualNetworkGatewayNatRuleExternalMappingArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayNatRuleExternalMappingArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayNatRuleExternalMappingArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayNatRuleExternalMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkGatewayNatRuleExternalMapping {
+		return vs[0].([]VirtualNetworkGatewayNatRuleExternalMapping)[vs[1].(int)]
+	}).(VirtualNetworkGatewayNatRuleExternalMappingOutput)
+}
+
+type VirtualNetworkGatewayNatRuleInternalMapping struct {
+	// The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
+	AddressSpace string `pulumi:"addressSpace"`
+	// The single port range for the Virtual Network Gateway Nat Rule internal mapping.
+	PortRange *string `pulumi:"portRange"`
+}
+
+// VirtualNetworkGatewayNatRuleInternalMappingInput is an input type that accepts VirtualNetworkGatewayNatRuleInternalMappingArgs and VirtualNetworkGatewayNatRuleInternalMappingOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayNatRuleInternalMappingInput` via:
+//
+//          VirtualNetworkGatewayNatRuleInternalMappingArgs{...}
+type VirtualNetworkGatewayNatRuleInternalMappingInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayNatRuleInternalMappingOutput() VirtualNetworkGatewayNatRuleInternalMappingOutput
+	ToVirtualNetworkGatewayNatRuleInternalMappingOutputWithContext(context.Context) VirtualNetworkGatewayNatRuleInternalMappingOutput
+}
+
+type VirtualNetworkGatewayNatRuleInternalMappingArgs struct {
+	// The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
+	AddressSpace pulumi.StringInput `pulumi:"addressSpace"`
+	// The single port range for the Virtual Network Gateway Nat Rule internal mapping.
+	PortRange pulumi.StringPtrInput `pulumi:"portRange"`
+}
+
+func (VirtualNetworkGatewayNatRuleInternalMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayNatRuleInternalMapping)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayNatRuleInternalMappingArgs) ToVirtualNetworkGatewayNatRuleInternalMappingOutput() VirtualNetworkGatewayNatRuleInternalMappingOutput {
+	return i.ToVirtualNetworkGatewayNatRuleInternalMappingOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayNatRuleInternalMappingArgs) ToVirtualNetworkGatewayNatRuleInternalMappingOutputWithContext(ctx context.Context) VirtualNetworkGatewayNatRuleInternalMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayNatRuleInternalMappingOutput)
+}
+
+// VirtualNetworkGatewayNatRuleInternalMappingArrayInput is an input type that accepts VirtualNetworkGatewayNatRuleInternalMappingArray and VirtualNetworkGatewayNatRuleInternalMappingArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayNatRuleInternalMappingArrayInput` via:
+//
+//          VirtualNetworkGatewayNatRuleInternalMappingArray{ VirtualNetworkGatewayNatRuleInternalMappingArgs{...} }
+type VirtualNetworkGatewayNatRuleInternalMappingArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayNatRuleInternalMappingArrayOutput() VirtualNetworkGatewayNatRuleInternalMappingArrayOutput
+	ToVirtualNetworkGatewayNatRuleInternalMappingArrayOutputWithContext(context.Context) VirtualNetworkGatewayNatRuleInternalMappingArrayOutput
+}
+
+type VirtualNetworkGatewayNatRuleInternalMappingArray []VirtualNetworkGatewayNatRuleInternalMappingInput
+
+func (VirtualNetworkGatewayNatRuleInternalMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayNatRuleInternalMapping)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayNatRuleInternalMappingArray) ToVirtualNetworkGatewayNatRuleInternalMappingArrayOutput() VirtualNetworkGatewayNatRuleInternalMappingArrayOutput {
+	return i.ToVirtualNetworkGatewayNatRuleInternalMappingArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayNatRuleInternalMappingArray) ToVirtualNetworkGatewayNatRuleInternalMappingArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayNatRuleInternalMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayNatRuleInternalMappingArrayOutput)
+}
+
+type VirtualNetworkGatewayNatRuleInternalMappingOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayNatRuleInternalMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayNatRuleInternalMapping)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayNatRuleInternalMappingOutput) ToVirtualNetworkGatewayNatRuleInternalMappingOutput() VirtualNetworkGatewayNatRuleInternalMappingOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayNatRuleInternalMappingOutput) ToVirtualNetworkGatewayNatRuleInternalMappingOutputWithContext(ctx context.Context) VirtualNetworkGatewayNatRuleInternalMappingOutput {
+	return o
+}
+
+// The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
+func (o VirtualNetworkGatewayNatRuleInternalMappingOutput) AddressSpace() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayNatRuleInternalMapping) string { return v.AddressSpace }).(pulumi.StringOutput)
+}
+
+// The single port range for the Virtual Network Gateway Nat Rule internal mapping.
+func (o VirtualNetworkGatewayNatRuleInternalMappingOutput) PortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayNatRuleInternalMapping) *string { return v.PortRange }).(pulumi.StringPtrOutput)
+}
+
+type VirtualNetworkGatewayNatRuleInternalMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayNatRuleInternalMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayNatRuleInternalMapping)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayNatRuleInternalMappingArrayOutput) ToVirtualNetworkGatewayNatRuleInternalMappingArrayOutput() VirtualNetworkGatewayNatRuleInternalMappingArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayNatRuleInternalMappingArrayOutput) ToVirtualNetworkGatewayNatRuleInternalMappingArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayNatRuleInternalMappingArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayNatRuleInternalMappingArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayNatRuleInternalMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkGatewayNatRuleInternalMapping {
+		return vs[0].([]VirtualNetworkGatewayNatRuleInternalMapping)[vs[1].(int)]
+	}).(VirtualNetworkGatewayNatRuleInternalMappingOutput)
 }
 
 type VirtualNetworkGatewayVpnClientConfiguration struct {
@@ -25034,6 +25246,8 @@ func (o GetVirtualNetworkGatewayCustomRouteArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetVirtualNetworkGatewayIpConfiguration struct {
+	// The resource ID of the IP configuration.
+	Id string `pulumi:"id"`
 	// Specifies the name of the Virtual Network Gateway.
 	Name string `pulumi:"name"`
 	// Defines how the private IP address
@@ -25061,6 +25275,8 @@ type GetVirtualNetworkGatewayIpConfigurationInput interface {
 }
 
 type GetVirtualNetworkGatewayIpConfigurationArgs struct {
+	// The resource ID of the IP configuration.
+	Id pulumi.StringInput `pulumi:"id"`
 	// Specifies the name of the Virtual Network Gateway.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Defines how the private IP address
@@ -25125,6 +25341,11 @@ func (o GetVirtualNetworkGatewayIpConfigurationOutput) ToGetVirtualNetworkGatewa
 
 func (o GetVirtualNetworkGatewayIpConfigurationOutput) ToGetVirtualNetworkGatewayIpConfigurationOutputWithContext(ctx context.Context) GetVirtualNetworkGatewayIpConfigurationOutput {
 	return o
+}
+
+// The resource ID of the IP configuration.
+func (o GetVirtualNetworkGatewayIpConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualNetworkGatewayIpConfiguration) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Virtual Network Gateway.
@@ -26242,6 +26463,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayCustomRoutePtrInput)(nil)).Elem(), VirtualNetworkGatewayCustomRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayIpConfigurationInput)(nil)).Elem(), VirtualNetworkGatewayIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayIpConfigurationArrayInput)(nil)).Elem(), VirtualNetworkGatewayIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayNatRuleExternalMappingInput)(nil)).Elem(), VirtualNetworkGatewayNatRuleExternalMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayNatRuleExternalMappingArrayInput)(nil)).Elem(), VirtualNetworkGatewayNatRuleExternalMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayNatRuleInternalMappingInput)(nil)).Elem(), VirtualNetworkGatewayNatRuleInternalMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayNatRuleInternalMappingArrayInput)(nil)).Elem(), VirtualNetworkGatewayNatRuleInternalMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationPtrInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{})
@@ -26582,6 +26807,10 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayCustomRoutePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayIpConfigurationOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayNatRuleExternalMappingOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayNatRuleExternalMappingArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayNatRuleInternalMappingOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayNatRuleInternalMappingArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateOutput{})

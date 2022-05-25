@@ -8363,7 +8363,7 @@ func (o LogzMonitorUserPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 }
 
 type LogzTagRuleTagFilter struct {
-	// The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+	// The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
 	Action string `pulumi:"action"`
 	// The name of this `tagFilter`.
 	Name string `pulumi:"name"`
@@ -8383,7 +8383,7 @@ type LogzTagRuleTagFilterInput interface {
 }
 
 type LogzTagRuleTagFilterArgs struct {
-	// The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+	// The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
 	Action pulumi.StringInput `pulumi:"action"`
 	// The name of this `tagFilter`.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -8442,7 +8442,7 @@ func (o LogzTagRuleTagFilterOutput) ToLogzTagRuleTagFilterOutputWithContext(ctx 
 	return o
 }
 
-// The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+// The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
 func (o LogzTagRuleTagFilterOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v LogzTagRuleTagFilter) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -9998,7 +9998,7 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Threshold() pulum
 type ScheduledQueryRulesLogCriteria struct {
 	// A `dimension` block as defined below.
 	Dimensions []ScheduledQueryRulesLogCriteriaDimension `pulumi:"dimensions"`
-	// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+	// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
 	MetricName string `pulumi:"metricName"`
 }
 
@@ -10016,7 +10016,7 @@ type ScheduledQueryRulesLogCriteriaInput interface {
 type ScheduledQueryRulesLogCriteriaArgs struct {
 	// A `dimension` block as defined below.
 	Dimensions ScheduledQueryRulesLogCriteriaDimensionArrayInput `pulumi:"dimensions"`
-	// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+	// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 }
 
@@ -10102,7 +10102,7 @@ func (o ScheduledQueryRulesLogCriteriaOutput) Dimensions() ScheduledQueryRulesLo
 	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) []ScheduledQueryRulesLogCriteriaDimension { return v.Dimensions }).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
 }
 
-// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
 func (o ScheduledQueryRulesLogCriteriaOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) string { return v.MetricName }).(pulumi.StringOutput)
 }
@@ -10141,7 +10141,7 @@ func (o ScheduledQueryRulesLogCriteriaPtrOutput) Dimensions() ScheduledQueryRule
 	}).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
 }
 
-// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
 func (o ScheduledQueryRulesLogCriteriaPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesLogCriteria) *string {
 		if v == nil {

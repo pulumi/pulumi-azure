@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Storage Encryption Scope.
     /// 
-    /// &gt; **Note:** Storage Encryption Scopes are in Preview [more information can be found here](https://docs.microsoft.com/en-us/azure/storage/blobs/encryption-scope-manage).
+    /// &gt; **Note:** Storage Encryption Scopes are in Preview [more information can be found here](https://docs.microsoft.com/azure/storage/blobs/encryption-scope-manage).
     /// 
     /// ## Example Usage
     /// 

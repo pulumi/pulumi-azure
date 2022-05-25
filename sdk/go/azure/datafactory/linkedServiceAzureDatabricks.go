@@ -179,7 +179,7 @@ type LinkedServiceAzureDatabricks struct {
 	KeyVaultPassword LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput `pulumi:"keyVaultPassword"`
 	// Authenticate to ADB via managed service identity.
 	MsiWorkSpaceResourceId pulumi.StringPtrOutput `pulumi:"msiWorkSpaceResourceId"`
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
 	NewClusterConfig LinkedServiceAzureDatabricksNewClusterConfigPtrOutput `pulumi:"newClusterConfig"`
@@ -244,7 +244,7 @@ type linkedServiceAzureDatabricksState struct {
 	KeyVaultPassword *LinkedServiceAzureDatabricksKeyVaultPassword `pulumi:"keyVaultPassword"`
 	// Authenticate to ADB via managed service identity.
 	MsiWorkSpaceResourceId *string `pulumi:"msiWorkSpaceResourceId"`
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
 	NewClusterConfig *LinkedServiceAzureDatabricksNewClusterConfig `pulumi:"newClusterConfig"`
@@ -275,7 +275,7 @@ type LinkedServiceAzureDatabricksState struct {
 	KeyVaultPassword LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput
 	// Authenticate to ADB via managed service identity.
 	MsiWorkSpaceResourceId pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
 	NewClusterConfig LinkedServiceAzureDatabricksNewClusterConfigPtrInput
@@ -310,7 +310,7 @@ type linkedServiceAzureDatabricksArgs struct {
 	KeyVaultPassword *LinkedServiceAzureDatabricksKeyVaultPassword `pulumi:"keyVaultPassword"`
 	// Authenticate to ADB via managed service identity.
 	MsiWorkSpaceResourceId *string `pulumi:"msiWorkSpaceResourceId"`
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
 	NewClusterConfig *LinkedServiceAzureDatabricksNewClusterConfig `pulumi:"newClusterConfig"`
@@ -342,7 +342,7 @@ type LinkedServiceAzureDatabricksArgs struct {
 	KeyVaultPassword LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput
 	// Authenticate to ADB via managed service identity.
 	MsiWorkSpaceResourceId pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
 	NewClusterConfig LinkedServiceAzureDatabricksNewClusterConfigPtrInput
@@ -496,7 +496,7 @@ func (o LinkedServiceAzureDatabricksOutput) MsiWorkSpaceResourceId() pulumi.Stri
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) pulumi.StringPtrOutput { return v.MsiWorkSpaceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o LinkedServiceAzureDatabricksOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

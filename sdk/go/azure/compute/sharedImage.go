@@ -77,7 +77,7 @@ type SharedImage struct {
 	AcceleratedNetworkSupportEnabled pulumi.BoolPtrOutput `pulumi:"acceleratedNetworkSupportEnabled"`
 	// A description of this Shared Image.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The End User Licence Agreement for the Shared Image.
+	// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
 	Eula pulumi.StringPtrOutput `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName pulumi.StringOutput `pulumi:"galleryName"`
@@ -152,7 +152,7 @@ type sharedImageState struct {
 	AcceleratedNetworkSupportEnabled *bool `pulumi:"acceleratedNetworkSupportEnabled"`
 	// A description of this Shared Image.
 	Description *string `pulumi:"description"`
-	// The End User Licence Agreement for the Shared Image.
+	// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
 	Eula *string `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName *string `pulumi:"galleryName"`
@@ -187,7 +187,7 @@ type SharedImageState struct {
 	AcceleratedNetworkSupportEnabled pulumi.BoolPtrInput
 	// A description of this Shared Image.
 	Description pulumi.StringPtrInput
-	// The End User Licence Agreement for the Shared Image.
+	// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
 	Eula pulumi.StringPtrInput
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName pulumi.StringPtrInput
@@ -226,7 +226,7 @@ type sharedImageArgs struct {
 	AcceleratedNetworkSupportEnabled *bool `pulumi:"acceleratedNetworkSupportEnabled"`
 	// A description of this Shared Image.
 	Description *string `pulumi:"description"`
-	// The End User Licence Agreement for the Shared Image.
+	// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
 	Eula *string `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName string `pulumi:"galleryName"`
@@ -262,7 +262,7 @@ type SharedImageArgs struct {
 	AcceleratedNetworkSupportEnabled pulumi.BoolPtrInput
 	// A description of this Shared Image.
 	Description pulumi.StringPtrInput
-	// The End User Licence Agreement for the Shared Image.
+	// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
 	Eula pulumi.StringPtrInput
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName pulumi.StringInput
@@ -389,7 +389,7 @@ func (o SharedImageOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The End User Licence Agreement for the Shared Image.
+// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
 func (o SharedImageOutput) Eula() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.StringPtrOutput { return v.Eula }).(pulumi.StringPtrOutput)
 }

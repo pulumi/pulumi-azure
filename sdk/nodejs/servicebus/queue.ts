@@ -97,7 +97,7 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly forwardDeadLetteredMessagesTo!: pulumi.Output<string | undefined>;
     /**
-     * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+     * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
      */
     public readonly forwardTo!: pulumi.Output<string | undefined>;
     /**
@@ -111,11 +111,11 @@ export class Queue extends pulumi.CustomResource {
     /**
      * Integer value which controls the maximum size of
      * a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     public readonly maxMessageSizeInKilobytes!: pulumi.Output<number>;
     /**
-     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
      */
     public readonly maxSizeInMegabytes!: pulumi.Output<number>;
     /**
@@ -244,7 +244,7 @@ export interface QueueState {
      */
     forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
     /**
-     * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+     * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
      */
     forwardTo?: pulumi.Input<string>;
     /**
@@ -258,11 +258,11 @@ export interface QueueState {
     /**
      * Integer value which controls the maximum size of
      * a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
-     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
      */
     maxSizeInMegabytes?: pulumi.Input<number>;
     /**
@@ -326,7 +326,7 @@ export interface QueueArgs {
      */
     forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
     /**
-     * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+     * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
      */
     forwardTo?: pulumi.Input<string>;
     /**
@@ -340,11 +340,11 @@ export interface QueueArgs {
     /**
      * Integer value which controls the maximum size of
      * a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
-     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
      */
     maxSizeInMegabytes?: pulumi.Input<number>;
     /**

@@ -70,7 +70,7 @@ namespace Pulumi.Azure.ContainerService
     public partial class KubernetesClusterNodePool : Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
+        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
         /// </summary>
         [Output("enableAutoScaling")]
         public Output<bool?> EnableAutoScaling { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+        /// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
         /// </summary>
         [Output("ultraSsdEnabled")]
         public Output<bool?> UltraSsdEnabled { get; private set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class KubernetesClusterNodePoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
+        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
         /// </summary>
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
@@ -518,7 +518,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+        /// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
         /// </summary>
         [Input("ultraSsdEnabled")]
         public Input<bool>? UltraSsdEnabled { get; set; }
@@ -567,7 +567,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class KubernetesClusterNodePoolState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
+        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
         /// </summary>
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
@@ -759,7 +759,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+        /// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
         /// </summary>
         [Input("ultraSsdEnabled")]
         public Input<bool>? UltraSsdEnabled { get; set; }

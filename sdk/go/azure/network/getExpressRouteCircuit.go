@@ -68,7 +68,7 @@ type LookupExpressRouteCircuitResult struct {
 	ServiceKey string `pulumi:"serviceKey"`
 	// A `serviceProviderProperties` block for the ExpressRoute circuit as documented below
 	ServiceProviderProperties []GetExpressRouteCircuitServiceProviderProperty `pulumi:"serviceProviderProperties"`
-	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
 	ServiceProviderProvisioningState string `pulumi:"serviceProviderProvisioningState"`
 	// A `sku` block for the ExpressRoute circuit as documented below.
 	Sku GetExpressRouteCircuitSku `pulumi:"sku"`
@@ -149,7 +149,7 @@ func (o LookupExpressRouteCircuitResultOutput) ServiceProviderProperties() GetEx
 	}).(GetExpressRouteCircuitServiceProviderPropertyArrayOutput)
 }
 
-// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
 func (o LookupExpressRouteCircuitResultOutput) ServiceProviderProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupExpressRouteCircuitResult) string { return v.ServiceProviderProvisioningState }).(pulumi.StringOutput)
 }

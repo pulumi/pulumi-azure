@@ -133,7 +133,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> SasToken { get; private set; } = null!;
 
         /// <summary>
-        /// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        /// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> SasToken { get; set; } = null!;
 
         /// <summary>
-        /// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        /// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? SasToken { get; set; }
 
         /// <summary>
-        /// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+        /// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<string>? _schemaFields;
 
         /// <summary>
-        /// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+        /// A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
         /// </summary>
         public InputList<string> SchemaFields
         {

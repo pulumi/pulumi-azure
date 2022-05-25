@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>
-        /// The version of PowerShell Core to use. Possibles values are `7`.
+        /// The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
         /// </summary>
         public readonly string? PowershellCoreVersion;
         /// <summary>

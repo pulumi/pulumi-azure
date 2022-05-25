@@ -30,7 +30,7 @@ type TrafficManagerNestedEndpoint struct {
 	// Specifies the Azure location of the Endpoint,
 	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation pulumi.StringOutput `pulumi:"endpointLocation"`
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayOutput `pulumi:"geoMappings"`
 	// This argument specifies the minimum number
 	// of endpoints that must be ‘online’ in the child profile in order for the
@@ -108,7 +108,7 @@ type trafficManagerNestedEndpointState struct {
 	// Specifies the Azure location of the Endpoint,
 	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation *string `pulumi:"endpointLocation"`
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings []string `pulumi:"geoMappings"`
 	// This argument specifies the minimum number
 	// of endpoints that must be ‘online’ in the child profile in order for the
@@ -146,7 +146,7 @@ type TrafficManagerNestedEndpointState struct {
 	// Specifies the Azure location of the Endpoint,
 	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation pulumi.StringPtrInput
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayInput
 	// This argument specifies the minimum number
 	// of endpoints that must be ‘online’ in the child profile in order for the
@@ -188,7 +188,7 @@ type trafficManagerNestedEndpointArgs struct {
 	// Specifies the Azure location of the Endpoint,
 	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation *string `pulumi:"endpointLocation"`
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings []string `pulumi:"geoMappings"`
 	// This argument specifies the minimum number
 	// of endpoints that must be ‘online’ in the child profile in order for the
@@ -227,7 +227,7 @@ type TrafficManagerNestedEndpointArgs struct {
 	// Specifies the Azure location of the Endpoint,
 	// this must be specified for Profiles using the `Performance` routing method.
 	EndpointLocation pulumi.StringPtrInput
-	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayInput
 	// This argument specifies the minimum number
 	// of endpoints that must be ‘online’ in the child profile in order for the
@@ -362,7 +362,7 @@ func (o TrafficManagerNestedEndpointOutput) EndpointLocation() pulumi.StringOutp
 	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.StringOutput { return v.EndpointLocation }).(pulumi.StringOutput)
 }
 
-// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
 func (o TrafficManagerNestedEndpointOutput) GeoMappings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.StringArrayOutput { return v.GeoMappings }).(pulumi.StringArrayOutput)
 }

@@ -92,6 +92,7 @@ from .virtual_network import *
 from .virtual_network_dns_servers import *
 from .virtual_network_gateway import *
 from .virtual_network_gateway_connection import *
+from .virtual_network_gateway_nat_rule import *
 from .virtual_network_peering import *
 from .virtual_wan import *
 from .vnp_gateway_nat_rule import *

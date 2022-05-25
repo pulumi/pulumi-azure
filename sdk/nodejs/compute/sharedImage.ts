@@ -82,7 +82,7 @@ export class SharedImage extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The End User Licence Agreement for the Shared Image.
+     * The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
      */
     public readonly eula!: pulumi.Output<string | undefined>;
     /**
@@ -216,7 +216,7 @@ export interface SharedImageState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The End User Licence Agreement for the Shared Image.
+     * The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
      */
     eula?: pulumi.Input<string>;
     /**
@@ -286,7 +286,7 @@ export interface SharedImageArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The End User Licence Agreement for the Shared Image.
+     * The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
      */
     eula?: pulumi.Input<string>;
     /**

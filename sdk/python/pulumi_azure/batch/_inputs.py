@@ -34,7 +34,7 @@ class AccountEncryptionArgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key_vault_key_id: The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+        :param pulumi.Input[str] key_vault_key_id: The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
 
@@ -42,7 +42,7 @@ class AccountEncryptionArgs:
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> pulumi.Input[str]:
         """
-        The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+        The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -960,7 +960,7 @@ class PoolStorageImageReferenceArgs:
                  sku: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
+        :param pulumi.Input[str] id: Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
                ---
         :param pulumi.Input[str] offer: Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
         :param pulumi.Input[str] publisher: Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
@@ -982,7 +982,7 @@ class PoolStorageImageReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
+        Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
         ---
         """
         return pulumi.get(self, "id")

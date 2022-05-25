@@ -144,11 +144,13 @@ func (o SpringCloudAppCustomPersistentDiskArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type SpringCloudAppIdentity struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -164,11 +166,13 @@ type SpringCloudAppIdentityInput interface {
 }
 
 type SpringCloudAppIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -249,6 +253,11 @@ func (o SpringCloudAppIdentityOutput) ToSpringCloudAppIdentityPtrOutputWithConte
 	}).(SpringCloudAppIdentityPtrOutput)
 }
 
+// A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+func (o SpringCloudAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpringCloudAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 func (o SpringCloudAppIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudAppIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -259,7 +268,7 @@ func (o SpringCloudAppIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudAppIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o SpringCloudAppIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudAppIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -288,6 +297,16 @@ func (o SpringCloudAppIdentityPtrOutput) Elem() SpringCloudAppIdentityOutput {
 	}).(SpringCloudAppIdentityOutput)
 }
 
+// A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+func (o SpringCloudAppIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpringCloudAppIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 func (o SpringCloudAppIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudAppIdentity) *string {
@@ -308,7 +327,7 @@ func (o SpringCloudAppIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o SpringCloudAppIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudAppIdentity) *string {
 		if v == nil {
@@ -3781,6 +3800,7 @@ func (o SpringCloudServiceTracePtrOutput) SampleRate() pulumi.Float64PtrOutput {
 }
 
 type GetSpringCloudAppIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	PrincipalId string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
@@ -3801,6 +3821,7 @@ type GetSpringCloudAppIdentityInput interface {
 }
 
 type GetSpringCloudAppIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
@@ -3858,6 +3879,10 @@ func (o GetSpringCloudAppIdentityOutput) ToGetSpringCloudAppIdentityOutput() Get
 
 func (o GetSpringCloudAppIdentityOutput) ToGetSpringCloudAppIdentityOutputWithContext(ctx context.Context) GetSpringCloudAppIdentityOutput {
 	return o
+}
+
+func (o GetSpringCloudAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSpringCloudAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.

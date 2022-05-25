@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> IpConnectEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? IpConnectEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? IpConnectEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

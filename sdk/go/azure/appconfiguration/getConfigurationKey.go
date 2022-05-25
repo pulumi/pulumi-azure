@@ -73,7 +73,7 @@ type LookupConfigurationKeyResult struct {
 	Locked bool `pulumi:"locked"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/en-us/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
 	Type string `pulumi:"type"`
 	// The value of the App Configuration Key.
 	Value string `pulumi:"value"`
@@ -160,7 +160,7 @@ func (o LookupConfigurationKeyResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConfigurationKeyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/en-us/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
 func (o LookupConfigurationKeyResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationKeyResult) string { return v.Type }).(pulumi.StringOutput)
 }

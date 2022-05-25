@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Sentinel
     public partial class DataConnectorAwsS3 : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+        /// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
         /// </summary>
         [Output("awsRoleArn")]
         public Output<string> AwsRoleArn { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Sentinel
     public sealed class DataConnectorAwsS3Args : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+        /// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
         /// </summary>
         [Input("awsRoleArn", required: true)]
         public Input<string> AwsRoleArn { get; set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.Sentinel
     public sealed class DataConnectorAwsS3State : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+        /// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
         /// </summary>
         [Input("awsRoleArn")]
         public Input<string>? AwsRoleArn { get; set; }

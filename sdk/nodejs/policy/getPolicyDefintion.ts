@@ -79,7 +79,7 @@ export interface GetPolicyDefintionResult {
      */
     readonly policyRule: string;
     /**
-     * The Type of the Policy. Possible values are "BuiltIn", "Custom" and "NotSpecified".
+     * The Type of the Policy. Possible values are `BuiltIn`, `Custom` and `NotSpecified`.
      */
     readonly policyType: string;
     /**

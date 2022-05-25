@@ -143,7 +143,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
     /**
-     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
      * for more information. Defaults to `true`.
      */
     public readonly enableHttpsTrafficOnly!: pulumi.Output<boolean | undefined>;
@@ -156,7 +156,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+     * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
     public readonly isHnsEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -548,7 +548,7 @@ export interface AccountState {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
      * for more information. Defaults to `true`.
      */
     enableHttpsTrafficOnly?: pulumi.Input<boolean>;
@@ -561,7 +561,7 @@ export interface AccountState {
      */
     infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+     * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
     isHnsEnabled?: pulumi.Input<boolean>;
     /**
@@ -800,7 +800,7 @@ export interface AccountArgs {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
      * for more information. Defaults to `true`.
      */
     enableHttpsTrafficOnly?: pulumi.Input<boolean>;
@@ -813,7 +813,7 @@ export interface AccountArgs {
      */
     infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+     * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
     isHnsEnabled?: pulumi.Input<boolean>;
     /**

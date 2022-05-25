@@ -127,7 +127,7 @@ type VirtualNetworkGateway struct {
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
-	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId pulumi.StringPtrOutput `pulumi:"defaultLocalNetworkGatewayId"`
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
@@ -228,7 +228,7 @@ type virtualNetworkGatewayState struct {
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
-	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId *string `pulumi:"defaultLocalNetworkGatewayId"`
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
@@ -289,7 +289,7 @@ type VirtualNetworkGatewayState struct {
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
-	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
@@ -354,7 +354,7 @@ type virtualNetworkGatewayArgs struct {
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
-	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId *string `pulumi:"defaultLocalNetworkGatewayId"`
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
@@ -416,7 +416,7 @@ type VirtualNetworkGatewayArgs struct {
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunnelling*). Refer to the
-	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
@@ -572,7 +572,7 @@ func (o VirtualNetworkGatewayOutput) CustomRoute() VirtualNetworkGatewayCustomRo
 // The ID of the local network gateway
 // through which outbound Internet traffic from the virtual network in which the
 // gateway is created will be routed (*forced tunnelling*). Refer to the
-// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+// [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 // If not specified, forced tunnelling is disabled.
 func (o VirtualNetworkGatewayOutput) DefaultLocalNetworkGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringPtrOutput { return v.DefaultLocalNetworkGatewayId }).(pulumi.StringPtrOutput)

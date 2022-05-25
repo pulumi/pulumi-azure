@@ -56,7 +56,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     public partial class HostPool : Pulumi.CustomResource
     {
         /// <summary>
-        /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         /// </summary>
         [Output("customRdpProperties")]
         public Output<string?> CustomRdpProperties { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     public sealed class HostPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         /// </summary>
         [Input("customRdpProperties")]
         public Input<string>? CustomRdpProperties { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     public sealed class HostPoolState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         /// </summary>
         [Input("customRdpProperties")]
         public Input<string>? CustomRdpProperties { get; set; }

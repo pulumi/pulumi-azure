@@ -69,7 +69,7 @@ type GetPolicyDefintionResult struct {
 	Parameters string `pulumi:"parameters"`
 	// The Rule as defined (in JSON) in the Policy.
 	PolicyRule string `pulumi:"policyRule"`
-	// The Type of the Policy. Possible values are "BuiltIn", "Custom" and "NotSpecified".
+	// The Type of the Policy. Possible values are `BuiltIn`, `Custom` and `NotSpecified`.
 	PolicyType string `pulumi:"policyType"`
 	// The Type of Policy.
 	Type string `pulumi:"type"`
@@ -154,7 +154,7 @@ func (o GetPolicyDefintionResultOutput) PolicyRule() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDefintionResult) string { return v.PolicyRule }).(pulumi.StringOutput)
 }
 
-// The Type of the Policy. Possible values are "BuiltIn", "Custom" and "NotSpecified".
+// The Type of the Policy. Possible values are `BuiltIn`, `Custom` and `NotSpecified`.
 func (o GetPolicyDefintionResultOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDefintionResult) string { return v.PolicyType }).(pulumi.StringOutput)
 }

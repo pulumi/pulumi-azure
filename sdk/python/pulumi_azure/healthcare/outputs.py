@@ -12,12 +12,18 @@ __all__ = [
     'DicomServiceAuthentication',
     'DicomServiceIdentity',
     'DicomServicePrivateEndpoint',
+    'FhirServiceAuthentication',
+    'FhirServiceCors',
+    'FhirServiceIdentity',
     'ServiceAuthenticationConfiguration',
     'ServiceCorsConfiguration',
     'WorkspacePrivateEndpointConnection',
     'GetDicomServiceAuthenticationResult',
     'GetDicomServiceIdentityResult',
     'GetDicomServicePrivateEndpointResult',
+    'GetFhirServiceAuthenticationResult',
+    'GetFhirServiceCorResult',
+    'GetFhirServiceIdentityResult',
     'GetServiceAuthenticationConfigurationResult',
     'GetServiceCorsConfigurationResult',
 ]
@@ -145,6 +151,198 @@ class DicomServicePrivateEndpoint(dict):
         Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class FhirServiceAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smartProxyEnabled":
+            suggest = "smart_proxy_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FhirServiceAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FhirServiceAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FhirServiceAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audience: str,
+                 authority: str,
+                 smart_proxy_enabled: Optional[bool] = None):
+        """
+        :param str audience: The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+        """
+        pulumi.set(__self__, "audience", audience)
+        pulumi.set(__self__, "authority", authority)
+        if smart_proxy_enabled is not None:
+            pulumi.set(__self__, "smart_proxy_enabled", smart_proxy_enabled)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> str:
+        """
+        The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+        """
+        return pulumi.get(self, "audience")
+
+    @property
+    @pulumi.getter
+    def authority(self) -> str:
+        return pulumi.get(self, "authority")
+
+    @property
+    @pulumi.getter(name="smartProxyEnabled")
+    def smart_proxy_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "smart_proxy_enabled")
+
+
+@pulumi.output_type
+class FhirServiceCors(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "credentialsAllowed":
+            suggest = "credentials_allowed"
+        elif key == "maxAgeInSeconds":
+            suggest = "max_age_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FhirServiceCors. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FhirServiceCors.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FhirServiceCors.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_headers: Sequence[str],
+                 allowed_methods: Sequence[str],
+                 allowed_origins: Sequence[str],
+                 credentials_allowed: Optional[bool] = None,
+                 max_age_in_seconds: Optional[int] = None):
+        """
+        :param Sequence[str] allowed_headers: A set of headers to be allowed via CORS.
+        :param Sequence[str] allowed_methods: The methods to be allowed via CORS.
+        :param Sequence[str] allowed_origins: A set of origins to be allowed via CORS.
+        :param bool credentials_allowed: If credentials are allowed via CORS.
+        :param int max_age_in_seconds: The max age to be allowed via CORS.
+        """
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if credentials_allowed is not None:
+            pulumi.set(__self__, "credentials_allowed", credentials_allowed)
+        if max_age_in_seconds is not None:
+            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Sequence[str]:
+        """
+        A set of headers to be allowed via CORS.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Sequence[str]:
+        """
+        The methods to be allowed via CORS.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[str]:
+        """
+        A set of origins to be allowed via CORS.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="credentialsAllowed")
+    def credentials_allowed(self) -> Optional[bool]:
+        """
+        If credentials are allowed via CORS.
+        """
+        return pulumi.get(self, "credentials_allowed")
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> Optional[int]:
+        """
+        The max age to be allowed via CORS.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
+
+
+@pulumi.output_type
+class FhirServiceIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FhirServiceIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FhirServiceIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FhirServiceIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -417,6 +615,140 @@ class GetDicomServicePrivateEndpointResult(dict):
         The name of the Healthcare DICOM Service
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetFhirServiceAuthenticationResult(dict):
+    def __init__(__self__, *,
+                 audience: str,
+                 authority: str,
+                 smart_proxy_enabled: bool):
+        """
+        :param str audience: The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+        """
+        pulumi.set(__self__, "audience", audience)
+        pulumi.set(__self__, "authority", authority)
+        pulumi.set(__self__, "smart_proxy_enabled", smart_proxy_enabled)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> str:
+        """
+        The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+        """
+        return pulumi.get(self, "audience")
+
+    @property
+    @pulumi.getter
+    def authority(self) -> str:
+        return pulumi.get(self, "authority")
+
+    @property
+    @pulumi.getter(name="smartProxyEnabled")
+    def smart_proxy_enabled(self) -> bool:
+        return pulumi.get(self, "smart_proxy_enabled")
+
+
+@pulumi.output_type
+class GetFhirServiceCorResult(dict):
+    def __init__(__self__, *,
+                 allowed_headers: Sequence[str],
+                 allowed_methods: Sequence[str],
+                 allowed_origins: Sequence[str],
+                 credentials_allowed: bool,
+                 max_age_in_seconds: int):
+        """
+        :param Sequence[str] allowed_headers: The set of headers to be allowed via CORS.
+        :param Sequence[str] allowed_methods: The methods to be allowed via CORS.
+        :param Sequence[str] allowed_origins: The set of origins to be allowed via CORS.
+        :param bool credentials_allowed: Are credentials allowed via CORS?
+        :param int max_age_in_seconds: The max age to be allowed via CORS.
+        """
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "credentials_allowed", credentials_allowed)
+        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Sequence[str]:
+        """
+        The set of headers to be allowed via CORS.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Sequence[str]:
+        """
+        The methods to be allowed via CORS.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[str]:
+        """
+        The set of origins to be allowed via CORS.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="credentialsAllowed")
+    def credentials_allowed(self) -> bool:
+        """
+        Are credentials allowed via CORS?
+        """
+        return pulumi.get(self, "credentials_allowed")
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> int:
+        """
+        The max age to be allowed via CORS.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
+
+
+@pulumi.output_type
+class GetFhirServiceIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The Principal ID associated with this System Assigned Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this System Assigned Managed Service Identity.
+        :param str type: The type of identity used for the Healthcare FHIR service.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID associated with this System Assigned Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID associated with this System Assigned Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of identity used for the Healthcare FHIR service.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

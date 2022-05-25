@@ -381,7 +381,7 @@ func (o ServiceNetworkAclPublicNetworkPtrOutput) DeniedRequestTypes() pulumi.Str
 type ServiceSku struct {
 	// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
 	Capacity int `pulumi:"capacity"`
-	// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
+	// Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
 	Name string `pulumi:"name"`
 }
 
@@ -399,7 +399,7 @@ type ServiceSkuInput interface {
 type ServiceSkuArgs struct {
 	// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
+	// Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -485,7 +485,7 @@ func (o ServiceSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
+// Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
 func (o ServiceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -524,7 +524,7 @@ func (o ServiceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
+// Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
 func (o ServiceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSku) *string {
 		if v == nil {

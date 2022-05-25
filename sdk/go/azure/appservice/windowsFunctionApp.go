@@ -76,7 +76,7 @@ import (
 type WindowsFunctionApp struct {
 	pulumi.CustomResourceState
 
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings WindowsFunctionAppAuthSettingsOutput `pulumi:"authSettings"`
@@ -106,7 +106,7 @@ type WindowsFunctionApp struct {
 	HttpsOnly pulumi.BoolOutput `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
 	Identity WindowsFunctionAppIdentityPtrOutput `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringOutput `pulumi:"keyVaultReferenceIdentityId"`
 	// The Kind value for this Windows Function App.
 	Kind pulumi.StringOutput `pulumi:"kind"`
@@ -182,7 +182,7 @@ func GetWindowsFunctionApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WindowsFunctionApp resources.
 type windowsFunctionAppState struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *WindowsFunctionAppAuthSettings `pulumi:"authSettings"`
@@ -212,7 +212,7 @@ type windowsFunctionAppState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
 	Identity *WindowsFunctionAppIdentity `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Kind value for this Windows Function App.
 	Kind *string `pulumi:"kind"`
@@ -251,7 +251,7 @@ type windowsFunctionAppState struct {
 }
 
 type WindowsFunctionAppState struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings WindowsFunctionAppAuthSettingsPtrInput
@@ -281,7 +281,7 @@ type WindowsFunctionAppState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
 	Identity WindowsFunctionAppIdentityPtrInput
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Kind value for this Windows Function App.
 	Kind pulumi.StringPtrInput
@@ -324,7 +324,7 @@ func (WindowsFunctionAppState) ElementType() reflect.Type {
 }
 
 type windowsFunctionAppArgs struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *WindowsFunctionAppAuthSettings `pulumi:"authSettings"`
@@ -350,7 +350,7 @@ type windowsFunctionAppArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
 	Identity *WindowsFunctionAppIdentity `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Azure Region where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
 	Location *string `pulumi:"location"`
@@ -378,7 +378,7 @@ type windowsFunctionAppArgs struct {
 
 // The set of arguments for constructing a WindowsFunctionApp resource.
 type WindowsFunctionAppArgs struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings WindowsFunctionAppAuthSettingsPtrInput
@@ -404,7 +404,7 @@ type WindowsFunctionAppArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
 	Identity WindowsFunctionAppIdentityPtrInput
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Azure Region where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
 	Location pulumi.StringPtrInput
@@ -517,7 +517,7 @@ func (o WindowsFunctionAppOutput) ToWindowsFunctionAppOutputWithContext(ctx cont
 	return o
 }
 
-// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 func (o WindowsFunctionAppOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }
@@ -592,7 +592,7 @@ func (o WindowsFunctionAppOutput) Identity() WindowsFunctionAppIdentityPtrOutput
 	return o.ApplyT(func(v *WindowsFunctionApp) WindowsFunctionAppIdentityPtrOutput { return v.Identity }).(WindowsFunctionAppIdentityPtrOutput)
 }
 
-// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 func (o WindowsFunctionAppOutput) KeyVaultReferenceIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.StringOutput { return v.KeyVaultReferenceIdentityId }).(pulumi.StringOutput)
 }

@@ -101,13 +101,13 @@ export class Topic extends pulumi.CustomResource {
     /**
      * Integer value which controls the maximum size of
      * a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     public readonly maxMessageSizeInKilobytes!: pulumi.Output<number>;
     /**
      * Integer value which controls the size of
      * memory allocated for the topic. For supported values see the "Queue/topic size"
-     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
     public readonly maxSizeInMegabytes!: pulumi.Output<number>;
     /**
@@ -233,13 +233,13 @@ export interface TopicState {
     /**
      * Integer value which controls the maximum size of
      * a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
      * Integer value which controls the size of
      * memory allocated for the topic. For supported values see the "Queue/topic size"
-     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
     maxSizeInMegabytes?: pulumi.Input<number>;
     /**
@@ -310,13 +310,13 @@ export interface TopicArgs {
     /**
      * Integer value which controls the maximum size of
      * a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
      * Integer value which controls the size of
      * memory allocated for the topic. For supported values see the "Queue/topic size"
-     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+     * section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
     maxSizeInMegabytes?: pulumi.Input<number>;
     /**

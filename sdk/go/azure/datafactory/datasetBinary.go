@@ -94,7 +94,7 @@ type DatasetBinary struct {
 	HttpServerLocation DatasetBinaryHttpServerLocationPtrOutput `pulumi:"httpServerLocation"`
 	// The Data Factory Linked Service name in which to associate the Binary Dataset with.
 	LinkedServiceName pulumi.StringOutput `pulumi:"linkedServiceName"`
-	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -156,7 +156,7 @@ type datasetBinaryState struct {
 	HttpServerLocation *DatasetBinaryHttpServerLocation `pulumi:"httpServerLocation"`
 	// The Data Factory Linked Service name in which to associate the Binary Dataset with.
 	LinkedServiceName *string `pulumi:"linkedServiceName"`
-	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -184,7 +184,7 @@ type DatasetBinaryState struct {
 	HttpServerLocation DatasetBinaryHttpServerLocationPtrInput
 	// The Data Factory Linked Service name in which to associate the Binary Dataset with.
 	LinkedServiceName pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters pulumi.StringMapInput
@@ -216,7 +216,7 @@ type datasetBinaryArgs struct {
 	HttpServerLocation *DatasetBinaryHttpServerLocation `pulumi:"httpServerLocation"`
 	// The Data Factory Linked Service name in which to associate the Binary Dataset with.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
-	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -245,7 +245,7 @@ type DatasetBinaryArgs struct {
 	HttpServerLocation DatasetBinaryHttpServerLocationPtrInput
 	// The Data Factory Linked Service name in which to associate the Binary Dataset with.
 	LinkedServiceName pulumi.StringInput
-	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
 	Parameters pulumi.StringMapInput
@@ -388,7 +388,7 @@ func (o DatasetBinaryOutput) LinkedServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatasetBinary) pulumi.StringOutput { return v.LinkedServiceName }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o DatasetBinaryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatasetBinary) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

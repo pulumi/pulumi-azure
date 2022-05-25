@@ -65,6 +65,10 @@ export class SpringCloudApp extends pulumi.CustomResource {
     }
 
     /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Service.
+     */
+    public readonly addonJson!: pulumi.Output<string>;
+    /**
      * A `customPersistentDisk` block as defined below.
      */
     public readonly customPersistentDisks!: pulumi.Output<outputs.appplatform.SpringCloudAppCustomPersistentDisk[] | undefined>;
@@ -122,6 +126,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAppState | undefined;
+            resourceInputs["addonJson"] = state ? state.addonJson : undefined;
             resourceInputs["customPersistentDisks"] = state ? state.customPersistentDisks : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
@@ -141,6 +146,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            resourceInputs["addonJson"] = args ? args.addonJson : undefined;
             resourceInputs["customPersistentDisks"] = args ? args.customPersistentDisks : undefined;
             resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -162,6 +168,10 @@ export class SpringCloudApp extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SpringCloudApp resources.
  */
 export interface SpringCloudAppState {
+    /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Service.
+     */
+    addonJson?: pulumi.Input<string>;
     /**
      * A `customPersistentDisk` block as defined below.
      */
@@ -212,6 +222,10 @@ export interface SpringCloudAppState {
  * The set of arguments for constructing a SpringCloudApp resource.
  */
 export interface SpringCloudAppArgs {
+    /**
+     * A JSON object that contains the addon configurations of the Spring Cloud Service.
+     */
+    addonJson?: pulumi.Input<string>;
     /**
      * A `customPersistentDisk` block as defined below.
      */

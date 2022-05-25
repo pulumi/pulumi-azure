@@ -47,7 +47,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly deploymentId!: pulumi.Output<string>;
     /**
-     * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+     * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export interface ServiceState {
      */
     deploymentId?: pulumi.Input<string>;
     /**
-     * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+     * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -229,7 +229,7 @@ export interface ServiceState {
  */
 export interface ServiceArgs {
     /**
-     * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+     * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
      */
     domainName: pulumi.Input<string>;
     /**

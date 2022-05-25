@@ -62,7 +62,7 @@ import (
 type HostPool struct {
 	pulumi.CustomResourceState
 
-	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
 	CustomRdpProperties pulumi.StringPtrOutput `pulumi:"customRdpProperties"`
 	// A description for the Virtual Desktop Host Pool.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -140,7 +140,7 @@ func GetHostPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HostPool resources.
 type hostPoolState struct {
-	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
 	CustomRdpProperties *string `pulumi:"customRdpProperties"`
 	// A description for the Virtual Desktop Host Pool.
 	Description *string `pulumi:"description"`
@@ -181,7 +181,7 @@ type hostPoolState struct {
 }
 
 type HostPoolState struct {
-	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
 	CustomRdpProperties pulumi.StringPtrInput
 	// A description for the Virtual Desktop Host Pool.
 	Description pulumi.StringPtrInput
@@ -226,7 +226,7 @@ func (HostPoolState) ElementType() reflect.Type {
 }
 
 type hostPoolArgs struct {
-	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
 	CustomRdpProperties *string `pulumi:"customRdpProperties"`
 	// A description for the Virtual Desktop Host Pool.
 	Description *string `pulumi:"description"`
@@ -268,7 +268,7 @@ type hostPoolArgs struct {
 
 // The set of arguments for constructing a HostPool resource.
 type HostPoolArgs struct {
-	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+	// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
 	CustomRdpProperties pulumi.StringPtrInput
 	// A description for the Virtual Desktop Host Pool.
 	Description pulumi.StringPtrInput
@@ -395,7 +395,7 @@ func (o HostPoolOutput) ToHostPoolOutputWithContext(ctx context.Context) HostPoo
 	return o
 }
 
-// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
 func (o HostPoolOutput) CustomRdpProperties() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.CustomRdpProperties }).(pulumi.StringPtrOutput)
 }

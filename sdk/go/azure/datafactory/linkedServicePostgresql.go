@@ -74,7 +74,7 @@ type LinkedServicePostgresql struct {
 	// The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service PostgreSQL.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -128,7 +128,7 @@ type linkedServicePostgresqlState struct {
 	// The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service PostgreSQL.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -148,7 +148,7 @@ type LinkedServicePostgresqlState struct {
 	// The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service PostgreSQL.
 	Parameters pulumi.StringMapInput
@@ -172,7 +172,7 @@ type linkedServicePostgresqlArgs struct {
 	// The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service PostgreSQL.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -193,7 +193,7 @@ type LinkedServicePostgresqlArgs struct {
 	// The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service PostgreSQL.
 	Parameters pulumi.StringMapInput
@@ -317,7 +317,7 @@ func (o LinkedServicePostgresqlOutput) IntegrationRuntimeName() pulumi.StringPtr
 }
 
 // Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be unique within a data
-// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o LinkedServicePostgresqlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServicePostgresql) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

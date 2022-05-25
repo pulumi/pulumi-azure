@@ -104,7 +104,7 @@ class GetExpressRouteCircuitResult:
     @pulumi.getter(name="serviceProviderProvisioningState")
     def service_provider_provisioning_state(self) -> str:
         """
-        The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+        The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
         """
         return pulumi.get(self, "service_provider_provisioning_state")
 

@@ -129,7 +129,7 @@ type Script struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The SAS token used to access the script.
 	SasToken pulumi.StringOutput `pulumi:"sasToken"`
-	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -181,7 +181,7 @@ type scriptState struct {
 	Name *string `pulumi:"name"`
 	// The SAS token used to access the script.
 	SasToken *string `pulumi:"sasToken"`
-	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url *string `pulumi:"url"`
 }
 
@@ -196,7 +196,7 @@ type ScriptState struct {
 	Name pulumi.StringPtrInput
 	// The SAS token used to access the script.
 	SasToken pulumi.StringPtrInput
-	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url pulumi.StringPtrInput
 }
 
@@ -215,7 +215,7 @@ type scriptArgs struct {
 	Name *string `pulumi:"name"`
 	// The SAS token used to access the script.
 	SasToken string `pulumi:"sasToken"`
-	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url string `pulumi:"url"`
 }
 
@@ -231,7 +231,7 @@ type ScriptArgs struct {
 	Name pulumi.StringPtrInput
 	// The SAS token used to access the script.
 	SasToken pulumi.StringInput
-	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+	// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 	Url pulumi.StringInput
 }
 
@@ -347,7 +347,7 @@ func (o ScriptOutput) SasToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.SasToken }).(pulumi.StringOutput)
 }
 
-// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+// The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
 func (o ScriptOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

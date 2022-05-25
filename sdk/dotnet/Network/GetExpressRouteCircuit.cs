@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.GetExpressRouteCircuitServiceProviderPropertyResult> ServiceProviderProperties;
         /// <summary>
-        /// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+        /// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
         /// </summary>
         public readonly string ServiceProviderProvisioningState;
         /// <summary>

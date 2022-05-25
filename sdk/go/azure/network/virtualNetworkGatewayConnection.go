@@ -294,7 +294,7 @@ type VirtualNetworkGatewayConnection struct {
 	ExpressRouteGatewayBypass pulumi.BoolOutput `pulumi:"expressRouteGatewayBypass"`
 	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
-	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput `pulumi:"ipsecPolicy"`
 	// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
 	LocalAzureIpAddressEnabled pulumi.BoolPtrOutput `pulumi:"localAzureIpAddressEnabled"`
@@ -324,7 +324,7 @@ type VirtualNetworkGatewayConnection struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// One or more `trafficSelectorPolicy` blocks which are documented below.
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput `pulumi:"trafficSelectorPolicy"`
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
@@ -410,7 +410,7 @@ type virtualNetworkGatewayConnectionState struct {
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
-	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy *VirtualNetworkGatewayConnectionIpsecPolicy `pulumi:"ipsecPolicy"`
 	// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
 	LocalAzureIpAddressEnabled *bool `pulumi:"localAzureIpAddressEnabled"`
@@ -440,7 +440,7 @@ type virtualNetworkGatewayConnectionState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// One or more `trafficSelectorPolicy` blocks which are documented below.
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy *VirtualNetworkGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicy"`
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
@@ -489,7 +489,7 @@ type VirtualNetworkGatewayConnectionState struct {
 	ExpressRouteGatewayBypass pulumi.BoolPtrInput
 	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
-	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy VirtualNetworkGatewayConnectionIpsecPolicyPtrInput
 	// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
 	LocalAzureIpAddressEnabled pulumi.BoolPtrInput
@@ -519,7 +519,7 @@ type VirtualNetworkGatewayConnectionState struct {
 	Tags pulumi.StringMapInput
 	// One or more `trafficSelectorPolicy` blocks which are documented below.
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
@@ -572,7 +572,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
-	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy *VirtualNetworkGatewayConnectionIpsecPolicy `pulumi:"ipsecPolicy"`
 	// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
 	LocalAzureIpAddressEnabled *bool `pulumi:"localAzureIpAddressEnabled"`
@@ -602,7 +602,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// One or more `trafficSelectorPolicy` blocks which are documented below.
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy *VirtualNetworkGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicy"`
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
@@ -652,7 +652,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	ExpressRouteGatewayBypass pulumi.BoolPtrInput
 	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
-	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy VirtualNetworkGatewayConnectionIpsecPolicyPtrInput
 	// Use private local Azure IP for the connection. Changing this forces a new resource to be created.
 	LocalAzureIpAddressEnabled pulumi.BoolPtrInput
@@ -682,7 +682,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	Tags pulumi.StringMapInput
 	// One or more `trafficSelectorPolicy` blocks which are documented below.
 	// A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
@@ -843,7 +843,7 @@ func (o VirtualNetworkGatewayConnectionOutput) ExpressRouteGatewayBypass() pulum
 
 // A `ipsecPolicy` block which is documented below.
 // Only a single policy can be defined for a connection. For details on
-// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 func (o VirtualNetworkGatewayConnectionOutput) IpsecPolicy() VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput {
 		return v.IpsecPolicy
@@ -905,7 +905,7 @@ func (o VirtualNetworkGatewayConnectionOutput) Tags() pulumi.StringMapOutput {
 
 // One or more `trafficSelectorPolicy` blocks which are documented below.
 // A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
 func (o VirtualNetworkGatewayConnectionOutput) TrafficSelectorPolicy() VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {
 		return v.TrafficSelectorPolicy

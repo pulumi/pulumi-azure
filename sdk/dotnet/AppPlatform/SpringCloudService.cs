@@ -122,6 +122,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<bool?> ServiceRegistryEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Spring Cloud Service Registry.
+        /// </summary>
+        [Output("serviceRegistryId")]
+        public Output<string> ServiceRegistryId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
         /// </summary>
         [Output("skuName")]
@@ -311,6 +317,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("serviceRegistryEnabled")]
         public Input<bool>? ServiceRegistryEnabled { get; set; }
+
+        /// <summary>
+        /// The ID of the Spring Cloud Service Registry.
+        /// </summary>
+        [Input("serviceRegistryId")]
+        public Input<string>? ServiceRegistryId { get; set; }
 
         /// <summary>
         /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
