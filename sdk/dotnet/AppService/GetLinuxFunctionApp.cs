@@ -122,7 +122,7 @@ namespace Pulumi.Azure.AppService
     public sealed class GetLinuxFunctionAppResult
     {
         /// <summary>
-        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         /// </summary>
         public readonly ImmutableDictionary<string, string> AppSettings;
         /// <summary>
@@ -149,6 +149,9 @@ namespace Pulumi.Azure.AppService
         /// A `connection_string` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppConnectionStringResult> ConnectionStrings;
+        /// <summary>
+        /// Are the settings for linking the Function App to storage suppressed?
+        /// </summary>
         public readonly bool ContentShareForceDisabled;
         /// <summary>
         /// The identifier used by App Service to perform domain ownership verification via DNS TXT record.

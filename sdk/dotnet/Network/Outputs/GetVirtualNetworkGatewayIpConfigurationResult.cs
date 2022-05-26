@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class GetVirtualNetworkGatewayIpConfigurationResult
     {
         /// <summary>
+        /// The resource ID of the IP configuration.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies the name of the Virtual Network Gateway.
         /// </summary>
         public readonly string Name;
@@ -37,6 +41,8 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private GetVirtualNetworkGatewayIpConfigurationResult(
+            string id,
+
             string name,
 
             string privateIpAddressAllocation,
@@ -45,6 +51,7 @@ namespace Pulumi.Azure.Network.Outputs
 
             string subnetId)
         {
+            Id = id;
             Name = name;
             PrivateIpAddressAllocation = privateIpAddressAllocation;
             PublicIpAddressId = publicIpAddressId;

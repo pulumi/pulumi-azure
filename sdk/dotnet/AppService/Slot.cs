@@ -230,7 +230,7 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.SlotIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+        /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         /// </summary>
         [Output("keyVaultReferenceIdentityId")]
         public Output<string> KeyVaultReferenceIdentityId { get; private set; } = null!;
@@ -396,7 +396,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.SlotIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+        /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         /// </summary>
         [Input("keyVaultReferenceIdentityId")]
         public Input<string>? KeyVaultReferenceIdentityId { get; set; }
@@ -535,7 +535,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.SlotIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+        /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         /// </summary>
         [Input("keyVaultReferenceIdentityId")]
         public Input<string>? KeyVaultReferenceIdentityId { get; set; }

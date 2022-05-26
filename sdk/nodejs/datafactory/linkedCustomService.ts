@@ -106,7 +106,7 @@ export class LinkedCustomService extends pulumi.CustomResource {
      */
     public readonly integrationRuntime!: pulumi.Output<outputs.datafactory.LinkedCustomServiceIntegrationRuntime | undefined>;
     /**
-     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -114,7 +114,7 @@ export class LinkedCustomService extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview).
+     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview).
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -195,7 +195,7 @@ export interface LinkedCustomServiceState {
      */
     integrationRuntime?: pulumi.Input<inputs.datafactory.LinkedCustomServiceIntegrationRuntime>;
     /**
-     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**
@@ -203,7 +203,7 @@ export interface LinkedCustomServiceState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview).
+     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview).
      */
     type?: pulumi.Input<string>;
     /**
@@ -237,7 +237,7 @@ export interface LinkedCustomServiceArgs {
      */
     integrationRuntime?: pulumi.Input<inputs.datafactory.LinkedCustomServiceIntegrationRuntime>;
     /**
-     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**
@@ -245,7 +245,7 @@ export interface LinkedCustomServiceArgs {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview).
+     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview).
      */
     type: pulumi.Input<string>;
     /**

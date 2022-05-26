@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> ServiceProviderName { get; private set; } = null!;
 
         /// <summary>
-        /// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+        /// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
         /// </summary>
         [Output("serviceProviderProvisioningState")]
         public Output<string> ServiceProviderProvisioningState { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ServiceProviderName { get; set; }
 
         /// <summary>
-        /// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+        /// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
         /// </summary>
         [Input("serviceProviderProvisioningState")]
         public Input<string>? ServiceProviderProvisioningState { get; set; }

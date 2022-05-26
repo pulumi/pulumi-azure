@@ -45,12 +45,12 @@ class LinuxWebAppArgs:
         :param pulumi.Input['LinuxWebAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
-        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_certificate_enabled` is `false`
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input['LinuxWebAppIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input['LinuxWebAppLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
@@ -196,7 +196,7 @@ class LinuxWebAppArgs:
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_certificate_enabled` is `false`
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -256,7 +256,7 @@ class LinuxWebAppArgs:
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
@@ -375,14 +375,14 @@ class _LinuxWebAppState:
         :param pulumi.Input['LinuxWebAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
-        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_certificate_enabled` is `false`
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname of the Linux Web App.
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input['LinuxWebAppIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Linux Web App.
         :param pulumi.Input[str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input['LinuxWebAppLogsArgs'] logs: A `logs` block as defined below.
@@ -520,7 +520,7 @@ class _LinuxWebAppState:
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_certificate_enabled` is `false`
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -604,7 +604,7 @@ class _LinuxWebAppState:
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
@@ -856,12 +856,12 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
-        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_certificate_enabled` is `false`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
@@ -1039,14 +1039,14 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
-        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_certificate_enabled` is `false`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname of the Linux Web App.
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Linux Web App.
         :param pulumi.Input[str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppLogsArgs']] logs: A `logs` block as defined below.
@@ -1141,7 +1141,7 @@ class LinuxWebApp(pulumi.CustomResource):
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_certificate_enabled` is `false`
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -1197,7 +1197,7 @@ class LinuxWebApp(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> pulumi.Output[str]:
         """
-        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 

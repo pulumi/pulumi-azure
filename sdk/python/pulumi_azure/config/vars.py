@@ -94,6 +94,22 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('msiEndpoint')
 
     @property
+    def oidc_request_token(self) -> Optional[str]:
+        """
+        The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+        Connect.
+        """
+        return __config__.get('oidcRequestToken')
+
+    @property
+    def oidc_request_url(self) -> Optional[str]:
+        """
+        The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+        using OpenID Connect.
+        """
+        return __config__.get('oidcRequestUrl')
+
+    @property
     def partner_id(self) -> Optional[str]:
         """
         A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
@@ -135,4 +151,11 @@ class _ExportableConfig(types.ModuleType):
         Allowed Managed Service Identity be used for Authentication.
         """
         return __config__.get_bool('useMsi')
+
+    @property
+    def use_oidc(self) -> Optional[bool]:
+        """
+        Allow OpenID Connect to be used for authentication
+        """
+        return __config__.get_bool('useOidc')
 

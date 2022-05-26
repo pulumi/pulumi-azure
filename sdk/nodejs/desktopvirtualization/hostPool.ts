@@ -65,7 +65,7 @@ export class HostPool extends pulumi.CustomResource {
     }
 
     /**
-     * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+     * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
      */
     public readonly customRdpProperties!: pulumi.Output<string | undefined>;
     /**
@@ -194,7 +194,7 @@ export class HostPool extends pulumi.CustomResource {
  */
 export interface HostPoolState {
     /**
-     * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+     * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
      */
     customRdpProperties?: pulumi.Input<string>;
     /**
@@ -266,7 +266,7 @@ export interface HostPoolState {
  */
 export interface HostPoolArgs {
     /**
-     * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+     * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
      */
     customRdpProperties?: pulumi.Input<string>;
     /**

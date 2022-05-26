@@ -86,7 +86,7 @@ export class Factory extends pulumi.CustomResource {
      */
     public readonly managedVirtualNetworkEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -187,7 +187,7 @@ export interface FactoryState {
      */
     managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**
@@ -241,7 +241,7 @@ export interface FactoryArgs {
      */
     managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**

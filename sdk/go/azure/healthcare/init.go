@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:healthcare/dicomService:DicomService":
 		r = &DicomService{}
+	case "azure:healthcare/fhirService:FhirService":
+		r = &FhirService{}
 	case "azure:healthcare/service:Service":
 		r = &Service{}
 	case "azure:healthcare/workspace:Workspace":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"healthcare/dicomService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"healthcare/fhirService",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

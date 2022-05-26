@@ -188,7 +188,7 @@ export class Service extends pulumi.CustomResource {
     public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.apimanagement.ServiceVirtualNetworkConfiguration | undefined>;
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
-     * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
+     * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
      */
     public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
     /**
@@ -431,7 +431,7 @@ export interface ServiceState {
     virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
-     * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
+     * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
      */
     virtualNetworkType?: pulumi.Input<string>;
     /**
@@ -542,7 +542,7 @@ export interface ServiceArgs {
     virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
-     * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
+     * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
      */
     virtualNetworkType?: pulumi.Input<string>;
     /**

@@ -43,7 +43,7 @@ class TrafficManagerNestedEndpointArgs:
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
                this must be specified for Profiles using the `Performance` routing method.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[int] minimum_required_child_endpoints_ipv4: This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
         :param pulumi.Input[int] minimum_required_child_endpoints_ipv6: This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
@@ -170,7 +170,7 @@ class TrafficManagerNestedEndpointArgs:
     @pulumi.getter(name="geoMappings")
     def geo_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         """
         return pulumi.get(self, "geo_mappings")
 
@@ -264,7 +264,7 @@ class _TrafficManagerNestedEndpointState:
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
                this must be specified for Profiles using the `Performance` routing method.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[int] minimum_child_endpoints: This argument specifies the minimum number
                of endpoints that must be ‘online’ in the child profile in order for the
                parent profile to direct traffic to any of the endpoints in that child
@@ -351,7 +351,7 @@ class _TrafficManagerNestedEndpointState:
     @pulumi.getter(name="geoMappings")
     def geo_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         """
         return pulumi.get(self, "geo_mappings")
 
@@ -512,7 +512,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
                this must be specified for Profiles using the `Performance` routing method.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[int] minimum_child_endpoints: This argument specifies the minimum number
                of endpoints that must be ‘online’ in the child profile in order for the
                parent profile to direct traffic to any of the endpoints in that child
@@ -643,7 +643,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
                this must be specified for Profiles using the `Performance` routing method.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[int] minimum_child_endpoints: This argument specifies the minimum number
                of endpoints that must be ‘online’ in the child profile in order for the
                parent profile to direct traffic to any of the endpoints in that child
@@ -710,7 +710,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="geoMappings")
     def geo_mappings(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         """
         return pulumi.get(self, "geo_mappings")
 

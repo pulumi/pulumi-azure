@@ -138,7 +138,7 @@ export class DataDiskAttachment extends pulumi.CustomResource {
      */
     public readonly virtualMachineId!: pulumi.Output<string>;
     /**
-     * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+     * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      */
     public readonly writeAcceleratorEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -212,7 +212,7 @@ export interface DataDiskAttachmentState {
      */
     virtualMachineId?: pulumi.Input<string>;
     /**
-     * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+     * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      */
     writeAcceleratorEnabled?: pulumi.Input<boolean>;
 }
@@ -242,7 +242,7 @@ export interface DataDiskAttachmentArgs {
      */
     virtualMachineId: pulumi.Input<string>;
     /**
-     * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+     * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      */
     writeAcceleratorEnabled?: pulumi.Input<boolean>;
 }

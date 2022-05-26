@@ -37,7 +37,7 @@ type TriggerSchedule struct {
 	Frequency pulumi.StringPtrOutput `pulumi:"frequency"`
 	// The interval for how often the trigger occurs. This defaults to 1.
 	Interval pulumi.IntPtrOutput `pulumi:"interval"`
-	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Data Factory Pipeline name that the trigger will act on.
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
@@ -98,7 +98,7 @@ type triggerScheduleState struct {
 	Frequency *string `pulumi:"frequency"`
 	// The interval for how often the trigger occurs. This defaults to 1.
 	Interval *int `pulumi:"interval"`
-	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// The Data Factory Pipeline name that the trigger will act on.
 	PipelineName *string `pulumi:"pipelineName"`
@@ -125,7 +125,7 @@ type TriggerScheduleState struct {
 	Frequency pulumi.StringPtrInput
 	// The interval for how often the trigger occurs. This defaults to 1.
 	Interval pulumi.IntPtrInput
-	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// The Data Factory Pipeline name that the trigger will act on.
 	PipelineName pulumi.StringPtrInput
@@ -156,7 +156,7 @@ type triggerScheduleArgs struct {
 	Frequency *string `pulumi:"frequency"`
 	// The interval for how often the trigger occurs. This defaults to 1.
 	Interval *int `pulumi:"interval"`
-	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// The Data Factory Pipeline name that the trigger will act on.
 	PipelineName string `pulumi:"pipelineName"`
@@ -184,7 +184,7 @@ type TriggerScheduleArgs struct {
 	Frequency pulumi.StringPtrInput
 	// The interval for how often the trigger occurs. This defaults to 1.
 	Interval pulumi.IntPtrInput
-	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// The Data Factory Pipeline name that the trigger will act on.
 	PipelineName pulumi.StringInput
@@ -318,7 +318,7 @@ func (o TriggerScheduleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TriggerSchedule) pulumi.IntPtrOutput { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o TriggerScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TriggerSchedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

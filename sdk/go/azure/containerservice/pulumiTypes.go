@@ -3907,7 +3907,7 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Te
 }
 
 type KubernetesClusterDefaultNodePool struct {
-	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
@@ -3953,7 +3953,7 @@ type KubernetesClusterDefaultNodePool struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
 	Type *string `pulumi:"type"`
-	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings *KubernetesClusterDefaultNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
@@ -3977,7 +3977,7 @@ type KubernetesClusterDefaultNodePoolInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolArgs struct {
-	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
 	EnableHostEncryption pulumi.BoolPtrInput `pulumi:"enableHostEncryption"`
@@ -4023,7 +4023,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+	// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
@@ -4112,7 +4112,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePo
 	}).(KubernetesClusterDefaultNodePoolPtrOutput)
 }
 
-// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
@@ -4234,7 +4234,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
 func (o KubernetesClusterDefaultNodePoolOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -4285,7 +4285,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Elem() KubernetesClusterDefau
 	}).(KubernetesClusterDefaultNodePoolOutput)
 }
 
-// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -4523,7 +4523,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -6302,15 +6302,15 @@ func (o KubernetesClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type KubernetesClusterIngressApplicationGateway struct {
 	// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
 	EffectiveGatewayId *string `pulumi:"effectiveGatewayId"`
-	// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+	// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
 	GatewayId *string `pulumi:"gatewayId"`
-	// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	GatewayName *string `pulumi:"gatewayName"`
 	// An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
 	IngressApplicationGatewayIdentities []KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity `pulumi:"ingressApplicationGatewayIdentities"`
-	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	SubnetCidr *string `pulumi:"subnetCidr"`
-	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -6328,15 +6328,15 @@ type KubernetesClusterIngressApplicationGatewayInput interface {
 type KubernetesClusterIngressApplicationGatewayArgs struct {
 	// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
 	EffectiveGatewayId pulumi.StringPtrInput `pulumi:"effectiveGatewayId"`
-	// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+	// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
 	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
-	// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	GatewayName pulumi.StringPtrInput `pulumi:"gatewayName"`
 	// An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
 	IngressApplicationGatewayIdentities KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput `pulumi:"ingressApplicationGatewayIdentities"`
-	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
-	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
@@ -6422,12 +6422,12 @@ func (o KubernetesClusterIngressApplicationGatewayOutput) EffectiveGatewayId() p
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGateway) *string { return v.EffectiveGatewayId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
 func (o KubernetesClusterIngressApplicationGatewayOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGateway) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 func (o KubernetesClusterIngressApplicationGatewayOutput) GatewayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGateway) *string { return v.GatewayName }).(pulumi.StringPtrOutput)
 }
@@ -6439,12 +6439,12 @@ func (o KubernetesClusterIngressApplicationGatewayOutput) IngressApplicationGate
 	}).(KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
 }
 
-// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 func (o KubernetesClusterIngressApplicationGatewayOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGateway) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 func (o KubernetesClusterIngressApplicationGatewayOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterIngressApplicationGateway) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -6483,7 +6483,7 @@ func (o KubernetesClusterIngressApplicationGatewayPtrOutput) EffectiveGatewayId(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
 func (o KubernetesClusterIngressApplicationGatewayPtrOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterIngressApplicationGateway) *string {
 		if v == nil {
@@ -6493,7 +6493,7 @@ func (o KubernetesClusterIngressApplicationGatewayPtrOutput) GatewayId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 func (o KubernetesClusterIngressApplicationGatewayPtrOutput) GatewayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterIngressApplicationGateway) *string {
 		if v == nil {
@@ -6513,7 +6513,7 @@ func (o KubernetesClusterIngressApplicationGatewayPtrOutput) IngressApplicationG
 	}).(KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
 }
 
-// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 func (o KubernetesClusterIngressApplicationGatewayPtrOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterIngressApplicationGateway) *string {
 		if v == nil {
@@ -6523,7 +6523,7 @@ func (o KubernetesClusterIngressApplicationGatewayPtrOutput) SubnetCidr() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 func (o KubernetesClusterIngressApplicationGatewayPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterIngressApplicationGateway) *string {
 		if v == nil {
@@ -8226,7 +8226,7 @@ type KubernetesClusterNetworkProfile struct {
 	NetworkMode *string `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 	NetworkPlugin string `pulumi:"networkPlugin"`
-	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
 	OutboundType *string `pulumi:"outboundType"`
@@ -8264,7 +8264,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
-	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
@@ -8395,7 +8395,7 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutp
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
-// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
@@ -8519,7 +8519,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {

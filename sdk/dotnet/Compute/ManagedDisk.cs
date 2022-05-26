@@ -261,7 +261,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+        /// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         /// </summary>
         [Output("tier")]
         public Output<string> Tier { get; private set; } = null!;
@@ -493,7 +493,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+        /// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }
@@ -686,7 +686,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+        /// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }

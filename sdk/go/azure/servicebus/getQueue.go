@@ -75,7 +75,7 @@ type LookupQueueResult struct {
 	EnablePartitioning bool `pulumi:"enablePartitioning"`
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo string `pulumi:"forwardDeadLetteredMessagesTo"`
-	// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+	// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
 	ForwardTo string `pulumi:"forwardTo"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -83,7 +83,7 @@ type LookupQueueResult struct {
 	LockDuration string `pulumi:"lockDuration"`
 	// Integer value which controls when a message is automatically dead lettered.
 	MaxDeliveryCount int `pulumi:"maxDeliveryCount"`
-	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes int     `pulumi:"maxSizeInMegabytes"`
 	Name               string  `pulumi:"name"`
 	NamespaceId        *string `pulumi:"namespaceId"`
@@ -180,7 +180,7 @@ func (o LookupQueueResultOutput) ForwardDeadLetteredMessagesTo() pulumi.StringOu
 	return o.ApplyT(func(v LookupQueueResult) string { return v.ForwardDeadLetteredMessagesTo }).(pulumi.StringOutput)
 }
 
-// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
 func (o LookupQueueResultOutput) ForwardTo() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.ForwardTo }).(pulumi.StringOutput)
 }
@@ -200,7 +200,7 @@ func (o LookupQueueResultOutput) MaxDeliveryCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupQueueResult) int { return v.MaxDeliveryCount }).(pulumi.IntOutput)
 }
 
-// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 func (o LookupQueueResultOutput) MaxSizeInMegabytes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupQueueResult) int { return v.MaxSizeInMegabytes }).(pulumi.IntOutput)
 }

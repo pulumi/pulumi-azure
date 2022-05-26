@@ -39,7 +39,7 @@ class SharedImageArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
-        :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image.
+        :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
@@ -155,7 +155,7 @@ class SharedImageArgs:
     @pulumi.getter
     def eula(self) -> Optional[pulumi.Input[str]]:
         """
-        The End User Licence Agreement for the Shared Image.
+        The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eula")
 
@@ -295,7 +295,7 @@ class _SharedImageState:
         Input properties used for looking up and filtering SharedImage resources.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
-        :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image.
+        :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input['SharedImageIdentifierArgs'] identifier: An `identifier` block as defined below.
@@ -371,7 +371,7 @@ class _SharedImageState:
     @pulumi.getter
     def eula(self) -> Optional[pulumi.Input[str]]:
         """
-        The End User Licence Agreement for the Shared Image.
+        The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eula")
 
@@ -600,7 +600,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
-        :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image.
+        :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SharedImageIdentifierArgs']] identifier: An `identifier` block as defined below.
@@ -761,7 +761,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
-        :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image.
+        :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SharedImageIdentifierArgs']] identifier: An `identifier` block as defined below.
@@ -818,7 +818,7 @@ class SharedImage(pulumi.CustomResource):
     @pulumi.getter
     def eula(self) -> pulumi.Output[Optional[str]]:
         """
-        The End User Licence Agreement for the Shared Image.
+        The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eula")
 

@@ -91,7 +91,7 @@ export interface GetQueueResult {
      */
     readonly forwardDeadLetteredMessagesTo: string;
     /**
-     * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+     * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
      */
     readonly forwardTo: string;
     /**
@@ -107,7 +107,7 @@ export interface GetQueueResult {
      */
     readonly maxDeliveryCount: number;
     /**
-     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
     readonly maxSizeInMegabytes: number;
     readonly name: string;

@@ -73,7 +73,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
     }
 
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -101,7 +101,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
      */
     public readonly connectionStrings!: pulumi.Output<outputs.appservice.LinuxFunctionAppConnectionString[] | undefined>;
     /**
-     * Force disable the content share settings.
+     * Should the settings for linking the Function App to storage be suppressed.
      */
     public readonly contentShareForceDisabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -133,7 +133,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.appservice.LinuxFunctionAppIdentity | undefined>;
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
     public readonly keyVaultReferenceIdentityId!: pulumi.Output<string>;
     /**
@@ -306,7 +306,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
  */
 export interface LinuxFunctionAppState {
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -334,7 +334,7 @@ export interface LinuxFunctionAppState {
      */
     connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppConnectionString>[]>;
     /**
-     * Force disable the content share settings.
+     * Should the settings for linking the Function App to storage be suppressed.
      */
     contentShareForceDisabled?: pulumi.Input<boolean>;
     /**
@@ -366,7 +366,7 @@ export interface LinuxFunctionAppState {
      */
     identity?: pulumi.Input<inputs.appservice.LinuxFunctionAppIdentity>;
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
     keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**
@@ -444,7 +444,7 @@ export interface LinuxFunctionAppState {
  */
 export interface LinuxFunctionAppArgs {
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -472,7 +472,7 @@ export interface LinuxFunctionAppArgs {
      */
     connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppConnectionString>[]>;
     /**
-     * Force disable the content share settings.
+     * Should the settings for linking the Function App to storage be suppressed.
      */
     contentShareForceDisabled?: pulumi.Input<boolean>;
     /**
@@ -496,7 +496,7 @@ export interface LinuxFunctionAppArgs {
      */
     identity?: pulumi.Input<inputs.appservice.LinuxFunctionAppIdentity>;
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
     keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**

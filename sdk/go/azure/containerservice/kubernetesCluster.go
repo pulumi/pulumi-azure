@@ -72,7 +72,7 @@ import (
 type KubernetesCluster struct {
 	pulumi.CustomResourceState
 
-	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrOutput `pulumi:"aciConnectorLinux"`
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
@@ -86,7 +86,7 @@ type KubernetesCluster struct {
 	AzurePolicyEnabled pulumi.BoolPtrOutput `pulumi:"azurePolicyEnabled"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
-	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrOutput `pulumi:"dnsPrefix"`
@@ -105,7 +105,7 @@ type KubernetesCluster struct {
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrOutput `pulumi:"ingressApplicationGateway"`
-	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
 	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderPtrOutput `pulumi:"keyVaultSecretsProvider"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigRaw pulumi.StringOutput `pulumi:"kubeAdminConfigRaw"`
@@ -121,7 +121,7 @@ type KubernetesCluster struct {
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrOutput `pulumi:"linuxProfile"`
-	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled pulumi.BoolPtrOutput `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -135,7 +135,7 @@ type KubernetesCluster struct {
 	NetworkProfile KubernetesClusterNetworkProfileOutput `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
-	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
 	OidcIssuerEnabled pulumi.BoolPtrOutput `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl pulumi.StringOutput `pulumi:"oidcIssuerUrl"`
@@ -205,7 +205,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KubernetesCluster resources.
 type kubernetesClusterState struct {
-	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
@@ -219,7 +219,7 @@ type kubernetesClusterState struct {
 	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
-	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
@@ -238,7 +238,7 @@ type kubernetesClusterState struct {
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
-	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
 	KeyVaultSecretsProvider *KubernetesClusterKeyVaultSecretsProvider `pulumi:"keyVaultSecretsProvider"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigRaw *string `pulumi:"kubeAdminConfigRaw"`
@@ -254,7 +254,7 @@ type kubernetesClusterState struct {
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile *KubernetesClusterLinuxProfile `pulumi:"linuxProfile"`
-	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled *bool `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -268,7 +268,7 @@ type kubernetesClusterState struct {
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
-	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
 	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl *string `pulumi:"oidcIssuerUrl"`
@@ -304,7 +304,7 @@ type kubernetesClusterState struct {
 }
 
 type KubernetesClusterState struct {
-	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
@@ -318,7 +318,7 @@ type KubernetesClusterState struct {
 	AzurePolicyEnabled pulumi.BoolPtrInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
-	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrInput
@@ -337,7 +337,7 @@ type KubernetesClusterState struct {
 	Identity KubernetesClusterIdentityPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
-	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
 	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderPtrInput
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigRaw pulumi.StringPtrInput
@@ -353,7 +353,7 @@ type KubernetesClusterState struct {
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrInput
-	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled pulumi.BoolPtrInput
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -367,7 +367,7 @@ type KubernetesClusterState struct {
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringPtrInput
-	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
 	OidcIssuerEnabled pulumi.BoolPtrInput
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl pulumi.StringPtrInput
@@ -407,7 +407,7 @@ func (KubernetesClusterState) ElementType() reflect.Type {
 }
 
 type kubernetesClusterArgs struct {
-	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
@@ -421,7 +421,7 @@ type kubernetesClusterArgs struct {
 	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
-	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
@@ -436,7 +436,7 @@ type kubernetesClusterArgs struct {
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
-	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
 	KeyVaultSecretsProvider *KubernetesClusterKeyVaultSecretsProvider `pulumi:"keyVaultSecretsProvider"`
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
 	KubeletIdentity *KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentity"`
@@ -444,7 +444,7 @@ type kubernetesClusterArgs struct {
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile *KubernetesClusterLinuxProfile `pulumi:"linuxProfile"`
-	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled *bool `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -458,7 +458,7 @@ type kubernetesClusterArgs struct {
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
-	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
 	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
 	// A `omsAgent` block as defined below.
 	OmsAgent *KubernetesClusterOmsAgent `pulumi:"omsAgent"`
@@ -489,7 +489,7 @@ type kubernetesClusterArgs struct {
 
 // The set of arguments for constructing a KubernetesCluster resource.
 type KubernetesClusterArgs struct {
-	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
 	// The IP ranges to allow for incoming traffic to the server nodes.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
@@ -503,7 +503,7 @@ type KubernetesClusterArgs struct {
 	AzurePolicyEnabled pulumi.BoolPtrInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolInput
-	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrInput
@@ -518,7 +518,7 @@ type KubernetesClusterArgs struct {
 	Identity KubernetesClusterIdentityPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
-	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
 	KeyVaultSecretsProvider KubernetesClusterKeyVaultSecretsProviderPtrInput
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
 	KubeletIdentity KubernetesClusterKubeletIdentityPtrInput
@@ -526,7 +526,7 @@ type KubernetesClusterArgs struct {
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrInput
-	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled pulumi.BoolPtrInput
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -540,7 +540,7 @@ type KubernetesClusterArgs struct {
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup pulumi.StringPtrInput
-	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+	// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
 	OidcIssuerEnabled pulumi.BoolPtrInput
 	// A `omsAgent` block as defined below.
 	OmsAgent KubernetesClusterOmsAgentPtrInput
@@ -656,7 +656,7 @@ func (o KubernetesClusterOutput) ToKubernetesClusterOutputWithContext(ctx contex
 	return o
 }
 
-// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 func (o KubernetesClusterOutput) AciConnectorLinux() KubernetesClusterAciConnectorLinuxPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterAciConnectorLinuxPtrOutput { return v.AciConnectorLinux }).(KubernetesClusterAciConnectorLinuxPtrOutput)
 }
@@ -693,7 +693,7 @@ func (o KubernetesClusterOutput) DefaultNodePool() KubernetesClusterDefaultNodeP
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterDefaultNodePoolOutput { return v.DefaultNodePool }).(KubernetesClusterDefaultNodePoolOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys).
 func (o KubernetesClusterOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -744,7 +744,7 @@ func (o KubernetesClusterOutput) IngressApplicationGateway() KubernetesClusterIn
 	}).(KubernetesClusterIngressApplicationGatewayPtrOutput)
 }
 
-// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
 func (o KubernetesClusterOutput) KeyVaultSecretsProvider() KubernetesClusterKeyVaultSecretsProviderPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterKeyVaultSecretsProviderPtrOutput {
 		return v.KeyVaultSecretsProvider
@@ -786,7 +786,7 @@ func (o KubernetesClusterOutput) LinuxProfile() KubernetesClusterLinuxProfilePtr
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterLinuxProfilePtrOutput { return v.LinuxProfile }).(KubernetesClusterLinuxProfilePtrOutput)
 }
 
-// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
+// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 func (o KubernetesClusterOutput) LocalAccountDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.LocalAccountDisabled }).(pulumi.BoolPtrOutput)
 }
@@ -821,7 +821,7 @@ func (o KubernetesClusterOutput) NodeResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.NodeResourceGroup }).(pulumi.StringOutput)
 }
 
-// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview)
+// Enable or Disable the [OIDC issuer URL](https://docs.microsoft.com/azure/aks/cluster-configuration#oidc-issuer-preview)
 func (o KubernetesClusterOutput) OidcIssuerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.OidcIssuerEnabled }).(pulumi.BoolPtrOutput)
 }

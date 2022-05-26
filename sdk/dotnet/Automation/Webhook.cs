@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> RunbookName { get; private set; } = null!;
 
         /// <summary>
-        /// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/en-us/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+        /// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
         /// </summary>
         [Output("uri")]
         public Output<string> Uri { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> RunbookName { get; set; } = null!;
 
         /// <summary>
-        /// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/en-us/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+        /// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? RunbookName { get; set; }
 
         /// <summary>
-        /// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/en-us/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
+        /// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }

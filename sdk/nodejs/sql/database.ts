@@ -47,7 +47,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string>;
     /**
-     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
+     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
@@ -59,7 +59,7 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultSecondaryLocation!: pulumi.Output<string>;
     /**
-     * The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
+     * The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      */
     public readonly edition!: pulumi.Output<string>;
     /**
@@ -76,7 +76,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
+     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      */
     public readonly maxSizeBytes!: pulumi.Output<string>;
     public readonly maxSizeGb!: pulumi.Output<string>;
@@ -85,7 +85,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
+     * Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
      */
     public readonly readScale!: pulumi.Output<boolean | undefined>;
     /**
@@ -94,7 +94,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly requestedServiceObjectiveId!: pulumi.Output<string>;
     /**
-     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
+     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
      */
     public readonly requestedServiceObjectiveName!: pulumi.Output<string>;
     /**
@@ -212,7 +212,7 @@ export interface DatabaseState {
      */
     collation?: pulumi.Input<string>;
     /**
-     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
+     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -224,7 +224,7 @@ export interface DatabaseState {
      */
     defaultSecondaryLocation?: pulumi.Input<string>;
     /**
-     * The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
+     * The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      */
     edition?: pulumi.Input<string>;
     /**
@@ -241,7 +241,7 @@ export interface DatabaseState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
+     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      */
     maxSizeBytes?: pulumi.Input<string>;
     maxSizeGb?: pulumi.Input<string>;
@@ -250,7 +250,7 @@ export interface DatabaseState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
+     * Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
      */
     readScale?: pulumi.Input<boolean>;
     /**
@@ -259,7 +259,7 @@ export interface DatabaseState {
      */
     requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
-     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
+     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
      */
     requestedServiceObjectiveName?: pulumi.Input<string>;
     /**
@@ -305,11 +305,11 @@ export interface DatabaseArgs {
      */
     collation?: pulumi.Input<string>;
     /**
-     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
+     * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
      */
     createMode?: pulumi.Input<string>;
     /**
-     * The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
+     * The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      */
     edition?: pulumi.Input<string>;
     /**
@@ -325,7 +325,7 @@ export interface DatabaseArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models?view=azuresql).
+     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      */
     maxSizeBytes?: pulumi.Input<string>;
     maxSizeGb?: pulumi.Input<string>;
@@ -334,7 +334,7 @@ export interface DatabaseArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
+     * Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
      */
     readScale?: pulumi.Input<boolean>;
     /**
@@ -343,7 +343,7 @@ export interface DatabaseArgs {
      */
     requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
-     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
+     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
      */
     requestedServiceObjectiveName?: pulumi.Input<string>;
     /**

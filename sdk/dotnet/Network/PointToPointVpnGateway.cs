@@ -141,7 +141,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The [Scale Unit](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
+        /// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
         /// </summary>
         [Output("scaleUnit")]
         public Output<int> ScaleUnit { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The [Scale Unit](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
+        /// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
         /// </summary>
         [Input("scaleUnit", required: true)]
         public Input<int> ScaleUnit { get; set; } = null!;
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The [Scale Unit](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
+        /// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
         /// </summary>
         [Input("scaleUnit")]
         public Input<int>? ScaleUnit { get; set; }

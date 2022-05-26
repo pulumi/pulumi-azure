@@ -109,7 +109,7 @@ type LinkedService struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
 	SynapseWorkspaceId pulumi.StringOutput `pulumi:"synapseWorkspaceId"`
-	// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
+	// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A JSON object that contains the properties of the Synapse Linked Service.
 	TypePropertiesJson pulumi.StringOutput `pulumi:"typePropertiesJson"`
@@ -167,7 +167,7 @@ type linkedServiceState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
 	SynapseWorkspaceId *string `pulumi:"synapseWorkspaceId"`
-	// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
+	// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
 	Type *string `pulumi:"type"`
 	// A JSON object that contains the properties of the Synapse Linked Service.
 	TypePropertiesJson *string `pulumi:"typePropertiesJson"`
@@ -188,7 +188,7 @@ type LinkedServiceState struct {
 	Parameters pulumi.StringMapInput
 	// The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
 	SynapseWorkspaceId pulumi.StringPtrInput
-	// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
+	// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
 	Type pulumi.StringPtrInput
 	// A JSON object that contains the properties of the Synapse Linked Service.
 	TypePropertiesJson pulumi.StringPtrInput
@@ -213,7 +213,7 @@ type linkedServiceArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
 	SynapseWorkspaceId string `pulumi:"synapseWorkspaceId"`
-	// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
+	// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
 	Type string `pulumi:"type"`
 	// A JSON object that contains the properties of the Synapse Linked Service.
 	TypePropertiesJson string `pulumi:"typePropertiesJson"`
@@ -235,7 +235,7 @@ type LinkedServiceArgs struct {
 	Parameters pulumi.StringMapInput
 	// The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
 	SynapseWorkspaceId pulumi.StringInput
-	// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
+	// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
 	Type pulumi.StringInput
 	// A JSON object that contains the properties of the Synapse Linked Service.
 	TypePropertiesJson pulumi.StringInput
@@ -363,7 +363,7 @@ func (o LinkedServiceOutput) SynapseWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedService) pulumi.StringOutput { return v.SynapseWorkspaceId }).(pulumi.StringOutput)
 }
 
-// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
+// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
 func (o LinkedServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

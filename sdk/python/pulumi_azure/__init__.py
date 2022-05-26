@@ -90,6 +90,8 @@ if typing.TYPE_CHECKING:
     dns = __dns
     import pulumi_azure.domainservices as __domainservices
     domainservices = __domainservices
+    import pulumi_azure.elasticcloud as __elasticcloud
+    elasticcloud = __elasticcloud
     import pulumi_azure.eventgrid as __eventgrid
     eventgrid = __eventgrid
     import pulumi_azure.eventhub as __eventhub
@@ -259,6 +261,7 @@ else:
     digitaltwins = _utilities.lazy_import('pulumi_azure.digitaltwins')
     dns = _utilities.lazy_import('pulumi_azure.dns')
     domainservices = _utilities.lazy_import('pulumi_azure.domainservices')
+    elasticcloud = _utilities.lazy_import('pulumi_azure.elasticcloud')
     eventgrid = _utilities.lazy_import('pulumi_azure.eventgrid')
     eventhub = _utilities.lazy_import('pulumi_azure.eventhub')
     frontdoor = _utilities.lazy_import('pulumi_azure.frontdoor')
@@ -3049,6 +3052,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "elasticcloud/elasticsearch",
+  "fqn": "pulumi_azure.elasticcloud",
+  "classes": {
+   "azure:elasticcloud/elasticsearch:Elasticsearch": "Elasticsearch"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "eventgrid/domain",
   "fqn": "pulumi_azure.eventgrid",
   "classes": {
@@ -3341,6 +3352,14 @@ _utilities.register(
   "fqn": "pulumi_azure.healthcare",
   "classes": {
    "azure:healthcare/dicomService:DicomService": "DicomService"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "healthcare/fhirService",
+  "fqn": "pulumi_azure.healthcare",
+  "classes": {
+   "azure:healthcare/fhirService:FhirService": "FhirService"
   }
  },
  {
@@ -5285,6 +5304,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection": "VirtualNetworkGatewayConnection"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/virtualNetworkGatewayNatRule",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule": "VirtualNetworkGatewayNatRule"
   }
  },
  {

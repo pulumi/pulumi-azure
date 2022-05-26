@@ -94,7 +94,7 @@ import (
 type DataConnectorAwsS3 struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+	// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
 	AwsRoleArn pulumi.StringOutput `pulumi:"awsRoleArn"`
 	// The name of the Log Analytics table that will store the ingested data.
 	DestinationTable pulumi.StringOutput `pulumi:"destinationTable"`
@@ -147,7 +147,7 @@ func GetDataConnectorAwsS3(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataConnectorAwsS3 resources.
 type dataConnectorAwsS3State struct {
-	// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+	// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
 	AwsRoleArn *string `pulumi:"awsRoleArn"`
 	// The name of the Log Analytics table that will store the ingested data.
 	DestinationTable *string `pulumi:"destinationTable"`
@@ -160,7 +160,7 @@ type dataConnectorAwsS3State struct {
 }
 
 type DataConnectorAwsS3State struct {
-	// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+	// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
 	AwsRoleArn pulumi.StringPtrInput
 	// The name of the Log Analytics table that will store the ingested data.
 	DestinationTable pulumi.StringPtrInput
@@ -177,7 +177,7 @@ func (DataConnectorAwsS3State) ElementType() reflect.Type {
 }
 
 type dataConnectorAwsS3Args struct {
-	// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+	// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
 	AwsRoleArn string `pulumi:"awsRoleArn"`
 	// The name of the Log Analytics table that will store the ingested data.
 	DestinationTable string `pulumi:"destinationTable"`
@@ -191,7 +191,7 @@ type dataConnectorAwsS3Args struct {
 
 // The set of arguments for constructing a DataConnectorAwsS3 resource.
 type DataConnectorAwsS3Args struct {
-	// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+	// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
 	AwsRoleArn pulumi.StringInput
 	// The name of the Log Analytics table that will store the ingested data.
 	DestinationTable pulumi.StringInput
@@ -290,7 +290,7 @@ func (o DataConnectorAwsS3Output) ToDataConnectorAwsS3OutputWithContext(ctx cont
 	return o
 }
 
-// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
 func (o DataConnectorAwsS3Output) AwsRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorAwsS3) pulumi.StringOutput { return v.AwsRoleArn }).(pulumi.StringOutput)
 }

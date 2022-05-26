@@ -92,6 +92,7 @@ export * from "./virtualNetwork";
 export * from "./virtualNetworkDnsServers";
 export * from "./virtualNetworkGateway";
 export * from "./virtualNetworkGatewayConnection";
+export * from "./virtualNetworkGatewayNatRule";
 export * from "./virtualNetworkPeering";
 export * from "./virtualWan";
 export * from "./vnpGatewayNatRule";
@@ -161,6 +162,7 @@ import { VirtualNetwork } from "./virtualNetwork";
 import { VirtualNetworkDnsServers } from "./virtualNetworkDnsServers";
 import { VirtualNetworkGateway } from "./virtualNetworkGateway";
 import { VirtualNetworkGatewayConnection } from "./virtualNetworkGatewayConnection";
+import { VirtualNetworkGatewayNatRule } from "./virtualNetworkGatewayNatRule";
 import { VirtualNetworkPeering } from "./virtualNetworkPeering";
 import { VirtualWan } from "./virtualWan";
 import { VnpGatewayNatRule } from "./vnpGatewayNatRule";
@@ -293,6 +295,8 @@ const _module = {
                 return new VirtualNetworkGateway(name, <any>undefined, { urn })
             case "azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection":
                 return new VirtualNetworkGatewayConnection(name, <any>undefined, { urn })
+            case "azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule":
+                return new VirtualNetworkGatewayNatRule(name, <any>undefined, { urn })
             case "azure:network/virtualNetworkPeering:VirtualNetworkPeering":
                 return new VirtualNetworkPeering(name, <any>undefined, { urn })
             case "azure:network/virtualWan:VirtualWan":
@@ -372,6 +376,7 @@ pulumi.runtime.registerResourceModule("azure", "network/virtualNetwork", _module
 pulumi.runtime.registerResourceModule("azure", "network/virtualNetworkDnsServers", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualNetworkGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualNetworkGatewayConnection", _module)
+pulumi.runtime.registerResourceModule("azure", "network/virtualNetworkGatewayNatRule", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualNetworkPeering", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualWan", _module)
 pulumi.runtime.registerResourceModule("azure", "network/vnpGatewayNatRule", _module)

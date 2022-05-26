@@ -2394,8 +2394,8 @@ class IntegrationRuntimeManagedCustomSetupScriptArgs:
                  blob_container_uri: pulumi.Input[str],
                  sas_token: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] blob_container_uri: The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
-        :param pulumi.Input[str] sas_token: A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        :param pulumi.Input[str] blob_container_uri: The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        :param pulumi.Input[str] sas_token: A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
         """
         pulumi.set(__self__, "blob_container_uri", blob_container_uri)
         pulumi.set(__self__, "sas_token", sas_token)
@@ -2404,7 +2404,7 @@ class IntegrationRuntimeManagedCustomSetupScriptArgs:
     @pulumi.getter(name="blobContainerUri")
     def blob_container_uri(self) -> pulumi.Input[str]:
         """
-        The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
         """
         return pulumi.get(self, "blob_container_uri")
 
@@ -2416,7 +2416,7 @@ class IntegrationRuntimeManagedCustomSetupScriptArgs:
     @pulumi.getter(name="sasToken")
     def sas_token(self) -> pulumi.Input[str]:
         """
-        A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
         """
         return pulumi.get(self, "sas_token")
 
@@ -2576,8 +2576,8 @@ class IntegrationRuntimeSsisCustomSetupScriptArgs:
                  blob_container_uri: pulumi.Input[str],
                  sas_token: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] blob_container_uri: The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
-        :param pulumi.Input[str] sas_token: A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        :param pulumi.Input[str] blob_container_uri: The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        :param pulumi.Input[str] sas_token: A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
         """
         pulumi.set(__self__, "blob_container_uri", blob_container_uri)
         pulumi.set(__self__, "sas_token", sas_token)
@@ -2586,7 +2586,7 @@ class IntegrationRuntimeSsisCustomSetupScriptArgs:
     @pulumi.getter(name="blobContainerUri")
     def blob_container_uri(self) -> pulumi.Input[str]:
         """
-        The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
         """
         return pulumi.get(self, "blob_container_uri")
 
@@ -2598,7 +2598,7 @@ class IntegrationRuntimeSsisCustomSetupScriptArgs:
     @pulumi.getter(name="sasToken")
     def sas_token(self) -> pulumi.Input[str]:
         """
-        A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
         """
         return pulumi.get(self, "sas_token")
 

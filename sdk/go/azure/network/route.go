@@ -67,7 +67,7 @@ import (
 type Route struct {
 	pulumi.CustomResourceState
 
-	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix pulumi.StringOutput `pulumi:"addressPrefix"`
 	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -122,7 +122,7 @@ func GetRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Route resources.
 type routeState struct {
-	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// The name of the route. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -137,7 +137,7 @@ type routeState struct {
 }
 
 type RouteState struct {
-	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix pulumi.StringPtrInput
 	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -156,7 +156,7 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
-	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix string `pulumi:"addressPrefix"`
 	// The name of the route. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -172,7 +172,7 @@ type routeArgs struct {
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
-	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix pulumi.StringInput
 	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -273,7 +273,7 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
 }
 
-// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 func (o RouteOutput) AddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.AddressPrefix }).(pulumi.StringOutput)
 }

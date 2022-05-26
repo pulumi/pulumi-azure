@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppSiteConfig
     {
         /// <summary>
-        /// If this Linux Web App is Always On enabled. Defaults to `false`.
+        /// If this Linux Web App is Always On enabled. Defaults to `true`.
         /// </summary>
         public readonly bool? AlwaysOn;
         public readonly string? ApiDefinitionUrl;

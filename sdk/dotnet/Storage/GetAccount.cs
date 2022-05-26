@@ -158,7 +158,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountCustomDomainResult> CustomDomains;
         /// <summary>
-        /// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+        /// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
         /// for more information.
         /// </summary>
         public readonly bool EnableHttpsTrafficOnly;
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable/)
+        /// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
         /// for more information.
         /// ---
         /// </summary>

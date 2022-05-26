@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages a [Lighthouse](https://docs.microsoft.com/en-us/azure/lighthouse) Definition.
+ * Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Definition.
  *
  * ## Example Usage
  *

@@ -91,7 +91,7 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-        /// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the web service endpoint (e.g. http://www.microsoft.com).
+        /// The URL of the web service endpoint (e.g. https://www.microsoft.com).
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-        /// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The URL of the web service endpoint (e.g. http://www.microsoft.com).
+        /// The URL of the web service endpoint (e.g. https://www.microsoft.com).
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-        /// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The URL of the web service endpoint (e.g. http://www.microsoft.com).
+        /// The URL of the web service endpoint (e.g. https://www.microsoft.com).
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

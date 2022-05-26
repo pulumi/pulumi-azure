@@ -126,7 +126,7 @@ class GetLinuxFunctionAppResult:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Mapping[str, str]:
         """
-        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -181,6 +181,9 @@ class GetLinuxFunctionAppResult:
     @property
     @pulumi.getter(name="contentShareForceDisabled")
     def content_share_force_disabled(self) -> bool:
+        """
+        Are the settings for linking the Function App to storage suppressed?
+        """
         return pulumi.get(self, "content_share_force_disabled")
 
     @property

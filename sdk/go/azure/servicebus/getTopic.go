@@ -73,7 +73,7 @@ type LookupTopicResult struct {
 	EnablePartitioning bool `pulumi:"enablePartitioning"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes int     `pulumi:"maxSizeInMegabytes"`
 	Name               string  `pulumi:"name"`
 	NamespaceId        *string `pulumi:"namespaceId"`
@@ -165,7 +165,7 @@ func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 func (o LookupTopicResultOutput) MaxSizeInMegabytes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupTopicResult) int { return v.MaxSizeInMegabytes }).(pulumi.IntOutput)
 }

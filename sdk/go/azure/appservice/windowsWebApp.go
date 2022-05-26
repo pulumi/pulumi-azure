@@ -88,7 +88,7 @@ type WindowsWebApp struct {
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity WindowsWebAppIdentityPtrOutput `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringOutput `pulumi:"keyVaultReferenceIdentityId"`
 	// The Kind value for this Windows Web App.
 	Kind pulumi.StringOutput `pulumi:"kind"`
@@ -184,7 +184,7 @@ type windowsWebAppState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *WindowsWebAppIdentity `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Kind value for this Windows Web App.
 	Kind *string `pulumi:"kind"`
@@ -243,7 +243,7 @@ type WindowsWebAppState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsWebAppIdentityPtrInput
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Kind value for this Windows Web App.
 	Kind pulumi.StringPtrInput
@@ -302,7 +302,7 @@ type windowsWebAppArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *WindowsWebAppIdentity `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Azure Region where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
 	Location *string `pulumi:"location"`
@@ -346,7 +346,7 @@ type WindowsWebAppArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsWebAppIdentityPtrInput
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Azure Region where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
 	Location pulumi.StringPtrInput
@@ -515,7 +515,7 @@ func (o WindowsWebAppOutput) Identity() WindowsWebAppIdentityPtrOutput {
 	return o.ApplyT(func(v *WindowsWebApp) WindowsWebAppIdentityPtrOutput { return v.Identity }).(WindowsWebAppIdentityPtrOutput)
 }
 
-// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 func (o WindowsWebAppOutput) KeyVaultReferenceIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringOutput { return v.KeyVaultReferenceIdentityId }).(pulumi.StringOutput)
 }

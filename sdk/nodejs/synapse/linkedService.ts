@@ -113,7 +113,7 @@ export class LinkedService extends pulumi.CustomResource {
      */
     public readonly synapseWorkspaceId!: pulumi.Output<string>;
     /**
-     * The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
+     * The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -202,7 +202,7 @@ export interface LinkedServiceState {
      */
     synapseWorkspaceId?: pulumi.Input<string>;
     /**
-     * The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
+     * The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
      */
     type?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface LinkedServiceArgs {
      */
     synapseWorkspaceId: pulumi.Input<string>;
     /**
-     * The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
+     * The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
      */
     type: pulumi.Input<string>;
     /**

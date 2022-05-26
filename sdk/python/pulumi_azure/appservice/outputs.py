@@ -1686,7 +1686,7 @@ class AppServiceSiteConfig(dict):
         :param bool local_mysql_enabled: Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
         :param str managed_pipeline_mode: The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
         :param str min_tls_version: The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-        :param int number_of_workers: The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+        :param int number_of_workers: The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
         :param str php_version: The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
         :param str python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
@@ -1915,7 +1915,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="numberOfWorkers")
     def number_of_workers(self) -> Optional[int]:
         """
-        The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+        The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
         """
         return pulumi.get(self, "number_of_workers")
 
@@ -3580,7 +3580,7 @@ class FunctionAppSiteConfig(dict):
         :param bool always_on: Should the Function App be loaded at all times? Defaults to `false`.
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param 'FunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined below.
-        :param str dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        :param str dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param int elastic_instance_minimum: The number of minimum instances for this function app. Only affects apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param str health_check_path: Path which will be checked for this function app health.
@@ -3674,7 +3674,7 @@ class FunctionAppSiteConfig(dict):
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[str]:
         """
-        The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -4968,7 +4968,7 @@ class FunctionAppSlotSiteConfig(dict):
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param str auto_swap_slot_name: The name of the slot to automatically swap to during deployment
         :param 'FunctionAppSlotSiteConfigCorsArgs' cors: A `cors` block as defined below.
-        :param str dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        :param str dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param int elastic_instance_minimum: The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param bool http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
@@ -5059,7 +5059,7 @@ class FunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[str]:
         """
-        The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_framework_version")
 
@@ -6206,7 +6206,7 @@ class LinuxFunctionAppAuthSettingsGoogle(dict):
         :param str client_id: The OpenID Connect Client ID for the Google web application.
         :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
-        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -6244,7 +6244,7 @@ class LinuxFunctionAppAuthSettingsGoogle(dict):
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -7280,7 +7280,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
         :param str dotnet_version: The version of .NET to use. Possible values include `3.1` and `6.0`.
         :param str java_version: The Version of Java to use. Supported versions include `8`, and `11`.
         :param str node_version: The version of Node to run. Possible values include `12`, `14`, and `16`.
-        :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`.
+        :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
         :param str python_version: The version of Python to run. Possible values include `3.6`, `3.7`, `3.8`, and `3.9`.
         :param bool use_custom_runtime: Should the Linux Function App use a custom runtime?
         :param bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
@@ -7338,7 +7338,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="powershellCoreVersion")
     def powershell_core_version(self) -> Optional[str]:
         """
-        The version of PowerShell Core to run. Possible values are `7`.
+        The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
         """
         return pulumi.get(self, "powershell_core_version")
 
@@ -8398,7 +8398,7 @@ class LinuxFunctionAppSlotAuthSettingsGoogle(dict):
         :param str client_id: The OpenID Connect Client ID for the Google web application.
         :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
-        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -8436,7 +8436,7 @@ class LinuxFunctionAppSlotAuthSettingsGoogle(dict):
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -9502,7 +9502,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
         :param str dotnet_version: The version of .Net. Possible values are `3.1` and `6.0`.
         :param str java_version: The version of Java to use. Possible values are `8`, and `11`.
         :param str node_version: The version of Node to use. Possible values include `12`, and `14`
-        :param str powershell_core_version: The version of PowerShell Core to use. Possibles values are `7`.
+        :param str powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
         :param str python_version: The version of Python to use. Possible values include `3.9`, `3.8`, and `3.7`.
         :param bool use_custom_runtime: Should the Linux Function App use a custom runtime?
         :param bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
@@ -9560,7 +9560,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="powershellCoreVersion")
     def powershell_core_version(self) -> Optional[str]:
         """
-        The version of PowerShell Core to use. Possibles values are `7`.
+        The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
         """
         return pulumi.get(self, "powershell_core_version")
 
@@ -10670,7 +10670,7 @@ class LinuxWebAppAuthSettingsGoogle(dict):
         :param str client_id: The OpenID Connect Client ID for the Google web application.
         :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
-        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -10708,7 +10708,7 @@ class LinuxWebAppAuthSettingsGoogle(dict):
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -11583,7 +11583,7 @@ class LinuxWebAppSiteConfig(dict):
                  websockets_enabled: Optional[bool] = None,
                  worker_count: Optional[int] = None):
         """
-        :param bool always_on: If this Linux Web App is Always On enabled. Defaults to `false`.
+        :param bool always_on: If this Linux Web App is Always On enabled. Defaults to `true`.
         :param str app_command_line: The App command line to launch.
         :param 'LinuxWebAppSiteConfigApplicationStackArgs' application_stack: A `application_stack` block as defined above.
         :param bool auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
@@ -11679,7 +11679,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="alwaysOn")
     def always_on(self) -> Optional[bool]:
         """
-        If this Linux Web App is Always On enabled. Defaults to `false`.
+        If this Linux Web App is Always On enabled. Defaults to `true`.
         """
         return pulumi.get(self, "always_on")
 
@@ -13355,7 +13355,7 @@ class LinuxWebAppSlotAuthSettingsGoogle(dict):
         :param str client_id: The OpenID Connect Client ID for the Google web application.
         :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
-        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -13393,7 +13393,7 @@ class LinuxWebAppSlotAuthSettingsGoogle(dict):
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -16926,7 +16926,7 @@ class SlotSiteConfig(dict):
         :param bool local_mysql_enabled: Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
         :param str managed_pipeline_mode: The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
         :param str min_tls_version: The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-        :param int number_of_workers: The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+        :param int number_of_workers: The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
         :param str php_version: The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
         :param str python_version: The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
@@ -17158,7 +17158,7 @@ class SlotSiteConfig(dict):
     @pulumi.getter(name="numberOfWorkers")
     def number_of_workers(self) -> Optional[int]:
         """
-        The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+        The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
         """
         return pulumi.get(self, "number_of_workers")
 
@@ -18753,7 +18753,7 @@ class WindowsFunctionAppAuthSettingsGoogle(dict):
         :param str client_id: The OpenID Connect Client ID for the Google web application.
         :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
-        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -18791,7 +18791,7 @@ class WindowsFunctionAppAuthSettingsGoogle(dict):
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -19794,7 +19794,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
         :param str dotnet_version: The version of .NET to use. Possible values include `3.1` and `6`.
         :param str java_version: The Version of Java to use. Supported versions include `8`, and `11`.
         :param str node_version: The version of Node to run. Possible values include `~12`, `~14`, and `~16`.
-        :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`.
+        :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
         :param bool use_custom_runtime: Should the Windows Function App use a custom runtime?
         :param bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
         """
@@ -19839,7 +19839,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="powershellCoreVersion")
     def powershell_core_version(self) -> Optional[str]:
         """
-        The version of PowerShell Core to run. Possible values are `7`.
+        The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
         """
         return pulumi.get(self, "powershell_core_version")
 
@@ -21873,7 +21873,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
         :param str dotnet_version: The version of .Net. Possible values are `3.1` and `6`
         :param str java_version: The version of Java to use. Possible values are `8`, and `11`
         :param str node_version: The version of Node to use. Possible values include `12`, and `14`
-        :param str powershell_core_version: The PowerShell Core version to use. Possible values are `7`.
+        :param str powershell_core_version: The PowerShell Core version to use. Possible values are `7`, and `7.2`.
         :param bool use_custom_runtime: Does the Function App use a custom Application Stack?
         :param bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
         """
@@ -21918,7 +21918,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="powershellCoreVersion")
     def powershell_core_version(self) -> Optional[str]:
         """
-        The PowerShell Core version to use. Possible values are `7`.
+        The PowerShell Core version to use. Possible values are `7`, and `7.2`.
         """
         return pulumi.get(self, "powershell_core_version")
 
@@ -22931,7 +22931,7 @@ class WindowsWebAppAuthSettingsGoogle(dict):
         :param str client_id: The OpenID Connect Client ID for the Google web application.
         :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
-        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -22969,7 +22969,7 @@ class WindowsWebAppAuthSettingsGoogle(dict):
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -25833,7 +25833,7 @@ class WindowsWebAppSlotAuthSettingsGoogle(dict):
         :param str client_id: The OpenID Connect Client ID for the Google web application.
         :param str client_secret: The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
-        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -25871,7 +25871,7 @@ class WindowsWebAppSlotAuthSettingsGoogle(dict):
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         """
         return pulumi.get(self, "oauth_scopes")
 

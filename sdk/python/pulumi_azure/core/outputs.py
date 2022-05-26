@@ -728,7 +728,7 @@ class GetResourcesResourceResult(dict):
         :param str location: The Azure Region in which this Resource exists.
         :param str name: The name of the Resource.
         :param Mapping[str, str] tags: A map of tags assigned to this Resource.
-        :param str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+        :param str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "location", location)
@@ -772,7 +772,7 @@ class GetResourcesResourceResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+        The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
         """
         return pulumi.get(self, "type")
 

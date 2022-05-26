@@ -78,7 +78,7 @@ type LinkedServiceAzureSqlDatabase struct {
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput `pulumi:"keyVaultPassword"`
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -141,7 +141,7 @@ type linkedServiceAzureSqlDatabaseState struct {
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword *LinkedServiceAzureSqlDatabaseKeyVaultPassword `pulumi:"keyVaultPassword"`
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -173,7 +173,7 @@ type LinkedServiceAzureSqlDatabaseState struct {
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters pulumi.StringMapInput
@@ -209,7 +209,7 @@ type linkedServiceAzureSqlDatabaseArgs struct {
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword *LinkedServiceAzureSqlDatabaseKeyVaultPassword `pulumi:"keyVaultPassword"`
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -242,7 +242,7 @@ type LinkedServiceAzureSqlDatabaseArgs struct {
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
 	Parameters pulumi.StringMapInput
@@ -388,7 +388,7 @@ func (o LinkedServiceAzureSqlDatabaseOutput) KeyVaultPassword() LinkedServiceAzu
 }
 
 // Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
-// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o LinkedServiceAzureSqlDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureSqlDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

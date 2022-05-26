@@ -38,7 +38,7 @@ class DatasetBinaryArgs:
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input['DatasetBinaryHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
-        :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies a list of parameters to associate with the Data Factory Binary Dataset.
         :param pulumi.Input['DatasetBinarySftpServerLocationArgs'] sftp_server_location: A `sftp_server_location` block as defined below.
                ---
@@ -178,7 +178,7 @@ class DatasetBinaryArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
@@ -238,7 +238,7 @@ class _DatasetBinaryState:
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input['DatasetBinaryHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Binary Dataset with.
-        :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies a list of parameters to associate with the Data Factory Binary Dataset.
         :param pulumi.Input['DatasetBinarySftpServerLocationArgs'] sftp_server_location: A `sftp_server_location` block as defined below.
                ---
@@ -380,7 +380,7 @@ class _DatasetBinaryState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
@@ -480,7 +480,7 @@ class DatasetBinary(pulumi.CustomResource):
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[pulumi.InputType['DatasetBinaryHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Binary Dataset with.
-        :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies a list of parameters to associate with the Data Factory Binary Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetBinarySftpServerLocationArgs']] sftp_server_location: A `sftp_server_location` block as defined below.
                ---
@@ -621,7 +621,7 @@ class DatasetBinary(pulumi.CustomResource):
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[pulumi.InputType['DatasetBinaryHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Binary Dataset with.
-        :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies a list of parameters to associate with the Data Factory Binary Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetBinarySftpServerLocationArgs']] sftp_server_location: A `sftp_server_location` block as defined below.
                ---
@@ -720,7 +720,7 @@ class DatasetBinary(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 

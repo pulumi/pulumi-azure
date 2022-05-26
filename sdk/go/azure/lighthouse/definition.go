@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a [Lighthouse](https://docs.microsoft.com/en-us/azure/lighthouse) Definition.
+// Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Definition.
 //
 // ## Example Usage
 //

@@ -263,7 +263,7 @@ class Definition(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a [Lighthouse](https://docs.microsoft.com/en-us/azure/lighthouse) Definition.
+        Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Definition.
 
         ## Example Usage
 
@@ -308,7 +308,7 @@ class Definition(pulumi.CustomResource):
                  args: DefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a [Lighthouse](https://docs.microsoft.com/en-us/azure/lighthouse) Definition.
+        Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Definition.
 
         ## Example Usage
 

@@ -95,6 +95,8 @@ type SpringCloudService struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Whether enable the default Service Registry.
 	ServiceRegistryEnabled pulumi.BoolPtrOutput `pulumi:"serviceRegistryEnabled"`
+	// The ID of the Spring Cloud Service Registry.
+	ServiceRegistryId pulumi.StringOutput `pulumi:"serviceRegistryId"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -151,6 +153,8 @@ type springCloudServiceState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Whether enable the default Service Registry.
 	ServiceRegistryEnabled *bool `pulumi:"serviceRegistryEnabled"`
+	// The ID of the Spring Cloud Service Registry.
+	ServiceRegistryId *string `pulumi:"serviceRegistryId"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -176,6 +180,8 @@ type SpringCloudServiceState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Whether enable the default Service Registry.
 	ServiceRegistryEnabled pulumi.BoolPtrInput
+	// The ID of the Spring Cloud Service Registry.
+	ServiceRegistryId pulumi.StringPtrInput
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -360,6 +366,11 @@ func (o SpringCloudServiceOutput) ResourceGroupName() pulumi.StringOutput {
 // Whether enable the default Service Registry.
 func (o SpringCloudServiceOutput) ServiceRegistryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpringCloudService) pulumi.BoolPtrOutput { return v.ServiceRegistryEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Spring Cloud Service Registry.
+func (o SpringCloudServiceOutput) ServiceRegistryId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SpringCloudService) pulumi.StringOutput { return v.ServiceRegistryId }).(pulumi.StringOutput)
 }
 
 // Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.

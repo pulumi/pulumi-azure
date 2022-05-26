@@ -32,7 +32,7 @@ class PipelineArgs:
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
         :param pulumi.Input[str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
-        :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map of variables to associate with the Data Factory Pipeline.
         """
@@ -144,7 +144,7 @@ class PipelineArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
@@ -199,7 +199,7 @@ class _PipelineState:
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
         :param pulumi.Input[str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
-        :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map of variables to associate with the Data Factory Pipeline.
         """
@@ -312,7 +312,7 @@ class _PipelineState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
@@ -419,7 +419,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
         :param pulumi.Input[str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
-        :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map of variables to associate with the Data Factory Pipeline.
         """
@@ -561,7 +561,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
         :param pulumi.Input[str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
-        :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map of variables to associate with the Data Factory Pipeline.
         """
@@ -641,7 +641,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 

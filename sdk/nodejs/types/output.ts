@@ -1817,6 +1817,7 @@ export namespace appconfiguration {
 
 export namespace appplatform {
     export interface GetSpringCloudAppIdentity {
+        identityIds: string[];
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
          */
@@ -2008,6 +2009,10 @@ export namespace appplatform {
 
     export interface SpringCloudAppIdentity {
         /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
          */
         principalId: string;
@@ -2016,7 +2021,7 @@ export namespace appplatform {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -2742,7 +2747,7 @@ export namespace appservice {
          */
         minTlsVersion: string;
         /**
-         * The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+         * The scaled number of workers (for per site scaling) of this App Service. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
          */
         numberOfWorkers: number;
         /**
@@ -3209,7 +3214,7 @@ export namespace appservice {
          */
         cors: outputs.appservice.FunctionAppSiteConfigCors;
         /**
-         * The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         * The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: string;
         /**
@@ -3582,7 +3587,7 @@ export namespace appservice {
          */
         cors: outputs.appservice.FunctionAppSlotSiteConfigCors;
         /**
-         * The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         * The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: string;
         /**
@@ -6993,7 +6998,7 @@ export namespace appservice {
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
          */
         oauthScopes?: string[];
     }
@@ -7276,7 +7281,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PowerShell Core to run. Possible values are `7`.
+         * The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
          */
         powershellCoreVersion?: string;
         /**
@@ -7572,7 +7577,7 @@ export namespace appservice {
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
          */
         oauthScopes?: string[];
     }
@@ -7871,7 +7876,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PowerShell Core to use. Possibles values are `7`.
+         * The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
          */
         powershellCoreVersion?: string;
         /**
@@ -8178,7 +8183,7 @@ export namespace appservice {
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
          */
         oauthScopes?: string[];
     }
@@ -8374,7 +8379,7 @@ export namespace appservice {
 
     export interface LinuxWebAppSiteConfig {
         /**
-         * If this Linux Web App is Always On enabled. Defaults to `false`.
+         * If this Linux Web App is Always On enabled. Defaults to `true`.
          */
         alwaysOn?: boolean;
         apiDefinitionUrl?: string;
@@ -8878,7 +8883,7 @@ export namespace appservice {
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
          */
         oauthScopes?: string[];
     }
@@ -9842,7 +9847,7 @@ export namespace appservice {
          */
         minTlsVersion: string;
         /**
-         * The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+         * The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `perSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
          */
         numberOfWorkers: number;
         /**
@@ -10279,7 +10284,7 @@ export namespace appservice {
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
          */
         oauthScopes?: string[];
     }
@@ -10550,7 +10555,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PowerShell Core to run. Possible values are `7`.
+         * The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
          */
         powershellCoreVersion?: string;
         /**
@@ -11106,7 +11111,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The PowerShell Core version to use. Possible values are `7`.
+         * The PowerShell Core version to use. Possible values are `7`, and `7.2`.
          */
         powershellCoreVersion?: string;
         /**
@@ -11386,7 +11391,7 @@ export namespace appservice {
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
          */
         oauthScopes?: string[];
     }
@@ -12144,7 +12149,7 @@ export namespace appservice {
          */
         clientSecretSettingName?: string;
         /**
-         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
          */
         oauthScopes?: string[];
     }
@@ -12853,19 +12858,19 @@ export namespace authorization {
 
     export interface RoleDefinitionPermission {
         /**
-         * One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         * One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
          */
         actions?: string[];
         /**
-         * One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         * One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
          */
         dataActions?: string[];
         /**
-         * One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         * One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
          */
         notActions?: string[];
         /**
-         * One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         * One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
          */
         notDataActions?: string[];
     }
@@ -13146,7 +13151,7 @@ export namespace backup {
 export namespace batch {
     export interface AccountEncryption {
         /**
-         * The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/en-us/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
+         * The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
          */
         keyVaultKeyId: string;
     }
@@ -13628,7 +13633,7 @@ export namespace batch {
 
     export interface PoolStorageImageReference {
         /**
-         * Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
+         * Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
          * ---
          */
         id?: string;
@@ -13887,7 +13892,7 @@ export namespace cdn {
          */
         selector: string;
         /**
-         * Valid values are `Lowercase` and `Uppercase`.
+         * A list of transforms. Valid values are `Lowercase` and `Uppercase`.
          */
         transforms?: string[];
     }
@@ -13970,7 +13975,7 @@ export namespace cdn {
          */
         selector: string;
         /**
-         * Valid values are `Lowercase` and `Uppercase`.
+         * A list of transforms. Valid values are `Lowercase` and `Uppercase`.
          */
         transforms?: string[];
     }
@@ -13989,7 +13994,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * Valid values are `Lowercase` and `Uppercase`.
+         * A list of transforms. Valid values are `Lowercase` and `Uppercase`.
          */
         transforms?: string[];
     }
@@ -14023,7 +14028,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * Valid values are `Lowercase` and `Uppercase`.
+         * A list of transforms. Valid values are `Lowercase` and `Uppercase`.
          */
         transforms?: string[];
     }
@@ -14046,7 +14051,7 @@ export namespace cdn {
          */
         selector: string;
         /**
-         * Valid values are `Lowercase` and `Uppercase`.
+         * A list of transforms. Valid values are `Lowercase` and `Uppercase`.
          */
         transforms?: string[];
     }
@@ -14095,7 +14100,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * Valid values are `Lowercase` and `Uppercase`.
+         * A list of transforms. Valid values are `Lowercase` and `Uppercase`.
          */
         transforms?: string[];
     }
@@ -14114,7 +14119,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * Valid values are `Lowercase` and `Uppercase`.
+         * A list of transforms. Valid values are `Lowercase` and `Uppercase`.
          */
         transforms?: string[];
     }
@@ -14133,7 +14138,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * Valid values are `Lowercase` and `Uppercase`.
+         * A list of transforms. Valid values are `Lowercase` and `Uppercase`.
          */
         transforms?: string[];
     }
@@ -14152,7 +14157,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * Valid values are `Lowercase` and `Uppercase`.
+         * A list of transforms. Valid values are `Lowercase` and `Uppercase`.
          */
         transforms?: string[];
     }
@@ -15686,7 +15691,7 @@ export namespace compute {
         identityIds?: string[];
         principalId: string;
         /**
-         * Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) for more information.
+         * Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
          */
         type: string;
     }
@@ -16185,7 +16190,7 @@ export namespace compute {
          */
         provisionVmAgent?: boolean;
         /**
-         * Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+         * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
          */
         timezone?: string;
         /**
@@ -16273,7 +16278,7 @@ export namespace compute {
          */
         vhdUri?: string;
         /**
-         * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+         * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
          */
         writeAcceleratorEnabled?: boolean;
     }
@@ -16315,7 +16320,7 @@ export namespace compute {
          */
         diskSizeGb: number;
         /**
-         * Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
+         * Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
          */
         imageUri?: string;
         /**
@@ -16339,7 +16344,7 @@ export namespace compute {
          */
         vhdUri?: string;
         /**
-         * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+         * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
          */
         writeAcceleratorEnabled?: boolean;
     }
@@ -18505,7 +18510,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePool {
         /**
-         * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+         * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
          */
         enableAutoScaling?: boolean;
         /**
@@ -18595,7 +18600,7 @@ export namespace containerservice {
          */
         type?: string;
         /**
-         * Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+         * Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
          */
         ultraSsdEnabled?: boolean;
         /**
@@ -18848,11 +18853,11 @@ export namespace containerservice {
          */
         effectiveGatewayId: string;
         /**
-         * The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+         * The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
          */
         gatewayId?: string;
         /**
-         * The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         * The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
          */
         gatewayName?: string;
         /**
@@ -18860,11 +18865,11 @@ export namespace containerservice {
          */
         ingressApplicationGatewayIdentities: outputs.containerservice.KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity[];
         /**
-         * The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         * The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
          */
         subnetCidr?: string;
         /**
-         * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
          */
         subnetId?: string;
     }
@@ -19075,7 +19080,7 @@ export namespace containerservice {
          */
         networkPlugin: string;
         /**
-         * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+         * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
          */
         networkPolicy: string;
         /**
@@ -19798,7 +19803,7 @@ export namespace core {
          */
         tags: {[key: string]: string};
         /**
-         * The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+         * The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
          */
         type: string;
     }
@@ -21487,11 +21492,11 @@ export namespace datafactory {
 
     export interface IntegrationRuntimeManagedCustomSetupScript {
         /**
-         * The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+         * The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
          */
         blobContainerUri: string;
         /**
-         * A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+         * A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
          */
         sasToken: string;
     }
@@ -21539,11 +21544,11 @@ export namespace datafactory {
 
     export interface IntegrationRuntimeSsisCustomSetupScript {
         /**
-         * The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+         * The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
          */
         blobContainerUri: string;
         /**
-         * A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+         * A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
          */
         sasToken: string;
     }
@@ -22675,7 +22680,7 @@ export namespace domainservices {
         certificateExpiry: string;
         certificateThumbprint: string;
         /**
-         * Whether to enable secure LDAP for the managed domain. Defaults to `false`. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
+         * Whether to enable secure LDAP for the managed domain. Defaults to `false`. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
          */
         enabled: boolean;
         /**
@@ -22715,6 +22720,77 @@ export namespace domainservices {
          */
         tlsV1Enabled?: boolean;
     }
+}
+
+export namespace elasticcloud {
+    export interface ElasticsearchLogs {
+        /**
+         * A list of `filteringTag` blocks as defined above.
+         */
+        filteringTags?: outputs.elasticcloud.ElasticsearchLogsFilteringTag[];
+        /**
+         * Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+         */
+        sendActivityLogs?: boolean;
+        /**
+         * Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+         */
+        sendAzureadLogs?: boolean;
+        /**
+         * Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+         */
+        sendSubscriptionLogs?: boolean;
+    }
+
+    export interface ElasticsearchLogsFilteringTag {
+        /**
+         * Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
+         */
+        action: string;
+        /**
+         * Specifies the name (key) of the Tag which should be filtered.
+         */
+        name: string;
+        /**
+         * Specifies the value of the Tag which should be filtered.
+         */
+        value: string;
+    }
+
+    export interface GetElasticsearchLog {
+        /**
+         * A list of `filteringTag` blocks as defined above.
+         */
+        filteringTags: outputs.elasticcloud.GetElasticsearchLogFilteringTag[];
+        /**
+         * Should the Azure Activity Logs should be sent to the Elasticsearch cluster?
+         */
+        sendActivityLogs: boolean;
+        /**
+         * Should the AzureAD Logs should be sent to the Elasticsearch cluster?
+         */
+        sendAzureadLogs: boolean;
+        /**
+         * Should the Azure Subscription Logs should be sent to the Elasticsearch cluster?
+         */
+        sendSubscriptionLogs: boolean;
+    }
+
+    export interface GetElasticsearchLogFilteringTag {
+        /**
+         * The type of action which is taken when the Tag matches the `name` and `value`.
+         */
+        action: string;
+        /**
+         * The name of the Elasticsearch resource.
+         */
+        name: string;
+        /**
+         * The value of the Tag which should be filtered.
+         */
+        value: string;
+    }
+
 }
 
 export namespace eventgrid {
@@ -23132,7 +23208,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionRetryPolicy {
         /**
-         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
          */
         eventTimeToLive: number;
         /**
@@ -23617,7 +23693,7 @@ export namespace eventgrid {
 
     export interface SystemTopicEventSubscriptionRetryPolicy {
         /**
-         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
          */
         eventTimeToLive: number;
         /**
@@ -24376,7 +24452,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionRetryPolicy {
         /**
-         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
          */
         eventTimeToLive: number;
         /**
@@ -26764,6 +26840,47 @@ export namespace healthcare {
         name: string;
     }
 
+    export interface FhirServiceAuthentication {
+        /**
+         * The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+         */
+        audience: string;
+        authority: string;
+        smartProxyEnabled?: boolean;
+    }
+
+    export interface FhirServiceCors {
+        /**
+         * A set of headers to be allowed via CORS.
+         */
+        allowedHeaders: string[];
+        /**
+         * The methods to be allowed via CORS.
+         */
+        allowedMethods: string[];
+        /**
+         * A set of origins to be allowed via CORS.
+         */
+        allowedOrigins: string[];
+        /**
+         * If credentials are allowed via CORS.
+         */
+        credentialsAllowed?: boolean;
+        /**
+         * The max age to be allowed via CORS.
+         */
+        maxAgeInSeconds?: number;
+    }
+
+    export interface FhirServiceIdentity {
+        principalId: string;
+        tenantId: string;
+        /**
+         * The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+         */
+        type: string;
+    }
+
     export interface GetDicomServiceAuthentication {
         /**
          * The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
@@ -26788,6 +26905,53 @@ export namespace healthcare {
          * The name of the Healthcare DICOM Service
          */
         name: string;
+    }
+
+    export interface GetFhirServiceAuthentication {
+        /**
+         * The intended audience to receive authentication tokens for the service. The default value is https://<name>.fhir.azurehealthcareapis.com
+         */
+        audience: string;
+        authority: string;
+        smartProxyEnabled: boolean;
+    }
+
+    export interface GetFhirServiceCor {
+        /**
+         * The set of headers to be allowed via CORS.
+         */
+        allowedHeaders: string[];
+        /**
+         * The methods to be allowed via CORS.
+         */
+        allowedMethods: string[];
+        /**
+         * The set of origins to be allowed via CORS.
+         */
+        allowedOrigins: string[];
+        /**
+         * Are credentials allowed via CORS?
+         */
+        credentialsAllowed: boolean;
+        /**
+         * The max age to be allowed via CORS.
+         */
+        maxAgeInSeconds: number;
+    }
+
+    export interface GetFhirServiceIdentity {
+        /**
+         * The Principal ID associated with this System Assigned Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this System Assigned Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * The type of identity used for the Healthcare FHIR service.
+         */
+        type: string;
     }
 
     export interface GetServiceAuthenticationConfiguration {
@@ -26899,7 +27063,7 @@ export namespace hpc {
          */
         filter?: string;
         /**
-         * Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+         * Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
          */
         rootSquashEnabled?: boolean;
         /**
@@ -26911,7 +27075,7 @@ export namespace hpc {
          */
         submountAccessEnabled?: boolean;
         /**
-         * Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+         * Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
          */
         suidEnabled?: boolean;
     }
@@ -26941,7 +27105,7 @@ export namespace hpc {
          */
         filter?: string;
         /**
-         * Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+         * Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
          */
         rootSquashEnabled?: boolean;
         /**
@@ -26953,7 +27117,7 @@ export namespace hpc {
          */
         submountAccessEnabled?: boolean;
         /**
-         * Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+         * Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
          */
         suidEnabled?: boolean;
     }
@@ -28700,7 +28864,7 @@ export namespace logicapps {
          */
         cors: outputs.logicapps.StandardSiteConfigCors;
         /**
-         * The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         * The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: string;
         /**
@@ -29326,7 +29490,7 @@ export namespace media {
          */
         operation?: string;
         /**
-         * The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+         * The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
          */
         property?: string;
         /**
@@ -29341,7 +29505,7 @@ export namespace media {
          */
         clearKeyConfigurationEnabled?: boolean;
         /**
-         * A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+         * A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
          */
         fairplayConfiguration?: outputs.media.ContentKeyPolicyPolicyOptionFairplayConfiguration;
         /**
@@ -31247,7 +31411,7 @@ export namespace monitoring {
 
     export interface LogzTagRuleTagFilter {
         /**
-         * The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+         * The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
          */
         action: string;
         /**
@@ -31445,7 +31609,7 @@ export namespace monitoring {
          */
         dimensions: outputs.monitoring.ScheduledQueryRulesLogCriteriaDimension[];
         /**
-         * Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+         * Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
          */
         metricName: string;
     }
@@ -31563,7 +31727,7 @@ export namespace mssql {
 
     export interface ElasticPoolSku {
         /**
-         * The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+         * The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
          */
         capacity: number;
         /**
@@ -31575,7 +31739,7 @@ export namespace mssql {
          */
         name: string;
         /**
-         * The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+         * The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
          */
         tier: string;
     }
@@ -32479,7 +32643,7 @@ export namespace network {
          */
         privateLinkConfigurationName?: string;
         /**
-         * The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
+         * The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
          */
         publicIpAddressId?: string;
         /**
@@ -32877,7 +33041,7 @@ export namespace network {
          */
         pattern: string;
         /**
-         * The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+         * The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
          */
         variable: string;
     }
@@ -32914,7 +33078,7 @@ export namespace network {
          */
         queryString?: string;
         /**
-         * Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+         * Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
          */
         reroute?: boolean;
     }
@@ -32976,7 +33140,7 @@ export namespace network {
         minProtocolVersion?: string;
         /**
          * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-         * are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+         * are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
          */
         policyName?: string;
         /**
@@ -33023,7 +33187,7 @@ export namespace network {
         minProtocolVersion?: string;
         /**
          * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and
-         * are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
+         * are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabledProtocols`.
          */
         policyName?: string;
         /**
@@ -33530,7 +33694,7 @@ export namespace network {
          */
         description?: string;
         /**
-         * Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
+         * Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
          */
         destinationAddresses?: string[];
         /**
@@ -33617,7 +33781,7 @@ export namespace network {
 
     export interface FirewallPolicyIntrusionDetection {
         /**
-         * In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+         * In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
          */
         mode?: string;
         /**
@@ -33636,7 +33800,7 @@ export namespace network {
          */
         id?: string;
         /**
-         * state can be any of "Off", "Alert" or "Deny".
+         * state can be any of `Off`, `Alert` or `Deny`.
          */
         state?: string;
     }
@@ -33663,7 +33827,7 @@ export namespace network {
          */
         name: string;
         /**
-         * The protocols any of "ANY", "TCP", "ICMP", "UDP" that shall be bypassed by intrusion detection.
+         * The protocols any of `ANY`, `TCP`, `ICMP`, `UDP` that shall be bypassed by intrusion detection.
          */
         protocol: string;
         /**
@@ -34358,6 +34522,10 @@ export namespace network {
 
     export interface GetVirtualNetworkGatewayIpConfiguration {
         /**
+         * The resource ID of the IP configuration.
+         */
+        id: string;
+        /**
          * Specifies the name of the Virtual Network Gateway.
          */
         name: string;
@@ -34988,11 +35156,11 @@ export namespace network {
 
     export interface RouteTableRoute {
         /**
-         * The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+         * The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
          */
         addressPrefix: string;
         /**
-         * The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+         * The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
          */
         name: string;
         /**
@@ -35396,6 +35564,28 @@ export namespace network {
          * network can contain at most a single Virtual Network Gateway.
          */
         subnetId: string;
+    }
+
+    export interface VirtualNetworkGatewayNatRuleExternalMapping {
+        /**
+         * The string CIDR representing the address space for the Virtual Network Gateway Nat Rule external mapping.
+         */
+        addressSpace: string;
+        /**
+         * The single port range for the Virtual Network Gateway Nat Rule external mapping.
+         */
+        portRange?: string;
+    }
+
+    export interface VirtualNetworkGatewayNatRuleInternalMapping {
+        /**
+         * The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
+         */
+        addressSpace: string;
+        /**
+         * The single port range for the Virtual Network Gateway Nat Rule internal mapping.
+         */
+        portRange?: string;
     }
 
     export interface VirtualNetworkGatewayVpnClientConfiguration {
@@ -36670,19 +36860,19 @@ export namespace redis {
 export namespace role {
     export interface DefinitionPermission {
         /**
-         * One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         * One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
          */
         actions?: string[];
         /**
-         * One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         * One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
          */
         dataActions?: string[];
         /**
-         * One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         * One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
          */
         notActions?: string[];
         /**
-         * One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+         * One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
          */
         notDataActions?: string[];
     }
@@ -37662,7 +37852,7 @@ export namespace signalr {
          */
         capacity: number;
         /**
-         * Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
+         * Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
          */
         name: string;
     }
@@ -38353,7 +38543,7 @@ export namespace storage {
          */
         schedule: string;
         /**
-         * A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/en-us/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+         * A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
          */
         schemaFields: string[];
         /**

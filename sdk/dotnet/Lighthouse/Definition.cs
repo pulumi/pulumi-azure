@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Lighthouse
 {
     /// <summary>
-    /// Manages a [Lighthouse](https://docs.microsoft.com/en-us/azure/lighthouse) Definition.
+    /// Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Definition.
     /// 
     /// ## Example Usage
     /// 

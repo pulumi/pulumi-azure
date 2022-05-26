@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AutoKeyRotationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
         /// </summary>
         [Output("encryptionType")]
         public Output<string?> EncryptionType { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutoKeyRotationEnabled { get; set; }
 
         /// <summary>
-        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
         /// </summary>
         [Input("encryptionType")]
         public Input<string>? EncryptionType { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutoKeyRotationEnabled { get; set; }
 
         /// <summary>
-        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
         /// </summary>
         [Input("encryptionType")]
         public Input<string>? EncryptionType { get; set; }

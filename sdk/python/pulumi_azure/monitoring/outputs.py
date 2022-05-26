@@ -3261,7 +3261,7 @@ class LogzTagRuleTagFilter(dict):
                  name: str,
                  value: Optional[str] = None):
         """
-        :param str action: The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+        :param str action: The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
         :param str name: The name of this `tag_filter`.
         :param str value: The value of this `tag_filter`.
         """
@@ -3274,7 +3274,7 @@ class LogzTagRuleTagFilter(dict):
     @pulumi.getter
     def action(self) -> str:
         """
-        The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+        The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
         """
         return pulumi.get(self, "action")
 
@@ -3958,7 +3958,7 @@ class ScheduledQueryRulesLogCriteria(dict):
                  metric_name: str):
         """
         :param Sequence['ScheduledQueryRulesLogCriteriaDimensionArgs'] dimensions: A `dimension` block as defined below.
-        :param str metric_name: Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+        :param str metric_name: Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
         """
         pulumi.set(__self__, "dimensions", dimensions)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -3975,7 +3975,7 @@ class ScheduledQueryRulesLogCriteria(dict):
     @pulumi.getter(name="metricName")
     def metric_name(self) -> str:
         """
-        Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+        Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
         """
         return pulumi.get(self, "metric_name")
 

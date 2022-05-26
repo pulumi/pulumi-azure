@@ -165,7 +165,7 @@ type ManagedDisk struct {
 	StorageAccountType pulumi.StringOutput `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringOutput `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled pulumi.BoolPtrOutput `pulumi:"trustedLaunchEnabled"`
@@ -265,7 +265,7 @@ type managedDiskState struct {
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier *string `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
@@ -328,7 +328,7 @@ type ManagedDiskState struct {
 	StorageAccountType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringPtrInput
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
@@ -395,7 +395,7 @@ type managedDiskArgs struct {
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier *string `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
@@ -459,7 +459,7 @@ type ManagedDiskArgs struct {
 	StorageAccountType pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringPtrInput
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
@@ -689,7 +689,7 @@ func (o ManagedDiskOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 func (o ManagedDiskOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.Tier }).(pulumi.StringOutput)
 }

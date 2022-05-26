@@ -84,6 +84,7 @@ const (
 	azureDigitalTwins          = "DigitalTwins"          // Digital Twins
 	azureDNS                   = "Dns"                   // DNS
 	azureDomainServices        = "DomainServices"        // DomainServices
+	azureElasticCloud          = "ElasticCloud"          // Elastic Cloud
 	azureFrontdoor             = "FrontDoor"             // Frontdoor
 	azureHdInsight             = "HDInsight"             // nolint:misspell // HDInsight
 	azureHealthcare            = "Healthcare"            // HealthCare
@@ -953,6 +954,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_dns_txt_record": {Tok: azureResource(azureDNS, "TxtRecord")},
 			"azurerm_dns_zone":       {Tok: azureResource(azureDNS, "Zone")},
 
+			// Elastic Cloud
+			"azurerm_elastic_cloud_elasticsearch": {Tok: azureResource(azureElasticCloud, "Elasticsearch")},
+
 			// HDInsights
 			"azurerm_hdinsight_hadoop_cluster":            {Tok: azureResource(azureHdInsight, "HadoopCluster")},
 			"azurerm_hdinsight_hbase_cluster":             {Tok: azureResource(azureHdInsight, "HBaseCluster")},
@@ -1583,6 +1587,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_traffic_manager_azure_endpoint":    {Tok: azureResource(azureNetwork, "TrafficManagerAzureEndpoint")},
 			"azurerm_traffic_manager_external_endpoint": {Tok: azureResource(azureNetwork, "TrafficManagerExternalEndpoint")},
 			"azurerm_traffic_manager_nested_endpoint":   {Tok: azureResource(azureNetwork, "TrafficManagerNestedEndpoint")},
+			"azurerm_virtual_network_gateway_nat_rule":  {Tok: azureResource(azureNetwork, "VirtualNetworkGatewayNatRule")},
 
 			// Redis
 			"azurerm_redis_cache":               {Tok: azureResource(azureRedis, "Cache")},
@@ -1868,6 +1873,7 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "healthcare_dicom.html.markdown",
 				},
 			},
+			"azurerm_healthcare_fhir_service": {Tok: azureResource(azureHealthcare, "FhirService")},
 
 			// NetApp
 			"azurerm_netapp_account":         {Tok: azureResource(azureNetapp, "Account")},
@@ -2233,6 +2239,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_server":           {Tok: azureDataSource(azureMSSQL, "getServer")},
 			"azurerm_mssql_managed_instance": {Tok: azureDataSource(azureMSSQL, "getManagedInstance")},
 
+			// DNS
 			"azurerm_dns_zone": {Tok: azureDataSource(azureDNS, "getZone")},
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),
@@ -2242,6 +2249,10 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
+
+			// Elastic Cloud
+			"azurerm_elastic_cloud_elasticsearch": {Tok: azureDataSource(azureElasticCloud, "getElasticsearch")},
+
 			"azurerm_key_vault_access_policy":      {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
 			"azurerm_key_vault_key":                {Tok: azureDataSource(azureKeyVault, "getKey")},
 			"azurerm_key_vault_secret":             {Tok: azureDataSource(azureKeyVault, "getSecret")},
@@ -2357,6 +2368,7 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "healthcare_dicom.html.markdown",
 				},
 			},
+			"azurerm_healthcare_fhir_service": {Tok: azureDataSource(azureHealthcare, "getFhirService")},
 
 			"azurerm_postgresql_server":           {Tok: azureDataSource(azurePostgresql, "getServer")},
 			"azurerm_postgresql_flexible_server":  {Tok: azureDataSource(azurePostgresql, "getFlexibleServer")},

@@ -114,7 +114,7 @@ class GetConfigurationKeyResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/en-us/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+        The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
         """
         return pulumi.get(self, "type")
 

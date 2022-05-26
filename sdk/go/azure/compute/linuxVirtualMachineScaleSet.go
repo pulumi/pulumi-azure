@@ -133,7 +133,7 @@ type LinuxVirtualMachineScaleSet struct {
 	AdminSshKeys LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput `pulumi:"adminSshKeys"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
-	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput `pulumi:"automaticInstanceRepair"`
 	// A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput `pulumi:"automaticOsUpgradePolicy"`
@@ -191,7 +191,7 @@ type LinuxVirtualMachineScaleSet struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
-	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
 	ScaleInPolicy pulumi.StringPtrOutput `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineScaleSetSecretArrayOutput `pulumi:"secrets"`
@@ -282,7 +282,7 @@ type linuxVirtualMachineScaleSetState struct {
 	AdminSshKeys []LinuxVirtualMachineScaleSetAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername *string `pulumi:"adminUsername"`
-	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair *LinuxVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
 	// A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy `pulumi:"automaticOsUpgradePolicy"`
@@ -340,7 +340,7 @@ type linuxVirtualMachineScaleSetState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy *LinuxVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
-	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
 	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []LinuxVirtualMachineScaleSetSecret `pulumi:"secrets"`
@@ -385,7 +385,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	AdminSshKeys LinuxVirtualMachineScaleSetAdminSshKeyArrayInput
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringPtrInput
-	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
 	// A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput
@@ -443,7 +443,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput
-	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
 	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineScaleSetSecretArrayInput
@@ -492,7 +492,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	AdminSshKeys []LinuxVirtualMachineScaleSetAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
-	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair *LinuxVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
 	// A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy `pulumi:"automaticOsUpgradePolicy"`
@@ -550,7 +550,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy *LinuxVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
-	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
 	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []LinuxVirtualMachineScaleSetSecret `pulumi:"secrets"`
@@ -594,7 +594,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	AdminSshKeys LinuxVirtualMachineScaleSetAdminSshKeyArrayInput
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput
-	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
 	// A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput
@@ -652,7 +652,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput
-	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
 	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineScaleSetSecretArrayInput
@@ -797,7 +797,7 @@ func (o LinuxVirtualMachineScaleSetOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringOutput { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 func (o LinuxVirtualMachineScaleSetOutput) AutomaticInstanceRepair() LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput {
 		return v.AutomaticInstanceRepair
@@ -958,7 +958,7 @@ func (o LinuxVirtualMachineScaleSetOutput) RollingUpgradePolicy() LinuxVirtualMa
 	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
 func (o LinuxVirtualMachineScaleSetOutput) ScaleInPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.ScaleInPolicy }).(pulumi.StringPtrOutput)
 }

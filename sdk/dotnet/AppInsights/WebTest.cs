@@ -82,7 +82,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> ApplicationInsightsId { get; private set; } = null!;
 
         /// <summary>
-        /// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+        /// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         /// </summary>
         [Output("configuration")]
         public Output<string> Configuration { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string> ApplicationInsightsId { get; set; } = null!;
 
         /// <summary>
-        /// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+        /// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         /// </summary>
         [Input("configuration", required: true)]
         public Input<string> Configuration { get; set; } = null!;
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? ApplicationInsightsId { get; set; }
 
         /// <summary>
-        /// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+        /// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         /// </summary>
         [Input("configuration")]
         public Input<string>? Configuration { get; set; }

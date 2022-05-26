@@ -99,7 +99,7 @@ class GetVirtualNetworkGatewayResult:
         The ID of the local network gateway
         through which outbound Internet traffic from the virtual network in which the
         gateway is created will be routed (*forced tunneling*). Refer to the
-        [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+        [Azure documentation on forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
         """
         return pulumi.get(self, "default_local_network_gateway_id")
 

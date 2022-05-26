@@ -13,7 +13,7 @@ import (
 
 // Manages an App Service Static Site.
 //
-// ->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/en-us/azure/static-web-apps/github-actions-workflow).
+// ->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
 //
 // ## Example Usage
 //
@@ -60,9 +60,9 @@ type StaticSite struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
 	SkuSize pulumi.StringPtrOutput `pulumi:"skuSize"`
-	// Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -111,9 +111,9 @@ type staticSiteState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
 	SkuSize *string `pulumi:"skuSize"`
-	// Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -131,9 +131,9 @@ type StaticSiteState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
 	SkuSize pulumi.StringPtrInput
-	// Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -151,9 +151,9 @@ type staticSiteArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
 	SkuSize *string `pulumi:"skuSize"`
-	// Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -168,9 +168,9 @@ type StaticSiteArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
 	SkuSize pulumi.StringPtrInput
-	// Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -292,12 +292,12 @@ func (o StaticSiteOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticSite) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the SKU size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
 func (o StaticSiteOutput) SkuSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticSite) pulumi.StringPtrOutput { return v.SkuSize }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the SKU tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+// Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
 func (o StaticSiteOutput) SkuTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticSite) pulumi.StringPtrOutput { return v.SkuTier }).(pulumi.StringPtrOutput)
 }

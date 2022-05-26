@@ -131,7 +131,7 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.appservice.AppServiceIdentity | undefined>;
     /**
-     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
     public readonly keyVaultReferenceIdentityId!: pulumi.Output<string>;
     /**
@@ -325,7 +325,7 @@ export interface AppServiceState {
      */
     identity?: pulumi.Input<inputs.appservice.AppServiceIdentity>;
     /**
-     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
     keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**
@@ -431,7 +431,7 @@ export interface AppServiceArgs {
      */
     identity?: pulumi.Input<inputs.appservice.AppServiceIdentity>;
     /**
-     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
     keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**

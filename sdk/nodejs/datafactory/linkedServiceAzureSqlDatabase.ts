@@ -95,7 +95,7 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
     public readonly keyVaultPassword!: pulumi.Output<outputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultPassword | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -209,7 +209,7 @@ export interface LinkedServiceAzureSqlDatabaseState {
     keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultPassword>;
     /**
      * Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**
@@ -272,7 +272,7 @@ export interface LinkedServiceAzureSqlDatabaseArgs {
     keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultPassword>;
     /**
      * Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
-     * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     name?: pulumi.Input<string>;
     /**

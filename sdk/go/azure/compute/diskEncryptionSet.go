@@ -126,7 +126,7 @@ type DiskEncryptionSet struct {
 
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled pulumi.BoolPtrOutput `pulumi:"autoKeyRotationEnabled"`
-	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityOutput `pulumi:"identity"`
@@ -182,7 +182,7 @@ func GetDiskEncryptionSet(ctx *pulumi.Context,
 type diskEncryptionSetState struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
-	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
 	EncryptionType *string `pulumi:"encryptionType"`
 	// An `identity` block as defined below.
 	Identity *DiskEncryptionSetIdentity `pulumi:"identity"`
@@ -201,7 +201,7 @@ type diskEncryptionSetState struct {
 type DiskEncryptionSetState struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
-	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
 	EncryptionType pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityPtrInput
@@ -224,7 +224,7 @@ func (DiskEncryptionSetState) ElementType() reflect.Type {
 type diskEncryptionSetArgs struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
-	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
 	EncryptionType *string `pulumi:"encryptionType"`
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentity `pulumi:"identity"`
@@ -244,7 +244,7 @@ type diskEncryptionSetArgs struct {
 type DiskEncryptionSetArgs struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
-	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
 	EncryptionType pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityInput
@@ -352,7 +352,7 @@ func (o DiskEncryptionSetOutput) AutoKeyRotationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.BoolPtrOutput { return v.AutoKeyRotationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
 func (o DiskEncryptionSetOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringPtrOutput { return v.EncryptionType }).(pulumi.StringPtrOutput)
 }

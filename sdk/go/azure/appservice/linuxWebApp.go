@@ -75,7 +75,7 @@ type LinuxWebApp struct {
 	ClientAffinityEnabled pulumi.BoolPtrOutput `pulumi:"clientAffinityEnabled"`
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings LinuxWebAppConnectionStringArrayOutput `pulumi:"connectionStrings"`
@@ -89,7 +89,7 @@ type LinuxWebApp struct {
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity LinuxWebAppIdentityPtrOutput `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringOutput `pulumi:"keyVaultReferenceIdentityId"`
 	// The Kind value for this Linux Web App.
 	Kind pulumi.StringOutput `pulumi:"kind"`
@@ -171,7 +171,7 @@ type linuxWebAppState struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []LinuxWebAppConnectionString `pulumi:"connectionStrings"`
@@ -185,7 +185,7 @@ type linuxWebAppState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *LinuxWebAppIdentity `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Kind value for this Linux Web App.
 	Kind *string `pulumi:"kind"`
@@ -230,7 +230,7 @@ type LinuxWebAppState struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrInput
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings LinuxWebAppConnectionStringArrayInput
@@ -244,7 +244,7 @@ type LinuxWebAppState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxWebAppIdentityPtrInput
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Kind value for this Linux Web App.
 	Kind pulumi.StringPtrInput
@@ -293,7 +293,7 @@ type linuxWebAppArgs struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []LinuxWebAppConnectionString `pulumi:"connectionStrings"`
@@ -303,7 +303,7 @@ type linuxWebAppArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *LinuxWebAppIdentity `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	Location *string `pulumi:"location"`
@@ -337,7 +337,7 @@ type LinuxWebAppArgs struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrInput
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings LinuxWebAppConnectionStringArrayInput
@@ -347,7 +347,7 @@ type LinuxWebAppArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxWebAppIdentityPtrInput
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	Location pulumi.StringPtrInput
@@ -481,7 +481,7 @@ func (o LinuxWebAppOutput) ClientCertificateEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.BoolPtrOutput { return v.ClientCertificateEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertEnabled` is `false`
+// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
 func (o LinuxWebAppOutput) ClientCertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringPtrOutput { return v.ClientCertificateMode }).(pulumi.StringPtrOutput)
 }
@@ -516,7 +516,7 @@ func (o LinuxWebAppOutput) Identity() LinuxWebAppIdentityPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) LinuxWebAppIdentityPtrOutput { return v.Identity }).(LinuxWebAppIdentityPtrOutput)
 }
 
-// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 func (o LinuxWebAppOutput) KeyVaultReferenceIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringOutput { return v.KeyVaultReferenceIdentityId }).(pulumi.StringOutput)
 }

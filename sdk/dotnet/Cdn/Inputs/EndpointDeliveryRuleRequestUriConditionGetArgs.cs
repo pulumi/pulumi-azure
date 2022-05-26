@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<string>? _transforms;
 
         /// <summary>
-        /// Valid values are `Lowercase` and `Uppercase`.
+        /// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         /// </summary>
         public InputList<string> Transforms
         {

@@ -350,7 +350,7 @@ func (o AssetFilterTrackSelectionArrayOutput) Index(i pulumi.IntInput) AssetFilt
 type AssetFilterTrackSelectionCondition struct {
 	// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
 	Operation *string `pulumi:"operation"`
-	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
 	Property *string `pulumi:"property"`
 	// The track property value to match or not match.
 	Value *string `pulumi:"value"`
@@ -370,7 +370,7 @@ type AssetFilterTrackSelectionConditionInput interface {
 type AssetFilterTrackSelectionConditionArgs struct {
 	// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
 	Operation pulumi.StringPtrInput `pulumi:"operation"`
-	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
 	Property pulumi.StringPtrInput `pulumi:"property"`
 	// The track property value to match or not match.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -432,7 +432,7 @@ func (o AssetFilterTrackSelectionConditionOutput) Operation() pulumi.StringPtrOu
 	return o.ApplyT(func(v AssetFilterTrackSelectionCondition) *string { return v.Operation }).(pulumi.StringPtrOutput)
 }
 
-// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
 func (o AssetFilterTrackSelectionConditionOutput) Property() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetFilterTrackSelectionCondition) *string { return v.Property }).(pulumi.StringPtrOutput)
 }
@@ -465,7 +465,7 @@ func (o AssetFilterTrackSelectionConditionArrayOutput) Index(i pulumi.IntInput) 
 type ContentKeyPolicyPolicyOption struct {
 	// Enable a configuration for non-DRM keys.
 	ClearKeyConfigurationEnabled *bool `pulumi:"clearKeyConfigurationEnabled"`
-	// A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+	// A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
 	FairplayConfiguration *ContentKeyPolicyPolicyOptionFairplayConfiguration `pulumi:"fairplayConfiguration"`
 	// The name which should be used for this Policy Option.
 	Name string `pulumi:"name"`
@@ -493,7 +493,7 @@ type ContentKeyPolicyPolicyOptionInput interface {
 type ContentKeyPolicyPolicyOptionArgs struct {
 	// Enable a configuration for non-DRM keys.
 	ClearKeyConfigurationEnabled pulumi.BoolPtrInput `pulumi:"clearKeyConfigurationEnabled"`
-	// A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+	// A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
 	FairplayConfiguration ContentKeyPolicyPolicyOptionFairplayConfigurationPtrInput `pulumi:"fairplayConfiguration"`
 	// The name which should be used for this Policy Option.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -563,7 +563,7 @@ func (o ContentKeyPolicyPolicyOptionOutput) ClearKeyConfigurationEnabled() pulum
 	return o.ApplyT(func(v ContentKeyPolicyPolicyOption) *bool { return v.ClearKeyConfigurationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+// A `fairplayConfiguration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
 func (o ContentKeyPolicyPolicyOptionOutput) FairplayConfiguration() ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPolicyOption) *ContentKeyPolicyPolicyOptionFairplayConfiguration {
 		return v.FairplayConfiguration

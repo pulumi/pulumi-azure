@@ -124,7 +124,7 @@ export class Script extends pulumi.CustomResource {
      */
     public readonly sasToken!: pulumi.Output<string>;
     /**
-     * The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */
     public readonly url!: pulumi.Output<string>;
 
@@ -195,7 +195,7 @@ export interface ScriptState {
      */
     sasToken?: pulumi.Input<string>;
     /**
-     * The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */
     url?: pulumi.Input<string>;
 }
@@ -225,7 +225,7 @@ export interface ScriptArgs {
      */
     sasToken: pulumi.Input<string>;
     /**
-     * The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/en-us/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
+     * The url to the KQL script blob file. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */
     url: pulumi.Input<string>;
 }

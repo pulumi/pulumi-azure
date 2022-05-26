@@ -41,7 +41,7 @@ class WindowsFunctionAppSlotArgs:
         The set of arguments for constructing a WindowsFunctionAppSlot resource.
         :param pulumi.Input[str] function_app_id: The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs'] site_config: a `site_config` block as detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs'] auth_settings: an `auth_settings` block as detailed below.
         :param pulumi.Input['WindowsFunctionAppSlotBackupArgs'] backup: a `backup` block as detailed below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
@@ -54,7 +54,7 @@ class WindowsFunctionAppSlotArgs:
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
         :param pulumi.Input['WindowsFunctionAppSlotIdentityArgs'] identity: an `identity` block as detailed below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
@@ -133,7 +133,7 @@ class WindowsFunctionAppSlotArgs:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -289,7 +289,7 @@ class WindowsFunctionAppSlotArgs:
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
@@ -405,7 +405,7 @@ class _WindowsFunctionAppSlotState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering WindowsFunctionAppSlot resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs'] auth_settings: an `auth_settings` block as detailed below.
         :param pulumi.Input['WindowsFunctionAppSlotBackupArgs'] backup: a `backup` block as detailed below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
@@ -421,7 +421,7 @@ class _WindowsFunctionAppSlotState:
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
         :param pulumi.Input['WindowsFunctionAppSlotIdentityArgs'] identity: an `identity` block as detailed below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Function App Slot.
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`.
@@ -501,7 +501,7 @@ class _WindowsFunctionAppSlotState:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -693,7 +693,7 @@ class _WindowsFunctionAppSlotState:
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
@@ -928,7 +928,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArgs']] auth_settings: an `auth_settings` block as detailed below.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArgs']] backup: a `backup` block as detailed below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
@@ -942,7 +942,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']] identity: an `identity` block as detailed below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']] site_config: a `site_config` block as detailed below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
@@ -1127,7 +1127,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArgs']] auth_settings: an `auth_settings` block as detailed below.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArgs']] backup: a `backup` block as detailed below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
@@ -1143,7 +1143,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']] identity: an `identity` block as detailed below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Function App Slot.
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`.
@@ -1198,7 +1198,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -1326,7 +1326,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> pulumi.Output[str]:
         """
-        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 

@@ -174,6 +174,7 @@ class _SpringCloudServiceState:
                  required_network_traffic_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_registry_enabled: Optional[pulumi.Input[bool]] = None,
+                 service_registry_id: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None):
@@ -187,6 +188,7 @@ class _SpringCloudServiceState:
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]] required_network_traffic_rules: A list of `required_network_traffic_rules` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry.
+        :param pulumi.Input[str] service_registry_id: The ID of the Spring Cloud Service Registry.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['SpringCloudServiceTraceArgs'] trace: A `trace` block as defined below.
@@ -207,6 +209,8 @@ class _SpringCloudServiceState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if service_registry_enabled is not None:
             pulumi.set(__self__, "service_registry_enabled", service_registry_enabled)
+        if service_registry_id is not None:
+            pulumi.set(__self__, "service_registry_id", service_registry_id)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
@@ -309,6 +313,18 @@ class _SpringCloudServiceState:
     @service_registry_enabled.setter
     def service_registry_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "service_registry_enabled", value)
+
+    @property
+    @pulumi.getter(name="serviceRegistryId")
+    def service_registry_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Spring Cloud Service Registry.
+        """
+        return pulumi.get(self, "service_registry_id")
+
+    @service_registry_id.setter
+    def service_registry_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_registry_id", value)
 
     @property
     @pulumi.getter(name="skuName")
@@ -515,6 +531,7 @@ class SpringCloudService(pulumi.CustomResource):
             __props__.__dict__["trace"] = trace
             __props__.__dict__["outbound_public_ip_addresses"] = None
             __props__.__dict__["required_network_traffic_rules"] = None
+            __props__.__dict__["service_registry_id"] = None
         super(SpringCloudService, __self__).__init__(
             'azure:appplatform/springCloudService:SpringCloudService',
             resource_name,
@@ -533,6 +550,7 @@ class SpringCloudService(pulumi.CustomResource):
             required_network_traffic_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_registry_enabled: Optional[pulumi.Input[bool]] = None,
+            service_registry_id: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']]] = None) -> 'SpringCloudService':
@@ -551,6 +569,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]] required_network_traffic_rules: A list of `required_network_traffic_rules` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry.
+        :param pulumi.Input[str] service_registry_id: The ID of the Spring Cloud Service Registry.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']] trace: A `trace` block as defined below.
@@ -567,6 +586,7 @@ class SpringCloudService(pulumi.CustomResource):
         __props__.__dict__["required_network_traffic_rules"] = required_network_traffic_rules
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["service_registry_enabled"] = service_registry_enabled
+        __props__.__dict__["service_registry_id"] = service_registry_id
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["trace"] = trace
@@ -635,6 +655,14 @@ class SpringCloudService(pulumi.CustomResource):
         Whether enable the default Service Registry.
         """
         return pulumi.get(self, "service_registry_enabled")
+
+    @property
+    @pulumi.getter(name="serviceRegistryId")
+    def service_registry_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Spring Cloud Service Registry.
+        """
+        return pulumi.get(self, "service_registry_id")
 
     @property
     @pulumi.getter(name="skuName")

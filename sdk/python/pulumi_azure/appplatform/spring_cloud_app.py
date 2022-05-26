@@ -17,6 +17,7 @@ class SpringCloudAppArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  service_name: pulumi.Input[str],
+                 addon_json: Optional[pulumi.Input[str]] = None,
                  custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['SpringCloudAppIdentityArgs']] = None,
@@ -28,6 +29,7 @@ class SpringCloudAppArgs:
         The set of arguments for constructing a SpringCloudApp resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Service.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
         :param pulumi.Input['SpringCloudAppIdentityArgs'] identity: An `identity` block as defined below.
@@ -38,6 +40,8 @@ class SpringCloudAppArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        if addon_json is not None:
+            pulumi.set(__self__, "addon_json", addon_json)
         if custom_persistent_disks is not None:
             pulumi.set(__self__, "custom_persistent_disks", custom_persistent_disks)
         if https_only is not None:
@@ -76,6 +80,18 @@ class SpringCloudAppArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="addonJson")
+    def addon_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON object that contains the addon configurations of the Spring Cloud Service.
+        """
+        return pulumi.get(self, "addon_json")
+
+    @addon_json.setter
+    def addon_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "addon_json", value)
 
     @property
     @pulumi.getter(name="customPersistentDisks")
@@ -165,6 +181,7 @@ class SpringCloudAppArgs:
 @pulumi.input_type
 class _SpringCloudAppState:
     def __init__(__self__, *,
+                 addon_json: Optional[pulumi.Input[str]] = None,
                  custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
@@ -178,6 +195,7 @@ class _SpringCloudAppState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudApp resources.
+        :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Service.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[str] fqdn: The Fully Qualified DNS Name of the Spring Application in the service.
         :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
@@ -190,6 +208,8 @@ class _SpringCloudAppState:
         :param pulumi.Input[bool] tls_enabled: Is End to End TLS Enabled? Defaults to `false`.
         :param pulumi.Input[str] url: The public endpoint of the Spring Cloud Application.
         """
+        if addon_json is not None:
+            pulumi.set(__self__, "addon_json", addon_json)
         if custom_persistent_disks is not None:
             pulumi.set(__self__, "custom_persistent_disks", custom_persistent_disks)
         if fqdn is not None:
@@ -212,6 +232,18 @@ class _SpringCloudAppState:
             pulumi.set(__self__, "tls_enabled", tls_enabled)
         if url is not None:
             pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="addonJson")
+    def addon_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON object that contains the addon configurations of the Spring Cloud Service.
+        """
+        return pulumi.get(self, "addon_json")
+
+    @addon_json.setter
+    def addon_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "addon_json", value)
 
     @property
     @pulumi.getter(name="customPersistentDisks")
@@ -351,6 +383,7 @@ class SpringCloudApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 addon_json: Optional[pulumi.Input[str]] = None,
                  custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']]] = None,
@@ -392,6 +425,7 @@ class SpringCloudApp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Service.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']] identity: An `identity` block as defined below.
@@ -452,6 +486,7 @@ class SpringCloudApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 addon_json: Optional[pulumi.Input[str]] = None,
                  custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']]] = None,
@@ -473,6 +508,7 @@ class SpringCloudApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpringCloudAppArgs.__new__(SpringCloudAppArgs)
 
+            __props__.__dict__["addon_json"] = addon_json
             __props__.__dict__["custom_persistent_disks"] = custom_persistent_disks
             __props__.__dict__["https_only"] = https_only
             __props__.__dict__["identity"] = identity
@@ -498,6 +534,7 @@ class SpringCloudApp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            addon_json: Optional[pulumi.Input[str]] = None,
             custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
@@ -516,6 +553,7 @@ class SpringCloudApp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Service.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[str] fqdn: The Fully Qualified DNS Name of the Spring Application in the service.
         :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
@@ -532,6 +570,7 @@ class SpringCloudApp(pulumi.CustomResource):
 
         __props__ = _SpringCloudAppState.__new__(_SpringCloudAppState)
 
+        __props__.__dict__["addon_json"] = addon_json
         __props__.__dict__["custom_persistent_disks"] = custom_persistent_disks
         __props__.__dict__["fqdn"] = fqdn
         __props__.__dict__["https_only"] = https_only
@@ -544,6 +583,14 @@ class SpringCloudApp(pulumi.CustomResource):
         __props__.__dict__["tls_enabled"] = tls_enabled
         __props__.__dict__["url"] = url
         return SpringCloudApp(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="addonJson")
+    def addon_json(self) -> pulumi.Output[str]:
+        """
+        A JSON object that contains the addon configurations of the Spring Cloud Service.
+        """
+        return pulumi.get(self, "addon_json")
 
     @property
     @pulumi.getter(name="customPersistentDisks")

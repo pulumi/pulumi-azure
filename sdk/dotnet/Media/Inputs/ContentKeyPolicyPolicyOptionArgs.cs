@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Media.Inputs
         public Input<bool>? ClearKeyConfigurationEnabled { get; set; }
 
         /// <summary>
-        /// A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/en-us/azure/media-services/latest/fairplay-license-overview.
+        /// A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
         /// </summary>
         [Input("fairplayConfiguration")]
         public Input<Inputs.ContentKeyPolicyPolicyOptionFairplayConfigurationArgs>? FairplayConfiguration { get; set; }

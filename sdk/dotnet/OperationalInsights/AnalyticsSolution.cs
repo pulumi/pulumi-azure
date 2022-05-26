@@ -89,7 +89,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
+        /// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         /// </summary>
         [Output("solutionName")]
         public Output<string> SolutionName { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
+        /// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         /// </summary>
         [Input("solutionName", required: true)]
         public Input<string> SolutionName { get; set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
+        /// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         /// </summary>
         [Input("solutionName")]
         public Input<string>? SolutionName { get; set; }

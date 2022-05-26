@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class FirewallPolicyIntrusionDetection
     {
         /// <summary>
-        /// In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
+        /// In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
         /// </summary>
         public readonly string? Mode;
         /// <summary>

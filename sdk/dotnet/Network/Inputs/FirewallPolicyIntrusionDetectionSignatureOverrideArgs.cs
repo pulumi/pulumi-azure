@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// state can be any of "Off", "Alert" or "Deny".
+        /// state can be any of `Off`, `Alert` or `Deny`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

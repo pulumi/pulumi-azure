@@ -107,7 +107,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string?> ForwardDeadLetteredMessagesTo { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        /// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         /// </summary>
         [Output("forwardTo")]
         public Output<string?> ForwardTo { get; private set; } = null!;
@@ -127,13 +127,13 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Integer value which controls the maximum size of
         /// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-        /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         /// </summary>
         [Output("maxMessageSizeInKilobytes")]
         public Output<int> MaxMessageSizeInKilobytes { get; private set; } = null!;
 
         /// <summary>
-        /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         /// </summary>
         [Output("maxSizeInMegabytes")]
         public Output<int> MaxSizeInMegabytes { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? ForwardDeadLetteredMessagesTo { get; set; }
 
         /// <summary>
-        /// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        /// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         /// </summary>
         [Input("forwardTo")]
         public Input<string>? ForwardTo { get; set; }
@@ -289,13 +289,13 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Integer value which controls the maximum size of
         /// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-        /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         /// </summary>
         [Input("maxMessageSizeInKilobytes")]
         public Input<int>? MaxMessageSizeInKilobytes { get; set; }
 
         /// <summary>
-        /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         /// </summary>
         [Input("maxSizeInMegabytes")]
         public Input<int>? MaxSizeInMegabytes { get; set; }
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? ForwardDeadLetteredMessagesTo { get; set; }
 
         /// <summary>
-        /// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        /// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         /// </summary>
         [Input("forwardTo")]
         public Input<string>? ForwardTo { get; set; }
@@ -406,13 +406,13 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Integer value which controls the maximum size of
         /// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-        /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         /// </summary>
         [Input("maxMessageSizeInKilobytes")]
         public Input<int>? MaxMessageSizeInKilobytes { get; set; }
 
         /// <summary>
-        /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         /// </summary>
         [Input("maxSizeInMegabytes")]
         public Input<int>? MaxSizeInMegabytes { get; set; }

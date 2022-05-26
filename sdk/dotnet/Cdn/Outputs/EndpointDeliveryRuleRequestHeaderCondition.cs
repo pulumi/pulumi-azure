@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string Selector;
         /// <summary>
-        /// Valid values are `Lowercase` and `Uppercase`.
+        /// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         /// </summary>
         public readonly ImmutableArray<string> Transforms;
 

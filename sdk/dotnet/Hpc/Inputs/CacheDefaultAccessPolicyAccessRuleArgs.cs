@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Hpc.Inputs
         public Input<string>? Filter { get; set; }
 
         /// <summary>
-        /// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        /// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         /// </summary>
         [Input("rootSquashEnabled")]
         public Input<bool>? RootSquashEnabled { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Hpc.Inputs
         public Input<bool>? SubmountAccessEnabled { get; set; }
 
         /// <summary>
-        /// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        /// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
         /// </summary>
         [Input("suidEnabled")]
         public Input<bool>? SuidEnabled { get; set; }

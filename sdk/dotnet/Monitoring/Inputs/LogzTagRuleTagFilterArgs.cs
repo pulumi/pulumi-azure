@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class LogzTagRuleTagFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+        /// The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;

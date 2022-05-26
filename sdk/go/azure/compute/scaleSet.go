@@ -224,7 +224,7 @@ type ScaleSet struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
 	// A SKU block as documented below.
 	Sku ScaleSetSkuOutput `pulumi:"sku"`
@@ -328,7 +328,7 @@ type scaleSetState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 	RollingUpgradePolicy *ScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// A SKU block as documented below.
 	Sku *ScaleSetSku `pulumi:"sku"`
@@ -386,7 +386,7 @@ type ScaleSetState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrInput
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// A SKU block as documented below.
 	Sku ScaleSetSkuPtrInput
@@ -448,7 +448,7 @@ type scaleSetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 	RollingUpgradePolicy *ScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// A SKU block as documented below.
 	Sku ScaleSetSku `pulumi:"sku"`
@@ -507,7 +507,7 @@ type ScaleSetArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrInput
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// A SKU block as documented below.
 	Sku ScaleSetSkuInput
@@ -711,7 +711,7 @@ func (o ScaleSetOutput) RollingUpgradePolicy() ScaleSetRollingUpgradePolicyPtrOu
 	return o.ApplyT(func(v *ScaleSet) ScaleSetRollingUpgradePolicyPtrOutput { return v.RollingUpgradePolicy }).(ScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 func (o ScaleSetOutput) SinglePlacementGroup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.BoolPtrOutput { return v.SinglePlacementGroup }).(pulumi.BoolPtrOutput)
 }

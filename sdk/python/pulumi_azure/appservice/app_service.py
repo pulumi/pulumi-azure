@@ -49,7 +49,7 @@ class AppServiceArgs:
         :param pulumi.Input[bool] enabled: Is the App Service Enabled?
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['AppServiceIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['AppServiceLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -245,7 +245,7 @@ class AppServiceArgs:
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
@@ -383,7 +383,7 @@ class _AppServiceState:
         :param pulumi.Input[bool] enabled: Is the App Service Enabled?
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['AppServiceIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['AppServiceLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -613,7 +613,7 @@ class _AppServiceState:
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
@@ -860,7 +860,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the App Service Enabled?
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['AppServiceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppServiceLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -1054,7 +1054,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the App Service Enabled?
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['AppServiceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppServiceLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -1210,7 +1210,7 @@ class AppService(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> pulumi.Output[str]:
         """
-        The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 

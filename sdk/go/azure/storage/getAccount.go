@@ -69,12 +69,12 @@ type LookupAccountResult struct {
 	AllowNestedItemsToBePublic bool `pulumi:"allowNestedItemsToBePublic"`
 	// A `customDomain` block as documented below.
 	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
-	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
 	// for more information.
 	EnableHttpsTrafficOnly bool `pulumi:"enableHttpsTrafficOnly"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable/)
+	// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
 	// for more information.
 	// ---
 	InfrastructureEncryptionEnabled bool `pulumi:"infrastructureEncryptionEnabled"`
@@ -233,7 +233,7 @@ func (o LookupAccountResultOutput) CustomDomains() GetAccountCustomDomainArrayOu
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountCustomDomain { return v.CustomDomains }).(GetAccountCustomDomainArrayOutput)
 }
 
-// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
 // for more information.
 func (o LookupAccountResultOutput) EnableHttpsTrafficOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableHttpsTrafficOnly }).(pulumi.BoolOutput)
@@ -244,7 +244,7 @@ func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable/)
+// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
 // for more information.
 // ---
 func (o LookupAccountResultOutput) InfrastructureEncryptionEnabled() pulumi.BoolOutput {

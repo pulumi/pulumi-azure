@@ -59,11 +59,11 @@ class AccountArgs:
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
-        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
-        :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
@@ -284,7 +284,7 @@ class AccountArgs:
     @pulumi.getter(name="enableHttpsTrafficOnly")
     def enable_https_traffic_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+        Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
         for more information. Defaults to `true`.
         """
         return pulumi.get(self, "enable_https_traffic_only")
@@ -321,7 +321,7 @@ class AccountArgs:
     @pulumi.getter(name="isHnsEnabled")
     def is_hns_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_hns_enabled")
 
@@ -573,11 +573,11 @@ class _AccountState:
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
-        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
-        :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
@@ -886,7 +886,7 @@ class _AccountState:
     @pulumi.getter(name="enableHttpsTrafficOnly")
     def enable_https_traffic_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+        Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
         for more information. Defaults to `true`.
         """
         return pulumi.get(self, "enable_https_traffic_only")
@@ -923,7 +923,7 @@ class _AccountState:
     @pulumi.getter(name="isHnsEnabled")
     def is_hns_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_hns_enabled")
 
@@ -1603,11 +1603,11 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
-        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
-        :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
@@ -1905,11 +1905,11 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[pulumi.InputType['AccountCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
-        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
-        :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
@@ -2117,7 +2117,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="enableHttpsTrafficOnly")
     def enable_https_traffic_only(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+        Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
         for more information. Defaults to `true`.
         """
         return pulumi.get(self, "enable_https_traffic_only")
@@ -2142,7 +2142,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="isHnsEnabled")
     def is_hns_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_hns_enabled")
 

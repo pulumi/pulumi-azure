@@ -75,7 +75,7 @@ export interface GetExpressRouteCircuitResult {
      */
     readonly serviceProviderProperties: outputs.network.GetExpressRouteCircuitServiceProviderProperty[];
     /**
-     * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+     * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
      */
     readonly serviceProviderProvisioningState: string;
     /**

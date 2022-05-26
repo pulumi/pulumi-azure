@@ -19,7 +19,7 @@ namespace Pulumi.Azure.SignalR.Inputs
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
+        /// Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

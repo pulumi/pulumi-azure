@@ -19,13 +19,13 @@ type CacheAccessPolicyAccessRule struct {
 	AnonymousUid *int `pulumi:"anonymousUid"`
 	// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
 	Filter *string `pulumi:"filter"`
-	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
 	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 	Scope string `pulumi:"scope"`
 	// Whether allow access to subdirectories under the root export? Defaults to `false`.
 	SubmountAccessEnabled *bool `pulumi:"submountAccessEnabled"`
-	// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+	// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
 	SuidEnabled *bool `pulumi:"suidEnabled"`
 }
 
@@ -49,13 +49,13 @@ type CacheAccessPolicyAccessRuleArgs struct {
 	AnonymousUid pulumi.IntPtrInput `pulumi:"anonymousUid"`
 	// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
 	Filter pulumi.StringPtrInput `pulumi:"filter"`
-	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
 	RootSquashEnabled pulumi.BoolPtrInput `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 	Scope pulumi.StringInput `pulumi:"scope"`
 	// Whether allow access to subdirectories under the root export? Defaults to `false`.
 	SubmountAccessEnabled pulumi.BoolPtrInput `pulumi:"submountAccessEnabled"`
-	// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+	// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
 	SuidEnabled pulumi.BoolPtrInput `pulumi:"suidEnabled"`
 }
 
@@ -130,7 +130,7 @@ func (o CacheAccessPolicyAccessRuleOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
 func (o CacheAccessPolicyAccessRuleOutput) RootSquashEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *bool { return v.RootSquashEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -145,7 +145,7 @@ func (o CacheAccessPolicyAccessRuleOutput) SubmountAccessEnabled() pulumi.BoolPt
 	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *bool { return v.SubmountAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
 func (o CacheAccessPolicyAccessRuleOutput) SuidEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *bool { return v.SuidEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -316,13 +316,13 @@ type CacheDefaultAccessPolicyAccessRule struct {
 	AnonymousUid *int `pulumi:"anonymousUid"`
 	// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
 	Filter *string `pulumi:"filter"`
-	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
 	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 	Scope string `pulumi:"scope"`
 	// Whether allow access to subdirectories under the root export? Defaults to `false`.
 	SubmountAccessEnabled *bool `pulumi:"submountAccessEnabled"`
-	// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+	// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
 	SuidEnabled *bool `pulumi:"suidEnabled"`
 }
 
@@ -346,13 +346,13 @@ type CacheDefaultAccessPolicyAccessRuleArgs struct {
 	AnonymousUid pulumi.IntPtrInput `pulumi:"anonymousUid"`
 	// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
 	Filter pulumi.StringPtrInput `pulumi:"filter"`
-	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
 	RootSquashEnabled pulumi.BoolPtrInput `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 	Scope pulumi.StringInput `pulumi:"scope"`
 	// Whether allow access to subdirectories under the root export? Defaults to `false`.
 	SubmountAccessEnabled pulumi.BoolPtrInput `pulumi:"submountAccessEnabled"`
-	// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+	// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
 	SuidEnabled pulumi.BoolPtrInput `pulumi:"suidEnabled"`
 }
 
@@ -427,7 +427,7 @@ func (o CacheDefaultAccessPolicyAccessRuleOutput) Filter() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
 func (o CacheDefaultAccessPolicyAccessRuleOutput) RootSquashEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *bool { return v.RootSquashEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -442,7 +442,7 @@ func (o CacheDefaultAccessPolicyAccessRuleOutput) SubmountAccessEnabled() pulumi
 	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *bool { return v.SubmountAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
 func (o CacheDefaultAccessPolicyAccessRuleOutput) SuidEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *bool { return v.SuidEnabled }).(pulumi.BoolPtrOutput)
 }

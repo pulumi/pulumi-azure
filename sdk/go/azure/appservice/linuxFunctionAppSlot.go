@@ -84,7 +84,7 @@ import (
 type LinuxFunctionAppSlot struct {
 	pulumi.CustomResourceState
 
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// an `authSettings` block as detailed below.
 	AuthSettings LinuxFunctionAppSlotAuthSettingsOutput `pulumi:"authSettings"`
@@ -116,7 +116,7 @@ type LinuxFunctionAppSlot struct {
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as detailed below.
 	Identity LinuxFunctionAppSlotIdentityPtrOutput `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringOutput `pulumi:"keyVaultReferenceIdentityId"`
 	// The Kind value for this Linux Function App Slot.
 	Kind pulumi.StringOutput `pulumi:"kind"`
@@ -181,7 +181,7 @@ func GetLinuxFunctionAppSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinuxFunctionAppSlot resources.
 type linuxFunctionAppSlotState struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// an `authSettings` block as detailed below.
 	AuthSettings *LinuxFunctionAppSlotAuthSettings `pulumi:"authSettings"`
@@ -213,7 +213,7 @@ type linuxFunctionAppSlotState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as detailed below.
 	Identity *LinuxFunctionAppSlotIdentity `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Kind value for this Linux Function App Slot.
 	Kind *string `pulumi:"kind"`
@@ -244,7 +244,7 @@ type linuxFunctionAppSlotState struct {
 }
 
 type LinuxFunctionAppSlotState struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// an `authSettings` block as detailed below.
 	AuthSettings LinuxFunctionAppSlotAuthSettingsPtrInput
@@ -276,7 +276,7 @@ type LinuxFunctionAppSlotState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as detailed below.
 	Identity LinuxFunctionAppSlotIdentityPtrInput
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Kind value for this Linux Function App Slot.
 	Kind pulumi.StringPtrInput
@@ -311,7 +311,7 @@ func (LinuxFunctionAppSlotState) ElementType() reflect.Type {
 }
 
 type linuxFunctionAppSlotArgs struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// an `authSettings` block as detailed below.
 	AuthSettings *LinuxFunctionAppSlotAuthSettings `pulumi:"authSettings"`
@@ -339,7 +339,7 @@ type linuxFunctionAppSlotArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as detailed below.
 	Identity *LinuxFunctionAppSlotIdentity `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -359,7 +359,7 @@ type linuxFunctionAppSlotArgs struct {
 
 // The set of arguments for constructing a LinuxFunctionAppSlot resource.
 type LinuxFunctionAppSlotArgs struct {
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// an `authSettings` block as detailed below.
 	AuthSettings LinuxFunctionAppSlotAuthSettingsPtrInput
@@ -387,7 +387,7 @@ type LinuxFunctionAppSlotArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as detailed below.
 	Identity LinuxFunctionAppSlotIdentityPtrInput
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -492,7 +492,7 @@ func (o LinuxFunctionAppSlotOutput) ToLinuxFunctionAppSlotOutputWithContext(ctx 
 	return o
 }
 
-// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 func (o LinuxFunctionAppSlotOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }
@@ -574,7 +574,7 @@ func (o LinuxFunctionAppSlotOutput) Identity() LinuxFunctionAppSlotIdentityPtrOu
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) LinuxFunctionAppSlotIdentityPtrOutput { return v.Identity }).(LinuxFunctionAppSlotIdentityPtrOutput)
 }
 
-// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 func (o LinuxFunctionAppSlotOutput) KeyVaultReferenceIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringOutput { return v.KeyVaultReferenceIdentityId }).(pulumi.StringOutput)
 }

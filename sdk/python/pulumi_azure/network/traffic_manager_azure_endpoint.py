@@ -31,7 +31,7 @@ class TrafficManagerAzureEndpointArgs:
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint. Valid values are between `1` and `1000`.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[str] name: The name of the Azure Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
                specified for Profiles using the `Priority` traffic routing method. Supports
@@ -119,7 +119,7 @@ class TrafficManagerAzureEndpointArgs:
     @pulumi.getter(name="geoMappings")
     def geo_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         """
         return pulumi.get(self, "geo_mappings")
 
@@ -183,7 +183,7 @@ class _TrafficManagerAzureEndpointState:
         Input properties used for looking up and filtering TrafficManagerAzureEndpoint resources.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[str] name: The name of the Azure Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
                specified for Profiles using the `Priority` traffic routing method. Supports
@@ -241,7 +241,7 @@ class _TrafficManagerAzureEndpointState:
     @pulumi.getter(name="geoMappings")
     def geo_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         """
         return pulumi.get(self, "geo_mappings")
 
@@ -391,7 +391,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerAzureEndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[str] name: The name of the Azure Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
                specified for Profiles using the `Priority` traffic routing method. Supports
@@ -534,7 +534,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerAzureEndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[str] name: The name of the Azure Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
                specified for Profiles using the `Priority` traffic routing method. Supports
@@ -580,7 +580,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="geoMappings")
     def geo_mappings(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         """
         return pulumi.get(self, "geo_mappings")
 

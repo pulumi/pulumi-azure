@@ -130,7 +130,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly restorePointInTime!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers).
+     * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers).
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -142,7 +142,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly sslMinimalTlsVersionEnforced!: pulumi.Output<string | undefined>;
     /**
-     * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers).
+     * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers).
      */
     public readonly storageMb!: pulumi.Output<number>;
     /**
@@ -300,7 +300,7 @@ export interface ServerState {
      */
     restorePointInTime?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers).
+     * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers).
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -312,7 +312,7 @@ export interface ServerState {
      */
     sslMinimalTlsVersionEnforced?: pulumi.Input<string>;
     /**
-     * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers).
+     * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers).
      */
     storageMb?: pulumi.Input<number>;
     /**
@@ -390,7 +390,7 @@ export interface ServerArgs {
      */
     restorePointInTime?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers).
+     * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers).
      */
     skuName: pulumi.Input<string>;
     /**
@@ -402,7 +402,7 @@ export interface ServerArgs {
      */
     sslMinimalTlsVersionEnforced?: pulumi.Input<string>;
     /**
-     * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers).
+     * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers).
      */
     storageMb?: pulumi.Input<number>;
     /**

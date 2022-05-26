@@ -102,7 +102,7 @@ type Pipeline struct {
 	Folder pulumi.StringPtrOutput `pulumi:"folder"`
 	// The TimeSpan value after which an Azure Monitoring Metric is fired.
 	MoniterMetricsAfterDuration pulumi.StringPtrOutput `pulumi:"moniterMetricsAfterDuration"`
-	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -156,7 +156,7 @@ type pipelineState struct {
 	Folder *string `pulumi:"folder"`
 	// The TimeSpan value after which an Azure Monitoring Metric is fired.
 	MoniterMetricsAfterDuration *string `pulumi:"moniterMetricsAfterDuration"`
-	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -179,7 +179,7 @@ type PipelineState struct {
 	Folder pulumi.StringPtrInput
 	// The TimeSpan value after which an Azure Monitoring Metric is fired.
 	MoniterMetricsAfterDuration pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Pipeline.
 	Parameters pulumi.StringMapInput
@@ -206,7 +206,7 @@ type pipelineArgs struct {
 	Folder *string `pulumi:"folder"`
 	// The TimeSpan value after which an Azure Monitoring Metric is fired.
 	MoniterMetricsAfterDuration *string `pulumi:"moniterMetricsAfterDuration"`
-	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -230,7 +230,7 @@ type PipelineArgs struct {
 	Folder pulumi.StringPtrInput
 	// The TimeSpan value after which an Azure Monitoring Metric is fired.
 	MoniterMetricsAfterDuration pulumi.StringPtrInput
-	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Pipeline.
 	Parameters pulumi.StringMapInput
@@ -360,7 +360,7 @@ func (o PipelineOutput) MoniterMetricsAfterDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.MoniterMetricsAfterDuration }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o PipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

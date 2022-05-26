@@ -52,7 +52,7 @@ export interface GetLinuxFunctionAppArgs {
  */
 export interface GetLinuxFunctionAppResult {
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      */
     readonly appSettings: {[key: string]: string};
     /**
@@ -79,6 +79,9 @@ export interface GetLinuxFunctionAppResult {
      * A `connectionString` blocks as defined below.
      */
     readonly connectionStrings: outputs.appservice.GetLinuxFunctionAppConnectionString[];
+    /**
+     * Are the settings for linking the Function App to storage suppressed?
+     */
     readonly contentShareForceDisabled: boolean;
     /**
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.

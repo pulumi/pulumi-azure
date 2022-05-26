@@ -42,13 +42,13 @@ class QueueArgs:
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward dead lettered messages to.
-        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
         :param pulumi.Input[int] max_delivery_count: Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
                a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
@@ -202,7 +202,7 @@ class QueueArgs:
     @pulumi.getter(name="forwardTo")
     def forward_to(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         """
         return pulumi.get(self, "forward_to")
 
@@ -240,7 +240,7 @@ class QueueArgs:
         """
         Integer value which controls the maximum size of
         a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
@@ -252,7 +252,7 @@ class QueueArgs:
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         """
         return pulumi.get(self, "max_size_in_megabytes")
 
@@ -342,13 +342,13 @@ class _QueueState:
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward dead lettered messages to.
-        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
         :param pulumi.Input[int] max_delivery_count: Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
                a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
@@ -496,7 +496,7 @@ class _QueueState:
     @pulumi.getter(name="forwardTo")
     def forward_to(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         """
         return pulumi.get(self, "forward_to")
 
@@ -534,7 +534,7 @@ class _QueueState:
         """
         Integer value which controls the maximum size of
         a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
@@ -546,7 +546,7 @@ class _QueueState:
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         """
         return pulumi.get(self, "max_size_in_megabytes")
 
@@ -702,13 +702,13 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward dead lettered messages to.
-        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
         :param pulumi.Input[int] max_delivery_count: Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
                a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
@@ -864,13 +864,13 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward dead lettered messages to.
-        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
         :param pulumi.Input[int] max_delivery_count: Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
                a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+               section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
@@ -971,7 +971,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="forwardTo")
     def forward_to(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         """
         return pulumi.get(self, "forward_to")
 
@@ -997,7 +997,7 @@ class Queue(pulumi.CustomResource):
         """
         Integer value which controls the maximum size of
         a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
-        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
@@ -1005,7 +1005,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> pulumi.Output[int]:
         """
-        Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         """
         return pulumi.get(self, "max_size_in_megabytes")
 

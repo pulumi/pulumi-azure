@@ -170,7 +170,7 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+        /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         /// </summary>
         public readonly int MaxSizeInMegabytes;
         public readonly string Name;

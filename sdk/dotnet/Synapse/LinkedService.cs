@@ -127,7 +127,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string> SynapseWorkspaceId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
+        /// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string> SynapseWorkspaceId { get; set; } = null!;
 
         /// <summary>
-        /// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
+        /// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? SynapseWorkspaceId { get; set; }
 
         /// <summary>
-        /// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
+        /// The type of data stores that will be connected to Synapse. For full list of supported data stores, please refer to [Azure Synapse connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new Synapse Linked Service to be created.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

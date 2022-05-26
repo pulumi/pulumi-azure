@@ -41,7 +41,7 @@ class LinkedServiceSftpArgs:
         :param pulumi.Input[str] host_key_fingerprint: The host key fingerprint of the SFTP server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-               factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+               factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[bool] skip_host_key_validation: Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
         """
@@ -205,7 +205,7 @@ class LinkedServiceSftpArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-        factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
@@ -266,7 +266,7 @@ class _LinkedServiceSftpState:
         :param pulumi.Input[str] host_key_fingerprint: The host key fingerprint of the SFTP server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-               factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+               factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] password: Password to logon to the SFTP Server for Basic Authentication.
         :param pulumi.Input[int] port: The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
@@ -403,7 +403,7 @@ class _LinkedServiceSftpState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-        factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 
@@ -533,7 +533,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         :param pulumi.Input[str] host_key_fingerprint: The host key fingerprint of the SFTP server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-               factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+               factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] password: Password to logon to the SFTP Server for Basic Authentication.
         :param pulumi.Input[int] port: The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
@@ -683,7 +683,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         :param pulumi.Input[str] host_key_fingerprint: The host key fingerprint of the SFTP server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-               factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+               factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] password: Password to logon to the SFTP Server for Basic Authentication.
         :param pulumi.Input[int] port: The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
@@ -779,7 +779,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-        factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         """
         return pulumi.get(self, "name")
 

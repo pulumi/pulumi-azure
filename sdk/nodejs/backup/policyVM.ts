@@ -133,7 +133,7 @@ export class PolicyVM extends pulumi.CustomResource {
      */
     public readonly retentionYearly!: pulumi.Output<outputs.backup.PolicyVMRetentionYearly | undefined>;
     /**
-     * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+     * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
 
@@ -228,7 +228,7 @@ export interface PolicyVMState {
      */
     retentionYearly?: pulumi.Input<inputs.backup.PolicyVMRetentionYearly>;
     /**
-     * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+     * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
     timezone?: pulumi.Input<string>;
 }
@@ -274,7 +274,7 @@ export interface PolicyVMArgs {
      */
     retentionYearly?: pulumi.Input<inputs.backup.PolicyVMRetentionYearly>;
     /**
-     * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+     * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
     timezone?: pulumi.Input<string>;
 }

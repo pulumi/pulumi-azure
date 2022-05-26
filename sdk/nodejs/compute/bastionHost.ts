@@ -101,7 +101,7 @@ export class BastionHost extends pulumi.CustomResource {
      */
     public readonly ipConnectEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -208,7 +208,7 @@ export interface BastionHostState {
      */
     ipConnectEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      */
     location?: pulumi.Input<string>;
     /**
@@ -262,7 +262,7 @@ export interface BastionHostArgs {
      */
     ipConnectEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      */
     location?: pulumi.Input<string>;
     /**

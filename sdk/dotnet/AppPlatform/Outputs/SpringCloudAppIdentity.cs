@@ -14,6 +14,10 @@ namespace Pulumi.Azure.AppPlatform.Outputs
     public sealed class SpringCloudAppIdentity
     {
         /// <summary>
+        /// A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         /// </summary>
         public readonly string? PrincipalId;
@@ -22,18 +26,21 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private SpringCloudAppIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

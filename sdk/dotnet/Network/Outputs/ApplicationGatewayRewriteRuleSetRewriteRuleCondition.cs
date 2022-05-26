@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Pattern;
         /// <summary>
-        /// The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+        /// The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
         /// </summary>
         public readonly string Variable;
 

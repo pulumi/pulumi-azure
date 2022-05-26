@@ -146,6 +146,28 @@ namespace Pulumi.Azure
             set => _msiEndpoint.Set(value);
         }
 
+        private static readonly __Value<string?> _oidcRequestToken = new __Value<string?>(() => __config.Get("oidcRequestToken"));
+        /// <summary>
+        /// The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+        /// Connect.
+        /// </summary>
+        public static string? OidcRequestToken
+        {
+            get => _oidcRequestToken.Get();
+            set => _oidcRequestToken.Set(value);
+        }
+
+        private static readonly __Value<string?> _oidcRequestUrl = new __Value<string?>(() => __config.Get("oidcRequestUrl"));
+        /// <summary>
+        /// The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+        /// using OpenID Connect.
+        /// </summary>
+        public static string? OidcRequestUrl
+        {
+            get => _oidcRequestUrl.Get();
+            set => _oidcRequestUrl.Set(value);
+        }
+
         private static readonly __Value<string?> _partnerId = new __Value<string?>(() => __config.Get("partnerId"));
         /// <summary>
         /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
@@ -205,6 +227,16 @@ namespace Pulumi.Azure
         {
             get => _useMsi.Get();
             set => _useMsi.Set(value);
+        }
+
+        private static readonly __Value<bool?> _useOidc = new __Value<bool?>(() => __config.GetBoolean("useOidc"));
+        /// <summary>
+        /// Allow OpenID Connect to be used for authentication
+        /// </summary>
+        public static bool? UseOidc
+        {
+            get => _useOidc.Get();
+            set => _useOidc.Set(value);
         }
 
         public static class Types

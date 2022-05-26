@@ -108,7 +108,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      */
     public readonly serviceProviderName!: pulumi.Output<string | undefined>;
     /**
-     * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+     * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
      */
     public /*out*/ readonly serviceProviderProvisioningState!: pulumi.Output<string>;
     /**
@@ -218,7 +218,7 @@ export interface ExpressRouteCircuitState {
      */
     serviceProviderName?: pulumi.Input<string>;
     /**
-     * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+     * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
      */
     serviceProviderProvisioningState?: pulumi.Input<string>;
     /**

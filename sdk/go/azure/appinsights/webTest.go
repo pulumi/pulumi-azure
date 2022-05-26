@@ -78,7 +78,7 @@ type WebTest struct {
 
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId pulumi.StringOutput `pulumi:"applicationInsightsId"`
-	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
 	Configuration pulumi.StringOutput `pulumi:"configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -152,7 +152,7 @@ func GetWebTest(ctx *pulumi.Context,
 type webTestState struct {
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId *string `pulumi:"applicationInsightsId"`
-	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
 	Configuration *string `pulumi:"configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
 	Description *string `pulumi:"description"`
@@ -183,7 +183,7 @@ type webTestState struct {
 type WebTestState struct {
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId pulumi.StringPtrInput
-	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
 	Configuration pulumi.StringPtrInput
 	// Purpose/user defined descriptive test for this WebTest.
 	Description pulumi.StringPtrInput
@@ -218,7 +218,7 @@ func (WebTestState) ElementType() reflect.Type {
 type webTestArgs struct {
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId string `pulumi:"applicationInsightsId"`
-	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
 	Configuration string `pulumi:"configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
 	Description *string `pulumi:"description"`
@@ -249,7 +249,7 @@ type webTestArgs struct {
 type WebTestArgs struct {
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
 	ApplicationInsightsId pulumi.StringInput
-	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+	// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
 	Configuration pulumi.StringInput
 	// Purpose/user defined descriptive test for this WebTest.
 	Description pulumi.StringPtrInput
@@ -368,7 +368,7 @@ func (o WebTestOutput) ApplicationInsightsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebTest) pulumi.StringOutput { return v.ApplicationInsightsId }).(pulumi.StringOutput)
 }
 
-// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+// An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
 func (o WebTestOutput) Configuration() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebTest) pulumi.StringOutput { return v.Configuration }).(pulumi.StringOutput)
 }

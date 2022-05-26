@@ -129,7 +129,7 @@ export class PolicyFileShare extends pulumi.CustomResource {
      */
     public readonly retentionYearly!: pulumi.Output<outputs.backup.PolicyFileShareRetentionYearly | undefined>;
     /**
-     * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+     * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
 
@@ -221,7 +221,7 @@ export interface PolicyFileShareState {
      */
     retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
     /**
-     * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+     * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
     timezone?: pulumi.Input<string>;
 }
@@ -263,7 +263,7 @@ export interface PolicyFileShareArgs {
      */
     retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
     /**
-     * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+     * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
     timezone?: pulumi.Input<string>;
 }

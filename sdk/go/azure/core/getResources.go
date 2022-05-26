@@ -28,7 +28,7 @@ type GetResourcesArgs struct {
 	RequiredTags map[string]string `pulumi:"requiredTags"`
 	// The name of the Resource group where the Resources are located.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
 	Type *string `pulumi:"type"`
 }
 
@@ -67,7 +67,7 @@ type GetResourcesOutputArgs struct {
 	RequiredTags pulumi.StringMapInput `pulumi:"requiredTags"`
 	// The name of the Resource group where the Resources are located.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
-	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+	// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 

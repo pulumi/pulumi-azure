@@ -139,7 +139,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * > **Note:** The Python runtime is only supported on a Linux based hosting plan.  See [the documentation for additional information](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python).
+ * > **Note:** The Python runtime is only supported on a Linux based hosting plan.  See [the documentation for additional information](https://docs.microsoft.com/azure/azure-functions/functions-reference-python).
  *
  * ## Import
  *
@@ -182,7 +182,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly appServicePlanId!: pulumi.Output<string>;
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -226,7 +226,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.appservice.FunctionAppIdentity | undefined>;
     /**
-     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
      */
     public readonly keyVaultReferenceIdentityId!: pulumi.Output<string>;
     /**
@@ -238,7 +238,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -382,7 +382,7 @@ export interface FunctionAppState {
      */
     appServicePlanId?: pulumi.Input<string>;
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -426,7 +426,7 @@ export interface FunctionAppState {
      */
     identity?: pulumi.Input<inputs.appservice.FunctionAppIdentity>;
     /**
-     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
      */
     keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**
@@ -438,7 +438,7 @@ export interface FunctionAppState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
      */
     name?: pulumi.Input<string>;
     /**
@@ -496,7 +496,7 @@ export interface FunctionAppArgs {
      */
     appServicePlanId: pulumi.Input<string>;
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -532,7 +532,7 @@ export interface FunctionAppArgs {
      */
     identity?: pulumi.Input<inputs.appservice.FunctionAppIdentity>;
     /**
-     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
      */
     keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**
@@ -540,7 +540,7 @@ export interface FunctionAppArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+     * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
      */
     name?: pulumi.Input<string>;
     /**

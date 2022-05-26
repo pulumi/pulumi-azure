@@ -111,6 +111,10 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public readonly serviceRegistryEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The ID of the Spring Cloud Service Registry.
+     */
+    public /*out*/ readonly serviceRegistryId!: pulumi.Output<string>;
+    /**
      * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
@@ -144,6 +148,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             resourceInputs["requiredNetworkTrafficRules"] = state ? state.requiredNetworkTrafficRules : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["serviceRegistryEnabled"] = state ? state.serviceRegistryEnabled : undefined;
+            resourceInputs["serviceRegistryId"] = state ? state.serviceRegistryId : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["trace"] = state ? state.trace : undefined;
@@ -163,6 +168,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             resourceInputs["trace"] = args ? args.trace : undefined;
             resourceInputs["outboundPublicIpAddresses"] = undefined /*out*/;
             resourceInputs["requiredNetworkTrafficRules"] = undefined /*out*/;
+            resourceInputs["serviceRegistryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudService.__pulumiType, name, resourceInputs, opts);
@@ -205,6 +211,10 @@ export interface SpringCloudServiceState {
      * Whether enable the default Service Registry.
      */
     serviceRegistryEnabled?: pulumi.Input<boolean>;
+    /**
+     * The ID of the Spring Cloud Service Registry.
+     */
+    serviceRegistryId?: pulumi.Input<string>;
     /**
      * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
      */

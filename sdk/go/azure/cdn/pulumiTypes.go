@@ -974,7 +974,7 @@ type EndpointDeliveryRuleCookiesCondition struct {
 	Operator string `pulumi:"operator"`
 	// Name of the cookie.
 	Selector string `pulumi:"selector"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -998,7 +998,7 @@ type EndpointDeliveryRuleCookiesConditionArgs struct {
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Name of the cookie.
 	Selector pulumi.StringInput `pulumi:"selector"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -1073,7 +1073,7 @@ func (o EndpointDeliveryRuleCookiesConditionOutput) Selector() pulumi.StringOutp
 	return o.ApplyT(func(v EndpointDeliveryRuleCookiesCondition) string { return v.Selector }).(pulumi.StringOutput)
 }
 
-// Valid values are `Lowercase` and `Uppercase`.
+// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 func (o EndpointDeliveryRuleCookiesConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleCookiesCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -1627,7 +1627,7 @@ type EndpointDeliveryRulePostArgCondition struct {
 	Operator string `pulumi:"operator"`
 	// Name of the post arg.
 	Selector string `pulumi:"selector"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -1651,7 +1651,7 @@ type EndpointDeliveryRulePostArgConditionArgs struct {
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Name of the post arg.
 	Selector pulumi.StringInput `pulumi:"selector"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -1726,7 +1726,7 @@ func (o EndpointDeliveryRulePostArgConditionOutput) Selector() pulumi.StringOutp
 	return o.ApplyT(func(v EndpointDeliveryRulePostArgCondition) string { return v.Selector }).(pulumi.StringOutput)
 }
 
-// Valid values are `Lowercase` and `Uppercase`.
+// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 func (o EndpointDeliveryRulePostArgConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRulePostArgCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -1758,7 +1758,7 @@ type EndpointDeliveryRuleQueryStringCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator string `pulumi:"operator"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -1780,7 +1780,7 @@ type EndpointDeliveryRuleQueryStringConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -1850,7 +1850,7 @@ func (o EndpointDeliveryRuleQueryStringConditionOutput) Operator() pulumi.String
 	return o.ApplyT(func(v EndpointDeliveryRuleQueryStringCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Valid values are `Lowercase` and `Uppercase`.
+// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 func (o EndpointDeliveryRuleQueryStringConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleQueryStringCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -1997,7 +1997,7 @@ type EndpointDeliveryRuleRequestBodyCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator string `pulumi:"operator"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -2019,7 +2019,7 @@ type EndpointDeliveryRuleRequestBodyConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -2089,7 +2089,7 @@ func (o EndpointDeliveryRuleRequestBodyConditionOutput) Operator() pulumi.String
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestBodyCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Valid values are `Lowercase` and `Uppercase`.
+// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 func (o EndpointDeliveryRuleRequestBodyConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestBodyCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -2123,7 +2123,7 @@ type EndpointDeliveryRuleRequestHeaderCondition struct {
 	Operator string `pulumi:"operator"`
 	// Header name.
 	Selector string `pulumi:"selector"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -2147,7 +2147,7 @@ type EndpointDeliveryRuleRequestHeaderConditionArgs struct {
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Header name.
 	Selector pulumi.StringInput `pulumi:"selector"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -2222,7 +2222,7 @@ func (o EndpointDeliveryRuleRequestHeaderConditionOutput) Selector() pulumi.Stri
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestHeaderCondition) string { return v.Selector }).(pulumi.StringOutput)
 }
 
-// Valid values are `Lowercase` and `Uppercase`.
+// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 func (o EndpointDeliveryRuleRequestHeaderConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestHeaderCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -2604,7 +2604,7 @@ type EndpointDeliveryRuleRequestUriCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator string `pulumi:"operator"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -2626,7 +2626,7 @@ type EndpointDeliveryRuleRequestUriConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -2696,7 +2696,7 @@ func (o EndpointDeliveryRuleRequestUriConditionOutput) Operator() pulumi.StringO
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestUriCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Valid values are `Lowercase` and `Uppercase`.
+// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 func (o EndpointDeliveryRuleRequestUriConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestUriCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -2728,7 +2728,7 @@ type EndpointDeliveryRuleUrlFileExtensionCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator string `pulumi:"operator"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -2750,7 +2750,7 @@ type EndpointDeliveryRuleUrlFileExtensionConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -2820,7 +2820,7 @@ func (o EndpointDeliveryRuleUrlFileExtensionConditionOutput) Operator() pulumi.S
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileExtensionCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Valid values are `Lowercase` and `Uppercase`.
+// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 func (o EndpointDeliveryRuleUrlFileExtensionConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileExtensionCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -2852,7 +2852,7 @@ type EndpointDeliveryRuleUrlFileNameCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator string `pulumi:"operator"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -2874,7 +2874,7 @@ type EndpointDeliveryRuleUrlFileNameConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -2944,7 +2944,7 @@ func (o EndpointDeliveryRuleUrlFileNameConditionOutput) Operator() pulumi.String
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileNameCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Valid values are `Lowercase` and `Uppercase`.
+// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 func (o EndpointDeliveryRuleUrlFileNameConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileNameCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -2976,7 +2976,7 @@ type EndpointDeliveryRuleUrlPathCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
 	Operator string `pulumi:"operator"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -2998,7 +2998,7 @@ type EndpointDeliveryRuleUrlPathConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// Valid values are `Lowercase` and `Uppercase`.
+	// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -3068,7 +3068,7 @@ func (o EndpointDeliveryRuleUrlPathConditionOutput) Operator() pulumi.StringOutp
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlPathCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Valid values are `Lowercase` and `Uppercase`.
+// A list of transforms. Valid values are `Lowercase` and `Uppercase`.
 func (o EndpointDeliveryRuleUrlPathConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlPathCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }

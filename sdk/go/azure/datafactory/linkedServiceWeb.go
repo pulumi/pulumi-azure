@@ -75,12 +75,12 @@ type LinkedServiceWeb struct {
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	Password   pulumi.StringPtrOutput `pulumi:"password"`
-	// The URL of the web service endpoint (e.g. http://www.microsoft.com).
+	// The URL of the web service endpoint (e.g. https://www.microsoft.com).
 	Url      pulumi.StringOutput    `pulumi:"url"`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
@@ -136,12 +136,12 @@ type linkedServiceWebState struct {
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	Password   *string           `pulumi:"password"`
-	// The URL of the web service endpoint (e.g. http://www.microsoft.com).
+	// The URL of the web service endpoint (e.g. https://www.microsoft.com).
 	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
 }
@@ -160,12 +160,12 @@ type LinkedServiceWebState struct {
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	Password   pulumi.StringPtrInput
-	// The URL of the web service endpoint (e.g. http://www.microsoft.com).
+	// The URL of the web service endpoint (e.g. https://www.microsoft.com).
 	Url      pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
 }
@@ -188,12 +188,12 @@ type linkedServiceWebArgs struct {
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	Password   *string           `pulumi:"password"`
-	// The URL of the web service endpoint (e.g. http://www.microsoft.com).
+	// The URL of the web service endpoint (e.g. https://www.microsoft.com).
 	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
 }
@@ -213,12 +213,12 @@ type LinkedServiceWebArgs struct {
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	Password   pulumi.StringPtrInput
-	// The URL of the web service endpoint (e.g. http://www.microsoft.com).
+	// The URL of the web service endpoint (e.g. https://www.microsoft.com).
 	Url      pulumi.StringInput
 	Username pulumi.StringPtrInput
 }
@@ -341,7 +341,7 @@ func (o LinkedServiceWebOutput) IntegrationRuntimeName() pulumi.StringPtrOutput 
 }
 
 // Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
-// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+// factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o LinkedServiceWebOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceWeb) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -355,7 +355,7 @@ func (o LinkedServiceWebOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceWeb) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The URL of the web service endpoint (e.g. http://www.microsoft.com).
+// The URL of the web service endpoint (e.g. https://www.microsoft.com).
 func (o LinkedServiceWebOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceWeb) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

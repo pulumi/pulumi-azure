@@ -230,7 +230,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         """
         Manages a Backup Instance to back up PostgreSQL.
 
-        > **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/en-us/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
+        > **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
 
         ## Example Usage
 
@@ -354,7 +354,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         """
         Manages a Backup Instance to back up PostgreSQL.
 
-        > **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/en-us/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
+        > **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore.
 
         ## Example Usage
 

@@ -296,7 +296,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `ipsec_policy` block which is documented below.
         /// Only a single policy can be defined for a connection. For details on
-        /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+        /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         /// </summary>
         [Output("ipsecPolicy")]
         public Output<Outputs.VirtualNetworkGatewayConnectionIpsecPolicy?> IpsecPolicy { get; private set; } = null!;
@@ -366,7 +366,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// One or more `traffic_selector_policy` blocks which are documented below.
         /// A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-        /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>
         [Output("trafficSelectorPolicy")]
         public Output<Outputs.VirtualNetworkGatewayConnectionTrafficSelectorPolicy?> TrafficSelectorPolicy { get; private set; } = null!;
@@ -506,7 +506,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `ipsec_policy` block which is documented below.
         /// Only a single policy can be defined for a connection. For details on
-        /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+        /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         /// </summary>
         [Input("ipsecPolicy")]
         public Input<Inputs.VirtualNetworkGatewayConnectionIpsecPolicyArgs>? IpsecPolicy { get; set; }
@@ -582,7 +582,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// One or more `traffic_selector_policy` blocks which are documented below.
         /// A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-        /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>
         [Input("trafficSelectorPolicy")]
         public Input<Inputs.VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs>? TrafficSelectorPolicy { get; set; }
@@ -683,7 +683,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `ipsec_policy` block which is documented below.
         /// Only a single policy can be defined for a connection. For details on
-        /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+        /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         /// </summary>
         [Input("ipsecPolicy")]
         public Input<Inputs.VirtualNetworkGatewayConnectionIpsecPolicyGetArgs>? IpsecPolicy { get; set; }
@@ -759,7 +759,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// One or more `traffic_selector_policy` blocks which are documented below.
         /// A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-        /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>
         [Input("trafficSelectorPolicy")]
         public Input<Inputs.VirtualNetworkGatewayConnectionTrafficSelectorPolicyGetArgs>? TrafficSelectorPolicy { get; set; }

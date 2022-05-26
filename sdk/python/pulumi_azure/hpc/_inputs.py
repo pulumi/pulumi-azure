@@ -37,9 +37,9 @@ class CacheAccessPolicyAccessRuleArgs:
         :param pulumi.Input[int] anonymous_gid: The anonymous GID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[int] anonymous_uid: The anonymous UID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[str] filter: The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
-        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         :param pulumi.Input[bool] submount_access_enabled: Whether allow access to subdirectories under the root export? Defaults to `false`.
-        :param pulumi.Input[bool] suid_enabled: Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        :param pulumi.Input[bool] suid_enabled: Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "scope", scope)
@@ -120,7 +120,7 @@ class CacheAccessPolicyAccessRuleArgs:
     @pulumi.getter(name="rootSquashEnabled")
     def root_squash_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         """
         return pulumi.get(self, "root_squash_enabled")
 
@@ -144,7 +144,7 @@ class CacheAccessPolicyAccessRuleArgs:
     @pulumi.getter(name="suidEnabled")
     def suid_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
         """
         return pulumi.get(self, "suid_enabled")
 
@@ -192,9 +192,9 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
         :param pulumi.Input[int] anonymous_gid: The anonymous GID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[int] anonymous_uid: The anonymous UID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[str] filter: The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
-        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         :param pulumi.Input[bool] submount_access_enabled: Whether allow access to subdirectories under the root export? Defaults to `false`.
-        :param pulumi.Input[bool] suid_enabled: Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        :param pulumi.Input[bool] suid_enabled: Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "scope", scope)
@@ -275,7 +275,7 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
     @pulumi.getter(name="rootSquashEnabled")
     def root_squash_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         """
         return pulumi.get(self, "root_squash_enabled")
 
@@ -299,7 +299,7 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
     @pulumi.getter(name="suidEnabled")
     def suid_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
         """
         return pulumi.get(self, "suid_enabled")
 

@@ -297,11 +297,18 @@ class CassandraDatacenter(pulumi.CustomResource):
         """
         Manages a Cassandra Datacenter.
 
+        > ** NOTE: ** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+
+        ```python
+        import pulumi
+        ```
+
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azuread as azuread
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
@@ -312,15 +319,17 @@ class CassandraDatacenter(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
+        example_service_principal = azuread.get_service_principal(display_name="Azure Cosmos DB")
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             scope=example_virtual_network.id,
             role_definition_name="Network Contributor",
-            principal_id="e5007d2c-4b13-4a74-9b6a-605d99f03501")
+            principal_id=example_service_principal.object_id)
         example_cassandra_cluster = azure.cosmosdb.CassandraCluster("exampleCassandraCluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             delegated_management_subnet_id=example_subnet.id,
-            default_admin_password="Password1234")
+            default_admin_password="Password1234",
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         example_cassandra_datacenter = azure.cosmosdb.CassandraDatacenter("exampleCassandraDatacenter",
             location=example_cassandra_cluster.location,
             cassandra_cluster_id=example_cassandra_cluster.id,
@@ -359,11 +368,18 @@ class CassandraDatacenter(pulumi.CustomResource):
         """
         Manages a Cassandra Datacenter.
 
+        > ** NOTE: ** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+
+        ```python
+        import pulumi
+        ```
+
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azuread as azuread
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
@@ -374,15 +390,17 @@ class CassandraDatacenter(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
+        example_service_principal = azuread.get_service_principal(display_name="Azure Cosmos DB")
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             scope=example_virtual_network.id,
             role_definition_name="Network Contributor",
-            principal_id="e5007d2c-4b13-4a74-9b6a-605d99f03501")
+            principal_id=example_service_principal.object_id)
         example_cassandra_cluster = azure.cosmosdb.CassandraCluster("exampleCassandraCluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             delegated_management_subnet_id=example_subnet.id,
-            default_admin_password="Password1234")
+            default_admin_password="Password1234",
+            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
         example_cassandra_datacenter = azure.cosmosdb.CassandraDatacenter("exampleCassandraDatacenter",
             location=example_cassandra_cluster.location,
             cassandra_cluster_id=example_cassandra_cluster.id,

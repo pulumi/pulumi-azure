@@ -34,7 +34,7 @@ class BastionHostArgs:
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input['BastionHostIpConfigurationArgs'] ip_configuration: A `ip_configuration` block as defined below.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
         :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
@@ -130,7 +130,7 @@ class BastionHostArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         """
         return pulumi.get(self, "location")
 
@@ -234,7 +234,7 @@ class _BastionHostState:
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input['BastionHostIpConfigurationArgs'] ip_configuration: A `ip_configuration` block as defined below.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
@@ -334,7 +334,7 @@ class _BastionHostState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         """
         return pulumi.get(self, "location")
 
@@ -494,7 +494,7 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']] ip_configuration: A `ip_configuration` block as defined below.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
@@ -641,7 +641,7 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']] ip_configuration: A `ip_configuration` block as defined below.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
@@ -713,7 +713,7 @@ class BastionHost(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         """
         return pulumi.get(self, "location")
 

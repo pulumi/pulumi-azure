@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// state can be any of "Off", "Alert" or "Deny".
+        /// state can be any of `Off`, `Alert` or `Deny`.
         /// </summary>
         public readonly string? State;
 

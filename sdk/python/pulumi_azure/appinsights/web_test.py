@@ -29,7 +29,7 @@ class WebTestArgs:
         """
         The set of arguments for constructing a WebTest resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
         :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
@@ -81,7 +81,7 @@ class WebTestArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[str]:
         """
-        An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+        An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         """
         return pulumi.get(self, "configuration")
 
@@ -243,7 +243,7 @@ class _WebTestState:
         """
         Input properties used for looking up and filtering WebTest resources.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
@@ -302,7 +302,7 @@ class _WebTestState:
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+        An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         """
         return pulumi.get(self, "configuration")
 
@@ -519,7 +519,7 @@ class WebTest(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
@@ -679,7 +679,7 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
@@ -725,7 +725,7 @@ class WebTest(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output[str]:
         """
-        An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
+        An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         """
         return pulumi.get(self, "configuration")
 

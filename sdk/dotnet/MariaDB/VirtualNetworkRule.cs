@@ -12,7 +12,7 @@ namespace Pulumi.Azure.MariaDB
     /// <summary>
     /// Manages a MariaDB Virtual Network Rule.
     /// 
-    /// &gt; **NOTE:** MariaDB Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/mariadb/concepts-data-access-security-vnet)
+    /// &gt; **NOTE:** MariaDB Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)
     /// 
     /// ## Import
     /// 

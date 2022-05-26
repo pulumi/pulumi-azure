@@ -12,7 +12,7 @@ import (
 
 // Gets information about an Active Directory Domain Service.
 //
-// > **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
+// > **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
 //
 // ## Example Usage
 //
@@ -60,7 +60,7 @@ type LookupServiceResult struct {
 	DeploymentId string `pulumi:"deploymentId"`
 	// The forest type used by the managed domain. One of `ResourceTrusting`, for a _Resource Forest_, or blank, for a _User Forest_.
 	DomainConfigurationType string `pulumi:"domainConfigurationType"`
-	// The Active Directory domain of the Domain Service. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+	// The Active Directory domain of the Domain Service. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 	DomainName string `pulumi:"domainName"`
 	// Whether group-based filtered sync (also called scoped synchronisation) is enabled.
 	FilteredSyncEnabled bool `pulumi:"filteredSyncEnabled"`
@@ -138,7 +138,7 @@ func (o LookupServiceResultOutput) DomainConfigurationType() pulumi.StringOutput
 	return o.ApplyT(func(v LookupServiceResult) string { return v.DomainConfigurationType }).(pulumi.StringOutput)
 }
 
-// The Active Directory domain of the Domain Service. See [official documentation](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
+// The Active Directory domain of the Domain Service. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 func (o LookupServiceResultOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.DomainName }).(pulumi.StringOutput)
 }

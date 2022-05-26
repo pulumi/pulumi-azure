@@ -31,7 +31,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? NodeVersion { get; set; }
 
         /// <summary>
-        /// The PowerShell Core version to use. Possible values are `7`.
+        /// The PowerShell Core version to use. Possible values are `7`, and `7.2`.
         /// </summary>
         [Input("powershellCoreVersion")]
         public Input<string>? PowershellCoreVersion { get; set; }

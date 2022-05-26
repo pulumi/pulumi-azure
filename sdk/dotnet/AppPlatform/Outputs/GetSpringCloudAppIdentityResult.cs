@@ -13,6 +13,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
     [OutputType]
     public sealed class GetSpringCloudAppIdentityResult
     {
+        public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         /// </summary>
@@ -28,12 +29,15 @@ namespace Pulumi.Azure.AppPlatform.Outputs
 
         [OutputConstructor]
         private GetSpringCloudAppIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

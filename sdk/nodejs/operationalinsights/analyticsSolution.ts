@@ -89,7 +89,7 @@ export class AnalyticsSolution extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
+     * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
      */
     public readonly solutionName!: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export interface AnalyticsSolutionState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
+     * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
      */
     solutionName?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface AnalyticsSolutionArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
+     * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
      */
     solutionName: pulumi.Input<string>;
     /**

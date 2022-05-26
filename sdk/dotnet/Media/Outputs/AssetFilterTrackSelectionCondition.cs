@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly string? Operation;
         /// <summary>
-        /// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+        /// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
         /// </summary>
         public readonly string? Property;
         /// <summary>

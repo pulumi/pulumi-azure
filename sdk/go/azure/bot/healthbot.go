@@ -32,7 +32,7 @@ type Healthbot struct {
 	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
 	// forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
+	// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -82,7 +82,7 @@ type healthbotState struct {
 	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
 	// forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
+	// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the service.
 	Tags map[string]string `pulumi:"tags"`
@@ -98,7 +98,7 @@ type HealthbotState struct {
 	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
 	// forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
+	// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the service.
 	Tags pulumi.StringMapInput
@@ -116,7 +116,7 @@ type healthbotArgs struct {
 	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
 	// forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
+	// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the service.
 	Tags map[string]string `pulumi:"tags"`
@@ -131,7 +131,7 @@ type HealthbotArgs struct {
 	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
 	// forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
+	// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
 	SkuName pulumi.StringInput
 	// A mapping of tags which should be assigned to the service.
 	Tags pulumi.StringMapInput
@@ -245,7 +245,7 @@ func (o HealthbotOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Healthbot) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
+// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
 func (o HealthbotOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Healthbot) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

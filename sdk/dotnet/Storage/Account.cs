@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Storage
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
         /// for more information. Defaults to `true`.
         /// </summary>
         [Output("enableHttpsTrafficOnly")]
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Storage
         public Output<bool?> InfrastructureEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         /// </summary>
         [Output("isHnsEnabled")]
         public Output<bool?> IsHnsEnabled { get; private set; } = null!;
@@ -600,7 +600,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
         /// for more information. Defaults to `true`.
         /// </summary>
         [Input("enableHttpsTrafficOnly")]
@@ -619,7 +619,7 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         /// </summary>
         [Input("isHnsEnabled")]
         public Input<bool>? IsHnsEnabled { get; set; }
@@ -791,7 +791,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
         /// for more information. Defaults to `true`.
         /// </summary>
         [Input("enableHttpsTrafficOnly")]
@@ -810,7 +810,7 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         /// </summary>
         [Input("isHnsEnabled")]
         public Input<bool>? IsHnsEnabled { get; set; }

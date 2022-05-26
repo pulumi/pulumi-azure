@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         }
 
         /// <summary>
-        /// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+        /// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
         /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;

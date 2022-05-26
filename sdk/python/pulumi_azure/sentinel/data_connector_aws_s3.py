@@ -20,7 +20,7 @@ class DataConnectorAwsS3Args:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataConnectorAwsS3 resource.
-        :param pulumi.Input[str] aws_role_arn: The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+        :param pulumi.Input[str] aws_role_arn: The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
         :param pulumi.Input[str] destination_table: The name of the Log Analytics table that will store the ingested data.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this AWS S3 Data Connector resides in. Changing this forces a new AWS S3 Data Connector to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sqs_urls: Specifies a list of AWS SQS urls for the AWS S3 Data Connector.
@@ -37,7 +37,7 @@ class DataConnectorAwsS3Args:
     @pulumi.getter(name="awsRoleArn")
     def aws_role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+        The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
         """
         return pulumi.get(self, "aws_role_arn")
 
@@ -104,7 +104,7 @@ class _DataConnectorAwsS3State:
                  sqs_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DataConnectorAwsS3 resources.
-        :param pulumi.Input[str] aws_role_arn: The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+        :param pulumi.Input[str] aws_role_arn: The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
         :param pulumi.Input[str] destination_table: The name of the Log Analytics table that will store the ingested data.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this AWS S3 Data Connector resides in. Changing this forces a new AWS S3 Data Connector to be created.
         :param pulumi.Input[str] name: The name which should be used for this AWS S3 Data Connector. Changing this forces a new AWS S3 Data Connector to be created.
@@ -125,7 +125,7 @@ class _DataConnectorAwsS3State:
     @pulumi.getter(name="awsRoleArn")
     def aws_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+        The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
         """
         return pulumi.get(self, "aws_role_arn")
 
@@ -240,7 +240,7 @@ class DataConnectorAwsS3(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_role_arn: The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+        :param pulumi.Input[str] aws_role_arn: The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
         :param pulumi.Input[str] destination_table: The name of the Log Analytics table that will store the ingested data.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this AWS S3 Data Connector resides in. Changing this forces a new AWS S3 Data Connector to be created.
         :param pulumi.Input[str] name: The name which should be used for this AWS S3 Data Connector. Changing this forces a new AWS S3 Data Connector to be created.
@@ -364,7 +364,7 @@ class DataConnectorAwsS3(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_role_arn: The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+        :param pulumi.Input[str] aws_role_arn: The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
         :param pulumi.Input[str] destination_table: The name of the Log Analytics table that will store the ingested data.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this AWS S3 Data Connector resides in. Changing this forces a new AWS S3 Data Connector to be created.
         :param pulumi.Input[str] name: The name which should be used for this AWS S3 Data Connector. Changing this forces a new AWS S3 Data Connector to be created.
@@ -385,7 +385,7 @@ class DataConnectorAwsS3(pulumi.CustomResource):
     @pulumi.getter(name="awsRoleArn")
     def aws_role_arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/en-us/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
+        The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
         """
         return pulumi.get(self, "aws_role_arn")
 

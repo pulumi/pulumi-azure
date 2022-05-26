@@ -73,7 +73,7 @@ type IntegrationRuntimeRule struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin pulumi.IntPtrOutput `pulumi:"timeToLiveMin"`
@@ -125,7 +125,7 @@ type integrationRuntimeRuleState struct {
 	Description *string `pulumi:"description"`
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin *int `pulumi:"timeToLiveMin"`
@@ -146,7 +146,7 @@ type IntegrationRuntimeRuleState struct {
 	Description pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin pulumi.IntPtrInput
@@ -171,7 +171,7 @@ type integrationRuntimeRuleArgs struct {
 	Description *string `pulumi:"description"`
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin *int `pulumi:"timeToLiveMin"`
@@ -193,7 +193,7 @@ type IntegrationRuntimeRuleArgs struct {
 	Description pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
 	TimeToLiveMin pulumi.IntPtrInput
@@ -318,7 +318,7 @@ func (o IntegrationRuntimeRuleOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeRule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o IntegrationRuntimeRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

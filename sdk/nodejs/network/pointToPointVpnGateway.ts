@@ -126,7 +126,7 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The [Scale Unit](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
+     * The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
      */
     public readonly scaleUnit!: pulumi.Output<number>;
     /**
@@ -221,7 +221,7 @@ export interface PointToPointVpnGatewayState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The [Scale Unit](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
+     * The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
      */
     scaleUnit?: pulumi.Input<number>;
     /**
@@ -263,7 +263,7 @@ export interface PointToPointVpnGatewayArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The [Scale Unit](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
+     * The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
      */
     scaleUnit: pulumi.Input<number>;
     /**

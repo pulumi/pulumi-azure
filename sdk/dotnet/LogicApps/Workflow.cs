@@ -138,7 +138,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<ImmutableArray<string>> WorkflowOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
         /// </summary>
         [Output("workflowParameters")]
         public Output<ImmutableDictionary<string, string>?> WorkflowParameters { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.LogicApps
         private InputMap<string>? _workflowParameters;
 
         /// <summary>
-        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
         /// </summary>
         public InputMap<string> WorkflowParameters
         {
@@ -434,7 +434,7 @@ namespace Pulumi.Azure.LogicApps
         private InputMap<string>? _workflowParameters;
 
         /// <summary>
-        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
+        /// Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters).
         /// </summary>
         public InputMap<string> WorkflowParameters
         {

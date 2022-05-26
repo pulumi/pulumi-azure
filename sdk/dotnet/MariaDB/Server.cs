@@ -136,7 +136,7 @@ namespace Pulumi.Azure.MariaDB
         public Output<string?> RestorePointInTime { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
+        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku).
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.MariaDB
         public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+        /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
         /// </summary>
         [Output("storageMb")]
         public Output<int> StorageMb { get; private set; } = null!;
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.MariaDB
         public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
+        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku).
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.MariaDB
         public Input<bool> SslEnforcementEnabled { get; set; } = null!;
 
         /// <summary>
-        /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+        /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
         /// </summary>
         [Input("storageMb")]
         public Input<int>? StorageMb { get; set; }
@@ -405,7 +405,7 @@ namespace Pulumi.Azure.MariaDB
         public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
+        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku).
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -417,7 +417,7 @@ namespace Pulumi.Azure.MariaDB
         public Input<bool>? SslEnforcementEnabled { get; set; }
 
         /// <summary>
-        /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+        /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
         /// </summary>
         [Input("storageMb")]
         public Input<int>? StorageMb { get; set; }

@@ -71,7 +71,7 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
-               custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+               custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] local_network_gateway_id: The ID of the local network gateway
                when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
@@ -89,7 +89,7 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs'] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
                A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-               For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+               For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: If `true`, policy-based traffic
                selectors are enabled for this connection. Enabling policy-based traffic
                selectors requires an `ipsec_policy` block. Defaults to `false`.
@@ -293,7 +293,7 @@ class VirtualNetworkGatewayConnectionArgs:
         """
         A `ipsec_policy` block which is documented below.
         Only a single policy can be defined for a connection. For details on
-        custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+        custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         """
         return pulumi.get(self, "ipsec_policy")
 
@@ -410,7 +410,7 @@ class VirtualNetworkGatewayConnectionArgs:
         """
         One or more `traffic_selector_policy` blocks which are documented below.
         A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-        For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         """
         return pulumi.get(self, "traffic_selector_policy")
 
@@ -482,7 +482,7 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
-               custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+               custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] local_network_gateway_id: The ID of the local network gateway
                when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
@@ -502,7 +502,7 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs'] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
                A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-               For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+               For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec`
                (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
                Each connection type requires different mandatory arguments (refer to the
@@ -674,7 +674,7 @@ class _VirtualNetworkGatewayConnectionState:
         """
         A `ipsec_policy` block which is documented below.
         Only a single policy can be defined for a connection. For details on
-        custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+        custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         """
         return pulumi.get(self, "ipsec_policy")
 
@@ -804,7 +804,7 @@ class _VirtualNetworkGatewayConnectionState:
         """
         One or more `traffic_selector_policy` blocks which are documented below.
         A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-        For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         """
         return pulumi.get(self, "traffic_selector_policy")
 
@@ -1042,7 +1042,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
-               custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+               custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] local_network_gateway_id: The ID of the local network gateway
                when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
@@ -1062,7 +1062,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
                A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-               For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+               For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec`
                (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
                Each connection type requires different mandatory arguments (refer to the
@@ -1352,7 +1352,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
-               custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+               custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] local_network_gateway_id: The ID of the local network gateway
                when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
@@ -1372,7 +1372,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
                A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-               For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+               For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec`
                (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
                Each connection type requires different mandatory arguments (refer to the
@@ -1495,7 +1495,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         """
         A `ipsec_policy` block which is documented below.
         Only a single policy can be defined for a connection. For details on
-        custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+        custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         """
         return pulumi.get(self, "ipsec_policy")
 
@@ -1585,7 +1585,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         """
         One or more `traffic_selector_policy` blocks which are documented below.
         A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
-        For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         """
         return pulumi.get(self, "traffic_selector_policy")
 

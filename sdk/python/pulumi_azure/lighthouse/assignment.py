@@ -130,7 +130,7 @@ class Assignment(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a [Lighthouse](https://docs.microsoft.com/en-us/azure/lighthouse) Assignment to a subscription, or to a resource group.
+        Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Assignment to a subscription, or to a resource group.
 
         ## Example Usage
 
@@ -164,7 +164,7 @@ class Assignment(pulumi.CustomResource):
                  args: AssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a [Lighthouse](https://docs.microsoft.com/en-us/azure/lighthouse) Assignment to a subscription, or to a resource group.
+        Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Assignment to a subscription, or to a resource group.
 
         ## Example Usage
 

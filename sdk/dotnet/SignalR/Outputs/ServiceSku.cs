@@ -18,7 +18,7 @@ namespace Pulumi.Azure.SignalR.Outputs
         /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
+        /// Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
         /// </summary>
         public readonly string Name;
 

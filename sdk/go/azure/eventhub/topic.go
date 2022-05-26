@@ -91,11 +91,11 @@ type Topic struct {
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
 	// Integer value which controls the maximum size of
 	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntOutput `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
-	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes pulumi.IntOutput `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
 	// new resource to be created.
@@ -170,11 +170,11 @@ type topicState struct {
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// Integer value which controls the maximum size of
 	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
-	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
 	// new resource to be created.
@@ -218,11 +218,11 @@ type TopicState struct {
 	EnablePartitioning pulumi.BoolPtrInput
 	// Integer value which controls the maximum size of
 	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntPtrInput
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
-	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes pulumi.IntPtrInput
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
 	// new resource to be created.
@@ -270,11 +270,11 @@ type topicArgs struct {
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// Integer value which controls the maximum size of
 	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
-	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
 	// new resource to be created.
@@ -317,11 +317,11 @@ type TopicArgs struct {
 	EnablePartitioning pulumi.BoolPtrInput
 	// Integer value which controls the maximum size of
 	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntPtrInput
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
-	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+	// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 	MaxSizeInMegabytes pulumi.IntPtrInput
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
 	// new resource to be created.
@@ -467,14 +467,14 @@ func (o TopicOutput) EnablePartitioning() pulumi.BoolPtrOutput {
 
 // Integer value which controls the maximum size of
 // a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 func (o TopicOutput) MaxMessageSizeInKilobytes() pulumi.IntOutput {
 	return o.ApplyT(func(v *Topic) pulumi.IntOutput { return v.MaxMessageSizeInKilobytes }).(pulumi.IntOutput)
 }
 
 // Integer value which controls the size of
 // memory allocated for the topic. For supported values see the "Queue/topic size"
-// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+// section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
 func (o TopicOutput) MaxSizeInMegabytes() pulumi.IntOutput {
 	return o.ApplyT(func(v *Topic) pulumi.IntOutput { return v.MaxSizeInMegabytes }).(pulumi.IntOutput)
 }

@@ -580,7 +580,7 @@ class EndpointDeliveryRuleCookiesConditionArgs:
         :param pulumi.Input[str] selector: Name of the cookie.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of values for the cookie. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "selector", selector)
@@ -643,7 +643,7 @@ class EndpointDeliveryRuleCookiesConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Valid values are `Lowercase` and `Uppercase`.
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         return pulumi.get(self, "transforms")
 
@@ -879,7 +879,7 @@ class EndpointDeliveryRulePostArgConditionArgs:
         :param pulumi.Input[str] selector: Name of the post arg.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "selector", selector)
@@ -942,7 +942,7 @@ class EndpointDeliveryRulePostArgConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Valid values are `Lowercase` and `Uppercase`.
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         return pulumi.get(self, "transforms")
 
@@ -962,7 +962,7 @@ class EndpointDeliveryRuleQueryStringConditionArgs:
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -1012,7 +1012,7 @@ class EndpointDeliveryRuleQueryStringConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Valid values are `Lowercase` and `Uppercase`.
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         return pulumi.get(self, "transforms")
 
@@ -1086,7 +1086,7 @@ class EndpointDeliveryRuleRequestBodyConditionArgs:
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -1136,7 +1136,7 @@ class EndpointDeliveryRuleRequestBodyConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Valid values are `Lowercase` and `Uppercase`.
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         return pulumi.get(self, "transforms")
 
@@ -1158,7 +1158,7 @@ class EndpointDeliveryRuleRequestHeaderConditionArgs:
         :param pulumi.Input[str] selector: Header name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of header values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "selector", selector)
@@ -1221,7 +1221,7 @@ class EndpointDeliveryRuleRequestHeaderConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Valid values are `Lowercase` and `Uppercase`.
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         return pulumi.get(self, "transforms")
 
@@ -1349,7 +1349,7 @@ class EndpointDeliveryRuleRequestUriConditionArgs:
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -1399,7 +1399,7 @@ class EndpointDeliveryRuleRequestUriConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Valid values are `Lowercase` and `Uppercase`.
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         return pulumi.get(self, "transforms")
 
@@ -1419,7 +1419,7 @@ class EndpointDeliveryRuleUrlFileExtensionConditionArgs:
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -1469,7 +1469,7 @@ class EndpointDeliveryRuleUrlFileExtensionConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Valid values are `Lowercase` and `Uppercase`.
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         return pulumi.get(self, "transforms")
 
@@ -1489,7 +1489,7 @@ class EndpointDeliveryRuleUrlFileNameConditionArgs:
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -1539,7 +1539,7 @@ class EndpointDeliveryRuleUrlFileNameConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Valid values are `Lowercase` and `Uppercase`.
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         return pulumi.get(self, "transforms")
 
@@ -1559,7 +1559,7 @@ class EndpointDeliveryRuleUrlPathConditionArgs:
         :param pulumi.Input[str] operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: List of string values. This is required if `operator` is not `Any`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -1609,7 +1609,7 @@ class EndpointDeliveryRuleUrlPathConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Valid values are `Lowercase` and `Uppercase`.
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
         """
         return pulumi.get(self, "transforms")
 

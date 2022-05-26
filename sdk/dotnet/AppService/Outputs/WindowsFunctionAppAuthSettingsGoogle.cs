@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
-        /// Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        /// Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
         /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
 

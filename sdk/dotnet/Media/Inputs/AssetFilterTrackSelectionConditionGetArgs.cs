@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Media.Inputs
         public Input<string>? Operation { get; set; }
 
         /// <summary>
-        /// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+        /// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
         /// </summary>
         [Input("property")]
         public Input<string>? Property { get; set; }

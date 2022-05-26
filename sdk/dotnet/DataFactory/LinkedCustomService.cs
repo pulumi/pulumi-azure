@@ -111,7 +111,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.LinkedCustomServiceIntegrationRuntime?> IntegrationRuntime { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview).
+        /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.LinkedCustomServiceIntegrationRuntimeArgs>? IntegrationRuntime { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview).
+        /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.LinkedCustomServiceIntegrationRuntimeGetArgs>? IntegrationRuntime { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-overview).
+        /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

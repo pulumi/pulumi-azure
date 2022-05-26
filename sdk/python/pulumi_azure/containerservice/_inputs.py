@@ -2043,7 +2043,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         """
         :param pulumi.Input[str] name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+        :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
@@ -2064,7 +2064,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Node Pool.
         :param pulumi.Input[str] type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
-        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
@@ -2154,7 +2154,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="enableAutoScaling")
     def enable_auto_scaling(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+        Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         """
         return pulumi.get(self, "enable_auto_scaling")
 
@@ -2424,7 +2424,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="ultraSsdEnabled")
     def ultra_ssd_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
+        Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
@@ -3352,11 +3352,11 @@ class KubernetesClusterIngressApplicationGatewayArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
-        :param pulumi.Input[str] gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
-        :param pulumi.Input[str] gateway_name: The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        :param pulumi.Input[str] gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+        :param pulumi.Input[str] gateway_name: The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
-        :param pulumi.Input[str] subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        :param pulumi.Input[str] subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         """
         if effective_gateway_id is not None:
             pulumi.set(__self__, "effective_gateway_id", effective_gateway_id)
@@ -3387,7 +3387,7 @@ class KubernetesClusterIngressApplicationGatewayArgs:
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+        The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
         """
         return pulumi.get(self, "gateway_id")
 
@@ -3399,7 +3399,7 @@ class KubernetesClusterIngressApplicationGatewayArgs:
     @pulumi.getter(name="gatewayName")
     def gateway_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         """
         return pulumi.get(self, "gateway_name")
 
@@ -3423,7 +3423,7 @@ class KubernetesClusterIngressApplicationGatewayArgs:
     @pulumi.getter(name="subnetCidr")
     def subnet_cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         """
         return pulumi.get(self, "subnet_cidr")
 
@@ -3435,7 +3435,7 @@ class KubernetesClusterIngressApplicationGatewayArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -4088,7 +4088,7 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
         :param pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs'] nat_gateway_profile: A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
         :param pulumi.Input[str] network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
         :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_cidr: The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
@@ -4217,7 +4217,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="networkPolicy")
     def network_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+        Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_policy")
 

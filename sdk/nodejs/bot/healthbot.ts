@@ -61,7 +61,7 @@ export class Healthbot extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
+     * The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export interface HealthbotState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
+     * The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -157,7 +157,7 @@ export interface HealthbotArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name which should be used for the SKU of the service. Possible values are "F0" and "S1".
+     * The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
      */
     skuName: pulumi.Input<string>;
     /**
