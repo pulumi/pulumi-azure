@@ -19,6 +19,7 @@ class ServiceArgs:
                  initial_replica_set: pulumi.Input['ServiceInitialReplicaSetArgs'],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input[str],
+                 domain_configuration_type: Optional[pulumi.Input[str]] = None,
                  filtered_sync_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class ServiceArgs:
         :param pulumi.Input['ServiceInitialReplicaSetArgs'] initial_replica_set: An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
+        :param pulumi.Input[str] domain_configuration_type: The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] filtered_sync_enabled: Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
         :param pulumi.Input[str] location: The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
@@ -44,6 +46,8 @@ class ServiceArgs:
         pulumi.set(__self__, "initial_replica_set", initial_replica_set)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if domain_configuration_type is not None:
+            pulumi.set(__self__, "domain_configuration_type", domain_configuration_type)
         if filtered_sync_enabled is not None:
             pulumi.set(__self__, "filtered_sync_enabled", filtered_sync_enabled)
         if location is not None:
@@ -106,6 +110,18 @@ class ServiceArgs:
     @sku.setter
     def sku(self, value: pulumi.Input[str]):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="domainConfigurationType")
+    def domain_configuration_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_configuration_type")
+
+    @domain_configuration_type.setter
+    def domain_configuration_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_configuration_type", value)
 
     @property
     @pulumi.getter(name="filteredSyncEnabled")
@@ -196,6 +212,7 @@ class ServiceArgs:
 class _ServiceState:
     def __init__(__self__, *,
                  deployment_id: Optional[pulumi.Input[str]] = None,
+                 domain_configuration_type: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  filtered_sync_enabled: Optional[pulumi.Input[bool]] = None,
                  initial_replica_set: Optional[pulumi.Input['ServiceInitialReplicaSetArgs']] = None,
@@ -214,6 +231,7 @@ class _ServiceState:
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[str] deployment_id: A unique ID for the managed domain deployment.
+        :param pulumi.Input[str] domain_configuration_type: The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] domain_name: The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
         :param pulumi.Input[bool] filtered_sync_enabled: Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
         :param pulumi.Input['ServiceInitialReplicaSetArgs'] initial_replica_set: An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
@@ -229,6 +247,8 @@ class _ServiceState:
         """
         if deployment_id is not None:
             pulumi.set(__self__, "deployment_id", deployment_id)
+        if domain_configuration_type is not None:
+            pulumi.set(__self__, "domain_configuration_type", domain_configuration_type)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
         if filtered_sync_enabled is not None:
@@ -271,6 +291,18 @@ class _ServiceState:
     @deployment_id.setter
     def deployment_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "deployment_id", value)
+
+    @property
+    @pulumi.getter(name="domainConfigurationType")
+    def domain_configuration_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_configuration_type")
+
+    @domain_configuration_type.setter
+    def domain_configuration_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_configuration_type", value)
 
     @property
     @pulumi.getter(name="domainName")
@@ -449,6 +481,7 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 domain_configuration_type: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  filtered_sync_enabled: Optional[pulumi.Input[bool]] = None,
                  initial_replica_set: Optional[pulumi.Input[pulumi.InputType['ServiceInitialReplicaSetArgs']]] = None,
@@ -472,6 +505,7 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain_configuration_type: The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] domain_name: The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
         :param pulumi.Input[bool] filtered_sync_enabled: Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['ServiceInitialReplicaSetArgs']] initial_replica_set: An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
@@ -514,6 +548,7 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 domain_configuration_type: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  filtered_sync_enabled: Optional[pulumi.Input[bool]] = None,
                  initial_replica_set: Optional[pulumi.Input[pulumi.InputType['ServiceInitialReplicaSetArgs']]] = None,
@@ -537,6 +572,7 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
+            __props__.__dict__["domain_configuration_type"] = domain_configuration_type
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
@@ -572,6 +608,7 @@ class Service(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             deployment_id: Optional[pulumi.Input[str]] = None,
+            domain_configuration_type: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             filtered_sync_enabled: Optional[pulumi.Input[bool]] = None,
             initial_replica_set: Optional[pulumi.Input[pulumi.InputType['ServiceInitialReplicaSetArgs']]] = None,
@@ -595,6 +632,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_id: A unique ID for the managed domain deployment.
+        :param pulumi.Input[str] domain_configuration_type: The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] domain_name: The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
         :param pulumi.Input[bool] filtered_sync_enabled: Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['ServiceInitialReplicaSetArgs']] initial_replica_set: An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
@@ -613,6 +651,7 @@ class Service(pulumi.CustomResource):
         __props__ = _ServiceState.__new__(_ServiceState)
 
         __props__.__dict__["deployment_id"] = deployment_id
+        __props__.__dict__["domain_configuration_type"] = domain_configuration_type
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["filtered_sync_enabled"] = filtered_sync_enabled
         __props__.__dict__["initial_replica_set"] = initial_replica_set
@@ -637,6 +676,14 @@ class Service(pulumi.CustomResource):
         A unique ID for the managed domain deployment.
         """
         return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="domainConfigurationType")
+    def domain_configuration_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "domain_configuration_type")
 
     @property
     @pulumi.getter(name="domainName")

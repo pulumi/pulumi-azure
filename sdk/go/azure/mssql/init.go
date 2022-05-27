@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OutboundFirewallRule{}
 	case "azure:mssql/server:Server":
 		r = &Server{}
+	case "azure:mssql/serverDnsAlias:ServerDnsAlias":
+		r = &ServerDnsAlias{}
 	case "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
 		r = &ServerExtendedAuditingPolicy{}
 	case "azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy":
@@ -149,6 +151,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mssql/server",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/serverDnsAlias",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

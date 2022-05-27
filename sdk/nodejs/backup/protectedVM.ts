@@ -128,9 +128,6 @@ export class ProtectedVM extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceVmId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sourceVmId'");
-            }
             resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
             resourceInputs["excludeDiskLuns"] = args ? args.excludeDiskLuns : undefined;
             resourceInputs["includeDiskLuns"] = args ? args.includeDiskLuns : undefined;
@@ -200,5 +197,5 @@ export interface ProtectedVMArgs {
     /**
      * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
      */
-    sourceVmId: pulumi.Input<string>;
+    sourceVmId?: pulumi.Input<string>;
 }

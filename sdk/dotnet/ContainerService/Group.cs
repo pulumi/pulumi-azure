@@ -32,7 +32,7 @@ namespace Pulumi.Azure.ContainerService
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IpAddressType = "public",
+    ///             IpAddressType = "Public",
     ///             DnsNameLabel = "aci-label",
     ///             OsType = "Linux",
     ///             Containers = 

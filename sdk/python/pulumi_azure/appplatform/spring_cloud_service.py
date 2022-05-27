@@ -16,6 +16,7 @@ __all__ = ['SpringCloudServiceArgs', 'SpringCloudService']
 class SpringCloudServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 build_agent_pool_size: Optional[pulumi.Input[str]] = None,
                  config_server_git_setting: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -23,10 +24,12 @@ class SpringCloudServiceArgs:
                  service_registry_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None):
+                 trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SpringCloudService resource.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
         :param pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs'] config_server_git_setting: A `config_server_git_setting` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -35,8 +38,11 @@ class SpringCloudServiceArgs:
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['SpringCloudServiceTraceArgs'] trace: A `trace` block as defined below.
+        :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if build_agent_pool_size is not None:
+            pulumi.set(__self__, "build_agent_pool_size", build_agent_pool_size)
         if config_server_git_setting is not None:
             pulumi.set(__self__, "config_server_git_setting", config_server_git_setting)
         if location is not None:
@@ -53,6 +59,8 @@ class SpringCloudServiceArgs:
             pulumi.set(__self__, "tags", tags)
         if trace is not None:
             pulumi.set(__self__, "trace", trace)
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -65,6 +73,18 @@ class SpringCloudServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="buildAgentPoolSize")
+    def build_agent_pool_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+        """
+        return pulumi.get(self, "build_agent_pool_size")
+
+    @build_agent_pool_size.setter
+    def build_agent_pool_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "build_agent_pool_size", value)
 
     @property
     @pulumi.getter(name="configServerGitSetting")
@@ -162,10 +182,23 @@ class SpringCloudServiceArgs:
     def trace(self, value: Optional[pulumi.Input['SpringCloudServiceTraceArgs']]):
         pulumi.set(self, "trace", value)
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_redundant")
+
+    @zone_redundant.setter
+    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant", value)
+
 
 @pulumi.input_type
 class _SpringCloudServiceState:
     def __init__(__self__, *,
+                 build_agent_pool_size: Optional[pulumi.Input[str]] = None,
                  config_server_git_setting: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -177,9 +210,11 @@ class _SpringCloudServiceState:
                  service_registry_id: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None):
+                 trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering SpringCloudService resources.
+        :param pulumi.Input[str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
         :param pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs'] config_server_git_setting: A `config_server_git_setting` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -192,7 +227,10 @@ class _SpringCloudServiceState:
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['SpringCloudServiceTraceArgs'] trace: A `trace` block as defined below.
+        :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
         """
+        if build_agent_pool_size is not None:
+            pulumi.set(__self__, "build_agent_pool_size", build_agent_pool_size)
         if config_server_git_setting is not None:
             pulumi.set(__self__, "config_server_git_setting", config_server_git_setting)
         if location is not None:
@@ -217,6 +255,20 @@ class _SpringCloudServiceState:
             pulumi.set(__self__, "tags", tags)
         if trace is not None:
             pulumi.set(__self__, "trace", trace)
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter(name="buildAgentPoolSize")
+    def build_agent_pool_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+        """
+        return pulumi.get(self, "build_agent_pool_size")
+
+    @build_agent_pool_size.setter
+    def build_agent_pool_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "build_agent_pool_size", value)
 
     @property
     @pulumi.getter(name="configServerGitSetting")
@@ -362,12 +414,25 @@ class _SpringCloudServiceState:
     def trace(self, value: Optional[pulumi.Input['SpringCloudServiceTraceArgs']]):
         pulumi.set(self, "trace", value)
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_redundant")
+
+    @zone_redundant.setter
+    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant", value)
+
 
 class SpringCloudService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 build_agent_pool_size: Optional[pulumi.Input[str]] = None,
                  config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -377,6 +442,7 @@ class SpringCloudService(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages an Azure Spring Cloud Service.
@@ -423,6 +489,7 @@ class SpringCloudService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']] config_server_git_setting: A `config_server_git_setting` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -432,6 +499,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']] trace: A `trace` block as defined below.
+        :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
         """
         ...
     @overload
@@ -497,6 +565,7 @@ class SpringCloudService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 build_agent_pool_size: Optional[pulumi.Input[str]] = None,
                  config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -506,6 +575,7 @@ class SpringCloudService(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -518,6 +588,7 @@ class SpringCloudService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpringCloudServiceArgs.__new__(SpringCloudServiceArgs)
 
+            __props__.__dict__["build_agent_pool_size"] = build_agent_pool_size
             __props__.__dict__["config_server_git_setting"] = config_server_git_setting
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -529,6 +600,7 @@ class SpringCloudService(pulumi.CustomResource):
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trace"] = trace
+            __props__.__dict__["zone_redundant"] = zone_redundant
             __props__.__dict__["outbound_public_ip_addresses"] = None
             __props__.__dict__["required_network_traffic_rules"] = None
             __props__.__dict__["service_registry_id"] = None
@@ -542,6 +614,7 @@ class SpringCloudService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            build_agent_pool_size: Optional[pulumi.Input[str]] = None,
             config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -553,7 +626,8 @@ class SpringCloudService(pulumi.CustomResource):
             service_registry_id: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']]] = None) -> 'SpringCloudService':
+            trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']]] = None,
+            zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'SpringCloudService':
         """
         Get an existing SpringCloudService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -561,6 +635,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']] config_server_git_setting: A `config_server_git_setting` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -573,11 +648,13 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']] trace: A `trace` block as defined below.
+        :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _SpringCloudServiceState.__new__(_SpringCloudServiceState)
 
+        __props__.__dict__["build_agent_pool_size"] = build_agent_pool_size
         __props__.__dict__["config_server_git_setting"] = config_server_git_setting
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -590,7 +667,16 @@ class SpringCloudService(pulumi.CustomResource):
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["trace"] = trace
+        __props__.__dict__["zone_redundant"] = zone_redundant
         return SpringCloudService(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="buildAgentPoolSize")
+    def build_agent_pool_size(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+        """
+        return pulumi.get(self, "build_agent_pool_size")
 
     @property
     @pulumi.getter(name="configServerGitSetting")
@@ -687,4 +773,12 @@ class SpringCloudService(pulumi.CustomResource):
         A `trace` block as defined below.
         """
         return pulumi.get(self, "trace")
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_redundant")
 

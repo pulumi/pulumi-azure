@@ -23,6 +23,8 @@ type Service struct {
 
 	// A unique ID for the managed domain deployment.
 	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
+	// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+	DomainConfigurationType pulumi.StringPtrOutput `pulumi:"domainConfigurationType"`
 	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
@@ -95,6 +97,8 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// A unique ID for the managed domain deployment.
 	DeploymentId *string `pulumi:"deploymentId"`
+	// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
 	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 	DomainName *string `pulumi:"domainName"`
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
@@ -127,6 +131,8 @@ type serviceState struct {
 type ServiceState struct {
 	// A unique ID for the managed domain deployment.
 	DeploymentId pulumi.StringPtrInput
+	// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+	DomainConfigurationType pulumi.StringPtrInput
 	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 	DomainName pulumi.StringPtrInput
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
@@ -161,6 +167,8 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
+	// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
 	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 	DomainName string `pulumi:"domainName"`
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
@@ -187,6 +195,8 @@ type serviceArgs struct {
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+	DomainConfigurationType pulumi.StringPtrInput
 	// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
 	DomainName pulumi.StringInput
 	// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
@@ -301,6 +311,11 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 // A unique ID for the managed domain deployment.
 func (o ServiceOutput) DeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
+}
+
+// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+func (o ServiceOutput) DomainConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.DomainConfigurationType }).(pulumi.StringPtrOutput)
 }
 
 // The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.

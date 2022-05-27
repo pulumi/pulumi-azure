@@ -30,7 +30,7 @@ class PolicySetDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
         :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the policy set definition.
-        :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
@@ -104,7 +104,7 @@ class PolicySetDefinitionArgs:
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "management_group_id")
 
@@ -177,7 +177,7 @@ class _PolicySetDefinitionState:
         Input properties used for looking up and filtering PolicySetDefinition resources.
         :param pulumi.Input[str] description: The description of the policy set definition.
         :param pulumi.Input[str] display_name: The display name of the policy set definition.
-        :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
@@ -232,7 +232,7 @@ class _PolicySetDefinitionState:
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "management_group_id")
 
@@ -382,7 +382,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy set definition.
         :param pulumi.Input[str] display_name: The display name of the policy set definition.
-        :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
@@ -525,7 +525,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy set definition.
         :param pulumi.Input[str] display_name: The display name of the policy set definition.
-        :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
@@ -568,7 +568,7 @@ class PolicySetDefinition(pulumi.CustomResource):
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "management_group_id")
 

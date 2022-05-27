@@ -24,6 +24,7 @@ export * from "./managedInstanceFailoverGroup";
 export * from "./managedInstanceVulnerabilityAssessment";
 export * from "./outboundFirewallRule";
 export * from "./server";
+export * from "./serverDnsAlias";
 export * from "./serverExtendedAuditingPolicy";
 export * from "./serverSecurityAlertPolicy";
 export * from "./serverTransparentDataEncryption";
@@ -47,6 +48,7 @@ import { ManagedInstanceFailoverGroup } from "./managedInstanceFailoverGroup";
 import { ManagedInstanceVulnerabilityAssessment } from "./managedInstanceVulnerabilityAssessment";
 import { OutboundFirewallRule } from "./outboundFirewallRule";
 import { Server } from "./server";
+import { ServerDnsAlias } from "./serverDnsAlias";
 import { ServerExtendedAuditingPolicy } from "./serverExtendedAuditingPolicy";
 import { ServerSecurityAlertPolicy } from "./serverSecurityAlertPolicy";
 import { ServerTransparentDataEncryption } from "./serverTransparentDataEncryption";
@@ -88,6 +90,8 @@ const _module = {
                 return new OutboundFirewallRule(name, <any>undefined, { urn })
             case "azure:mssql/server:Server":
                 return new Server(name, <any>undefined, { urn })
+            case "azure:mssql/serverDnsAlias:ServerDnsAlias":
+                return new ServerDnsAlias(name, <any>undefined, { urn })
             case "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
                 return new ServerExtendedAuditingPolicy(name, <any>undefined, { urn })
             case "azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy":
@@ -120,6 +124,7 @@ pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceFailoverGro
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/outboundFirewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/server", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/serverDnsAlias", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverExtendedAuditingPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverSecurityAlertPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverTransparentDataEncryption", _module)

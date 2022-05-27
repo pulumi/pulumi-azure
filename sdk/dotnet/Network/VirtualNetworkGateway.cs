@@ -141,7 +141,7 @@ namespace Pulumi.Azure.Network
         public Output<bool> ActiveActive { get; private set; } = null!;
 
         /// <summary>
-        /// A block of `bgp_settings`.
+        /// A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         /// </summary>
         [Output("bgpSettings")]
         public Output<Outputs.VirtualNetworkGatewayBgpSettings> BgpSettings { get; private set; } = null!;
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? ActiveActive { get; set; }
 
         /// <summary>
-        /// A block of `bgp_settings`.
+        /// A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.VirtualNetworkGatewayBgpSettingsArgs>? BgpSettings { get; set; }
@@ -454,7 +454,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? ActiveActive { get; set; }
 
         /// <summary>
-        /// A block of `bgp_settings`.
+        /// A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.VirtualNetworkGatewayBgpSettingsGetArgs>? BgpSettings { get; set; }

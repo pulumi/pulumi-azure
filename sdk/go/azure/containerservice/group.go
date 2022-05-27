@@ -37,7 +37,7 @@ import (
 // 		_, err = containerservice.NewGroup(ctx, "exampleGroup", &containerservice.GroupArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IpAddressType:     pulumi.String("public"),
+// 			IpAddressType:     pulumi.String("Public"),
 // 			DnsNameLabel:      pulumi.String("aci-label"),
 // 			OsType:            pulumi.String("Linux"),
 // 			Containers: containerservice.GroupContainerArray{

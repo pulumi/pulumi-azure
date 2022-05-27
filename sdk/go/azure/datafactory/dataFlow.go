@@ -136,7 +136,9 @@ type DataFlow struct {
 	// Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The script for the Data Factory Data Flow.
-	Script pulumi.StringOutput `pulumi:"script"`
+	Script pulumi.StringPtrOutput `pulumi:"script"`
+	// The script lines for the Data Factory Data Flow.
+	ScriptLines pulumi.StringArrayOutput `pulumi:"scriptLines"`
 	// One or more `sink` blocks as defined below.
 	Sinks DataFlowSinkArrayOutput `pulumi:"sinks"`
 	// One or more `source` blocks as defined below.
@@ -154,9 +156,6 @@ func NewDataFlow(ctx *pulumi.Context,
 
 	if args.DataFactoryId == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
-	}
-	if args.Script == nil {
-		return nil, errors.New("invalid value for required argument 'Script'")
 	}
 	if args.Sinks == nil {
 		return nil, errors.New("invalid value for required argument 'Sinks'")
@@ -198,6 +197,8 @@ type dataFlowState struct {
 	Name *string `pulumi:"name"`
 	// The script for the Data Factory Data Flow.
 	Script *string `pulumi:"script"`
+	// The script lines for the Data Factory Data Flow.
+	ScriptLines []string `pulumi:"scriptLines"`
 	// One or more `sink` blocks as defined below.
 	Sinks []DataFlowSink `pulumi:"sinks"`
 	// One or more `source` blocks as defined below.
@@ -219,6 +220,8 @@ type DataFlowState struct {
 	Name pulumi.StringPtrInput
 	// The script for the Data Factory Data Flow.
 	Script pulumi.StringPtrInput
+	// The script lines for the Data Factory Data Flow.
+	ScriptLines pulumi.StringArrayInput
 	// One or more `sink` blocks as defined below.
 	Sinks DataFlowSinkArrayInput
 	// One or more `source` blocks as defined below.
@@ -243,7 +246,9 @@ type dataFlowArgs struct {
 	// Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The script for the Data Factory Data Flow.
-	Script string `pulumi:"script"`
+	Script *string `pulumi:"script"`
+	// The script lines for the Data Factory Data Flow.
+	ScriptLines []string `pulumi:"scriptLines"`
 	// One or more `sink` blocks as defined below.
 	Sinks []DataFlowSink `pulumi:"sinks"`
 	// One or more `source` blocks as defined below.
@@ -265,7 +270,9 @@ type DataFlowArgs struct {
 	// Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The script for the Data Factory Data Flow.
-	Script pulumi.StringInput
+	Script pulumi.StringPtrInput
+	// The script lines for the Data Factory Data Flow.
+	ScriptLines pulumi.StringArrayInput
 	// One or more `sink` blocks as defined below.
 	Sinks DataFlowSinkArrayInput
 	// One or more `source` blocks as defined below.
@@ -387,8 +394,13 @@ func (o DataFlowOutput) Name() pulumi.StringOutput {
 }
 
 // The script for the Data Factory Data Flow.
-func (o DataFlowOutput) Script() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataFlow) pulumi.StringOutput { return v.Script }).(pulumi.StringOutput)
+func (o DataFlowOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlow) pulumi.StringPtrOutput { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+// The script lines for the Data Factory Data Flow.
+func (o DataFlowOutput) ScriptLines() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataFlow) pulumi.StringArrayOutput { return v.ScriptLines }).(pulumi.StringArrayOutput)
 }
 
 // One or more `sink` blocks as defined below.

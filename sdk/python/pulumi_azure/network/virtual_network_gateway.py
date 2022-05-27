@@ -54,7 +54,7 @@ class VirtualNetworkGatewayArgs:
                will be created. An active-active gateway requires a `HighPerformance` or an
                `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
-        :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A block of `bgp_settings`.
+        :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -186,7 +186,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter(name="bgpSettings")
     def bgp_settings(self) -> Optional[pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs']]:
         """
-        A block of `bgp_settings`.
+        A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         """
         return pulumi.get(self, "bgp_settings")
 
@@ -360,7 +360,7 @@ class _VirtualNetworkGatewayState:
                will be created. An active-active gateway requires a `HighPerformance` or an
                `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
-        :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A block of `bgp_settings`.
+        :param pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -452,7 +452,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter(name="bgpSettings")
     def bgp_settings(self) -> Optional[pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs']]:
         """
-        A block of `bgp_settings`.
+        A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         """
         return pulumi.get(self, "bgp_settings")
 
@@ -768,7 +768,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                will be created. An active-active gateway requires a `HighPerformance` or an
                `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']] bgp_settings: A block of `bgp_settings`.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -998,7 +998,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                will be created. An active-active gateway requires a `HighPerformance` or an
                `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']] bgp_settings: A block of `bgp_settings`.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunnelling*). Refer to the
@@ -1074,7 +1074,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter(name="bgpSettings")
     def bgp_settings(self) -> pulumi.Output['outputs.VirtualNetworkGatewayBgpSettings']:
         """
-        A block of `bgp_settings`.
+        A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         """
         return pulumi.get(self, "bgp_settings")
 

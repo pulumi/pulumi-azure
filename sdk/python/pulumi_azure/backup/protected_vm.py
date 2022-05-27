@@ -16,26 +16,27 @@ class ProtectedVMArgs:
                  backup_policy_id: pulumi.Input[str],
                  recovery_vault_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 source_vm_id: pulumi.Input[str],
                  exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+                 include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 source_vm_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ProtectedVM resource.
         :param pulumi.Input[str] backup_policy_id: Specifies the id of the backup policy to use.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] exclude_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] include_disk_luns: A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+        :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_vm_id", source_vm_id)
         if exclude_disk_luns is not None:
             pulumi.set(__self__, "exclude_disk_luns", exclude_disk_luns)
         if include_disk_luns is not None:
             pulumi.set(__self__, "include_disk_luns", include_disk_luns)
+        if source_vm_id is not None:
+            pulumi.set(__self__, "source_vm_id", source_vm_id)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -74,18 +75,6 @@ class ProtectedVMArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="sourceVmId")
-    def source_vm_id(self) -> pulumi.Input[str]:
-        """
-        Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "source_vm_id")
-
-    @source_vm_id.setter
-    def source_vm_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "source_vm_id", value)
-
-    @property
     @pulumi.getter(name="excludeDiskLuns")
     def exclude_disk_luns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
@@ -108,6 +97,18 @@ class ProtectedVMArgs:
     @include_disk_luns.setter
     def include_disk_luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "include_disk_luns", value)
+
+    @property
+    @pulumi.getter(name="sourceVmId")
+    def source_vm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_vm_id")
+
+    @source_vm_id.setter
+    def source_vm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_vm_id", value)
 
 
 @pulumi.input_type
@@ -361,8 +362,6 @@ class ProtectedVM(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if source_vm_id is None and not opts.urn:
-                raise TypeError("Missing required property 'source_vm_id'")
             __props__.__dict__["source_vm_id"] = source_vm_id
         super(ProtectedVM, __self__).__init__(
             'azure:backup/protectedVM:ProtectedVM',

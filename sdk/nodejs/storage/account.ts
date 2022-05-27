@@ -327,6 +327,9 @@ export class Account extends pulumi.CustomResource {
      * The hostname with port if applicable for web storage in the secondary location.
      */
     public /*out*/ readonly secondaryWebHost!: pulumi.Output<string>;
+    /**
+     * A `shareProperties` block as defined below.
+     */
     public readonly shareProperties!: pulumi.Output<outputs.storage.AccountShareProperties>;
     /**
      * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
@@ -732,6 +735,9 @@ export interface AccountState {
      * The hostname with port if applicable for web storage in the secondary location.
      */
     secondaryWebHost?: pulumi.Input<string>;
+    /**
+     * A `shareProperties` block as defined below.
+     */
     shareProperties?: pulumi.Input<inputs.storage.AccountShareProperties>;
     /**
      * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
@@ -856,6 +862,9 @@ export interface AccountArgs {
      * A `routing` block as defined below.
      */
     routing?: pulumi.Input<inputs.storage.AccountRouting>;
+    /**
+     * A `shareProperties` block as defined below.
+     */
     shareProperties?: pulumi.Input<inputs.storage.AccountShareProperties>;
     /**
      * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.

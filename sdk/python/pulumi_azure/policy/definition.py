@@ -29,7 +29,7 @@ class DefinitionArgs:
                types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
         :param pulumi.Input[str] policy_type: The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the policy definition.
-        :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a JSON string representing additional metadata that should be stored
                with the policy definition.
@@ -110,7 +110,7 @@ class DefinitionArgs:
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "management_group_id")
 
@@ -189,7 +189,7 @@ class _DefinitionState:
         Input properties used for looking up and filtering Definition resources.
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
-        :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a JSON string representing additional metadata that should be stored
                with the policy definition.
@@ -251,7 +251,7 @@ class _DefinitionState:
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "management_group_id")
 
@@ -420,7 +420,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
-        :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a JSON string representing additional metadata that should be stored
                with the policy definition.
@@ -582,7 +582,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
-        :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a JSON string representing additional metadata that should be stored
                with the policy definition.
@@ -632,7 +632,7 @@ class Definition(pulumi.CustomResource):
     @pulumi.getter(name="managementGroupId")
     def management_group_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "management_group_id")
 

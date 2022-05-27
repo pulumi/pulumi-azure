@@ -25,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := portal.LookupDashboard(ctx, &portal.LookupDashboardArgs{
-// 			Name:              "existing-dashboard",
+// 			Name:              pulumi.StringRef("existing-dashboard"),
 // 			ResourceGroupName: "dashboard-rg",
 // 		}, nil)
 // 		if err != nil {
@@ -51,8 +51,10 @@ func Azurerm_portal_dashboard(ctx *pulumi.Context, args *Azurerm_portal_dashboar
 type Azurerm_portal_dashboardArgs struct {
 	// JSON data representing dashboard body.
 	DashboardProperties *string `pulumi:"dashboardProperties"`
+	// Specifies the display name of the shared Azure Portal Dashboard.
+	DisplayName *string `pulumi:"displayName"`
 	// Specifies the name of the shared Azure Portal Dashboard.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -60,13 +62,14 @@ type Azurerm_portal_dashboardArgs struct {
 // A collection of values returned by azurerm_portal_dashboard.
 type Azurerm_portal_dashboardResult struct {
 	// JSON data representing dashboard body.
-	DashboardProperties string `pulumi:"dashboardProperties"`
+	DashboardProperties string  `pulumi:"dashboardProperties"`
+	DisplayName         *string `pulumi:"displayName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the shared Azure Portal dashboard exists.
-	Location          string `pulumi:"location"`
-	Name              string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Location          string  `pulumi:"location"`
+	Name              *string `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the shared Azure Portal dashboard.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -88,8 +91,10 @@ func Azurerm_portal_dashboardOutput(ctx *pulumi.Context, args Azurerm_portal_das
 type Azurerm_portal_dashboardOutputArgs struct {
 	// JSON data representing dashboard body.
 	DashboardProperties pulumi.StringPtrInput `pulumi:"dashboardProperties"`
+	// Specifies the display name of the shared Azure Portal Dashboard.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Specifies the name of the shared Azure Portal Dashboard.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
@@ -118,6 +123,10 @@ func (o Azurerm_portal_dashboardResultOutput) DashboardProperties() pulumi.Strin
 	return o.ApplyT(func(v Azurerm_portal_dashboardResult) string { return v.DashboardProperties }).(pulumi.StringOutput)
 }
 
+func (o Azurerm_portal_dashboardResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Azurerm_portal_dashboardResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o Azurerm_portal_dashboardResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v Azurerm_portal_dashboardResult) string { return v.Id }).(pulumi.StringOutput)
@@ -128,8 +137,8 @@ func (o Azurerm_portal_dashboardResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v Azurerm_portal_dashboardResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-func (o Azurerm_portal_dashboardResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Azurerm_portal_dashboardResult) string { return v.Name }).(pulumi.StringOutput)
+func (o Azurerm_portal_dashboardResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Azurerm_portal_dashboardResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o Azurerm_portal_dashboardResultOutput) ResourceGroupName() pulumi.StringOutput {

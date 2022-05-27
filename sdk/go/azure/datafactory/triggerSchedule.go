@@ -47,6 +47,8 @@ type TriggerSchedule struct {
 	Schedule TriggerScheduleSchedulePtrOutput `pulumi:"schedule"`
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
+	// The timezone of the start/end time.
+	TimeZone pulumi.StringPtrOutput `pulumi:"timeZone"`
 }
 
 // NewTriggerSchedule registers a new resource with the given unique name, arguments, and options.
@@ -108,6 +110,8 @@ type triggerScheduleState struct {
 	Schedule *TriggerScheduleSchedule `pulumi:"schedule"`
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 	StartTime *string `pulumi:"startTime"`
+	// The timezone of the start/end time.
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 type TriggerScheduleState struct {
@@ -135,6 +139,8 @@ type TriggerScheduleState struct {
 	Schedule TriggerScheduleSchedulePtrInput
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 	StartTime pulumi.StringPtrInput
+	// The timezone of the start/end time.
+	TimeZone pulumi.StringPtrInput
 }
 
 func (TriggerScheduleState) ElementType() reflect.Type {
@@ -166,6 +172,8 @@ type triggerScheduleArgs struct {
 	Schedule *TriggerScheduleSchedule `pulumi:"schedule"`
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 	StartTime *string `pulumi:"startTime"`
+	// The timezone of the start/end time.
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 // The set of arguments for constructing a TriggerSchedule resource.
@@ -194,6 +202,8 @@ type TriggerScheduleArgs struct {
 	Schedule TriggerScheduleSchedulePtrInput
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 	StartTime pulumi.StringPtrInput
+	// The timezone of the start/end time.
+	TimeZone pulumi.StringPtrInput
 }
 
 func (TriggerScheduleArgs) ElementType() reflect.Type {
@@ -341,6 +351,11 @@ func (o TriggerScheduleOutput) Schedule() TriggerScheduleSchedulePtrOutput {
 // The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 func (o TriggerScheduleOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *TriggerSchedule) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// The timezone of the start/end time.
+func (o TriggerScheduleOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TriggerSchedule) pulumi.StringPtrOutput { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
 type TriggerScheduleArrayOutput struct{ *pulumi.OutputState }

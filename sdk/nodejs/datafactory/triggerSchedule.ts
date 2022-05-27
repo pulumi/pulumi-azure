@@ -92,6 +92,10 @@ export class TriggerSchedule extends pulumi.CustomResource {
      * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
     public readonly startTime!: pulumi.Output<string>;
+    /**
+     * The timezone of the start/end time.
+     */
+    public readonly timeZone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a TriggerSchedule resource with the given unique name, arguments, and options.
@@ -118,6 +122,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
             resourceInputs["pipelineParameters"] = state ? state.pipelineParameters : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
             resourceInputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as TriggerScheduleArgs | undefined;
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
@@ -138,6 +143,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
             resourceInputs["pipelineParameters"] = args ? args.pipelineParameters : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TriggerSchedule.__pulumiType, name, resourceInputs, opts);
@@ -196,6 +202,10 @@ export interface TriggerScheduleState {
      * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
     startTime?: pulumi.Input<string>;
+    /**
+     * The timezone of the start/end time.
+     */
+    timeZone?: pulumi.Input<string>;
 }
 
 /**
@@ -250,4 +260,8 @@ export interface TriggerScheduleArgs {
      * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
     startTime?: pulumi.Input<string>;
+    /**
+     * The timezone of the start/end time.
+     */
+    timeZone?: pulumi.Input<string>;
 }

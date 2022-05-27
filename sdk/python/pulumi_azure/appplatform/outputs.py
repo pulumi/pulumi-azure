@@ -10,9 +10,11 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'SpringCloudApiPortalSso',
     'SpringCloudAppCustomPersistentDisk',
     'SpringCloudAppIdentity',
     'SpringCloudAppPersistentDisk',
+    'SpringCloudBuildDeploymentQuota',
     'SpringCloudBuildPackBindingLaunch',
     'SpringCloudBuilderBuildPackGroup',
     'SpringCloudBuilderStack',
@@ -21,6 +23,7 @@ __all__ = [
     'SpringCloudGatewayApiMetadata',
     'SpringCloudGatewayCors',
     'SpringCloudGatewayQuota',
+    'SpringCloudGatewayRouteConfigRoute',
     'SpringCloudGatewaySso',
     'SpringCloudJavaDeploymentQuota',
     'SpringCloudServiceConfigServerGitSetting',
@@ -42,6 +45,82 @@ __all__ = [
     'GetSpringCloudServiceConfigServerGitSettingSshAuthResult',
     'GetSpringCloudServiceRequiredNetworkTrafficRuleResult',
 ]
+
+@pulumi.output_type
+class SpringCloudApiPortalSso(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "issuerUri":
+            suggest = "issuer_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudApiPortalSso. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudApiPortalSso.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudApiPortalSso.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 issuer_uri: Optional[str] = None,
+                 scopes: Optional[Sequence[str]] = None):
+        """
+        :param str client_id: The public identifier for the application.
+        :param str client_secret: The secret known only to the application and the authorization server.
+        :param str issuer_uri: The URI of Issuer Identifier.
+        :param Sequence[str] scopes: It defines the specific actions applications can be allowed to do on a user's behalf.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if issuer_uri is not None:
+            pulumi.set(__self__, "issuer_uri", issuer_uri)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The public identifier for the application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        """
+        The secret known only to the application and the authorization server.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="issuerUri")
+    def issuer_uri(self) -> Optional[str]:
+        """
+        The URI of Issuer Identifier.
+        """
+        return pulumi.get(self, "issuer_uri")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence[str]]:
+        """
+        It defines the specific actions applications can be allowed to do on a user's behalf.
+        """
+        return pulumi.get(self, "scopes")
+
 
 @pulumi.output_type
 class SpringCloudAppCustomPersistentDisk(dict):
@@ -254,6 +333,37 @@ class SpringCloudAppPersistentDisk(dict):
         Specifies the mount path of the persistent disk. Defaults to `/persistent`.
         """
         return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
+class SpringCloudBuildDeploymentQuota(dict):
+    def __init__(__self__, *,
+                 cpu: Optional[str] = None,
+                 memory: Optional[str] = None):
+        """
+        :param str cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+        :param str memory: Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[str]:
+        """
+        Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[str]:
+        """
+        Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+        """
+        return pulumi.get(self, "memory")
 
 
 @pulumi.output_type
@@ -775,6 +885,142 @@ class SpringCloudGatewayQuota(dict):
         Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
         """
         return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class SpringCloudGatewayRouteConfigRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "classificationTags":
+            suggest = "classification_tags"
+        elif key == "ssoValidationEnabled":
+            suggest = "sso_validation_enabled"
+        elif key == "tokenRelay":
+            suggest = "token_relay"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudGatewayRouteConfigRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudGatewayRouteConfigRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudGatewayRouteConfigRoute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 classification_tags: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None,
+                 filters: Optional[Sequence[str]] = None,
+                 order: Optional[int] = None,
+                 predicates: Optional[Sequence[str]] = None,
+                 sso_validation_enabled: Optional[bool] = None,
+                 title: Optional[str] = None,
+                 token_relay: Optional[bool] = None,
+                 uri: Optional[str] = None):
+        """
+        :param Sequence[str] classification_tags: Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
+        :param str description: Specifies the description which will be applied to methods in the generated OpenAPI documentation.
+        :param Sequence[str] filters: Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
+        :param int order: Specifies the route processing order.
+        :param Sequence[str] predicates: Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+        :param bool sso_validation_enabled: Should the sso validation be enabled?
+        :param str title: Specifies the title which will be applied to methods in the generated OpenAPI documentation.
+        :param bool token_relay: Should pass currently-authenticated user's identity token to application service?
+        :param str uri: Specifies the full uri which will override `appName`.
+        """
+        if classification_tags is not None:
+            pulumi.set(__self__, "classification_tags", classification_tags)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if predicates is not None:
+            pulumi.set(__self__, "predicates", predicates)
+        if sso_validation_enabled is not None:
+            pulumi.set(__self__, "sso_validation_enabled", sso_validation_enabled)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if token_relay is not None:
+            pulumi.set(__self__, "token_relay", token_relay)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="classificationTags")
+    def classification_tags(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
+        """
+        return pulumi.get(self, "classification_tags")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Specifies the description which will be applied to methods in the generated OpenAPI documentation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
+        """
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[int]:
+        """
+        Specifies the route processing order.
+        """
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def predicates(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+        """
+        return pulumi.get(self, "predicates")
+
+    @property
+    @pulumi.getter(name="ssoValidationEnabled")
+    def sso_validation_enabled(self) -> Optional[bool]:
+        """
+        Should the sso validation be enabled?
+        """
+        return pulumi.get(self, "sso_validation_enabled")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        Specifies the title which will be applied to methods in the generated OpenAPI documentation.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="tokenRelay")
+    def token_relay(self) -> Optional[bool]:
+        """
+        Should pass currently-authenticated user's identity token to application service?
+        """
+        return pulumi.get(self, "token_relay")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        Specifies the full uri which will override `appName`.
+        """
+        return pulumi.get(self, "uri")
 
 
 @pulumi.output_type

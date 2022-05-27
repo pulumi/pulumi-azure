@@ -273,7 +273,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly terminationNotification!: pulumi.Output<outputs.compute.WindowsVirtualMachineTerminationNotification>;
     /**
-     * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+     * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
     /**
@@ -611,7 +611,7 @@ export interface WindowsVirtualMachineState {
      */
     terminationNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineTerminationNotification>;
     /**
-     * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+     * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
      */
     timezone?: pulumi.Input<string>;
     /**
@@ -797,7 +797,7 @@ export interface WindowsVirtualMachineArgs {
      */
     terminationNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineTerminationNotification>;
     /**
-     * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+     * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
      */
     timezone?: pulumi.Input<string>;
     /**

@@ -639,7 +639,7 @@ class Group(pulumi.CustomResource):
         example_group = azure.containerservice.Group("exampleGroup",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_address_type="public",
+            ip_address_type="Public",
             dns_name_label="aci-label",
             os_type="Linux",
             containers=[
@@ -714,7 +714,7 @@ class Group(pulumi.CustomResource):
         example_group = azure.containerservice.Group("exampleGroup",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_address_type="public",
+            ip_address_type="Public",
             dns_name_label="aci-label",
             os_type="Linux",
             containers=[

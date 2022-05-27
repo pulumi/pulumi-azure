@@ -20658,6 +20658,8 @@ type VpnGatewayConnectionVpnLink struct {
 	BgpEnabled *bool `pulumi:"bgpEnabled"`
 	// The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
 	ConnectionMode *string `pulumi:"connectionMode"`
+	// One or more `customBgpAddress` blocks as defined below.
+	CustomBgpAddresses []VpnGatewayConnectionVpnLinkCustomBgpAddress `pulumi:"customBgpAddresses"`
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds []string `pulumi:"egressNatRuleIds"`
 	// A list of the ingress NAT Rule Ids.
@@ -20700,6 +20702,8 @@ type VpnGatewayConnectionVpnLinkArgs struct {
 	BgpEnabled pulumi.BoolPtrInput `pulumi:"bgpEnabled"`
 	// The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
 	ConnectionMode pulumi.StringPtrInput `pulumi:"connectionMode"`
+	// One or more `customBgpAddress` blocks as defined below.
+	CustomBgpAddresses VpnGatewayConnectionVpnLinkCustomBgpAddressArrayInput `pulumi:"customBgpAddresses"`
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds pulumi.StringArrayInput `pulumi:"egressNatRuleIds"`
 	// A list of the ingress NAT Rule Ids.
@@ -20790,6 +20794,13 @@ func (o VpnGatewayConnectionVpnLinkOutput) ConnectionMode() pulumi.StringPtrOutp
 	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *string { return v.ConnectionMode }).(pulumi.StringPtrOutput)
 }
 
+// One or more `customBgpAddress` blocks as defined below.
+func (o VpnGatewayConnectionVpnLinkOutput) CustomBgpAddresses() VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) []VpnGatewayConnectionVpnLinkCustomBgpAddress {
+		return v.CustomBgpAddresses
+	}).(VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput)
+}
+
 // A list of the egress NAT Rule Ids.
 func (o VpnGatewayConnectionVpnLinkOutput) EgressNatRuleIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) []string { return v.EgressNatRuleIds }).(pulumi.StringArrayOutput)
@@ -20863,6 +20874,112 @@ func (o VpnGatewayConnectionVpnLinkArrayOutput) Index(i pulumi.IntInput) VpnGate
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayConnectionVpnLink {
 		return vs[0].([]VpnGatewayConnectionVpnLink)[vs[1].(int)]
 	}).(VpnGatewayConnectionVpnLinkOutput)
+}
+
+type VpnGatewayConnectionVpnLinkCustomBgpAddress struct {
+	// The custom bgp ip address which belongs to the IP Configuration.
+	IpAddress string `pulumi:"ipAddress"`
+	// The ID of the IP Configuration which belongs to the VPN Gateway.
+	IpConfigurationId string `pulumi:"ipConfigurationId"`
+}
+
+// VpnGatewayConnectionVpnLinkCustomBgpAddressInput is an input type that accepts VpnGatewayConnectionVpnLinkCustomBgpAddressArgs and VpnGatewayConnectionVpnLinkCustomBgpAddressOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionVpnLinkCustomBgpAddressInput` via:
+//
+//          VpnGatewayConnectionVpnLinkCustomBgpAddressArgs{...}
+type VpnGatewayConnectionVpnLinkCustomBgpAddressInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionVpnLinkCustomBgpAddressOutput() VpnGatewayConnectionVpnLinkCustomBgpAddressOutput
+	ToVpnGatewayConnectionVpnLinkCustomBgpAddressOutputWithContext(context.Context) VpnGatewayConnectionVpnLinkCustomBgpAddressOutput
+}
+
+type VpnGatewayConnectionVpnLinkCustomBgpAddressArgs struct {
+	// The custom bgp ip address which belongs to the IP Configuration.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// The ID of the IP Configuration which belongs to the VPN Gateway.
+	IpConfigurationId pulumi.StringInput `pulumi:"ipConfigurationId"`
+}
+
+func (VpnGatewayConnectionVpnLinkCustomBgpAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnectionVpnLinkCustomBgpAddress)(nil)).Elem()
+}
+
+func (i VpnGatewayConnectionVpnLinkCustomBgpAddressArgs) ToVpnGatewayConnectionVpnLinkCustomBgpAddressOutput() VpnGatewayConnectionVpnLinkCustomBgpAddressOutput {
+	return i.ToVpnGatewayConnectionVpnLinkCustomBgpAddressOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionVpnLinkCustomBgpAddressArgs) ToVpnGatewayConnectionVpnLinkCustomBgpAddressOutputWithContext(ctx context.Context) VpnGatewayConnectionVpnLinkCustomBgpAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionVpnLinkCustomBgpAddressOutput)
+}
+
+// VpnGatewayConnectionVpnLinkCustomBgpAddressArrayInput is an input type that accepts VpnGatewayConnectionVpnLinkCustomBgpAddressArray and VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionVpnLinkCustomBgpAddressArrayInput` via:
+//
+//          VpnGatewayConnectionVpnLinkCustomBgpAddressArray{ VpnGatewayConnectionVpnLinkCustomBgpAddressArgs{...} }
+type VpnGatewayConnectionVpnLinkCustomBgpAddressArrayInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput() VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput
+	ToVpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutputWithContext(context.Context) VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput
+}
+
+type VpnGatewayConnectionVpnLinkCustomBgpAddressArray []VpnGatewayConnectionVpnLinkCustomBgpAddressInput
+
+func (VpnGatewayConnectionVpnLinkCustomBgpAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayConnectionVpnLinkCustomBgpAddress)(nil)).Elem()
+}
+
+func (i VpnGatewayConnectionVpnLinkCustomBgpAddressArray) ToVpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput() VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput {
+	return i.ToVpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionVpnLinkCustomBgpAddressArray) ToVpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput)
+}
+
+type VpnGatewayConnectionVpnLinkCustomBgpAddressOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionVpnLinkCustomBgpAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnectionVpnLinkCustomBgpAddress)(nil)).Elem()
+}
+
+func (o VpnGatewayConnectionVpnLinkCustomBgpAddressOutput) ToVpnGatewayConnectionVpnLinkCustomBgpAddressOutput() VpnGatewayConnectionVpnLinkCustomBgpAddressOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionVpnLinkCustomBgpAddressOutput) ToVpnGatewayConnectionVpnLinkCustomBgpAddressOutputWithContext(ctx context.Context) VpnGatewayConnectionVpnLinkCustomBgpAddressOutput {
+	return o
+}
+
+// The custom bgp ip address which belongs to the IP Configuration.
+func (o VpnGatewayConnectionVpnLinkCustomBgpAddressOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLinkCustomBgpAddress) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The ID of the IP Configuration which belongs to the VPN Gateway.
+func (o VpnGatewayConnectionVpnLinkCustomBgpAddressOutput) IpConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLinkCustomBgpAddress) string { return v.IpConfigurationId }).(pulumi.StringOutput)
+}
+
+type VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayConnectionVpnLinkCustomBgpAddress)(nil)).Elem()
+}
+
+func (o VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput) ToVpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput() VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput) ToVpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput) Index(i pulumi.IntInput) VpnGatewayConnectionVpnLinkCustomBgpAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayConnectionVpnLinkCustomBgpAddress {
+		return vs[0].([]VpnGatewayConnectionVpnLinkCustomBgpAddress)[vs[1].(int)]
+	}).(VpnGatewayConnectionVpnLinkCustomBgpAddressOutput)
 }
 
 type VpnGatewayConnectionVpnLinkIpsecPolicy struct {
@@ -26489,6 +26606,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionTrafficSelectorPolicyArrayInput)(nil)).Elem(), VpnGatewayConnectionTrafficSelectorPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionVpnLinkInput)(nil)).Elem(), VpnGatewayConnectionVpnLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionVpnLinkArrayInput)(nil)).Elem(), VpnGatewayConnectionVpnLinkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionVpnLinkCustomBgpAddressInput)(nil)).Elem(), VpnGatewayConnectionVpnLinkCustomBgpAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionVpnLinkCustomBgpAddressArrayInput)(nil)).Elem(), VpnGatewayConnectionVpnLinkCustomBgpAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionVpnLinkIpsecPolicyInput)(nil)).Elem(), VpnGatewayConnectionVpnLinkIpsecPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionVpnLinkIpsecPolicyArrayInput)(nil)).Elem(), VpnGatewayConnectionVpnLinkIpsecPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationAzureActiveDirectoryAuthenticationInput)(nil)).Elem(), VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs{})
@@ -26833,6 +26952,8 @@ func init() {
 	pulumi.RegisterOutputType(VpnGatewayConnectionTrafficSelectorPolicyArrayOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkArrayOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkCustomBgpAddressOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkCustomBgpAddressArrayOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkIpsecPolicyOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkIpsecPolicyArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationAzureActiveDirectoryAuthenticationOutput{})

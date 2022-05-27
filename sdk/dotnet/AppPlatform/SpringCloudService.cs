@@ -74,6 +74,12 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudService : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+        /// </summary>
+        [Output("buildAgentPoolSize")]
+        public Output<string?> BuildAgentPoolSize { get; private set; } = null!;
+
+        /// <summary>
         /// A `config_server_git_setting` block as defined below.
         /// </summary>
         [Output("configServerGitSetting")]
@@ -145,6 +151,12 @@ namespace Pulumi.Azure.AppPlatform
         [Output("trace")]
         public Output<Outputs.SpringCloudServiceTrace?> Trace { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SpringCloudService resource with the given unique name, arguments, and options.
@@ -191,6 +203,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudServiceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+        /// </summary>
+        [Input("buildAgentPoolSize")]
+        public Input<string>? BuildAgentPoolSize { get; set; }
+
         /// <summary>
         /// A `config_server_git_setting` block as defined below.
         /// </summary>
@@ -251,6 +269,12 @@ namespace Pulumi.Azure.AppPlatform
         [Input("trace")]
         public Input<Inputs.SpringCloudServiceTraceArgs>? Trace { get; set; }
 
+        /// <summary>
+        /// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
+
         public SpringCloudServiceArgs()
         {
         }
@@ -258,6 +282,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudServiceState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+        /// </summary>
+        [Input("buildAgentPoolSize")]
+        public Input<string>? BuildAgentPoolSize { get; set; }
+
         /// <summary>
         /// A `config_server_git_setting` block as defined below.
         /// </summary>
@@ -347,6 +377,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("trace")]
         public Input<Inputs.SpringCloudServiceTraceGetArgs>? Trace { get; set; }
+
+        /// <summary>
+        /// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public SpringCloudServiceState()
         {

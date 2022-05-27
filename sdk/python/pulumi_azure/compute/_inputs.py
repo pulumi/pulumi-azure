@@ -607,14 +607,18 @@ class LinuxVirtualMachineOsDiskArgs:
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 security_encryption_type: Optional[pulumi.Input[str]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
         :param pulumi.Input[str] name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] security_encryption_type: Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -627,6 +631,10 @@ class LinuxVirtualMachineOsDiskArgs:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if secure_vm_disk_encryption_set_id is not None:
+            pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
+        if security_encryption_type is not None:
+            pulumi.set(__self__, "security_encryption_type", security_encryption_type)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -670,7 +678,7 @@ class LinuxVirtualMachineOsDiskArgs:
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+        The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -701,6 +709,30 @@ class LinuxVirtualMachineOsDiskArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="secureVmDiskEncryptionSetId")
+    def secure_vm_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_vm_disk_encryption_set_id")
+
+    @secure_vm_disk_encryption_set_id.setter
+    def secure_vm_disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secure_vm_disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="securityEncryptionType")
+    def security_encryption_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_encryption_type")
+
+    @security_encryption_type.setter
+    def security_encryption_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_encryption_type", value)
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")
@@ -1733,13 +1765,17 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
                  diff_disk_settings: Optional[pulumi.Input['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 security_encryption_type: Optional[pulumi.Input[str]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
         :param pulumi.Input['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+        :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] security_encryption_type: Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -1750,6 +1786,10 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if secure_vm_disk_encryption_set_id is not None:
+            pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
+        if security_encryption_type is not None:
+            pulumi.set(__self__, "security_encryption_type", security_encryption_type)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -1793,7 +1833,7 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+        The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -1812,6 +1852,30 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
     @disk_size_gb.setter
     def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="secureVmDiskEncryptionSetId")
+    def secure_vm_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_vm_disk_encryption_set_id")
+
+    @secure_vm_disk_encryption_set_id.setter
+    def secure_vm_disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secure_vm_disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="securityEncryptionType")
+    def security_encryption_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_encryption_type")
+
+    @security_encryption_type.setter
+    def security_encryption_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_encryption_type", value)
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")
@@ -6510,14 +6574,18 @@ class WindowsVirtualMachineOsDiskArgs:
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 security_encryption_type: Optional[pulumi.Input[str]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
         :param pulumi.Input[str] name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] security_encryption_type: Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -6530,6 +6598,10 @@ class WindowsVirtualMachineOsDiskArgs:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if secure_vm_disk_encryption_set_id is not None:
+            pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
+        if security_encryption_type is not None:
+            pulumi.set(__self__, "security_encryption_type", security_encryption_type)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -6573,7 +6645,7 @@ class WindowsVirtualMachineOsDiskArgs:
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+        The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -6604,6 +6676,30 @@ class WindowsVirtualMachineOsDiskArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="secureVmDiskEncryptionSetId")
+    def secure_vm_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_vm_disk_encryption_set_id")
+
+    @secure_vm_disk_encryption_set_id.setter
+    def secure_vm_disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secure_vm_disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="securityEncryptionType")
+    def security_encryption_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_encryption_type")
+
+    @security_encryption_type.setter
+    def security_encryption_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_encryption_type", value)
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")
@@ -7636,13 +7732,17 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
                  diff_disk_settings: Optional[pulumi.Input['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 security_encryption_type: Optional[pulumi.Input[str]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
         :param pulumi.Input['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+        :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] security_encryption_type: Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -7653,6 +7753,10 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if secure_vm_disk_encryption_set_id is not None:
+            pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
+        if security_encryption_type is not None:
+            pulumi.set(__self__, "security_encryption_type", security_encryption_type)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -7696,7 +7800,7 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+        The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -7715,6 +7819,30 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
     @disk_size_gb.setter
     def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="secureVmDiskEncryptionSetId")
+    def secure_vm_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_vm_disk_encryption_set_id")
+
+    @secure_vm_disk_encryption_set_id.setter
+    def secure_vm_disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secure_vm_disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="securityEncryptionType")
+    def security_encryption_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_encryption_type")
+
+    @security_encryption_type.setter
+    def security_encryption_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_encryption_type", value)
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")

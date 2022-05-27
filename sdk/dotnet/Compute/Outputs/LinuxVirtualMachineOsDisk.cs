@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly Outputs.LinuxVirtualMachineOsDiskDiffDiskSettings? DiffDiskSettings;
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
@@ -33,6 +33,14 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? SecureVmDiskEncryptionSetId;
+        /// <summary>
+        /// Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? SecurityEncryptionType;
         /// <summary>
         /// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         /// </summary>
@@ -54,6 +62,10 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string? name,
 
+            string? secureVmDiskEncryptionSetId,
+
+            string? securityEncryptionType,
+
             string storageAccountType,
 
             bool? writeAcceleratorEnabled)
@@ -63,6 +75,8 @@ namespace Pulumi.Azure.Compute.Outputs
             DiskEncryptionSetId = diskEncryptionSetId;
             DiskSizeGb = diskSizeGb;
             Name = name;
+            SecureVmDiskEncryptionSetId = secureVmDiskEncryptionSetId;
+            SecurityEncryptionType = securityEncryptionType;
             StorageAccountType = storageAccountType;
             WriteAcceleratorEnabled = writeAcceleratorEnabled;
         }

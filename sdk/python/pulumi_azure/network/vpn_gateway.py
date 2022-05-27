@@ -17,6 +17,7 @@ class VpnGatewayArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  virtual_hub_id: pulumi.Input[str],
+                 bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[bool]] = None,
                  bgp_settings: Optional[pulumi.Input['VpnGatewayBgpSettingsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -27,6 +28,7 @@ class VpnGatewayArgs:
         The set of arguments for constructing a VpnGateway resource.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] bgp_route_translation_for_nat_enabled: Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
         :param pulumi.Input['VpnGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
@@ -37,6 +39,8 @@ class VpnGatewayArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+        if bgp_route_translation_for_nat_enabled is not None:
+            pulumi.set(__self__, "bgp_route_translation_for_nat_enabled", bgp_route_translation_for_nat_enabled)
         if bgp_settings is not None:
             pulumi.set(__self__, "bgp_settings", bgp_settings)
         if location is not None:
@@ -73,6 +77,18 @@ class VpnGatewayArgs:
     @virtual_hub_id.setter
     def virtual_hub_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "virtual_hub_id", value)
+
+    @property
+    @pulumi.getter(name="bgpRouteTranslationForNatEnabled")
+    def bgp_route_translation_for_nat_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "bgp_route_translation_for_nat_enabled")
+
+    @bgp_route_translation_for_nat_enabled.setter
+    def bgp_route_translation_for_nat_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bgp_route_translation_for_nat_enabled", value)
 
     @property
     @pulumi.getter(name="bgpSettings")
@@ -151,6 +167,7 @@ class VpnGatewayArgs:
 @pulumi.input_type
 class _VpnGatewayState:
     def __init__(__self__, *,
+                 bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[bool]] = None,
                  bgp_settings: Optional[pulumi.Input['VpnGatewayBgpSettingsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -161,6 +178,7 @@ class _VpnGatewayState:
                  virtual_hub_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpnGateway resources.
+        :param pulumi.Input[bool] bgp_route_translation_for_nat_enabled: Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
         :param pulumi.Input['VpnGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
@@ -171,6 +189,8 @@ class _VpnGatewayState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
         """
+        if bgp_route_translation_for_nat_enabled is not None:
+            pulumi.set(__self__, "bgp_route_translation_for_nat_enabled", bgp_route_translation_for_nat_enabled)
         if bgp_settings is not None:
             pulumi.set(__self__, "bgp_settings", bgp_settings)
         if location is not None:
@@ -187,6 +207,18 @@ class _VpnGatewayState:
             pulumi.set(__self__, "tags", tags)
         if virtual_hub_id is not None:
             pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+
+    @property
+    @pulumi.getter(name="bgpRouteTranslationForNatEnabled")
+    def bgp_route_translation_for_nat_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "bgp_route_translation_for_nat_enabled")
+
+    @bgp_route_translation_for_nat_enabled.setter
+    def bgp_route_translation_for_nat_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bgp_route_translation_for_nat_enabled", value)
 
     @property
     @pulumi.getter(name="bgpSettings")
@@ -291,6 +323,7 @@ class VpnGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[bool]] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -338,6 +371,7 @@ class VpnGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] bgp_route_translation_for_nat_enabled: Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
@@ -405,6 +439,7 @@ class VpnGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[bool]] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -425,6 +460,7 @@ class VpnGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpnGatewayArgs.__new__(VpnGatewayArgs)
 
+            __props__.__dict__["bgp_route_translation_for_nat_enabled"] = bgp_route_translation_for_nat_enabled
             __props__.__dict__["bgp_settings"] = bgp_settings
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -447,6 +483,7 @@ class VpnGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[bool]] = None,
             bgp_settings: Optional[pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingsArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -462,6 +499,7 @@ class VpnGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] bgp_route_translation_for_nat_enabled: Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
@@ -476,6 +514,7 @@ class VpnGateway(pulumi.CustomResource):
 
         __props__ = _VpnGatewayState.__new__(_VpnGatewayState)
 
+        __props__.__dict__["bgp_route_translation_for_nat_enabled"] = bgp_route_translation_for_nat_enabled
         __props__.__dict__["bgp_settings"] = bgp_settings
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -485,6 +524,14 @@ class VpnGateway(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_hub_id"] = virtual_hub_id
         return VpnGateway(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="bgpRouteTranslationForNatEnabled")
+    def bgp_route_translation_for_nat_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "bgp_route_translation_for_nat_enabled")
 
     @property
     @pulumi.getter(name="bgpSettings")

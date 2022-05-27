@@ -273,6 +273,12 @@ namespace Pulumi.Azure.Network
         public Output<int?> DpdTimeoutSeconds { get; private set; } = null!;
 
         /// <summary>
+        /// A list of the egress NAT Rule Ids.
+        /// </summary>
+        [Output("egressNatRuleIds")]
+        public Output<ImmutableArray<string>> EgressNatRuleIds { get; private set; } = null!;
+
+        /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) is enabled
         /// for this connection. Defaults to `false`.
         /// </summary>
@@ -292,6 +298,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("expressRouteGatewayBypass")]
         public Output<bool> ExpressRouteGatewayBypass { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of the ingress NAT Rule Ids.
+        /// </summary>
+        [Output("ingressNatRuleIds")]
+        public Output<ImmutableArray<string>> IngressNatRuleIds { get; private set; } = null!;
 
         /// <summary>
         /// A `ipsec_policy` block which is documented below.
@@ -482,6 +494,18 @@ namespace Pulumi.Azure.Network
         [Input("dpdTimeoutSeconds")]
         public Input<int>? DpdTimeoutSeconds { get; set; }
 
+        [Input("egressNatRuleIds")]
+        private InputList<string>? _egressNatRuleIds;
+
+        /// <summary>
+        /// A list of the egress NAT Rule Ids.
+        /// </summary>
+        public InputList<string> EgressNatRuleIds
+        {
+            get => _egressNatRuleIds ?? (_egressNatRuleIds = new InputList<string>());
+            set => _egressNatRuleIds = value;
+        }
+
         /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) is enabled
         /// for this connection. Defaults to `false`.
@@ -502,6 +526,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("expressRouteGatewayBypass")]
         public Input<bool>? ExpressRouteGatewayBypass { get; set; }
+
+        [Input("ingressNatRuleIds")]
+        private InputList<string>? _ingressNatRuleIds;
+
+        /// <summary>
+        /// A list of the ingress NAT Rule Ids.
+        /// </summary>
+        public InputList<string> IngressNatRuleIds
+        {
+            get => _ingressNatRuleIds ?? (_ingressNatRuleIds = new InputList<string>());
+            set => _ingressNatRuleIds = value;
+        }
 
         /// <summary>
         /// A `ipsec_policy` block which is documented below.
@@ -659,6 +695,18 @@ namespace Pulumi.Azure.Network
         [Input("dpdTimeoutSeconds")]
         public Input<int>? DpdTimeoutSeconds { get; set; }
 
+        [Input("egressNatRuleIds")]
+        private InputList<string>? _egressNatRuleIds;
+
+        /// <summary>
+        /// A list of the egress NAT Rule Ids.
+        /// </summary>
+        public InputList<string> EgressNatRuleIds
+        {
+            get => _egressNatRuleIds ?? (_egressNatRuleIds = new InputList<string>());
+            set => _egressNatRuleIds = value;
+        }
+
         /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) is enabled
         /// for this connection. Defaults to `false`.
@@ -679,6 +727,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("expressRouteGatewayBypass")]
         public Input<bool>? ExpressRouteGatewayBypass { get; set; }
+
+        [Input("ingressNatRuleIds")]
+        private InputList<string>? _ingressNatRuleIds;
+
+        /// <summary>
+        /// A list of the ingress NAT Rule Ids.
+        /// </summary>
+        public InputList<string> IngressNatRuleIds
+        {
+            get => _ingressNatRuleIds ?? (_ingressNatRuleIds = new InputList<string>());
+            set => _ingressNatRuleIds = value;
+        }
 
         /// <summary>
         /// A `ipsec_policy` block which is documented below.

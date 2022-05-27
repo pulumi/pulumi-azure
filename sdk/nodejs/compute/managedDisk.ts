@@ -102,7 +102,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly diskAccessId!: pulumi.Output<string | undefined>;
     /**
-     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
      */
     public readonly diskEncryptionSetId!: pulumi.Output<string | undefined>;
     /**
@@ -182,6 +182,14 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+     */
+    public readonly secureVmDiskEncryptionSetId!: pulumi.Output<string | undefined>;
+    /**
+     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+     */
+    public readonly securityType!: pulumi.Output<string | undefined>;
+    /**
      * The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
      */
     public readonly sourceResourceId!: pulumi.Output<string | undefined>;
@@ -249,6 +257,8 @@ export class ManagedDisk extends pulumi.CustomResource {
             resourceInputs["osType"] = state ? state.osType : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secureVmDiskEncryptionSetId"] = state ? state.secureVmDiskEncryptionSetId : undefined;
+            resourceInputs["securityType"] = state ? state.securityType : undefined;
             resourceInputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
             resourceInputs["sourceUri"] = state ? state.sourceUri : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
@@ -290,6 +300,8 @@ export class ManagedDisk extends pulumi.CustomResource {
             resourceInputs["osType"] = args ? args.osType : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["secureVmDiskEncryptionSetId"] = args ? args.secureVmDiskEncryptionSetId : undefined;
+            resourceInputs["securityType"] = args ? args.securityType : undefined;
             resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
@@ -317,7 +329,7 @@ export interface ManagedDiskState {
      */
     diskAccessId?: pulumi.Input<string>;
     /**
-     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
      */
     diskEncryptionSetId?: pulumi.Input<string>;
     /**
@@ -397,6 +409,14 @@ export interface ManagedDiskState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+     */
+    secureVmDiskEncryptionSetId?: pulumi.Input<string>;
+    /**
+     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+     */
+    securityType?: pulumi.Input<string>;
+    /**
      * The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
      */
     sourceResourceId?: pulumi.Input<string>;
@@ -443,7 +463,7 @@ export interface ManagedDiskArgs {
      */
     diskAccessId?: pulumi.Input<string>;
     /**
-     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
      */
     diskEncryptionSetId?: pulumi.Input<string>;
     /**
@@ -522,6 +542,14 @@ export interface ManagedDiskArgs {
      * The name of the Resource Group where the Managed Disk should exist.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+     */
+    secureVmDiskEncryptionSetId?: pulumi.Input<string>;
+    /**
+     * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+     */
+    securityType?: pulumi.Input<string>;
     /**
      * The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
      */

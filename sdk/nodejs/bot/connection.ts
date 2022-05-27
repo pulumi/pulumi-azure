@@ -105,6 +105,8 @@ export class Connection extends pulumi.CustomResource {
     public readonly serviceProviderName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * @deprecated This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -206,6 +208,8 @@ export interface ConnectionState {
     serviceProviderName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * @deprecated This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -252,6 +256,8 @@ export interface ConnectionArgs {
     serviceProviderName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * @deprecated This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

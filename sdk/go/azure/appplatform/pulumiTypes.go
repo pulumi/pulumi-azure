@@ -10,6 +10,200 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type SpringCloudApiPortalSso struct {
+	// The public identifier for the application.
+	ClientId *string `pulumi:"clientId"`
+	// The secret known only to the application and the authorization server.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// The URI of Issuer Identifier.
+	IssuerUri *string `pulumi:"issuerUri"`
+	// It defines the specific actions applications can be allowed to do on a user's behalf.
+	Scopes []string `pulumi:"scopes"`
+}
+
+// SpringCloudApiPortalSsoInput is an input type that accepts SpringCloudApiPortalSsoArgs and SpringCloudApiPortalSsoOutput values.
+// You can construct a concrete instance of `SpringCloudApiPortalSsoInput` via:
+//
+//          SpringCloudApiPortalSsoArgs{...}
+type SpringCloudApiPortalSsoInput interface {
+	pulumi.Input
+
+	ToSpringCloudApiPortalSsoOutput() SpringCloudApiPortalSsoOutput
+	ToSpringCloudApiPortalSsoOutputWithContext(context.Context) SpringCloudApiPortalSsoOutput
+}
+
+type SpringCloudApiPortalSsoArgs struct {
+	// The public identifier for the application.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The secret known only to the application and the authorization server.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// The URI of Issuer Identifier.
+	IssuerUri pulumi.StringPtrInput `pulumi:"issuerUri"`
+	// It defines the specific actions applications can be allowed to do on a user's behalf.
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (SpringCloudApiPortalSsoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudApiPortalSso)(nil)).Elem()
+}
+
+func (i SpringCloudApiPortalSsoArgs) ToSpringCloudApiPortalSsoOutput() SpringCloudApiPortalSsoOutput {
+	return i.ToSpringCloudApiPortalSsoOutputWithContext(context.Background())
+}
+
+func (i SpringCloudApiPortalSsoArgs) ToSpringCloudApiPortalSsoOutputWithContext(ctx context.Context) SpringCloudApiPortalSsoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApiPortalSsoOutput)
+}
+
+func (i SpringCloudApiPortalSsoArgs) ToSpringCloudApiPortalSsoPtrOutput() SpringCloudApiPortalSsoPtrOutput {
+	return i.ToSpringCloudApiPortalSsoPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudApiPortalSsoArgs) ToSpringCloudApiPortalSsoPtrOutputWithContext(ctx context.Context) SpringCloudApiPortalSsoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApiPortalSsoOutput).ToSpringCloudApiPortalSsoPtrOutputWithContext(ctx)
+}
+
+// SpringCloudApiPortalSsoPtrInput is an input type that accepts SpringCloudApiPortalSsoArgs, SpringCloudApiPortalSsoPtr and SpringCloudApiPortalSsoPtrOutput values.
+// You can construct a concrete instance of `SpringCloudApiPortalSsoPtrInput` via:
+//
+//          SpringCloudApiPortalSsoArgs{...}
+//
+//  or:
+//
+//          nil
+type SpringCloudApiPortalSsoPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudApiPortalSsoPtrOutput() SpringCloudApiPortalSsoPtrOutput
+	ToSpringCloudApiPortalSsoPtrOutputWithContext(context.Context) SpringCloudApiPortalSsoPtrOutput
+}
+
+type springCloudApiPortalSsoPtrType SpringCloudApiPortalSsoArgs
+
+func SpringCloudApiPortalSsoPtr(v *SpringCloudApiPortalSsoArgs) SpringCloudApiPortalSsoPtrInput {
+	return (*springCloudApiPortalSsoPtrType)(v)
+}
+
+func (*springCloudApiPortalSsoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudApiPortalSso)(nil)).Elem()
+}
+
+func (i *springCloudApiPortalSsoPtrType) ToSpringCloudApiPortalSsoPtrOutput() SpringCloudApiPortalSsoPtrOutput {
+	return i.ToSpringCloudApiPortalSsoPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudApiPortalSsoPtrType) ToSpringCloudApiPortalSsoPtrOutputWithContext(ctx context.Context) SpringCloudApiPortalSsoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApiPortalSsoPtrOutput)
+}
+
+type SpringCloudApiPortalSsoOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudApiPortalSsoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudApiPortalSso)(nil)).Elem()
+}
+
+func (o SpringCloudApiPortalSsoOutput) ToSpringCloudApiPortalSsoOutput() SpringCloudApiPortalSsoOutput {
+	return o
+}
+
+func (o SpringCloudApiPortalSsoOutput) ToSpringCloudApiPortalSsoOutputWithContext(ctx context.Context) SpringCloudApiPortalSsoOutput {
+	return o
+}
+
+func (o SpringCloudApiPortalSsoOutput) ToSpringCloudApiPortalSsoPtrOutput() SpringCloudApiPortalSsoPtrOutput {
+	return o.ToSpringCloudApiPortalSsoPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudApiPortalSsoOutput) ToSpringCloudApiPortalSsoPtrOutputWithContext(ctx context.Context) SpringCloudApiPortalSsoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudApiPortalSso) *SpringCloudApiPortalSso {
+		return &v
+	}).(SpringCloudApiPortalSsoPtrOutput)
+}
+
+// The public identifier for the application.
+func (o SpringCloudApiPortalSsoOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudApiPortalSso) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The secret known only to the application and the authorization server.
+func (o SpringCloudApiPortalSsoOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudApiPortalSso) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// The URI of Issuer Identifier.
+func (o SpringCloudApiPortalSsoOutput) IssuerUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudApiPortalSso) *string { return v.IssuerUri }).(pulumi.StringPtrOutput)
+}
+
+// It defines the specific actions applications can be allowed to do on a user's behalf.
+func (o SpringCloudApiPortalSsoOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpringCloudApiPortalSso) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type SpringCloudApiPortalSsoPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudApiPortalSsoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudApiPortalSso)(nil)).Elem()
+}
+
+func (o SpringCloudApiPortalSsoPtrOutput) ToSpringCloudApiPortalSsoPtrOutput() SpringCloudApiPortalSsoPtrOutput {
+	return o
+}
+
+func (o SpringCloudApiPortalSsoPtrOutput) ToSpringCloudApiPortalSsoPtrOutputWithContext(ctx context.Context) SpringCloudApiPortalSsoPtrOutput {
+	return o
+}
+
+func (o SpringCloudApiPortalSsoPtrOutput) Elem() SpringCloudApiPortalSsoOutput {
+	return o.ApplyT(func(v *SpringCloudApiPortalSso) SpringCloudApiPortalSso {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudApiPortalSso
+		return ret
+	}).(SpringCloudApiPortalSsoOutput)
+}
+
+// The public identifier for the application.
+func (o SpringCloudApiPortalSsoPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudApiPortalSso) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secret known only to the application and the authorization server.
+func (o SpringCloudApiPortalSsoPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudApiPortalSso) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URI of Issuer Identifier.
+func (o SpringCloudApiPortalSsoPtrOutput) IssuerUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudApiPortalSso) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IssuerUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// It defines the specific actions applications can be allowed to do on a user's behalf.
+func (o SpringCloudApiPortalSsoPtrOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpringCloudApiPortalSso) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringArrayOutput)
+}
+
 type SpringCloudAppCustomPersistentDisk struct {
 	// These are the mount options for a persistent disk.
 	MountOptions []string `pulumi:"mountOptions"`
@@ -491,6 +685,162 @@ func (o SpringCloudAppPersistentDiskPtrOutput) SizeInGb() pulumi.IntPtrOutput {
 		}
 		return &v.SizeInGb
 	}).(pulumi.IntPtrOutput)
+}
+
+type SpringCloudBuildDeploymentQuota struct {
+	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	Cpu *string `pulumi:"cpu"`
+	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+	Memory *string `pulumi:"memory"`
+}
+
+// SpringCloudBuildDeploymentQuotaInput is an input type that accepts SpringCloudBuildDeploymentQuotaArgs and SpringCloudBuildDeploymentQuotaOutput values.
+// You can construct a concrete instance of `SpringCloudBuildDeploymentQuotaInput` via:
+//
+//          SpringCloudBuildDeploymentQuotaArgs{...}
+type SpringCloudBuildDeploymentQuotaInput interface {
+	pulumi.Input
+
+	ToSpringCloudBuildDeploymentQuotaOutput() SpringCloudBuildDeploymentQuotaOutput
+	ToSpringCloudBuildDeploymentQuotaOutputWithContext(context.Context) SpringCloudBuildDeploymentQuotaOutput
+}
+
+type SpringCloudBuildDeploymentQuotaArgs struct {
+	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
+	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+	Memory pulumi.StringPtrInput `pulumi:"memory"`
+}
+
+func (SpringCloudBuildDeploymentQuotaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudBuildDeploymentQuota)(nil)).Elem()
+}
+
+func (i SpringCloudBuildDeploymentQuotaArgs) ToSpringCloudBuildDeploymentQuotaOutput() SpringCloudBuildDeploymentQuotaOutput {
+	return i.ToSpringCloudBuildDeploymentQuotaOutputWithContext(context.Background())
+}
+
+func (i SpringCloudBuildDeploymentQuotaArgs) ToSpringCloudBuildDeploymentQuotaOutputWithContext(ctx context.Context) SpringCloudBuildDeploymentQuotaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildDeploymentQuotaOutput)
+}
+
+func (i SpringCloudBuildDeploymentQuotaArgs) ToSpringCloudBuildDeploymentQuotaPtrOutput() SpringCloudBuildDeploymentQuotaPtrOutput {
+	return i.ToSpringCloudBuildDeploymentQuotaPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudBuildDeploymentQuotaArgs) ToSpringCloudBuildDeploymentQuotaPtrOutputWithContext(ctx context.Context) SpringCloudBuildDeploymentQuotaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildDeploymentQuotaOutput).ToSpringCloudBuildDeploymentQuotaPtrOutputWithContext(ctx)
+}
+
+// SpringCloudBuildDeploymentQuotaPtrInput is an input type that accepts SpringCloudBuildDeploymentQuotaArgs, SpringCloudBuildDeploymentQuotaPtr and SpringCloudBuildDeploymentQuotaPtrOutput values.
+// You can construct a concrete instance of `SpringCloudBuildDeploymentQuotaPtrInput` via:
+//
+//          SpringCloudBuildDeploymentQuotaArgs{...}
+//
+//  or:
+//
+//          nil
+type SpringCloudBuildDeploymentQuotaPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudBuildDeploymentQuotaPtrOutput() SpringCloudBuildDeploymentQuotaPtrOutput
+	ToSpringCloudBuildDeploymentQuotaPtrOutputWithContext(context.Context) SpringCloudBuildDeploymentQuotaPtrOutput
+}
+
+type springCloudBuildDeploymentQuotaPtrType SpringCloudBuildDeploymentQuotaArgs
+
+func SpringCloudBuildDeploymentQuotaPtr(v *SpringCloudBuildDeploymentQuotaArgs) SpringCloudBuildDeploymentQuotaPtrInput {
+	return (*springCloudBuildDeploymentQuotaPtrType)(v)
+}
+
+func (*springCloudBuildDeploymentQuotaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudBuildDeploymentQuota)(nil)).Elem()
+}
+
+func (i *springCloudBuildDeploymentQuotaPtrType) ToSpringCloudBuildDeploymentQuotaPtrOutput() SpringCloudBuildDeploymentQuotaPtrOutput {
+	return i.ToSpringCloudBuildDeploymentQuotaPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudBuildDeploymentQuotaPtrType) ToSpringCloudBuildDeploymentQuotaPtrOutputWithContext(ctx context.Context) SpringCloudBuildDeploymentQuotaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildDeploymentQuotaPtrOutput)
+}
+
+type SpringCloudBuildDeploymentQuotaOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudBuildDeploymentQuotaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudBuildDeploymentQuota)(nil)).Elem()
+}
+
+func (o SpringCloudBuildDeploymentQuotaOutput) ToSpringCloudBuildDeploymentQuotaOutput() SpringCloudBuildDeploymentQuotaOutput {
+	return o
+}
+
+func (o SpringCloudBuildDeploymentQuotaOutput) ToSpringCloudBuildDeploymentQuotaOutputWithContext(ctx context.Context) SpringCloudBuildDeploymentQuotaOutput {
+	return o
+}
+
+func (o SpringCloudBuildDeploymentQuotaOutput) ToSpringCloudBuildDeploymentQuotaPtrOutput() SpringCloudBuildDeploymentQuotaPtrOutput {
+	return o.ToSpringCloudBuildDeploymentQuotaPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudBuildDeploymentQuotaOutput) ToSpringCloudBuildDeploymentQuotaPtrOutputWithContext(ctx context.Context) SpringCloudBuildDeploymentQuotaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudBuildDeploymentQuota) *SpringCloudBuildDeploymentQuota {
+		return &v
+	}).(SpringCloudBuildDeploymentQuotaPtrOutput)
+}
+
+// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+func (o SpringCloudBuildDeploymentQuotaOutput) Cpu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudBuildDeploymentQuota) *string { return v.Cpu }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+func (o SpringCloudBuildDeploymentQuotaOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudBuildDeploymentQuota) *string { return v.Memory }).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudBuildDeploymentQuotaPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudBuildDeploymentQuotaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudBuildDeploymentQuota)(nil)).Elem()
+}
+
+func (o SpringCloudBuildDeploymentQuotaPtrOutput) ToSpringCloudBuildDeploymentQuotaPtrOutput() SpringCloudBuildDeploymentQuotaPtrOutput {
+	return o
+}
+
+func (o SpringCloudBuildDeploymentQuotaPtrOutput) ToSpringCloudBuildDeploymentQuotaPtrOutputWithContext(ctx context.Context) SpringCloudBuildDeploymentQuotaPtrOutput {
+	return o
+}
+
+func (o SpringCloudBuildDeploymentQuotaPtrOutput) Elem() SpringCloudBuildDeploymentQuotaOutput {
+	return o.ApplyT(func(v *SpringCloudBuildDeploymentQuota) SpringCloudBuildDeploymentQuota {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudBuildDeploymentQuota
+		return ret
+	}).(SpringCloudBuildDeploymentQuotaOutput)
+}
+
+// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+func (o SpringCloudBuildDeploymentQuotaPtrOutput) Cpu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudBuildDeploymentQuota) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cpu
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+func (o SpringCloudBuildDeploymentQuotaPtrOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudBuildDeploymentQuota) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Memory
+	}).(pulumi.StringPtrOutput)
 }
 
 type SpringCloudBuildPackBindingLaunch struct {
@@ -1853,6 +2203,175 @@ func (o SpringCloudGatewayQuotaPtrOutput) Memory() pulumi.StringPtrOutput {
 		}
 		return v.Memory
 	}).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudGatewayRouteConfigRoute struct {
+	// Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
+	ClassificationTags []string `pulumi:"classificationTags"`
+	// Specifies the description which will be applied to methods in the generated OpenAPI documentation.
+	Description *string `pulumi:"description"`
+	// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
+	Filters []string `pulumi:"filters"`
+	// Specifies the route processing order.
+	Order *int `pulumi:"order"`
+	// Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+	Predicates []string `pulumi:"predicates"`
+	// Should the sso validation be enabled?
+	SsoValidationEnabled *bool `pulumi:"ssoValidationEnabled"`
+	// Specifies the title which will be applied to methods in the generated OpenAPI documentation.
+	Title *string `pulumi:"title"`
+	// Should pass currently-authenticated user's identity token to application service?
+	TokenRelay *bool `pulumi:"tokenRelay"`
+	// Specifies the full uri which will override `appName`.
+	Uri *string `pulumi:"uri"`
+}
+
+// SpringCloudGatewayRouteConfigRouteInput is an input type that accepts SpringCloudGatewayRouteConfigRouteArgs and SpringCloudGatewayRouteConfigRouteOutput values.
+// You can construct a concrete instance of `SpringCloudGatewayRouteConfigRouteInput` via:
+//
+//          SpringCloudGatewayRouteConfigRouteArgs{...}
+type SpringCloudGatewayRouteConfigRouteInput interface {
+	pulumi.Input
+
+	ToSpringCloudGatewayRouteConfigRouteOutput() SpringCloudGatewayRouteConfigRouteOutput
+	ToSpringCloudGatewayRouteConfigRouteOutputWithContext(context.Context) SpringCloudGatewayRouteConfigRouteOutput
+}
+
+type SpringCloudGatewayRouteConfigRouteArgs struct {
+	// Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
+	ClassificationTags pulumi.StringArrayInput `pulumi:"classificationTags"`
+	// Specifies the description which will be applied to methods in the generated OpenAPI documentation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
+	Filters pulumi.StringArrayInput `pulumi:"filters"`
+	// Specifies the route processing order.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+	Predicates pulumi.StringArrayInput `pulumi:"predicates"`
+	// Should the sso validation be enabled?
+	SsoValidationEnabled pulumi.BoolPtrInput `pulumi:"ssoValidationEnabled"`
+	// Specifies the title which will be applied to methods in the generated OpenAPI documentation.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// Should pass currently-authenticated user's identity token to application service?
+	TokenRelay pulumi.BoolPtrInput `pulumi:"tokenRelay"`
+	// Specifies the full uri which will override `appName`.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (SpringCloudGatewayRouteConfigRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudGatewayRouteConfigRoute)(nil)).Elem()
+}
+
+func (i SpringCloudGatewayRouteConfigRouteArgs) ToSpringCloudGatewayRouteConfigRouteOutput() SpringCloudGatewayRouteConfigRouteOutput {
+	return i.ToSpringCloudGatewayRouteConfigRouteOutputWithContext(context.Background())
+}
+
+func (i SpringCloudGatewayRouteConfigRouteArgs) ToSpringCloudGatewayRouteConfigRouteOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayRouteConfigRouteOutput)
+}
+
+// SpringCloudGatewayRouteConfigRouteArrayInput is an input type that accepts SpringCloudGatewayRouteConfigRouteArray and SpringCloudGatewayRouteConfigRouteArrayOutput values.
+// You can construct a concrete instance of `SpringCloudGatewayRouteConfigRouteArrayInput` via:
+//
+//          SpringCloudGatewayRouteConfigRouteArray{ SpringCloudGatewayRouteConfigRouteArgs{...} }
+type SpringCloudGatewayRouteConfigRouteArrayInput interface {
+	pulumi.Input
+
+	ToSpringCloudGatewayRouteConfigRouteArrayOutput() SpringCloudGatewayRouteConfigRouteArrayOutput
+	ToSpringCloudGatewayRouteConfigRouteArrayOutputWithContext(context.Context) SpringCloudGatewayRouteConfigRouteArrayOutput
+}
+
+type SpringCloudGatewayRouteConfigRouteArray []SpringCloudGatewayRouteConfigRouteInput
+
+func (SpringCloudGatewayRouteConfigRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpringCloudGatewayRouteConfigRoute)(nil)).Elem()
+}
+
+func (i SpringCloudGatewayRouteConfigRouteArray) ToSpringCloudGatewayRouteConfigRouteArrayOutput() SpringCloudGatewayRouteConfigRouteArrayOutput {
+	return i.ToSpringCloudGatewayRouteConfigRouteArrayOutputWithContext(context.Background())
+}
+
+func (i SpringCloudGatewayRouteConfigRouteArray) ToSpringCloudGatewayRouteConfigRouteArrayOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayRouteConfigRouteArrayOutput)
+}
+
+type SpringCloudGatewayRouteConfigRouteOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudGatewayRouteConfigRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudGatewayRouteConfigRoute)(nil)).Elem()
+}
+
+func (o SpringCloudGatewayRouteConfigRouteOutput) ToSpringCloudGatewayRouteConfigRouteOutput() SpringCloudGatewayRouteConfigRouteOutput {
+	return o
+}
+
+func (o SpringCloudGatewayRouteConfigRouteOutput) ToSpringCloudGatewayRouteConfigRouteOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigRouteOutput {
+	return o
+}
+
+// Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
+func (o SpringCloudGatewayRouteConfigRouteOutput) ClassificationTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpringCloudGatewayRouteConfigRoute) []string { return v.ClassificationTags }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the description which will be applied to methods in the generated OpenAPI documentation.
+func (o SpringCloudGatewayRouteConfigRouteOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudGatewayRouteConfigRoute) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
+func (o SpringCloudGatewayRouteConfigRouteOutput) Filters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpringCloudGatewayRouteConfigRoute) []string { return v.Filters }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the route processing order.
+func (o SpringCloudGatewayRouteConfigRouteOutput) Order() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpringCloudGatewayRouteConfigRoute) *int { return v.Order }).(pulumi.IntPtrOutput)
+}
+
+// Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+func (o SpringCloudGatewayRouteConfigRouteOutput) Predicates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpringCloudGatewayRouteConfigRoute) []string { return v.Predicates }).(pulumi.StringArrayOutput)
+}
+
+// Should the sso validation be enabled?
+func (o SpringCloudGatewayRouteConfigRouteOutput) SsoValidationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpringCloudGatewayRouteConfigRoute) *bool { return v.SsoValidationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the title which will be applied to methods in the generated OpenAPI documentation.
+func (o SpringCloudGatewayRouteConfigRouteOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudGatewayRouteConfigRoute) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// Should pass currently-authenticated user's identity token to application service?
+func (o SpringCloudGatewayRouteConfigRouteOutput) TokenRelay() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpringCloudGatewayRouteConfigRoute) *bool { return v.TokenRelay }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the full uri which will override `appName`.
+func (o SpringCloudGatewayRouteConfigRouteOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudGatewayRouteConfigRoute) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudGatewayRouteConfigRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudGatewayRouteConfigRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpringCloudGatewayRouteConfigRoute)(nil)).Elem()
+}
+
+func (o SpringCloudGatewayRouteConfigRouteArrayOutput) ToSpringCloudGatewayRouteConfigRouteArrayOutput() SpringCloudGatewayRouteConfigRouteArrayOutput {
+	return o
+}
+
+func (o SpringCloudGatewayRouteConfigRouteArrayOutput) ToSpringCloudGatewayRouteConfigRouteArrayOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigRouteArrayOutput {
+	return o
+}
+
+func (o SpringCloudGatewayRouteConfigRouteArrayOutput) Index(i pulumi.IntInput) SpringCloudGatewayRouteConfigRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudGatewayRouteConfigRoute {
+		return vs[0].([]SpringCloudGatewayRouteConfigRoute)[vs[1].(int)]
+	}).(SpringCloudGatewayRouteConfigRouteOutput)
 }
 
 type SpringCloudGatewaySso struct {
@@ -4925,12 +5444,16 @@ func (o GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) Index(i pulu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudApiPortalSsoInput)(nil)).Elem(), SpringCloudApiPortalSsoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudApiPortalSsoPtrInput)(nil)).Elem(), SpringCloudApiPortalSsoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCustomPersistentDiskInput)(nil)).Elem(), SpringCloudAppCustomPersistentDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCustomPersistentDiskArrayInput)(nil)).Elem(), SpringCloudAppCustomPersistentDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppIdentityInput)(nil)).Elem(), SpringCloudAppIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppIdentityPtrInput)(nil)).Elem(), SpringCloudAppIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppPersistentDiskInput)(nil)).Elem(), SpringCloudAppPersistentDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppPersistentDiskPtrInput)(nil)).Elem(), SpringCloudAppPersistentDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudBuildDeploymentQuotaInput)(nil)).Elem(), SpringCloudBuildDeploymentQuotaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudBuildDeploymentQuotaPtrInput)(nil)).Elem(), SpringCloudBuildDeploymentQuotaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudBuildPackBindingLaunchInput)(nil)).Elem(), SpringCloudBuildPackBindingLaunchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudBuildPackBindingLaunchPtrInput)(nil)).Elem(), SpringCloudBuildPackBindingLaunchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudBuilderBuildPackGroupInput)(nil)).Elem(), SpringCloudBuilderBuildPackGroupArgs{})
@@ -4947,6 +5470,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayCorsPtrInput)(nil)).Elem(), SpringCloudGatewayCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayQuotaInput)(nil)).Elem(), SpringCloudGatewayQuotaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayQuotaPtrInput)(nil)).Elem(), SpringCloudGatewayQuotaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayRouteConfigRouteInput)(nil)).Elem(), SpringCloudGatewayRouteConfigRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayRouteConfigRouteArrayInput)(nil)).Elem(), SpringCloudGatewayRouteConfigRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewaySsoInput)(nil)).Elem(), SpringCloudGatewaySsoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewaySsoPtrInput)(nil)).Elem(), SpringCloudGatewaySsoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudJavaDeploymentQuotaInput)(nil)).Elem(), SpringCloudJavaDeploymentQuotaArgs{})
@@ -4987,12 +5512,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSettingSshAuthArrayInput)(nil)).Elem(), GetSpringCloudServiceConfigServerGitSettingSshAuthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSpringCloudServiceRequiredNetworkTrafficRuleInput)(nil)).Elem(), GetSpringCloudServiceRequiredNetworkTrafficRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSpringCloudServiceRequiredNetworkTrafficRuleArrayInput)(nil)).Elem(), GetSpringCloudServiceRequiredNetworkTrafficRuleArray{})
+	pulumi.RegisterOutputType(SpringCloudApiPortalSsoOutput{})
+	pulumi.RegisterOutputType(SpringCloudApiPortalSsoPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppCustomPersistentDiskOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppCustomPersistentDiskArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppIdentityOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppPersistentDiskOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppPersistentDiskPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudBuildDeploymentQuotaOutput{})
+	pulumi.RegisterOutputType(SpringCloudBuildDeploymentQuotaPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudBuildPackBindingLaunchOutput{})
 	pulumi.RegisterOutputType(SpringCloudBuildPackBindingLaunchPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudBuilderBuildPackGroupOutput{})
@@ -5009,6 +5538,8 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudGatewayCorsPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayQuotaOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayQuotaPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudGatewayRouteConfigRouteOutput{})
+	pulumi.RegisterOutputType(SpringCloudGatewayRouteConfigRouteArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewaySsoOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewaySsoPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudJavaDeploymentQuotaOutput{})

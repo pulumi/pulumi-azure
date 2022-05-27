@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment":
 		r = &SpringCloudActiveDeployment{}
+	case "azure:appplatform/springCloudApiPortal:SpringCloudApiPortal":
+		r = &SpringCloudApiPortal{}
 	case "azure:appplatform/springCloudApp:SpringCloudApp":
 		r = &SpringCloudApp{}
 	case "azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation":
@@ -31,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpringCloudAppMysqlAssociation{}
 	case "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation":
 		r = &SpringCloudAppRedisAssociation{}
+	case "azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment":
+		r = &SpringCloudBuildDeployment{}
 	case "azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding":
 		r = &SpringCloudBuildPackBinding{}
 	case "azure:appplatform/springCloudBuilder:SpringCloudBuilder":
@@ -47,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpringCloudGateway{}
 	case "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain":
 		r = &SpringCloudGatewayCustomDomain{}
+	case "azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig":
+		r = &SpringCloudGatewayRouteConfig{}
 	case "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment":
 		r = &SpringCloudJavaDeployment{}
 	case "azure:appplatform/springCloudService:SpringCloudService":
@@ -73,6 +79,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"appplatform/springCloudApiPortal",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"appplatform/springCloudApp",
 		&module{version},
 	)
@@ -89,6 +100,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appplatform/springCloudAppRedisAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudBuildDeployment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -129,6 +145,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appplatform/springCloudGatewayCustomDomain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudGatewayRouteConfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

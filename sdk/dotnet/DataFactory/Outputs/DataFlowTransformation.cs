@@ -14,9 +14,17 @@ namespace Pulumi.Azure.DataFactory.Outputs
     public sealed class DataFlowTransformation
     {
         /// <summary>
+        /// A `dataset` block as defined below.
+        /// </summary>
+        public readonly Outputs.DataFlowTransformationDataset? Dataset;
+        /// <summary>
         /// The description for the Data Flow transformation.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// A `linked_service` block as defined below.
+        /// </summary>
+        public readonly Outputs.DataFlowTransformationLinkedService? LinkedService;
         /// <summary>
         /// The name for the Data Flow transformation.
         /// </summary>
@@ -24,11 +32,17 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
         [OutputConstructor]
         private DataFlowTransformation(
+            Outputs.DataFlowTransformationDataset? dataset,
+
             string? description,
+
+            Outputs.DataFlowTransformationLinkedService? linkedService,
 
             string name)
         {
+            Dataset = dataset;
             Description = description;
+            LinkedService = linkedService;
             Name = name;
         }
     }

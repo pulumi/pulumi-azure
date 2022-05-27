@@ -77,13 +77,17 @@ type ChannelsRegistration struct {
 	// The icon URL to visually identify the Bot Channels Registration.
 	IconUrl pulumi.StringOutput `pulumi:"iconUrl"`
 	// Is the Bot Channels Registration in an isolated network?
-	IsolatedNetworkEnabled pulumi.BoolPtrOutput `pulumi:"isolatedNetworkEnabled"`
+	//
+	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+	IsolatedNetworkEnabled pulumi.BoolOutput `pulumi:"isolatedNetworkEnabled"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
 	MicrosoftAppId pulumi.StringOutput `pulumi:"microsoftAppId"`
 	// Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Is the Bot Channels Registration in an isolated network?
+	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
@@ -147,6 +151,8 @@ type channelsRegistrationState struct {
 	// The icon URL to visually identify the Bot Channels Registration.
 	IconUrl *string `pulumi:"iconUrl"`
 	// Is the Bot Channels Registration in an isolated network?
+	//
+	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled *bool `pulumi:"isolatedNetworkEnabled"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -154,6 +160,8 @@ type channelsRegistrationState struct {
 	MicrosoftAppId *string `pulumi:"microsoftAppId"`
 	// Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
 	Name *string `pulumi:"name"`
+	// Is the Bot Channels Registration in an isolated network?
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
@@ -180,6 +188,8 @@ type ChannelsRegistrationState struct {
 	// The icon URL to visually identify the Bot Channels Registration.
 	IconUrl pulumi.StringPtrInput
 	// Is the Bot Channels Registration in an isolated network?
+	//
+	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled pulumi.BoolPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -187,6 +197,8 @@ type ChannelsRegistrationState struct {
 	MicrosoftAppId pulumi.StringPtrInput
 	// Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringPtrInput
+	// Is the Bot Channels Registration in an isolated network?
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
@@ -217,6 +229,8 @@ type channelsRegistrationArgs struct {
 	// The icon URL to visually identify the Bot Channels Registration.
 	IconUrl *string `pulumi:"iconUrl"`
 	// Is the Bot Channels Registration in an isolated network?
+	//
+	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled *bool `pulumi:"isolatedNetworkEnabled"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -224,6 +238,8 @@ type channelsRegistrationArgs struct {
 	MicrosoftAppId string `pulumi:"microsoftAppId"`
 	// Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
 	Name *string `pulumi:"name"`
+	// Is the Bot Channels Registration in an isolated network?
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
@@ -251,6 +267,8 @@ type ChannelsRegistrationArgs struct {
 	// The icon URL to visually identify the Bot Channels Registration.
 	IconUrl pulumi.StringPtrInput
 	// Is the Bot Channels Registration in an isolated network?
+	//
+	// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	IsolatedNetworkEnabled pulumi.BoolPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -258,6 +276,8 @@ type ChannelsRegistrationArgs struct {
 	MicrosoftAppId pulumi.StringInput
 	// Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringPtrInput
+	// Is the Bot Channels Registration in an isolated network?
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
@@ -394,8 +414,10 @@ func (o ChannelsRegistrationOutput) IconUrl() pulumi.StringOutput {
 }
 
 // Is the Bot Channels Registration in an isolated network?
-func (o ChannelsRegistrationOutput) IsolatedNetworkEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ChannelsRegistration) pulumi.BoolPtrOutput { return v.IsolatedNetworkEnabled }).(pulumi.BoolPtrOutput)
+//
+// Deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+func (o ChannelsRegistrationOutput) IsolatedNetworkEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ChannelsRegistration) pulumi.BoolOutput { return v.IsolatedNetworkEnabled }).(pulumi.BoolOutput)
 }
 
 // The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -411,6 +433,11 @@ func (o ChannelsRegistrationOutput) MicrosoftAppId() pulumi.StringOutput {
 // Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
 func (o ChannelsRegistrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelsRegistration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Is the Bot Channels Registration in an isolated network?
+func (o ChannelsRegistrationOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ChannelsRegistration) pulumi.BoolOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
 // The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.

@@ -242,8 +242,9 @@ type Account struct {
 	// The endpoint URL for web storage in the secondary location.
 	SecondaryWebEndpoint pulumi.StringOutput `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
-	SecondaryWebHost pulumi.StringOutput          `pulumi:"secondaryWebHost"`
-	ShareProperties  AccountSharePropertiesOutput `pulumi:"shareProperties"`
+	SecondaryWebHost pulumi.StringOutput `pulumi:"secondaryWebHost"`
+	// A `shareProperties` block as defined below.
+	ShareProperties AccountSharePropertiesOutput `pulumi:"shareProperties"`
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
 	SharedAccessKeyEnabled pulumi.BoolPtrOutput `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
@@ -406,8 +407,9 @@ type accountState struct {
 	// The endpoint URL for web storage in the secondary location.
 	SecondaryWebEndpoint *string `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
-	SecondaryWebHost *string                 `pulumi:"secondaryWebHost"`
-	ShareProperties  *AccountShareProperties `pulumi:"shareProperties"`
+	SecondaryWebHost *string `pulumi:"secondaryWebHost"`
+	// A `shareProperties` block as defined below.
+	ShareProperties *AccountShareProperties `pulumi:"shareProperties"`
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
 	SharedAccessKeyEnabled *bool `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
@@ -534,7 +536,8 @@ type AccountState struct {
 	SecondaryWebEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost pulumi.StringPtrInput
-	ShareProperties  AccountSharePropertiesPtrInput
+	// A `shareProperties` block as defined below.
+	ShareProperties AccountSharePropertiesPtrInput
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
 	SharedAccessKeyEnabled pulumi.BoolPtrInput
 	// A `staticWebsite` block as defined below.
@@ -600,7 +603,8 @@ type accountArgs struct {
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `routing` block as defined below.
-	Routing         *AccountRouting         `pulumi:"routing"`
+	Routing *AccountRouting `pulumi:"routing"`
+	// A `shareProperties` block as defined below.
 	ShareProperties *AccountShareProperties `pulumi:"shareProperties"`
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
 	SharedAccessKeyEnabled *bool `pulumi:"sharedAccessKeyEnabled"`
@@ -664,7 +668,8 @@ type AccountArgs struct {
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `routing` block as defined below.
-	Routing         AccountRoutingPtrInput
+	Routing AccountRoutingPtrInput
+	// A `shareProperties` block as defined below.
 	ShareProperties AccountSharePropertiesPtrInput
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
 	SharedAccessKeyEnabled pulumi.BoolPtrInput
@@ -1049,6 +1054,7 @@ func (o AccountOutput) SecondaryWebHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryWebHost }).(pulumi.StringOutput)
 }
 
+// A `shareProperties` block as defined below.
 func (o AccountOutput) ShareProperties() AccountSharePropertiesOutput {
 	return o.ApplyT(func(v *Account) AccountSharePropertiesOutput { return v.ShareProperties }).(AccountSharePropertiesOutput)
 }

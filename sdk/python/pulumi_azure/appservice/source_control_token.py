@@ -138,7 +138,7 @@ class SourceControlToken(pulumi.CustomResource):
         App Service Source GitHub Tokens can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/sourceControlToken:SourceControlToken example /providers/Microsoft.Web/sourcecontrols/GitHub
+         $ pulumi import azure:appservice/sourceControlToken:SourceControlToken example /providers/Microsoft.Web/sourceControls/GitHub
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,7 +169,7 @@ class SourceControlToken(pulumi.CustomResource):
         App Service Source GitHub Tokens can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/sourceControlToken:SourceControlToken example /providers/Microsoft.Web/sourcecontrols/GitHub
+         $ pulumi import azure:appservice/sourceControlToken:SourceControlToken example /providers/Microsoft.Web/sourceControls/GitHub
         ```
 
         :param str resource_name: The name of the resource.

@@ -748,6 +748,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appplatform/springCloudApiPortal",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudApiPortal:SpringCloudApiPortal": "SpringCloudApiPortal"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appplatform/springCloudApp",
   "fqn": "pulumi_azure.appplatform",
   "classes": {
@@ -776,6 +784,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appplatform",
   "classes": {
    "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation": "SpringCloudAppRedisAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appplatform/springCloudBuildDeployment",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment": "SpringCloudBuildDeployment"
   }
  },
  {
@@ -840,6 +856,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appplatform",
   "classes": {
    "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain": "SpringCloudGatewayCustomDomain"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appplatform/springCloudGatewayRouteConfig",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig": "SpringCloudGatewayRouteConfig"
   }
  },
  {
@@ -4648,6 +4672,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mssql",
   "classes": {
    "azure:mssql/server:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mssql/serverDnsAlias",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/serverDnsAlias:ServerDnsAlias": "ServerDnsAlias"
   }
  },
  {

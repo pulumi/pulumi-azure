@@ -538,6 +538,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_spring_cloud_configuration_service":    {Tok: azureResource(azureAppPlatform, "SpringCloudConfigurationService")},
 			"azurerm_spring_cloud_gateway":                  {Tok: azureResource(azureAppPlatform, "SpringCloudGateway")},
 			"azurerm_spring_cloud_gateway_custom_domain":    {Tok: azureResource(azureAppPlatform, "SpringCloudGatewayCustomDomain")},
+			"azurerm_spring_cloud_api_portal":               {Tok: azureResource(azureAppPlatform, "SpringCloudApiPortal")},
+			"azurerm_spring_cloud_build_deployment":         {Tok: azureResource(azureAppPlatform, "SpringCloudBuildDeployment")},
+			"azurerm_spring_cloud_gateway_route_config":     {Tok: azureResource(azureAppPlatform, "SpringCloudGatewayRouteConfig")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -1278,6 +1281,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_managed_instance_active_directory_administrator": {Tok: azureResource(azureMSSQL, "ManagedInstanceActiveDirectoryAdministrator")},
 			"azurerm_mssql_managed_instance_failover_group":                 {Tok: azureResource(azureMSSQL, "ManagedInstanceFailoverGroup")},
 			"azurerm_mssql_managed_instance_vulnerability_assessment":       {Tok: azureResource(azureMSSQL, "ManagedInstanceVulnerabilityAssessment")},
+			"azurerm_mssql_server_dns_alias":                                {Tok: azureResource(azureMSSQL, "ServerDnsAlias")},
 
 			// MySQL
 			"azurerm_mysql_configuration": {

@@ -231,6 +231,7 @@ namespace Pulumi.Azure.Bot
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
+        [Obsolete(@"This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.")]
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -310,6 +311,7 @@ namespace Pulumi.Azure.Bot
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
+        [Obsolete(@"This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.")]
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

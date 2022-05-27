@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Policy
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        /// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managementGroupId")]
         public Output<string?> ManagementGroupId { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Policy
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        /// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managementGroupId")]
         public Input<string>? ManagementGroupId { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        /// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managementGroupId")]
         public Input<string>? ManagementGroupId { get; set; }

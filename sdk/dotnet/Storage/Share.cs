@@ -72,8 +72,11 @@ namespace Pulumi.Azure.Storage
     [AzureResourceType("azure:storage/share:Share")]
     public partial class Share : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+        /// </summary>
         [Output("accessTier")]
-        public Output<string?> AccessTier { get; private set; } = null!;
+        public Output<string> AccessTier { get; private set; } = null!;
 
         /// <summary>
         /// One or more `acl` blocks as defined below.
@@ -170,6 +173,9 @@ namespace Pulumi.Azure.Storage
 
     public sealed class ShareArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+        /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
 
@@ -229,6 +235,9 @@ namespace Pulumi.Azure.Storage
 
     public sealed class ShareState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+        /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
 

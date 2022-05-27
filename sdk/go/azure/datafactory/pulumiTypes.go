@@ -1369,8 +1369,12 @@ func (o DataFlowSourceSchemaLinkedServicePtrOutput) Parameters() pulumi.StringMa
 }
 
 type DataFlowTransformation struct {
+	// A `dataset` block as defined below.
+	Dataset *DataFlowTransformationDataset `pulumi:"dataset"`
 	// The description for the Data Flow transformation.
 	Description *string `pulumi:"description"`
+	// A `linkedService` block as defined below.
+	LinkedService *DataFlowTransformationLinkedService `pulumi:"linkedService"`
 	// The name for the Data Flow transformation.
 	Name string `pulumi:"name"`
 }
@@ -1387,8 +1391,12 @@ type DataFlowTransformationInput interface {
 }
 
 type DataFlowTransformationArgs struct {
+	// A `dataset` block as defined below.
+	Dataset DataFlowTransformationDatasetPtrInput `pulumi:"dataset"`
 	// The description for the Data Flow transformation.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A `linkedService` block as defined below.
+	LinkedService DataFlowTransformationLinkedServicePtrInput `pulumi:"linkedService"`
 	// The name for the Data Flow transformation.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -1444,9 +1452,19 @@ func (o DataFlowTransformationOutput) ToDataFlowTransformationOutputWithContext(
 	return o
 }
 
+// A `dataset` block as defined below.
+func (o DataFlowTransformationOutput) Dataset() DataFlowTransformationDatasetPtrOutput {
+	return o.ApplyT(func(v DataFlowTransformation) *DataFlowTransformationDataset { return v.Dataset }).(DataFlowTransformationDatasetPtrOutput)
+}
+
 // The description for the Data Flow transformation.
 func (o DataFlowTransformationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFlowTransformation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A `linkedService` block as defined below.
+func (o DataFlowTransformationOutput) LinkedService() DataFlowTransformationLinkedServicePtrOutput {
+	return o.ApplyT(func(v DataFlowTransformation) *DataFlowTransformationLinkedService { return v.LinkedService }).(DataFlowTransformationLinkedServicePtrOutput)
 }
 
 // The name for the Data Flow transformation.
@@ -1472,6 +1490,318 @@ func (o DataFlowTransformationArrayOutput) Index(i pulumi.IntInput) DataFlowTran
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataFlowTransformation {
 		return vs[0].([]DataFlowTransformation)[vs[1].(int)]
 	}).(DataFlowTransformationOutput)
+}
+
+type DataFlowTransformationDataset struct {
+	// The name for the Data Factory Dataset.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory dataset.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowTransformationDatasetInput is an input type that accepts DataFlowTransformationDatasetArgs and DataFlowTransformationDatasetOutput values.
+// You can construct a concrete instance of `DataFlowTransformationDatasetInput` via:
+//
+//          DataFlowTransformationDatasetArgs{...}
+type DataFlowTransformationDatasetInput interface {
+	pulumi.Input
+
+	ToDataFlowTransformationDatasetOutput() DataFlowTransformationDatasetOutput
+	ToDataFlowTransformationDatasetOutputWithContext(context.Context) DataFlowTransformationDatasetOutput
+}
+
+type DataFlowTransformationDatasetArgs struct {
+	// The name for the Data Factory Dataset.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory dataset.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowTransformationDatasetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowTransformationDataset)(nil)).Elem()
+}
+
+func (i DataFlowTransformationDatasetArgs) ToDataFlowTransformationDatasetOutput() DataFlowTransformationDatasetOutput {
+	return i.ToDataFlowTransformationDatasetOutputWithContext(context.Background())
+}
+
+func (i DataFlowTransformationDatasetArgs) ToDataFlowTransformationDatasetOutputWithContext(ctx context.Context) DataFlowTransformationDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowTransformationDatasetOutput)
+}
+
+func (i DataFlowTransformationDatasetArgs) ToDataFlowTransformationDatasetPtrOutput() DataFlowTransformationDatasetPtrOutput {
+	return i.ToDataFlowTransformationDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowTransformationDatasetArgs) ToDataFlowTransformationDatasetPtrOutputWithContext(ctx context.Context) DataFlowTransformationDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowTransformationDatasetOutput).ToDataFlowTransformationDatasetPtrOutputWithContext(ctx)
+}
+
+// DataFlowTransformationDatasetPtrInput is an input type that accepts DataFlowTransformationDatasetArgs, DataFlowTransformationDatasetPtr and DataFlowTransformationDatasetPtrOutput values.
+// You can construct a concrete instance of `DataFlowTransformationDatasetPtrInput` via:
+//
+//          DataFlowTransformationDatasetArgs{...}
+//
+//  or:
+//
+//          nil
+type DataFlowTransformationDatasetPtrInput interface {
+	pulumi.Input
+
+	ToDataFlowTransformationDatasetPtrOutput() DataFlowTransformationDatasetPtrOutput
+	ToDataFlowTransformationDatasetPtrOutputWithContext(context.Context) DataFlowTransformationDatasetPtrOutput
+}
+
+type dataFlowTransformationDatasetPtrType DataFlowTransformationDatasetArgs
+
+func DataFlowTransformationDatasetPtr(v *DataFlowTransformationDatasetArgs) DataFlowTransformationDatasetPtrInput {
+	return (*dataFlowTransformationDatasetPtrType)(v)
+}
+
+func (*dataFlowTransformationDatasetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowTransformationDataset)(nil)).Elem()
+}
+
+func (i *dataFlowTransformationDatasetPtrType) ToDataFlowTransformationDatasetPtrOutput() DataFlowTransformationDatasetPtrOutput {
+	return i.ToDataFlowTransformationDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowTransformationDatasetPtrType) ToDataFlowTransformationDatasetPtrOutputWithContext(ctx context.Context) DataFlowTransformationDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowTransformationDatasetPtrOutput)
+}
+
+type DataFlowTransformationDatasetOutput struct{ *pulumi.OutputState }
+
+func (DataFlowTransformationDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowTransformationDataset)(nil)).Elem()
+}
+
+func (o DataFlowTransformationDatasetOutput) ToDataFlowTransformationDatasetOutput() DataFlowTransformationDatasetOutput {
+	return o
+}
+
+func (o DataFlowTransformationDatasetOutput) ToDataFlowTransformationDatasetOutputWithContext(ctx context.Context) DataFlowTransformationDatasetOutput {
+	return o
+}
+
+func (o DataFlowTransformationDatasetOutput) ToDataFlowTransformationDatasetPtrOutput() DataFlowTransformationDatasetPtrOutput {
+	return o.ToDataFlowTransformationDatasetPtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowTransformationDatasetOutput) ToDataFlowTransformationDatasetPtrOutputWithContext(ctx context.Context) DataFlowTransformationDatasetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowTransformationDataset) *DataFlowTransformationDataset {
+		return &v
+	}).(DataFlowTransformationDatasetPtrOutput)
+}
+
+// The name for the Data Factory Dataset.
+func (o DataFlowTransformationDatasetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowTransformationDataset) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory dataset.
+func (o DataFlowTransformationDatasetOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowTransformationDataset) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowTransformationDatasetPtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowTransformationDatasetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowTransformationDataset)(nil)).Elem()
+}
+
+func (o DataFlowTransformationDatasetPtrOutput) ToDataFlowTransformationDatasetPtrOutput() DataFlowTransformationDatasetPtrOutput {
+	return o
+}
+
+func (o DataFlowTransformationDatasetPtrOutput) ToDataFlowTransformationDatasetPtrOutputWithContext(ctx context.Context) DataFlowTransformationDatasetPtrOutput {
+	return o
+}
+
+func (o DataFlowTransformationDatasetPtrOutput) Elem() DataFlowTransformationDatasetOutput {
+	return o.ApplyT(func(v *DataFlowTransformationDataset) DataFlowTransformationDataset {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowTransformationDataset
+		return ret
+	}).(DataFlowTransformationDatasetOutput)
+}
+
+// The name for the Data Factory Dataset.
+func (o DataFlowTransformationDatasetPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowTransformationDataset) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory dataset.
+func (o DataFlowTransformationDatasetPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowTransformationDataset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type DataFlowTransformationLinkedService struct {
+	// The name for the Data Factory Linked Service.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowTransformationLinkedServiceInput is an input type that accepts DataFlowTransformationLinkedServiceArgs and DataFlowTransformationLinkedServiceOutput values.
+// You can construct a concrete instance of `DataFlowTransformationLinkedServiceInput` via:
+//
+//          DataFlowTransformationLinkedServiceArgs{...}
+type DataFlowTransformationLinkedServiceInput interface {
+	pulumi.Input
+
+	ToDataFlowTransformationLinkedServiceOutput() DataFlowTransformationLinkedServiceOutput
+	ToDataFlowTransformationLinkedServiceOutputWithContext(context.Context) DataFlowTransformationLinkedServiceOutput
+}
+
+type DataFlowTransformationLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowTransformationLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowTransformationLinkedService)(nil)).Elem()
+}
+
+func (i DataFlowTransformationLinkedServiceArgs) ToDataFlowTransformationLinkedServiceOutput() DataFlowTransformationLinkedServiceOutput {
+	return i.ToDataFlowTransformationLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i DataFlowTransformationLinkedServiceArgs) ToDataFlowTransformationLinkedServiceOutputWithContext(ctx context.Context) DataFlowTransformationLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowTransformationLinkedServiceOutput)
+}
+
+func (i DataFlowTransformationLinkedServiceArgs) ToDataFlowTransformationLinkedServicePtrOutput() DataFlowTransformationLinkedServicePtrOutput {
+	return i.ToDataFlowTransformationLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowTransformationLinkedServiceArgs) ToDataFlowTransformationLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowTransformationLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowTransformationLinkedServiceOutput).ToDataFlowTransformationLinkedServicePtrOutputWithContext(ctx)
+}
+
+// DataFlowTransformationLinkedServicePtrInput is an input type that accepts DataFlowTransformationLinkedServiceArgs, DataFlowTransformationLinkedServicePtr and DataFlowTransformationLinkedServicePtrOutput values.
+// You can construct a concrete instance of `DataFlowTransformationLinkedServicePtrInput` via:
+//
+//          DataFlowTransformationLinkedServiceArgs{...}
+//
+//  or:
+//
+//          nil
+type DataFlowTransformationLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToDataFlowTransformationLinkedServicePtrOutput() DataFlowTransformationLinkedServicePtrOutput
+	ToDataFlowTransformationLinkedServicePtrOutputWithContext(context.Context) DataFlowTransformationLinkedServicePtrOutput
+}
+
+type dataFlowTransformationLinkedServicePtrType DataFlowTransformationLinkedServiceArgs
+
+func DataFlowTransformationLinkedServicePtr(v *DataFlowTransformationLinkedServiceArgs) DataFlowTransformationLinkedServicePtrInput {
+	return (*dataFlowTransformationLinkedServicePtrType)(v)
+}
+
+func (*dataFlowTransformationLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowTransformationLinkedService)(nil)).Elem()
+}
+
+func (i *dataFlowTransformationLinkedServicePtrType) ToDataFlowTransformationLinkedServicePtrOutput() DataFlowTransformationLinkedServicePtrOutput {
+	return i.ToDataFlowTransformationLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowTransformationLinkedServicePtrType) ToDataFlowTransformationLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowTransformationLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowTransformationLinkedServicePtrOutput)
+}
+
+type DataFlowTransformationLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (DataFlowTransformationLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowTransformationLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowTransformationLinkedServiceOutput) ToDataFlowTransformationLinkedServiceOutput() DataFlowTransformationLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowTransformationLinkedServiceOutput) ToDataFlowTransformationLinkedServiceOutputWithContext(ctx context.Context) DataFlowTransformationLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowTransformationLinkedServiceOutput) ToDataFlowTransformationLinkedServicePtrOutput() DataFlowTransformationLinkedServicePtrOutput {
+	return o.ToDataFlowTransformationLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowTransformationLinkedServiceOutput) ToDataFlowTransformationLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowTransformationLinkedServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowTransformationLinkedService) *DataFlowTransformationLinkedService {
+		return &v
+	}).(DataFlowTransformationLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service.
+func (o DataFlowTransformationLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowTransformationLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowTransformationLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowTransformationLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowTransformationLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowTransformationLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowTransformationLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowTransformationLinkedServicePtrOutput) ToDataFlowTransformationLinkedServicePtrOutput() DataFlowTransformationLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowTransformationLinkedServicePtrOutput) ToDataFlowTransformationLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowTransformationLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowTransformationLinkedServicePtrOutput) Elem() DataFlowTransformationLinkedServiceOutput {
+	return o.ApplyT(func(v *DataFlowTransformationLinkedService) DataFlowTransformationLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowTransformationLinkedService
+		return ret
+	}).(DataFlowTransformationLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service.
+func (o DataFlowTransformationLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowTransformationLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowTransformationLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowTransformationLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
 }
 
 type DatasetAzureBlobSchemaColumn struct {
@@ -12048,6 +12378,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceSchemaLinkedServicePtrInput)(nil)).Elem(), DataFlowSourceSchemaLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationInput)(nil)).Elem(), DataFlowTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationArrayInput)(nil)).Elem(), DataFlowTransformationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationDatasetInput)(nil)).Elem(), DataFlowTransformationDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationDatasetPtrInput)(nil)).Elem(), DataFlowTransformationDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationLinkedServiceInput)(nil)).Elem(), DataFlowTransformationLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationLinkedServicePtrInput)(nil)).Elem(), DataFlowTransformationLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobSchemaColumnInput)(nil)).Elem(), DatasetAzureBlobSchemaColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobSchemaColumnArrayInput)(nil)).Elem(), DatasetAzureBlobSchemaColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBinaryAzureBlobStorageLocationInput)(nil)).Elem(), DatasetBinaryAzureBlobStorageLocationArgs{})
@@ -12198,6 +12532,10 @@ func init() {
 	pulumi.RegisterOutputType(DataFlowSourceSchemaLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowTransformationOutput{})
 	pulumi.RegisterOutputType(DataFlowTransformationArrayOutput{})
+	pulumi.RegisterOutputType(DataFlowTransformationDatasetOutput{})
+	pulumi.RegisterOutputType(DataFlowTransformationDatasetPtrOutput{})
+	pulumi.RegisterOutputType(DataFlowTransformationLinkedServiceOutput{})
+	pulumi.RegisterOutputType(DataFlowTransformationLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetBinaryAzureBlobStorageLocationOutput{})

@@ -8,10 +8,12 @@ import typing
 from .get_spring_cloud_app import *
 from .get_spring_cloud_service import *
 from .spring_cloud_active_deployment import *
+from .spring_cloud_api_portal import *
 from .spring_cloud_app import *
 from .spring_cloud_app_cosmos_dbassociation import *
 from .spring_cloud_app_mysql_association import *
 from .spring_cloud_app_redis_association import *
+from .spring_cloud_build_deployment import *
 from .spring_cloud_build_pack_binding import *
 from .spring_cloud_builder import *
 from .spring_cloud_certificate import *
@@ -20,6 +22,7 @@ from .spring_cloud_container_deployment import *
 from .spring_cloud_custom_domain import *
 from .spring_cloud_gateway import *
 from .spring_cloud_gateway_custom_domain import *
+from .spring_cloud_gateway_route_config import *
 from .spring_cloud_java_deployment import *
 from .spring_cloud_service import *
 from .spring_cloud_storage import *

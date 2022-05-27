@@ -124,7 +124,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly activeActive!: pulumi.Output<boolean>;
     /**
-     * A block of `bgpSettings`.
+     * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      */
     public readonly bgpSettings!: pulumi.Output<outputs.network.VirtualNetworkGatewayBgpSettings>;
     public readonly customRoute!: pulumi.Output<outputs.network.VirtualNetworkGatewayCustomRoute | undefined>;
@@ -286,7 +286,7 @@ export interface VirtualNetworkGatewayState {
      */
     activeActive?: pulumi.Input<boolean>;
     /**
-     * A block of `bgpSettings`.
+     * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      */
     bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings>;
     customRoute?: pulumi.Input<inputs.network.VirtualNetworkGatewayCustomRoute>;
@@ -382,7 +382,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     activeActive?: pulumi.Input<boolean>;
     /**
-     * A block of `bgpSettings`.
+     * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      */
     bgpSettings?: pulumi.Input<inputs.network.VirtualNetworkGatewayBgpSettings>;
     customRoute?: pulumi.Input<inputs.network.VirtualNetworkGatewayCustomRoute>;

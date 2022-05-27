@@ -1304,12 +1304,16 @@ type LinuxVirtualMachineOsDisk struct {
 	Caching string `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings *LinuxVirtualMachineOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
-	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
+	// Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+	SecurityEncryptionType *string `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -1332,12 +1336,16 @@ type LinuxVirtualMachineOsDiskArgs struct {
 	Caching pulumi.StringInput `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
-	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"secureVmDiskEncryptionSetId"`
+	// Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+	SecurityEncryptionType pulumi.StringPtrInput `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -1433,7 +1441,7 @@ func (o LinuxVirtualMachineOsDiskOutput) DiffDiskSettings() LinuxVirtualMachineO
 	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 func (o LinuxVirtualMachineOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -1446,6 +1454,16 @@ func (o LinuxVirtualMachineOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
 // The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOsDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineOsDiskOutput) SecureVmDiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.SecureVmDiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineOsDiskOutput) SecurityEncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.SecurityEncryptionType }).(pulumi.StringPtrOutput)
 }
 
 // The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
@@ -1502,7 +1520,7 @@ func (o LinuxVirtualMachineOsDiskPtrOutput) DiffDiskSettings() LinuxVirtualMachi
 	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 func (o LinuxVirtualMachineOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *string {
 		if v == nil {
@@ -1529,6 +1547,26 @@ func (o LinuxVirtualMachineOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineOsDiskPtrOutput) SecureVmDiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecureVmDiskEncryptionSetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineOsDiskPtrOutput) SecurityEncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityEncryptionType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3700,10 +3738,14 @@ type LinuxVirtualMachineScaleSetOsDisk struct {
 	Caching string `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
+	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+	SecurityEncryptionType *string `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -3726,10 +3768,14 @@ type LinuxVirtualMachineScaleSetOsDiskArgs struct {
 	Caching pulumi.StringInput `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"secureVmDiskEncryptionSetId"`
+	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+	SecurityEncryptionType pulumi.StringPtrInput `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -3825,7 +3871,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskOutput) DiffDiskSettings() LinuxVirtual
 	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -3833,6 +3879,16 @@ func (o LinuxVirtualMachineScaleSetOsDiskOutput) DiskEncryptionSetId() pulumi.St
 // The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+// The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetOsDiskOutput) SecureVmDiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *string { return v.SecureVmDiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetOsDiskOutput) SecurityEncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *string { return v.SecurityEncryptionType }).(pulumi.StringPtrOutput)
 }
 
 // The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
@@ -3889,7 +3945,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiffDiskSettings() LinuxVirt
 	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -3907,6 +3963,26 @@ func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOu
 		}
 		return v.DiskSizeGb
 	}).(pulumi.IntPtrOutput)
+}
+
+// The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) SecureVmDiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecureVmDiskEncryptionSetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) SecurityEncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityEncryptionType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
@@ -16911,12 +16987,16 @@ type WindowsVirtualMachineOsDisk struct {
 	Caching string `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings *WindowsVirtualMachineOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
-	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
+	// Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+	SecurityEncryptionType *string `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -16939,12 +17019,16 @@ type WindowsVirtualMachineOsDiskArgs struct {
 	Caching pulumi.StringInput `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
-	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"secureVmDiskEncryptionSetId"`
+	// Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+	SecurityEncryptionType pulumi.StringPtrInput `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -17040,7 +17124,7 @@ func (o WindowsVirtualMachineOsDiskOutput) DiffDiskSettings() WindowsVirtualMach
 	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 func (o WindowsVirtualMachineOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -17053,6 +17137,16 @@ func (o WindowsVirtualMachineOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
 // The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOsDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineOsDiskOutput) SecureVmDiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.SecureVmDiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineOsDiskOutput) SecurityEncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.SecurityEncryptionType }).(pulumi.StringPtrOutput)
 }
 
 // The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
@@ -17109,7 +17203,7 @@ func (o WindowsVirtualMachineOsDiskPtrOutput) DiffDiskSettings() WindowsVirtualM
 	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 func (o WindowsVirtualMachineOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *string {
 		if v == nil {
@@ -17136,6 +17230,26 @@ func (o WindowsVirtualMachineOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineOsDiskPtrOutput) SecureVmDiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecureVmDiskEncryptionSetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineOsDiskPtrOutput) SecurityEncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityEncryptionType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19307,10 +19421,14 @@ type WindowsVirtualMachineScaleSetOsDisk struct {
 	Caching string `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
+	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+	SecurityEncryptionType *string `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -19333,10 +19451,14 @@ type WindowsVirtualMachineScaleSetOsDiskArgs struct {
 	Caching pulumi.StringInput `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"secureVmDiskEncryptionSetId"`
+	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+	SecurityEncryptionType pulumi.StringPtrInput `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -19432,7 +19554,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskOutput) DiffDiskSettings() WindowsVir
 	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -19440,6 +19562,16 @@ func (o WindowsVirtualMachineScaleSetOsDiskOutput) DiskEncryptionSetId() pulumi.
 // The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+// The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetOsDiskOutput) SecureVmDiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *string { return v.SecureVmDiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetOsDiskOutput) SecurityEncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *string { return v.SecurityEncryptionType }).(pulumi.StringPtrOutput)
 }
 
 // The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
@@ -19496,7 +19628,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiffDiskSettings() Windows
 	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -19514,6 +19646,26 @@ func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtr
 		}
 		return v.DiskSizeGb
 	}).(pulumi.IntPtrOutput)
+}
+
+// The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) SecureVmDiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecureVmDiskEncryptionSetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) SecurityEncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityEncryptionType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.

@@ -138,7 +138,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly sslEnforcementEnabled!: pulumi.Output<boolean>;
     /**
-     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
      */
     public readonly sslMinimalTlsVersionEnforced!: pulumi.Output<string | undefined>;
     /**
@@ -308,7 +308,7 @@ export interface ServerState {
      */
     sslEnforcementEnabled?: pulumi.Input<boolean>;
     /**
-     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
      */
     sslMinimalTlsVersionEnforced?: pulumi.Input<string>;
     /**
@@ -398,7 +398,7 @@ export interface ServerArgs {
      */
     sslEnforcementEnabled: pulumi.Input<boolean>;
     /**
-     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
      */
     sslMinimalTlsVersionEnforced?: pulumi.Input<string>;
     /**

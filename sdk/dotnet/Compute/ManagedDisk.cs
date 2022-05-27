@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> DiskAccessId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         /// </summary>
         [Output("diskEncryptionSetId")]
         public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
@@ -231,6 +231,18 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("secureVmDiskEncryptionSetId")]
+        public Output<string?> SecureVmDiskEncryptionSetId { get; private set; } = null!;
+
+        /// <summary>
+        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("securityType")]
+        public Output<string?> SecurityType { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         /// </summary>
         [Output("sourceResourceId")]
@@ -337,7 +349,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? DiskAccessId { get; set; }
 
         /// <summary>
-        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -457,6 +469,18 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("secureVmDiskEncryptionSetId")]
+        public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
+
+        /// <summary>
+        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("securityType")]
+        public Input<string>? SecurityType { get; set; }
+
+        /// <summary>
         /// The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         /// </summary>
         [Input("sourceResourceId")]
@@ -530,7 +554,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? DiskAccessId { get; set; }
 
         /// <summary>
-        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -648,6 +672,18 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("secureVmDiskEncryptionSetId")]
+        public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
+
+        /// <summary>
+        /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("securityType")]
+        public Input<string>? SecurityType { get; set; }
 
         /// <summary>
         /// The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
