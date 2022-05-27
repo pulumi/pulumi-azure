@@ -93,8 +93,10 @@ export class ChannelsRegistration extends pulumi.CustomResource {
     public readonly iconUrl!: pulumi.Output<string>;
     /**
      * Is the Bot Channels Registration in an isolated network?
+     *
+     * @deprecated `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      */
-    public readonly isolatedNetworkEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly isolatedNetworkEnabled!: pulumi.Output<boolean>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -107,6 +109,10 @@ export class ChannelsRegistration extends pulumi.CustomResource {
      * Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Is the Bot Channels Registration in an isolated network?
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean>;
     /**
      * The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
      */
@@ -145,6 +151,7 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["microsoftAppId"] = state ? state.microsoftAppId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -171,6 +178,7 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["microsoftAppId"] = args ? args.microsoftAppId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -218,6 +226,8 @@ export interface ChannelsRegistrationState {
     iconUrl?: pulumi.Input<string>;
     /**
      * Is the Bot Channels Registration in an isolated network?
+     *
+     * @deprecated `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      */
     isolatedNetworkEnabled?: pulumi.Input<boolean>;
     /**
@@ -232,6 +242,10 @@ export interface ChannelsRegistrationState {
      * Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Is the Bot Channels Registration in an isolated network?
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
      */
@@ -284,6 +298,8 @@ export interface ChannelsRegistrationArgs {
     iconUrl?: pulumi.Input<string>;
     /**
      * Is the Bot Channels Registration in an isolated network?
+     *
+     * @deprecated `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      */
     isolatedNetworkEnabled?: pulumi.Input<boolean>;
     /**
@@ -298,6 +314,10 @@ export interface ChannelsRegistrationArgs {
      * Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Is the Bot Channels Registration in an isolated network?
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
      */

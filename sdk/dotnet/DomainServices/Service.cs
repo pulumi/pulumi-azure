@@ -28,6 +28,12 @@ namespace Pulumi.Azure.DomainServices
         public Output<string> DeploymentId { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("domainConfigurationType")]
+        public Output<string?> DomainConfigurationType { get; private set; } = null!;
+
+        /// <summary>
         /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
         /// </summary>
         [Output("domainName")]
@@ -155,6 +161,12 @@ namespace Pulumi.Azure.DomainServices
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("domainConfigurationType")]
+        public Input<string>? DomainConfigurationType { get; set; }
+
+        /// <summary>
         /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
         /// </summary>
         [Input("domainName", required: true)]
@@ -238,6 +250,12 @@ namespace Pulumi.Azure.DomainServices
         /// </summary>
         [Input("deploymentId")]
         public Input<string>? DeploymentId { get; set; }
+
+        /// <summary>
+        /// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("domainConfigurationType")]
+        public Input<string>? DomainConfigurationType { get; set; }
 
         /// <summary>
         /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.

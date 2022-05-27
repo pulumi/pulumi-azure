@@ -68,7 +68,7 @@ type PolicySetDefinition struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrOutput `pulumi:"managementGroupId"`
 	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
@@ -126,7 +126,7 @@ type policySetDefinitionState struct {
 	Description *string `pulumi:"description"`
 	// The display name of the policy set definition.
 	DisplayName *string `pulumi:"displayName"`
-	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
 	Metadata *string `pulumi:"metadata"`
@@ -147,7 +147,7 @@ type PolicySetDefinitionState struct {
 	Description pulumi.StringPtrInput
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringPtrInput
-	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrInput
 	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
 	Metadata pulumi.StringPtrInput
@@ -172,7 +172,7 @@ type policySetDefinitionArgs struct {
 	Description *string `pulumi:"description"`
 	// The display name of the policy set definition.
 	DisplayName string `pulumi:"displayName"`
-	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
 	Metadata *string `pulumi:"metadata"`
@@ -194,7 +194,7 @@ type PolicySetDefinitionArgs struct {
 	Description pulumi.StringPtrInput
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringInput
-	// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+	// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrInput
 	// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
 	Metadata pulumi.StringPtrInput
@@ -307,7 +307,7 @@ func (o PolicySetDefinitionOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
 func (o PolicySetDefinitionOutput) ManagementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringPtrOutput { return v.ManagementGroupId }).(pulumi.StringPtrOutput)
 }

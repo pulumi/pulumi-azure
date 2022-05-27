@@ -31,7 +31,8 @@ class WindowsWebAppSlotArgs:
                  logs: Optional[pulumi.Input['WindowsWebAppSlotLogsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WindowsWebAppSlot resource.
         :param pulumi.Input[str] app_service_id: The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
@@ -51,6 +52,7 @@ class WindowsWebAppSlotArgs:
         :param pulumi.Input[str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         pulumi.set(__self__, "app_service_id", app_service_id)
         pulumi.set(__self__, "site_config", site_config)
@@ -84,6 +86,8 @@ class WindowsWebAppSlotArgs:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zip_deploy_file is not None:
+            pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
     @property
     @pulumi.getter(name="appServiceId")
@@ -289,6 +293,18 @@ class WindowsWebAppSlotArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
+
+    @zip_deploy_file.setter
+    def zip_deploy_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zip_deploy_file", value)
+
 
 @pulumi.input_type
 class _WindowsWebAppSlotState:
@@ -317,7 +333,8 @@ class _WindowsWebAppSlotState:
                  site_config: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigArgs']] = None,
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteCredentialArgs']]]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WindowsWebAppSlot resources.
         :param pulumi.Input[str] app_service_id: The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
@@ -345,6 +362,7 @@ class _WindowsWebAppSlotState:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         if app_service_id is not None:
             pulumi.set(__self__, "app_service_id", app_service_id)
@@ -396,6 +414,8 @@ class _WindowsWebAppSlotState:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zip_deploy_file is not None:
+            pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
     @property
     @pulumi.getter(name="appServiceId")
@@ -697,6 +717,18 @@ class _WindowsWebAppSlotState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
+
+    @zip_deploy_file.setter
+    def zip_deploy_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zip_deploy_file", value)
+
 
 class WindowsWebAppSlot(pulumi.CustomResource):
     @overload
@@ -720,6 +752,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
                  site_config: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppSlotSiteConfigArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Windows Web App Slot.
@@ -773,6 +806,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         ...
     @overload
@@ -845,6 +879,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
                  site_config: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppSlotSiteConfigArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -878,6 +913,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             __props__.__dict__["site_config"] = site_config
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["zip_deploy_file"] = zip_deploy_file
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
             __props__.__dict__["kind"] = None
@@ -920,7 +956,8 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             site_config: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppSlotSiteConfigArgs']]] = None,
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotSiteCredentialArgs']]]]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotStorageAccountArgs']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'WindowsWebAppSlot':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            zip_deploy_file: Optional[pulumi.Input[str]] = None) -> 'WindowsWebAppSlot':
         """
         Get an existing WindowsWebAppSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -953,6 +990,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -983,6 +1021,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         __props__.__dict__["site_credentials"] = site_credentials
         __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return WindowsWebAppSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1184,4 +1223,12 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         A mapping of tags which should be assigned to the Windows Web App Slot.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> pulumi.Output[str]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
 

@@ -77,7 +77,8 @@ import (
 type Share struct {
 	pulumi.CustomResourceState
 
-	AccessTier pulumi.StringPtrOutput `pulumi:"accessTier"`
+	// The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayOutput `pulumi:"acls"`
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
@@ -132,6 +133,7 @@ func GetShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Share resources.
 type shareState struct {
+	// The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
 	AccessTier *string `pulumi:"accessTier"`
 	// One or more `acl` blocks as defined below.
 	Acls []ShareAcl `pulumi:"acls"`
@@ -153,6 +155,7 @@ type shareState struct {
 }
 
 type ShareState struct {
+	// The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
 	AccessTier pulumi.StringPtrInput
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayInput
@@ -178,6 +181,7 @@ func (ShareState) ElementType() reflect.Type {
 }
 
 type shareArgs struct {
+	// The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
 	AccessTier *string `pulumi:"accessTier"`
 	// One or more `acl` blocks as defined below.
 	Acls []ShareAcl `pulumi:"acls"`
@@ -196,6 +200,7 @@ type shareArgs struct {
 
 // The set of arguments for constructing a Share resource.
 type ShareArgs struct {
+	// The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
 	AccessTier pulumi.StringPtrInput
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayInput
@@ -299,8 +304,9 @@ func (o ShareOutput) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 	return o
 }
 
-func (o ShareOutput) AccessTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.AccessTier }).(pulumi.StringPtrOutput)
+// The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+func (o ShareOutput) AccessTier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.AccessTier }).(pulumi.StringOutput)
 }
 
 // One or more `acl` blocks as defined below.

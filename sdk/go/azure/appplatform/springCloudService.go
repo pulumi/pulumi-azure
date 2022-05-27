@@ -79,6 +79,8 @@ import (
 type SpringCloudService struct {
 	pulumi.CustomResourceState
 
+	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+	BuildAgentPoolSize pulumi.StringPtrOutput `pulumi:"buildAgentPoolSize"`
 	// A `configServerGitSetting` block as defined below.
 	ConfigServerGitSetting SpringCloudServiceConfigServerGitSettingPtrOutput `pulumi:"configServerGitSetting"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -103,6 +105,8 @@ type SpringCloudService struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `trace` block as defined below.
 	Trace SpringCloudServiceTracePtrOutput `pulumi:"trace"`
+	// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewSpringCloudService registers a new resource with the given unique name, arguments, and options.
@@ -137,6 +141,8 @@ func GetSpringCloudService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudService resources.
 type springCloudServiceState struct {
+	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+	BuildAgentPoolSize *string `pulumi:"buildAgentPoolSize"`
 	// A `configServerGitSetting` block as defined below.
 	ConfigServerGitSetting *SpringCloudServiceConfigServerGitSetting `pulumi:"configServerGitSetting"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -161,9 +167,13 @@ type springCloudServiceState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `trace` block as defined below.
 	Trace *SpringCloudServiceTrace `pulumi:"trace"`
+	// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type SpringCloudServiceState struct {
+	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+	BuildAgentPoolSize pulumi.StringPtrInput
 	// A `configServerGitSetting` block as defined below.
 	ConfigServerGitSetting SpringCloudServiceConfigServerGitSettingPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -188,6 +198,8 @@ type SpringCloudServiceState struct {
 	Tags pulumi.StringMapInput
 	// A `trace` block as defined below.
 	Trace SpringCloudServiceTracePtrInput
+	// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (SpringCloudServiceState) ElementType() reflect.Type {
@@ -195,6 +207,8 @@ func (SpringCloudServiceState) ElementType() reflect.Type {
 }
 
 type springCloudServiceArgs struct {
+	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+	BuildAgentPoolSize *string `pulumi:"buildAgentPoolSize"`
 	// A `configServerGitSetting` block as defined below.
 	ConfigServerGitSetting *SpringCloudServiceConfigServerGitSetting `pulumi:"configServerGitSetting"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -213,10 +227,14 @@ type springCloudServiceArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `trace` block as defined below.
 	Trace *SpringCloudServiceTrace `pulumi:"trace"`
+	// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a SpringCloudService resource.
 type SpringCloudServiceArgs struct {
+	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+	BuildAgentPoolSize pulumi.StringPtrInput
 	// A `configServerGitSetting` block as defined below.
 	ConfigServerGitSetting SpringCloudServiceConfigServerGitSettingPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -235,6 +253,8 @@ type SpringCloudServiceArgs struct {
 	Tags pulumi.StringMapInput
 	// A `trace` block as defined below.
 	Trace SpringCloudServiceTracePtrInput
+	// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (SpringCloudServiceArgs) ElementType() reflect.Type {
@@ -324,6 +344,11 @@ func (o SpringCloudServiceOutput) ToSpringCloudServiceOutputWithContext(ctx cont
 	return o
 }
 
+// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+func (o SpringCloudServiceOutput) BuildAgentPoolSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudService) pulumi.StringPtrOutput { return v.BuildAgentPoolSize }).(pulumi.StringPtrOutput)
+}
+
 // A `configServerGitSetting` block as defined below.
 func (o SpringCloudServiceOutput) ConfigServerGitSetting() SpringCloudServiceConfigServerGitSettingPtrOutput {
 	return o.ApplyT(func(v *SpringCloudService) SpringCloudServiceConfigServerGitSettingPtrOutput {
@@ -386,6 +411,11 @@ func (o SpringCloudServiceOutput) Tags() pulumi.StringMapOutput {
 // A `trace` block as defined below.
 func (o SpringCloudServiceOutput) Trace() SpringCloudServiceTracePtrOutput {
 	return o.ApplyT(func(v *SpringCloudService) SpringCloudServiceTracePtrOutput { return v.Trace }).(SpringCloudServiceTracePtrOutput)
+}
+
+// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+func (o SpringCloudServiceOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpringCloudService) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }
 
 type SpringCloudServiceArrayOutput struct{ *pulumi.OutputState }

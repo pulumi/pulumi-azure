@@ -30,6 +30,18 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("connectionMode")]
         public Input<string>? ConnectionMode { get; set; }
 
+        [Input("customBgpAddresses")]
+        private InputList<Inputs.VpnGatewayConnectionVpnLinkCustomBgpAddressArgs>? _customBgpAddresses;
+
+        /// <summary>
+        /// One or more `custom_bgp_address` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.VpnGatewayConnectionVpnLinkCustomBgpAddressArgs> CustomBgpAddresses
+        {
+            get => _customBgpAddresses ?? (_customBgpAddresses = new InputList<Inputs.VpnGatewayConnectionVpnLinkCustomBgpAddressArgs>());
+            set => _customBgpAddresses = value;
+        }
+
         [Input("egressNatRuleIds")]
         private InputList<string>? _egressNatRuleIds;
 

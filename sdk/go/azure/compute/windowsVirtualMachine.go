@@ -205,7 +205,7 @@ type WindowsVirtualMachine struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification WindowsVirtualMachineTerminationNotificationOutput `pulumi:"terminationNotification"`
-	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
@@ -352,7 +352,7 @@ type windowsVirtualMachineState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification *WindowsVirtualMachineTerminationNotification `pulumi:"terminationNotification"`
-	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
 	Timezone *string `pulumi:"timezone"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
 	UserData *string `pulumi:"userData"`
@@ -453,7 +453,7 @@ type WindowsVirtualMachineState struct {
 	Tags pulumi.StringMapInput
 	// A `terminationNotification` block as defined below.
 	TerminationNotification WindowsVirtualMachineTerminationNotificationPtrInput
-	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
 	Timezone pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
 	UserData pulumi.StringPtrInput
@@ -550,7 +550,7 @@ type windowsVirtualMachineArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification *WindowsVirtualMachineTerminationNotification `pulumi:"terminationNotification"`
-	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
 	Timezone *string `pulumi:"timezone"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
 	UserData *string `pulumi:"userData"`
@@ -642,7 +642,7 @@ type WindowsVirtualMachineArgs struct {
 	Tags pulumi.StringMapInput
 	// A `terminationNotification` block as defined below.
 	TerminationNotification WindowsVirtualMachineTerminationNotificationPtrInput
-	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
 	Timezone pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
 	UserData pulumi.StringPtrInput
@@ -961,7 +961,7 @@ func (o WindowsVirtualMachineOutput) TerminationNotification() WindowsVirtualMac
 	}).(WindowsVirtualMachineTerminationNotificationOutput)
 }
 
-// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
 }

@@ -28,6 +28,7 @@ export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:portal/getDashboard:getDashboard", {
         "dashboardProperties": args.dashboardProperties,
+        "displayName": args.displayName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -42,9 +43,13 @@ export interface GetDashboardArgs {
      */
     dashboardProperties?: string;
     /**
+     * Specifies the display name of the shared Azure Portal Dashboard.
+     */
+    displayName?: string;
+    /**
      * Specifies the name of the shared Azure Portal Dashboard.
      */
-    name: string;
+    name?: string;
     /**
      * Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
      */
@@ -59,6 +64,7 @@ export interface GetDashboardResult {
      * JSON data representing dashboard body.
      */
     readonly dashboardProperties: string;
+    readonly displayName?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -67,7 +73,7 @@ export interface GetDashboardResult {
      * The Azure Region where the shared Azure Portal dashboard exists.
      */
     readonly location: string;
-    readonly name: string;
+    readonly name?: string;
     readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to the shared Azure Portal dashboard.
@@ -88,9 +94,13 @@ export interface GetDashboardOutputArgs {
      */
     dashboardProperties?: pulumi.Input<string>;
     /**
+     * Specifies the display name of the shared Azure Portal Dashboard.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
      * Specifies the name of the shared Azure Portal Dashboard.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
      */

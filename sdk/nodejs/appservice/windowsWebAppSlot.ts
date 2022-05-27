@@ -169,6 +169,10 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
      * A mapping of tags which should be assigned to the Windows Web App Slot.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     */
+    public readonly zipDeployFile!: pulumi.Output<string>;
 
     /**
      * Create a WindowsWebAppSlot resource with the given unique name, arguments, and options.
@@ -208,6 +212,7 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
             resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
         } else {
             const args = argsOrState as WindowsWebAppSlotArgs | undefined;
             if ((!args || args.appServiceId === undefined) && !opts.urn) {
@@ -233,6 +238,7 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
             resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -351,6 +357,10 @@ export interface WindowsWebAppSlotState {
      * A mapping of tags which should be assigned to the Windows Web App Slot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     */
+    zipDeployFile?: pulumi.Input<string>;
 }
 
 /**
@@ -425,4 +435,8 @@ export interface WindowsWebAppSlotArgs {
      * A mapping of tags which should be assigned to the Windows Web App Slot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     */
+    zipDeployFile?: pulumi.Input<string>;
 }

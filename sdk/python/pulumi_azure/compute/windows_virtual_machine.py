@@ -99,7 +99,7 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
-        :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
@@ -649,7 +649,7 @@ class WindowsVirtualMachineArgs:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timezone")
 
@@ -814,7 +814,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
-        :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
@@ -1429,7 +1429,7 @@ class _WindowsVirtualMachineState:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timezone")
 
@@ -1667,7 +1667,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
-        :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
@@ -1987,7 +1987,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
-        :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
@@ -2390,7 +2390,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def timezone(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timezone")
 

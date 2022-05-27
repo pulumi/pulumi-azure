@@ -47,6 +47,10 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly deploymentId!: pulumi.Output<string>;
     /**
+     * The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+     */
+    public readonly domainConfigurationType!: pulumi.Output<string | undefined>;
+    /**
      * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
      */
     public readonly domainName!: pulumi.Output<string>;
@@ -112,6 +116,7 @@ export class Service extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
             resourceInputs["deploymentId"] = state ? state.deploymentId : undefined;
+            resourceInputs["domainConfigurationType"] = state ? state.domainConfigurationType : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["filteredSyncEnabled"] = state ? state.filteredSyncEnabled : undefined;
             resourceInputs["initialReplicaSet"] = state ? state.initialReplicaSet : undefined;
@@ -141,6 +146,7 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["domainConfigurationType"] = args ? args.domainConfigurationType : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["filteredSyncEnabled"] = args ? args.filteredSyncEnabled : undefined;
             resourceInputs["initialReplicaSet"] = args ? args.initialReplicaSet : undefined;
@@ -171,6 +177,10 @@ export interface ServiceState {
      * A unique ID for the managed domain deployment.
      */
     deploymentId?: pulumi.Input<string>;
+    /**
+     * The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+     */
+    domainConfigurationType?: pulumi.Input<string>;
     /**
      * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
      */
@@ -228,6 +238,10 @@ export interface ServiceState {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
+    /**
+     * The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
+     */
+    domainConfigurationType?: pulumi.Input<string>;
     /**
      * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
      */

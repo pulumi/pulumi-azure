@@ -74,6 +74,10 @@ export class VpnGateway extends pulumi.CustomResource {
     }
 
     /**
+     * Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
+     */
+    public readonly bgpRouteTranslationForNatEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `bgpSettings` block as defined below.
      */
     public readonly bgpSettings!: pulumi.Output<outputs.network.VpnGatewayBgpSettings>;
@@ -120,6 +124,7 @@ export class VpnGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnGatewayState | undefined;
+            resourceInputs["bgpRouteTranslationForNatEnabled"] = state ? state.bgpRouteTranslationForNatEnabled : undefined;
             resourceInputs["bgpSettings"] = state ? state.bgpSettings : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -136,6 +141,7 @@ export class VpnGateway extends pulumi.CustomResource {
             if ((!args || args.virtualHubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
+            resourceInputs["bgpRouteTranslationForNatEnabled"] = args ? args.bgpRouteTranslationForNatEnabled : undefined;
             resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -154,6 +160,10 @@ export class VpnGateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpnGateway resources.
  */
 export interface VpnGatewayState {
+    /**
+     * Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
+     */
+    bgpRouteTranslationForNatEnabled?: pulumi.Input<boolean>;
     /**
      * A `bgpSettings` block as defined below.
      */
@@ -193,6 +203,10 @@ export interface VpnGatewayState {
  * The set of arguments for constructing a VpnGateway resource.
  */
 export interface VpnGatewayArgs {
+    /**
+     * Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
+     */
+    bgpRouteTranslationForNatEnabled?: pulumi.Input<boolean>;
     /**
      * A `bgpSettings` block as defined below.
      */

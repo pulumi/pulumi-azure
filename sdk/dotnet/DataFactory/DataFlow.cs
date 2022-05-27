@@ -159,7 +159,13 @@ namespace Pulumi.Azure.DataFactory
         /// The script for the Data Factory Data Flow.
         /// </summary>
         [Output("script")]
-        public Output<string> Script { get; private set; } = null!;
+        public Output<string?> Script { get; private set; } = null!;
+
+        /// <summary>
+        /// The script lines for the Data Factory Data Flow.
+        /// </summary>
+        [Output("scriptLines")]
+        public Output<ImmutableArray<string>> ScriptLines { get; private set; } = null!;
 
         /// <summary>
         /// One or more `sink` blocks as defined below.
@@ -264,8 +270,20 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The script for the Data Factory Data Flow.
         /// </summary>
-        [Input("script", required: true)]
-        public Input<string> Script { get; set; } = null!;
+        [Input("script")]
+        public Input<string>? Script { get; set; }
+
+        [Input("scriptLines")]
+        private InputList<string>? _scriptLines;
+
+        /// <summary>
+        /// The script lines for the Data Factory Data Flow.
+        /// </summary>
+        public InputList<string> ScriptLines
+        {
+            get => _scriptLines ?? (_scriptLines = new InputList<string>());
+            set => _scriptLines = value;
+        }
 
         [Input("sinks", required: true)]
         private InputList<Inputs.DataFlowSinkArgs>? _sinks;
@@ -351,6 +369,18 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("script")]
         public Input<string>? Script { get; set; }
+
+        [Input("scriptLines")]
+        private InputList<string>? _scriptLines;
+
+        /// <summary>
+        /// The script lines for the Data Factory Data Flow.
+        /// </summary>
+        public InputList<string> ScriptLines
+        {
+            get => _scriptLines ?? (_scriptLines = new InputList<string>());
+            set => _scriptLines = value;
+        }
 
         [Input("sinks")]
         private InputList<Inputs.DataFlowSinkGetArgs>? _sinks;

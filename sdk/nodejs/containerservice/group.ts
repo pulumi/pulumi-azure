@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const exampleGroup = new azure.containerservice.Group("exampleGroup", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     ipAddressType: "public",
+ *     ipAddressType: "Public",
  *     dnsNameLabel: "aci-label",
  *     osType: "Linux",
  *     containers: [

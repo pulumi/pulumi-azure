@@ -115,7 +115,7 @@ type ManagedDisk struct {
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
 	// The ID of the disk access resource for using private endpoints on disks.
 	DiskAccessId pulumi.StringPtrOutput `pulumi:"diskAccessId"`
-	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly pulumi.IntOutput `pulumi:"diskIopsReadOnly"`
@@ -155,6 +155,10 @@ type ManagedDisk struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Managed Disk should exist.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"secureVmDiskEncryptionSetId"`
+	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	SecurityType pulumi.StringPtrOutput `pulumi:"securityType"`
 	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId pulumi.StringPtrOutput `pulumi:"sourceResourceId"`
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
@@ -215,7 +219,7 @@ type managedDiskState struct {
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of the disk access resource for using private endpoints on disks.
 	DiskAccessId *string `pulumi:"diskAccessId"`
-	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly *int `pulumi:"diskIopsReadOnly"`
@@ -255,6 +259,10 @@ type managedDiskState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Managed Disk should exist.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
+	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	SecurityType *string `pulumi:"securityType"`
 	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
@@ -278,7 +286,7 @@ type ManagedDiskState struct {
 	CreateOption pulumi.StringPtrInput
 	// The ID of the disk access resource for using private endpoints on disks.
 	DiskAccessId pulumi.StringPtrInput
-	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly pulumi.IntPtrInput
@@ -318,6 +326,10 @@ type ManagedDiskState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Managed Disk should exist.
 	ResourceGroupName pulumi.StringPtrInput
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId pulumi.StringPtrInput
+	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	SecurityType pulumi.StringPtrInput
 	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId pulumi.StringPtrInput
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
@@ -345,7 +357,7 @@ type managedDiskArgs struct {
 	CreateOption string `pulumi:"createOption"`
 	// The ID of the disk access resource for using private endpoints on disks.
 	DiskAccessId *string `pulumi:"diskAccessId"`
-	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly *int `pulumi:"diskIopsReadOnly"`
@@ -385,6 +397,10 @@ type managedDiskArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Managed Disk should exist.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
+	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	SecurityType *string `pulumi:"securityType"`
 	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
@@ -409,7 +425,7 @@ type ManagedDiskArgs struct {
 	CreateOption pulumi.StringInput
 	// The ID of the disk access resource for using private endpoints on disks.
 	DiskAccessId pulumi.StringPtrInput
-	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly pulumi.IntPtrInput
@@ -449,6 +465,10 @@ type ManagedDiskArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Managed Disk should exist.
 	ResourceGroupName pulumi.StringInput
+	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	SecureVmDiskEncryptionSetId pulumi.StringPtrInput
+	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	SecurityType pulumi.StringPtrInput
 	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId pulumi.StringPtrInput
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
@@ -564,7 +584,7 @@ func (o ManagedDiskOutput) DiskAccessId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.DiskAccessId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 func (o ManagedDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -662,6 +682,16 @@ func (o ManagedDiskOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 // The name of the Resource Group where the Managed Disk should exist.
 func (o ManagedDiskOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+func (o ManagedDiskOutput) SecureVmDiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.SecureVmDiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+func (o ManagedDiskOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.SecurityType }).(pulumi.StringPtrOutput)
 }
 
 // The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`

@@ -50,6 +50,9 @@ class ConnectionArgs:
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
         if tags is not None:
+            warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
+        if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
@@ -217,6 +220,9 @@ class _ConnectionState:
             pulumi.set(__self__, "scopes", scopes)
         if service_provider_name is not None:
             pulumi.set(__self__, "service_provider_name", service_provider_name)
+        if tags is not None:
+            warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -498,6 +504,9 @@ class Connection(pulumi.CustomResource):
             if service_provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_provider_name'")
             __props__.__dict__["service_provider_name"] = service_provider_name
+            if tags is not None and not opts.urn:
+                warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+                pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
             __props__.__dict__["tags"] = tags
         super(Connection, __self__).__init__(
             'azure:bot/connection:Connection',

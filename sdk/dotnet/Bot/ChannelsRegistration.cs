@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Bot
         /// Is the Bot Channels Registration in an isolated network?
         /// </summary>
         [Output("isolatedNetworkEnabled")]
-        public Output<bool?> IsolatedNetworkEnabled { get; private set; } = null!;
+        public Output<bool> IsolatedNetworkEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -121,6 +121,12 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Is the Bot Channels Registration in an isolated network?
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
@@ -259,6 +265,12 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Is the Bot Channels Registration in an isolated network?
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -360,6 +372,12 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Is the Bot Channels Registration in an isolated network?
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.

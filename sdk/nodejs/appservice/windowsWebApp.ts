@@ -176,6 +176,10 @@ export class WindowsWebApp extends pulumi.CustomResource {
      * A mapping of tags which should be assigned to the Windows Web App.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     */
+    public readonly zipDeployFile!: pulumi.Output<string>;
 
     /**
      * Create a WindowsWebApp resource with the given unique name, arguments, and options.
@@ -218,6 +222,7 @@ export class WindowsWebApp extends pulumi.CustomResource {
             resourceInputs["stickySettings"] = state ? state.stickySettings : undefined;
             resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
         } else {
             const args = argsOrState as WindowsWebAppArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -249,6 +254,7 @@ export class WindowsWebApp extends pulumi.CustomResource {
             resourceInputs["stickySettings"] = args ? args.stickySettings : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -379,6 +385,10 @@ export interface WindowsWebAppState {
      * A mapping of tags which should be assigned to the Windows Web App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     */
+    zipDeployFile?: pulumi.Input<string>;
 }
 
 /**
@@ -465,4 +475,8 @@ export interface WindowsWebAppArgs {
      * A mapping of tags which should be assigned to the Windows Web App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     */
+    zipDeployFile?: pulumi.Input<string>;
 }

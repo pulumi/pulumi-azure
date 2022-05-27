@@ -194,8 +194,8 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("sourceVmId", required: true)]
-        public Input<string> SourceVmId { get; set; } = null!;
+        [Input("sourceVmId")]
+        public Input<string>? SourceVmId { get; set; }
 
         public ProtectedVMArgs()
         {

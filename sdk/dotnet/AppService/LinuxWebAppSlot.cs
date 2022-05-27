@@ -217,6 +217,12 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        /// </summary>
+        [Output("zipDeployFile")]
+        public Output<string> ZipDeployFile { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LinuxWebAppSlot resource with the given unique name, arguments, and options.
@@ -388,6 +394,12 @@ namespace Pulumi.Azure.AppService
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        /// </summary>
+        [Input("zipDeployFile")]
+        public Input<string>? ZipDeployFile { get; set; }
 
         public LinuxWebAppSlotArgs()
         {
@@ -599,6 +611,12 @@ namespace Pulumi.Azure.AppService
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        /// </summary>
+        [Input("zipDeployFile")]
+        public Input<string>? ZipDeployFile { get; set; }
 
         public LinuxWebAppSlotState()
         {

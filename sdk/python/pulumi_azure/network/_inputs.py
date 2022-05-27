@@ -142,6 +142,7 @@ __all__ = [
     'VpnGatewayConnectionRoutingPropagatedRouteTableArgs',
     'VpnGatewayConnectionTrafficSelectorPolicyArgs',
     'VpnGatewayConnectionVpnLinkArgs',
+    'VpnGatewayConnectionVpnLinkCustomBgpAddressArgs',
     'VpnGatewayConnectionVpnLinkIpsecPolicyArgs',
     'VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs',
     'VpnServerConfigurationClientRevokedCertificateArgs',
@@ -9981,6 +9982,7 @@ class VpnGatewayConnectionVpnLinkArgs:
                  bandwidth_mbps: Optional[pulumi.Input[int]] = None,
                  bgp_enabled: Optional[pulumi.Input[bool]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
+                 custom_bgp_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]] = None,
                  egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]] = None,
@@ -9996,6 +9998,7 @@ class VpnGatewayConnectionVpnLinkArgs:
         :param pulumi.Input[int] bandwidth_mbps: The expected connection bandwidth in MBPS. Defaults to `10`.
         :param pulumi.Input[bool] bgp_enabled: Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[str] connection_mode: The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]] custom_bgp_addresses: One or more `custom_bgp_address` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]] ipsec_policies: One or more `ipsec_policy` blocks as defined above.
@@ -10014,6 +10017,8 @@ class VpnGatewayConnectionVpnLinkArgs:
             pulumi.set(__self__, "bgp_enabled", bgp_enabled)
         if connection_mode is not None:
             pulumi.set(__self__, "connection_mode", connection_mode)
+        if custom_bgp_addresses is not None:
+            pulumi.set(__self__, "custom_bgp_addresses", custom_bgp_addresses)
         if egress_nat_rule_ids is not None:
             pulumi.set(__self__, "egress_nat_rule_ids", egress_nat_rule_ids)
         if ingress_nat_rule_ids is not None:
@@ -10092,6 +10097,18 @@ class VpnGatewayConnectionVpnLinkArgs:
     @connection_mode.setter
     def connection_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_mode", value)
+
+    @property
+    @pulumi.getter(name="customBgpAddresses")
+    def custom_bgp_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]]:
+        """
+        One or more `custom_bgp_address` blocks as defined below.
+        """
+        return pulumi.get(self, "custom_bgp_addresses")
+
+    @custom_bgp_addresses.setter
+    def custom_bgp_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]]):
+        pulumi.set(self, "custom_bgp_addresses", value)
 
     @property
     @pulumi.getter(name="egressNatRuleIds")
@@ -10200,6 +10217,43 @@ class VpnGatewayConnectionVpnLinkArgs:
     @shared_key.setter
     def shared_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "shared_key", value)
+
+
+@pulumi.input_type
+class VpnGatewayConnectionVpnLinkCustomBgpAddressArgs:
+    def __init__(__self__, *,
+                 ip_address: pulumi.Input[str],
+                 ip_configuration_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] ip_address: The custom bgp ip address which belongs to the IP Configuration.
+        :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration which belongs to the VPN Gateway.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "ip_configuration_id", ip_configuration_id)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> pulumi.Input[str]:
+        """
+        The custom bgp ip address which belongs to the IP Configuration.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="ipConfigurationId")
+    def ip_configuration_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the IP Configuration which belongs to the VPN Gateway.
+        """
+        return pulumi.get(self, "ip_configuration_id")
+
+    @ip_configuration_id.setter
+    def ip_configuration_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_configuration_id", value)
 
 
 @pulumi.input_type

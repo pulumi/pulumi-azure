@@ -73,7 +73,10 @@ export class Share extends pulumi.CustomResource {
         return obj['__pulumiType'] === Share.__pulumiType;
     }
 
-    public readonly accessTier!: pulumi.Output<string | undefined>;
+    /**
+     * The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+     */
+    public readonly accessTier!: pulumi.Output<string>;
     /**
      * One or more `acl` blocks as defined below.
      */
@@ -157,6 +160,9 @@ export class Share extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Share resources.
  */
 export interface ShareState {
+    /**
+     * The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+     */
     accessTier?: pulumi.Input<string>;
     /**
      * One or more `acl` blocks as defined below.
@@ -197,6 +203,9 @@ export interface ShareState {
  * The set of arguments for constructing a Share resource.
  */
 export interface ShareArgs {
+    /**
+     * The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+     */
     accessTier?: pulumi.Input<string>;
     /**
      * One or more `acl` blocks as defined below.

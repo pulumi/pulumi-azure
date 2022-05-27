@@ -31,7 +31,8 @@ class LinuxWebAppSlotArgs:
                  logs: Optional[pulumi.Input['LinuxWebAppSlotLogsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LinuxWebAppSlot resource.
         :param pulumi.Input[str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
@@ -51,6 +52,7 @@ class LinuxWebAppSlotArgs:
         :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         pulumi.set(__self__, "app_service_id", app_service_id)
         pulumi.set(__self__, "site_config", site_config)
@@ -84,6 +86,8 @@ class LinuxWebAppSlotArgs:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zip_deploy_file is not None:
+            pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
     @property
     @pulumi.getter(name="appServiceId")
@@ -289,6 +293,18 @@ class LinuxWebAppSlotArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
+
+    @zip_deploy_file.setter
+    def zip_deploy_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zip_deploy_file", value)
+
 
 @pulumi.input_type
 class _LinuxWebAppSlotState:
@@ -318,7 +334,8 @@ class _LinuxWebAppSlotState:
                  site_config: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigArgs']] = None,
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteCredentialArgs']]]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LinuxWebAppSlot resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_metadata: A `app_metadata` block as defined below.
@@ -347,6 +364,7 @@ class _LinuxWebAppSlotState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         if app_metadata is not None:
             pulumi.set(__self__, "app_metadata", app_metadata)
@@ -400,6 +418,8 @@ class _LinuxWebAppSlotState:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zip_deploy_file is not None:
+            pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
     @property
     @pulumi.getter(name="appMetadata")
@@ -713,6 +733,18 @@ class _LinuxWebAppSlotState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
+
+    @zip_deploy_file.setter
+    def zip_deploy_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zip_deploy_file", value)
+
 
 class LinuxWebAppSlot(pulumi.CustomResource):
     @overload
@@ -736,6 +768,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Linux Web App Slot.
@@ -789,6 +822,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         ...
     @overload
@@ -861,6 +895,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -894,6 +929,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             __props__.__dict__["site_config"] = site_config
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["zip_deploy_file"] = zip_deploy_file
             __props__.__dict__["app_metadata"] = None
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
@@ -938,7 +974,8 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             site_config: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']]] = None,
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteCredentialArgs']]]]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LinuxWebAppSlot':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            zip_deploy_file: Optional[pulumi.Input[str]] = None) -> 'LinuxWebAppSlot':
         """
         Get an existing LinuxWebAppSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -972,6 +1009,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1003,6 +1041,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         __props__.__dict__["site_credentials"] = site_credentials
         __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return LinuxWebAppSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1212,4 +1251,12 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         A mapping of tags which should be assigned to the Linux Web App.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> pulumi.Output[str]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
 

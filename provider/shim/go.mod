@@ -8,7 +8,7 @@ require (
 )
 
 require (
-	github.com/Azure/azure-sdk-for-go v64.0.0+incompatible // indirect
+	github.com/Azure/azure-sdk-for-go v64.1.0+incompatible // indirect
 	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
 	github.com/Azure/go-autorest/autorest v0.11.26 // indirect
 	github.com/Azure/go-autorest/autorest/adal v0.9.18 // indirect
@@ -77,7 +77,7 @@ require (
 	google.golang.org/genproto v0.0.0-20210629200056-84d6f6074151 // indirect
 	google.golang.org/grpc v1.39.0 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
-	gopkg.in/yaml.v2 v2.3.0 // indirect
+	gopkg.in/yaml.v3 v3.0.0 // indirect
 )
 
-replace github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220526203840-79af962a716a
+replace github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220527171800-b54237e847c9

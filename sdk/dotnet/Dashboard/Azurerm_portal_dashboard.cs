@@ -89,10 +89,16 @@ namespace Pulumi.Azure.Dashboard
         public string? DashboardProperties { get; set; }
 
         /// <summary>
+        /// Specifies the display name of the shared Azure Portal Dashboard.
+        /// </summary>
+        [Input("displayName")]
+        public string? DisplayName { get; set; }
+
+        /// <summary>
         /// Specifies the name of the shared Azure Portal Dashboard.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
@@ -114,10 +120,16 @@ namespace Pulumi.Azure.Dashboard
         public Input<string>? DashboardProperties { get; set; }
 
         /// <summary>
+        /// Specifies the display name of the shared Azure Portal Dashboard.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// Specifies the name of the shared Azure Portal Dashboard.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
@@ -138,6 +150,7 @@ namespace Pulumi.Azure.Dashboard
         /// JSON data representing dashboard body.
         /// </summary>
         public readonly string DashboardProperties;
+        public readonly string? DisplayName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -146,7 +159,7 @@ namespace Pulumi.Azure.Dashboard
         /// The Azure Region where the shared Azure Portal dashboard exists.
         /// </summary>
         public readonly string Location;
-        public readonly string Name;
+        public readonly string? Name;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A mapping of tags assigned to the shared Azure Portal dashboard.
@@ -157,17 +170,20 @@ namespace Pulumi.Azure.Dashboard
         private Azurerm_portal_dashboardResult(
             string dashboardProperties,
 
+            string? displayName,
+
             string id,
 
             string location,
 
-            string name,
+            string? name,
 
             string resourceGroupName,
 
             ImmutableDictionary<string, string> tags)
         {
             DashboardProperties = dashboardProperties;
+            DisplayName = displayName;
             Id = id;
             Location = location;
             Name = name;

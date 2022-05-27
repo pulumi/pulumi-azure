@@ -283,6 +283,8 @@ type VirtualNetworkGatewayConnection struct {
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput `pulumi:"customBgpAddresses"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrOutput `pulumi:"dpdTimeoutSeconds"`
+	// A list of the egress NAT Rule Ids.
+	EgressNatRuleIds pulumi.StringArrayOutput `pulumi:"egressNatRuleIds"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp pulumi.BoolOutput `pulumi:"enableBgp"`
@@ -292,6 +294,8 @@ type VirtualNetworkGatewayConnection struct {
 	ExpressRouteCircuitId pulumi.StringPtrOutput `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass pulumi.BoolOutput `pulumi:"expressRouteGatewayBypass"`
+	// A list of the ingress NAT Rule Ids.
+	IngressNatRuleIds pulumi.StringArrayOutput `pulumi:"ingressNatRuleIds"`
 	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
@@ -399,6 +403,8 @@ type virtualNetworkGatewayConnectionState struct {
 	CustomBgpAddresses *VirtualNetworkGatewayConnectionCustomBgpAddresses `pulumi:"customBgpAddresses"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
+	// A list of the egress NAT Rule Ids.
+	EgressNatRuleIds []string `pulumi:"egressNatRuleIds"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp *bool `pulumi:"enableBgp"`
@@ -408,6 +414,8 @@ type virtualNetworkGatewayConnectionState struct {
 	ExpressRouteCircuitId *string `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
+	// A list of the ingress NAT Rule Ids.
+	IngressNatRuleIds []string `pulumi:"ingressNatRuleIds"`
 	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
@@ -478,6 +486,8 @@ type VirtualNetworkGatewayConnectionState struct {
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrInput
+	// A list of the egress NAT Rule Ids.
+	EgressNatRuleIds pulumi.StringArrayInput
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp pulumi.BoolPtrInput
@@ -487,6 +497,8 @@ type VirtualNetworkGatewayConnectionState struct {
 	ExpressRouteCircuitId pulumi.StringPtrInput
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass pulumi.BoolPtrInput
+	// A list of the ingress NAT Rule Ids.
+	IngressNatRuleIds pulumi.StringArrayInput
 	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
@@ -561,6 +573,8 @@ type virtualNetworkGatewayConnectionArgs struct {
 	CustomBgpAddresses *VirtualNetworkGatewayConnectionCustomBgpAddresses `pulumi:"customBgpAddresses"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
+	// A list of the egress NAT Rule Ids.
+	EgressNatRuleIds []string `pulumi:"egressNatRuleIds"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp *bool `pulumi:"enableBgp"`
@@ -570,6 +584,8 @@ type virtualNetworkGatewayConnectionArgs struct {
 	ExpressRouteCircuitId *string `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
+	// A list of the ingress NAT Rule Ids.
+	IngressNatRuleIds []string `pulumi:"ingressNatRuleIds"`
 	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
@@ -641,6 +657,8 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrInput
+	// A list of the egress NAT Rule Ids.
+	EgressNatRuleIds pulumi.StringArrayInput
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp pulumi.BoolPtrInput
@@ -650,6 +668,8 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	ExpressRouteCircuitId pulumi.StringPtrInput
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass pulumi.BoolPtrInput
+	// A list of the ingress NAT Rule Ids.
+	IngressNatRuleIds pulumi.StringArrayInput
 	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
@@ -823,6 +843,11 @@ func (o VirtualNetworkGatewayConnectionOutput) DpdTimeoutSeconds() pulumi.IntPtr
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.IntPtrOutput { return v.DpdTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
+// A list of the egress NAT Rule Ids.
+func (o VirtualNetworkGatewayConnectionOutput) EgressNatRuleIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringArrayOutput { return v.EgressNatRuleIds }).(pulumi.StringArrayOutput)
+}
+
 // If `true`, BGP (Border Gateway Protocol) is enabled
 // for this connection. Defaults to `false`.
 func (o VirtualNetworkGatewayConnectionOutput) EnableBgp() pulumi.BoolOutput {
@@ -839,6 +864,11 @@ func (o VirtualNetworkGatewayConnectionOutput) ExpressRouteCircuitId() pulumi.St
 // If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 func (o VirtualNetworkGatewayConnectionOutput) ExpressRouteGatewayBypass() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.BoolOutput { return v.ExpressRouteGatewayBypass }).(pulumi.BoolOutput)
+}
+
+// A list of the ingress NAT Rule Ids.
+func (o VirtualNetworkGatewayConnectionOutput) IngressNatRuleIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringArrayOutput { return v.IngressNatRuleIds }).(pulumi.StringArrayOutput)
 }
 
 // A `ipsecPolicy` block which is documented below.

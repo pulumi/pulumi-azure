@@ -124,6 +124,8 @@ type LinuxWebAppSlot struct {
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
 }
 
 // NewLinuxWebAppSlot registers a new resource with the given unique name, arguments, and options.
@@ -213,6 +215,8 @@ type linuxWebAppSlotState struct {
 	StorageAccounts []LinuxWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags map[string]string `pulumi:"tags"`
+	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
 type LinuxWebAppSlotState struct {
@@ -268,6 +272,8 @@ type LinuxWebAppSlotState struct {
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags pulumi.StringMapInput
+	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	ZipDeployFile pulumi.StringPtrInput
 }
 
 func (LinuxWebAppSlotState) ElementType() reflect.Type {
@@ -309,6 +315,8 @@ type linuxWebAppSlotArgs struct {
 	StorageAccounts []LinuxWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags map[string]string `pulumi:"tags"`
+	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
 // The set of arguments for constructing a LinuxWebAppSlot resource.
@@ -347,6 +355,8 @@ type LinuxWebAppSlotArgs struct {
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Linux Web App.
 	Tags pulumi.StringMapInput
+	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	ZipDeployFile pulumi.StringPtrInput
 }
 
 func (LinuxWebAppSlotArgs) ElementType() reflect.Type {
@@ -564,6 +574,11 @@ func (o LinuxWebAppSlotOutput) StorageAccounts() LinuxWebAppSlotStorageAccountAr
 // A mapping of tags which should be assigned to the Linux Web App.
 func (o LinuxWebAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+func (o LinuxWebAppSlotOutput) ZipDeployFile() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.ZipDeployFile }).(pulumi.StringOutput)
 }
 
 type LinuxWebAppSlotArrayOutput struct{ *pulumi.OutputState }

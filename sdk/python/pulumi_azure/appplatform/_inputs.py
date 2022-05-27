@@ -9,9 +9,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'SpringCloudApiPortalSsoArgs',
     'SpringCloudAppCustomPersistentDiskArgs',
     'SpringCloudAppIdentityArgs',
     'SpringCloudAppPersistentDiskArgs',
+    'SpringCloudBuildDeploymentQuotaArgs',
     'SpringCloudBuildPackBindingLaunchArgs',
     'SpringCloudBuilderBuildPackGroupArgs',
     'SpringCloudBuilderStackArgs',
@@ -20,6 +22,7 @@ __all__ = [
     'SpringCloudGatewayApiMetadataArgs',
     'SpringCloudGatewayCorsArgs',
     'SpringCloudGatewayQuotaArgs',
+    'SpringCloudGatewayRouteConfigRouteArgs',
     'SpringCloudGatewaySsoArgs',
     'SpringCloudJavaDeploymentQuotaArgs',
     'SpringCloudServiceConfigServerGitSettingArgs',
@@ -32,6 +35,77 @@ __all__ = [
     'SpringCloudServiceRequiredNetworkTrafficRuleArgs',
     'SpringCloudServiceTraceArgs',
 ]
+
+@pulumi.input_type
+class SpringCloudApiPortalSsoArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 issuer_uri: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The public identifier for the application.
+        :param pulumi.Input[str] client_secret: The secret known only to the application and the authorization server.
+        :param pulumi.Input[str] issuer_uri: The URI of Issuer Identifier.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: It defines the specific actions applications can be allowed to do on a user's behalf.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if issuer_uri is not None:
+            pulumi.set(__self__, "issuer_uri", issuer_uri)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public identifier for the application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secret known only to the application and the authorization server.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="issuerUri")
+    def issuer_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of Issuer Identifier.
+        """
+        return pulumi.get(self, "issuer_uri")
+
+    @issuer_uri.setter
+    def issuer_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_uri", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        It defines the specific actions applications can be allowed to do on a user's behalf.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
 
 @pulumi.input_type
 class SpringCloudAppCustomPersistentDiskArgs:
@@ -223,6 +297,45 @@ class SpringCloudAppPersistentDiskArgs:
     @mount_path.setter
     def mount_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mount_path", value)
+
+
+@pulumi.input_type
+class SpringCloudBuildDeploymentQuotaArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input[str]] = None,
+                 memory: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+        :param pulumi.Input[str] memory: Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "memory", value)
 
 
 @pulumi.input_type
@@ -784,6 +897,157 @@ class SpringCloudGatewayQuotaArgs:
     @memory.setter
     def memory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "memory", value)
+
+
+@pulumi.input_type
+class SpringCloudGatewayRouteConfigRouteArgs:
+    def __init__(__self__, *,
+                 classification_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 order: Optional[pulumi.Input[int]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sso_validation_enabled: Optional[pulumi.Input[bool]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 token_relay: Optional[pulumi.Input[bool]] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] classification_tags: Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
+        :param pulumi.Input[str] description: Specifies the description which will be applied to methods in the generated OpenAPI documentation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filters: Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
+        :param pulumi.Input[int] order: Specifies the route processing order.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] predicates: Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+        :param pulumi.Input[bool] sso_validation_enabled: Should the sso validation be enabled?
+        :param pulumi.Input[str] title: Specifies the title which will be applied to methods in the generated OpenAPI documentation.
+        :param pulumi.Input[bool] token_relay: Should pass currently-authenticated user's identity token to application service?
+        :param pulumi.Input[str] uri: Specifies the full uri which will override `appName`.
+        """
+        if classification_tags is not None:
+            pulumi.set(__self__, "classification_tags", classification_tags)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if predicates is not None:
+            pulumi.set(__self__, "predicates", predicates)
+        if sso_validation_enabled is not None:
+            pulumi.set(__self__, "sso_validation_enabled", sso_validation_enabled)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if token_relay is not None:
+            pulumi.set(__self__, "token_relay", token_relay)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="classificationTags")
+    def classification_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
+        """
+        return pulumi.get(self, "classification_tags")
+
+    @classification_tags.setter
+    def classification_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "classification_tags", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the description which will be applied to methods in the generated OpenAPI documentation.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the route processing order.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+        """
+        return pulumi.get(self, "predicates")
+
+    @predicates.setter
+    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "predicates", value)
+
+    @property
+    @pulumi.getter(name="ssoValidationEnabled")
+    def sso_validation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the sso validation be enabled?
+        """
+        return pulumi.get(self, "sso_validation_enabled")
+
+    @sso_validation_enabled.setter
+    def sso_validation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "sso_validation_enabled", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the title which will be applied to methods in the generated OpenAPI documentation.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="tokenRelay")
+    def token_relay(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should pass currently-authenticated user's identity token to application service?
+        """
+        return pulumi.get(self, "token_relay")
+
+    @token_relay.setter
+    def token_relay(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_relay", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the full uri which will override `appName`.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
 
 
 @pulumi.input_type

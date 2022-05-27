@@ -26,6 +26,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? ConnectionMode;
         /// <summary>
+        /// One or more `custom_bgp_address` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VpnGatewayConnectionVpnLinkCustomBgpAddress> CustomBgpAddresses;
+        /// <summary>
         /// A list of the egress NAT Rule Ids.
         /// </summary>
         public readonly ImmutableArray<string> EgressNatRuleIds;
@@ -78,6 +82,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             string? connectionMode,
 
+            ImmutableArray<Outputs.VpnGatewayConnectionVpnLinkCustomBgpAddress> customBgpAddresses,
+
             ImmutableArray<string> egressNatRuleIds,
 
             ImmutableArray<string> ingressNatRuleIds,
@@ -103,6 +109,7 @@ namespace Pulumi.Azure.Network.Outputs
             BandwidthMbps = bandwidthMbps;
             BgpEnabled = bgpEnabled;
             ConnectionMode = connectionMode;
+            CustomBgpAddresses = customBgpAddresses;
             EgressNatRuleIds = egressNatRuleIds;
             IngressNatRuleIds = ingressNatRuleIds;
             IpsecPolicies = ipsecPolicies;

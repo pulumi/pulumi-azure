@@ -365,7 +365,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineTerminationNotification> TerminationNotification { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        /// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         /// </summary>
         [Output("timezone")]
         public Output<string?> Timezone { get; private set; } = null!;
@@ -705,7 +705,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineTerminationNotificationArgs>? TerminationNotification { get; set; }
 
         /// <summary>
-        /// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        /// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
@@ -1042,7 +1042,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineTerminationNotificationGetArgs>? TerminationNotification { get; set; }
 
         /// <summary>
-        /// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        /// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }

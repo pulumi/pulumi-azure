@@ -162,7 +162,7 @@ namespace Pulumi.Azure.MySql
         public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         /// </summary>
         [Output("sslMinimalTlsVersionEnforced")]
         public Output<string?> SslMinimalTlsVersionEnforced { get; private set; } = null!;
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.MySql
         public Input<bool> SslEnforcementEnabled { get; set; } = null!;
 
         /// <summary>
-        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         /// </summary>
         [Input("sslMinimalTlsVersionEnforced")]
         public Input<string>? SslMinimalTlsVersionEnforced { get; set; }
@@ -479,7 +479,7 @@ namespace Pulumi.Azure.MySql
         public Input<bool>? SslEnforcementEnabled { get; set; }
 
         /// <summary>
-        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+        /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         /// </summary>
         [Input("sslMinimalTlsVersionEnforced")]
         public Input<string>? SslMinimalTlsVersionEnforced { get; set; }

@@ -121,7 +121,7 @@ type VirtualNetworkGateway struct {
 	// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolOutput `pulumi:"activeActive"`
-	// A block of `bgpSettings`.
+	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
 	BgpSettings VirtualNetworkGatewayBgpSettingsOutput    `pulumi:"bgpSettings"`
 	CustomRoute VirtualNetworkGatewayCustomRoutePtrOutput `pulumi:"customRoute"`
 	// The ID of the local network gateway
@@ -222,7 +222,7 @@ type virtualNetworkGatewayState struct {
 	// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive *bool `pulumi:"activeActive"`
-	// A block of `bgpSettings`.
+	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
 	BgpSettings *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
 	CustomRoute *VirtualNetworkGatewayCustomRoute `pulumi:"customRoute"`
 	// The ID of the local network gateway
@@ -283,7 +283,7 @@ type VirtualNetworkGatewayState struct {
 	// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolPtrInput
-	// A block of `bgpSettings`.
+	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
 	BgpSettings VirtualNetworkGatewayBgpSettingsPtrInput
 	CustomRoute VirtualNetworkGatewayCustomRoutePtrInput
 	// The ID of the local network gateway
@@ -348,7 +348,7 @@ type virtualNetworkGatewayArgs struct {
 	// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive *bool `pulumi:"activeActive"`
-	// A block of `bgpSettings`.
+	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
 	BgpSettings *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
 	CustomRoute *VirtualNetworkGatewayCustomRoute `pulumi:"customRoute"`
 	// The ID of the local network gateway
@@ -410,7 +410,7 @@ type VirtualNetworkGatewayArgs struct {
 	// `UltraPerformance` SKU. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
 	ActiveActive pulumi.BoolPtrInput
-	// A block of `bgpSettings`.
+	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
 	BgpSettings VirtualNetworkGatewayBgpSettingsPtrInput
 	CustomRoute VirtualNetworkGatewayCustomRoutePtrInput
 	// The ID of the local network gateway
@@ -560,7 +560,7 @@ func (o VirtualNetworkGatewayOutput) ActiveActive() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.BoolOutput { return v.ActiveActive }).(pulumi.BoolOutput)
 }
 
-// A block of `bgpSettings`.
+// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
 func (o VirtualNetworkGatewayOutput) BgpSettings() VirtualNetworkGatewayBgpSettingsOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) VirtualNetworkGatewayBgpSettingsOutput { return v.BgpSettings }).(VirtualNetworkGatewayBgpSettingsOutput)
 }

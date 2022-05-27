@@ -79,6 +79,10 @@ export class SpringCloudService extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+     */
+    public readonly buildAgentPoolSize!: pulumi.Output<string | undefined>;
+    /**
      * A `configServerGitSetting` block as defined below.
      */
     public readonly configServerGitSetting!: pulumi.Output<outputs.appplatform.SpringCloudServiceConfigServerGitSetting | undefined>;
@@ -126,6 +130,10 @@ export class SpringCloudService extends pulumi.CustomResource {
      * A `trace` block as defined below.
      */
     public readonly trace!: pulumi.Output<outputs.appplatform.SpringCloudServiceTrace | undefined>;
+    /**
+     * Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+     */
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SpringCloudService resource with the given unique name, arguments, and options.
@@ -140,6 +148,7 @@ export class SpringCloudService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudServiceState | undefined;
+            resourceInputs["buildAgentPoolSize"] = state ? state.buildAgentPoolSize : undefined;
             resourceInputs["configServerGitSetting"] = state ? state.configServerGitSetting : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -152,11 +161,13 @@ export class SpringCloudService extends pulumi.CustomResource {
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["trace"] = state ? state.trace : undefined;
+            resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as SpringCloudServiceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["buildAgentPoolSize"] = args ? args.buildAgentPoolSize : undefined;
             resourceInputs["configServerGitSetting"] = args ? args.configServerGitSetting : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -166,6 +177,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trace"] = args ? args.trace : undefined;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             resourceInputs["outboundPublicIpAddresses"] = undefined /*out*/;
             resourceInputs["requiredNetworkTrafficRules"] = undefined /*out*/;
             resourceInputs["serviceRegistryId"] = undefined /*out*/;
@@ -179,6 +191,10 @@ export class SpringCloudService extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SpringCloudService resources.
  */
 export interface SpringCloudServiceState {
+    /**
+     * Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+     */
+    buildAgentPoolSize?: pulumi.Input<string>;
     /**
      * A `configServerGitSetting` block as defined below.
      */
@@ -227,12 +243,20 @@ export interface SpringCloudServiceState {
      * A `trace` block as defined below.
      */
     trace?: pulumi.Input<inputs.appplatform.SpringCloudServiceTrace>;
+    /**
+     * Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+     */
+    zoneRedundant?: pulumi.Input<boolean>;
 }
 
 /**
  * The set of arguments for constructing a SpringCloudService resource.
  */
 export interface SpringCloudServiceArgs {
+    /**
+     * Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+     */
+    buildAgentPoolSize?: pulumi.Input<string>;
     /**
      * A `configServerGitSetting` block as defined below.
      */
@@ -269,4 +293,8 @@ export interface SpringCloudServiceArgs {
      * A `trace` block as defined below.
      */
     trace?: pulumi.Input<inputs.appplatform.SpringCloudServiceTrace>;
+    /**
+     * Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+     */
+    zoneRedundant?: pulumi.Input<boolean>;
 }

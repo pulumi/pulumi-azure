@@ -65,7 +65,7 @@ type Definition struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the policy definition.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	// The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrOutput `pulumi:"managementGroupId"`
 	// The metadata for the policy definition. This
 	// is a JSON string representing additional metadata that should be stored
@@ -130,7 +130,7 @@ type definitionState struct {
 	Description *string `pulumi:"description"`
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
-	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	// The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// The metadata for the policy definition. This
 	// is a JSON string representing additional metadata that should be stored
@@ -158,7 +158,7 @@ type DefinitionState struct {
 	Description pulumi.StringPtrInput
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput
-	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	// The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrInput
 	// The metadata for the policy definition. This
 	// is a JSON string representing additional metadata that should be stored
@@ -190,7 +190,7 @@ type definitionArgs struct {
 	Description *string `pulumi:"description"`
 	// The display name of the policy definition.
 	DisplayName string `pulumi:"displayName"`
-	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	// The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// The metadata for the policy definition. This
 	// is a JSON string representing additional metadata that should be stored
@@ -219,7 +219,7 @@ type DefinitionArgs struct {
 	Description pulumi.StringPtrInput
 	// The display name of the policy definition.
 	DisplayName pulumi.StringInput
-	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	// The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrInput
 	// The metadata for the policy definition. This
 	// is a JSON string representing additional metadata that should be stored
@@ -339,7 +339,7 @@ func (o DefinitionOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Definition) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+// The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
 func (o DefinitionOutput) ManagementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Definition) pulumi.StringPtrOutput { return v.ManagementGroupId }).(pulumi.StringPtrOutput)
 }

@@ -173,6 +173,10 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      * A mapping of tags which should be assigned to the Linux Web App.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     */
+    public readonly zipDeployFile!: pulumi.Output<string>;
 
     /**
      * Create a LinuxWebAppSlot resource with the given unique name, arguments, and options.
@@ -213,6 +217,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
             resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
         } else {
             const args = argsOrState as LinuxWebAppSlotArgs | undefined;
             if ((!args || args.appServiceId === undefined) && !opts.urn) {
@@ -238,6 +243,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
             resourceInputs["appMetadata"] = undefined /*out*/;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
@@ -361,6 +367,10 @@ export interface LinuxWebAppSlotState {
      * A mapping of tags which should be assigned to the Linux Web App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     */
+    zipDeployFile?: pulumi.Input<string>;
 }
 
 /**
@@ -435,4 +445,8 @@ export interface LinuxWebAppSlotArgs {
      * A mapping of tags which should be assigned to the Linux Web App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     */
+    zipDeployFile?: pulumi.Input<string>;
 }

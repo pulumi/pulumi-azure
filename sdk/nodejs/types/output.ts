@@ -1984,6 +1984,25 @@ export namespace appplatform {
         protocol: string;
     }
 
+    export interface SpringCloudApiPortalSso {
+        /**
+         * The public identifier for the application.
+         */
+        clientId?: string;
+        /**
+         * The secret known only to the application and the authorization server.
+         */
+        clientSecret?: string;
+        /**
+         * The URI of Issuer Identifier.
+         */
+        issuerUri?: string;
+        /**
+         * It defines the specific actions applications can be allowed to do on a user's behalf.
+         */
+        scopes?: string[];
+    }
+
     export interface SpringCloudAppCustomPersistentDisk {
         /**
          * These are the mount options for a persistent disk.
@@ -2035,6 +2054,17 @@ export namespace appplatform {
          * Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
          */
         sizeInGb: number;
+    }
+
+    export interface SpringCloudBuildDeploymentQuota {
+        /**
+         * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+         */
+        cpu: string;
+        /**
+         * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+         */
+        memory: string;
     }
 
     export interface SpringCloudBuildPackBindingLaunch {
@@ -2187,6 +2217,45 @@ export namespace appplatform {
          * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
          */
         memory?: string;
+    }
+
+    export interface SpringCloudGatewayRouteConfigRoute {
+        /**
+         * Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
+         */
+        classificationTags?: string[];
+        /**
+         * Specifies the description which will be applied to methods in the generated OpenAPI documentation.
+         */
+        description?: string;
+        /**
+         * Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
+         */
+        filters?: string[];
+        /**
+         * Specifies the route processing order.
+         */
+        order?: number;
+        /**
+         * Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+         */
+        predicates?: string[];
+        /**
+         * Should the sso validation be enabled?
+         */
+        ssoValidationEnabled?: boolean;
+        /**
+         * Specifies the title which will be applied to methods in the generated OpenAPI documentation.
+         */
+        title?: string;
+        /**
+         * Should pass currently-authenticated user's identity token to application service?
+         */
+        tokenRelay?: boolean;
+        /**
+         * Specifies the full uri which will override `appName`.
+         */
+        uri?: string;
     }
 
     export interface SpringCloudGatewaySso {
@@ -2390,7 +2459,6 @@ export namespace appplatform {
          */
         sampleRate?: number;
     }
-
 }
 
 export namespace appservice {
@@ -14935,7 +15003,7 @@ export namespace compute {
          */
         diffDiskSettings?: outputs.compute.LinuxVirtualMachineOsDiskDiffDiskSettings;
         /**
-         * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+         * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
          */
         diskEncryptionSetId?: string;
         /**
@@ -14946,6 +15014,14 @@ export namespace compute {
          * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+         */
+        secureVmDiskEncryptionSetId?: string;
+        /**
+         * Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+         */
+        securityEncryptionType?: string;
         /**
          * The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          */
@@ -15238,13 +15314,21 @@ export namespace compute {
          */
         diffDiskSettings?: outputs.compute.LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings;
         /**
-         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
          */
         diskEncryptionSetId?: string;
         /**
          * The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
          */
         diskSizeGb: number;
+        /**
+         * The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+         */
+        secureVmDiskEncryptionSetId?: string;
+        /**
+         * Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+         */
+        securityEncryptionType?: string;
         /**
          * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
          */
@@ -16403,7 +16487,7 @@ export namespace compute {
          */
         diffDiskSettings?: outputs.compute.WindowsVirtualMachineOsDiskDiffDiskSettings;
         /**
-         * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+         * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
          */
         diskEncryptionSetId?: string;
         /**
@@ -16414,6 +16498,14 @@ export namespace compute {
          * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+         */
+        secureVmDiskEncryptionSetId?: string;
+        /**
+         * Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+         */
+        securityEncryptionType?: string;
         /**
          * The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          */
@@ -16706,13 +16798,21 @@ export namespace compute {
          */
         diffDiskSettings?: outputs.compute.WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings;
         /**
-         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
          */
         diskEncryptionSetId?: string;
         /**
          * The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
          */
         diskSizeGb: number;
+        /**
+         * The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+         */
+        secureVmDiskEncryptionSetId?: string;
+        /**
+         * Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
+         */
+        securityEncryptionType?: string;
         /**
          * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
          */
@@ -20910,13 +21010,43 @@ export namespace datafactory {
 
     export interface DataFlowTransformation {
         /**
+         * A `dataset` block as defined below.
+         */
+        dataset?: outputs.datafactory.DataFlowTransformationDataset;
+        /**
          * The description for the Data Flow transformation.
          */
         description?: string;
         /**
+         * A `linkedService` block as defined below.
+         */
+        linkedService?: outputs.datafactory.DataFlowTransformationLinkedService;
+        /**
          * The name for the Data Flow transformation.
          */
         name: string;
+    }
+
+    export interface DataFlowTransformationDataset {
+        /**
+         * The name for the Data Factory Dataset.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowTransformationLinkedService {
+        /**
+         * The name for the Data Factory Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
     }
 
     export interface DatasetAzureBlobSchemaColumn {
@@ -35793,6 +35923,10 @@ export namespace network {
          */
         connectionMode?: string;
         /**
+         * One or more `customBgpAddress` blocks as defined below.
+         */
+        customBgpAddresses?: outputs.network.VpnGatewayConnectionVpnLinkCustomBgpAddress[];
+        /**
          * A list of the egress NAT Rule Ids.
          */
         egressNatRuleIds?: string[];
@@ -35836,6 +35970,17 @@ export namespace network {
          * The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
          */
         vpnSiteLinkId: string;
+    }
+
+    export interface VpnGatewayConnectionVpnLinkCustomBgpAddress {
+        /**
+         * The custom bgp ip address which belongs to the IP Configuration.
+         */
+        ipAddress: string;
+        /**
+         * The ID of the IP Configuration which belongs to the VPN Gateway.
+         */
+        ipConfigurationId: string;
     }
 
     export interface VpnGatewayConnectionVpnLinkIpsecPolicy {

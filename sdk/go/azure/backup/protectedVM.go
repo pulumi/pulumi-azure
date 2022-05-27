@@ -108,9 +108,6 @@ func NewProtectedVM(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SourceVmId == nil {
-		return nil, errors.New("invalid value for required argument 'SourceVmId'")
-	}
 	var resource ProtectedVM
 	err := ctx.RegisterResource("azure:backup/protectedVM:ProtectedVM", name, args, &resource, opts...)
 	if err != nil {
@@ -178,7 +175,7 @@ type protectedVMArgs struct {
 	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
-	SourceVmId string `pulumi:"sourceVmId"`
+	SourceVmId *string `pulumi:"sourceVmId"`
 }
 
 // The set of arguments for constructing a ProtectedVM resource.
@@ -194,7 +191,7 @@ type ProtectedVMArgs struct {
 	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
-	SourceVmId pulumi.StringInput
+	SourceVmId pulumi.StringPtrInput
 }
 
 func (ProtectedVMArgs) ElementType() reflect.Type {

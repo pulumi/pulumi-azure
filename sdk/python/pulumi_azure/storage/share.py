@@ -27,6 +27,7 @@ class ShareArgs:
         :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
                Changing this forces a new resource to be created.
+        :param pulumi.Input[str] access_tier: The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
         :param pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
@@ -73,6 +74,9 @@ class ShareArgs:
     @property
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+        """
         return pulumi.get(self, "access_tier")
 
     @access_tier.setter
@@ -142,6 +146,7 @@ class _ShareState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Share resources.
+        :param pulumi.Input[str] access_tier: The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
         :param pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
@@ -174,6 +179,9 @@ class _ShareState:
     @property
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+        """
         return pulumi.get(self, "access_tier")
 
     @access_tier.setter
@@ -331,6 +339,7 @@ class Share(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_tier: The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
@@ -456,6 +465,7 @@ class Share(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_tier: The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
@@ -483,7 +493,10 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> pulumi.Output[Optional[str]]:
+    def access_tier(self) -> pulumi.Output[str]:
+        """
+        The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+        """
         return pulumi.get(self, "access_tier")
 
     @property

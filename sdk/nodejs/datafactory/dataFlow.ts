@@ -141,7 +141,11 @@ export class DataFlow extends pulumi.CustomResource {
     /**
      * The script for the Data Factory Data Flow.
      */
-    public readonly script!: pulumi.Output<string>;
+    public readonly script!: pulumi.Output<string | undefined>;
+    /**
+     * The script lines for the Data Factory Data Flow.
+     */
+    public readonly scriptLines!: pulumi.Output<string[] | undefined>;
     /**
      * One or more `sink` blocks as defined below.
      */
@@ -174,6 +178,7 @@ export class DataFlow extends pulumi.CustomResource {
             resourceInputs["folder"] = state ? state.folder : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["script"] = state ? state.script : undefined;
+            resourceInputs["scriptLines"] = state ? state.scriptLines : undefined;
             resourceInputs["sinks"] = state ? state.sinks : undefined;
             resourceInputs["sources"] = state ? state.sources : undefined;
             resourceInputs["transformations"] = state ? state.transformations : undefined;
@@ -181,9 +186,6 @@ export class DataFlow extends pulumi.CustomResource {
             const args = argsOrState as DataFlowArgs | undefined;
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
-            }
-            if ((!args || args.script === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'script'");
             }
             if ((!args || args.sinks === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sinks'");
@@ -197,6 +199,7 @@ export class DataFlow extends pulumi.CustomResource {
             resourceInputs["folder"] = args ? args.folder : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["script"] = args ? args.script : undefined;
+            resourceInputs["scriptLines"] = args ? args.scriptLines : undefined;
             resourceInputs["sinks"] = args ? args.sinks : undefined;
             resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["transformations"] = args ? args.transformations : undefined;
@@ -234,6 +237,10 @@ export interface DataFlowState {
      * The script for the Data Factory Data Flow.
      */
     script?: pulumi.Input<string>;
+    /**
+     * The script lines for the Data Factory Data Flow.
+     */
+    scriptLines?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more `sink` blocks as defined below.
      */
@@ -275,7 +282,11 @@ export interface DataFlowArgs {
     /**
      * The script for the Data Factory Data Flow.
      */
-    script: pulumi.Input<string>;
+    script?: pulumi.Input<string>;
+    /**
+     * The script lines for the Data Factory Data Flow.
+     */
+    scriptLines?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more `sink` blocks as defined below.
      */

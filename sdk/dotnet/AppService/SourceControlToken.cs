@@ -35,7 +35,7 @@ namespace Pulumi.Azure.AppService
     /// App Service Source GitHub Tokens can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appservice/sourceControlToken:SourceControlToken example /providers/Microsoft.Web/sourcecontrols/GitHub
+    ///  $ pulumi import azure:appservice/sourceControlToken:SourceControlToken example /providers/Microsoft.Web/sourceControls/GitHub
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/sourceControlToken:SourceControlToken")]

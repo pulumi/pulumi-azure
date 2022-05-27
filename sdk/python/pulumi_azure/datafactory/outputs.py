@@ -20,6 +20,8 @@ __all__ = [
     'DataFlowSourceLinkedService',
     'DataFlowSourceSchemaLinkedService',
     'DataFlowTransformation',
+    'DataFlowTransformationDataset',
+    'DataFlowTransformationLinkedService',
     'DatasetAzureBlobSchemaColumn',
     'DatasetBinaryAzureBlobStorageLocation',
     'DatasetBinaryCompression',
@@ -469,16 +471,41 @@ class DataFlowSourceSchemaLinkedService(dict):
 
 @pulumi.output_type
 class DataFlowTransformation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedService":
+            suggest = "linked_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataFlowTransformation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataFlowTransformation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataFlowTransformation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
-                 description: Optional[str] = None):
+                 dataset: Optional['outputs.DataFlowTransformationDataset'] = None,
+                 description: Optional[str] = None,
+                 linked_service: Optional['outputs.DataFlowTransformationLinkedService'] = None):
         """
         :param str name: The name for the Data Flow transformation.
+        :param 'DataFlowTransformationDatasetArgs' dataset: A `dataset` block as defined below.
         :param str description: The description for the Data Flow transformation.
+        :param 'DataFlowTransformationLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
+        if dataset is not None:
+            pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if linked_service is not None:
+            pulumi.set(__self__, "linked_service", linked_service)
 
     @property
     @pulumi.getter
@@ -490,11 +517,87 @@ class DataFlowTransformation(dict):
 
     @property
     @pulumi.getter
+    def dataset(self) -> Optional['outputs.DataFlowTransformationDataset']:
+        """
+        A `dataset` block as defined below.
+        """
+        return pulumi.get(self, "dataset")
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[str]:
         """
         The description for the Data Flow transformation.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="linkedService")
+    def linked_service(self) -> Optional['outputs.DataFlowTransformationLinkedService']:
+        """
+        A `linked_service` block as defined below.
+        """
+        return pulumi.get(self, "linked_service")
+
+
+@pulumi.output_type
+class DataFlowTransformationDataset(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Dataset.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory dataset.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class DataFlowTransformationLinkedService(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Linked Service.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type

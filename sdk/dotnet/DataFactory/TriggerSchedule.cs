@@ -95,6 +95,12 @@ namespace Pulumi.Azure.DataFactory
         [Output("startTime")]
         public Output<string> StartTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The timezone of the start/end time.
+        /// </summary>
+        [Output("timeZone")]
+        public Output<string?> TimeZone { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a TriggerSchedule resource with the given unique name, arguments, and options.
@@ -225,6 +231,12 @@ namespace Pulumi.Azure.DataFactory
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
+        /// <summary>
+        /// The timezone of the start/end time.
+        /// </summary>
+        [Input("timeZone")]
+        public Input<string>? TimeZone { get; set; }
+
         public TriggerScheduleArgs()
         {
         }
@@ -315,6 +327,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
+
+        /// <summary>
+        /// The timezone of the start/end time.
+        /// </summary>
+        [Input("timeZone")]
+        public Input<string>? TimeZone { get; set; }
 
         public TriggerScheduleState()
         {

@@ -27,6 +27,7 @@ class ChannelsRegistrationArgs:
                  isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ChannelsRegistration resource.
@@ -44,6 +45,7 @@ class ChannelsRegistrationArgs:
         :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
+        :param pulumi.Input[bool] public_network_access_enabled: Is the Bot Channels Registration in an isolated network?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
@@ -66,11 +68,16 @@ class ChannelsRegistrationArgs:
         if icon_url is not None:
             pulumi.set(__self__, "icon_url", icon_url)
         if isolated_network_enabled is not None:
+            warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
+        if isolated_network_enabled is not None:
             pulumi.set(__self__, "isolated_network_enabled", isolated_network_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -243,6 +250,18 @@ class ChannelsRegistrationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Bot Channels Registration in an isolated network?
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -270,6 +289,7 @@ class _ChannelsRegistrationState:
                  location: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -287,6 +307,7 @@ class _ChannelsRegistrationState:
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
+        :param pulumi.Input[bool] public_network_access_enabled: Is the Bot Channels Registration in an isolated network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -308,6 +329,9 @@ class _ChannelsRegistrationState:
         if icon_url is not None:
             pulumi.set(__self__, "icon_url", icon_url)
         if isolated_network_enabled is not None:
+            warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
+        if isolated_network_enabled is not None:
             pulumi.set(__self__, "isolated_network_enabled", isolated_network_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -315,6 +339,8 @@ class _ChannelsRegistrationState:
             pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
@@ -467,6 +493,18 @@ class _ChannelsRegistrationState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Bot Channels Registration in an isolated network?
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -520,6 +558,7 @@ class ChannelsRegistration(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -564,6 +603,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
+        :param pulumi.Input[bool] public_network_access_enabled: Is the Bot Channels Registration in an isolated network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -627,6 +667,7 @@ class ChannelsRegistration(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -650,12 +691,16 @@ class ChannelsRegistration(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["icon_url"] = icon_url
+            if isolated_network_enabled is not None and not opts.urn:
+                warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+                pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
             __props__.__dict__["isolated_network_enabled"] = isolated_network_enabled
             __props__.__dict__["location"] = location
             if microsoft_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'microsoft_app_id'")
             __props__.__dict__["microsoft_app_id"] = microsoft_app_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -685,6 +730,7 @@ class ChannelsRegistration(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             microsoft_app_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ChannelsRegistration':
@@ -707,6 +753,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
+        :param pulumi.Input[bool] public_network_access_enabled: Is the Bot Channels Registration in an isolated network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -727,6 +774,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["microsoft_app_id"] = microsoft_app_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
@@ -798,7 +846,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isolatedNetworkEnabled")
-    def isolated_network_enabled(self) -> pulumi.Output[Optional[bool]]:
+    def isolated_network_enabled(self) -> pulumi.Output[bool]:
         """
         Is the Bot Channels Registration in an isolated network?
         """
@@ -827,6 +875,14 @@ class ChannelsRegistration(pulumi.CustomResource):
         Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[bool]:
+        """
+        Is the Bot Channels Registration in an isolated network?
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

@@ -13,10 +13,22 @@ namespace Pulumi.Azure.DataFactory.Inputs
     public sealed class DataFlowTransformationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `dataset` block as defined below.
+        /// </summary>
+        [Input("dataset")]
+        public Input<Inputs.DataFlowTransformationDatasetArgs>? Dataset { get; set; }
+
+        /// <summary>
         /// The description for the Data Flow transformation.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// A `linked_service` block as defined below.
+        /// </summary>
+        [Input("linkedService")]
+        public Input<Inputs.DataFlowTransformationLinkedServiceArgs>? LinkedService { get; set; }
 
         /// <summary>
         /// The name for the Data Flow transformation.

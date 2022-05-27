@@ -34,7 +34,8 @@ class LinuxWebAppArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  sticky_settings: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LinuxWebApp resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
@@ -57,6 +58,7 @@ class LinuxWebAppArgs:
         :param pulumi.Input['LinuxWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_plan_id", service_plan_id)
@@ -95,6 +97,8 @@ class LinuxWebAppArgs:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zip_deploy_file is not None:
+            pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -336,6 +340,18 @@ class LinuxWebAppArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
+
+    @zip_deploy_file.setter
+    def zip_deploy_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zip_deploy_file", value)
+
 
 @pulumi.input_type
 class _LinuxWebAppState:
@@ -367,7 +383,8 @@ class _LinuxWebAppState:
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteCredentialArgs']]]] = None,
                  sticky_settings: Optional[pulumi.Input['LinuxWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LinuxWebApp resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
@@ -398,6 +415,7 @@ class _LinuxWebAppState:
         :param pulumi.Input['LinuxWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
@@ -455,6 +473,8 @@ class _LinuxWebAppState:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zip_deploy_file is not None:
+            pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
     @property
     @pulumi.getter(name="appSettings")
@@ -792,6 +812,18 @@ class _LinuxWebAppState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
+
+    @zip_deploy_file.setter
+    def zip_deploy_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zip_deploy_file", value)
+
 
 class LinuxWebApp(pulumi.CustomResource):
     @overload
@@ -818,6 +850,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Linux Web App.
@@ -871,6 +904,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         ...
     @overload
@@ -943,6 +977,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -981,6 +1016,7 @@ class LinuxWebApp(pulumi.CustomResource):
             __props__.__dict__["sticky_settings"] = sticky_settings
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["zip_deploy_file"] = zip_deploy_file
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
             __props__.__dict__["kind"] = None
@@ -1026,7 +1062,8 @@ class LinuxWebApp(pulumi.CustomResource):
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSiteCredentialArgs']]]]] = None,
             sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LinuxWebApp':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            zip_deploy_file: Optional[pulumi.Input[str]] = None) -> 'LinuxWebApp':
         """
         Get an existing LinuxWebApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1062,6 +1099,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1095,6 +1133,7 @@ class LinuxWebApp(pulumi.CustomResource):
         __props__.__dict__["sticky_settings"] = sticky_settings
         __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return LinuxWebApp(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1320,4 +1359,12 @@ class LinuxWebApp(pulumi.CustomResource):
         A mapping of tags which should be assigned to the Linux Web App.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> pulumi.Output[str]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
 

@@ -30,6 +30,7 @@ export function azurerm_portal_dashboard(args: Azurerm_portal_dashboardArgs, opt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", {
         "dashboardProperties": args.dashboardProperties,
+        "displayName": args.displayName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -44,9 +45,13 @@ export interface Azurerm_portal_dashboardArgs {
      */
     dashboardProperties?: string;
     /**
+     * Specifies the display name of the shared Azure Portal Dashboard.
+     */
+    displayName?: string;
+    /**
      * Specifies the name of the shared Azure Portal Dashboard.
      */
-    name: string;
+    name?: string;
     /**
      * Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
      */
@@ -61,6 +66,7 @@ export interface Azurerm_portal_dashboardResult {
      * JSON data representing dashboard body.
      */
     readonly dashboardProperties: string;
+    readonly displayName?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -69,7 +75,7 @@ export interface Azurerm_portal_dashboardResult {
      * The Azure Region where the shared Azure Portal dashboard exists.
      */
     readonly location: string;
-    readonly name: string;
+    readonly name?: string;
     readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to the shared Azure Portal dashboard.
@@ -90,9 +96,13 @@ export interface Azurerm_portal_dashboardOutputArgs {
      */
     dashboardProperties?: pulumi.Input<string>;
     /**
+     * Specifies the display name of the shared Azure Portal Dashboard.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
      * Specifies the name of the shared Azure Portal Dashboard.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
      */

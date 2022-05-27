@@ -120,6 +120,8 @@ type WindowsWebApp struct {
 	StorageAccounts WindowsWebAppStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
 }
 
 // NewWindowsWebApp registers a new resource with the given unique name, arguments, and options.
@@ -216,6 +218,8 @@ type windowsWebAppState struct {
 	StorageAccounts []WindowsWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags map[string]string `pulumi:"tags"`
+	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
 type WindowsWebAppState struct {
@@ -275,6 +279,8 @@ type WindowsWebAppState struct {
 	StorageAccounts WindowsWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags pulumi.StringMapInput
+	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	ZipDeployFile pulumi.StringPtrInput
 }
 
 func (WindowsWebAppState) ElementType() reflect.Type {
@@ -322,6 +328,8 @@ type windowsWebAppArgs struct {
 	StorageAccounts []WindowsWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags map[string]string `pulumi:"tags"`
+	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
 // The set of arguments for constructing a WindowsWebApp resource.
@@ -366,6 +374,8 @@ type WindowsWebAppArgs struct {
 	StorageAccounts WindowsWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Windows Web App.
 	Tags pulumi.StringMapInput
+	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	ZipDeployFile pulumi.StringPtrInput
 }
 
 func (WindowsWebAppArgs) ElementType() reflect.Type {
@@ -593,6 +603,11 @@ func (o WindowsWebAppOutput) StorageAccounts() WindowsWebAppStorageAccountArrayO
 // A mapping of tags which should be assigned to the Windows Web App.
 func (o WindowsWebAppOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+func (o WindowsWebAppOutput) ZipDeployFile() pulumi.StringOutput {
+	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringOutput { return v.ZipDeployFile }).(pulumi.StringOutput)
 }
 
 type WindowsWebAppArrayOutput struct{ *pulumi.OutputState }

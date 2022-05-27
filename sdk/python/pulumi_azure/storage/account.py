@@ -73,6 +73,7 @@ class AccountArgs:
         :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
+        :param pulumi.Input['AccountSharePropertiesArgs'] share_properties: A `share_properties` block as defined below.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
         :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -440,6 +441,9 @@ class AccountArgs:
     @property
     @pulumi.getter(name="shareProperties")
     def share_properties(self) -> Optional[pulumi.Input['AccountSharePropertiesArgs']]:
+        """
+        A `share_properties` block as defined below.
+        """
         return pulumi.get(self, "share_properties")
 
     @share_properties.setter
@@ -620,6 +624,7 @@ class _AccountState:
         :param pulumi.Input[str] secondary_table_host: The hostname with port if applicable for table storage in the secondary location.
         :param pulumi.Input[str] secondary_web_endpoint: The endpoint URL for web storage in the secondary location.
         :param pulumi.Input[str] secondary_web_host: The hostname with port if applicable for web storage in the secondary location.
+        :param pulumi.Input['AccountSharePropertiesArgs'] share_properties: A `share_properties` block as defined below.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
         :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -1438,6 +1443,9 @@ class _AccountState:
     @property
     @pulumi.getter(name="shareProperties")
     def share_properties(self) -> Optional[pulumi.Input['AccountSharePropertiesArgs']]:
+        """
+        A `share_properties` block as defined below.
+        """
         return pulumi.get(self, "share_properties")
 
     @share_properties.setter
@@ -1618,6 +1626,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountRoutingArgs']] routing: A `routing` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']] share_properties: A `share_properties` block as defined below.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
         :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -1952,6 +1961,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_table_host: The hostname with port if applicable for table storage in the secondary location.
         :param pulumi.Input[str] secondary_web_endpoint: The endpoint URL for web storage in the secondary location.
         :param pulumi.Input[str] secondary_web_host: The hostname with port if applicable for web storage in the secondary location.
+        :param pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']] share_properties: A `share_properties` block as defined below.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
         :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -2485,6 +2495,9 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="shareProperties")
     def share_properties(self) -> pulumi.Output['outputs.AccountShareProperties']:
+        """
+        A `share_properties` block as defined below.
+        """
         return pulumi.get(self, "share_properties")
 
     @property

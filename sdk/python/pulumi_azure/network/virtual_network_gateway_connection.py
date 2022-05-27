@@ -23,9 +23,11 @@ class VirtualNetworkGatewayConnectionArgs:
                  connection_protocol: Optional[pulumi.Input[str]] = None,
                  custom_bgp_addresses: Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_id: Optional[pulumi.Input[str]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
+                 ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipsec_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] = None,
                  local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  local_network_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -63,12 +65,14 @@ class VirtualNetworkGatewayConnectionArgs:
                The block can only be used on `IPSec` / `activeactive` connections,
                For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
                when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
                The Express Route Circuit can be in the same or in a different subscription.
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
         :param pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
                custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
@@ -107,12 +111,16 @@ class VirtualNetworkGatewayConnectionArgs:
             pulumi.set(__self__, "custom_bgp_addresses", custom_bgp_addresses)
         if dpd_timeout_seconds is not None:
             pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
+        if egress_nat_rule_ids is not None:
+            pulumi.set(__self__, "egress_nat_rule_ids", egress_nat_rule_ids)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
         if express_route_circuit_id is not None:
             pulumi.set(__self__, "express_route_circuit_id", express_route_circuit_id)
         if express_route_gateway_bypass is not None:
             pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
+        if ingress_nat_rule_ids is not None:
+            pulumi.set(__self__, "ingress_nat_rule_ids", ingress_nat_rule_ids)
         if ipsec_policy is not None:
             pulumi.set(__self__, "ipsec_policy", ipsec_policy)
         if local_azure_ip_address_enabled is not None:
@@ -249,6 +257,18 @@ class VirtualNetworkGatewayConnectionArgs:
         pulumi.set(self, "dpd_timeout_seconds", value)
 
     @property
+    @pulumi.getter(name="egressNatRuleIds")
+    def egress_nat_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the egress NAT Rule Ids.
+        """
+        return pulumi.get(self, "egress_nat_rule_ids")
+
+    @egress_nat_rule_ids.setter
+    def egress_nat_rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "egress_nat_rule_ids", value)
+
+    @property
     @pulumi.getter(name="enableBgp")
     def enable_bgp(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -286,6 +306,18 @@ class VirtualNetworkGatewayConnectionArgs:
     @express_route_gateway_bypass.setter
     def express_route_gateway_bypass(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "express_route_gateway_bypass", value)
+
+    @property
+    @pulumi.getter(name="ingressNatRuleIds")
+    def ingress_nat_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the ingress NAT Rule Ids.
+        """
+        return pulumi.get(self, "ingress_nat_rule_ids")
+
+    @ingress_nat_rule_ids.setter
+    def ingress_nat_rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ingress_nat_rule_ids", value)
 
     @property
     @pulumi.getter(name="ipsecPolicy")
@@ -441,9 +473,11 @@ class _VirtualNetworkGatewayConnectionState:
                  connection_protocol: Optional[pulumi.Input[str]] = None,
                  custom_bgp_addresses: Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_id: Optional[pulumi.Input[str]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
+                 ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipsec_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] = None,
                  local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  local_network_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -474,12 +508,14 @@ class _VirtualNetworkGatewayConnectionState:
                The block can only be used on `IPSec` / `activeactive` connections,
                For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
                when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
                The Express Route Circuit can be in the same or in a different subscription.
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
         :param pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
                custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
@@ -525,12 +561,16 @@ class _VirtualNetworkGatewayConnectionState:
             pulumi.set(__self__, "custom_bgp_addresses", custom_bgp_addresses)
         if dpd_timeout_seconds is not None:
             pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
+        if egress_nat_rule_ids is not None:
+            pulumi.set(__self__, "egress_nat_rule_ids", egress_nat_rule_ids)
         if enable_bgp is not None:
             pulumi.set(__self__, "enable_bgp", enable_bgp)
         if express_route_circuit_id is not None:
             pulumi.set(__self__, "express_route_circuit_id", express_route_circuit_id)
         if express_route_gateway_bypass is not None:
             pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
+        if ingress_nat_rule_ids is not None:
+            pulumi.set(__self__, "ingress_nat_rule_ids", ingress_nat_rule_ids)
         if ipsec_policy is not None:
             pulumi.set(__self__, "ipsec_policy", ipsec_policy)
         if local_azure_ip_address_enabled is not None:
@@ -630,6 +670,18 @@ class _VirtualNetworkGatewayConnectionState:
         pulumi.set(self, "dpd_timeout_seconds", value)
 
     @property
+    @pulumi.getter(name="egressNatRuleIds")
+    def egress_nat_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the egress NAT Rule Ids.
+        """
+        return pulumi.get(self, "egress_nat_rule_ids")
+
+    @egress_nat_rule_ids.setter
+    def egress_nat_rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "egress_nat_rule_ids", value)
+
+    @property
     @pulumi.getter(name="enableBgp")
     def enable_bgp(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -667,6 +719,18 @@ class _VirtualNetworkGatewayConnectionState:
     @express_route_gateway_bypass.setter
     def express_route_gateway_bypass(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "express_route_gateway_bypass", value)
+
+    @property
+    @pulumi.getter(name="ingressNatRuleIds")
+    def ingress_nat_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the ingress NAT Rule Ids.
+        """
+        return pulumi.get(self, "ingress_nat_rule_ids")
+
+    @ingress_nat_rule_ids.setter
+    def ingress_nat_rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ingress_nat_rule_ids", value)
 
     @property
     @pulumi.getter(name="ipsecPolicy")
@@ -867,9 +931,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  connection_protocol: Optional[pulumi.Input[str]] = None,
                  custom_bgp_addresses: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_id: Optional[pulumi.Input[str]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
+                 ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]] = None,
                  local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  local_network_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -1034,12 +1100,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                The block can only be used on `IPSec` / `activeactive` connections,
                For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
                when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
                The Express Route Circuit can be in the same or in a different subscription.
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
                custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
@@ -1234,9 +1302,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  connection_protocol: Optional[pulumi.Input[str]] = None,
                  custom_bgp_addresses: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_id: Optional[pulumi.Input[str]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
+                 ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]] = None,
                  local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  local_network_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -1268,9 +1338,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["connection_protocol"] = connection_protocol
             __props__.__dict__["custom_bgp_addresses"] = custom_bgp_addresses
             __props__.__dict__["dpd_timeout_seconds"] = dpd_timeout_seconds
+            __props__.__dict__["egress_nat_rule_ids"] = egress_nat_rule_ids
             __props__.__dict__["enable_bgp"] = enable_bgp
             __props__.__dict__["express_route_circuit_id"] = express_route_circuit_id
             __props__.__dict__["express_route_gateway_bypass"] = express_route_gateway_bypass
+            __props__.__dict__["ingress_nat_rule_ids"] = ingress_nat_rule_ids
             __props__.__dict__["ipsec_policy"] = ipsec_policy
             __props__.__dict__["local_azure_ip_address_enabled"] = local_azure_ip_address_enabled
             __props__.__dict__["local_network_gateway_id"] = local_network_gateway_id
@@ -1306,9 +1378,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             connection_protocol: Optional[pulumi.Input[str]] = None,
             custom_bgp_addresses: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']]] = None,
             dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+            egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enable_bgp: Optional[pulumi.Input[bool]] = None,
             express_route_circuit_id: Optional[pulumi.Input[str]] = None,
             express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
+            ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]] = None,
             local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
             local_network_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -1344,12 +1418,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                The block can only be used on `IPSec` / `activeactive` connections,
                For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
                when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
                The Express Route Circuit can be in the same or in a different subscription.
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
                custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
@@ -1394,9 +1470,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         __props__.__dict__["connection_protocol"] = connection_protocol
         __props__.__dict__["custom_bgp_addresses"] = custom_bgp_addresses
         __props__.__dict__["dpd_timeout_seconds"] = dpd_timeout_seconds
+        __props__.__dict__["egress_nat_rule_ids"] = egress_nat_rule_ids
         __props__.__dict__["enable_bgp"] = enable_bgp
         __props__.__dict__["express_route_circuit_id"] = express_route_circuit_id
         __props__.__dict__["express_route_gateway_bypass"] = express_route_gateway_bypass
+        __props__.__dict__["ingress_nat_rule_ids"] = ingress_nat_rule_ids
         __props__.__dict__["ipsec_policy"] = ipsec_policy
         __props__.__dict__["local_azure_ip_address_enabled"] = local_azure_ip_address_enabled
         __props__.__dict__["local_network_gateway_id"] = local_network_gateway_id
@@ -1463,6 +1541,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         return pulumi.get(self, "dpd_timeout_seconds")
 
     @property
+    @pulumi.getter(name="egressNatRuleIds")
+    def egress_nat_rule_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of the egress NAT Rule Ids.
+        """
+        return pulumi.get(self, "egress_nat_rule_ids")
+
+    @property
     @pulumi.getter(name="enableBgp")
     def enable_bgp(self) -> pulumi.Output[bool]:
         """
@@ -1488,6 +1574,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         """
         return pulumi.get(self, "express_route_gateway_bypass")
+
+    @property
+    @pulumi.getter(name="ingressNatRuleIds")
+    def ingress_nat_rule_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of the ingress NAT Rule Ids.
+        """
+        return pulumi.get(self, "ingress_nat_rule_ids")
 
     @property
     @pulumi.getter(name="ipsecPolicy")

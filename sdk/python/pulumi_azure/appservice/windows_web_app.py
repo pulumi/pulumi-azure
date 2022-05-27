@@ -34,7 +34,8 @@ class WindowsWebAppArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  sticky_settings: Optional[pulumi.Input['WindowsWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WindowsWebApp resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
@@ -57,6 +58,7 @@ class WindowsWebAppArgs:
         :param pulumi.Input['WindowsWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_plan_id", service_plan_id)
@@ -95,6 +97,8 @@ class WindowsWebAppArgs:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zip_deploy_file is not None:
+            pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -336,6 +340,18 @@ class WindowsWebAppArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
+
+    @zip_deploy_file.setter
+    def zip_deploy_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zip_deploy_file", value)
+
 
 @pulumi.input_type
 class _WindowsWebAppState:
@@ -367,7 +383,8 @@ class _WindowsWebAppState:
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteCredentialArgs']]]] = None,
                  sticky_settings: Optional[pulumi.Input['WindowsWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WindowsWebApp resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs of App Settings.
@@ -398,6 +415,7 @@ class _WindowsWebAppState:
         :param pulumi.Input['WindowsWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
@@ -455,6 +473,8 @@ class _WindowsWebAppState:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zip_deploy_file is not None:
+            pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
     @property
     @pulumi.getter(name="appSettings")
@@ -792,6 +812,18 @@ class _WindowsWebAppState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
+
+    @zip_deploy_file.setter
+    def zip_deploy_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zip_deploy_file", value)
+
 
 class WindowsWebApp(pulumi.CustomResource):
     @overload
@@ -818,6 +850,7 @@ class WindowsWebApp(pulumi.CustomResource):
                  sticky_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Windows Web App.
@@ -870,6 +903,7 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         ...
     @overload
@@ -941,6 +975,7 @@ class WindowsWebApp(pulumi.CustomResource):
                  sticky_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -979,6 +1014,7 @@ class WindowsWebApp(pulumi.CustomResource):
             __props__.__dict__["sticky_settings"] = sticky_settings
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["zip_deploy_file"] = zip_deploy_file
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
             __props__.__dict__["kind"] = None
@@ -1024,7 +1060,8 @@ class WindowsWebApp(pulumi.CustomResource):
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSiteCredentialArgs']]]]] = None,
             sticky_settings: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'WindowsWebApp':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            zip_deploy_file: Optional[pulumi.Input[str]] = None) -> 'WindowsWebApp':
         """
         Get an existing WindowsWebApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1060,6 +1097,7 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1093,6 +1131,7 @@ class WindowsWebApp(pulumi.CustomResource):
         __props__.__dict__["sticky_settings"] = sticky_settings
         __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return WindowsWebApp(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1318,4 +1357,12 @@ class WindowsWebApp(pulumi.CustomResource):
         A mapping of tags which should be assigned to the Windows Web App.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> pulumi.Output[str]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
 

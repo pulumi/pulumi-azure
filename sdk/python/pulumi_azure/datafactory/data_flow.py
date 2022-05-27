@@ -16,28 +16,29 @@ __all__ = ['DataFlowArgs', 'DataFlow']
 class DataFlowArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
-                 script: pulumi.Input[str],
                  sinks: pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]],
                  sources: pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]],
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 script: Optional[pulumi.Input[str]] = None,
+                 script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  transformations: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowTransformationArgs']]]] = None):
         """
         The set of arguments for constructing a DataFlow resource.
         :param pulumi.Input[str] data_factory_id: The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
-        :param pulumi.Input[str] script: The script for the Data Factory Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]] sinks: One or more `sink` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]] sources: One or more `source` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Data Flow.
         :param pulumi.Input[str] description: The description for the Data Factory Data Flow.
         :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] script: The script for the Data Factory Data Flow.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: The script lines for the Data Factory Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowTransformationArgs']]] transformations: One or more `transformation` blocks as defined below.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
-        pulumi.set(__self__, "script", script)
         pulumi.set(__self__, "sinks", sinks)
         pulumi.set(__self__, "sources", sources)
         if annotations is not None:
@@ -48,6 +49,10 @@ class DataFlowArgs:
             pulumi.set(__self__, "folder", folder)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+        if script_lines is not None:
+            pulumi.set(__self__, "script_lines", script_lines)
         if transformations is not None:
             pulumi.set(__self__, "transformations", transformations)
 
@@ -62,18 +67,6 @@ class DataFlowArgs:
     @data_factory_id.setter
     def data_factory_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter
-    def script(self) -> pulumi.Input[str]:
-        """
-        The script for the Data Factory Data Flow.
-        """
-        return pulumi.get(self, "script")
-
-    @script.setter
-    def script(self, value: pulumi.Input[str]):
-        pulumi.set(self, "script", value)
 
     @property
     @pulumi.getter
@@ -149,6 +142,30 @@ class DataFlowArgs:
 
     @property
     @pulumi.getter
+    def script(self) -> Optional[pulumi.Input[str]]:
+        """
+        The script for the Data Factory Data Flow.
+        """
+        return pulumi.get(self, "script")
+
+    @script.setter
+    def script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script", value)
+
+    @property
+    @pulumi.getter(name="scriptLines")
+    def script_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The script lines for the Data Factory Data Flow.
+        """
+        return pulumi.get(self, "script_lines")
+
+    @script_lines.setter
+    def script_lines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "script_lines", value)
+
+    @property
+    @pulumi.getter
     def transformations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowTransformationArgs']]]]:
         """
         One or more `transformation` blocks as defined below.
@@ -169,6 +186,7 @@ class _DataFlowState:
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
+                 script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sinks: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]]] = None,
                  transformations: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowTransformationArgs']]]] = None):
@@ -180,6 +198,7 @@ class _DataFlowState:
         :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Data Flow.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: The script lines for the Data Factory Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]] sinks: One or more `sink` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]] sources: One or more `source` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowTransformationArgs']]] transformations: One or more `transformation` blocks as defined below.
@@ -196,6 +215,8 @@ class _DataFlowState:
             pulumi.set(__self__, "name", name)
         if script is not None:
             pulumi.set(__self__, "script", script)
+        if script_lines is not None:
+            pulumi.set(__self__, "script_lines", script_lines)
         if sinks is not None:
             pulumi.set(__self__, "sinks", sinks)
         if sources is not None:
@@ -276,6 +297,18 @@ class _DataFlowState:
         pulumi.set(self, "script", value)
 
     @property
+    @pulumi.getter(name="scriptLines")
+    def script_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The script lines for the Data Factory Data Flow.
+        """
+        return pulumi.get(self, "script_lines")
+
+    @script_lines.setter
+    def script_lines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "script_lines", value)
+
+    @property
     @pulumi.getter
     def sinks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]]]:
         """
@@ -323,6 +356,7 @@ class DataFlow(pulumi.CustomResource):
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
+                 script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSinkArgs']]]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSourceArgs']]]]] = None,
                  transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowTransformationArgs']]]]] = None,
@@ -414,6 +448,7 @@ class DataFlow(pulumi.CustomResource):
         :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Data Flow.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: The script lines for the Data Factory Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSinkArgs']]]] sinks: One or more `sink` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSourceArgs']]]] sources: One or more `source` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowTransformationArgs']]]] transformations: One or more `transformation` blocks as defined below.
@@ -524,6 +559,7 @@ class DataFlow(pulumi.CustomResource):
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
+                 script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSinkArgs']]]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSourceArgs']]]]] = None,
                  transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowTransformationArgs']]]]] = None,
@@ -546,9 +582,8 @@ class DataFlow(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["folder"] = folder
             __props__.__dict__["name"] = name
-            if script is None and not opts.urn:
-                raise TypeError("Missing required property 'script'")
             __props__.__dict__["script"] = script
+            __props__.__dict__["script_lines"] = script_lines
             if sinks is None and not opts.urn:
                 raise TypeError("Missing required property 'sinks'")
             __props__.__dict__["sinks"] = sinks
@@ -572,6 +607,7 @@ class DataFlow(pulumi.CustomResource):
             folder: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             script: Optional[pulumi.Input[str]] = None,
+            script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSinkArgs']]]]] = None,
             sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSourceArgs']]]]] = None,
             transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowTransformationArgs']]]]] = None) -> 'DataFlow':
@@ -588,6 +624,7 @@ class DataFlow(pulumi.CustomResource):
         :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Data Flow.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: The script lines for the Data Factory Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSinkArgs']]]] sinks: One or more `sink` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSourceArgs']]]] sources: One or more `source` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowTransformationArgs']]]] transformations: One or more `transformation` blocks as defined below.
@@ -602,6 +639,7 @@ class DataFlow(pulumi.CustomResource):
         __props__.__dict__["folder"] = folder
         __props__.__dict__["name"] = name
         __props__.__dict__["script"] = script
+        __props__.__dict__["script_lines"] = script_lines
         __props__.__dict__["sinks"] = sinks
         __props__.__dict__["sources"] = sources
         __props__.__dict__["transformations"] = transformations
@@ -649,11 +687,19 @@ class DataFlow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def script(self) -> pulumi.Output[str]:
+    def script(self) -> pulumi.Output[Optional[str]]:
         """
         The script for the Data Factory Data Flow.
         """
         return pulumi.get(self, "script")
+
+    @property
+    @pulumi.getter(name="scriptLines")
+    def script_lines(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The script lines for the Data Factory Data Flow.
+        """
+        return pulumi.get(self, "script_lines")
 
     @property
     @pulumi.getter

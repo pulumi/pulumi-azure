@@ -38,6 +38,8 @@ class ManagedDiskArgs:
                  on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 security_type: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -51,7 +53,7 @@ class ManagedDiskArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         :param pulumi.Input[int] disk_iops_read_only: The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
@@ -70,6 +72,8 @@ class ManagedDiskArgs:
         :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
+        :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
@@ -121,6 +125,10 @@ class ManagedDiskArgs:
             pulumi.set(__self__, "os_type", os_type)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if secure_vm_disk_encryption_set_id is not None:
+            pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
+        if security_type is not None:
+            pulumi.set(__self__, "security_type", security_type)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
         if source_uri is not None:
@@ -188,7 +196,7 @@ class ManagedDiskArgs:
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -413,6 +421,30 @@ class ManagedDiskArgs:
         pulumi.set(self, "public_network_access_enabled", value)
 
     @property
+    @pulumi.getter(name="secureVmDiskEncryptionSetId")
+    def secure_vm_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_vm_disk_encryption_set_id")
+
+    @secure_vm_disk_encryption_set_id.setter
+    def secure_vm_disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secure_vm_disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="securityType")
+    def security_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_type")
+
+    @security_type.setter
+    def security_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_type", value)
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -522,6 +554,8 @@ class _ManagedDiskState:
                  os_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 security_type: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -534,7 +568,7 @@ class _ManagedDiskState:
         Input properties used for looking up and filtering ManagedDisk resources.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         :param pulumi.Input[int] disk_iops_read_only: The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
@@ -554,6 +588,8 @@ class _ManagedDiskState:
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
+        :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
@@ -607,6 +643,10 @@ class _ManagedDiskState:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secure_vm_disk_encryption_set_id is not None:
+            pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
+        if security_type is not None:
+            pulumi.set(__self__, "security_type", security_type)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
         if source_uri is not None:
@@ -652,7 +692,7 @@ class _ManagedDiskState:
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -889,6 +929,30 @@ class _ManagedDiskState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="secureVmDiskEncryptionSetId")
+    def secure_vm_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_vm_disk_encryption_set_id")
+
+    @secure_vm_disk_encryption_set_id.setter
+    def secure_vm_disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secure_vm_disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="securityType")
+    def security_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_type")
+
+    @security_type.setter
+    def security_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_type", value)
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1012,6 +1076,8 @@ class ManagedDisk(pulumi.CustomResource):
                  os_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 security_type: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -1082,7 +1148,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         :param pulumi.Input[int] disk_iops_read_only: The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
@@ -1102,6 +1168,8 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
+        :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
@@ -1211,6 +1279,8 @@ class ManagedDisk(pulumi.CustomResource):
                  os_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 security_type: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -1257,6 +1327,8 @@ class ManagedDisk(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["secure_vm_disk_encryption_set_id"] = secure_vm_disk_encryption_set_id
+            __props__.__dict__["security_type"] = security_type
             __props__.__dict__["source_resource_id"] = source_resource_id
             __props__.__dict__["source_uri"] = source_uri
             __props__.__dict__["storage_account_id"] = storage_account_id
@@ -1299,6 +1371,8 @@ class ManagedDisk(pulumi.CustomResource):
             os_type: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+            security_type: Optional[pulumi.Input[str]] = None,
             source_resource_id: Optional[pulumi.Input[str]] = None,
             source_uri: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -1316,7 +1390,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         :param pulumi.Input[int] disk_iops_read_only: The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
@@ -1336,6 +1410,8 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
+        :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
@@ -1371,6 +1447,8 @@ class ManagedDisk(pulumi.CustomResource):
         __props__.__dict__["os_type"] = os_type
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secure_vm_disk_encryption_set_id"] = secure_vm_disk_encryption_set_id
+        __props__.__dict__["security_type"] = security_type
         __props__.__dict__["source_resource_id"] = source_resource_id
         __props__.__dict__["source_uri"] = source_uri
         __props__.__dict__["storage_account_id"] = storage_account_id
@@ -1401,7 +1479,7 @@ class ManagedDisk(pulumi.CustomResource):
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -1556,6 +1634,22 @@ class ManagedDisk(pulumi.CustomResource):
         The name of the Resource Group where the Managed Disk should exist.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="secureVmDiskEncryptionSetId")
+    def secure_vm_disk_encryption_set_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_vm_disk_encryption_set_id")
+
+    @property
+    @pulumi.getter(name="securityType")
+    def security_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_type")
 
     @property
     @pulumi.getter(name="sourceResourceId")

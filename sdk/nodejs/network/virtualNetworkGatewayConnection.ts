@@ -212,6 +212,10 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly dpdTimeoutSeconds!: pulumi.Output<number | undefined>;
     /**
+     * A list of the egress NAT Rule Ids.
+     */
+    public readonly egressNatRuleIds!: pulumi.Output<string[] | undefined>;
+    /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
      * for this connection. Defaults to `false`.
      */
@@ -226,6 +230,10 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      * If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
      */
     public readonly expressRouteGatewayBypass!: pulumi.Output<boolean>;
+    /**
+     * A list of the ingress NAT Rule Ids.
+     */
+    public readonly ingressNatRuleIds!: pulumi.Output<string[] | undefined>;
     /**
      * A `ipsecPolicy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
@@ -321,9 +329,11 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["connectionProtocol"] = state ? state.connectionProtocol : undefined;
             resourceInputs["customBgpAddresses"] = state ? state.customBgpAddresses : undefined;
             resourceInputs["dpdTimeoutSeconds"] = state ? state.dpdTimeoutSeconds : undefined;
+            resourceInputs["egressNatRuleIds"] = state ? state.egressNatRuleIds : undefined;
             resourceInputs["enableBgp"] = state ? state.enableBgp : undefined;
             resourceInputs["expressRouteCircuitId"] = state ? state.expressRouteCircuitId : undefined;
             resourceInputs["expressRouteGatewayBypass"] = state ? state.expressRouteGatewayBypass : undefined;
+            resourceInputs["ingressNatRuleIds"] = state ? state.ingressNatRuleIds : undefined;
             resourceInputs["ipsecPolicy"] = state ? state.ipsecPolicy : undefined;
             resourceInputs["localAzureIpAddressEnabled"] = state ? state.localAzureIpAddressEnabled : undefined;
             resourceInputs["localNetworkGatewayId"] = state ? state.localNetworkGatewayId : undefined;
@@ -354,9 +364,11 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
             resourceInputs["customBgpAddresses"] = args ? args.customBgpAddresses : undefined;
             resourceInputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
+            resourceInputs["egressNatRuleIds"] = args ? args.egressNatRuleIds : undefined;
             resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
             resourceInputs["expressRouteCircuitId"] = args ? args.expressRouteCircuitId : undefined;
             resourceInputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
+            resourceInputs["ingressNatRuleIds"] = args ? args.ingressNatRuleIds : undefined;
             resourceInputs["ipsecPolicy"] = args ? args.ipsecPolicy : undefined;
             resourceInputs["localAzureIpAddressEnabled"] = args ? args.localAzureIpAddressEnabled : undefined;
             resourceInputs["localNetworkGatewayId"] = args ? args.localNetworkGatewayId : undefined;
@@ -411,6 +423,10 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     dpdTimeoutSeconds?: pulumi.Input<number>;
     /**
+     * A list of the egress NAT Rule Ids.
+     */
+    egressNatRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
      * for this connection. Defaults to `false`.
      */
@@ -425,6 +441,10 @@ export interface VirtualNetworkGatewayConnectionState {
      * If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
      */
     expressRouteGatewayBypass?: pulumi.Input<boolean>;
+    /**
+     * A list of the ingress NAT Rule Ids.
+     */
+    ingressNatRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `ipsecPolicy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
@@ -537,6 +557,10 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     dpdTimeoutSeconds?: pulumi.Input<number>;
     /**
+     * A list of the egress NAT Rule Ids.
+     */
+    egressNatRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
      * for this connection. Defaults to `false`.
      */
@@ -551,6 +575,10 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
      */
     expressRouteGatewayBypass?: pulumi.Input<boolean>;
+    /**
+     * A list of the ingress NAT Rule Ids.
+     */
+    ingressNatRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `ipsecPolicy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on

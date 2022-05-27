@@ -22,10 +22,13 @@ class Azurerm_portal_dashboardResult:
     """
     A collection of values returned by azurerm_portal_dashboard.
     """
-    def __init__(__self__, dashboard_properties=None, id=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, dashboard_properties=None, display_name=None, id=None, location=None, name=None, resource_group_name=None, tags=None):
         if dashboard_properties and not isinstance(dashboard_properties, str):
             raise TypeError("Expected argument 'dashboard_properties' to be a str")
         pulumi.set(__self__, "dashboard_properties", dashboard_properties)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -51,6 +54,11 @@ class Azurerm_portal_dashboardResult:
         return pulumi.get(self, "dashboard_properties")
 
     @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        return pulumi.get(self, "display_name")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -68,7 +76,7 @@ class Azurerm_portal_dashboardResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
@@ -92,6 +100,7 @@ class AwaitableAzurerm_portal_dashboardResult(Azurerm_portal_dashboardResult):
             yield self
         return Azurerm_portal_dashboardResult(
             dashboard_properties=self.dashboard_properties,
+            display_name=self.display_name,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -100,6 +109,7 @@ class AwaitableAzurerm_portal_dashboardResult(Azurerm_portal_dashboardResult):
 
 
 def azurerm_portal_dashboard(dashboard_properties: Optional[str] = None,
+                             display_name: Optional[str] = None,
                              name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableAzurerm_portal_dashboardResult:
@@ -119,12 +129,14 @@ def azurerm_portal_dashboard(dashboard_properties: Optional[str] = None,
 
 
     :param str dashboard_properties: JSON data representing dashboard body.
+    :param str display_name: Specifies the display name of the shared Azure Portal Dashboard.
     :param str name: Specifies the name of the shared Azure Portal Dashboard.
     :param str resource_group_name: Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
     """
     pulumi.log.warn("""azurerm_portal_dashboard is deprecated: azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard""")
     __args__ = dict()
     __args__['dashboardProperties'] = dashboard_properties
+    __args__['displayName'] = display_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -135,6 +147,7 @@ def azurerm_portal_dashboard(dashboard_properties: Optional[str] = None,
 
     return AwaitableAzurerm_portal_dashboardResult(
         dashboard_properties=__ret__.dashboard_properties,
+        display_name=__ret__.display_name,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
@@ -144,7 +157,8 @@ def azurerm_portal_dashboard(dashboard_properties: Optional[str] = None,
 
 @_utilities.lift_output_func(azurerm_portal_dashboard)
 def azurerm_portal_dashboard_output(dashboard_properties: Optional[pulumi.Input[Optional[str]]] = None,
-                                    name: Optional[pulumi.Input[str]] = None,
+                                    display_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                    name: Optional[pulumi.Input[Optional[str]]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Azurerm_portal_dashboardResult]:
     """
@@ -163,6 +177,7 @@ def azurerm_portal_dashboard_output(dashboard_properties: Optional[pulumi.Input[
 
 
     :param str dashboard_properties: JSON data representing dashboard body.
+    :param str display_name: Specifies the display name of the shared Azure Portal Dashboard.
     :param str name: Specifies the name of the shared Azure Portal Dashboard.
     :param str resource_group_name: Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
     """
