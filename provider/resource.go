@@ -2522,7 +2522,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@azure/ms-rest-azure-js":       "^2.0.1",
 				"@azure/ms-rest-nodeauth":       "^3.0.0",
 				"azure-functions-ts-essentials": "^1.3.2",
-				"moment":                        "2.24.0",
+				"moment":                        "2.29.2",
 				"node-fetch":                    "^2.3.0",
 			},
 			Overlay: &tfbridge.OverlayInfo{
