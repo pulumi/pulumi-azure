@@ -37,23 +37,19 @@ namespace Pulumi.Azure.ApiManagement
     ///         });
     ///         var exampleApplication = new AzureAD.Application("exampleApplication", new AzureAD.ApplicationArgs
     ///         {
-    ///             Oauth2AllowImplicitFlow = true,
-    ///             ReplyUrls = 
-    ///             {
-    ///                 $"https://{azurerm_api_management.Test.Name}.developer.azure-api.net/signin",
-    ///             },
+    ///             DisplayName = "acctestam-example",
     ///         });
     ///         var exampleApplicationPassword = new AzureAD.ApplicationPassword("exampleApplicationPassword", new AzureAD.ApplicationPasswordArgs
     ///         {
-    ///             ApplicationObjectId = azuread_application.Test.Object_id,
+    ///             ApplicationObjectId = exampleApplication.ObjectId,
     ///             EndDateRelative = "36h",
-    ///             Value = "P@55w0rD!%[7]s",
     ///         });
     ///         var exampleIdentityProviderAadb2c = new Azure.ApiManagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c", new Azure.ApiManagement.IdentityProviderAadb2cArgs
     ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ApiManagementName = exampleService.Name,
     ///             ClientId = exampleApplication.ApplicationId,
-    ///             ClientSecret = "P@55w0rD!%[7]s",
+    ///             ClientSecret = "P@55w0rD!",
     ///             AllowedTenant = "myb2ctenant.onmicrosoft.com",
     ///             SigninTenant = "myb2ctenant.onmicrosoft.com",
     ///             Authority = "myb2ctenant.b2clogin.com",

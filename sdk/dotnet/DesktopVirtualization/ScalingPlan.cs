@@ -24,11 +24,15 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using AzureAD = Pulumi.AzureAD;
+    /// using Random = Pulumi.Random;
     /// 
     /// class MyStack : Stack
     /// {
     ///     public MyStack()
     ///     {
+    ///         var exampleRandomUuid = new Random.RandomUuid("exampleRandomUuid", new Random.RandomUuidArgs
+    ///         {
+    ///         });
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
@@ -72,7 +76,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///         }));
     ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
     ///         {
-    ///             Name = random_uuid.Example.Result,
+    ///             Name = exampleRandomUuid.Result,
     ///             Scope = exampleResourceGroup.Id,
     ///             RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
     ///             PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.Id),

@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleApi = new azure.apimanagement.Api("exampleApi", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     apiManagementName: azurerm_api_management.example.name,
+ *     apiManagementName: exampleService.apply(exampleService => exampleService.name),
  *     revision: "1",
  * });
  * const exampleTag = new azure.apimanagement.Tag("exampleTag", {apiManagementId: exampleService.apply(exampleService => exampleService.id)});

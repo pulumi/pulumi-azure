@@ -79,6 +79,7 @@ __all__ = [
     'LinkedServiceSynapseKeyVaultPassword',
     'TriggerBlobEventPipeline',
     'TriggerCustomEventPipeline',
+    'TriggerSchedulePipeline',
     'TriggerScheduleSchedule',
     'TriggerScheduleScheduleMonthly',
     'TriggerTumblingWindowPipeline',
@@ -4022,6 +4023,36 @@ class TriggerCustomEventPipeline(dict):
     def parameters(self) -> Optional[Mapping[str, str]]:
         """
         The Data Factory Pipeline parameters that the trigger will act on.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class TriggerSchedulePipeline(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: Reference pipeline name.
+        :param Mapping[str, str] parameters: The pipeline parameters that the trigger will act upon.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Reference pipeline name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        The pipeline parameters that the trigger will act upon.
         """
         return pulumi.get(self, "parameters")
 

@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Dns
 {
     /// <summary>
-    /// Enables you to manage DNS SRV Records within Azure DNS.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

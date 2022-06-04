@@ -65,7 +65,6 @@ type LookupVolumeArgs struct {
 type LookupVolumeResult struct {
 	AccountName string `pulumi:"accountName"`
 	// Volume data protection block
-	// *
 	DataProtectionReplications []GetVolumeDataProtectionReplication `pulumi:"dataProtectionReplications"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -74,7 +73,9 @@ type LookupVolumeResult struct {
 	// A list of IPv4 Addresses which should be used to mount the volume.
 	MountIpAddresses []string `pulumi:"mountIpAddresses"`
 	Name             string   `pulumi:"name"`
-	PoolName         string   `pulumi:"poolName"`
+	// Network features in use `Basic` or `Standard`.
+	NetworkFeatures string `pulumi:"networkFeatures"`
+	PoolName        string `pulumi:"poolName"`
 	// A list of protocol types enabled on volume.
 	Protocols         []string `pulumi:"protocols"`
 	ResourceGroupName string   `pulumi:"resourceGroupName"`
@@ -141,7 +142,6 @@ func (o LookupVolumeResultOutput) AccountName() pulumi.StringOutput {
 }
 
 // Volume data protection block
-// *
 func (o LookupVolumeResultOutput) DataProtectionReplications() GetVolumeDataProtectionReplicationArrayOutput {
 	return o.ApplyT(func(v LookupVolumeResult) []GetVolumeDataProtectionReplication { return v.DataProtectionReplications }).(GetVolumeDataProtectionReplicationArrayOutput)
 }
@@ -163,6 +163,11 @@ func (o LookupVolumeResultOutput) MountIpAddresses() pulumi.StringArrayOutput {
 
 func (o LookupVolumeResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network features in use `Basic` or `Standard`.
+func (o LookupVolumeResultOutput) NetworkFeatures() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.NetworkFeatures }).(pulumi.StringOutput)
 }
 
 func (o LookupVolumeResultOutput) PoolName() pulumi.StringOutput {

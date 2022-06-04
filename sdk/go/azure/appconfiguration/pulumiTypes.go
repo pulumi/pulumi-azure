@@ -993,6 +993,175 @@ func (o ConfigurationStoreSecondaryWriteKeyArrayOutput) Index(i pulumi.IntInput)
 	}).(ConfigurationStoreSecondaryWriteKeyOutput)
 }
 
+type GetConfigurationKeysItem struct {
+	// The content type of the App Configuration Key.
+	ContentType string `pulumi:"contentType"`
+	// The ETag of the key.
+	Etag string `pulumi:"etag"`
+	// The name of the App Configuration Keys to look up.
+	Key string `pulumi:"key"`
+	// The label of the App Configuration Keys tp look up.
+	Label string `pulumi:"label"`
+	// Is this App Configuration Key be Locked to prevent changes.
+	Locked bool `pulumi:"locked"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+	Type string `pulumi:"type"`
+	// The value of the App Configuration Key.
+	Value string `pulumi:"value"`
+	// The ID of the vault secret this App Configuration Key refers to, when `type` is `vault`.
+	VaultKeyReference string `pulumi:"vaultKeyReference"`
+}
+
+// GetConfigurationKeysItemInput is an input type that accepts GetConfigurationKeysItemArgs and GetConfigurationKeysItemOutput values.
+// You can construct a concrete instance of `GetConfigurationKeysItemInput` via:
+//
+//          GetConfigurationKeysItemArgs{...}
+type GetConfigurationKeysItemInput interface {
+	pulumi.Input
+
+	ToGetConfigurationKeysItemOutput() GetConfigurationKeysItemOutput
+	ToGetConfigurationKeysItemOutputWithContext(context.Context) GetConfigurationKeysItemOutput
+}
+
+type GetConfigurationKeysItemArgs struct {
+	// The content type of the App Configuration Key.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// The ETag of the key.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The name of the App Configuration Keys to look up.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The label of the App Configuration Keys tp look up.
+	Label pulumi.StringInput `pulumi:"label"`
+	// Is this App Configuration Key be Locked to prevent changes.
+	Locked pulumi.BoolInput `pulumi:"locked"`
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value of the App Configuration Key.
+	Value pulumi.StringInput `pulumi:"value"`
+	// The ID of the vault secret this App Configuration Key refers to, when `type` is `vault`.
+	VaultKeyReference pulumi.StringInput `pulumi:"vaultKeyReference"`
+}
+
+func (GetConfigurationKeysItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationKeysItem)(nil)).Elem()
+}
+
+func (i GetConfigurationKeysItemArgs) ToGetConfigurationKeysItemOutput() GetConfigurationKeysItemOutput {
+	return i.ToGetConfigurationKeysItemOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationKeysItemArgs) ToGetConfigurationKeysItemOutputWithContext(ctx context.Context) GetConfigurationKeysItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationKeysItemOutput)
+}
+
+// GetConfigurationKeysItemArrayInput is an input type that accepts GetConfigurationKeysItemArray and GetConfigurationKeysItemArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationKeysItemArrayInput` via:
+//
+//          GetConfigurationKeysItemArray{ GetConfigurationKeysItemArgs{...} }
+type GetConfigurationKeysItemArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationKeysItemArrayOutput() GetConfigurationKeysItemArrayOutput
+	ToGetConfigurationKeysItemArrayOutputWithContext(context.Context) GetConfigurationKeysItemArrayOutput
+}
+
+type GetConfigurationKeysItemArray []GetConfigurationKeysItemInput
+
+func (GetConfigurationKeysItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationKeysItem)(nil)).Elem()
+}
+
+func (i GetConfigurationKeysItemArray) ToGetConfigurationKeysItemArrayOutput() GetConfigurationKeysItemArrayOutput {
+	return i.ToGetConfigurationKeysItemArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationKeysItemArray) ToGetConfigurationKeysItemArrayOutputWithContext(ctx context.Context) GetConfigurationKeysItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationKeysItemArrayOutput)
+}
+
+type GetConfigurationKeysItemOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationKeysItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationKeysItem)(nil)).Elem()
+}
+
+func (o GetConfigurationKeysItemOutput) ToGetConfigurationKeysItemOutput() GetConfigurationKeysItemOutput {
+	return o
+}
+
+func (o GetConfigurationKeysItemOutput) ToGetConfigurationKeysItemOutputWithContext(ctx context.Context) GetConfigurationKeysItemOutput {
+	return o
+}
+
+// The content type of the App Configuration Key.
+func (o GetConfigurationKeysItemOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationKeysItem) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// The ETag of the key.
+func (o GetConfigurationKeysItemOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationKeysItem) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the App Configuration Keys to look up.
+func (o GetConfigurationKeysItemOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationKeysItem) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The label of the App Configuration Keys tp look up.
+func (o GetConfigurationKeysItemOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationKeysItem) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// Is this App Configuration Key be Locked to prevent changes.
+func (o GetConfigurationKeysItemOutput) Locked() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetConfigurationKeysItem) bool { return v.Locked }).(pulumi.BoolOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o GetConfigurationKeysItemOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetConfigurationKeysItem) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+func (o GetConfigurationKeysItemOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationKeysItem) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value of the App Configuration Key.
+func (o GetConfigurationKeysItemOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationKeysItem) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// The ID of the vault secret this App Configuration Key refers to, when `type` is `vault`.
+func (o GetConfigurationKeysItemOutput) VaultKeyReference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationKeysItem) string { return v.VaultKeyReference }).(pulumi.StringOutput)
+}
+
+type GetConfigurationKeysItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationKeysItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationKeysItem)(nil)).Elem()
+}
+
+func (o GetConfigurationKeysItemArrayOutput) ToGetConfigurationKeysItemArrayOutput() GetConfigurationKeysItemArrayOutput {
+	return o
+}
+
+func (o GetConfigurationKeysItemArrayOutput) ToGetConfigurationKeysItemArrayOutputWithContext(ctx context.Context) GetConfigurationKeysItemArrayOutput {
+	return o
+}
+
+func (o GetConfigurationKeysItemArrayOutput) Index(i pulumi.IntInput) GetConfigurationKeysItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationKeysItem {
+		return vs[0].([]GetConfigurationKeysItem)[vs[1].(int)]
+	}).(GetConfigurationKeysItemOutput)
+}
+
 type GetConfigurationStorePrimaryReadKey struct {
 	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 	ConnectionString string `pulumi:"connectionString"`
@@ -1470,6 +1639,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreSecondaryReadKeyArrayInput)(nil)).Elem(), ConfigurationStoreSecondaryReadKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreSecondaryWriteKeyInput)(nil)).Elem(), ConfigurationStoreSecondaryWriteKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreSecondaryWriteKeyArrayInput)(nil)).Elem(), ConfigurationStoreSecondaryWriteKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationKeysItemInput)(nil)).Elem(), GetConfigurationKeysItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationKeysItemArrayInput)(nil)).Elem(), GetConfigurationKeysItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStorePrimaryReadKeyInput)(nil)).Elem(), GetConfigurationStorePrimaryReadKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStorePrimaryReadKeyArrayInput)(nil)).Elem(), GetConfigurationStorePrimaryReadKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStorePrimaryWriteKeyInput)(nil)).Elem(), GetConfigurationStorePrimaryWriteKeyArgs{})
@@ -1494,6 +1665,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationStoreSecondaryReadKeyArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationStoreSecondaryWriteKeyOutput{})
 	pulumi.RegisterOutputType(ConfigurationStoreSecondaryWriteKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationKeysItemOutput{})
+	pulumi.RegisterOutputType(GetConfigurationKeysItemArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationStorePrimaryReadKeyOutput{})
 	pulumi.RegisterOutputType(GetConfigurationStorePrimaryReadKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationStorePrimaryWriteKeyOutput{})

@@ -829,8 +829,12 @@ func (o PolicyFileShareRetentionYearlyPtrOutput) Weeks() pulumi.StringArrayOutpu
 }
 
 type PolicyVMBackup struct {
-	// Sets the backup frequency. Must be either `Daily` or`Weekly`.
+	// Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
 	Frequency string `pulumi:"frequency"`
+	// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+	HourDuration *int `pulumi:"hourDuration"`
+	// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+	HourInterval *int `pulumi:"hourInterval"`
 	// The time of day to perform the backup in 24hour format.
 	Time string `pulumi:"time"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
@@ -849,8 +853,12 @@ type PolicyVMBackupInput interface {
 }
 
 type PolicyVMBackupArgs struct {
-	// Sets the backup frequency. Must be either `Daily` or`Weekly`.
+	// Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
 	Frequency pulumi.StringInput `pulumi:"frequency"`
+	// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+	HourDuration pulumi.IntPtrInput `pulumi:"hourDuration"`
+	// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+	HourInterval pulumi.IntPtrInput `pulumi:"hourInterval"`
 	// The time of day to perform the backup in 24hour format.
 	Time pulumi.StringInput `pulumi:"time"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
@@ -934,9 +942,19 @@ func (o PolicyVMBackupOutput) ToPolicyVMBackupPtrOutputWithContext(ctx context.C
 	}).(PolicyVMBackupPtrOutput)
 }
 
-// Sets the backup frequency. Must be either `Daily` or`Weekly`.
+// Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
 func (o PolicyVMBackupOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyVMBackup) string { return v.Frequency }).(pulumi.StringOutput)
+}
+
+// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+func (o PolicyVMBackupOutput) HourDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicyVMBackup) *int { return v.HourDuration }).(pulumi.IntPtrOutput)
+}
+
+// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+func (o PolicyVMBackupOutput) HourInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicyVMBackup) *int { return v.HourInterval }).(pulumi.IntPtrOutput)
 }
 
 // The time of day to perform the backup in 24hour format.
@@ -973,7 +991,7 @@ func (o PolicyVMBackupPtrOutput) Elem() PolicyVMBackupOutput {
 	}).(PolicyVMBackupOutput)
 }
 
-// Sets the backup frequency. Must be either `Daily` or`Weekly`.
+// Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
 func (o PolicyVMBackupPtrOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyVMBackup) *string {
 		if v == nil {
@@ -981,6 +999,26 @@ func (o PolicyVMBackupPtrOutput) Frequency() pulumi.StringPtrOutput {
 		}
 		return &v.Frequency
 	}).(pulumi.StringPtrOutput)
+}
+
+// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+func (o PolicyVMBackupPtrOutput) HourDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyVMBackup) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HourDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+func (o PolicyVMBackupPtrOutput) HourInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyVMBackup) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HourInterval
+	}).(pulumi.IntPtrOutput)
 }
 
 // The time of day to perform the backup in 24hour format.

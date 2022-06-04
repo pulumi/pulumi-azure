@@ -12,6 +12,79 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Nested Endpoint within a Traffic Manager Profile.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AllocationMethod = "Static",
+    ///             DomainNameLabel = "example-pip",
+    ///         });
+    ///         var parent = new Azure.Network.TrafficManagerProfile("parent", new Azure.Network.TrafficManagerProfileArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TrafficRoutingMethod = "Weighted",
+    ///             DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///             {
+    ///                 RelativeName = "parent-profile",
+    ///                 Ttl = 100,
+    ///             },
+    ///             MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///             {
+    ///                 Protocol = "HTTP",
+    ///                 Port = 80,
+    ///                 Path = "/",
+    ///                 IntervalInSeconds = 30,
+    ///                 TimeoutInSeconds = 9,
+    ///                 ToleratedNumberOfFailures = 3,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Production" },
+    ///             },
+    ///         });
+    ///         var nested = new Azure.Network.TrafficManagerProfile("nested", new Azure.Network.TrafficManagerProfileArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TrafficRoutingMethod = "Priority",
+    ///             DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///             {
+    ///                 RelativeName = "nested-profile",
+    ///                 Ttl = 30,
+    ///             },
+    ///             MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///             {
+    ///                 Protocol = "HTTP",
+    ///                 Port = 443,
+    ///                 Path = "/",
+    ///             },
+    ///         });
+    ///         var exampleTrafficManagerNestedEndpoint = new Azure.Network.TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint", new Azure.Network.TrafficManagerNestedEndpointArgs
+    ///         {
+    ///             TargetResourceId = nested.Id,
+    ///             Priority = 1,
+    ///             ProfileId = parent.Id,
+    ///             MinimumChildEndpoints = 9,
+    ///             Weight = 5,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Nested Endpoints can be imported using the `resource id`, e.g.

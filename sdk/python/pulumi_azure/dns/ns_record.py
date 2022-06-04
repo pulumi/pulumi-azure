@@ -243,8 +243,6 @@ class NsRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Enables you to manage DNS NS Records within Azure DNS.
-
         ## Example Usage
 
         ```python
@@ -290,8 +288,6 @@ class NsRecord(pulumi.CustomResource):
                  args: NsRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enables you to manage DNS NS Records within Azure DNS.
-
         ## Example Usage
 
         ```python

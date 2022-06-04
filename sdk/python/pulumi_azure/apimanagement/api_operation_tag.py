@@ -154,7 +154,9 @@ class ApiOperationTag(pulumi.CustomResource):
             responses=[azure.apimanagement.ApiOperationResponseArgs(
                 status_code=200,
             )])
-        example_api_operation_tag = azure.apimanagement.ApiOperationTag("exampleApiOperationTag", api_operation_id=example_api_operation.id)
+        example_api_operation_tag = azure.apimanagement.ApiOperationTag("exampleApiOperationTag",
+            api_operation_id=example_api_operation.id,
+            display_name="example-Tag")
         ```
 
         ## Import
@@ -202,7 +204,9 @@ class ApiOperationTag(pulumi.CustomResource):
             responses=[azure.apimanagement.ApiOperationResponseArgs(
                 status_code=200,
             )])
-        example_api_operation_tag = azure.apimanagement.ApiOperationTag("exampleApiOperationTag", api_operation_id=example_api_operation.id)
+        example_api_operation_tag = azure.apimanagement.ApiOperationTag("exampleApiOperationTag",
+            api_operation_id=example_api_operation.id,
+            display_name="example-Tag")
         ```
 
         ## Import

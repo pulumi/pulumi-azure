@@ -662,18 +662,17 @@ class AuthorizationServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_api = azure.apimanagement.get_api(name="search-api",
-            api_management_name="search-api-management",
-            resource_group_name="search-service",
-            revision="2")
+        example_service = azure.apimanagement.get_service(name="search-api",
+            resource_group_name="search-service")
         example_authorization_server = azure.apimanagement.AuthorizationServer("exampleAuthorizationServer",
-            api_management_name=data["azurerm_api_management"]["example"]["name"],
-            resource_group_name=data["azurerm_api_management"]["example"]["resource_group_name"],
+            api_management_name=example_service.name,
+            resource_group_name=example_service.resource_group_name,
             display_name="Test Server",
             authorization_endpoint="https://example.mydomain.com/client/authorize",
             client_id="42424242-4242-4242-4242-424242424242",
             client_registration_endpoint="https://example.mydomain.com/client/register",
-            grant_types=["authorizationCode"])
+            grant_types=["authorizationCode"],
+            authorization_methods=["GET"])
         ```
 
         ## Import
@@ -721,18 +720,17 @@ class AuthorizationServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_api = azure.apimanagement.get_api(name="search-api",
-            api_management_name="search-api-management",
-            resource_group_name="search-service",
-            revision="2")
+        example_service = azure.apimanagement.get_service(name="search-api",
+            resource_group_name="search-service")
         example_authorization_server = azure.apimanagement.AuthorizationServer("exampleAuthorizationServer",
-            api_management_name=data["azurerm_api_management"]["example"]["name"],
-            resource_group_name=data["azurerm_api_management"]["example"]["resource_group_name"],
+            api_management_name=example_service.name,
+            resource_group_name=example_service.resource_group_name,
             display_name="Test Server",
             authorization_endpoint="https://example.mydomain.com/client/authorize",
             client_id="42424242-4242-4242-4242-424242424242",
             client_registration_endpoint="https://example.mydomain.com/client/register",
-            grant_types=["authorizationCode"])
+            grant_types=["authorizationCode"],
+            authorization_methods=["GET"])
         ```
 
         ## Import

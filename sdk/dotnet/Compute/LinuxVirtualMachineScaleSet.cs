@@ -23,7 +23,6 @@ namespace Pulumi.Azure.Compute
     /// This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
     /// 
     /// ```csharp
-    /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
@@ -31,6 +30,7 @@ namespace Pulumi.Azure.Compute
     /// {
     ///     public MyStack()
     ///     {
+    ///         var firstPublicKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com";
     ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Compute
     ///                 new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
     ///                 {
     ///                     Username = "adminuser",
-    ///                     PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///                     PublicKey = firstPublicKey,
     ///                 },
     ///             },
     ///             SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs

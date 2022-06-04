@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Storage
     public partial class Share : Pulumi.CustomResource
     {
         /// <summary>
-        /// The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+        /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
         /// </summary>
         [Output("accessTier")]
         public Output<string> AccessTier { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Storage
     public sealed class ShareArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+        /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
         /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.Storage
     public sealed class ShareState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The tier of the File Share. Can be one of `Hot`, `Cool`, `TransactionOptimized`, `Premium`.
+        /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
         /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }

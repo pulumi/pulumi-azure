@@ -39,10 +39,8 @@ import * as utilities from "../utilities";
  * EventGrid Event Subscription's can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:eventhub/eventSubscription:EventSubscription eventSubscription1
+ *  $ pulumi import azure:eventhub/eventSubscription:EventSubscription eventSubscription1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
  * ```
- *
- *  /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
  *
  * @deprecated azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription
  */
@@ -96,7 +94,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly deliveryIdentity!: pulumi.Output<outputs.eventhub.EventSubscriptionDeliveryIdentity | undefined>;
     /**
-     * A `deliveryProperty` block as defined below.
+     * One or more `deliveryProperty` blocks as defined below.
      */
     public readonly deliveryProperties!: pulumi.Output<outputs.eventhub.EventSubscriptionDeliveryProperty[] | undefined>;
     /**
@@ -254,7 +252,7 @@ export interface EventSubscriptionState {
      */
     deliveryIdentity?: pulumi.Input<inputs.eventhub.EventSubscriptionDeliveryIdentity>;
     /**
-     * A `deliveryProperty` block as defined below.
+     * One or more `deliveryProperty` blocks as defined below.
      */
     deliveryProperties?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionDeliveryProperty>[]>;
     /**
@@ -344,7 +342,7 @@ export interface EventSubscriptionArgs {
      */
     deliveryIdentity?: pulumi.Input<inputs.eventhub.EventSubscriptionDeliveryIdentity>;
     /**
-     * A `deliveryProperty` block as defined below.
+     * One or more `deliveryProperty` blocks as defined below.
      */
     deliveryProperties?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionDeliveryProperty>[]>;
     /**

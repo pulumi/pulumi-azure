@@ -310,6 +310,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             api_management_name=example_service.name,
             resource_group_name=example_resource_group.name,
             client_id="00001111-2222-3333-4444-555566667777",
+            client_secret="00001111-423egvwdcsjx-00001111",
             display_name="Example Provider",
             metadata_endpoint="https://example.com/example")
         ```
@@ -359,6 +360,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             api_management_name=example_service.name,
             resource_group_name=example_resource_group.name,
             client_id="00001111-2222-3333-4444-555566667777",
+            client_secret="00001111-423egvwdcsjx-00001111",
             display_name="Example Provider",
             metadata_endpoint="https://example.com/example")
         ```

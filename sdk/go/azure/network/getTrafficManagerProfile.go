@@ -24,14 +24,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.LookupTrafficManagerProfile(ctx, &network.LookupTrafficManagerProfileArgs{
+// 		example, err := network.LookupTrafficManagerProfile(ctx, &network.LookupTrafficManagerProfileArgs{
 // 			Name:              "test",
 // 			ResourceGroupName: "test",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("trafficRoutingMethod", data.Azurerm_traffic_manager_profile.Traffic_routing_method)
+// 		ctx.Export("trafficRoutingMethod", example.TrafficRoutingMethod)
 // 		return nil
 // 	})
 // }

@@ -245,8 +245,6 @@ class MxRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Enables you to manage DNS MX Records within Azure DNS.
-
         ## Example Usage
 
         ```python
@@ -298,8 +296,6 @@ class MxRecord(pulumi.CustomResource):
                  args: MxRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enables you to manage DNS MX Records within Azure DNS.
-
         ## Example Usage
 
         ```python

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const test = new azure.appservice.ServicePlan("test", {
+ * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     osType: "Windows",
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("exampleWindowsWebApp", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     servicePlanId: azurerm_service_plan.example.id,
+ *     servicePlanId: exampleServicePlan.id,
  *     siteConfig: {},
  * });
  * const exampleWebAppHybridConnection = new azure.appservice.WebAppHybridConnection("exampleWebAppHybridConnection", {

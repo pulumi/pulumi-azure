@@ -35,7 +35,7 @@ namespace Pulumi.Azure.AppService
     /// App Service Source Control Token's can be imported using the `type`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example GitHub
+    ///  $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example /providers/Microsoft.Web/sourceControls/GitHub
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/sourceCodeToken:SourceCodeToken")]

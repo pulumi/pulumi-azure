@@ -32,9 +32,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          pulumi.Any(azurerm_resource_group.Test.Location),
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			AllocationMethod:  pulumi.String("Static"),
 // 			DomainNameLabel:   pulumi.String("example-public-ip"),
 // 		})
@@ -49,7 +49,7 @@ import (
 // 				Ttl:          pulumi.Int(100),
 // 			},
 // 			MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
-// 				Protocol:                  pulumi.String("http"),
+// 				Protocol:                  pulumi.String("HTTP"),
 // 				Port:                      pulumi.Int(80),
 // 				Path:                      pulumi.String("/"),
 // 				IntervalInSeconds:         pulumi.Int(30),
@@ -66,7 +66,7 @@ import (
 // 		_, err = network.NewTrafficManagerAzureEndpoint(ctx, "exampleTrafficManagerAzureEndpoint", &network.TrafficManagerAzureEndpointArgs{
 // 			ProfileId:        exampleTrafficManagerProfile.ID(),
 // 			Weight:           pulumi.Int(100),
-// 			TargetResourceId: pulumi.Any(azurerm_public_ip.Test.Id),
+// 			TargetResourceId: examplePublicIp.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

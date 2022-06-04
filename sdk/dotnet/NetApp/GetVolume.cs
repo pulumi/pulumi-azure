@@ -156,7 +156,6 @@ namespace Pulumi.Azure.NetApp
         public readonly string AccountName;
         /// <summary>
         /// Volume data protection block
-        /// *
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeDataProtectionReplicationResult> DataProtectionReplications;
         /// <summary>
@@ -172,6 +171,10 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         public readonly ImmutableArray<string> MountIpAddresses;
         public readonly string Name;
+        /// <summary>
+        /// Network features in use `Basic` or `Standard`.
+        /// </summary>
+        public readonly string NetworkFeatures;
         public readonly string PoolName;
         /// <summary>
         /// A list of protocol types enabled on volume.
@@ -213,6 +216,8 @@ namespace Pulumi.Azure.NetApp
 
             string name,
 
+            string networkFeatures,
+
             string poolName,
 
             ImmutableArray<string> protocols,
@@ -235,6 +240,7 @@ namespace Pulumi.Azure.NetApp
             Location = location;
             MountIpAddresses = mountIpAddresses;
             Name = name;
+            NetworkFeatures = networkFeatures;
             PoolName = poolName;
             Protocols = protocols;
             ResourceGroupName = resourceGroupName;

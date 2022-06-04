@@ -111,6 +111,10 @@ export class Cache extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostname!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.redis.CacheIdentity | undefined>;
+    /**
      * The location of the resource group.
      */
     public readonly location!: pulumi.Output<string>;
@@ -222,6 +226,7 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["enableNonSslPort"] = state ? state.enableNonSslPort : undefined;
             resourceInputs["family"] = state ? state.family : undefined;
             resourceInputs["hostname"] = state ? state.hostname : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -262,6 +267,7 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["capacity"] = args ? args.capacity : undefined;
             resourceInputs["enableNonSslPort"] = args ? args.enableNonSslPort : undefined;
             resourceInputs["family"] = args ? args.family : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -312,6 +318,10 @@ export interface CacheState {
      * The Hostname of the Redis Instance
      */
     hostname?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.redis.CacheIdentity>;
     /**
      * The location of the resource group.
      */
@@ -424,6 +434,10 @@ export interface CacheArgs {
      * The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      */
     family: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.redis.CacheIdentity>;
     /**
      * The location of the resource group.
      */

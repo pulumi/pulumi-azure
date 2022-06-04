@@ -19,8 +19,6 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-//
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
@@ -46,26 +44,23 @@ import (
 // 			return err
 // 		}
 // 		exampleApplication, err := azuread.NewApplication(ctx, "exampleApplication", &azuread.ApplicationArgs{
-// 			Oauth2AllowImplicitFlow: pulumi.Bool(true),
-// 			ReplyUrls: pulumi.StringArray{
-// 				pulumi.String(fmt.Sprintf("%v%v%v", "https://", azurerm_api_management.Test.Name, ".developer.azure-api.net/signin")),
-// 			},
+// 			DisplayName: pulumi.String("acctestam-example"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleApplicationPassword, err := azuread.NewApplicationPassword(ctx, "exampleApplicationPassword", &azuread.ApplicationPasswordArgs{
-// 			ApplicationObjectId: pulumi.Any(azuread_application.Test.Object_id),
+// 			ApplicationObjectId: exampleApplication.ObjectId,
 // 			EndDateRelative:     pulumi.String("36h"),
-// 			Value:               pulumi.String(fmt.Sprintf("%v%v%v", "P@55w0rD!", "%", "[7]s")),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = apimanagement.NewIdentityProviderAadb2c(ctx, "exampleIdentityProviderAadb2c", &apimanagement.IdentityProviderAadb2cArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ApiManagementName: exampleService.Name,
 // 			ClientId:          exampleApplication.ApplicationId,
-// 			ClientSecret:      pulumi.String(fmt.Sprintf("%v%v%v", "P@55w0rD!", "%", "[7]s")),
+// 			ClientSecret:      pulumi.String("P@55w0rD!"),
 // 			AllowedTenant:     pulumi.String("myb2ctenant.onmicrosoft.com"),
 // 			SigninTenant:      pulumi.String("myb2ctenant.onmicrosoft.com"),
 // 			Authority:         pulumi.String("myb2ctenant.b2clogin.com"),

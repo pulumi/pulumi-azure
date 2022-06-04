@@ -99,6 +99,7 @@ export * from "./vnpGatewayNatRule";
 export * from "./vpnGateway";
 export * from "./vpnGatewayConnection";
 export * from "./vpnServerConfiguration";
+export * from "./vpnServerConfigurationPolicyGroup";
 export * from "./vpnSite";
 
 // Import resources to register:
@@ -169,6 +170,7 @@ import { VnpGatewayNatRule } from "./vnpGatewayNatRule";
 import { VpnGateway } from "./vpnGateway";
 import { VpnGatewayConnection } from "./vpnGatewayConnection";
 import { VpnServerConfiguration } from "./vpnServerConfiguration";
+import { VpnServerConfigurationPolicyGroup } from "./vpnServerConfigurationPolicyGroup";
 import { VpnSite } from "./vpnSite";
 
 const _module = {
@@ -309,6 +311,8 @@ const _module = {
                 return new VpnGatewayConnection(name, <any>undefined, { urn })
             case "azure:network/vpnServerConfiguration:VpnServerConfiguration":
                 return new VpnServerConfiguration(name, <any>undefined, { urn })
+            case "azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup":
+                return new VpnServerConfigurationPolicyGroup(name, <any>undefined, { urn })
             case "azure:network/vpnSite:VpnSite":
                 return new VpnSite(name, <any>undefined, { urn })
             default:
@@ -383,4 +387,5 @@ pulumi.runtime.registerResourceModule("azure", "network/vnpGatewayNatRule", _mod
 pulumi.runtime.registerResourceModule("azure", "network/vpnGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "network/vpnGatewayConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/vpnServerConfiguration", _module)
+pulumi.runtime.registerResourceModule("azure", "network/vpnServerConfigurationPolicyGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/vpnSite", _module)

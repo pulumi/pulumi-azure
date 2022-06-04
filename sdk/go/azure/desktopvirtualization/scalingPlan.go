@@ -29,11 +29,16 @@ import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
 // 	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
+// 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleRandomUuid, err := random.NewRandomUuid(ctx, "exampleRandomUuid", nil)
+// 		if err != nil {
+// 			return err
+// 		}
 // 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
@@ -78,7 +83,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			Name:                         pulumi.Any(random_uuid.Example.Result),
+// 			Name:                         exampleRandomUuid.Result,
 // 			Scope:                        exampleResourceGroup.ID(),
 // 			RoleDefinitionId:             exampleRoleDefinition.RoleDefinitionResourceId,
 // 			PrincipalId:                  pulumi.String(exampleServicePrincipal.Id),

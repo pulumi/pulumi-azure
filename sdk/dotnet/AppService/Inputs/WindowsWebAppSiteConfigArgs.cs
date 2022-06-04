@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsWebAppSiteConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If this Windows Web App is Always On enabled. Defaults to `false`.
+        /// If this Windows Web App is Always On enabled. Defaults to `true`.
         /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }

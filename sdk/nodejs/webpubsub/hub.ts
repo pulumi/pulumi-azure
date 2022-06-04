@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
- * const testUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("testUserAssignedIdentity", {
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  * });
@@ -25,8 +25,8 @@ import * as utilities from "../utilities";
  *     sku: "Standard_S1",
  *     capacity: 1,
  * });
- * const testHub = new azure.webpubsub.Hub("testHub", {
- *     webPubsubId: azurerm_web_pubsub.exmaple.id,
+ * const exampleHub = new azure.webpubsub.Hub("exampleHub", {
+ *     webPubsubId: exampleService.id,
  *     eventHandlers: [
  *         {
  *             urlTemplate: "https://test.com/api/{hub}/{event}",
@@ -41,13 +41,13 @@ import * as utilities from "../utilities";
  *             userEventPattern: "event1, event2",
  *             systemEvents: ["connected"],
  *             auth: {
- *                 managedIdentityId: testUserAssignedIdentity.id,
+ *                 managedIdentityId: exampleUserAssignedIdentity.id,
  *             },
  *         },
  *     ],
  *     anonymousConnectionsEnabled: true,
  * }, {
- *     dependsOn: [azurerm_web_pubsub.test],
+ *     dependsOn: [exampleService],
  * });
  * ```
  *
@@ -95,7 +95,7 @@ export class Hub extends pulumi.CustomResource {
     /**
      * An `eventHandler` block as defined below.
      */
-    public readonly eventHandlers!: pulumi.Output<outputs.webpubsub.HubEventHandler[]>;
+    public readonly eventHandlers!: pulumi.Output<outputs.webpubsub.HubEventHandler[] | undefined>;
     /**
      * The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
      */
@@ -124,9 +124,6 @@ export class Hub extends pulumi.CustomResource {
             resourceInputs["webPubsubId"] = state ? state.webPubsubId : undefined;
         } else {
             const args = argsOrState as HubArgs | undefined;
-            if ((!args || args.eventHandlers === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'eventHandlers'");
-            }
             if ((!args || args.webPubsubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'webPubsubId'");
             }
@@ -175,7 +172,7 @@ export interface HubArgs {
     /**
      * An `eventHandler` block as defined below.
      */
-    eventHandlers: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventHandler>[]>;
+    eventHandlers?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventHandler>[]>;
     /**
      * The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
      */

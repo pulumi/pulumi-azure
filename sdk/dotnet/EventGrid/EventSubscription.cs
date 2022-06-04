@@ -60,10 +60,8 @@ namespace Pulumi.Azure.EventGrid
     /// EventGrid Event Subscription's can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:eventgrid/eventSubscription:EventSubscription eventSubscription1
+    ///  $ pulumi import azure:eventgrid/eventSubscription:EventSubscription eventSubscription1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
     /// ```
-    /// 
-    ///  /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
     /// </summary>
     [AzureResourceType("azure:eventgrid/eventSubscription:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
@@ -99,7 +97,7 @@ namespace Pulumi.Azure.EventGrid
         public Output<Outputs.EventSubscriptionDeliveryIdentity?> DeliveryIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// A `delivery_property` block as defined below.
+        /// One or more `delivery_property` blocks as defined below.
         /// </summary>
         [Output("deliveryProperties")]
         public Output<ImmutableArray<Outputs.EventSubscriptionDeliveryProperty>> DeliveryProperties { get; private set; } = null!;
@@ -278,7 +276,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.EventSubscriptionDeliveryPropertyArgs>? _deliveryProperties;
 
         /// <summary>
-        /// A `delivery_property` block as defined below.
+        /// One or more `delivery_property` blocks as defined below.
         /// </summary>
         public InputList<Inputs.EventSubscriptionDeliveryPropertyArgs> DeliveryProperties
         {
@@ -429,7 +427,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.EventSubscriptionDeliveryPropertyGetArgs>? _deliveryProperties;
 
         /// <summary>
-        /// A `delivery_property` block as defined below.
+        /// One or more `delivery_property` blocks as defined below.
         /// </summary>
         public InputList<Inputs.EventSubscriptionDeliveryPropertyGetArgs> DeliveryProperties
         {

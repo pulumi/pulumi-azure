@@ -91,7 +91,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.GetClientConfig(ctx, nil, nil)
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -117,7 +117,7 @@ import (
 // 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.Any(data.Azurerm_client_config.Example.Tenant_id),
+// 			TenantId:          pulumi.String(current.TenantId),
 // 			SkuName:           pulumi.String("standard"),
 // 		})
 // 		if err != nil {
@@ -132,10 +132,10 @@ import (
 // 				return identity.PrincipalId, nil
 // 			}).(pulumi.StringOutput),
 // 			SecretPermissions: pulumi.StringArray{
-// 				pulumi.String("get"),
+// 				pulumi.String("Get"),
 // 			},
 // 			CertificatePermissions: pulumi.StringArray{
-// 				pulumi.String("get"),
+// 				pulumi.String("Get"),
 // 			},
 // 		})
 // 		if err != nil {

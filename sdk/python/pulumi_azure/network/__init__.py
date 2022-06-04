@@ -99,6 +99,7 @@ from .vnp_gateway_nat_rule import *
 from .vpn_gateway import *
 from .vpn_gateway_connection import *
 from .vpn_server_configuration import *
+from .vpn_server_configuration_policy_group import *
 from .vpn_site import *
 from ._inputs import *
 from . import outputs

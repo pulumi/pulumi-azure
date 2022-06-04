@@ -46,6 +46,7 @@ import (
 // 			ResourceGroupName:             example.Name,
 // 			Type:                          pulumi.String("Personal"),
 // 			PersonalDesktopAssignmentType: pulumi.String("Automatic"),
+// 			LoadBalancerType:              pulumi.String("BreadthFirst"),
 // 		})
 // 		if err != nil {
 // 			return err

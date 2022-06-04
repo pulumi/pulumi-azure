@@ -7,12 +7,18 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./endpoint";
 export * from "./endpointCustomDomain";
+export * from "./frontdoorEndpoint";
+export * from "./frontdoorProfile";
+export * from "./getFrontdoorEndpoint";
+export * from "./getFrontdoorProfile";
 export * from "./getProfile";
 export * from "./profile";
 
 // Import resources to register:
 import { Endpoint } from "./endpoint";
 import { EndpointCustomDomain } from "./endpointCustomDomain";
+import { FrontdoorEndpoint } from "./frontdoorEndpoint";
+import { FrontdoorProfile } from "./frontdoorProfile";
 import { Profile } from "./profile";
 
 const _module = {
@@ -23,6 +29,10 @@ const _module = {
                 return new Endpoint(name, <any>undefined, { urn })
             case "azure:cdn/endpointCustomDomain:EndpointCustomDomain":
                 return new EndpointCustomDomain(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorEndpoint:FrontdoorEndpoint":
+                return new FrontdoorEndpoint(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorProfile:FrontdoorProfile":
+                return new FrontdoorProfile(name, <any>undefined, { urn })
             case "azure:cdn/profile:Profile":
                 return new Profile(name, <any>undefined, { urn })
             default:
@@ -32,4 +42,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "cdn/endpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/endpointCustomDomain", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorEndpoint", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorProfile", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/profile", _module)

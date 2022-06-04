@@ -15,8 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", {});
- * //...
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: "Standard_F2",
+ *     adminUsername: "adminuser",
+ *     instances: 1,
+ *     networkInterfaces: [{
+ *         name: "example",
+ *         ipConfigurations: [{
+ *             name: "internal",
+ *         }],
+ *     }],
+ *     osDisk: {
+ *         storageAccountType: "Standard_LRS",
+ *         caching: "ReadWrite",
+ *     },
+ * });
  * const exampleVirtualMachineScaleSetExtension = new azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", {
  *     virtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.id,
  *     publisher: "Microsoft.Azure.Extensions",

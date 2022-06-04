@@ -18,6 +18,7 @@ __all__ = [
     'ConfigurationStorePrimaryWriteKey',
     'ConfigurationStoreSecondaryReadKey',
     'ConfigurationStoreSecondaryWriteKey',
+    'GetConfigurationKeysItemResult',
     'GetConfigurationStorePrimaryReadKeyResult',
     'GetConfigurationStorePrimaryWriteKeyResult',
     'GetConfigurationStoreSecondaryReadKeyResult',
@@ -473,6 +474,112 @@ class ConfigurationStoreSecondaryWriteKey(dict):
         The Secret of the Access Key.
         """
         return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetConfigurationKeysItemResult(dict):
+    def __init__(__self__, *,
+                 content_type: str,
+                 etag: str,
+                 key: str,
+                 label: str,
+                 locked: bool,
+                 tags: Mapping[str, str],
+                 type: str,
+                 value: str,
+                 vault_key_reference: str):
+        """
+        :param str content_type: The content type of the App Configuration Key.
+        :param str etag: The ETag of the key.
+        :param str key: The name of the App Configuration Keys to look up.
+        :param str label: The label of the App Configuration Keys tp look up.
+        :param bool locked: Is this App Configuration Key be Locked to prevent changes.
+        :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
+        :param str type: The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+        :param str value: The value of the App Configuration Key.
+        :param str vault_key_reference: The ID of the vault secret this App Configuration Key refers to, when `type` is `vault`.
+        """
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "locked", locked)
+        pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "vault_key_reference", vault_key_reference)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
+        """
+        The content type of the App Configuration Key.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        The ETag of the key.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name of the App Configuration Keys to look up.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        The label of the App Configuration Keys tp look up.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def locked(self) -> bool:
+        """
+        Is this App Configuration Key be Locked to prevent changes.
+        """
+        return pulumi.get(self, "locked")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A mapping of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the App Configuration Key.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="vaultKeyReference")
+    def vault_key_reference(self) -> str:
+        """
+        The ID of the vault secret this App Configuration Key refers to, when `type` is `vault`.
+        """
+        return pulumi.get(self, "vault_key_reference")
 
 
 @pulumi.output_type

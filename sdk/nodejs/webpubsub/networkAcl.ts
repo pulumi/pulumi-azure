@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * }, {
- *     dependsOn: [azurerm_private_endpoint.test],
+ *     dependsOn: [exampleEndpoint],
  * });
  * ```
  *

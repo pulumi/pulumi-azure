@@ -14997,7 +14997,7 @@ func (o RouteFilterRulePtrOutput) RuleType() pulumi.StringPtrOutput {
 type RouteTableRoute struct {
 	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix string `pulumi:"addressPrefix"`
-	// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+	// The name of the route.
 	Name string `pulumi:"name"`
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress *string `pulumi:"nextHopInIpAddress"`
@@ -15019,7 +15019,7 @@ type RouteTableRouteInput interface {
 type RouteTableRouteArgs struct {
 	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
-	// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+	// The name of the route.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress pulumi.StringPtrInput `pulumi:"nextHopInIpAddress"`
@@ -15083,7 +15083,7 @@ func (o RouteTableRouteOutput) AddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteTableRoute) string { return v.AddressPrefix }).(pulumi.StringOutput)
 }
 
-// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+// The name of the route.
 func (o RouteTableRouteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteTableRoute) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -19626,6 +19626,218 @@ func (o VirtualNetworkSubnetArrayOutput) Index(i pulumi.IntInput) VirtualNetwork
 	}).(VirtualNetworkSubnetOutput)
 }
 
+type VnpGatewayNatRuleExternalMapping struct {
+	// The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
+	AddressSpace string `pulumi:"addressSpace"`
+	// The single port range for the VPN Gateway Nat Rule external mapping.
+	PortRange *string `pulumi:"portRange"`
+}
+
+// VnpGatewayNatRuleExternalMappingInput is an input type that accepts VnpGatewayNatRuleExternalMappingArgs and VnpGatewayNatRuleExternalMappingOutput values.
+// You can construct a concrete instance of `VnpGatewayNatRuleExternalMappingInput` via:
+//
+//          VnpGatewayNatRuleExternalMappingArgs{...}
+type VnpGatewayNatRuleExternalMappingInput interface {
+	pulumi.Input
+
+	ToVnpGatewayNatRuleExternalMappingOutput() VnpGatewayNatRuleExternalMappingOutput
+	ToVnpGatewayNatRuleExternalMappingOutputWithContext(context.Context) VnpGatewayNatRuleExternalMappingOutput
+}
+
+type VnpGatewayNatRuleExternalMappingArgs struct {
+	// The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
+	AddressSpace pulumi.StringInput `pulumi:"addressSpace"`
+	// The single port range for the VPN Gateway Nat Rule external mapping.
+	PortRange pulumi.StringPtrInput `pulumi:"portRange"`
+}
+
+func (VnpGatewayNatRuleExternalMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VnpGatewayNatRuleExternalMapping)(nil)).Elem()
+}
+
+func (i VnpGatewayNatRuleExternalMappingArgs) ToVnpGatewayNatRuleExternalMappingOutput() VnpGatewayNatRuleExternalMappingOutput {
+	return i.ToVnpGatewayNatRuleExternalMappingOutputWithContext(context.Background())
+}
+
+func (i VnpGatewayNatRuleExternalMappingArgs) ToVnpGatewayNatRuleExternalMappingOutputWithContext(ctx context.Context) VnpGatewayNatRuleExternalMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VnpGatewayNatRuleExternalMappingOutput)
+}
+
+// VnpGatewayNatRuleExternalMappingArrayInput is an input type that accepts VnpGatewayNatRuleExternalMappingArray and VnpGatewayNatRuleExternalMappingArrayOutput values.
+// You can construct a concrete instance of `VnpGatewayNatRuleExternalMappingArrayInput` via:
+//
+//          VnpGatewayNatRuleExternalMappingArray{ VnpGatewayNatRuleExternalMappingArgs{...} }
+type VnpGatewayNatRuleExternalMappingArrayInput interface {
+	pulumi.Input
+
+	ToVnpGatewayNatRuleExternalMappingArrayOutput() VnpGatewayNatRuleExternalMappingArrayOutput
+	ToVnpGatewayNatRuleExternalMappingArrayOutputWithContext(context.Context) VnpGatewayNatRuleExternalMappingArrayOutput
+}
+
+type VnpGatewayNatRuleExternalMappingArray []VnpGatewayNatRuleExternalMappingInput
+
+func (VnpGatewayNatRuleExternalMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VnpGatewayNatRuleExternalMapping)(nil)).Elem()
+}
+
+func (i VnpGatewayNatRuleExternalMappingArray) ToVnpGatewayNatRuleExternalMappingArrayOutput() VnpGatewayNatRuleExternalMappingArrayOutput {
+	return i.ToVnpGatewayNatRuleExternalMappingArrayOutputWithContext(context.Background())
+}
+
+func (i VnpGatewayNatRuleExternalMappingArray) ToVnpGatewayNatRuleExternalMappingArrayOutputWithContext(ctx context.Context) VnpGatewayNatRuleExternalMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VnpGatewayNatRuleExternalMappingArrayOutput)
+}
+
+type VnpGatewayNatRuleExternalMappingOutput struct{ *pulumi.OutputState }
+
+func (VnpGatewayNatRuleExternalMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VnpGatewayNatRuleExternalMapping)(nil)).Elem()
+}
+
+func (o VnpGatewayNatRuleExternalMappingOutput) ToVnpGatewayNatRuleExternalMappingOutput() VnpGatewayNatRuleExternalMappingOutput {
+	return o
+}
+
+func (o VnpGatewayNatRuleExternalMappingOutput) ToVnpGatewayNatRuleExternalMappingOutputWithContext(ctx context.Context) VnpGatewayNatRuleExternalMappingOutput {
+	return o
+}
+
+// The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
+func (o VnpGatewayNatRuleExternalMappingOutput) AddressSpace() pulumi.StringOutput {
+	return o.ApplyT(func(v VnpGatewayNatRuleExternalMapping) string { return v.AddressSpace }).(pulumi.StringOutput)
+}
+
+// The single port range for the VPN Gateway Nat Rule external mapping.
+func (o VnpGatewayNatRuleExternalMappingOutput) PortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VnpGatewayNatRuleExternalMapping) *string { return v.PortRange }).(pulumi.StringPtrOutput)
+}
+
+type VnpGatewayNatRuleExternalMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (VnpGatewayNatRuleExternalMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VnpGatewayNatRuleExternalMapping)(nil)).Elem()
+}
+
+func (o VnpGatewayNatRuleExternalMappingArrayOutput) ToVnpGatewayNatRuleExternalMappingArrayOutput() VnpGatewayNatRuleExternalMappingArrayOutput {
+	return o
+}
+
+func (o VnpGatewayNatRuleExternalMappingArrayOutput) ToVnpGatewayNatRuleExternalMappingArrayOutputWithContext(ctx context.Context) VnpGatewayNatRuleExternalMappingArrayOutput {
+	return o
+}
+
+func (o VnpGatewayNatRuleExternalMappingArrayOutput) Index(i pulumi.IntInput) VnpGatewayNatRuleExternalMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VnpGatewayNatRuleExternalMapping {
+		return vs[0].([]VnpGatewayNatRuleExternalMapping)[vs[1].(int)]
+	}).(VnpGatewayNatRuleExternalMappingOutput)
+}
+
+type VnpGatewayNatRuleInternalMapping struct {
+	// The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping.
+	AddressSpace string `pulumi:"addressSpace"`
+	// The single port range for the VPN Gateway Nat Rule internal mapping.
+	PortRange *string `pulumi:"portRange"`
+}
+
+// VnpGatewayNatRuleInternalMappingInput is an input type that accepts VnpGatewayNatRuleInternalMappingArgs and VnpGatewayNatRuleInternalMappingOutput values.
+// You can construct a concrete instance of `VnpGatewayNatRuleInternalMappingInput` via:
+//
+//          VnpGatewayNatRuleInternalMappingArgs{...}
+type VnpGatewayNatRuleInternalMappingInput interface {
+	pulumi.Input
+
+	ToVnpGatewayNatRuleInternalMappingOutput() VnpGatewayNatRuleInternalMappingOutput
+	ToVnpGatewayNatRuleInternalMappingOutputWithContext(context.Context) VnpGatewayNatRuleInternalMappingOutput
+}
+
+type VnpGatewayNatRuleInternalMappingArgs struct {
+	// The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping.
+	AddressSpace pulumi.StringInput `pulumi:"addressSpace"`
+	// The single port range for the VPN Gateway Nat Rule internal mapping.
+	PortRange pulumi.StringPtrInput `pulumi:"portRange"`
+}
+
+func (VnpGatewayNatRuleInternalMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VnpGatewayNatRuleInternalMapping)(nil)).Elem()
+}
+
+func (i VnpGatewayNatRuleInternalMappingArgs) ToVnpGatewayNatRuleInternalMappingOutput() VnpGatewayNatRuleInternalMappingOutput {
+	return i.ToVnpGatewayNatRuleInternalMappingOutputWithContext(context.Background())
+}
+
+func (i VnpGatewayNatRuleInternalMappingArgs) ToVnpGatewayNatRuleInternalMappingOutputWithContext(ctx context.Context) VnpGatewayNatRuleInternalMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VnpGatewayNatRuleInternalMappingOutput)
+}
+
+// VnpGatewayNatRuleInternalMappingArrayInput is an input type that accepts VnpGatewayNatRuleInternalMappingArray and VnpGatewayNatRuleInternalMappingArrayOutput values.
+// You can construct a concrete instance of `VnpGatewayNatRuleInternalMappingArrayInput` via:
+//
+//          VnpGatewayNatRuleInternalMappingArray{ VnpGatewayNatRuleInternalMappingArgs{...} }
+type VnpGatewayNatRuleInternalMappingArrayInput interface {
+	pulumi.Input
+
+	ToVnpGatewayNatRuleInternalMappingArrayOutput() VnpGatewayNatRuleInternalMappingArrayOutput
+	ToVnpGatewayNatRuleInternalMappingArrayOutputWithContext(context.Context) VnpGatewayNatRuleInternalMappingArrayOutput
+}
+
+type VnpGatewayNatRuleInternalMappingArray []VnpGatewayNatRuleInternalMappingInput
+
+func (VnpGatewayNatRuleInternalMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VnpGatewayNatRuleInternalMapping)(nil)).Elem()
+}
+
+func (i VnpGatewayNatRuleInternalMappingArray) ToVnpGatewayNatRuleInternalMappingArrayOutput() VnpGatewayNatRuleInternalMappingArrayOutput {
+	return i.ToVnpGatewayNatRuleInternalMappingArrayOutputWithContext(context.Background())
+}
+
+func (i VnpGatewayNatRuleInternalMappingArray) ToVnpGatewayNatRuleInternalMappingArrayOutputWithContext(ctx context.Context) VnpGatewayNatRuleInternalMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VnpGatewayNatRuleInternalMappingArrayOutput)
+}
+
+type VnpGatewayNatRuleInternalMappingOutput struct{ *pulumi.OutputState }
+
+func (VnpGatewayNatRuleInternalMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VnpGatewayNatRuleInternalMapping)(nil)).Elem()
+}
+
+func (o VnpGatewayNatRuleInternalMappingOutput) ToVnpGatewayNatRuleInternalMappingOutput() VnpGatewayNatRuleInternalMappingOutput {
+	return o
+}
+
+func (o VnpGatewayNatRuleInternalMappingOutput) ToVnpGatewayNatRuleInternalMappingOutputWithContext(ctx context.Context) VnpGatewayNatRuleInternalMappingOutput {
+	return o
+}
+
+// The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping.
+func (o VnpGatewayNatRuleInternalMappingOutput) AddressSpace() pulumi.StringOutput {
+	return o.ApplyT(func(v VnpGatewayNatRuleInternalMapping) string { return v.AddressSpace }).(pulumi.StringOutput)
+}
+
+// The single port range for the VPN Gateway Nat Rule internal mapping.
+func (o VnpGatewayNatRuleInternalMappingOutput) PortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VnpGatewayNatRuleInternalMapping) *string { return v.PortRange }).(pulumi.StringPtrOutput)
+}
+
+type VnpGatewayNatRuleInternalMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (VnpGatewayNatRuleInternalMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VnpGatewayNatRuleInternalMapping)(nil)).Elem()
+}
+
+func (o VnpGatewayNatRuleInternalMappingArrayOutput) ToVnpGatewayNatRuleInternalMappingArrayOutput() VnpGatewayNatRuleInternalMappingArrayOutput {
+	return o
+}
+
+func (o VnpGatewayNatRuleInternalMappingArrayOutput) ToVnpGatewayNatRuleInternalMappingArrayOutputWithContext(ctx context.Context) VnpGatewayNatRuleInternalMappingArrayOutput {
+	return o
+}
+
+func (o VnpGatewayNatRuleInternalMappingArrayOutput) Index(i pulumi.IntInput) VnpGatewayNatRuleInternalMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VnpGatewayNatRuleInternalMapping {
+		return vs[0].([]VnpGatewayNatRuleInternalMapping)[vs[1].(int)]
+	}).(VnpGatewayNatRuleInternalMappingOutput)
+}
+
 type VpnGatewayBgpSettings struct {
 	// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
 	Asn int `pulumi:"asn"`
@@ -21737,6 +21949,121 @@ func (o VpnServerConfigurationIpsecPolicyPtrOutput) SaLifetimeSeconds() pulumi.I
 		}
 		return &v.SaLifetimeSeconds
 	}).(pulumi.IntPtrOutput)
+}
+
+type VpnServerConfigurationPolicyGroupPolicy struct {
+	// The name of the VPN Server Configuration Policy member.
+	Name string `pulumi:"name"`
+	// The attribute type of the VPN Server Configuration Policy member. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+	Type string `pulumi:"type"`
+	// The value of the attribute that is used for the VPN Server Configuration Policy member.
+	Value string `pulumi:"value"`
+}
+
+// VpnServerConfigurationPolicyGroupPolicyInput is an input type that accepts VpnServerConfigurationPolicyGroupPolicyArgs and VpnServerConfigurationPolicyGroupPolicyOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationPolicyGroupPolicyInput` via:
+//
+//          VpnServerConfigurationPolicyGroupPolicyArgs{...}
+type VpnServerConfigurationPolicyGroupPolicyInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationPolicyGroupPolicyOutput() VpnServerConfigurationPolicyGroupPolicyOutput
+	ToVpnServerConfigurationPolicyGroupPolicyOutputWithContext(context.Context) VpnServerConfigurationPolicyGroupPolicyOutput
+}
+
+type VpnServerConfigurationPolicyGroupPolicyArgs struct {
+	// The name of the VPN Server Configuration Policy member.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The attribute type of the VPN Server Configuration Policy member. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value of the attribute that is used for the VPN Server Configuration Policy member.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VpnServerConfigurationPolicyGroupPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationPolicyGroupPolicy)(nil)).Elem()
+}
+
+func (i VpnServerConfigurationPolicyGroupPolicyArgs) ToVpnServerConfigurationPolicyGroupPolicyOutput() VpnServerConfigurationPolicyGroupPolicyOutput {
+	return i.ToVpnServerConfigurationPolicyGroupPolicyOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationPolicyGroupPolicyArgs) ToVpnServerConfigurationPolicyGroupPolicyOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationPolicyGroupPolicyOutput)
+}
+
+// VpnServerConfigurationPolicyGroupPolicyArrayInput is an input type that accepts VpnServerConfigurationPolicyGroupPolicyArray and VpnServerConfigurationPolicyGroupPolicyArrayOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationPolicyGroupPolicyArrayInput` via:
+//
+//          VpnServerConfigurationPolicyGroupPolicyArray{ VpnServerConfigurationPolicyGroupPolicyArgs{...} }
+type VpnServerConfigurationPolicyGroupPolicyArrayInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationPolicyGroupPolicyArrayOutput() VpnServerConfigurationPolicyGroupPolicyArrayOutput
+	ToVpnServerConfigurationPolicyGroupPolicyArrayOutputWithContext(context.Context) VpnServerConfigurationPolicyGroupPolicyArrayOutput
+}
+
+type VpnServerConfigurationPolicyGroupPolicyArray []VpnServerConfigurationPolicyGroupPolicyInput
+
+func (VpnServerConfigurationPolicyGroupPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnServerConfigurationPolicyGroupPolicy)(nil)).Elem()
+}
+
+func (i VpnServerConfigurationPolicyGroupPolicyArray) ToVpnServerConfigurationPolicyGroupPolicyArrayOutput() VpnServerConfigurationPolicyGroupPolicyArrayOutput {
+	return i.ToVpnServerConfigurationPolicyGroupPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationPolicyGroupPolicyArray) ToVpnServerConfigurationPolicyGroupPolicyArrayOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationPolicyGroupPolicyArrayOutput)
+}
+
+type VpnServerConfigurationPolicyGroupPolicyOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationPolicyGroupPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationPolicyGroupPolicy)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationPolicyGroupPolicyOutput) ToVpnServerConfigurationPolicyGroupPolicyOutput() VpnServerConfigurationPolicyGroupPolicyOutput {
+	return o
+}
+
+func (o VpnServerConfigurationPolicyGroupPolicyOutput) ToVpnServerConfigurationPolicyGroupPolicyOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupPolicyOutput {
+	return o
+}
+
+// The name of the VPN Server Configuration Policy member.
+func (o VpnServerConfigurationPolicyGroupPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnServerConfigurationPolicyGroupPolicy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The attribute type of the VPN Server Configuration Policy member. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+func (o VpnServerConfigurationPolicyGroupPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnServerConfigurationPolicyGroupPolicy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value of the attribute that is used for the VPN Server Configuration Policy member.
+func (o VpnServerConfigurationPolicyGroupPolicyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnServerConfigurationPolicyGroupPolicy) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VpnServerConfigurationPolicyGroupPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationPolicyGroupPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnServerConfigurationPolicyGroupPolicy)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationPolicyGroupPolicyArrayOutput) ToVpnServerConfigurationPolicyGroupPolicyArrayOutput() VpnServerConfigurationPolicyGroupPolicyArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationPolicyGroupPolicyArrayOutput) ToVpnServerConfigurationPolicyGroupPolicyArrayOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupPolicyArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationPolicyGroupPolicyArrayOutput) Index(i pulumi.IntInput) VpnServerConfigurationPolicyGroupPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnServerConfigurationPolicyGroupPolicy {
+		return vs[0].([]VpnServerConfigurationPolicyGroupPolicy)[vs[1].(int)]
+	}).(VpnServerConfigurationPolicyGroupPolicyOutput)
 }
 
 type VpnServerConfigurationRadius struct {
@@ -26592,6 +26919,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationRootCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetInput)(nil)).Elem(), VirtualNetworkSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetArrayInput)(nil)).Elem(), VirtualNetworkSubnetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleExternalMappingInput)(nil)).Elem(), VnpGatewayNatRuleExternalMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleExternalMappingArrayInput)(nil)).Elem(), VnpGatewayNatRuleExternalMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleInternalMappingInput)(nil)).Elem(), VnpGatewayNatRuleInternalMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleInternalMappingArrayInput)(nil)).Elem(), VnpGatewayNatRuleInternalMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayBgpSettingsInput)(nil)).Elem(), VpnGatewayBgpSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayBgpSettingsPtrInput)(nil)).Elem(), VpnGatewayBgpSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayBgpSettingsInstance0BgpPeeringAddressInput)(nil)).Elem(), VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs{})
@@ -26618,6 +26949,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationClientRootCertificateArrayInput)(nil)).Elem(), VpnServerConfigurationClientRootCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationIpsecPolicyInput)(nil)).Elem(), VpnServerConfigurationIpsecPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationIpsecPolicyPtrInput)(nil)).Elem(), VpnServerConfigurationIpsecPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationPolicyGroupPolicyInput)(nil)).Elem(), VpnServerConfigurationPolicyGroupPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationPolicyGroupPolicyArrayInput)(nil)).Elem(), VpnServerConfigurationPolicyGroupPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusInput)(nil)).Elem(), VpnServerConfigurationRadiusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusPtrInput)(nil)).Elem(), VpnServerConfigurationRadiusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnServerConfigurationRadiusClientRootCertificateInput)(nil)).Elem(), VpnServerConfigurationRadiusClientRootCertificateArgs{})
@@ -26938,6 +27271,10 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetArrayOutput{})
+	pulumi.RegisterOutputType(VnpGatewayNatRuleExternalMappingOutput{})
+	pulumi.RegisterOutputType(VnpGatewayNatRuleExternalMappingArrayOutput{})
+	pulumi.RegisterOutputType(VnpGatewayNatRuleInternalMappingOutput{})
+	pulumi.RegisterOutputType(VnpGatewayNatRuleInternalMappingArrayOutput{})
 	pulumi.RegisterOutputType(VpnGatewayBgpSettingsOutput{})
 	pulumi.RegisterOutputType(VpnGatewayBgpSettingsPtrOutput{})
 	pulumi.RegisterOutputType(VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput{})
@@ -26964,6 +27301,8 @@ func init() {
 	pulumi.RegisterOutputType(VpnServerConfigurationClientRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationIpsecPolicyOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationIpsecPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationPolicyGroupPolicyOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationPolicyGroupPolicyArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusPtrOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusClientRootCertificateOutput{})

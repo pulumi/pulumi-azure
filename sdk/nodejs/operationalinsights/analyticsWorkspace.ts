@@ -98,7 +98,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     /**
      * Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    public readonly sku!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

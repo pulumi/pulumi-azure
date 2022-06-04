@@ -13,10 +13,22 @@ namespace Pulumi.Azure.Backup.Inputs
     public sealed class PolicyVMBackupGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sets the backup frequency. Must be either `Daily` or`Weekly`.
+        /// Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
         /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
+
+        /// <summary>
+        /// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+        /// </summary>
+        [Input("hourDuration")]
+        public Input<int>? HourDuration { get; set; }
+
+        /// <summary>
+        /// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+        /// </summary>
+        [Input("hourInterval")]
+        public Input<int>? HourInterval { get; set; }
 
         /// <summary>
         /// The time of day to perform the backup in 24hour format.

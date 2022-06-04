@@ -110,7 +110,7 @@ namespace Pulumi.Azure.OperationalInsights
         /// Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
         /// </summary>
         [Output("sku")]
-        public Output<string?> Sku { get; private set; } = null!;
+        public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.

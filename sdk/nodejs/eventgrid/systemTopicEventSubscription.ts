@@ -98,7 +98,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
      */
     public readonly deliveryIdentity!: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionDeliveryIdentity | undefined>;
     /**
-     * A `deliveryProperty` block as defined below.
+     * One or more `deliveryProperty` blocks as defined below.
      */
     public readonly deliveryProperties!: pulumi.Output<outputs.eventgrid.SystemTopicEventSubscriptionDeliveryProperty[] | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface SystemTopicEventSubscriptionState {
      */
     deliveryIdentity?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryIdentity>;
     /**
-     * A `deliveryProperty` block as defined below.
+     * One or more `deliveryProperty` blocks as defined below.
      */
     deliveryProperties?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryProperty>[]>;
     /**
@@ -356,7 +356,7 @@ export interface SystemTopicEventSubscriptionArgs {
      */
     deliveryIdentity?: pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryIdentity>;
     /**
-     * A `deliveryProperty` block as defined below.
+     * One or more `deliveryProperty` blocks as defined below.
      */
     deliveryProperties?: pulumi.Input<pulumi.Input<inputs.eventgrid.SystemTopicEventSubscriptionDeliveryProperty>[]>;
     /**

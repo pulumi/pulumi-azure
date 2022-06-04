@@ -20,6 +20,7 @@ class CacheArgs:
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -43,6 +44,7 @@ class CacheArgs:
                create the Redis instance.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
+        :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
@@ -66,6 +68,8 @@ class CacheArgs:
         pulumi.set(__self__, "sku_name", sku_name)
         if enable_non_ssl_port is not None:
             pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if minimum_tls_version is not None:
@@ -157,6 +161,18 @@ class CacheArgs:
     @enable_non_ssl_port.setter
     def enable_non_ssl_port(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_non_ssl_port", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['CacheIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['CacheIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -347,6 +363,7 @@ class _CacheState:
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -376,6 +393,7 @@ class _CacheState:
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
+        :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
@@ -410,6 +428,8 @@ class _CacheState:
             pulumi.set(__self__, "family", family)
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if minimum_tls_version is not None:
@@ -504,6 +524,18 @@ class _CacheState:
     @hostname.setter
     def hostname(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['CacheIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['CacheIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -792,6 +824,7 @@ class Cache(pulumi.CustomResource):
                  capacity: Optional[pulumi.Input[int]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  family: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -875,6 +908,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
+        :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
@@ -979,6 +1013,7 @@ class Cache(pulumi.CustomResource):
                  capacity: Optional[pulumi.Input[int]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  family: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1015,6 +1050,7 @@ class Cache(pulumi.CustomResource):
             if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
             __props__.__dict__["family"] = family
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["name"] = name
@@ -1057,6 +1093,7 @@ class Cache(pulumi.CustomResource):
             enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
             family: Optional[pulumi.Input[str]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             minimum_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1091,6 +1128,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
+        :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
@@ -1125,6 +1163,7 @@ class Cache(pulumi.CustomResource):
         __props__.__dict__["enable_non_ssl_port"] = enable_non_ssl_port
         __props__.__dict__["family"] = family
         __props__.__dict__["hostname"] = hostname
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["minimum_tls_version"] = minimum_tls_version
         __props__.__dict__["name"] = name
@@ -1181,6 +1220,14 @@ class Cache(pulumi.CustomResource):
         The Hostname of the Redis Instance
         """
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.CacheIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

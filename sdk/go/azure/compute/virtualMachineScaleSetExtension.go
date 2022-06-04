@@ -25,12 +25,39 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", nil)
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			Sku:               pulumi.String("Standard_F2"),
+// 			AdminUsername:     pulumi.String("adminuser"),
+// 			Instances:         pulumi.Int(1),
+// 			NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
+// 				&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
+// 					Name: pulumi.String("example"),
+// 					IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
+// 						&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
+// 							Name: pulumi.String("internal"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
+// 				StorageAccountType: pulumi.String("Standard_LRS"),
+// 				Caching:            pulumi.String("ReadWrite"),
+// 			},
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

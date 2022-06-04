@@ -39,6 +39,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///             ResourceGroupName = example.Name,
     ///             Type = "Personal",
     ///             PersonalDesktopAssignmentType = "Automatic",
+    ///             LoadBalancerType = "BreadthFirst",
     ///         });
     ///         var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new Azure.DesktopVirtualization.ApplicationGroupArgs
     ///         {

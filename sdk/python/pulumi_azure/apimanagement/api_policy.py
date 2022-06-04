@@ -203,9 +203,10 @@ class ApiPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_api = azure.apimanagement.get_api(api_name="my-api",
+        example_api = azure.apimanagement.get_api(name="my-api",
             api_management_name="example-apim",
-            resource_group_name="search-service")
+            resource_group_name="search-service",
+            revision="2")
         example_api_policy = azure.apimanagement.ApiPolicy("exampleApiPolicy",
             api_name=example_api.name,
             api_management_name=example_api.api_management_name,
@@ -249,9 +250,10 @@ class ApiPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_api = azure.apimanagement.get_api(api_name="my-api",
+        example_api = azure.apimanagement.get_api(name="my-api",
             api_management_name="example-apim",
-            resource_group_name="search-service")
+            resource_group_name="search-service",
+            revision="2")
         example_api_policy = azure.apimanagement.ApiPolicy("exampleApiPolicy",
             api_name=example_api.name,
             api_management_name=example_api.api_management_name,

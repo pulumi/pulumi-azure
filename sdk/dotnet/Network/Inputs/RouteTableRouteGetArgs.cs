@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> AddressPrefix { get; set; } = null!;
 
         /// <summary>
-        /// The name of the route.(Required) The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+        /// The name of the route.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

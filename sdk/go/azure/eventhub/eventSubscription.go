@@ -71,10 +71,8 @@ import (
 // EventGrid Event Subscription's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:eventhub/eventSubscription:EventSubscription eventSubscription1
+//  $ pulumi import azure:eventhub/eventSubscription:EventSubscription eventSubscription1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
 // ```
-//
-//  /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
 //
 // Deprecated: azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription
 type EventSubscription struct {
@@ -90,7 +88,7 @@ type EventSubscription struct {
 	DeadLetterIdentity EventSubscriptionDeadLetterIdentityPtrOutput `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity EventSubscriptionDeliveryIdentityPtrOutput `pulumi:"deliveryIdentity"`
-	// A `deliveryProperty` block as defined below.
+	// One or more `deliveryProperty` blocks as defined below.
 	DeliveryProperties EventSubscriptionDeliveryPropertyArrayOutput `pulumi:"deliveryProperties"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
@@ -166,7 +164,7 @@ type eventSubscriptionState struct {
 	DeadLetterIdentity *EventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity *EventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
-	// A `deliveryProperty` block as defined below.
+	// One or more `deliveryProperty` blocks as defined below.
 	DeliveryProperties []EventSubscriptionDeliveryProperty `pulumi:"deliveryProperties"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
@@ -211,7 +209,7 @@ type EventSubscriptionState struct {
 	DeadLetterIdentity EventSubscriptionDeadLetterIdentityPtrInput
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity EventSubscriptionDeliveryIdentityPtrInput
-	// A `deliveryProperty` block as defined below.
+	// One or more `deliveryProperty` blocks as defined below.
 	DeliveryProperties EventSubscriptionDeliveryPropertyArrayInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
@@ -260,7 +258,7 @@ type eventSubscriptionArgs struct {
 	DeadLetterIdentity *EventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity *EventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
-	// A `deliveryProperty` block as defined below.
+	// One or more `deliveryProperty` blocks as defined below.
 	DeliveryProperties []EventSubscriptionDeliveryProperty `pulumi:"deliveryProperties"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
@@ -306,7 +304,7 @@ type EventSubscriptionArgs struct {
 	DeadLetterIdentity EventSubscriptionDeadLetterIdentityPtrInput
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity EventSubscriptionDeliveryIdentityPtrInput
-	// A `deliveryProperty` block as defined below.
+	// One or more `deliveryProperty` blocks as defined below.
 	DeliveryProperties EventSubscriptionDeliveryPropertyArrayInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
@@ -454,7 +452,7 @@ func (o EventSubscriptionOutput) DeliveryIdentity() EventSubscriptionDeliveryIde
 	return o.ApplyT(func(v *EventSubscription) EventSubscriptionDeliveryIdentityPtrOutput { return v.DeliveryIdentity }).(EventSubscriptionDeliveryIdentityPtrOutput)
 }
 
-// A `deliveryProperty` block as defined below.
+// One or more `deliveryProperty` blocks as defined below.
 func (o EventSubscriptionOutput) DeliveryProperties() EventSubscriptionDeliveryPropertyArrayOutput {
 	return o.ApplyT(func(v *EventSubscription) EventSubscriptionDeliveryPropertyArrayOutput { return v.DeliveryProperties }).(EventSubscriptionDeliveryPropertyArrayOutput)
 }

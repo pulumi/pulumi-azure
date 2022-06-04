@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     allocationMethod: "Static",
  *     domainNameLabel: "example-public-ip",
  * });
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *         ttl: 100,
  *     },
  *     monitorConfig: {
- *         protocol: "http",
+ *         protocol: "HTTP",
  *         port: 80,
  *         path: "/",
  *         intervalInSeconds: 30,
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * const exampleTrafficManagerAzureEndpoint = new azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint", {
  *     profileId: exampleTrafficManagerProfile.id,
  *     weight: 100,
- *     targetResourceId: azurerm_public_ip.test.id,
+ *     targetResourceId: examplePublicIp.id,
  * });
  * ```
  *

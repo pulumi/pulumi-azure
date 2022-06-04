@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     type: "Personal",
  *     personalDesktopAssignmentType: "Automatic",
+ *     loadBalancerType: "BreadthFirst",
  * });
  * const remoteapp = new azure.desktopvirtualization.ApplicationGroup("remoteapp", {
  *     location: example.location,

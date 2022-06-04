@@ -243,8 +243,6 @@ class PtrRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Enables you to manage DNS PTR Records within Azure DNS.
-
         ## Example Usage
 
         ```python
@@ -284,8 +282,6 @@ class PtrRecord(pulumi.CustomResource):
                  args: PtrRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enables you to manage DNS PTR Records within Azure DNS.
-
         ## Example Usage
 
         ```python

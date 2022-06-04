@@ -96,7 +96,7 @@ type SystemTopicEventSubscription struct {
 	DeadLetterIdentity SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity SystemTopicEventSubscriptionDeliveryIdentityPtrOutput `pulumi:"deliveryIdentity"`
-	// A `deliveryProperty` block as defined below.
+	// One or more `deliveryProperty` blocks as defined below.
 	DeliveryProperties SystemTopicEventSubscriptionDeliveryPropertyArrayOutput `pulumi:"deliveryProperties"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
@@ -177,7 +177,7 @@ type systemTopicEventSubscriptionState struct {
 	DeadLetterIdentity *SystemTopicEventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity *SystemTopicEventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
-	// A `deliveryProperty` block as defined below.
+	// One or more `deliveryProperty` blocks as defined below.
 	DeliveryProperties []SystemTopicEventSubscriptionDeliveryProperty `pulumi:"deliveryProperties"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
@@ -224,7 +224,7 @@ type SystemTopicEventSubscriptionState struct {
 	DeadLetterIdentity SystemTopicEventSubscriptionDeadLetterIdentityPtrInput
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity SystemTopicEventSubscriptionDeliveryIdentityPtrInput
-	// A `deliveryProperty` block as defined below.
+	// One or more `deliveryProperty` blocks as defined below.
 	DeliveryProperties SystemTopicEventSubscriptionDeliveryPropertyArrayInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
@@ -275,7 +275,7 @@ type systemTopicEventSubscriptionArgs struct {
 	DeadLetterIdentity *SystemTopicEventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity *SystemTopicEventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
-	// A `deliveryProperty` block as defined below.
+	// One or more `deliveryProperty` blocks as defined below.
 	DeliveryProperties []SystemTopicEventSubscriptionDeliveryProperty `pulumi:"deliveryProperties"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
@@ -323,7 +323,7 @@ type SystemTopicEventSubscriptionArgs struct {
 	DeadLetterIdentity SystemTopicEventSubscriptionDeadLetterIdentityPtrInput
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity SystemTopicEventSubscriptionDeliveryIdentityPtrInput
-	// A `deliveryProperty` block as defined below.
+	// One or more `deliveryProperty` blocks as defined below.
 	DeliveryProperties SystemTopicEventSubscriptionDeliveryPropertyArrayInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
@@ -479,7 +479,7 @@ func (o SystemTopicEventSubscriptionOutput) DeliveryIdentity() SystemTopicEventS
 	}).(SystemTopicEventSubscriptionDeliveryIdentityPtrOutput)
 }
 
-// A `deliveryProperty` block as defined below.
+// One or more `deliveryProperty` blocks as defined below.
 func (o SystemTopicEventSubscriptionOutput) DeliveryProperties() SystemTopicEventSubscriptionDeliveryPropertyArrayOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscription) SystemTopicEventSubscriptionDeliveryPropertyArrayOutput {
 		return v.DeliveryProperties

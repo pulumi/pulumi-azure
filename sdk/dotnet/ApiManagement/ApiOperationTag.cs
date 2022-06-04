@@ -50,6 +50,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         var exampleApiOperationTag = new Azure.ApiManagement.ApiOperationTag("exampleApiOperationTag", new Azure.ApiManagement.ApiOperationTagArgs
     ///         {
     ///             ApiOperationId = exampleApiOperation.Id,
+    ///             DisplayName = "example-Tag",
     ///         });
     ///     }
     /// 

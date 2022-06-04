@@ -245,8 +245,6 @@ class SrvRecord(pulumi.CustomResource):
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Enables you to manage DNS SRV Records within Azure DNS.
-
         ## Example Usage
 
         ```python
@@ -294,8 +292,6 @@ class SrvRecord(pulumi.CustomResource):
                  args: SrvRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enables you to manage DNS SRV Records within Azure DNS.
-
         ## Example Usage
 
         ```python

@@ -39,6 +39,7 @@ namespace Pulumi.Azure.ApiManagement
     ///             ApiManagementName = exampleService.Name,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ClientId = "00001111-2222-3333-4444-555566667777",
+    ///             ClientSecret = "00001111-423egvwdcsjx-00001111",
     ///             DisplayName = "Example Provider",
     ///             MetadataEndpoint = "https://example.com/example",
     ///         });

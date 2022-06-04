@@ -109,6 +109,12 @@ namespace Pulumi.Azure.Redis
         public Output<string> Hostname { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.CacheIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource group.
         /// </summary>
         [Output("location")]
@@ -313,6 +319,12 @@ namespace Pulumi.Azure.Redis
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.CacheIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The location of the resource group.
         /// </summary>
         [Input("location")]
@@ -470,6 +482,12 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.CacheIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The location of the resource group.

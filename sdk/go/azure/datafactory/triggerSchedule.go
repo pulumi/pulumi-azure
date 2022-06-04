@@ -43,6 +43,8 @@ type TriggerSchedule struct {
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters pulumi.StringMapOutput `pulumi:"pipelineParameters"`
+	// block as defined below.
+	Pipelines TriggerSchedulePipelineArrayOutput `pulumi:"pipelines"`
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule TriggerScheduleSchedulePtrOutput `pulumi:"schedule"`
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
@@ -60,9 +62,6 @@ func NewTriggerSchedule(ctx *pulumi.Context,
 
 	if args.DataFactoryId == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
-	}
-	if args.PipelineName == nil {
-		return nil, errors.New("invalid value for required argument 'PipelineName'")
 	}
 	var resource TriggerSchedule
 	err := ctx.RegisterResource("azure:datafactory/triggerSchedule:TriggerSchedule", name, args, &resource, opts...)
@@ -106,6 +105,8 @@ type triggerScheduleState struct {
 	PipelineName *string `pulumi:"pipelineName"`
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters map[string]string `pulumi:"pipelineParameters"`
+	// block as defined below.
+	Pipelines []TriggerSchedulePipeline `pulumi:"pipelines"`
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule *TriggerScheduleSchedule `pulumi:"schedule"`
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
@@ -135,6 +136,8 @@ type TriggerScheduleState struct {
 	PipelineName pulumi.StringPtrInput
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters pulumi.StringMapInput
+	// block as defined below.
+	Pipelines TriggerSchedulePipelineArrayInput
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule TriggerScheduleSchedulePtrInput
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
@@ -165,9 +168,11 @@ type triggerScheduleArgs struct {
 	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// The Data Factory Pipeline name that the trigger will act on.
-	PipelineName string `pulumi:"pipelineName"`
+	PipelineName *string `pulumi:"pipelineName"`
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters map[string]string `pulumi:"pipelineParameters"`
+	// block as defined below.
+	Pipelines []TriggerSchedulePipeline `pulumi:"pipelines"`
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule *TriggerScheduleSchedule `pulumi:"schedule"`
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
@@ -195,9 +200,11 @@ type TriggerScheduleArgs struct {
 	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// The Data Factory Pipeline name that the trigger will act on.
-	PipelineName pulumi.StringInput
+	PipelineName pulumi.StringPtrInput
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters pulumi.StringMapInput
+	// block as defined below.
+	Pipelines TriggerSchedulePipelineArrayInput
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule TriggerScheduleSchedulePtrInput
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
@@ -341,6 +348,11 @@ func (o TriggerScheduleOutput) PipelineName() pulumi.StringOutput {
 // The pipeline parameters that the trigger will act upon.
 func (o TriggerScheduleOutput) PipelineParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TriggerSchedule) pulumi.StringMapOutput { return v.PipelineParameters }).(pulumi.StringMapOutput)
+}
+
+// block as defined below.
+func (o TriggerScheduleOutput) Pipelines() TriggerSchedulePipelineArrayOutput {
+	return o.ApplyT(func(v *TriggerSchedule) TriggerSchedulePipelineArrayOutput { return v.Pipelines }).(TriggerSchedulePipelineArrayOutput)
 }
 
 // A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.

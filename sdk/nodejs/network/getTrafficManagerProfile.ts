@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     name: "test",
  *     resourceGroupName: "test",
  * });
- * export const trafficRoutingMethod = data.azurerm_traffic_manager_profile.traffic_routing_method;
+ * export const trafficRoutingMethod = example.then(example => example.trafficRoutingMethod);
  * ```
  */
 export function getTrafficManagerProfile(args: GetTrafficManagerProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerProfileResult> {

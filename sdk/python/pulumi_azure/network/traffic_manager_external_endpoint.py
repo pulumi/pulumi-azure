@@ -399,7 +399,7 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
                 ttl=100,
             ),
             monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="http",
+                protocol="HTTP",
                 port=80,
                 path="/",
                 interval_in_seconds=30,
@@ -465,7 +465,7 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
                 ttl=100,
             ),
             monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="http",
+                protocol="HTTP",
                 port=80,
                 path="/",
                 interval_in_seconds=30,

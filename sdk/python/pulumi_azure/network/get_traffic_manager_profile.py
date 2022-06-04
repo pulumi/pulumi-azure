@@ -165,7 +165,7 @@ def get_traffic_manager_profile(name: Optional[str] = None,
 
     example = azure.network.get_traffic_manager_profile(name="test",
         resource_group_name="test")
-    pulumi.export("trafficRoutingMethod", data["azurerm_traffic_manager_profile"]["traffic_routing_method"])
+    pulumi.export("trafficRoutingMethod", example.traffic_routing_method)
     ```
 
 
@@ -215,7 +215,7 @@ def get_traffic_manager_profile_output(name: Optional[pulumi.Input[str]] = None,
 
     example = azure.network.get_traffic_manager_profile(name="test",
         resource_group_name="test")
-    pulumi.export("trafficRoutingMethod", data["azurerm_traffic_manager_profile"]["traffic_routing_method"])
+    pulumi.export("trafficRoutingMethod", example.traffic_routing_method)
     ```
 
 

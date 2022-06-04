@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network
         ///             Name = "test",
         ///             ResourceGroupName = "test",
         ///         }));
-        ///         this.TrafficRoutingMethod = data.Azurerm_traffic_manager_profile.Traffic_routing_method;
+        ///         this.TrafficRoutingMethod = example.Apply(example =&gt; example.TrafficRoutingMethod);
         ///     }
         /// 
         ///     [Output("trafficRoutingMethod")]
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Network
         ///             Name = "test",
         ///             ResourceGroupName = "test",
         ///         }));
-        ///         this.TrafficRoutingMethod = data.Azurerm_traffic_manager_profile.Traffic_routing_method;
+        ///         this.TrafficRoutingMethod = example.Apply(example =&gt; example.TrafficRoutingMethod);
         ///     }
         /// 
         ///     [Output("trafficRoutingMethod")]

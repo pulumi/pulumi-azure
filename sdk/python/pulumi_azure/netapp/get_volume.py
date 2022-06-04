@@ -21,7 +21,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, account_name=None, data_protection_replications=None, id=None, location=None, mount_ip_addresses=None, name=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None):
+    def __init__(__self__, account_name=None, data_protection_replications=None, id=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
@@ -40,6 +40,9 @@ class GetVolumeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_features and not isinstance(network_features, str):
+            raise TypeError("Expected argument 'network_features' to be a str")
+        pulumi.set(__self__, "network_features", network_features)
         if pool_name and not isinstance(pool_name, str):
             raise TypeError("Expected argument 'pool_name' to be a str")
         pulumi.set(__self__, "pool_name", pool_name)
@@ -75,7 +78,6 @@ class GetVolumeResult:
     def data_protection_replications(self) -> Sequence['outputs.GetVolumeDataProtectionReplicationResult']:
         """
         Volume data protection block
-        *
         """
         return pulumi.get(self, "data_protection_replications")
 
@@ -107,6 +109,14 @@ class GetVolumeResult:
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkFeatures")
+    def network_features(self) -> str:
+        """
+        Network features in use `Basic` or `Standard`.
+        """
+        return pulumi.get(self, "network_features")
 
     @property
     @pulumi.getter(name="poolName")
@@ -179,6 +189,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             location=self.location,
             mount_ip_addresses=self.mount_ip_addresses,
             name=self.name,
+            network_features=self.network_features,
             pool_name=self.pool_name,
             protocols=self.protocols,
             resource_group_name=self.resource_group_name,
@@ -237,6 +248,7 @@ def get_volume(account_name: Optional[str] = None,
         location=__ret__.location,
         mount_ip_addresses=__ret__.mount_ip_addresses,
         name=__ret__.name,
+        network_features=__ret__.network_features,
         pool_name=__ret__.pool_name,
         protocols=__ret__.protocols,
         resource_group_name=__ret__.resource_group_name,

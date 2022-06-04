@@ -12,6 +12,42 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Subscription Policy Exemption.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleSubscription = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
+    ///         var examplePolicySetDefinition = Output.Create(Azure.Policy.GetPolicySetDefinition.InvokeAsync(new Azure.Policy.GetPolicySetDefinitionArgs
+    ///         {
+    ///             DisplayName = "Audit machines with insecure password security settings",
+    ///         }));
+    ///         var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", new Azure.Core.SubscriptionPolicyAssignmentArgs
+    ///         {
+    ///             SubscriptionId = exampleSubscription.Apply(exampleSubscription =&gt; exampleSubscription.Id),
+    ///             PolicyDefinitionId = examplePolicySetDefinition.Apply(examplePolicySetDefinition =&gt; examplePolicySetDefinition.Id),
+    ///             Location = "westus",
+    ///             Identity = new Azure.Core.Inputs.SubscriptionPolicyAssignmentIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var exampleSubscriptionPolicyExemption = new Azure.Core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption", new Azure.Core.SubscriptionPolicyExemptionArgs
+    ///         {
+    ///             SubscriptionId = exampleSubscription.Apply(exampleSubscription =&gt; exampleSubscription.Id),
+    ///             PolicyAssignmentId = exampleSubscriptionPolicyAssignment.Id,
+    ///             ExemptionCategory = "Mitigated",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Policy Exemptions can be imported using the `resource id`, e.g.

@@ -95,7 +95,7 @@ namespace Pulumi.Azure.WebPubSub
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 azurerm_private_endpoint.Test,
+    ///                 exampleEndpoint,
     ///             },
     ///         });
     ///     }

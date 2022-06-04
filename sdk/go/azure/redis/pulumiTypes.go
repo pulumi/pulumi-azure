@@ -10,6 +10,192 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CacheIdentity struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	Type string `pulumi:"type"`
+}
+
+// CacheIdentityInput is an input type that accepts CacheIdentityArgs and CacheIdentityOutput values.
+// You can construct a concrete instance of `CacheIdentityInput` via:
+//
+//          CacheIdentityArgs{...}
+type CacheIdentityInput interface {
+	pulumi.Input
+
+	ToCacheIdentityOutput() CacheIdentityOutput
+	ToCacheIdentityOutputWithContext(context.Context) CacheIdentityOutput
+}
+
+type CacheIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CacheIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentity)(nil)).Elem()
+}
+
+func (i CacheIdentityArgs) ToCacheIdentityOutput() CacheIdentityOutput {
+	return i.ToCacheIdentityOutputWithContext(context.Background())
+}
+
+func (i CacheIdentityArgs) ToCacheIdentityOutputWithContext(ctx context.Context) CacheIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityOutput)
+}
+
+func (i CacheIdentityArgs) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
+	return i.ToCacheIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i CacheIdentityArgs) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityOutput).ToCacheIdentityPtrOutputWithContext(ctx)
+}
+
+// CacheIdentityPtrInput is an input type that accepts CacheIdentityArgs, CacheIdentityPtr and CacheIdentityPtrOutput values.
+// You can construct a concrete instance of `CacheIdentityPtrInput` via:
+//
+//          CacheIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheIdentityPtrInput interface {
+	pulumi.Input
+
+	ToCacheIdentityPtrOutput() CacheIdentityPtrOutput
+	ToCacheIdentityPtrOutputWithContext(context.Context) CacheIdentityPtrOutput
+}
+
+type cacheIdentityPtrType CacheIdentityArgs
+
+func CacheIdentityPtr(v *CacheIdentityArgs) CacheIdentityPtrInput {
+	return (*cacheIdentityPtrType)(v)
+}
+
+func (*cacheIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheIdentity)(nil)).Elem()
+}
+
+func (i *cacheIdentityPtrType) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
+	return i.ToCacheIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheIdentityPtrType) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityPtrOutput)
+}
+
+type CacheIdentityOutput struct{ *pulumi.OutputState }
+
+func (CacheIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentity)(nil)).Elem()
+}
+
+func (o CacheIdentityOutput) ToCacheIdentityOutput() CacheIdentityOutput {
+	return o
+}
+
+func (o CacheIdentityOutput) ToCacheIdentityOutputWithContext(ctx context.Context) CacheIdentityOutput {
+	return o
+}
+
+func (o CacheIdentityOutput) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
+	return o.ToCacheIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentity) *CacheIdentity {
+		return &v
+	}).(CacheIdentityPtrOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+func (o CacheIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CacheIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o CacheIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o CacheIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+func (o CacheIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type CacheIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheIdentity)(nil)).Elem()
+}
+
+func (o CacheIdentityPtrOutput) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
+	return o
+}
+
+func (o CacheIdentityPtrOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
+	return o
+}
+
+func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
+	return o.ApplyT(func(v *CacheIdentity) CacheIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret CacheIdentity
+		return ret
+	}).(CacheIdentityOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+func (o CacheIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CacheIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o CacheIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CacheIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type CachePatchSchedule struct {
 	DayOfWeek         string  `pulumi:"dayOfWeek"`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
@@ -927,6 +1113,8 @@ func (o GetCacheRedisConfigurationArrayOutput) Index(i pulumi.IntInput) GetCache
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheIdentityInput)(nil)).Elem(), CacheIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheIdentityPtrInput)(nil)).Elem(), CacheIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePatchScheduleInput)(nil)).Elem(), CachePatchScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePatchScheduleArrayInput)(nil)).Elem(), CachePatchScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheRedisConfigurationInput)(nil)).Elem(), CacheRedisConfigurationArgs{})
@@ -937,6 +1125,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePatchScheduleArrayInput)(nil)).Elem(), GetCachePatchScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCacheRedisConfigurationInput)(nil)).Elem(), GetCacheRedisConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCacheRedisConfigurationArrayInput)(nil)).Elem(), GetCacheRedisConfigurationArray{})
+	pulumi.RegisterOutputType(CacheIdentityOutput{})
+	pulumi.RegisterOutputType(CacheIdentityPtrOutput{})
 	pulumi.RegisterOutputType(CachePatchScheduleOutput{})
 	pulumi.RegisterOutputType(CachePatchScheduleArrayOutput{})
 	pulumi.RegisterOutputType(CacheRedisConfigurationOutput{})

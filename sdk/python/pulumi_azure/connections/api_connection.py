@@ -240,12 +240,16 @@ class ApiConnection(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_managed_api = azure.connections.get_managed_api_output(name="servicebus",
             location=example_resource_group.location)
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Basic")
         example_api_connection = azure.connections.ApiConnection("exampleApiConnection",
             resource_group_name=example_resource_group.name,
             managed_api_id=example_managed_api.id,
             display_name="Example 1",
             parameter_values={
-                "connectionString": azurerm_servicebus_namespace["example"]["default_primary_connection_string"],
+                "connectionString": example_namespace.default_primary_connection_string,
             },
             tags={
                 "Hello": "World",
@@ -287,12 +291,16 @@ class ApiConnection(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_managed_api = azure.connections.get_managed_api_output(name="servicebus",
             location=example_resource_group.location)
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Basic")
         example_api_connection = azure.connections.ApiConnection("exampleApiConnection",
             resource_group_name=example_resource_group.name,
             managed_api_id=example_managed_api.id,
             display_name="Example 1",
             parameter_values={
-                "connectionString": azurerm_servicebus_namespace["example"]["default_primary_connection_string"],
+                "connectionString": example_namespace.default_primary_connection_string,
             },
             tags={
                 "Hello": "World",

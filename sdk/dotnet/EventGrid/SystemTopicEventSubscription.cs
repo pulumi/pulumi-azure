@@ -105,7 +105,7 @@ namespace Pulumi.Azure.EventGrid
         public Output<Outputs.SystemTopicEventSubscriptionDeliveryIdentity?> DeliveryIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// A `delivery_property` block as defined below.
+        /// One or more `delivery_property` blocks as defined below.
         /// </summary>
         [Output("deliveryProperties")]
         public Output<ImmutableArray<Outputs.SystemTopicEventSubscriptionDeliveryProperty>> DeliveryProperties { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyArgs>? _deliveryProperties;
 
         /// <summary>
-        /// A `delivery_property` block as defined below.
+        /// One or more `delivery_property` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyArgs> DeliveryProperties
         {
@@ -443,7 +443,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyGetArgs>? _deliveryProperties;
 
         /// <summary>
-        /// A `delivery_property` block as defined below.
+        /// One or more `delivery_property` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SystemTopicEventSubscriptionDeliveryPropertyGetArgs> DeliveryProperties
         {

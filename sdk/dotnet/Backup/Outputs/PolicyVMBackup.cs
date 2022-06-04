@@ -14,9 +14,17 @@ namespace Pulumi.Azure.Backup.Outputs
     public sealed class PolicyVMBackup
     {
         /// <summary>
-        /// Sets the backup frequency. Must be either `Daily` or`Weekly`.
+        /// Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
         /// </summary>
         public readonly string Frequency;
+        /// <summary>
+        /// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+        /// </summary>
+        public readonly int? HourDuration;
+        /// <summary>
+        /// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
+        /// </summary>
+        public readonly int? HourInterval;
         /// <summary>
         /// The time of day to perform the backup in 24hour format.
         /// </summary>
@@ -30,11 +38,17 @@ namespace Pulumi.Azure.Backup.Outputs
         private PolicyVMBackup(
             string frequency,
 
+            int? hourDuration,
+
+            int? hourInterval,
+
             string time,
 
             ImmutableArray<string> weekdays)
         {
             Frequency = frequency;
+            HourDuration = hourDuration;
+            HourInterval = hourInterval;
             Time = time;
             Weekdays = weekdays;
         }

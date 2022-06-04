@@ -33,7 +33,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = appservice.NewServicePlan(ctx, "test", &appservice.ServicePlanArgs{
+// 		exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			OsType:            pulumi.String("Windows"),
@@ -60,7 +60,7 @@ import (
 // 		exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "exampleWindowsWebApp", &appservice.WindowsWebAppArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServicePlanId:     pulumi.Any(azurerm_service_plan.Example.Id),
+// 			ServicePlanId:     exampleServicePlan.ID(),
 // 			SiteConfig:        nil,
 // 		})
 // 		if err != nil {

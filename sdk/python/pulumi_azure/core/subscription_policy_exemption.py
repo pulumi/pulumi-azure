@@ -329,6 +329,27 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
         """
         Manages a Subscription Policy Exemption.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_subscription = azure.core.get_subscription()
+        example_policy_set_definition = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
+        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment",
+            subscription_id=example_subscription.id,
+            policy_definition_id=example_policy_set_definition.id,
+            location="westus",
+            identity=azure.core.SubscriptionPolicyAssignmentIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_subscription_policy_exemption = azure.core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption",
+            subscription_id=example_subscription.id,
+            policy_assignment_id=example_subscription_policy_assignment.id,
+            exemption_category="Mitigated")
+        ```
+
         ## Import
 
         Policy Exemptions can be imported using the `resource id`, e.g.
@@ -357,6 +378,27 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Subscription Policy Exemption.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_subscription = azure.core.get_subscription()
+        example_policy_set_definition = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
+        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment",
+            subscription_id=example_subscription.id,
+            policy_definition_id=example_policy_set_definition.id,
+            location="westus",
+            identity=azure.core.SubscriptionPolicyAssignmentIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_subscription_policy_exemption = azure.core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption",
+            subscription_id=example_subscription.id,
+            policy_assignment_id=example_subscription_policy_assignment.id,
+            exemption_category="Mitigated")
+        ```
 
         ## Import
 

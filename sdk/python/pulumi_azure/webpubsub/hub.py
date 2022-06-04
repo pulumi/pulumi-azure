@@ -15,36 +15,25 @@ __all__ = ['HubArgs', 'Hub']
 @pulumi.input_type
 class HubArgs:
     def __init__(__self__, *,
-                 event_handlers: pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]],
                  web_pubsub_id: pulumi.Input[str],
                  anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
+                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Hub resource.
-        :param pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]] event_handlers: An `event_handler` block as defined below.
         :param pulumi.Input[str] web_pubsub_id: Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]] event_handlers: An `event_handler` block as defined below.
         :param pulumi.Input[str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "event_handlers", event_handlers)
         pulumi.set(__self__, "web_pubsub_id", web_pubsub_id)
         if anonymous_connections_enabled is not None:
             pulumi.set(__self__, "anonymous_connections_enabled", anonymous_connections_enabled)
+        if event_handlers is not None:
+            pulumi.set(__self__, "event_handlers", event_handlers)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="eventHandlers")
-    def event_handlers(self) -> pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]:
-        """
-        An `event_handler` block as defined below.
-        """
-        return pulumi.get(self, "event_handlers")
-
-    @event_handlers.setter
-    def event_handlers(self, value: pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]):
-        pulumi.set(self, "event_handlers", value)
 
     @property
     @pulumi.getter(name="webPubsubId")
@@ -70,6 +59,18 @@ class HubArgs:
     @anonymous_connections_enabled.setter
     def anonymous_connections_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "anonymous_connections_enabled", value)
+
+    @property
+    @pulumi.getter(name="eventHandlers")
+    def event_handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]]:
+        """
+        An `event_handler` block as defined below.
+        """
+        return pulumi.get(self, "event_handlers")
+
+    @event_handlers.setter
+    def event_handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]]):
+        pulumi.set(self, "event_handlers", value)
 
     @property
     @pulumi.getter
@@ -178,7 +179,7 @@ class Hub(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        test_user_assigned_identity = azure.authorization.UserAssignedIdentity("testUserAssignedIdentity",
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
         example_service = azure.webpubsub.Service("exampleService",
@@ -186,8 +187,8 @@ class Hub(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard_S1",
             capacity=1)
-        test_hub = azure.webpubsub.Hub("testHub",
-            web_pubsub_id=azurerm_web_pubsub["exmaple"]["id"],
+        example_hub = azure.webpubsub.Hub("exampleHub",
+            web_pubsub_id=example_service.id,
             event_handlers=[
                 azure.webpubsub.HubEventHandlerArgs(
                     url_template="https://test.com/api/{hub}/{event}",
@@ -202,12 +203,12 @@ class Hub(pulumi.CustomResource):
                     user_event_pattern="event1, event2",
                     system_events=["connected"],
                     auth=azure.webpubsub.HubEventHandlerAuthArgs(
-                        managed_identity_id=test_user_assigned_identity.id,
+                        managed_identity_id=example_user_assigned_identity.id,
                     ),
                 ),
             ],
             anonymous_connections_enabled=True,
-            opts=pulumi.ResourceOptions(depends_on=[azurerm_web_pubsub["test"]]))
+            opts=pulumi.ResourceOptions(depends_on=[example_service]))
         ```
 
         ## Import
@@ -242,7 +243,7 @@ class Hub(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        test_user_assigned_identity = azure.authorization.UserAssignedIdentity("testUserAssignedIdentity",
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
         example_service = azure.webpubsub.Service("exampleService",
@@ -250,8 +251,8 @@ class Hub(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard_S1",
             capacity=1)
-        test_hub = azure.webpubsub.Hub("testHub",
-            web_pubsub_id=azurerm_web_pubsub["exmaple"]["id"],
+        example_hub = azure.webpubsub.Hub("exampleHub",
+            web_pubsub_id=example_service.id,
             event_handlers=[
                 azure.webpubsub.HubEventHandlerArgs(
                     url_template="https://test.com/api/{hub}/{event}",
@@ -266,12 +267,12 @@ class Hub(pulumi.CustomResource):
                     user_event_pattern="event1, event2",
                     system_events=["connected"],
                     auth=azure.webpubsub.HubEventHandlerAuthArgs(
-                        managed_identity_id=test_user_assigned_identity.id,
+                        managed_identity_id=example_user_assigned_identity.id,
                     ),
                 ),
             ],
             anonymous_connections_enabled=True,
-            opts=pulumi.ResourceOptions(depends_on=[azurerm_web_pubsub["test"]]))
+            opts=pulumi.ResourceOptions(depends_on=[example_service]))
         ```
 
         ## Import
@@ -314,8 +315,6 @@ class Hub(pulumi.CustomResource):
             __props__ = HubArgs.__new__(HubArgs)
 
             __props__.__dict__["anonymous_connections_enabled"] = anonymous_connections_enabled
-            if event_handlers is None and not opts.urn:
-                raise TypeError("Missing required property 'event_handlers'")
             __props__.__dict__["event_handlers"] = event_handlers
             __props__.__dict__["name"] = name
             if web_pubsub_id is None and not opts.urn:
@@ -369,7 +368,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHandlers")
-    def event_handlers(self) -> pulumi.Output[Sequence['outputs.HubEventHandler']]:
+    def event_handlers(self) -> pulumi.Output[Optional[Sequence['outputs.HubEventHandler']]]:
         """
         An `event_handler` block as defined below.
         """

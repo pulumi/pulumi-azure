@@ -28,8 +28,8 @@ namespace Pulumi.Azure.Network
     ///         });
     ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
     ///         {
-    ///             Location = azurerm_resource_group.Test.Location,
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             AllocationMethod = "Static",
     ///             DomainNameLabel = "example-public-ip",
     ///         });
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Network
     ///             },
     ///             MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
     ///             {
-    ///                 Protocol = "http",
+    ///                 Protocol = "HTTP",
     ///                 Port = 80,
     ///                 Path = "/",
     ///                 IntervalInSeconds = 30,
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             ProfileId = exampleTrafficManagerProfile.Id,
     ///             Weight = 100,
-    ///             TargetResourceId = azurerm_public_ip.Test.Id,
+    ///             TargetResourceId = examplePublicIp.Id,
     ///         });
     ///     }
     /// 

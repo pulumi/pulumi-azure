@@ -90,6 +90,7 @@ import (
 // 			VolumePath:        pulumi.String("my-unique-file-path"),
 // 			ServiceLevel:      pulumi.String("Premium"),
 // 			SubnetId:          exampleSubnet.ID(),
+// 			NetworkFeatures:   pulumi.String("Basic"),
 // 			Protocols: pulumi.StringArray{
 // 				pulumi.String("NFSv4.1"),
 // 			},
@@ -141,6 +142,8 @@ type Volume struct {
 	MountIpAddresses pulumi.StringArrayOutput `pulumi:"mountIpAddresses"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+	NetworkFeatures pulumi.StringOutput `pulumi:"networkFeatures"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
 	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
@@ -231,6 +234,8 @@ type volumeState struct {
 	MountIpAddresses []string `pulumi:"mountIpAddresses"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+	NetworkFeatures *string `pulumi:"networkFeatures"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName *string `pulumi:"poolName"`
 	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
@@ -272,6 +277,8 @@ type VolumeState struct {
 	MountIpAddresses pulumi.StringArrayInput
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+	NetworkFeatures pulumi.StringPtrInput
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringPtrInput
 	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
@@ -315,6 +322,8 @@ type volumeArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+	NetworkFeatures *string `pulumi:"networkFeatures"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName string `pulumi:"poolName"`
 	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
@@ -355,6 +364,8 @@ type VolumeArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+	NetworkFeatures pulumi.StringPtrInput
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringInput
 	// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
@@ -504,6 +515,11 @@ func (o VolumeOutput) MountIpAddresses() pulumi.StringArrayOutput {
 // The name of the NetApp Volume. Changing this forces a new resource to be created.
 func (o VolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+func (o VolumeOutput) NetworkFeatures() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.NetworkFeatures }).(pulumi.StringOutput)
 }
 
 // The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.

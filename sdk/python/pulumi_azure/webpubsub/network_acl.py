@@ -211,7 +211,7 @@ class NetworkAcl(pulumi.CustomResource):
                     "ClientConnection",
                 ],
             )],
-            opts=pulumi.ResourceOptions(depends_on=[azurerm_private_endpoint["test"]]))
+            opts=pulumi.ResourceOptions(depends_on=[example_endpoint]))
         ```
 
         ## Import
@@ -282,7 +282,7 @@ class NetworkAcl(pulumi.CustomResource):
                     "ClientConnection",
                 ],
             )],
-            opts=pulumi.ResourceOptions(depends_on=[azurerm_private_endpoint["test"]]))
+            opts=pulumi.ResourceOptions(depends_on=[example_endpoint]))
         ```
 
         ## Import

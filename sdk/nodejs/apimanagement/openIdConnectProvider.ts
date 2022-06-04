@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  *     apiManagementName: exampleService.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     clientId: "00001111-2222-3333-4444-555566667777",
+ *     clientSecret: "00001111-423egvwdcsjx-00001111",
  *     displayName: "Example Provider",
  *     metadataEndpoint: "https://example.com/example",
  * });

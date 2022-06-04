@@ -59,11 +59,15 @@ import (
 // 		_, err = network.NewVnpGatewayNatRule(ctx, "exampleVnpGatewayNatRule", &network.VnpGatewayNatRuleArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			VpnGatewayId:      exampleVpnGateway.ID(),
-// 			ExternalAddressSpaceMappings: pulumi.StringArray{
-// 				pulumi.String("192.168.21.0/26"),
+// 			ExternalMappings: network.VnpGatewayNatRuleExternalMappingArray{
+// 				&network.VnpGatewayNatRuleExternalMappingArgs{
+// 					AddressSpace: pulumi.String("192.168.21.0/26"),
+// 				},
 // 			},
-// 			InternalAddressSpaceMappings: pulumi.StringArray{
-// 				pulumi.String("10.4.0.0/26"),
+// 			InternalMappings: network.VnpGatewayNatRuleInternalMappingArray{
+// 				&network.VnpGatewayNatRuleInternalMappingArgs{
+// 					AddressSpace: pulumi.String("10.4.0.0/26"),
+// 				},
 // 			},
 // 		})
 // 		if err != nil {
@@ -85,9 +89,17 @@ type VnpGatewayNatRule struct {
 	pulumi.CustomResourceState
 
 	// A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+	//
+	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings pulumi.StringArrayOutput `pulumi:"externalAddressSpaceMappings"`
+	// One or more `externalMapping` blocks as documented below.
+	ExternalMappings VnpGatewayNatRuleExternalMappingArrayOutput `pulumi:"externalMappings"`
 	// A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+	//
+	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings pulumi.StringArrayOutput `pulumi:"internalAddressSpaceMappings"`
+	// One or more `internalMapping` blocks as documented below.
+	InternalMappings VnpGatewayNatRuleInternalMappingArrayOutput `pulumi:"internalMappings"`
 	// The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
 	IpConfigurationId pulumi.StringPtrOutput `pulumi:"ipConfigurationId"`
 	// The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
@@ -109,12 +121,6 @@ func NewVnpGatewayNatRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ExternalAddressSpaceMappings == nil {
-		return nil, errors.New("invalid value for required argument 'ExternalAddressSpaceMappings'")
-	}
-	if args.InternalAddressSpaceMappings == nil {
-		return nil, errors.New("invalid value for required argument 'InternalAddressSpaceMappings'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -144,9 +150,17 @@ func GetVnpGatewayNatRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VnpGatewayNatRule resources.
 type vnpGatewayNatRuleState struct {
 	// A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+	//
+	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings []string `pulumi:"externalAddressSpaceMappings"`
+	// One or more `externalMapping` blocks as documented below.
+	ExternalMappings []VnpGatewayNatRuleExternalMapping `pulumi:"externalMappings"`
 	// A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+	//
+	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings []string `pulumi:"internalAddressSpaceMappings"`
+	// One or more `internalMapping` blocks as documented below.
+	InternalMappings []VnpGatewayNatRuleInternalMapping `pulumi:"internalMappings"`
 	// The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
 	IpConfigurationId *string `pulumi:"ipConfigurationId"`
 	// The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
@@ -163,9 +177,17 @@ type vnpGatewayNatRuleState struct {
 
 type VnpGatewayNatRuleState struct {
 	// A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+	//
+	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings pulumi.StringArrayInput
+	// One or more `externalMapping` blocks as documented below.
+	ExternalMappings VnpGatewayNatRuleExternalMappingArrayInput
 	// A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+	//
+	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings pulumi.StringArrayInput
+	// One or more `internalMapping` blocks as documented below.
+	InternalMappings VnpGatewayNatRuleInternalMappingArrayInput
 	// The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
 	IpConfigurationId pulumi.StringPtrInput
 	// The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
@@ -186,9 +208,17 @@ func (VnpGatewayNatRuleState) ElementType() reflect.Type {
 
 type vnpGatewayNatRuleArgs struct {
 	// A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+	//
+	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings []string `pulumi:"externalAddressSpaceMappings"`
+	// One or more `externalMapping` blocks as documented below.
+	ExternalMappings []VnpGatewayNatRuleExternalMapping `pulumi:"externalMappings"`
 	// A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+	//
+	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings []string `pulumi:"internalAddressSpaceMappings"`
+	// One or more `internalMapping` blocks as documented below.
+	InternalMappings []VnpGatewayNatRuleInternalMapping `pulumi:"internalMappings"`
 	// The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
 	IpConfigurationId *string `pulumi:"ipConfigurationId"`
 	// The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
@@ -206,9 +236,17 @@ type vnpGatewayNatRuleArgs struct {
 // The set of arguments for constructing a VnpGatewayNatRule resource.
 type VnpGatewayNatRuleArgs struct {
 	// A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+	//
+	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings pulumi.StringArrayInput
+	// One or more `externalMapping` blocks as documented below.
+	ExternalMappings VnpGatewayNatRuleExternalMappingArrayInput
 	// A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+	//
+	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings pulumi.StringArrayInput
+	// One or more `internalMapping` blocks as documented below.
+	InternalMappings VnpGatewayNatRuleInternalMappingArrayInput
 	// The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
 	IpConfigurationId pulumi.StringPtrInput
 	// The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
@@ -311,13 +349,27 @@ func (o VnpGatewayNatRuleOutput) ToVnpGatewayNatRuleOutputWithContext(ctx contex
 }
 
 // A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+//
+// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
 func (o VnpGatewayNatRuleOutput) ExternalAddressSpaceMappings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VnpGatewayNatRule) pulumi.StringArrayOutput { return v.ExternalAddressSpaceMappings }).(pulumi.StringArrayOutput)
 }
 
+// One or more `externalMapping` blocks as documented below.
+func (o VnpGatewayNatRuleOutput) ExternalMappings() VnpGatewayNatRuleExternalMappingArrayOutput {
+	return o.ApplyT(func(v *VnpGatewayNatRule) VnpGatewayNatRuleExternalMappingArrayOutput { return v.ExternalMappings }).(VnpGatewayNatRuleExternalMappingArrayOutput)
+}
+
 // A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+//
+// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
 func (o VnpGatewayNatRuleOutput) InternalAddressSpaceMappings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VnpGatewayNatRule) pulumi.StringArrayOutput { return v.InternalAddressSpaceMappings }).(pulumi.StringArrayOutput)
+}
+
+// One or more `internalMapping` blocks as documented below.
+func (o VnpGatewayNatRuleOutput) InternalMappings() VnpGatewayNatRuleInternalMappingArrayOutput {
+	return o.ApplyT(func(v *VnpGatewayNatRule) VnpGatewayNatRuleInternalMappingArrayOutput { return v.InternalMappings }).(VnpGatewayNatRuleInternalMappingArrayOutput)
 }
 
 // The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
